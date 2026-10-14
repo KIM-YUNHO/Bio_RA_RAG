@@ -124,12 +124,13 @@ class Bm25:
         return out
 
 
-def rrf(rankings, k=60, top_n=50):
-    """Reciprocal rank fusion of several [(score, chunk index)] lists."""
+def rrf(rankings, k=60, top_n=50, weights=None):
+    """Reciprocal rank fusion of several [(score, chunk index)] lists, optionally weighted per list."""
     fused = {}
-    for ranking in rankings:
+    for n, ranking in enumerate(rankings):
+        w = 1.0 if weights is None else weights[n]
         for rank, (_, i) in enumerate(ranking, 1):
-            fused[i] = fused.get(i, 0.0) + 1.0 / (k + rank)
+            fused[i] = fused.get(i, 0.0) + w / (k + rank)
     return sorted(((s, i) for i, s in fused.items()), reverse=True)[:top_n]
 
 

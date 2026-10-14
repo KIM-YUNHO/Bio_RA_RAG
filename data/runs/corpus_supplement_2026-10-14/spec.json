@@ -1,0 +1,121 @@
+{
+  "scope": "supplement_2026-10-14_protected9_ctg10",
+  "decision": "2026-10-14 사용자 결정: (1) 2026-10-08 시각 전처리 회고 평가용으로 보호(retrospective_evaluation_only)되어 서비스 색인에서 빠진 9문서의 보호를 해제하고 서비스 색인에 포함한다. 이후 이 9문서는 시각 전처리의 독립 평가 자료로 쓰지 않는다. (2) ClinicalTrials.gov에 게시된 프로토콜·SAP 10문서(5개 시험)를 색인에 포함한다. 서비스 검색 노출은 출처 범위(service_scope) 결정 후 별도로 연다. PMDA는 제외, 대조약(Stelara)은 이번 범위에서 제외.",
+  "base_release": "data/versions/03_pipeline_h_v2_table_recovery_2026-10-14/embedded/release_final",
+  "documents": [
+    {
+      "document_id": "CTG:NCT04967508:Prot_000.pdf",
+      "version_id": "4bd7732e8382c57d158e724a1fde9eea4738bae531a80d5f2064f2cf91067ede",
+      "product_id": "SB17",
+      "admission": "clinicaltrials_gov_protocol_sap_added_2026-10-14"
+    },
+    {
+      "document_id": "CTG:NCT04967508:SAP_001.pdf",
+      "version_id": "a6cdb651dbc4bd93c06a42cb8d3878e6ea25b06a172c2fb0c72aac2b14d9182b",
+      "product_id": "SB17",
+      "admission": "clinicaltrials_gov_protocol_sap_added_2026-10-14"
+    },
+    {
+      "document_id": "CTG:NCT04607980:Prot_000.pdf",
+      "version_id": "725b23df45c6315a8857a07c0b788e15eeae0fe04fa0b056c3c8fd63662df078",
+      "product_id": "ABP654",
+      "admission": "clinicaltrials_gov_protocol_sap_added_2026-10-14"
+    },
+    {
+      "document_id": "CTG:NCT04607980:SAP_001.pdf",
+      "version_id": "6afff33d3be0ff68592fdac300d5acac858db481af62109dcfc3dc5f48bcd2ca",
+      "product_id": "ABP654",
+      "admission": "clinicaltrials_gov_protocol_sap_added_2026-10-14"
+    },
+    {
+      "document_id": "CTG:NCT04761627:Prot_002.pdf",
+      "version_id": "c74096dc01e990edc7e7c2fc47e908c0b7378c93e04d3c9e088306b50074f9c5",
+      "product_id": "ABP654",
+      "admission": "clinicaltrials_gov_protocol_sap_added_2026-10-14"
+    },
+    {
+      "document_id": "CTG:NCT04761627:SAP_003.pdf",
+      "version_id": "c457e37a26350c61abb632fd9eb80fdd9c4b7ed8a5b8643a453340fba8dc4c9c",
+      "product_id": "ABP654",
+      "admission": "clinicaltrials_gov_protocol_sap_added_2026-10-14"
+    },
+    {
+      "document_id": "CTG:NCT04673786:Prot_000.pdf",
+      "version_id": "95961a37eba597adebfaaf4d76a1da20ee550c3f5688c258e4101980e3217374",
+      "product_id": "CTP43",
+      "admission": "clinicaltrials_gov_protocol_sap_added_2026-10-14"
+    },
+    {
+      "document_id": "CTG:NCT04673786:SAP_001.pdf",
+      "version_id": "c95bc53f9263a325b9caf01598a5dac4486a8fbf26cf4c583d15eebe94f7c05d",
+      "product_id": "CTP43",
+      "admission": "clinicaltrials_gov_protocol_sap_added_2026-10-14"
+    },
+    {
+      "document_id": "EMA:66901",
+      "version_id": "33dccfb37460db78a82596c6b36d0fa470ee4159c6a83c24060f275776bfbb4d",
+      "product_id": "BMAB1200",
+      "admission": "protection_lifted_for_service_index_2026-10-14 (was retrospective_evaluation_only since 2026-10-08)"
+    },
+    {
+      "document_id": "EMA:69779",
+      "version_id": "53f78012e7a0c1cab636a3b9cc7c8d3de3b750775169953bfda283bc27c1f97e",
+      "product_id": "BAT2206",
+      "admission": "protection_lifted_for_service_index_2026-10-14 (was retrospective_evaluation_only since 2026-10-08)"
+    },
+    {
+      "document_id": "EMA:66900",
+      "version_id": "d463156937b1d599db5b3a55e26fdd6366a318f69ec1ac274b4fc7b0df3b14ba",
+      "product_id": "BMAB1200",
+      "admission": "protection_lifted_for_service_index_2026-10-14 (was retrospective_evaluation_only since 2026-10-08)"
+    },
+    {
+      "document_id": "EMA:71046",
+      "version_id": "9b4af14e2fc7b2a52b0b75d5fc3760fae7c32aa053b936b57a9a29eb317f176b",
+      "product_id": "BMAB1200",
+      "admission": "protection_lifted_for_service_index_2026-10-14 (was retrospective_evaluation_only since 2026-10-08)"
+    },
+    {
+      "document_id": "EMA:66899",
+      "version_id": "c2eb149e2f8e0a36b990a48a3a15fc1d527af61bdadc18d590f9ad1e30614e1b",
+      "product_id": "BMAB1200",
+      "admission": "protection_lifted_for_service_index_2026-10-14 (was retrospective_evaluation_only since 2026-10-08)"
+    },
+    {
+      "document_id": "EMA:66897",
+      "version_id": "1c4b3f1d2b8f803908cd6358c042eaa4558a82dc833fec59c4165f25a5016a32",
+      "product_id": "BMAB1200",
+      "admission": "protection_lifted_for_service_index_2026-10-14 (was retrospective_evaluation_only since 2026-10-08)"
+    },
+    {
+      "document_id": "EMA:66898",
+      "version_id": "4d01c5775d36dbf7d91d90d5ca120a3d227b8e1ac4b1f72d81698c7210a46621",
+      "product_id": "BMAB1200",
+      "admission": "protection_lifted_for_service_index_2026-10-14 (was retrospective_evaluation_only since 2026-10-08)"
+    },
+    {
+      "document_id": "CTG:NCT05335356:Prot_000.pdf",
+      "version_id": "c2bf1e2380c873780be137a14a05172a1e264cf14d657a064bdaa9668b61a55d",
+      "product_id": "BMAB1200",
+      "admission": "clinicaltrials_gov_protocol_sap_added_2026-10-14"
+    },
+    {
+      "document_id": "CTG:NCT05335356:SAP_001.pdf",
+      "version_id": "db07db8fa2bda35819f051c871895f23e812741c63e5d03070eb22e5e6d485eb",
+      "product_id": "BMAB1200",
+      "admission": "clinicaltrials_gov_protocol_sap_added_2026-10-14"
+    },
+    {
+      "document_id": "FDA:761406Orig1Orig2s000:Lbl",
+      "version_id": "8a1c7cef303add5391a3209445ef4f470de3765753d9da33da2848faf5bd35c6",
+      "product_id": "BMAB1200",
+      "admission": "protection_lifted_for_service_index_2026-10-14 (was retrospective_evaluation_only since 2026-10-08)"
+    },
+    {
+      "document_id": "HC:PM:00085332",
+      "version_id": "e2be082cde032a66d040502842807c09563b83d36cccc23e6ead7ecc90359aa5",
+      "product_id": "BMAB1200",
+      "admission": "protection_lifted_for_service_index_2026-10-14 (was retrospective_evaluation_only since 2026-10-08)"
+    }
+  ]
+}

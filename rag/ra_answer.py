@@ -244,6 +244,20 @@ or extra statistics unless requested. An unrequested extra number can invalidate
 an otherwise useful answer. Literal document/study IDs require their actual source
 identity passage; metadata cannot prove a printed ID. Answer follow-up and
 eligibility fields explicitly, keeping criteria distinct from observed ranges.'''
+    if any(b.get('doc_group') in ('protocol', 'sap') for b in evidence.values()):
+        system += ('\nSources with doc_group protocol/sap are ClinicalTrials.gov documents written by the sponsor: '
+                   'state their content as the sponsor\'s planned design/analysis (계획), never as actual conduct, '
+                   'observed results or a regulator\'s conclusion. When an agency document reports what was actually '
+                   'done, keep both and name each source.')
+    from rag.ra_intent import GUIDANCE
+    task_intents = {t['id']: (t.get('intent') or {}).get('intent') for t in understanding['tasks']}
+    task_intents = {k: v for k, v in task_intents.items() if v in GUIDANCE}
+    if task_intents:
+        # Organization only: the source, citation and gap rules above still decide content.
+        data['task_intents'] = task_intents
+        system += '\nTask intents (organize each task\'s claims accordingly):' + ''.join(
+            f'\n- {intent} ({", ".join(k for k, v in task_intents.items() if v == intent)}): {GUIDANCE[intent]}'
+            for intent in dict.fromkeys(task_intents.values()))
     return [{'role': 'system', 'content': system}, {'role': 'user', 'content': json.dumps(data, ensure_ascii=False, separators=(',', ':'))}]
 
 

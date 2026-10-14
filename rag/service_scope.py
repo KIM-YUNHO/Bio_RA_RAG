@@ -1,6 +1,8 @@
 """The regulatory sources available in the interactive service."""
-SOURCES = frozenset(('EMA', 'FDA', 'Health Canada'))
-JURISDICTIONS = frozenset(('EU', 'US', 'CA'))
+# ClinicalTrials.gov protocol/SAP (jurisdiction 'sponsor') are the sponsor's plans. They are not default
+# search documents: retrieval reaches them only for a protocol/sap role or the non-default option.
+SOURCES = frozenset(('EMA', 'FDA', 'Health Canada', 'ClinicalTrials.gov'))
+JURISDICTIONS = frozenset(('EU', 'US', 'CA', 'sponsor'))
 SEARCH_POLICY_VERSION = 'ra-document-defaults-1'
 
 

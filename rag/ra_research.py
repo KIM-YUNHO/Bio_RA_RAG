@@ -102,7 +102,8 @@ def extend(corpus, groups, evidence, budget, question, understanding, client, gu
             plan['products'] = [row['product']]
         candidates = ra_retrieval.retrieve(corpus, plan, guideline_index,
             documents=corpus.allowed_documents, include_nondefault=False,
-            k=12 if row['facet'] in ('table_statistics','dosing_schedule') else 5)
+            k=12 if row['facet'] in ('table_statistics','dosing_schedule') else 5,
+            topic_queries=False)  # a missing-facet search stays on its own query
         search = {'requirement_id': row['id'], 'facet': row['facet'], 'queries': plans[0]['queries'], 'hits': []}
         trace['searches'].append(search)
         for group in candidates:

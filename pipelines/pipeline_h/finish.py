@@ -28,7 +28,9 @@ def finish(run):
     intake=read(run/'intake_manifest.json');manifest=read(out/'extraction_manifest.json')
     expected={(d['document_id'],d['version_id']):d for d in intake['documents']}
     actual={(d['document_id'],d['version_id']):d for d in manifest['documents']}
-    if set(expected)!=set(actual) or len(expected)!=92:raise ValueError('92-document scope mismatch')
+    # A supplement run covers exactly its own frozen intake; the operational run stays 92.
+    supplement=intake.get('version')=='production-h-supplement-intake-1'
+    if set(expected)!=set(actual) or (not supplement and len(expected)!=92):raise ValueError('Intake document scope mismatch')
     if manifest.get('validation_only_page_plan'):raise ValueError('Test page subset cannot be promoted as an operational release')
     for name,key in (('catalog_snapshot.json','catalog_snapshot_sha256'),('products_snapshot.json','products_snapshot_sha256')):
         if sha256(run/name)!=intake[key]:raise ValueError('Original catalog snapshot changed')
@@ -55,7 +57,7 @@ def finish(run):
     if missing:raise ValueError('Documents without indexed chunks: '+str(missing))
     failed_pages=[p for p in pages if p['status']!='parsed']
     if failed_pages:raise ValueError('Unresolved incomplete extraction pages: '+str([(p['document_id'],p['pdf_page']) for p in failed_pages]))
-    preserved={p:sha256(p)==value for p,value in intake['protected_original_pipeline'].items()}
+    preserved={p:sha256(p)==value for p,value in intake.get('protected_original_pipeline',{}).items()}
     changed=[p for p,ok in preserved.items() if not ok]
     if changed:raise ValueError('Protected original artifact changed: '+str(changed))
     if vectors.shape!=(len(chunks),1024) or not np.isfinite(vectors).all():raise ValueError('Invalid vector matrix')
@@ -65,7 +67,7 @@ def finish(run):
     probes=np.linspace(0,len(chunks)-1,min(20,len(chunks)),dtype=int)
     self_recall=sum(float(vectors[i]@vectors[i])>=float((vectors@vectors[i]).max())-.002 for i in probes)/len(probes)
     if self_recall!=1:raise ValueError('Vector row identity self-recall failed')
-    audit={'status':'passed','documents':92,'pages':len(pages),'indexed_documents':len(indexed),
+    audit={'status':'passed','documents':len(expected),'pages':len(pages),'indexed_documents':len(indexed),
            'metadata_contract':'all intake metadata unchanged; chunk identity/policy fields checked; raw structural blocks and DOM locators retained',
            'metadata_field_mismatches':issues,'protected_original_artifacts':len(preserved),'protected_originals_unchanged':all(preserved.values()),
            'vectors':list(vectors.shape),'truncated_inputs':meta['truncated_inputs'],'vector_self_recall':self_recall,
@@ -74,9 +76,9 @@ def finish(run):
     release=run/'release'
     if not release.exists():compose([(out,candidate)],release)
     bundle=ReleaseBundle(release)
-    if len(bundle.docs)!=92 or bundle.chunk_count!=len(chunks):raise ValueError('Release coverage mismatch')
+    if len(bundle.docs)!=len(expected) or bundle.chunk_count!=len(chunks):raise ValueError('Release coverage mismatch')
     jobs=read(run/'selection_manifest.json')['jobs'];decisions=read(run/'candidate_decisions.json');default=set(int(i) for i in filter_idx(chunks))
-    summary={'status':'complete','processing_scope':'user-confirmed existing approved 92 documents',
+    summary={'status':'complete','processing_scope':(intake['scope'] if supplement else 'user-confirmed existing approved 92 documents'),
              'products':intake['products'],'pages':len(pages),'chunks':len(chunks),'default_search_chunks':len(default),
              'assets_by_type':dict(Counter(a['asset_type'] for a in assets)),
              'logical_figures':sum(a['asset_type']=='figure_group' or a['asset_type']=='figure' and not a.get('logical_group_id') for a in assets),
@@ -154,6 +156,9 @@ def finish(run):
         report+=f"HTML10문서는 원본 DOM의 {repair['html_dom_units']:,}개 단위를 직접 보존했습니다. HTML의 PDF는 새 DOM 기반 미리보기이며 원본 페이지 번호가 아닙니다. DOM node path/start/end와 원본 SHA를 참조에 기록했습니다. 원래 catalog metadata는 변경하지 않았습니다.\n\n"
         report+=f"독립 문자 좌표로 복구한 항목 {repair['native_geometry_recovered']}개, 미해결 작은 문자 좌표 경고 {repair['geometry_warning_blocks']}개입니다. 경고에는 원문·원시 block·페이지 미리보기를 남겼으며 이 경고 때문에 같은 페이지의 정상 본문을 제외하지 않습니다. 전체 의미 정확도가 검증됐다는 뜻은 아닙니다.\n\n"
         report+=f"임베딩 재사용 원본은 이전 v1의 완료 candidate입니다. 재사용 {summary['embedding_reuse']['reused_vectors']:,}개, 새 계산 {summary['embedding_reuse']['new_vectors']:,}개이며 동일한 header+text만 재사용했습니다. 새 run/candidate/release를 만들고 기존 운영 서비스 포인터는 유지했습니다.\n"
+    if supplement:
+        report=report.replace('기존 승인 92문서',f"보충 범위 {len(expected)}문서({intake['scope']})").replace('92문서 모두',f'{len(expected)}문서 모두')
+        report+=f"\n## 보충 실행 결정\n\n{intake['decision']}\n\n기존 92문서 릴리스와의 병합은 별도 단계에서 수행합니다.\n"
     (run/'FINAL_REPORT.md').write_text(report,encoding='utf-8');return audit
 
 if __name__=='__main__':

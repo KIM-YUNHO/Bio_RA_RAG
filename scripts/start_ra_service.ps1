@@ -1,12 +1,15 @@
 param(
     [ValidateRange(1,65535)][int]$Port = 8775,
     [ValidateSet('gpt-5.6-luna','gpt-4o-mini')][string]$Model = 'gpt-5.6-luna',
-    [ValidatePattern('^http://127\.0\.0\.1:\d{1,5}$')][string]$ReviewUrl = 'http://127.0.0.1:8766'
+    [ValidatePattern('^http://127\.0\.0\.1:\d{1,5}$')][string]$ReviewUrl = 'http://127.0.0.1:8766',
+    # Release folder relative to the project root (versions.json embedded_path). Default: the pilot service index.
+    [string]$Release = 'data\versions\01_pilot_baseline_2026-10-10\embedded\rag_finalization_2026-10-10_v2'
 )
 $ErrorActionPreference = 'Stop'
 $projectRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
 $pythonPath = Join-Path $projectRoot '.venv\Scripts\python.exe'
-$releasePath = Join-Path $projectRoot 'data\versions\01_pilot_baseline_2026-10-10\embedded\rag_finalization_2026-10-10_v2'
+$releasePath = Join-Path $projectRoot $Release
+$runName = Split-Path -Leaf $releasePath
 $guidelinePath = Join-Path $projectRoot 'data\guidelines\ra_guidelines_native_2026-10-12_v2'
 $archivePath = Join-Path $projectRoot 'data\runs\ra_service_reports'
 $logDirectory = Join-Path $projectRoot 'data\runs\ra_service_logs'
@@ -21,7 +24,7 @@ $existingSummary = $null
 try { $existingSummary = Invoke-RestMethod -Uri $summaryUrl -TimeoutSec 3 } catch { }
 if ($existingSummary) {
     if ($existingSummary.pipeline_version -in @('ra-research-rag-4.8.3',$expectedVersion) -and
-        $existingSummary.answer_model -eq $Model -and $existingSummary.run_name -eq 'rag_finalization_2026-10-10_v2') {
+        $existingSummary.answer_model -eq $Model -and $existingSummary.run_name -eq $runName) {
         Write-Output "Already healthy: http://127.0.0.1:$Port/"
         return
     }

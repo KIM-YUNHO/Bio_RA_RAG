@@ -9,8 +9,11 @@ from rag.evidence import contains_quote
 
 def named(text, identifiers):
     text = unicodedata.normalize('NFKC', text or '')
+    # Registry names may carry a market qualifier ("Wezlana (US, Canada)"); users write the bare name.
+    values = {v for value in identifiers if value
+              for v in (value, re.sub(r'\s*\([^()]*\)\s*$', '', value)) if v.strip()}
     return any(re.search(r'(?<![A-Za-z0-9])'+re.escape(unicodedata.normalize('NFKC', value))+
-        r'(?![A-Za-z0-9])', text, re.I) for value in identifiers if value)
+        r'(?![A-Za-z0-9])', text, re.I) for value in values)
 
 
 def bind_request_scope(question, interpretation, products, agencies, *,

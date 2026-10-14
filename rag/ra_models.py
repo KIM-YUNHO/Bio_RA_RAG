@@ -17,12 +17,19 @@ class Contract(BaseModel):
     model_config = ConfigDict(strict=True, extra='forbid')
 
 
+class TaskIntent(Contract):
+    intent: Literal['fact_lookup', 'compare_products', 'compare_sources', 'regulatory_reasoning', 'document_info',
+                    'out_of_scope']
+    request_quote: Annotated[str, Field(max_length=1600)]
+
+
 class ResearchTask(Contract):
     request: Annotated[str, Field(min_length=1, max_length=1600)]
     queries: Annotated[list[str], Field(min_length=1, max_length=2)]
     source_roles: Annotated[list[Literal['assessment', 'label', 'guideline', 'correspondence',
-        'quality', 'rmp', 'decision_summary', 'other_review']], Field(min_length=1, max_length=2)]
+        'quality', 'rmp', 'decision_summary', 'other_review', 'protocol', 'sap']], Field(min_length=1, max_length=2)]
     guideline_request_quote: str = ''
+    intent: TaskIntent
 
     @field_validator('request')
     @classmethod
@@ -44,19 +51,13 @@ class JurisdictionMention(Contract):
 
 
 class ResearchPlan(Contract):
-    intent: Literal['fact_lookup', 'compare_products', 'compare_jurisdictions',
-        'regulatory_reasoning', 'document_info', 'out_of_scope']
+    in_scope: bool
     products: list[str]
     jurisdictions: list[str]
     jurisdiction_mentions: list[JurisdictionMention]
-    english_query: Annotated[str, Field(min_length=1)]
+    # Kept for the record; RA retrieval uses each task's queries, so an empty value is not an error.
+    english_query: str
     tasks: Annotated[list[ResearchTask], Field(min_length=1, max_length=4)]
-
-    @field_validator('english_query')
-    @classmethod
-    def query_not_blank(cls, value):
-        if not value.strip(): raise ValueError('Missing retrieval query')
-        return value
 
 
 class FollowUpResearchPlan(ResearchPlan):

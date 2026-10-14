@@ -8,16 +8,17 @@ from rag.ra_sources import permitted
 from rag.service_scope import allowed
 from rag import ra_answer
 
-VERSION = 'ra-task-hybrid-context-6-statistic-table-relevance'
+VERSION = 'ra-task-hybrid-context-7-topic-queries-slot-terms'
 
 
-def diverse_hits(rankings, k):
+def diverse_hits(rankings, k, consensus_only=()):
     """Give each query a first reading opportunity before consensus ranking.
 
     A broad second query must not erase the best passage for a specific first
     query. This changes source selection only, never source facts or values.
+    Rankings listed in consensus_only (by position) take part in fusion only.
     """
-    first = [ranking[0] for ranking in rankings if ranking]
+    first = [ranking[0] for n, ranking in enumerate(rankings) if ranking and n not in consensus_only]
     fused = rrf(rankings, top_n=max(40, k))
     out, seen = [], set()
     for score, key in first + fused:
@@ -53,7 +54,26 @@ def oracle_groups(corpus, understanding, guideline_index, source_ids, documents)
             for t in understanding['tasks'] for p, j in dict.fromkeys((c['product_id'], c['jurisdiction']) for c in selected)]
 
 
-def retrieve(corpus, understanding, guideline_index, documents=None, include_nondefault=False, k=5):
+# Retrieval knobs; the default is production. 2026-10-14 grid on release 04: stripping slot-constant
+# words from BM25 queries raised silver recall 0.855->0.882; lower BM25 weight and an added
+# original-question ranking lost recall or stability (data/runs/retrieval_stability_2026-10-14).
+DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': None, 'strip_slot_terms': True}
+# Words every chunk of a product x agency slot shares; in a slot they only add BM25 noise.
+SLOT_TERMS = re.compile(r'(?<![A-Za-z0-9])(?:EMA|FDA|Health\s+Canada|EPAR|European\s+Medicines\s+Agency|assessment\s+reports?|'
+                        r'product\s+monographs?|summary\s+basis\s+of\s+decision|multi-?discipline\s+reviews?|labell?ing|label)(?![A-Za-z0-9])', re.I)
+
+
+def strip_slot_terms(query):
+    from rag import study_registry
+    names = sorted({n for p, m in study_registry.products().items() for n in [p, *m.get('names', [])]}, key=len, reverse=True)
+    for name in names:
+        query = re.sub(r'(?<![A-Za-z0-9])' + re.escape(name) + r'(?![A-Za-z0-9])', ' ', query, flags=re.I)
+    query = re.sub(r'\([^()]*\)', lambda m: m[0] if re.search(r'[A-Za-z]{3,}', re.sub(r'[\s,()]', '', m[0])) else ' ', query)
+    return re.sub(r'\s+', ' ', SLOT_TERMS.sub(' ', query)).strip() or query
+
+
+def retrieve(corpus, understanding, guideline_index, documents=None, include_nondefault=False, k=5, topic_queries=True,
+             profile=None):
     # Repeated product/document/agency header words are shared by every chunk.
     # BM25 should discriminate the passage and its local structural context.
     cached = bool(getattr(corpus, 'shared_cache', False))
@@ -63,14 +83,24 @@ def retrieve(corpus, understanding, guideline_index, documents=None, include_non
                           + ' ' + (c.get('structure', {}).get('caption') or '')} for c in corpus.chunks], thread_safe=cached)
         if cached: corpus._ra_bm25 = bm
     try:
-        return _retrieve(corpus, understanding, guideline_index, bm, documents, include_nondefault, k)
+        return _retrieve(corpus, understanding, guideline_index, bm, documents, include_nondefault, k, topic_queries, profile)
     finally:
         if not cached: bm.db.close()
 
 
-def _retrieve(corpus, understanding, guideline_index, bm, documents=None, include_nondefault=False, k=5):
+def _retrieve(corpus, understanding, guideline_index, bm, documents=None, include_nondefault=False, k=5, topic_queries=True,
+              profile=None):
     tasks = understanding['tasks']
-    queries = list(dict.fromkeys(q for task in tasks for q in task['queries']))
+    P = {**DEFAULT_PROFILE, **(profile or {})}
+    weights = [1.0, P['bm25_weight']]
+    bm_text = strip_slot_terms if P['strip_slot_terms'] else (lambda q: q)
+    from rag import ra_topic_queries
+    question = understanding.get('source_question', '')
+    fixed = {t['id']: ra_topic_queries.for_task(question, t, len(tasks)) if topic_queries else ([], [])
+             for t in tasks}
+    queries = list(dict.fromkeys([q for task in tasks for q in task['queries']]
+                                 + [q for _, qs in fixed.values() for q in qs]
+                                 + ([question] if P['question_query'] and question else [])))
     product_needed = any(set(t['source_roles']) - {'guideline'} for t in tasks)
     vectors = corpus.encode(queries) if product_needed else None
     query_vectors = dict(zip(queries, vectors)) if vectors is not None else {}
@@ -90,7 +120,21 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
                     rankings = []
                     for query in task['queries']:
                         rankings.append(rrf([dense_hits(query_vectors[query], corpus.vec, idx, top_n=40),
-                                             bm.hits(query, idx, top_n=40)], top_n=40))
+                                             bm.hits(bm_text(query), idx, top_n=40)], top_n=40, weights=weights))
+                    topic_names, topic_qs = fixed[task['id']]
+                    topic_pos = None
+                    if topic_qs:
+                        # One fused ranking for all fixed topic queries: it adds a
+                        # stable reading opportunity without outvoting the planner.
+                        rankings.append(rrf([rrf([dense_hits(query_vectors[q], corpus.vec, idx, top_n=40),
+                                                  bm.hits(bm_text(q), idx, top_n=40)], top_n=40, weights=weights)
+                                             for q in topic_qs], top_n=40))
+                        topic_pos = len(rankings) - 1
+                    question_pos = None
+                    if P['question_query'] and question:
+                        # The original question is identical on every run (dense only: it is Korean).
+                        rankings.append(dense_hits(query_vectors[question], corpus.vec, idx, top_n=40))
+                        question_pos = len(rankings) - 1
                     # Document roles guide relevance; they do not replace source
                     # reading or silently delete alternative admissible evidence.
                     rankings = [rrf([hits, [(s, i) for s, i in hits if corpus.chunks[i]['doc_group'] in roles]],
@@ -102,9 +146,15 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
                         relevance=lambda i, qs=task['queries']: max(float(corpus.vec[i] @ query_vectors[q]) for q in qs))
                     if table_candidates:
                         rankings.insert(0,table_candidates)
-                    hits = diverse_hits(rankings, k)
+                        topic_pos = None if topic_pos is None else topic_pos + 1
+                        question_pos = None if question_pos is None else question_pos + 1
+                    # 'fuse': the ranking only adds consensus weight, never takes a first slot.
+                    consensus = ((topic_pos,) if topic_queries == 'fuse' else ()) + ((question_pos,) if P['question_query'] == 'fuse' else ())
+                    hits = diverse_hits(rankings, k, consensus_only=consensus)
                     groups.append({'task_id': task['id'], 'product': product, 'jurisdiction': agency,
                         'doc_groups': list(roles), 'studies': [], 'queries': task['queries'],
+                        'topic_queries': {'topics': topic_names, 'queries': topic_qs,
+                                          'version': ra_topic_queries.VERSION},
                         'hits': [{'score': s, 'chunk': corpus.chunks[i]} for s, i in hits]})
         if 'guideline' in roles:
             guideline_queries=list(task['queries'])

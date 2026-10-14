@@ -15,12 +15,19 @@ def doc_type(meta):
 
 def normalize_block_metadata(blocks,meta):
     path=Path(__file__).resolve().parent/'vendor/compare_study_standalone/compare_study/bench/vendor/ra_prep/structure.py'
-    spec=importlib.util.spec_from_file_location('_h_source_structure_rules',path);module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
-    original=[b.get('speaker') for b in blocks];agency={'Health Canada':'hc','EMA':'ema','FDA':'fda'}[meta['source']]
-    module.assign_speaker(blocks,agency,doc_type(meta))
+    original=[b.get('speaker') for b in blocks]
+    if meta['source']=='ClinicalTrials.gov':
+        # A posted protocol/SAP is the sponsor's own plan: every block speaks for the applicant,
+        # never for a regulator, and states planned rather than actual conduct.
+        agency,status=None,'sponsor_document_rule'
+        for b in blocks:b['speaker']='applicant'
+    else:
+        spec=importlib.util.spec_from_file_location('_h_source_structure_rules',path);module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+        agency,status={'Health Canada':'hc','EMA':'ema','FDA':'fda'}[meta['source']],'heuristic_unverified'
+        module.assign_speaker(blocks,agency,doc_type(meta))
     for block,old in zip(blocks,original):
         block['source_structure_metadata']={'original_speaker':old,'normalized_agency_input':agency,
-            'normalized_document_type_input':doc_type(meta),'speaker_status':'heuristic_unverified','catalog_vocabulary_preserved':True}
+            'normalized_document_type_input':doc_type(meta),'speaker_status':status,'catalog_vocabulary_preserved':True}
     return {'version':'metadata-tool-input-1','changed_speaker_blocks':sum(b.get('speaker')!=old for b,old in zip(blocks,original)),
             'rule_source':str(path),'normalized_agency':agency,'normalized_doc_type':doc_type(meta)}
 
