@@ -1,3 +1,2 @@
-Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights:  69%|██████▉   | 269/391 [00:00<00:00, 2623.76it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 2740.42it/s]
-Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights:  61%|██████    | 239/391 [00:00<00:00, 2350.80it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 2531.47it/s]
 {"label": "4.9.4-off", "activation_tables": {"cmax_mean_sd": 0, "aucinf_mean_sd": 0, "auclast_mean_sd": 0, "tmax_median_range": 0, "thalf_mean_sd": 0, "cmax_geometric_mean": 0, "aucinf_geometric_mean": 0}}
