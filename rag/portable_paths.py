@@ -38,6 +38,9 @@ RULES = [
 ORIGINAL = re.compile(r"^(?:[A-Za-z]:)?[\\/].*?[\\/]biosimilar_collection[\\/](?P<rest>.*)$", re.I)
 
 
+SELF = re.compile(r"^(?:[A-Za-z]:)?[\\/].*?[\\/]project_shared[\\/](?P<rest>(?:data|pipelines)[\\/].*)$", re.I)
+
+
 def relative_in_original(value):
     """Path relative to the original project root (forward slashes), or None when `value` is not under it."""
     match = ORIGINAL.match(str(value))
@@ -60,6 +63,12 @@ def resolve(value):
         return path
     rel = relative_in_original(value)
     if rel is None:
+        # Releases built in this project (04+) carry the builder's absolute project path; a clone
+        # elsewhere (any folder name) reads the same project-relative file.
+        match = SELF.match(str(value))
+        if match and not path.exists():
+            copy = ROOT / match["rest"].replace("\\", "/")
+            return copy if copy.exists() else path
         return path
     copy = mapped(rel)
     return copy if copy.exists() else path

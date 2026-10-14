@@ -69,3 +69,14 @@ class ReleaseManifests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class SelfBuiltReleasePaths(unittest.TestCase):
+    def test_builder_absolute_path_maps_to_this_clone(self):
+        from rag.portable_paths import resolve, ROOT
+        rel = 'data/versions/versions.json'
+        other = r'D:\work\elsewhere\project_shared\data\versions\versions.json'
+        self.assertEqual(resolve(other), ROOT / rel)
+        missing = r'D:\work\elsewhere\project_shared\data\versions\no_such_file.json'
+        self.assertEqual(str(resolve(missing)), missing)
+        self.assertEqual(str(resolve(r'D:\x\project_shared\README.md')), r'D:\x\project_shared\README.md')
