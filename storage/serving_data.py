@@ -8,6 +8,7 @@ keeps the relative paths, so a teammate unpacks it at the project root.
 Usage:
   uv run python -m storage.serving_data                       # pilot + latest: folders and sizes
   uv run python -m storage.serving_data --release latest --list
+  uv run python -m storage.serving_data --check               # referenced files that are missing here (exit 1 if any)
   uv run python -m storage.serving_data --zip D:\\share\\biosim_data.zip
 """
 import argparse
@@ -29,38 +30,57 @@ def tree(path):
     return [p for p in path.rglob("*") if p.is_file()] if path.is_dir() else [path] if path.is_file() else []
 
 
-def release_files(role):
+def take(path, missing):
+    """Files under `path`; a path that does not exist is recorded in `missing` (a list)."""
+    path = Path(path)
+    if not path.exists():
+        missing.append(path)
+    return set(tree(path))
+
+
+def read_json(path, missing):
+    if not Path(path).is_file():
+        missing.append(Path(path))
+        return None
+    return json.loads(Path(path).read_text(encoding="utf-8"))
+
+
+def release_files(role, missing):
     version = next(v for v in VERSIONS["versions"] if v["id"] == RELEASE_DIRS[role])
     folder = ROOT / version["embedded_path"]
-    files = set(tree(folder))
-    manifest = json.loads((folder / "release_manifest.json").read_text(encoding="utf-8"))
-    files |= set(tree(resolve(manifest["candidate"])))
+    files = take(folder, missing)
+    manifest = read_json(folder / "release_manifest.json", missing)
+    if manifest is None:
+        return files
+    files |= take(resolve(manifest["candidate"]), missing)
     for item in manifest["components"]:
         run, candidate = resolve(item["run"]), resolve(item["candidate"])
-        files |= set(tree(run)) | set(tree(candidate))
-        extraction = json.loads((run / "extraction_manifest.json").read_text(encoding="utf-8"))
-        for doc in extraction["documents"]:
+        files |= take(run, missing) | take(candidate, missing)
+        extraction = read_json(run / "extraction_manifest.json", missing)
+        for doc in (extraction or {}).get("documents", []):
             for key in ("raw_path", "rendered_path"):
                 if doc.get(key):
-                    files |= set(tree(resolve(doc[key])))
+                    files |= take(resolve(doc[key]), missing)
     return files
 
 
-def guideline_files():
-    files = set(tree(ROOT / GUIDELINES))
-    manifest = json.loads((ROOT / GUIDELINES / "manifest.json").read_text(encoding="utf-8"))
-    for source in manifest["sources"]:
+def guideline_files(missing):
+    files = take(ROOT / GUIDELINES, missing)
+    manifest = read_json(ROOT / GUIDELINES / "manifest.json", missing)
+    for source in (manifest or {}).get("sources", []):
         for key in ("raw_path", "parsed_path"):
-            files |= set(tree(resolve(source[key])))
+            files |= take(resolve(source[key]), missing)
     return files
 
 
-def collect(roles):
-    files = guideline_files()
+def collect(roles, missing=None):
+    """Sorted files needed to serve `roles`. Referenced paths that do not exist are appended to `missing` when given."""
+    missing = [] if missing is None else missing
+    files = guideline_files(missing)
     for entry in ALWAYS:
-        files |= set(tree(ROOT / entry))
+        files |= take(ROOT / entry, missing)
     for role in roles:
-        files |= release_files(role)
+        files |= release_files(role, missing)
     outside = [p for p in files if not p.is_relative_to(ROOT)]
     if outside:
         raise SystemExit(f"{len(outside)} files are outside the project (not copied from the original yet): {outside[:3]}")
@@ -79,8 +99,15 @@ def main(argv=None):
     ap.add_argument("--release", choices=["pilot", "latest"], action="append", help="default: both")
     ap.add_argument("--list", action="store_true", help="print every file")
     ap.add_argument("--zip", type=Path, help="write the files to this zip (relative paths kept)")
+    ap.add_argument("--check", action="store_true", help="only report referenced files that are missing here (exit 1 if any)")
     args = ap.parse_args(argv)
-    files = collect(args.release or ["pilot", "latest"])
+    missing = []
+    files = collect(args.release or ["pilot", "latest"], missing)
+    if args.check:
+        for path in missing:
+            print("MISSING", path)
+        print(f"{len(files)} files present, {len(missing)} missing")
+        return 1 if missing else 0
     sizes = {}
     for p in files:
         g = group(p)
