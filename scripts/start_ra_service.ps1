@@ -2,11 +2,18 @@ param(
     [ValidateRange(1,65535)][int]$Port = 8775,
     [ValidateSet('gpt-5.6-luna','gpt-4o-mini')][string]$Model = 'gpt-5.6-luna',
     [ValidatePattern('^http://127\.0\.0\.1:\d{1,5}$')][string]$ReviewUrl = 'http://127.0.0.1:8766',
-    # Release folder relative to the project root (versions.json embedded_path). Default: the pilot service index.
-    [string]$Release = 'data\versions\01_pilot_baseline_2026-10-10\embedded\rag_finalization_2026-10-10_v2'
+    # Release folder relative to the project root (a versions.json embedded_path).
+    # Default: the version that versions.json marks as served_by_ra_service.
+    [string]$Release = ''
 )
 $ErrorActionPreference = 'Stop'
 $projectRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
+if (-not $Release) {
+    $registry = Get-Content -LiteralPath (Join-Path $projectRoot 'data\versions\versions.json') -Raw -Encoding UTF8 | ConvertFrom-Json
+    $served = $registry.roles.served_by_ra_service
+    $Release = ($registry.versions | Where-Object { $_.id -eq $served }).embedded_path
+    if (-not $Release) { throw "versions.json has no embedded_path for served_by_ra_service '$served'" }
+}
 $pythonPath = Join-Path $projectRoot '.venv\Scripts\python.exe'
 $releasePath = Join-Path $projectRoot $Release
 $runName = Split-Path -Leaf $releasePath

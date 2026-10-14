@@ -28,6 +28,9 @@ models/
 
 # DB handoff dumps (shared out of band; see storage/HANDOFF.md)
 storage/handoff/*.dump
+# superseded handoff files and build logs, kept locally only
+storage/handoff/temp/
+storage/handoff/*.log
 
 # IDE and OS
 .vscode/

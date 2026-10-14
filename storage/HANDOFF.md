@@ -1,10 +1,31 @@
 # DB 인수 안내 — PostgreSQL + pgvector
 
 - 작성: 2026-10-14 15:25 KST
-- 최종 수정: 2026-10-14 16:50 KST (웹 화면을 DB에서 읽도록 연결, 경로 이식, 팀원 준비물)
+- 최종 수정: 2026-10-14 23:25 KST (릴리스 04 덤프·데이터 묶음, 경로 이식. 이전: 16:50 웹 화면 DB 연결)
 - 대상: 이 DB를 받아 각자 로컬에서 RAG 검색·웹 화면을 띄울 팀원
 
-## 빠른 시작 (팀원용)
+## 2026-10-14 23시 갱신: 릴리스 04 (서비스 색인)
+
+릴리스 04 = 03 + 보충 19문서(이전에 평가 보호로 빠졌던 Usymro·Yesintek EPAR 등 9문서, ClinicalTrials.gov 프로토콜·SAP 10문서). 111문서·15,682청크. `versions.json`의 `served_by_ra_service`가 04이고, `start_ra_service.ps1`은 인자가 없으면 이 버전으로 뜬다. 코드는 PR #4(`ra-research-rag-4.10.1`) 이후 기준이다.
+
+| 받을 것 | 둘 곳 | 비고 |
+| :-- | :-- | :-- |
+| 코드 | `git pull` (PR #4 병합 후) | 릴리스 경로 이식 수정 포함 |
+| `biosim_20261014_r04.dump` (+ `.sha256`) | `storage\handoff\` | 약 207MB. 릴리스 01·03·04. 가장 최근 덤프를 자동 선택 |
+| `biosim_data_20261014_r04.zip` | 프로젝트 루트 | 웹 화면용. `-DataZip` 으로 경로 지정 가능 |
+
+```powershell
+# 처음 받는 팀원
+.\scripts\setup_local.ps1 -DataZip .\biosim_data_20261014_r04.zip
+# 이전 덤프(biosim_20261014.dump)를 이미 복원한 팀원: 기존 DB를 지우고 다시 복원
+.\scripts\setup_local.ps1 -ForceRestore -DataZip .\biosim_data_20261014_r04.zip
+```
+
+확인: `select release_id, n_chunks, n_documents from rag.releases` → `01…|10088|92`, `03…|11536|92`, `04_pipeline_h_supplement_2026_10_14|15682|111`. 웹 화면 `/api/summary`의 `product_index_chunks`가 15682.
+
+릴리스 04의 매니페스트에는 만든 PC의 절대 경로(`…\project_shared\data\…`, `…\project_shared\pipelines\…`)가 들어 있다. `rag/portable_paths.py`가 읽을 때 받은 사람의 프로젝트 루트로 바꾸므로 폴더 이름·위치가 달라도 된다(파일은 수정하지 않는다).
+
+## 빠른 시작 (팀원용, 2026-10-14 16시 기준 — 위 갱신을 우선)
 
 받을 것 2~3개를 아래 위치에 두고 스크립트를 한 번 실행한다. 이미 끝난 단계는 건너뛰므로 여러 번 실행해도 된다.
 
