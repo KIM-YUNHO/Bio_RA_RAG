@@ -1,110 +1,131 @@
 # DB 인수 안내 — PostgreSQL + pgvector
 
 - 작성: 2026-10-14 15:25 KST
-- 대상: 이 DB를 받아 RAG 검색·서비스를 DB로 옮길 팀원
+- 최종 수정: 2026-10-14 16:50 KST (웹 화면을 DB에서 읽도록 연결, 경로 이식, 팀원 준비물)
+- 대상: 이 DB를 받아 각자 로컬에서 RAG 검색·웹 화면을 띄울 팀원
 
 ## 1. 결론
 
-**팀원이 마이그레이션을 다시 돌릴 필요는 없다.** 스키마(001~005)와 데이터는 이미 들어 있고, 그대로 덤프로 만들어 두었다. 받는 쪽은 **덤프를 복원**하면 같은 DB가 된다. 코드(`rag/`, `rag_service/`)를 DB로 읽게 바꾸는 일만 남아 있다([통합 지도](../docs/project/PGVECTOR_INTEGRATION_MAP_2026-10-14.md) 4절 5~6번).
+**팀원이 마이그레이션을 다시 돌릴 필요는 없다.** 스키마(001~007)와 데이터는 덤프에 들어 있고, 받는 쪽은 덤프를 복원하면 된다.
 
-## 2. 안에 들어 있는 것 (2026-10-14 15:17 KST 기준)
+다만 **덤프만으로 웹 화면이 뜨지는 않는다.** 화면은 DB의 청크·벡터를 읽지만, 쪽 이미지·원문 표시·표/그림 문맥은 여전히 파일(전처리 산출물과 **원본 PDF**)에서 읽는다. 3절의 데이터가 같이 있어야 한다.
 
-| 스키마 | 내용 | 규모 |
-| :-- | :-- | :-- |
-| `rag` | 릴리스 2개의 청크와 bge-m3 벡터. **`01_pilot_baseline_2026_10_10`**(파일럿, 10,088청크·92문서), **`03_pipeline_h_v2_table_recovery_2026_10_14`**(H 최신, 11,536청크·92문서) | 411MB |
-| `corpus` | 수집 카탈로그: 문서 228, 문서 버전 228, 쪽 10,632(본문), 시험 11, 게시 결과 46, 지침 14 | 88MB |
-| `registry` | 제품 6, 허가 18, 이름 사전 약 6천 행, 허가 상태 스냅샷 | 7MB |
-| `ingest` | 수집 요청·태스크·실행 기록 | 5MB |
+| 하고 싶은 일 | 필요한 것 |
+| :-- | :-- |
+| DB만 쓴다(SQL, 벡터 검색, 분석) | 덤프 |
+| 웹 화면을 각자 로컬에서 띄운다 | 덤프 + 데이터 묶음(3절, 약 2.6GB) + OpenAI 키 + BGE-M3 모델 |
 
-`rag.active_release`: `pilot` → 01, `latest` → 03, `served_by_ra_service` → 01(`data/versions/versions.json`의 역할 그대로. 운영 서비스는 아직 파일을 읽는다).
+## 2. DB 덤프 복원
 
-**들어 있지 않은 것**
-- 원본 PDF·HTML, 전처리 산출물, `chunk_contexts`·`source_units`·`visual_*`(쪽 화면·근거 표시용): 파일로 남아 있다. DB에는 `corpus.raw_objects.raw_path`(프로젝트 루트 기준 상대 경로)만 있다.
-- 02 릴리스(`02_pipeline_h_2026-10-14`): 03과 2청크만 다르다. 필요하면 `python -m storage.rag_loader load --version 02_pipeline_h_2026-10-14`.
-- 대화·검토 기록·답변 보고서·API 사용 장부: 아직 파일이다(통합 지도 2절).
-- 덤프에서 **에이전트 대화 기록은 뺐다**: `ingest.agent_sessions`, `ingest.agent_turns`, `ingest.model_calls`의 데이터(테이블 구조는 있음). 사용자 문장과 호출 내역이라 전달 대상이 아니라고 보았다. 필요하면 말해 달라.
-
-## 3. 복원 (받는 쪽)
-
-덤프: `storage/handoff/biosim_20261014.dump` (120MB, `pg_dump -Fc`), 해시: 같은 이름 `.sha256`. **git에는 올리지 않는다**(공유 저장소로 전달).
-
-필요한 것: Docker, 이 저장소. PostgreSQL 17 + pgvector 0.8 이미지는 `ingestion/db/compose.yaml`이 정한다.
+덤프: `storage/handoff/biosim_20261014.dump` (약 120MB, `pg_dump -Fc`), 해시: 같은 이름 `.sha256`. **git에는 올리지 않는다**(공유 저장소로 전달). Docker와 이 저장소가 필요하다.
 
 ```powershell
-# 1) 해시 확인
-Get-FileHash storage/handoff/biosim_20261014.dump -Algorithm SHA256   # .sha256 파일과 같아야 한다
+# 1) 해시 확인 (.sha256 파일의 값과 같아야 한다)
+Get-FileHash storage/handoff/biosim_20261014.dump -Algorithm SHA256
 
-# 2) 빈 DB 띄우기 (이미 biosim 볼륨이 있으면 먼저 확인할 것: 아래 4절)
+# 2) 빈 DB 띄우기 (PostgreSQL 17 + pgvector 0.8, 127.0.0.1:5432)
+Copy-Item .env.example .env       # 처음 한 번
 docker compose --env-file .env -f ingestion/db/compose.yaml up -d
 
-# 3) 복원
+# 3) 복원 (HNSW 인덱스를 다시 만드느라 수 분)
 docker cp storage/handoff/biosim_20261014.dump biosim-db-1:/var/tmp/r.dump
 docker exec biosim-db-1 pg_restore -U biosim -d biosim --no-owner --exit-on-error /var/tmp/r.dump
 docker exec biosim-db-1 rm /var/tmp/r.dump
 
-# 4) 확인
+# 4) 확인: 두 릴리스(10,088 / 11,536청크)가 보여야 한다
 docker exec biosim-db-1 psql -U biosim -d biosim -c "select release_id, n_chunks, n_documents from rag.releases"
 ```
 
-복원 직후 `public.schema_migrations`에 001~005가 들어 있으므로 `python -m ingestion.db migrate`는 "nothing new"가 된다. 복원 시간은 HNSW 인덱스를 다시 만드느라 수 분 걸린다.
+- 복원 직후 `public.schema_migrations`에 001~007이 있으므로 `python -m ingestion.db migrate`는 "nothing new"다.
+- 각자의 로컬 DB는 서로 독립적이다. 한 사람이 바꾼 내용은 다른 사람 DB에 반영되지 않는다.
+- 5432 포트가 이미 쓰이면 `.env`의 `BIOSIM_DB_PORT`와 `BIOSIM_DATABASE_URL`의 포트를 같이 바꾼다. Windows가 부팅마다 포트 범위를 예약할 수 있으니 `netsh interface ipv4 show excludedportrange protocol=tcp`로 확인한다.
 
-데이터 폴더(`data/versions/...`)까지 있으면 파일과 DB가 같은지 검사할 수 있다:
+## 3. 웹 화면을 로컬에서 띄우기
+
+### 준비물
+
+| 항목 | 내용 | 크기 |
+| :-- | :-- | --: |
+| 코드 | 이 저장소 + `uv sync` | |
+| `.env` | `.env.example`을 복사하고 `OPENAI_API_KEY` 입력(질문마다 gpt-5.6-luna를 호출한다) | |
+| BGE-M3 모델 | 질의 임베딩용. 서비스는 **오프라인으로만** 읽는다(`HF_HUB_OFFLINE=1`). 미리 한 번 받아 둔다: `uv run python -c "from sentence_transformers import SentenceTransformer as S; S('BAAI/bge-m3')"` (`~/.cache/huggingface`) | 약 2.3GB |
+| **데이터 묶음** | 아래 표. 프로젝트 루트 기준 같은 상대 경로에 풀어 둔다 | 약 2.6GB |
+
+**데이터 묶음** (`uv run python -m storage.serving_data`가 릴리스 매니페스트에서 계산한 값. 파일럿 + H 최신):
+
+| 경로 | 내용 | 크기 |
+| :-- | :-- | --: |
+| `data/raw/` (두 릴리스가 쓰는 112개) | **원본 PDF·HTML. 필수.** 번들을 열 때 모든 문서의 해시를 검사하고, 오른쪽 원문 패널이 여기서 쪽 이미지를 그린다 | 183MB |
+| `data/versions/01_…/embedded/` | 파일럿 릴리스 + 구성요소 후보 89개 | 711MB |
+| `data/versions/01_…/preprocessed/` | 파일럿 전처리 번들 + 렌더 PDF | 430MB |
+| `data/versions/03_…/embedded/` | H 최신 릴리스 + 후보 | 828MB |
+| `data/versions/03_…/preprocessed/` | H 최신 전처리 번들 | 458MB |
+| `data/versions/02_…/preprocessed/` | H 최신이 참조하는 HTML 렌더 10개 | 3MB |
+| `data/catalog/`, `data/guidelines/`, `data/parsed/`, `data/reviewed/`, `data/runs/ra_guideline_refresh_2026-10-12_v1/`, `data/summary.json`, `data/versions/versions.json` | 카탈로그·지침·파싱본 | 약 6MB |
+
+- 파일럿만 볼 거면 01 항목만, 최신만 볼 거면 03 항목(+02 3MB, 03이 참조하는 01의 렌더 PDF 일부 포함)만 있으면 된다. 정확한 목록은 `--release pilot|latest --list`로 뽑는다.
+- 묶음을 만들려면: `uv run python -m storage.serving_data --zip D:\share\biosim_data.zip`. 받는 쪽은 프로젝트 루트에 풀면 된다.
+- 절대 경로는 필요 없다. `rag/portable_paths.py`가 원본 프로젝트의 경로를 이 프로젝트의 같은 파일로 바꿔 읽는다.
+
+### 실행
 
 ```powershell
-uv run python -m storage.rag_loader verify    # 청크 행 전체 = chunks.jsonl, 벡터 = doc.npy(비트 단위), 정확 검색 = numpy
+$env:BIOSIM_SEARCH_BACKEND = 'postgres'     # 청크·벡터를 DB에서 읽는다(안 켜면 파일에서 읽는다)
+.\scripts\start_ra_service.ps1              # http://127.0.0.1:8775/  (파일럿 01을 서빙)
+.\.venv\Scripts\python.exe -X utf8 -B -m review_viewer --run data\versions\01_pilot_baseline_2026-10-10\embedded\rag_finalization_2026-10-10_v2 --port 8766
 ```
 
-### 덤프 없이 처음부터 만들기
+- H 최신(03)을 띄우려면 `python -m rag_service`를 직접 실행하고 `--run`에 `data\versions\03_pipeline_h_v2_table_recovery_2026-10-14\embedded\release_final`을 준다(`rag_service/README.md`의 실행 절).
+- 서버는 `127.0.0.1`에만 바인딩된다. 같은 PC의 브라우저에서만 열린다.
 
-`data/` 전체가 있을 때만 된다(약 3GB, git 밖).
+### 확인한 것 (2026-10-14, 이 PC)
 
-```powershell
-docker compose --env-file .env -f ingestion/db/compose.yaml up -d
-uv run python -m ingestion.db migrate               # 001~005
-uv run python -m ingestion.load_catalog             # corpus·registry (JSONL이 원본)
-uv run python -m storage.rag_loader load            # rag: pilot + latest (약 40초)
-uv run python -m storage.rag_loader verify
-```
+- **코드와 위 데이터 묶음만 둔 빈 폴더**에서 두 릴리스 모두 `RAPipeline`이 DB 백엔드로 구성되고, BGE-M3 예열이 통과했으며(공급자 호출 0), 원문 쪽 이미지가 그려졌다. 그동안 원본 프로젝트(`biosimilar_collection`) 경로를 연 파일은 **0개**다(파이썬 감사 훅). 이 PC에는 원본이 아직 있으므로 "원본을 열지 않았다"가 "묶음이 충분하다"의 근거다.
+- DB에서 읽은 청크·벡터·메타·`dense_hits` 결과가 파일에서 읽은 것과 같다(청크는 키 순서까지, 벡터는 비트 단위).
+- 전체 테스트 1,172개 통과.
+- **하지 않은 것**: 원본 프로젝트가 아예 없는 실제 팀원 PC에서의 기동, 질문 한 건을 끝까지 답변 생성(OpenAI 호출)하는 것. 처음 띄울 때 막히는 곳이 있으면 알려 달라.
 
-## 4. 받는 쪽이 알아야 할 것
+## 4. DB 안의 것
 
-1. **같은 PC의 컨테이너 이름.** 원본 프로젝트(`biosimilar_collection`)와 `compose.yaml`의 프로젝트 이름(`biosim`)이 같아 컨테이너 `biosim-db-1`과 볼륨 `biosim_pgdata`를 **공유한다**. 이 PC에서는 `rag` 스키마가 그 DB에 같이 들어 있다. 다른 PC에서 새로 띄우면 빈 DB다. 5432는 Windows가 예약할 수 있으니 `netsh interface ipv4 show excludedportrange protocol=tcp`로 확인하고, 다르게 쓰려면 `.env`의 `BIOSIM_DB_PORT`를 바꾼다. 같은 PC에 다른 pgvector 컨테이너(`biosimilar_ra_project-db-1`, 5434)가 있다. 서로 다른 DB다.
-2. **검색 거리는 내적이다. 코사인(`<=>`)을 쓰면 안 된다.** `rag/search.py`는 `vec @ query`(내적)로 순위를 매긴다. bge-m3 벡터는 fp16이라 노름이 0.9998~1.0005로 퍼져 있어, 코사인으로 바꾸면 top-10 집합이 질의의 6~8%에서 달라졌다(2026-10-14 측정). 그래서 인덱스는 `vector_ip_ops`, 질의는 `<#>`(음의 내적, 작을수록 가깝다)다. 이 설정에서 정확 검색은 numpy와 300/300 질의 동일했다.
-3. **HNSW는 근사다.** top-10 재현율 약 0.99(`ef_search=100`). 평가·일치 검사는 정확 검색(`SET enable_indexscan = off`)으로 한다. 지금 규모(약 1만 청크)에서는 정확 검색도 충분히 빠르다.
-4. **릴리스는 불변이다.** `rag.chunks`·`rag.embeddings_bge_m3`는 UPDATE를 트리거로 막는다. 바뀐 릴리스는 새 `release_id`로 적재하고 `rag.active_release`가 가리키게 한다. 같은 릴리스를 `load`로 다시 돌리면 해시가 같을 때 아무 일도 하지 않고, 다르면 오류다(`--replace`로만 지우고 다시 적재).
-5. **벡터는 릴리스마다 파티션이다.** 한 릴리스를 검색하려면 `WHERE e.release_id = '...'`를 반드시 건다(파티션 제거와 HNSW 사용에 필요).
-6. **`rag.chunks.metadata`에 청크의 나머지 필드가 전부 있다**(`document_metadata`, `structure`, `quality`, `provenance`, `representation`…). 열로 꺼낸 것은 검색 필터에 쓰는 필드뿐이다. 행은 `storage.rag_loader.rebuild()`로 `chunks.jsonl` 행과 똑같이 복원된다.
-7. **`provenance` 안의 경로는 원본 프로젝트의 절대 경로 그대로다**(`C:\Users\Admin\Documents\biosimilar_collection\...`). 검색에는 쓰이지 않는다. 쪽 이미지·원문 표시는 `(document_id, version_id)` → `corpus.document_versions.raw_path`(상대 경로)로 찾는다. 경로를 바꿔 싣는 일은 하지 않았다(통합 지도 3절의 남은 일).
-8. **`corpus`·`registry`는 JSONL 카탈로그의 사본이다.** 새로 수집(`collection.collect`, `promote`)하면 `ingestion.load_catalog`를 다시 돌려야 한다.
+| 스키마 | 내용 | 규모 |
+| :-- | :-- | :-- |
+| `rag` | 릴리스 2개의 청크와 bge-m3 벡터. **`01_pilot_baseline_2026_10_10`**(파일럿, 10,088청크·92문서), **`03_pipeline_h_v2_table_recovery_2026_10_14`**(H 최신, 11,536청크·92문서) | 411MB |
+| `corpus` | 수집 카탈로그: 문서 228, 쪽 10,632(본문), 시험 11, 게시 결과 46, 지침 14 | 88MB |
+| `registry` | 제품 6, 허가 18, 이름 사전 약 6천 행, 허가 상태 스냅샷 | 7MB |
+| `ingest` | 수집 요청·태스크·실행 기록 | 5MB |
+
+`rag.active_release`: `pilot` → 01, `latest` → 03, `served_by_ra_service` → 01(`data/versions/versions.json`의 역할 그대로).
+
+**들어 있지 않은 것**
+- 원본 PDF·전처리 산출물, 쪽 화면용 파일(`chunk_contexts`, `source_units`, `visual_*`): 파일이다(3절).
+- 02 릴리스: 03과 2청크만 다르다. 필요하면 `python -m storage.rag_loader load --version 02_pipeline_h_2026-10-14`.
+- 대화·검토 기록·답변 보고서·API 사용 장부: 아직 파일이다.
+- **에이전트 대화 기록은 덤프에서 뺐다**: `ingest.agent_sessions`, `agent_turns`, `model_calls`의 데이터(테이블 구조는 있음). 사용자 문장과 호출 내역이라 전달 대상이 아니라고 보았다.
+
+## 5. 알아야 할 것
+
+1. **같은 PC의 컨테이너 이름.** 원본 프로젝트(`biosimilar_collection`)와 `compose.yaml`의 프로젝트 이름(`biosim`)이 같아 컨테이너 `biosim-db-1`과 볼륨 `biosim_pgdata`를 **공유한다**(이 PC에서만의 일). 다른 PC에서 새로 띄우면 빈 DB다.
+2. **검색 거리는 내적이다. 코사인(`<=>`)을 쓰면 안 된다.** `rag/search.py`는 `vec @ query`(내적)로 순위를 매긴다. bge-m3 벡터는 fp16이라 노름이 0.9998~1.0005로 퍼져 있어, 코사인으로 바꾸면 top-10 집합이 질의의 6~8%에서 달라졌다(2026-10-14 측정). 인덱스는 `vector_ip_ops`, 질의는 `<#>`(음의 내적, 작을수록 가깝다)다. 이 설정에서 정확 검색은 numpy와 300/300 질의 동일했다.
+3. **지금 서비스의 검색은 "DB에서 읽어 메모리에서 계산"이다.** `BIOSIM_SEARCH_BACKEND=postgres`이면 `load_index`가 청크와 벡터를 DB에서 한 번 읽어 numpy 행렬로 둔다(약 2초). 그 뒤의 `dense_hits`와 BM25는 지금 코드 그대로 메모리에서 한다. pgvector `<#>` 질의로 직접 검색하는 경로는 DB에 준비돼 있지만(HNSW 포함) 서비스 코드는 아직 쓰지 않는다. 질의를 DB로 보내는 구현은 별도 작업이다.
+4. **HNSW는 근사다.** top-10 재현율 약 0.99(`ef_search=100`). 평가·일치 검사는 정확 검색(`SET enable_indexscan = off`)으로 한다.
+5. **릴리스는 불변이다.** `rag.chunks`·`rag.embeddings_bge_m3`는 UPDATE를 트리거로 막는다. 바뀐 릴리스는 새 `release_id`로 적재하고 `rag.active_release`가 가리키게 한다. 같은 릴리스를 `load`로 다시 돌리면 해시가 같을 때 아무 일도 하지 않고, 다르면 오류다(`--replace`로만 지우고 다시 적재).
+6. **벡터는 릴리스마다 파티션이다.** 한 릴리스를 직접 질의하려면 `WHERE release_id = '...'`를 반드시 건다.
+7. **`rag.chunks.metadata`(json)에 청크의 나머지 필드가 전부 있다.** 열로 꺼낸 것은 검색 필터에 쓰는 필드뿐이다. 행은 `storage.rag_loader.rebuild(row, keys)`로 `chunks.jsonl` 행과 키 순서까지 같게 복원된다(`jsonb`는 키 순서를 바꿔서 `json`으로 두었다).
+8. **`provenance` 안의 경로는 원본 프로젝트의 절대 경로 그대로다**(`C:\Users\Admin\Documents\biosimilar_collection\...`). 데이터는 해시 계약 때문에 고치지 않았다. 코드는 이 경로를 `rag.portable_paths.resolve()`로 이 프로젝트의 사본으로 바꿔 연다. 새 코드가 `provenance`·매니페스트의 경로를 열 때도 이 함수를 거쳐야 한다.
 9. **`corpus`와의 연결은 외래키가 아니다.** `rag.chunks`의 `(document_id, version_id)`는 `corpus.document_versions`를 가리키지만 제약은 걸지 않았다. `ingestion.load_catalog`가 `corpus`를 비우고 다시 채우는데(TRUNCATE), 외래키가 있으면 그것이 막힌다. 대신 `verify`가 존재를 검사한다.
-10. **BM25는 DB로 옮기지 않았다.** 청크는 DB에서 읽고 BM25는 지금 코드(메모리 SQLite FTS5)로 계산한다. 계획 문서 4.2절 5번의 결정 그대로다.
+10. **`corpus`·`registry`는 JSONL 카탈로그의 사본이다.** 새로 수집(`collection.collect`, `promote`)하면 `ingestion.load_catalog`를 다시 돌려야 한다.
+11. **BM25는 DB로 옮기지 않았다.** 계획 문서 4.2절 5번의 결정 그대로다.
 
-## 5. 질의 예
-
-```sql
--- H 최신 릴리스에서 주어진 청크와 가장 가까운 10개 (내적)
-WITH q AS (SELECT embedding FROM rag.embeddings_bge_m3
-           WHERE release_id = '03_pipeline_h_v2_table_recovery_2026_10_14' AND chunk_id = :chunk_id)
-SELECT c.document_id, c.pdf_page, c.header, (e.embedding <#> q.embedding) * -1 AS score
-FROM rag.embeddings_bge_m3 e JOIN rag.chunks c USING (release_id, chunk_id), q
-WHERE e.release_id = '03_pipeline_h_v2_table_recovery_2026_10_14' AND c.product_id = 'SB17'
-ORDER BY e.embedding <#> q.embedding LIMIT 10;
-```
-
-```python
-from storage.postgres import connect          # 새 DB 코드는 ingestion.db가 아니라 여기서 import
-```
-
-질의 벡터는 BGE-M3로 만든 1024차원 벡터를 `'[0.1,0.2,...]'::vector`로 넘긴다. 이 PC에서는 `rag/embed_index.py`의 `Embedder`가 만든다.
-
-## 6. 만든 것과 확인한 것
+## 6. 만든 것
 
 | 파일 | 역할 |
 | :-- | :-- |
-| `ingestion/db/migrations/005_rag.sql` | `rag.releases`, `chunks`, `release_documents`, `embeddings_bge_m3`(파티션, HNSW 내적), `active_release`, 불변 트리거 |
+| `ingestion/db/migrations/005_rag.sql` ~ `007_…` | `rag` 스키마: 릴리스·청크·벡터(릴리스별 파티션, HNSW 내적)·`active_release`·불변 트리거 / 청크 키 순서 / 청크 원문 보존(json) |
 | `storage/rag_loader.py` | `load`(릴리스 한 개 = 한 트랜잭션), `verify`, `list` |
+| `storage/rag_index.py` | `rag.search.load_index`와 같은 `(chunks, vectors, meta)`를 DB에서 읽는다 |
+| `rag/portable_paths.py` | 원본 프로젝트의 절대 경로 → 이 프로젝트의 사본 경로 |
+| `storage/serving_data.py` | 웹 화면에 필요한 데이터 파일 목록·크기·zip |
+| `storage/copy_serving_files.py` | 첫 이관에서 빠진 파일(파일럿 구성요소 후보 89개 360MB, 렌더 PDF 6개, 지침 원본·파싱본 2개)을 원본에서 읽기만 해서 복사 |
 | `storage/handoff/biosim_20261014.dump` | 전달용 덤프 |
 
-2026-10-14 15:22 KST `verify` 결과: 두 릴리스 모두 청크 행 전체와 벡터가 파일과 일치. 정확 검색은 numpy와 300/300 질의에서 집합·순서 모두 같다. HNSW 재현율@10(ef_search=100)은 파일럿 0.992, H 최신 0.992. 덤프를 임시 DB에 복원해 건수·인덱스·질의를 확인한 뒤 삭제했다.
-
-**하지 않은 것**: 검색 경로(`rag/search.py`, `rag/pipeline.py`)와 운영 서비스(8875)를 DB로 바꾸는 일은 하지 않았다(계획상 사용자 승인 후). 질의 벡터를 새로 만드는 평가 질문으로 한 일치 검사도 아직 없다. 지금 검사는 저장된 청크 벡터를 질의로 쓴 것이다.
+고친 기존 파일: `rag/search.py`(`load_index`에 DB 분기), `rag/release.py`·`review_viewer/data.py`·`rag/ra_sources.py`·`rag_service/pages.py`(저장된 경로를 열기 전에 `resolve()`). 원본 프로젝트 경로에서도 동작은 같다(해시 검사가 그대로 있다).

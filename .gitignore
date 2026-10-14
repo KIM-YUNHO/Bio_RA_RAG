@@ -36,3 +36,7 @@ storage/handoff/*.dump
 .DS_Store
 Thumbs.db
 
+
+# data bundles built by storage/serving_data.py --zip (shared out of band)
+/biosim_data*.zip
+storage/handoff/*.zip
