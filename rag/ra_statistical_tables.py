@@ -81,7 +81,7 @@ SPECIAL_ANALYSES={'analysis_set','covariate','analysis_timing','analysis_model',
 @lru_cache(maxsize=8192)
 def normal(text):
     # NFKC turns ½ into 1⁄2 (U+2044); printed tables use both forms.
-    return ra_quantities.normalized(text).replace('⁄','/')
+    return ra_quantities.normalized(text).replace('\u2044','/')
 
 
 def first_longest(found):

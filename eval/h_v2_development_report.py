@@ -2,6 +2,7 @@
 import argparse
 from collections import Counter
 from pathlib import Path
+import re
 
 from eval.h_v2_development_eval import read, save, digest
 
@@ -173,11 +174,11 @@ UTF-8 파일의 질문 4개에 새 Luna 호출 12회를 사용했다. **완전 �
 
 [저장 응답 재처리 요약]({rel}/saved_replay_4_9_3/summary.json), [원문 판정]({rel}/saved_replay_4_9_3/adjudication.json), [재처리 실행기](../../eval/h_v2_saved_response_replay.py).
 
-### 5.5 통계표 검색 일반화 수정, 코드 4.9.4 (모델 호출 0회)
+### 5.5 통계표 검색 일반화 수정과 새 질문 평가, 코드 4.9.4
 
-검토에서 통계표 검색 보정이 개발 질문의 문장 형태, 개발셋 PK 지표 5개, 문서 순서 선택에 의존한다는 지적이 나왔다. 재현해 보니 의미가 같은 바꿔 쓴 요청 11개 중 바르게 해석한 것은 0개였다. 8개는 인식하지 못했고, 3개는 잘못 해석했다. 예를 들어 '기하평균이 아닌 산술평균'은 기하평균 요청으로 뒤집혔다. 표 쪽에서도 PK 지표가 있는 표 59개 중 18개가 `C $ max $`·`AUC0-inf` 표기를, 18개가 단위 해석을 통과하지 못했다.
+검토에서 통계표 검색 보정이 개발 질문의 문장 형태, 개발셋 PK 지표 5개, 문서 순서 선택에 의존한다는 지적이 나왔다. 재현해 보니 의미가 같은 바꿔 쓴 요청 11개 중 바르게 해석한 것은 0개였다. 8개는 인식하지 못했고, 3개는 잘못 해석했다. 예를 들어 '기하평균이 아닌 산술평균'은 기하평균 요청으로 뒤집혔다. 표 쪽에서도 PK 지표가 있는 표 59개 중 18개가 `C $ max $`·`AUC0-inf` 표기를, 18개가 통계량 역할·단위 판정을 통과하지 못했다.
 
-project_shared의 `rag/ra_statistical_tables.py`만 수정했고, biosimilar_collection은 4.9.3 그대로다.
+project_shared의 `rag/ra_statistical_tables.py`, 호출부 `rag/ra_retrieval.py`, 버전 문자열(`rag/ra_pipeline.py`)만 수정했고, biosimilar_collection은 4.9.3 그대로다.
 
 - **요청 해석:** 요청 전체를 문장 단위로 읽는다. 대조·제외 표지(`~과 구분`, `~이 아닌`, `~말고`, `~제외`, `~필요 없`, `not`, `rather than`, `instead of`, `distinguish … from`)가 가리키는 통계량만 뺀다. 나열된 지표는 뒤의 통계량을 함께 받는다. 통계량이 지표 앞에 오는 경우(`평균과 SD로 Cmax`, `mean and SD of Cmax`)와 다음 문장에 오는 경우도 연결한다. 질문 ID나 문구 목록은 쓰지 않는다.
 - **지표 인식:** 공용 `contract_terms` 어휘(수식 표기, `최고혈중농도`, CL/F, V/F)에 검색 전용 별칭을 더해 질문과 표 헤더에 같이 쓴다. 추가한 별칭은 t½·반감기·half-life, AUC0-inf/∞, AUC0-t, AUCτ, Ctrough, 최고혈중농도 도달시간이다. 정상상태(`,ss`)와 용량 보정(`/D`) 지표는 별개로 둔다. `contract_terms`는 계약 매칭에도 쓰이므로 바꾸지 않았다.
@@ -195,7 +196,7 @@ project_shared의 `rag/ra_statistical_tables.py`만 수정했고, biosimilar_col
 | 저장 보고서 23건·검색 그룹 54개의 결과가 4.9.3과 동일 | — | 54/54 | 38/54 |
 | 색인 전체 매칭 표(범위): Cmax 평균·SD / Tmax 중앙값·범위 / t1/2 평균·SD | 1(1) / 1(1) / 1(1) | 5(5) / 6(6) / 5(5) | — |
 
-모듈의 효과는 k=5 문맥과 순위에 있다. 모듈을 끄더라도 k=12에서는 대상 표가 6~9위로 들어온다. 4.9.4에서 새로 걸린 Cmax 평균·SD 표 4개는 Health Canada 제품 모노그래프 Table 14다. 실제로 `Median (Range)`·`Mean (± SD)` 표이지만, 건선 환자 대상 오리지널 ustekinumab 자료(출처 C0379T04 CSR)이며 바이오시밀러 시험 자료가 아니다. 시험 귀속은 기존 출처·시험 검사가 판단한다. '건강인'처럼 다른 대상군을 지정한 요청에서는 이 표를 올리지 않는다.
+모듈의 효과는 k=5 문맥과 순위에 있다. 모듈을 끄더라도 k=12에서는 대상 표가 2~9위로 들어온다. 4.9.4에서 새로 걸린 Cmax 평균·SD 표 4개는 Health Canada 제품 모노그래프 Table 14다. 실제로 `Median (Range)`·`Mean (± SD)` 표이지만, 건선 환자 대상 오리지널 ustekinumab 자료(출처 C0379T04 CSR)이며 바이오시밀러 시험 자료가 아니다. 시험 귀속은 기존 출처·시험 검사가 판단한다. '건강인'처럼 다른 대상군을 지정한 요청에서는 이 표를 올리지 않는다.
 
 한계:
 
@@ -204,7 +205,7 @@ project_shared의 `rag/ra_statistical_tables.py`만 수정했고, biosimilar_col
 - 검증기 쪽 발견(미수정): `ra_table_citations.binding_quantities`가 `Geometric Least Square Mean` 헤더를 산술평균(`mean`)으로 분류한다. `ra_quantities`가 `hr*ng/mL`·`μg·h/mL`을 한 단위로 읽지 못해, 해당 표의 값은 검색돼도 수치 검증에서 막힐 수 있다. Min/Max 행도 검증기의 `range` 역할로 바인딩되지 않는다.
 - 면역원성·유효성 표(n(%), LS 평균 변화량, 신뢰구간)는 이 모듈의 범위 밖이며 기존 검색 경로를 쓴다.
 
-**새 통계표 질문 9개 생성, 코드 4.9.4.** S01~S09는 4.9.4 작동 결과를 보기 전에 [고정](../../eval/statistical_table_holdout_cases_2026-10-14.json)했다. 개발 질문과 다른 제품·기관·표현이지만, 구현 에이전트가 같은 승인 말뭉치에서 작성했으므로 독립 평가가 아니다. 새 Luna 호출은 23회(입력 72,998·출력 5,350 토큰, 115초)이고 상한은 27회였다. 실행 중 코드·색인 해시는 바뀌지 않았다.
+**새 통계표 질문 9개 생성, 코드 4.9.4.** S01~S09는 4.9.4 작동 결과를 보기 전에 [고정](../../eval/statistical_table_holdout_cases_2026-10-14.json)했다. 개발 질문과 다른 제품·기관·표현이지만, 구현 에이전트가 같은 승인 말뭉치에서 작성했으므로 독립 평가가 아니다. 새 Luna 호출은 23회(입력 72,998·출력 5,350 토큰, 115초)이고 상한은 27회였다. 실행 중 코드·색인 해시는 바뀌지 않았다. 실행 뒤에는 소스의 보이지 않는 문자(U+2044) 하나를 이스케이프로 바꾼 것 외에 변경이 없고, 바뀐 코드로 다시 돌린 검색 재현 결과는 이전과 완전히 같았다.
 
 | 문항 | 판정 | 원문 판정 |
 | :-- | :-- | :-- |
@@ -257,7 +258,7 @@ Luna 호출은 **총 123회**, 이 중 정상 입력 품질 평가 단계 111회
 
 코드 4.9.3의 전체 회귀는 **1,150개 실행, 1,146개 통과·4개 건너뜀, 실패 0**이다. 읽기 범위·통계표 검색·단위 쌍의 새 회귀를 포함한다. 저장 응답 8개도 정확한 인용 범위와 자체 검토 출처 경계를 통과했다. [전체 검사 로그]({rel}/tests_full_4_9_3.log).
 
-project_shared의 코드 4.9.4 전체 회귀는 **1,157개 실행, 1,155개 통과, 오류 2개**다. 오류 2개는 `test_ingestion_db`가 로컬 PostgreSQL을 TRUNCATE하다 외래키 제약에 막힌 것이다. 같은 시각 다른 작업이 `ingestion/db/migrations`를 바꿨고, 통계표 변경과는 무관하다. 그 직전 중간 실행에서는 1,154개 전부 통과했다. [4.9.4 검사 로그](../../data/runs/statistical_table_generalization_2026-10-14/tests_full_4_9_4.log).
+project_shared의 최종 코드 4.9.4 전체 회귀는 **1,172개 실행, 전부 통과**다. 같은 날 다른 작업이 함께 바꾼 로더·DB 코드와 테스트를 포함한다. 그 이전 중간 실행에서 `test_ingestion_db` 2개가 로컬 PostgreSQL 마이그레이션 변경과 겹쳐 실패한 적이 있으나, 최종 실행에서는 통과했다. [4.9.4 검사 로그](../../data/runs/statistical_table_generalization_2026-10-14/tests_full_4_9_4.log).
 
 **서비스 전환·재시작은 하지 않았다.** project_shared의 최종 디스크 코드는 `ra-research-rag-4.9.4`이고 biosimilar_collection은 `ra-research-rag-4.9.3`이며 기존 운영 색인과 원래 H v2는 그대로다. 검토 가능한 별도 최종 후보는 다음 경로다.
 
@@ -272,10 +273,11 @@ project_shared의 코드 4.9.4 전체 회귀는 **1,157개 실행, 1,155개 통�
     target=ROOT/'docs/rag/H_V2_RAG_DEVELOPMENT_EVAL_2026-10-14.md'
     target.write_text(text,encoding='utf-8')
     save(run/'final_artifacts.json',{'report':str(target.relative_to(ROOT)),'report_sha256':digest(target),
-        'pipeline_version':'ra-research-rag-4.9.3','new_luna_calls':calls,'quality_phase_calls':111,
+        'pipeline_version':re.search(r"VERSION = '([^']+)'",(ROOT/'rag/ra_pipeline.py').read_text(encoding='utf-8'))[1],
+        'new_luna_calls':calls,'quality_phase_calls':111,
         'excluded_encoding_calls':12,'new_replay_calls':0,'production_pointer_changed':False,
         'rag_code_sha256':{str(p.relative_to(ROOT)):digest(p) for p in sorted((ROOT/'rag').glob('*.py'))},
-        'tests':{'run':1150,'passed':1146,'skipped':4,'failed':0}})
+        'tests':{'code':'ra-research-rag-4.9.3','log':'tests_full_4_9_3.log','run':1150,'passed':1146,'skipped':4,'failed':0}})
     print(target)
 
 

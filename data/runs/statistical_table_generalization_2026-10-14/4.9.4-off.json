@@ -1,5 +1,5 @@
 {
- "created_utc": "2026-10-14T06:14:36.304255+00:00",
+ "created_utc": "2026-10-14T07:08:13.640862+00:00",
  "label": "4.9.4-off",
  "code_root": "C:\\Users\\Admin\\Documents\\project_shared",
  "module_disabled": true,
@@ -7,7 +7,7 @@
  "module_version": "ra-printed-statistic-table-retrieval-2-general-requests",
  "retrieval_version": "ra-task-hybrid-context-6-statistic-table-relevance",
  "code_sha256": {
-  "rag/ra_statistical_tables.py": "696325b0c948fcb6787c754323bca7909cbf1966ef2c778c7b10c01259732b9e",
+  "rag/ra_statistical_tables.py": "42fdefb0ec8e71864204760407666f76429af1ad4ad45dfe055e9449039e8756",
   "rag/ra_retrieval.py": "1c4f0c5677e9a9e7f824cef6cd60d19597aea2f587e1dc804efd42b9452fe630"
  },
  "index": {
