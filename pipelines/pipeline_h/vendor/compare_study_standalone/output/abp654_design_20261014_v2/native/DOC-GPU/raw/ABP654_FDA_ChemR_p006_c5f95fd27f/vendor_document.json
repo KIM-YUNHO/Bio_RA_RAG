@@ -1,0 +1,764 @@
+{
+  "document_id": 1,
+  "sha256": "8d6e5198361c99261edbce5d54d06dd4ab5aee7150fd65cfa0c5f1e16e5f41c3",
+  "agency": "FDA",
+  "doc_type": "chemistry_review",
+  "program_id": null,
+  "engine": "prep-1.4+docling2.137.0+tables-accurate+repair1+pictables1",
+  "watermarks_removed": 0,
+  "routes": [
+    {
+      "page": 1,
+      "route": "IMAGE",
+      "reason": "chars=0 img_cov=1.0"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "ref": "#/texts/0",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        391.3,
+        723.7,
+        563.7,
+        767.3
+      ],
+      "layer": "furniture",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "page_header",
+      "text": "Department of Health and Human Services Food and Drug Administration Center for Drug Evaluation and Research Office of Biotechnology Products",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "picture",
+      "ref": "#/pictures/0",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        71.7,
+        730.0,
+        185.8,
+        756.2
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "caption": "",
+      "text": "",
+      "status": "kept",
+      "ocr_text": "FDA\nU.S. FOOD & DRUG\nADMINISTRATION",
+      "kind_history": [
+        "picture"
+      ],
+      "section_path": [],
+      "speaker": "unknown",
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/1",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        98.0,
+        742.0,
+        185.0,
+        753.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "U.S. FOOD & DRUG",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/2",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        98.0,
+        733.3,
+        155.7,
+        742.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "ADMINISTRATION",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/3",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        74.0,
+        742.7,
+        91.7,
+        751.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "FDA",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/4",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        95.0,
+        740.3,
+        185.3,
+        754.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "U.S. FOOD & DRUG",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/5",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        96.0,
+        734.0,
+        155.0,
+        740.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "ADMINISTRATION",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/6",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        142.0,
+        691.0,
+        399.7,
+        705.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "list_item",
+      "text": "Injection: 90 mg/1.0 mL and 45 mg/0.5 mL PFS",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/7",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        142.0,
+        676.0,
+        299.7,
+        690.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "list_item",
+      "text": "Injection: 45 mg/0.5 mL vial",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/8",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        141.7,
+        659.7,
+        299.0,
+        674.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "list_item",
+      "text": "Injection: 130 mg/26 mL vial",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/9",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        107.0,
+        628.3,
+        214.0,
+        643.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "section_header",
+      "text": "C. Dating Period:",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "C. Dating Period:"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/10",
+      "parent": "#/groups/2",
+      "page": 1,
+      "bbox": [
+        126.0,
+        597.0,
+        230.0,
+        611.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "list_item",
+      "text": "Drug Product: ●",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "C. Dating Period:"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/11",
+      "parent": "#/groups/2",
+      "page": 1,
+      "bbox": [
+        177.0,
+        582.0,
+        502.3,
+        595.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "list_item",
+      "text": "90 mg/1.0 mL and 45 mg/0.5 mL PFS: 36 months at 2°C to 8°C",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "C. Dating Period:"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/12",
+      "parent": "#/groups/2",
+      "page": 1,
+      "bbox": [
+        177.3,
+        565.7,
+        493.3,
+        578.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "list_item",
+      "text": "45 mg/0.5 mL and 130 mg/26 mL vials: 24 months at 2°C to 8°C",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "C. Dating Period:"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/13",
+      "parent": "#/groups/2",
+      "page": 1,
+      "bbox": [
+        142.3,
+        533.7,
+        245.0,
+        547.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "list_item",
+      "text": "Drug Substance:",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "C. Dating Period:"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/16",
+      "parent": "#/groups/2",
+      "page": 1,
+      "bbox": [
+        105.0,
+        443.7,
+        276.3,
+        459.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "list_item",
+      "text": "Exempt from lot release:",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "C. Dating Period:"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/17",
+      "parent": "#/groups/2",
+      "page": 1,
+      "bbox": [
+        159.0,
+        428.3,
+        183.3,
+        445.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "list_item",
+      "text": "Yes",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "C. Dating Period:"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/18",
+      "parent": "#/groups/2",
+      "page": 1,
+      "bbox": [
+        160.3,
+        401.7,
+        528.7,
+        429.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "list_item",
+      "text": "Rationale, if exempted: Wezlana is exempted from lot release per FR 95-29960.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "C. Dating Period:"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/19",
+      "parent": "#/groups/2",
+      "page": 1,
+      "bbox": [
+        124.3,
+        356.0,
+        499.3,
+        386.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "list_item",
+      "text": "Draft Phase 4 (Post-Marketing) Commitments, Requirements, Agreements, and/or Risk Management Steps, as applicable",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "C. Dating Period:"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/14",
+      "parent": "#/groups/4",
+      "page": 1,
+      "bbox": [
+        142.3,
+        501.7,
+        362.7,
+        516.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "list_item",
+      "text": "For packaged products: Not Packaged",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "C. Dating Period:"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/15",
+      "parent": "#/groups/6",
+      "page": 1,
+      "bbox": [
+        141.7,
+        472.3,
+        267.7,
+        487.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "list_item",
+      "text": "Stability Option: N/A",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "C. Dating Period:"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/20",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        123.7,
+        212.0,
+        535.0,
+        343.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "PMC #4540-1: To develop a Monocyte Activation Test (MAT) for reliable endotoxin detection of the 130 mg drug product vial presentation and, if applicable, perform method validation with three batches of drug product. In addition, to concurrently develop an alternative endotoxin detection method which is not subject to low endotoxin recovery for the 130 mg drug product vial presentation as a mitigation, in case the MAT method proves infeasible and, if applicable, perform method validation with three batches of the 130 mg drug product vial presentation. Method feasibility study (MAT or alternative method) will be submitted by the end of July 2024",
+      "status": "reread",
+      "furniture": false,
+      "section_path": [
+        "C. Dating Period:"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/21",
+      "parent": "#/groups/7",
+      "page": 1,
+      "bbox": [
+        124.3,
+        185.0,
+        339.7,
+        198.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Final report submission date: June 2025",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "C. Dating Period:"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/22",
+      "parent": "#/groups/8",
+      "page": 1,
+      "bbox": [
+        88.0,
+        142.7,
+        270.7,
+        157.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "list_item",
+      "text": "Basis for Recommendation",
+      "status": "needs_review",
+      "furniture": false,
+      "section_path": [
+        "C. Dating Period:"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/23",
+      "parent": "#/groups/8",
+      "page": 1,
+      "bbox": [
+        106.0,
+        127.0,
+        189.0,
+        142.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "list_item",
+      "text": "Summary: a.",
+      "status": "reread",
+      "furniture": false,
+      "section_path": [
+        "C. Dating Period:"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/24",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        123.7,
+        80.0,
+        540.0,
+        127.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "ABP 654 is a recombinant human IgG1 directed against the shared p40 subunit of IL-23 and IL-12 cytokines. It is a proposed biosimilar to US-Stelara for the same indications as US-Stelara including moderate to severe PsO, PsA,",
+      "status": "reread",
+      "furniture": false,
+      "section_path": [
+        "C. Dating Period:"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/25",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        374.7,
+        545.3,
+        395.0,
+        554.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "(b) (4)",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "C. Dating Period:"
+      ],
+      "speaker": "unknown",
+      "redacted": true,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/26",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        7.3,
+        7.3,
+        95.3,
+        19.3
+      ],
+      "layer": "furniture",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "page_footer",
+      "text": "Reference ID: 5270372",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/27",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        277.3,
+        50.0,
+        334.0,
+        61.7
+      ],
+      "layer": "furniture",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "page_footer",
+      "text": "Page 5 of 20",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    }
+  ],
+  "qa": {
+    "pages": 1,
+    "routes": {
+      "IMAGE": 1
+    },
+    "text_blocks": 25,
+    "text_chars": 1559,
+    "ocr_char_share": 1.0,
+    "tables": 0,
+    "tables_ocr_grid": 0,
+    "numeric_cells": 0,
+    "numeric_cell_parse_rate": null,
+    "needs_review_blocks": 1,
+    "reread_blocks": 3,
+    "garbled_residual": 0,
+    "furniture_blocks": 3,
+    "redacted_blocks": 1,
+    "sections": 1
+  },
+  "timing": {
+    "auto": 1.6395230293273926,
+    "second_reader": 3.6795456409454346,
+    "total": 5.321835279464722
+  },
+  "_signals": {
+    "1": {
+      "page": 1,
+      "width": 612.0,
+      "height": 792.0,
+      "chars": 0,
+      "img_cov": 1.0,
+      "bare_img_cov": 1.0,
+      "invisible_text": 0.0,
+      "n_text_objs": 0,
+      "n_paths": 0,
+      "garble": 0.0,
+      "bare_boxes": [
+        [
+          0,
+          0,
+          612.0,
+          792.0
+        ]
+      ]
+    }
+  }
+}

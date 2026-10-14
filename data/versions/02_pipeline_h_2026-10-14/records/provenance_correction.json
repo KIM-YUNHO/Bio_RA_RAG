@@ -1,0 +1,10 @@
+{
+  "changed": true,
+  "embedding_inputs_and_chunk_ids_unchanged": true,
+  "vector_files_unchanged": {
+    "emb/bge-m3/doc.npy": "bbbceda2ad08d7fe9322a389af1014d2c182f990185f87a5f4e8b766a728812b",
+    "emb/bge-m3/chunk_ids.json": "991331266c4d893ac2215b5d02e46b297c710cc7367b45e2d1384c07ee5e2c11"
+  },
+  "historical_release": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\pipeline_h\\runs\\ustekinumab_20261014_v2\\release_before_provenance_correction",
+  "parser_html": "Python HTMLParser original DOM; PyMuPDF Story preview (no OCR/VLM)"
+}

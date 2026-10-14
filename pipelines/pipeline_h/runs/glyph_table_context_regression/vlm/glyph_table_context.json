@@ -1,0 +1,189 @@
+{
+  "status": "complete",
+  "job": {
+    "id": "glyph_table_context",
+    "task": "table",
+    "action": "replace",
+    "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p012_013.pdf",
+    "pdf_page": 2,
+    "bbox": [
+      35.1,
+      85.2,
+      576.3,
+      703.6
+    ],
+    "original_table": [
+      [
+        "Physico-chemical/Functional Characteristics",
+        "Quality Attribute Assessed",
+        "Supports a Demonstration of Highly Similar?",
+        "Supports the Analytical Component of the Scientific Bridge?"
+      ],
+      [
+        "",
+        "Free thiols",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "Secondary structure",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "Tertiary Structure",
+        "Yes",
+        "yes"
+      ],
+      [
+        "",
+        "Thermal Stability",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "Biological activities",
+        "Inhibition of IL-23 mediated STAT signaling",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "Inhibition of IL-12 mediated STAT signaling",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "Inhibition of binding of IL-23 to receptor IL-12Rβ1",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "Inhibition of binding of IL-12 to receptor IL-12Rβ1",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "IL-23 Binding kinetics and affinity",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "IL-12 Binding kinetics and affinity",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "-lack of binding to receptor-bound IL-23 and IL-12 on cell surface; -Inhibition of IL-23-induced and IL-12 inducted IFN-y release in PBMCs from a healthy donor; - inhibition of IL-23-induced STAT3 and STAT4 signaling in PBMCs from a healthy donor, binding specificity to cytokines related to IL-12/IL-23,",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "Bioactivity – Fc mediated",
+        "Lack of Antibody-dependent cell-mediated cytotoxicity (ADCC)",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "Lack of Complement-dependent cytotoxicity (CDC)",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "Lack of ADCP activity",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "FcRn binding",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "FcyRla binding",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "FcyRIla (R131) binding",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "FcyRIlb binding",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "FcyRIlla (V158) binding",
+        "Yes",
+        "Yes"
+      ]
+    ],
+    "source_selection": "multiple ambiguous scientific glyph labels; full table context",
+    "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\pipeline_h\\runs\\glyph_table_context_regression\\crops\\glyph_table_context.png",
+    "image_sha256": "5670890807ca15c85cbfe31f4ffef9b954d0106961eeda3f95dbbcbfa7476521",
+    "pixels": [
+      1578,
+      1800
+    ],
+    "context_bbox": [
+      32.220001220703125,
+      82.31999969482422,
+      579.1799926757812,
+      706.47998046875
+    ],
+    "dpi": 300
+  },
+  "seconds": 327.05664049999905,
+  "raw": {
+    "res": {
+      "input_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\pipeline_h\\runs\\glyph_table_context_regression\\crops\\glyph_table_context.png",
+      "page_index": null,
+      "page_count": null,
+      "width": 1578,
+      "height": 1800,
+      "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": false,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [],
+        "return_layout_polygon_points": true
+      },
+      "parsing_res_list": [
+        {
+          "block_label": "table",
+          "block_content": "<table><tr><td>Physicochemical/Functional Characteristics</td><td>Quality Attribute Assessed</td><td>Supports a Demonstration of Highly Similar?</td><td>Supports the Analytical Component of the Scientific Bridge?</td></tr><tr><td rowspan=\"4\"></td><td>Free thiols</td><td>Yes</td><td>Yes</td></tr><tr><td>Secondary structure</td><td>Yes</td><td>Yes</td></tr><tr><td>Tertiary Structure</td><td>Yes</td><td>Yes</td></tr><tr><td>Thermal Stability</td><td>Yes</td><td>Yes</td></tr><tr><td rowspan=\"7\">Biological activities</td><td>Inhibition of IL-23 mediated STAT signaling</td><td>Yes</td><td>Yes</td></tr><tr><td>Inhibition of IL-12 mediated STAT signaling</td><td>Yes</td><td>Yes</td></tr><tr><td>Inhibition of binding of IL-23 to receptor IL-12R $ \\beta 1 $</td><td>Yes</td><td>Yes</td></tr><tr><td>Inhibition of binding of IL-12 to receptor IL-12R $ \\beta 1 $</td><td>Yes</td><td>Yes</td></tr><tr><td>IL-23 Binding kinetics and affinity</td><td>Yes</td><td>Yes</td></tr><tr><td>IL-12 Binding kinetics and affinity</td><td>Yes</td><td>Yes</td></tr><tr><td>-lack of binding to receptor-bound IL-23 and IL-12 on cell surface; -Inhibition of IL-23-induced IL-12 induced IFN- $ \\gamma $ release in PBMCs from a healthy donor; -inhibition of IL-23-induced STAT3 and STAT4 signaling in PBMCs from a healthy donor, binding specificity to cytokines related to IL-12/IL-23,</td><td>Yes</td><td>Yes</td></tr><tr><td rowspan=\"8\">Bioactivity – Fc mediated</td><td>Lack of Antibody-dependent cell-mediated cytotoxicity (ADCC)</td><td>Yes</td><td>Yes</td></tr><tr><td>Lack of Complement-dependent cytotoxicity (CDC)</td><td>Yes</td><td>Yes</td></tr><tr><td>Lack of ADCP activity</td><td>Yes</td><td>Yes</td></tr><tr><td>FcRn binding</td><td>Yes</td><td>Yes</td></tr><tr><td>Fc $ \\gamma $RIa binding</td><td>Yes</td><td>Yes</td></tr><tr><td>Fc $ \\gamma $RIIa (R131) binding</td><td>Yes</td><td>Yes</td></tr><tr><td>Fc $ \\gamma $RIIb binding</td><td>Yes</td><td>Yes</td></tr><tr><td>Fc $ \\gamma $RIIIa (V158) binding</td><td>Yes</td><td>Yes</td></tr></table>",
+          "block_bbox": [
+            0,
+            0,
+            1578,
+            1800
+          ],
+          "block_id": 0,
+          "block_order": null,
+          "group_id": 0
+        }
+      ]
+    }
+  },
+  "content": "<table><tr><td>Physicochemical/Functional Characteristics</td><td>Quality Attribute Assessed</td><td>Supports a Demonstration of Highly Similar?</td><td>Supports the Analytical Component of the Scientific Bridge?</td></tr><tr><td rowspan=\"4\"></td><td>Free thiols</td><td>Yes</td><td>Yes</td></tr><tr><td>Secondary structure</td><td>Yes</td><td>Yes</td></tr><tr><td>Tertiary Structure</td><td>Yes</td><td>Yes</td></tr><tr><td>Thermal Stability</td><td>Yes</td><td>Yes</td></tr><tr><td rowspan=\"7\">Biological activities</td><td>Inhibition of IL-23 mediated STAT signaling</td><td>Yes</td><td>Yes</td></tr><tr><td>Inhibition of IL-12 mediated STAT signaling</td><td>Yes</td><td>Yes</td></tr><tr><td>Inhibition of binding of IL-23 to receptor IL-12R $ \\beta 1 $</td><td>Yes</td><td>Yes</td></tr><tr><td>Inhibition of binding of IL-12 to receptor IL-12R $ \\beta 1 $</td><td>Yes</td><td>Yes</td></tr><tr><td>IL-23 Binding kinetics and affinity</td><td>Yes</td><td>Yes</td></tr><tr><td>IL-12 Binding kinetics and affinity</td><td>Yes</td><td>Yes</td></tr><tr><td>-lack of binding to receptor-bound IL-23 and IL-12 on cell surface; -Inhibition of IL-23-induced IL-12 induced IFN- $ \\gamma $ release in PBMCs from a healthy donor; -inhibition of IL-23-induced STAT3 and STAT4 signaling in PBMCs from a healthy donor, binding specificity to cytokines related to IL-12/IL-23,</td><td>Yes</td><td>Yes</td></tr><tr><td rowspan=\"8\">Bioactivity – Fc mediated</td><td>Lack of Antibody-dependent cell-mediated cytotoxicity (ADCC)</td><td>Yes</td><td>Yes</td></tr><tr><td>Lack of Complement-dependent cytotoxicity (CDC)</td><td>Yes</td><td>Yes</td></tr><tr><td>Lack of ADCP activity</td><td>Yes</td><td>Yes</td></tr><tr><td>FcRn binding</td><td>Yes</td><td>Yes</td></tr><tr><td>Fc $ \\gamma $RIa binding</td><td>Yes</td><td>Yes</td></tr><tr><td>Fc $ \\gamma $RIIa (R131) binding</td><td>Yes</td><td>Yes</td></tr><tr><td>Fc $ \\gamma $RIIb binding</td><td>Yes</td><td>Yes</td></tr><tr><td>Fc $ \\gamma $RIIIa (V158) binding</td><td>Yes</td><td>Yes</td></tr></table>"
+}

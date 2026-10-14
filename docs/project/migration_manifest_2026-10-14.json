@@ -1,0 +1,2835 @@
+{
+ "created_kst": "2026-10-14 13:49",
+ "source_root": "C:\\Users\\Admin\\Documents\\biosimilar_collection",
+ "target_root": "C:\\Users\\Admin\\Documents\\project_shared",
+ "method": "copy only (shutil.copy2); source untouched",
+ "pilot_preprocessed_components": [
+  "rag_context_update_2026-10-10_v1/components/e82c7b3639de2f6fb657/extraction",
+  "corpus_update_2026-10-09/current_delta/labels",
+  "corpus_update_2026-10-09/complex_refinement_v3/components/cf04a28866ff8e2ec0d6/extraction",
+  "corpus_update_2026-10-09/native_refresh_v2/documents/3c6833140283fca3aea6/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/68a413bf02b469893aa9/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/e248598528e23fc45199/extraction",
+  "rag_context_update_2026-10-10_v1/components/9c57c5f90b32b55cb545/extraction",
+  "corpus_update_2026-10-09/native_refresh_v2/documents/b51095b0f10a2d5122bf/extraction",
+  "corpus_update_2026-10-09/native_refresh_v2/documents/6eac19fac464257d8a5f/extraction",
+  "corpus_update_2026-10-09/native_refresh_v2/documents/81290de921bf268d7c7a/extraction",
+  "corpus_update_2026-10-09/native_refresh_v2/documents/2ec6b220e0c697c31fed/extraction",
+  "rag_context_update_2026-10-10_v1/components/60e9bc79b12d1705605e/extraction",
+  "corpus_update_2026-10-09/native_refresh_v2/documents/ca45114e8702a1849157/extraction",
+  "rag_context_update_2026-10-10_v1/components/dd7ebd4917e6afb0ec08/extraction",
+  "corpus_update_2026-10-09/native_refresh_v2/documents/0f2e036965d90749c702/extraction",
+  "corpus_update_2026-10-09/native_refresh_v2/documents/bdfeab95a59271365758/extraction",
+  "corpus_update_2026-10-09/native_refresh_v2/documents/35e7c3bf0923b2f6e280/extraction",
+  "corpus_update_2026-10-09/light_region_completion/components/a22fd5317101ed9a66d3/extraction",
+  "corpus_update_2026-10-09/native_refresh_v2/documents/811f2ac440748551e0f8/extraction",
+  "corpus_update_2026-10-09/complex_refinement_v3/components/460b55aca7210b4837f1/extraction",
+  "corpus_update_2026-10-09/selective_corpus/documents/4508035f66e8e0f17815/extraction",
+  "corpus_update_2026-10-09/selective_corpus/documents/5e4c45e5ae05751b97aa/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/22dffb52dfefa34ec810/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/b9bd4b6c219a0cc1d58a/extraction",
+  "preprocessing_completion_2026-10-10/queue_finalization_v2/components/8783a4f4c938e40a544a/extraction",
+  "preprocessing_completion_2026-10-10/queue_finalization_v2/components/24761a71b746a2e8d25b/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/40fb60b44897c7f483d5/extraction",
+  "corpus_update_2026-10-09/selective_corpus/documents/d7d3a186e8d068771475/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/b029c51e943cccecb412/extraction",
+  "corpus_update_2026-10-09/selective_corpus/documents/5c2860375481d8ad1289/extraction",
+  "corpus_update_2026-10-09/selective_corpus/documents/2d67f8b3708d62196f49/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/b8c93eb57eba14190b97/extraction",
+  "preprocessing_completion_2026-10-10/queue_finalization_v2/components/334b5f1e8078c811ed52/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/bf056ee4650f0f28c0e0/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/e111f07950abae35723c/extraction",
+  "preprocessing_completion_2026-10-10/source_grid_v1/components/22403fcd74035f4113a3/extraction",
+  "rag_context_update_2026-10-10_v1/components/c2a083cff765aeec91a6/extraction",
+  "corpus_update_2026-10-09/selective_corpus/documents/855ddb02208cb3e2e6e0/extraction",
+  "corpus_update_2026-10-09/selective_corpus/documents/e0301eaaed4333c8dc51/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/50c5f9525d906c8abf77/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/f30ff56c067c63f76d13/extraction",
+  "preprocessing_completion_2026-10-10/queue_finalization_v2/components/2ff2b28105dd9752cdea/extraction",
+  "preprocessing_completion_2026-10-10/queue_finalization_v2/components/2d9cd7d28098b8c28da4/extraction",
+  "corpus_update_2026-10-09/selective_corpus/documents/6a2215a461ca55cf7c2f/extraction",
+  "corpus_update_2026-10-09/selective_corpus/documents/1e93e52de7e20edde1d8/extraction",
+  "corpus_update_2026-10-09/selective_corpus/documents/3f227b2ea870652c33cf/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/be62a014cd95753d921a/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/f52f34eb5dda5c93b56f/extraction",
+  "rag_context_update_2026-10-10_v1/components/0e11135bb8973ce8df37/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/d9b71990579fe8b5845a/extraction",
+  "preprocessing_completion_2026-10-10/queue_finalization_v2/components/bff620aa8672c954cd11/extraction",
+  "corpus_update_2026-10-09/complex_refinement_v3/components/8f901c8ef7ee32f7df71/extraction",
+  "rag_context_update_2026-10-10_v1/components/483c2c8e7c171e538d4b/extraction",
+  "corpus_update_2026-10-09/selective_corpus/documents/bdb5335a3aa8503d4537/extraction",
+  "corpus_update_2026-10-09/selective_corpus/documents/661f67a198e73ce84ab4/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/aa2d84de4f4bddf33045/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/23e4d210049684171576/extraction",
+  "preprocessing_completion_2026-10-10/queue_finalization_v2/components/3393a9c78e9bc5b4f4ff/extraction",
+  "rag_context_update_2026-10-10_v1/components/efe78b1213f75c1a7803/extraction",
+  "preprocessing_completion_2026-10-10/source_grid_v1/components/4054d92f76b7d554e7f5/extraction",
+  "corpus_update_2026-10-09/selective_corpus/documents/7a0150199d2279870825/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/86c497c2049fc8c6d67f/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/1ccdecd702e320e1e508/extraction",
+  "preprocessing_completion_2026-10-10/queue_finalization_v2/components/d9c8c60851be5a972597/extraction",
+  "corpus_update_2026-10-09/selective_corpus/documents/e594f3b4b27cbb32651d/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/608b4ff8fb76611dc04e/extraction",
+  "corpus_update_2026-10-09/selective_corpus/documents/60d0ddbe9d6a52534345/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/22d3fba77580f08f66fd/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/36fd5f452ddcfb278de1/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/ab64a981b11a369fa766/extraction",
+  "preprocessing_completion_2026-10-10/queue_finalization_v2/components/4c860d0cd2240ba0be13/extraction",
+  "corpus_update_2026-10-09/selective_corpus/documents/3164ed8951caffabfa34/extraction",
+  "corpus_update_2026-10-09/selective_corpus/documents/93b840eeefe055c0b85f/extraction",
+  "corpus_update_2026-10-09/selective_corpus/documents/9d09510690f3b7fcfb86/extraction",
+  "corpus_update_2026-10-09/selective_corpus/documents/08b953e4bb0a84928885/extraction",
+  "corpus_update_2026-10-09/selective_corpus/documents/45acfdabd4906e6899c8/extraction",
+  "corpus_update_2026-10-09/selective_corpus/documents/163fb5a8b957f3b8681e/extraction",
+  "preprocessing_completion_2026-10-10/queue_finalization_v2/components/67e87e4b992d429a75f9/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/1b4ca9e91dbfa91d8abd/extraction",
+  "corpus_update_2026-10-09/selective_corpus/documents/d46c417831b0d4adca0e/extraction",
+  "preprocessing_completion_2026-10-10/queue_finalization_v2/components/42c0e3fdef220efd6143/extraction",
+  "rag_context_update_2026-10-10_v1/components/b3a001d311ab26ab9727/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/b57211ffb6b38bb49003/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/8fe8af256f07324c790e/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/f0e5166216491971b86b/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/783fcdce49001d46e66f/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/b492bfa864620223cf2f/extraction",
+  "corpus_update_2026-10-09/structure_refinement_v1/components/e7e44bb73f9ac41d815c/extraction",
+  "corpus_update_2026-10-09/visual_ema_repair/extraction"
+ ],
+ "copies": [
+  {
+   "category": "code:collection-root",
+   "source": "collect.py",
+   "target": "collect.py",
+   "files": 1,
+   "bytes": 66590,
+   "note": ""
+  },
+  {
+   "category": "code:collection-root",
+   "source": "build_indexes.py",
+   "target": "build_indexes.py",
+   "files": 1,
+   "bytes": 12313,
+   "note": ""
+  },
+  {
+   "category": "code:collection-root",
+   "source": "verify.py",
+   "target": "verify.py",
+   "files": 1,
+   "bytes": 9718,
+   "note": ""
+  },
+  {
+   "category": "code:collection-root",
+   "source": "text_layer.py",
+   "target": "text_layer.py",
+   "files": 1,
+   "bytes": 11368,
+   "note": ""
+  },
+  {
+   "category": "code:collection-root",
+   "source": "targets.json",
+   "target": "targets.json",
+   "files": 1,
+   "bytes": 7987,
+   "note": ""
+  },
+  {
+   "category": "code:collection-root",
+   "source": "document_kinds.json",
+   "target": "document_kinds.json",
+   "files": 1,
+   "bytes": 6083,
+   "note": ""
+  },
+  {
+   "category": "code:collection-root",
+   "source": "guidelines.json",
+   "target": "guidelines.json",
+   "files": 1,
+   "bytes": 8349,
+   "note": ""
+  },
+  {
+   "category": "code:collection-root",
+   "source": "names_ko.json",
+   "target": "names_ko.json",
+   "files": 1,
+   "bytes": 9599,
+   "note": ""
+  },
+  {
+   "category": "code:collection-root",
+   "source": "pyproject.toml",
+   "target": "pyproject.toml",
+   "files": 1,
+   "bytes": 975,
+   "note": ""
+  },
+  {
+   "category": "code:collection-root",
+   "source": "uv.lock",
+   "target": "uv.lock",
+   "files": 1,
+   "bytes": 187319,
+   "note": ""
+  },
+  {
+   "category": "code:collection-root",
+   "source": ".python-version",
+   "target": ".python-version",
+   "files": 1,
+   "bytes": 5,
+   "note": ""
+  },
+  {
+   "category": "code:collection-root",
+   "source": "requirements.txt",
+   "target": "requirements.txt",
+   "files": 1,
+   "bytes": 136,
+   "note": ""
+  },
+  {
+   "category": "code:collection-root",
+   "source": "requirements-paddle.lock.txt",
+   "target": "requirements-paddle.lock.txt",
+   "files": 1,
+   "bytes": 2113,
+   "note": ""
+  },
+  {
+   "category": "code:ingestion",
+   "source": "ingestion",
+   "target": "ingestion",
+   "files": 19,
+   "bytes": 153932,
+   "note": ""
+  },
+  {
+   "category": "code:preprocess",
+   "source": "preprocess",
+   "target": "preprocess",
+   "files": 63,
+   "bytes": 575797,
+   "note": ""
+  },
+  {
+   "category": "code:rag",
+   "source": "rag",
+   "target": "rag",
+   "files": 115,
+   "bytes": 1139587,
+   "note": ""
+  },
+  {
+   "category": "code:rag_service",
+   "source": "rag_service",
+   "target": "rag_service",
+   "files": 19,
+   "bytes": 166597,
+   "note": ""
+  },
+  {
+   "category": "code:review_viewer",
+   "source": "review_viewer",
+   "target": "review_viewer",
+   "files": 7,
+   "bytes": 58510,
+   "note": ""
+  },
+  {
+   "category": "code:configs",
+   "source": "configs",
+   "target": "configs",
+   "files": 10,
+   "bytes": 1450434,
+   "note": ""
+  },
+  {
+   "category": "code:eval",
+   "source": "eval",
+   "target": "eval",
+   "files": 102,
+   "bytes": 799358,
+   "note": ""
+  },
+  {
+   "category": "code:gold",
+   "source": "gold",
+   "target": "gold",
+   "files": 5,
+   "bytes": 204950,
+   "note": ""
+  },
+  {
+   "category": "code:product_search",
+   "source": "product_search",
+   "target": "product_search",
+   "files": 7,
+   "bytes": 83933,
+   "note": "staging data (product_search/data, AVT04/DMB3115 test collections, 832MB) not copied"
+  },
+  {
+   "category": "code:tests",
+   "source": "tests",
+   "target": "tests",
+   "files": 132,
+   "bytes": 826849,
+   "note": "excluded tests importing legacy evidence/ and tmp/: test_rag_generalization.py, test_selective_queue.py"
+  },
+  {
+   "category": "code:scripts",
+   "source": "scripts/start_ra_service.ps1",
+   "target": "scripts/start_ra_service.ps1",
+   "files": 1,
+   "bytes": 3866,
+   "note": ""
+  },
+  {
+   "category": "pipeline:main-h",
+   "source": "pipeline_h",
+   "target": "pipelines/pipeline_h",
+   "files": 39,
+   "bytes": 181988,
+   "note": "runs/ split: regression fixtures below, full v2 run archived under data/versions/02_pipeline_h_2026-10-14"
+  },
+  {
+   "category": "pipeline:main-h-regression-fixture",
+   "source": "pipeline_h/runs/glyph_source_regression",
+   "target": "pipelines/pipeline_h/runs/glyph_source_regression",
+   "files": 13,
+   "bytes": 161616,
+   "note": ""
+  },
+  {
+   "category": "pipeline:main-h-regression-fixture",
+   "source": "pipeline_h/runs/glyph_table_context_regression",
+   "target": "pipelines/pipeline_h/runs/glyph_table_context_regression",
+   "files": 7,
+   "bytes": 837314,
+   "note": ""
+  },
+  {
+   "category": "pipeline:main-h-vendor",
+   "source": "compare_study_standalone/compare_study",
+   "target": "pipelines/pipeline_h/vendor/compare_study_standalone/compare_study",
+   "files": 32,
+   "bytes": 159043,
+   "note": "Docling adapter + ra_prep post-processing that pipeline_h imports via sys.path"
+  },
+  {
+   "category": "pipeline:main-h-vendor",
+   "source": "compare_study_standalone/resources",
+   "target": "pipelines/pipeline_h/vendor/compare_study_standalone/resources",
+   "files": 1,
+   "bytes": 71468,
+   "note": ""
+  },
+  {
+   "category": "pipeline:main-h-vendor",
+   "source": "compare_study_standalone/setup.ps1",
+   "target": "pipelines/pipeline_h/vendor/compare_study_standalone/setup.ps1",
+   "files": 1,
+   "bytes": 2323,
+   "note": ""
+  },
+  {
+   "category": "pipeline:main-h-vendor",
+   "source": "compare_study_standalone/download_models.py",
+   "target": "pipelines/pipeline_h/vendor/compare_study_standalone/download_models.py",
+   "files": 1,
+   "bytes": 2018,
+   "note": ""
+  },
+  {
+   "category": "pipeline:main-h-vendor",
+   "source": "compare_study_standalone/config.example.json",
+   "target": "pipelines/pipeline_h/vendor/compare_study_standalone/config.example.json",
+   "files": 1,
+   "bytes": 1449,
+   "note": ""
+  },
+  {
+   "category": "pipeline:main-h-vendor",
+   "source": "compare_study_standalone/requirements-controller.txt",
+   "target": "pipelines/pipeline_h/vendor/compare_study_standalone/requirements-controller.txt",
+   "files": 1,
+   "bytes": 169,
+   "note": ""
+  },
+  {
+   "category": "pipeline:main-h-vendor",
+   "source": "compare_study_standalone/requirements-docling.txt",
+   "target": "pipelines/pipeline_h/vendor/compare_study_standalone/requirements-docling.txt",
+   "files": 1,
+   "bytes": 283,
+   "note": ""
+  },
+  {
+   "category": "pipeline:main-h-vendor",
+   "source": "compare_study_standalone/requirements-paddle.txt",
+   "target": "pipelines/pipeline_h/vendor/compare_study_standalone/requirements-paddle.txt",
+   "files": 1,
+   "bytes": 214,
+   "note": ""
+  },
+  {
+   "category": "pipeline:main-h-regression-fixture",
+   "source": "compare_study_standalone/output/abp654_design_20261014_v2",
+   "target": "pipelines/pipeline_h/vendor/compare_study_standalone/output/abp654_design_20261014_v2",
+   "files": 157,
+   "bytes": 42851227,
+   "note": "read by pipeline_h test_policy/regression/glyph_fixture"
+  },
+  {
+   "category": "pipeline:main-h-regression-fixture",
+   "source": "compare_study_standalone/output/abp654_15p_20261013_v1/gold.json",
+   "target": "pipelines/pipeline_h/vendor/compare_study_standalone/output/abp654_15p_20261013_v1/gold.json",
+   "files": 1,
+   "bytes": 54024,
+   "note": ""
+  },
+  {
+   "category": "pipeline:backup-pilot",
+   "source": "data/runs/rag_finalization_2026-10-10_v2/final_code_snapshot",
+   "target": "pipelines/backup_pilot/code_snapshot_2026-10-10",
+   "files": 214,
+   "bytes": 1769190,
+   "note": "frozen code that built/served rag_finalization_2026-10-10_v2; index.json holds per-file sha256"
+  },
+  {
+   "category": "pipeline:backup-pilot",
+   "source": "tmp/build_corpus_plan.py",
+   "target": "pipelines/backup_pilot/batch_scripts/build_corpus_plan.py",
+   "files": 1,
+   "bytes": 1732,
+   "note": "archival; input paths point at original intermediate data"
+  },
+  {
+   "category": "pipeline:backup-pilot",
+   "source": "tmp/run_light_region_batch.py",
+   "target": "pipelines/backup_pilot/batch_scripts/run_light_region_batch.py",
+   "files": 1,
+   "bytes": 6469,
+   "note": "archival; input paths point at original intermediate data"
+  },
+  {
+   "category": "pipeline:backup-pilot",
+   "source": "tmp/complete_preprocessing_corpus.py",
+   "target": "pipelines/backup_pilot/batch_scripts/complete_preprocessing_corpus.py",
+   "files": 1,
+   "bytes": 12266,
+   "note": "archival; input paths point at original intermediate data"
+  },
+  {
+   "category": "pipeline:backup-pilot",
+   "source": "tmp/finalize_preprocessing_corpus.py",
+   "target": "pipelines/backup_pilot/batch_scripts/finalize_preprocessing_corpus.py",
+   "files": 1,
+   "bytes": 12539,
+   "note": "archival; input paths point at original intermediate data"
+  },
+  {
+   "category": "pipeline:backup-pilot",
+   "source": "tmp/build_rag_context_update.py",
+   "target": "pipelines/backup_pilot/batch_scripts/build_rag_context_update.py",
+   "files": 1,
+   "bytes": 8471,
+   "note": "archival; input paths point at original intermediate data"
+  },
+  {
+   "category": "pipeline:backup-pilot",
+   "source": "tmp/build_rag_finalization.py",
+   "target": "pipelines/backup_pilot/batch_scripts/build_rag_finalization.py",
+   "files": 1,
+   "bytes": 7525,
+   "note": "archival; input paths point at original intermediate data"
+  },
+  {
+   "category": "pipeline:backup-pilot",
+   "source": "tmp/build_rag_finalization_v2.py",
+   "target": "pipelines/backup_pilot/batch_scripts/build_rag_finalization_v2.py",
+   "files": 1,
+   "bytes": 1056,
+   "note": "archival; input paths point at original intermediate data"
+  },
+  {
+   "category": "pipeline:backup-pilot",
+   "source": "tmp/finalize_rag_finalization.py",
+   "target": "pipelines/backup_pilot/batch_scripts/finalize_rag_finalization.py",
+   "files": 1,
+   "bytes": 21440,
+   "note": "archival; input paths point at original intermediate data"
+  },
+  {
+   "category": "pipeline:backup-pilot",
+   "source": "tmp/verify_rag_finalization_v6.py",
+   "target": "pipelines/backup_pilot/batch_scripts/verify_rag_finalization_v6.py",
+   "files": 1,
+   "bytes": 271,
+   "note": "archival; input paths point at original intermediate data"
+  },
+  {
+   "category": "data:source",
+   "source": "data/raw",
+   "target": "data/raw",
+   "files": 332,
+   "bytes": 662842879,
+   "note": ""
+  },
+  {
+   "category": "data:source",
+   "source": "data/repaired",
+   "target": "data/repaired",
+   "files": 17,
+   "bytes": 119597294,
+   "note": ""
+  },
+  {
+   "category": "data:source",
+   "source": "data/parsed",
+   "target": "data/parsed",
+   "files": 434,
+   "bytes": 101218498,
+   "note": ""
+  },
+  {
+   "category": "data:source",
+   "source": "data/catalog",
+   "target": "data/catalog",
+   "files": 16,
+   "bytes": 1634257,
+   "note": ""
+  },
+  {
+   "category": "data:source",
+   "source": "data/registry",
+   "target": "data/registry",
+   "files": 71,
+   "bytes": 7369149,
+   "note": ""
+  },
+  {
+   "category": "data:source",
+   "source": "data/reviewed",
+   "target": "data/reviewed",
+   "files": 11,
+   "bytes": 799256,
+   "note": ""
+  },
+  {
+   "category": "data:source",
+   "source": "data/collection.sqlite",
+   "target": "data/collection.sqlite",
+   "files": 1,
+   "bytes": 152535040,
+   "note": ""
+  },
+  {
+   "category": "data:source",
+   "source": "data/summary.json",
+   "target": "data/summary.json",
+   "files": 1,
+   "bytes": 1949,
+   "note": ""
+  },
+  {
+   "category": "data:collection-run-log",
+   "source": "data/runs/20261001T154113Z.downloads.jsonl",
+   "target": "data/runs/20261001T154113Z.downloads.jsonl",
+   "files": 1,
+   "bytes": 15789,
+   "note": ""
+  },
+  {
+   "category": "data:collection-run-log",
+   "source": "data/runs/20261001T154113Z.errors.jsonl",
+   "target": "data/runs/20261001T154113Z.errors.jsonl",
+   "files": 1,
+   "bytes": 160,
+   "note": ""
+  },
+  {
+   "category": "data:collection-run-log",
+   "source": "data/runs/20261001T154518Z.downloads.jsonl",
+   "target": "data/runs/20261001T154518Z.downloads.jsonl",
+   "files": 1,
+   "bytes": 1499,
+   "note": ""
+  },
+  {
+   "category": "data:collection-run-log",
+   "source": "data/runs/20261001T154909Z.downloads.jsonl",
+   "target": "data/runs/20261001T154909Z.downloads.jsonl",
+   "files": 1,
+   "bytes": 16518,
+   "note": ""
+  },
+  {
+   "category": "data:collection-run-log",
+   "source": "data/runs/20261001T154909Z.errors.jsonl",
+   "target": "data/runs/20261001T154909Z.errors.jsonl",
+   "files": 1,
+   "bytes": 0,
+   "note": ""
+  },
+  {
+   "category": "data:collection-run-log",
+   "source": "data/runs/20261002T092001Z.downloads.jsonl",
+   "target": "data/runs/20261002T092001Z.downloads.jsonl",
+   "files": 1,
+   "bytes": 59976,
+   "note": ""
+  },
+  {
+   "category": "data:collection-run-log",
+   "source": "data/runs/20261002T092001Z.errors.jsonl",
+   "target": "data/runs/20261002T092001Z.errors.jsonl",
+   "files": 1,
+   "bytes": 0,
+   "note": ""
+  },
+  {
+   "category": "data:collection-run-log",
+   "source": "data/runs/20261002T092001Z.summary.json",
+   "target": "data/runs/20261002T092001Z.summary.json",
+   "files": 1,
+   "bytes": 606,
+   "note": ""
+  },
+  {
+   "category": "data:collection-run-log",
+   "source": "data/runs/20261002T100433Z.downloads.jsonl",
+   "target": "data/runs/20261002T100433Z.downloads.jsonl",
+   "files": 1,
+   "bytes": 17441,
+   "note": ""
+  },
+  {
+   "category": "data:collection-run-log",
+   "source": "data/runs/20261002T100433Z.errors.jsonl",
+   "target": "data/runs/20261002T100433Z.errors.jsonl",
+   "files": 1,
+   "bytes": 0,
+   "note": ""
+  },
+  {
+   "category": "data:collection-run-log",
+   "source": "data/runs/20261002T100433Z.summary.json",
+   "target": "data/runs/20261002T100433Z.summary.json",
+   "files": 1,
+   "bytes": 538,
+   "note": ""
+  },
+  {
+   "category": "data:collection-run-log",
+   "source": "data/runs/20261005T153500Z.summary.json",
+   "target": "data/runs/20261005T153500Z.summary.json",
+   "files": 1,
+   "bytes": 959,
+   "note": ""
+  },
+  {
+   "category": "data:collection-run-log",
+   "source": "data/runs/20261005T153721Z.summary.json",
+   "target": "data/runs/20261005T153721Z.summary.json",
+   "files": 1,
+   "bytes": 959,
+   "note": ""
+  },
+  {
+   "category": "data:collection-run-log",
+   "source": "data/runs/20261005T160343Z.summary.json",
+   "target": "data/runs/20261005T160343Z.summary.json",
+   "files": 1,
+   "bytes": 959,
+   "note": ""
+  },
+  {
+   "category": "data:collection-run-log",
+   "source": "data/runs/20261007T174738Z.downloads.jsonl",
+   "target": "data/runs/20261007T174738Z.downloads.jsonl",
+   "files": 1,
+   "bytes": 169992,
+   "note": ""
+  },
+  {
+   "category": "data:collection-run-log",
+   "source": "data/runs/20261007T174738Z.errors.jsonl",
+   "target": "data/runs/20261007T174738Z.errors.jsonl",
+   "files": 1,
+   "bytes": 0,
+   "note": ""
+  },
+  {
+   "category": "data:collection-run-log",
+   "source": "data/runs/20261007T175558Z.downloads.jsonl",
+   "target": "data/runs/20261007T175558Z.downloads.jsonl",
+   "files": 1,
+   "bytes": 31849,
+   "note": ""
+  },
+  {
+   "category": "data:collection-run-log",
+   "source": "data/runs/20261007T175558Z.errors.jsonl",
+   "target": "data/runs/20261007T175558Z.errors.jsonl",
+   "files": 1,
+   "bytes": 0,
+   "note": ""
+  },
+  {
+   "category": "data:collection-run-log",
+   "source": "data/runs/20261007T175558Z.summary.json",
+   "target": "data/runs/20261007T175558Z.summary.json",
+   "files": 1,
+   "bytes": 739,
+   "note": ""
+  },
+  {
+   "category": "data:collection-run-log",
+   "source": "data/runs/20261007T182454Z.downloads.jsonl",
+   "target": "data/runs/20261007T182454Z.downloads.jsonl",
+   "files": 1,
+   "bytes": 31849,
+   "note": ""
+  },
+  {
+   "category": "data:collection-run-log",
+   "source": "data/runs/20261007T182454Z.errors.jsonl",
+   "target": "data/runs/20261007T182454Z.errors.jsonl",
+   "files": 1,
+   "bytes": 0,
+   "note": ""
+  },
+  {
+   "category": "data:collection-run-log",
+   "source": "data/runs/20261007T182454Z.summary.json",
+   "target": "data/runs/20261007T182454Z.summary.json",
+   "files": 1,
+   "bytes": 739,
+   "note": ""
+  },
+  {
+   "category": "data:collection-run-log",
+   "source": "data/runs/20261007T185213Z.downloads.jsonl",
+   "target": "data/runs/20261007T185213Z.downloads.jsonl",
+   "files": 1,
+   "bytes": 31849,
+   "note": ""
+  },
+  {
+   "category": "data:collection-run-log",
+   "source": "data/runs/20261007T185213Z.errors.jsonl",
+   "target": "data/runs/20261007T185213Z.errors.jsonl",
+   "files": 1,
+   "bytes": 0,
+   "note": ""
+  },
+  {
+   "category": "data:collection-run-log",
+   "source": "data/runs/20261007T185213Z.summary.json",
+   "target": "data/runs/20261007T185213Z.summary.json",
+   "files": 1,
+   "bytes": 742,
+   "note": ""
+  },
+  {
+   "category": "data:api-usage-ledger",
+   "source": "data/runs/model_quota",
+   "target": "data/runs/model_quota",
+   "files": 7,
+   "bytes": 1040060,
+   "note": ""
+  },
+  {
+   "category": "data:approved-scope",
+   "source": "data/runs/corpus_update_2026-10-09/corpus_plan.json",
+   "target": "data/runs/corpus_update_2026-10-09/corpus_plan.json",
+   "files": 1,
+   "bytes": 96254,
+   "note": ""
+  },
+  {
+   "category": "data:approved-scope",
+   "source": "data/runs/corpus_update_2026-10-09/corpus_status.json",
+   "target": "data/runs/corpus_update_2026-10-09/corpus_status.json",
+   "files": 1,
+   "bytes": 113408,
+   "note": ""
+  },
+  {
+   "category": "data:guideline-snapshot",
+   "source": "data/rag/supplemental/ra_guidelines_native_2026-10-11_v1",
+   "target": "data/guidelines/ra_guidelines_native_2026-10-11_v1",
+   "files": 2,
+   "bytes": 1082567,
+   "note": ""
+  },
+  {
+   "category": "data:guideline-snapshot",
+   "source": "data/rag/supplemental/ra_guidelines_native_2026-10-12_v2",
+   "target": "data/guidelines/ra_guidelines_native_2026-10-12_v2",
+   "files": 2,
+   "bytes": 1067900,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-embedded",
+   "source": "data/rag/releases/rag_finalization_2026-10-10_v2",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/embedded/rag_finalization_2026-10-10_v2",
+   "files": 17,
+   "bytes": 350728822,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/rag_context_update_2026-10-10_v1/components/e82c7b3639de2f6fb657/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/rag_context_update_2026-10-10_v1/components/e82c7b3639de2f6fb657/extraction",
+   "files": 14,
+   "bytes": 36966055,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/current_delta/labels",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/current_delta/labels",
+   "files": 21,
+   "bytes": 3719129,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/complex_refinement_v3/components/cf04a28866ff8e2ec0d6/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/complex_refinement_v3/components/cf04a28866ff8e2ec0d6/extraction",
+   "files": 27,
+   "bytes": 11664806,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/native_refresh_v2/documents/3c6833140283fca3aea6/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/native_refresh_v2/documents/3c6833140283fca3aea6/extraction",
+   "files": 21,
+   "bytes": 878973,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/68a413bf02b469893aa9/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/68a413bf02b469893aa9/extraction",
+   "files": 15,
+   "bytes": 1073503,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/e248598528e23fc45199/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/e248598528e23fc45199/extraction",
+   "files": 15,
+   "bytes": 11940894,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/rag_context_update_2026-10-10_v1/components/9c57c5f90b32b55cb545/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/rag_context_update_2026-10-10_v1/components/9c57c5f90b32b55cb545/extraction",
+   "files": 14,
+   "bytes": 13249194,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/native_refresh_v2/documents/b51095b0f10a2d5122bf/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/native_refresh_v2/documents/b51095b0f10a2d5122bf/extraction",
+   "files": 23,
+   "bytes": 1169938,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/native_refresh_v2/documents/6eac19fac464257d8a5f/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/native_refresh_v2/documents/6eac19fac464257d8a5f/extraction",
+   "files": 21,
+   "bytes": 778354,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/native_refresh_v2/documents/81290de921bf268d7c7a/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/native_refresh_v2/documents/81290de921bf268d7c7a/extraction",
+   "files": 37,
+   "bytes": 5568927,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/native_refresh_v2/documents/2ec6b220e0c697c31fed/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/native_refresh_v2/documents/2ec6b220e0c697c31fed/extraction",
+   "files": 60,
+   "bytes": 6630400,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/rag_context_update_2026-10-10_v1/components/60e9bc79b12d1705605e/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/rag_context_update_2026-10-10_v1/components/60e9bc79b12d1705605e/extraction",
+   "files": 14,
+   "bytes": 13697837,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/native_refresh_v2/documents/ca45114e8702a1849157/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/native_refresh_v2/documents/ca45114e8702a1849157/extraction",
+   "files": 41,
+   "bytes": 6845581,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/rag_context_update_2026-10-10_v1/components/dd7ebd4917e6afb0ec08/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/rag_context_update_2026-10-10_v1/components/dd7ebd4917e6afb0ec08/extraction",
+   "files": 14,
+   "bytes": 11742840,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/native_refresh_v2/documents/0f2e036965d90749c702/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/native_refresh_v2/documents/0f2e036965d90749c702/extraction",
+   "files": 21,
+   "bytes": 866412,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/native_refresh_v2/documents/bdfeab95a59271365758/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/native_refresh_v2/documents/bdfeab95a59271365758/extraction",
+   "files": 23,
+   "bytes": 1012904,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/native_refresh_v2/documents/35e7c3bf0923b2f6e280/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/native_refresh_v2/documents/35e7c3bf0923b2f6e280/extraction",
+   "files": 23,
+   "bytes": 891790,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/light_region_completion/components/a22fd5317101ed9a66d3/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/light_region_completion/components/a22fd5317101ed9a66d3/extraction",
+   "files": 15,
+   "bytes": 874377,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/native_refresh_v2/documents/811f2ac440748551e0f8/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/native_refresh_v2/documents/811f2ac440748551e0f8/extraction",
+   "files": 39,
+   "bytes": 5720756,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/complex_refinement_v3/components/460b55aca7210b4837f1/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/complex_refinement_v3/components/460b55aca7210b4837f1/extraction",
+   "files": 31,
+   "bytes": 15999736,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/4508035f66e8e0f17815/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/4508035f66e8e0f17815/extraction",
+   "files": 18,
+   "bytes": 163177,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/5e4c45e5ae05751b97aa/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/5e4c45e5ae05751b97aa/extraction",
+   "files": 22,
+   "bytes": 920345,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/22dffb52dfefa34ec810/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/22dffb52dfefa34ec810/extraction",
+   "files": 15,
+   "bytes": 135941,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/b9bd4b6c219a0cc1d58a/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/b9bd4b6c219a0cc1d58a/extraction",
+   "files": 15,
+   "bytes": 135255,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/preprocessing_completion_2026-10-10/queue_finalization_v2/components/8783a4f4c938e40a544a/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/preprocessing_completion_2026-10-10/queue_finalization_v2/components/8783a4f4c938e40a544a/extraction",
+   "files": 15,
+   "bytes": 6013439,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/preprocessing_completion_2026-10-10/queue_finalization_v2/components/24761a71b746a2e8d25b/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/preprocessing_completion_2026-10-10/queue_finalization_v2/components/24761a71b746a2e8d25b/extraction",
+   "files": 15,
+   "bytes": 5969936,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/40fb60b44897c7f483d5/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/40fb60b44897c7f483d5/extraction",
+   "files": 15,
+   "bytes": 13696165,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/d7d3a186e8d068771475/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/d7d3a186e8d068771475/extraction",
+   "files": 26,
+   "bytes": 1337922,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/b029c51e943cccecb412/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/b029c51e943cccecb412/extraction",
+   "files": 15,
+   "bytes": 298640,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/5c2860375481d8ad1289/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/5c2860375481d8ad1289/extraction",
+   "files": 26,
+   "bytes": 1267972,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/2d67f8b3708d62196f49/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/2d67f8b3708d62196f49/extraction",
+   "files": 42,
+   "bytes": 4421279,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/b8c93eb57eba14190b97/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/b8c93eb57eba14190b97/extraction",
+   "files": 15,
+   "bytes": 2263529,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/preprocessing_completion_2026-10-10/queue_finalization_v2/components/334b5f1e8078c811ed52/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/preprocessing_completion_2026-10-10/queue_finalization_v2/components/334b5f1e8078c811ed52/extraction",
+   "files": 15,
+   "bytes": 2591731,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/bf056ee4650f0f28c0e0/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/bf056ee4650f0f28c0e0/extraction",
+   "files": 15,
+   "bytes": 2186967,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/e111f07950abae35723c/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/e111f07950abae35723c/extraction",
+   "files": 15,
+   "bytes": 6457679,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/preprocessing_completion_2026-10-10/source_grid_v1/components/22403fcd74035f4113a3/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/preprocessing_completion_2026-10-10/source_grid_v1/components/22403fcd74035f4113a3/extraction",
+   "files": 15,
+   "bytes": 5494603,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/rag_context_update_2026-10-10_v1/components/c2a083cff765aeec91a6/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/rag_context_update_2026-10-10_v1/components/c2a083cff765aeec91a6/extraction",
+   "files": 14,
+   "bytes": 9800315,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/855ddb02208cb3e2e6e0/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/855ddb02208cb3e2e6e0/extraction",
+   "files": 18,
+   "bytes": 144700,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/e0301eaaed4333c8dc51/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/e0301eaaed4333c8dc51/extraction",
+   "files": 22,
+   "bytes": 966122,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/50c5f9525d906c8abf77/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/50c5f9525d906c8abf77/extraction",
+   "files": 15,
+   "bytes": 172192,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/f30ff56c067c63f76d13/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/f30ff56c067c63f76d13/extraction",
+   "files": 15,
+   "bytes": 439316,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/preprocessing_completion_2026-10-10/queue_finalization_v2/components/2ff2b28105dd9752cdea/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/preprocessing_completion_2026-10-10/queue_finalization_v2/components/2ff2b28105dd9752cdea/extraction",
+   "files": 15,
+   "bytes": 5694872,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/preprocessing_completion_2026-10-10/queue_finalization_v2/components/2d9cd7d28098b8c28da4/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/preprocessing_completion_2026-10-10/queue_finalization_v2/components/2d9cd7d28098b8c28da4/extraction",
+   "files": 15,
+   "bytes": 20787381,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/6a2215a461ca55cf7c2f/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/6a2215a461ca55cf7c2f/extraction",
+   "files": 26,
+   "bytes": 1197232,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/1e93e52de7e20edde1d8/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/1e93e52de7e20edde1d8/extraction",
+   "files": 26,
+   "bytes": 1489889,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/3f227b2ea870652c33cf/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/3f227b2ea870652c33cf/extraction",
+   "files": 26,
+   "bytes": 1290581,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/be62a014cd95753d921a/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/be62a014cd95753d921a/extraction",
+   "files": 15,
+   "bytes": 768530,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/f52f34eb5dda5c93b56f/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/f52f34eb5dda5c93b56f/extraction",
+   "files": 15,
+   "bytes": 1074224,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/rag_context_update_2026-10-10_v1/components/0e11135bb8973ce8df37/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/rag_context_update_2026-10-10_v1/components/0e11135bb8973ce8df37/extraction",
+   "files": 14,
+   "bytes": 3930444,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/d9b71990579fe8b5845a/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/d9b71990579fe8b5845a/extraction",
+   "files": 15,
+   "bytes": 4432493,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/preprocessing_completion_2026-10-10/queue_finalization_v2/components/bff620aa8672c954cd11/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/preprocessing_completion_2026-10-10/queue_finalization_v2/components/bff620aa8672c954cd11/extraction",
+   "files": 15,
+   "bytes": 5223607,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/complex_refinement_v3/components/8f901c8ef7ee32f7df71/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/complex_refinement_v3/components/8f901c8ef7ee32f7df71/extraction",
+   "files": 23,
+   "bytes": 9879561,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/rag_context_update_2026-10-10_v1/components/483c2c8e7c171e538d4b/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/rag_context_update_2026-10-10_v1/components/483c2c8e7c171e538d4b/extraction",
+   "files": 14,
+   "bytes": 11274856,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/bdb5335a3aa8503d4537/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/bdb5335a3aa8503d4537/extraction",
+   "files": 26,
+   "bytes": 1420928,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/661f67a198e73ce84ab4/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/661f67a198e73ce84ab4/extraction",
+   "files": 28,
+   "bytes": 1692135,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/aa2d84de4f4bddf33045/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/aa2d84de4f4bddf33045/extraction",
+   "files": 15,
+   "bytes": 984961,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/23e4d210049684171576/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/23e4d210049684171576/extraction",
+   "files": 15,
+   "bytes": 1442246,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/preprocessing_completion_2026-10-10/queue_finalization_v2/components/3393a9c78e9bc5b4f4ff/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/preprocessing_completion_2026-10-10/queue_finalization_v2/components/3393a9c78e9bc5b4f4ff/extraction",
+   "files": 15,
+   "bytes": 4598699,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/rag_context_update_2026-10-10_v1/components/efe78b1213f75c1a7803/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/rag_context_update_2026-10-10_v1/components/efe78b1213f75c1a7803/extraction",
+   "files": 14,
+   "bytes": 3166089,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/preprocessing_completion_2026-10-10/source_grid_v1/components/4054d92f76b7d554e7f5/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/preprocessing_completion_2026-10-10/source_grid_v1/components/4054d92f76b7d554e7f5/extraction",
+   "files": 15,
+   "bytes": 7855982,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/7a0150199d2279870825/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/7a0150199d2279870825/extraction",
+   "files": 18,
+   "bytes": 123669,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/86c497c2049fc8c6d67f/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/86c497c2049fc8c6d67f/extraction",
+   "files": 15,
+   "bytes": 162531,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/1ccdecd702e320e1e508/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/1ccdecd702e320e1e508/extraction",
+   "files": 15,
+   "bytes": 3868714,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/preprocessing_completion_2026-10-10/queue_finalization_v2/components/d9c8c60851be5a972597/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/preprocessing_completion_2026-10-10/queue_finalization_v2/components/d9c8c60851be5a972597/extraction",
+   "files": 15,
+   "bytes": 12482217,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/e594f3b4b27cbb32651d/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/e594f3b4b27cbb32651d/extraction",
+   "files": 30,
+   "bytes": 2333933,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/608b4ff8fb76611dc04e/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/608b4ff8fb76611dc04e/extraction",
+   "files": 15,
+   "bytes": 5157158,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/60d0ddbe9d6a52534345/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/60d0ddbe9d6a52534345/extraction",
+   "files": 22,
+   "bytes": 938215,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/22d3fba77580f08f66fd/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/22d3fba77580f08f66fd/extraction",
+   "files": 15,
+   "bytes": 151532,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/36fd5f452ddcfb278de1/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/36fd5f452ddcfb278de1/extraction",
+   "files": 15,
+   "bytes": 283919,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/ab64a981b11a369fa766/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/ab64a981b11a369fa766/extraction",
+   "files": 15,
+   "bytes": 3431753,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/preprocessing_completion_2026-10-10/queue_finalization_v2/components/4c860d0cd2240ba0be13/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/preprocessing_completion_2026-10-10/queue_finalization_v2/components/4c860d0cd2240ba0be13/extraction",
+   "files": 15,
+   "bytes": 17689233,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/3164ed8951caffabfa34/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/3164ed8951caffabfa34/extraction",
+   "files": 24,
+   "bytes": 1060402,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/93b840eeefe055c0b85f/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/93b840eeefe055c0b85f/extraction",
+   "files": 24,
+   "bytes": 1020497,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/9d09510690f3b7fcfb86/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/9d09510690f3b7fcfb86/extraction",
+   "files": 24,
+   "bytes": 1130168,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/08b953e4bb0a84928885/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/08b953e4bb0a84928885/extraction",
+   "files": 26,
+   "bytes": 1390080,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/45acfdabd4906e6899c8/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/45acfdabd4906e6899c8/extraction",
+   "files": 28,
+   "bytes": 1493809,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/163fb5a8b957f3b8681e/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/163fb5a8b957f3b8681e/extraction",
+   "files": 30,
+   "bytes": 2098049,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/preprocessing_completion_2026-10-10/queue_finalization_v2/components/67e87e4b992d429a75f9/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/preprocessing_completion_2026-10-10/queue_finalization_v2/components/67e87e4b992d429a75f9/extraction",
+   "files": 15,
+   "bytes": 586957,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/1b4ca9e91dbfa91d8abd/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/1b4ca9e91dbfa91d8abd/extraction",
+   "files": 15,
+   "bytes": 709543,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/d46c417831b0d4adca0e/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/selective_corpus/documents/d46c417831b0d4adca0e/extraction",
+   "files": 54,
+   "bytes": 7514374,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/preprocessing_completion_2026-10-10/queue_finalization_v2/components/42c0e3fdef220efd6143/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/preprocessing_completion_2026-10-10/queue_finalization_v2/components/42c0e3fdef220efd6143/extraction",
+   "files": 15,
+   "bytes": 1907765,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/rag_context_update_2026-10-10_v1/components/b3a001d311ab26ab9727/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/rag_context_update_2026-10-10_v1/components/b3a001d311ab26ab9727/extraction",
+   "files": 14,
+   "bytes": 2666708,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/b57211ffb6b38bb49003/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/b57211ffb6b38bb49003/extraction",
+   "files": 15,
+   "bytes": 2996863,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/8fe8af256f07324c790e/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/8fe8af256f07324c790e/extraction",
+   "files": 15,
+   "bytes": 4735281,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/f0e5166216491971b86b/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/f0e5166216491971b86b/extraction",
+   "files": 15,
+   "bytes": 3002315,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/783fcdce49001d46e66f/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/783fcdce49001d46e66f/extraction",
+   "files": 15,
+   "bytes": 6342242,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/b492bfa864620223cf2f/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/b492bfa864620223cf2f/extraction",
+   "files": 15,
+   "bytes": 11174015,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/e7e44bb73f9ac41d815c/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/structure_refinement_v1/components/e7e44bb73f9ac41d815c/extraction",
+   "files": 15,
+   "bytes": 6243094,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-preprocessed",
+   "source": "data/preprocessed/corpus_update_2026-10-09/visual_ema_repair/extraction",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/preprocessed/corpus_update_2026-10-09/visual_ema_repair/extraction",
+   "files": 21,
+   "bytes": 593411,
+   "note": ""
+  },
+  {
+   "category": "data:pilot-records",
+   "source": "data/runs/rag_finalization_2026-10-10_v2",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/records/run_rag_finalization_2026-10-10_v2",
+   "files": 575,
+   "bytes": 15416254,
+   "note": "final_code_snapshot moved to pipelines/backup_pilot"
+  },
+  {
+   "category": "data:pilot-records",
+   "source": "data/rag/service_release.json",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/records/service_release.json",
+   "files": 1,
+   "bytes": 2439,
+   "note": ""
+  },
+  {
+   "category": "data:latest-preprocessed",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/extraction",
+   "target": "data/versions/02_pipeline_h_2026-10-14/preprocessed/extraction",
+   "files": 19,
+   "bytes": 499886816,
+   "note": ""
+  },
+  {
+   "category": "data:latest-preprocessed",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/html_dom_preview",
+   "target": "data/versions/02_pipeline_h_2026-10-14/preprocessed/html_dom_preview",
+   "files": 22,
+   "bytes": 4496480,
+   "note": ""
+  },
+  {
+   "category": "data:latest-preprocessed",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/dom_page_images",
+   "target": "data/versions/02_pipeline_h_2026-10-14/preprocessed/dom_page_images",
+   "files": 99,
+   "bytes": 14187432,
+   "note": ""
+  },
+  {
+   "category": "data:latest-embedded",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/candidate",
+   "target": "data/versions/02_pipeline_h_2026-10-14/embedded/candidate",
+   "files": 18,
+   "bytes": 505278487,
+   "note": ""
+  },
+  {
+   "category": "data:latest-embedded",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/release",
+   "target": "data/versions/02_pipeline_h_2026-10-14/embedded/release",
+   "files": 17,
+   "bytes": 412770329,
+   "note": ""
+  },
+  {
+   "category": "data:latest-records",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/candidate_decisions.json",
+   "target": "data/versions/02_pipeline_h_2026-10-14/records/candidate_decisions.json",
+   "files": 1,
+   "bytes": 2006871,
+   "note": ""
+  },
+  {
+   "category": "data:latest-records",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/catalog_snapshot.json",
+   "target": "data/versions/02_pipeline_h_2026-10-14/records/catalog_snapshot.json",
+   "files": 1,
+   "bytes": 281804,
+   "note": ""
+  },
+  {
+   "category": "data:latest-records",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/chunks_process.json",
+   "target": "data/versions/02_pipeline_h_2026-10-14/records/chunks_process.json",
+   "files": 1,
+   "bytes": 352,
+   "note": ""
+  },
+  {
+   "category": "data:latest-records",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/controller.error.log",
+   "target": "data/versions/02_pipeline_h_2026-10-14/records/controller.error.log",
+   "files": 1,
+   "bytes": 1102,
+   "note": ""
+  },
+  {
+   "category": "data:latest-records",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/controller.log",
+   "target": "data/versions/02_pipeline_h_2026-10-14/records/controller.log",
+   "files": 1,
+   "bytes": 1901,
+   "note": ""
+  },
+  {
+   "category": "data:latest-records",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/controller_process.json",
+   "target": "data/versions/02_pipeline_h_2026-10-14/records/controller_process.json",
+   "files": 1,
+   "bytes": 22,
+   "note": ""
+  },
+  {
+   "category": "data:latest-records",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/docling_progress.json",
+   "target": "data/versions/02_pipeline_h_2026-10-14/records/docling_progress.json",
+   "files": 1,
+   "bytes": 70057,
+   "note": ""
+  },
+  {
+   "category": "data:latest-records",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/docling_runtime.json",
+   "target": "data/versions/02_pipeline_h_2026-10-14/records/docling_runtime.json",
+   "files": 1,
+   "bytes": 7430,
+   "note": ""
+  },
+  {
+   "category": "data:latest-records",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/embedding_process.json",
+   "target": "data/versions/02_pipeline_h_2026-10-14/records/embedding_process.json",
+   "files": 1,
+   "bytes": 381,
+   "note": ""
+  },
+  {
+   "category": "data:latest-records",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/final_postcheck.json",
+   "target": "data/versions/02_pipeline_h_2026-10-14/records/final_postcheck.json",
+   "files": 1,
+   "bytes": 3567,
+   "note": ""
+  },
+  {
+   "category": "data:latest-records",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/FINAL_REPORT.md",
+   "target": "data/versions/02_pipeline_h_2026-10-14/records/FINAL_REPORT.md",
+   "files": 1,
+   "bytes": 5094,
+   "note": ""
+  },
+  {
+   "category": "data:latest-records",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/final_summary.json",
+   "target": "data/versions/02_pipeline_h_2026-10-14/records/final_summary.json",
+   "files": 1,
+   "bytes": 553243,
+   "note": ""
+  },
+  {
+   "category": "data:latest-records",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/fix_regression.json",
+   "target": "data/versions/02_pipeline_h_2026-10-14/records/fix_regression.json",
+   "files": 1,
+   "bytes": 384589,
+   "note": ""
+  },
+  {
+   "category": "data:latest-records",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/independent_html_coverage.json",
+   "target": "data/versions/02_pipeline_h_2026-10-14/records/independent_html_coverage.json",
+   "files": 1,
+   "bytes": 2349,
+   "note": ""
+  },
+  {
+   "category": "data:latest-records",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/intake_manifest.json",
+   "target": "data/versions/02_pipeline_h_2026-10-14/records/intake_manifest.json",
+   "files": 1,
+   "bytes": 601222,
+   "note": ""
+  },
+  {
+   "category": "data:latest-records",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/layout_runtime.json",
+   "target": "data/versions/02_pipeline_h_2026-10-14/records/layout_runtime.json",
+   "files": 1,
+   "bytes": 133,
+   "note": ""
+  },
+  {
+   "category": "data:latest-records",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/metadata_and_integrity_audit.json",
+   "target": "data/versions/02_pipeline_h_2026-10-14/records/metadata_and_integrity_audit.json",
+   "files": 1,
+   "bytes": 804,
+   "note": ""
+  },
+  {
+   "category": "data:latest-records",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/pipeline_status.json",
+   "target": "data/versions/02_pipeline_h_2026-10-14/records/pipeline_status.json",
+   "files": 1,
+   "bytes": 539,
+   "note": ""
+  },
+  {
+   "category": "data:latest-records",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/preview_literal_audit.json",
+   "target": "data/versions/02_pipeline_h_2026-10-14/records/preview_literal_audit.json",
+   "files": 1,
+   "bytes": 102,
+   "note": ""
+  },
+  {
+   "category": "data:latest-records",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/products_snapshot.json",
+   "target": "data/versions/02_pipeline_h_2026-10-14/records/products_snapshot.json",
+   "files": 1,
+   "bytes": 31309,
+   "note": ""
+  },
+  {
+   "category": "data:latest-records",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/provenance_correction.json",
+   "target": "data/versions/02_pipeline_h_2026-10-14/records/provenance_correction.json",
+   "files": 1,
+   "bytes": 559,
+   "note": ""
+  },
+  {
+   "category": "data:latest-records",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/repair_summary.json",
+   "target": "data/versions/02_pipeline_h_2026-10-14/records/repair_summary.json",
+   "files": 1,
+   "bytes": 483,
+   "note": ""
+  },
+  {
+   "category": "data:latest-records",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/selection_manifest.json",
+   "target": "data/versions/02_pipeline_h_2026-10-14/records/selection_manifest.json",
+   "files": 1,
+   "bytes": 3386174,
+   "note": ""
+  },
+  {
+   "category": "data:latest-records",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/source_content_audit.json",
+   "target": "data/versions/02_pipeline_h_2026-10-14/records/source_content_audit.json",
+   "files": 1,
+   "bytes": 3114,
+   "note": ""
+  },
+  {
+   "category": "data:latest-records",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/stage_timings.json",
+   "target": "data/versions/02_pipeline_h_2026-10-14/records/stage_timings.json",
+   "files": 1,
+   "bytes": 116,
+   "note": ""
+  },
+  {
+   "category": "data:latest-records",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/validate_release_process.json",
+   "target": "data/versions/02_pipeline_h_2026-10-14/records/validate_release_process.json",
+   "files": 1,
+   "bytes": 384,
+   "note": ""
+  },
+  {
+   "category": "data:latest-records",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/vlm_runtime.json",
+   "target": "data/versions/02_pipeline_h_2026-10-14/records/vlm_runtime.json",
+   "files": 1,
+   "bytes": 438,
+   "note": ""
+  },
+  {
+   "category": "data:latest-records",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/logs",
+   "target": "data/versions/02_pipeline_h_2026-10-14/records/logs",
+   "files": 3,
+   "bytes": 163642,
+   "note": ""
+  },
+  {
+   "category": "docs:selected",
+   "source": "docs/PIPELINE_PRINCIPLES.md",
+   "target": "docs/PIPELINE_PRINCIPLES.md",
+   "files": 1,
+   "bytes": 41712,
+   "note": ""
+  },
+  {
+   "category": "docs:selected",
+   "source": "docs/DATA_PREPROCESSING_PIPELINE.md",
+   "target": "docs/DATA_PREPROCESSING_PIPELINE.md",
+   "files": 1,
+   "bytes": 35858,
+   "note": ""
+  },
+  {
+   "category": "docs:selected",
+   "source": "docs/collection/INGESTION_PIPELINE.md",
+   "target": "docs/collection/INGESTION_PIPELINE.md",
+   "files": 1,
+   "bytes": 25863,
+   "note": ""
+  },
+  {
+   "category": "docs:selected",
+   "source": "docs/collection/INGESTION_AGENT_DB_PLAN_2026-10-14.md",
+   "target": "docs/collection/INGESTION_AGENT_DB_PLAN_2026-10-14.md",
+   "files": 1,
+   "bytes": 54081,
+   "note": ""
+  },
+  {
+   "category": "docs:selected",
+   "source": "docs/preprocessing/FINAL_PREPROCESSING_DECISION_2026-10-14.md",
+   "target": "docs/preprocessing/FINAL_PREPROCESSING_DECISION_2026-10-14.md",
+   "files": 1,
+   "bytes": 16312,
+   "note": ""
+  },
+  {
+   "category": "docs:selected",
+   "source": "docs/preprocessing/FINAL_PREPROCESSING_DECISION_2026-10-14.json",
+   "target": "docs/preprocessing/FINAL_PREPROCESSING_DECISION_2026-10-14.json",
+   "files": 1,
+   "bytes": 6819,
+   "note": ""
+  },
+  {
+   "category": "docs:selected",
+   "source": "docs/preprocessing/FINAL_PREPROCESSING_DECISION_2026-10-14.verification.json",
+   "target": "docs/preprocessing/FINAL_PREPROCESSING_DECISION_2026-10-14.verification.json",
+   "files": 1,
+   "bytes": 304,
+   "note": ""
+  },
+  {
+   "category": "docs:selected",
+   "source": "docs/preprocessing/PIPELINE_COMPLETION_2026-10-10.md",
+   "target": "docs/preprocessing/PIPELINE_COMPLETION_2026-10-10.md",
+   "files": 1,
+   "bytes": 7953,
+   "note": ""
+  },
+  {
+   "category": "docs:selected",
+   "source": "docs/preprocessing/TEXT_LAYER_REPAIR.md",
+   "target": "docs/preprocessing/TEXT_LAYER_REPAIR.md",
+   "files": 1,
+   "bytes": 21155,
+   "note": ""
+  },
+  {
+   "category": "docs:selected",
+   "source": "docs/rag/RAG_PIPELINE_CHUNK_EMBEDDING_GUIDE_2026-10-14.md",
+   "target": "docs/rag/RAG_PIPELINE_CHUNK_EMBEDDING_GUIDE_2026-10-14.md",
+   "files": 1,
+   "bytes": 36903,
+   "note": ""
+  },
+  {
+   "category": "docs:selected",
+   "source": "docs/rag/UI_3PANE_AND_RA_FEATURES_PLAN_2026-10-13.md",
+   "target": "docs/rag/UI_3PANE_AND_RA_FEATURES_PLAN_2026-10-13.md",
+   "files": 1,
+   "bytes": 43587,
+   "note": ""
+  },
+  {
+   "category": "docs:selected",
+   "source": "docs/rag/FINALIZATION_API_EVAL_2026-10-10.md",
+   "target": "docs/rag/FINALIZATION_API_EVAL_2026-10-10.md",
+   "files": 1,
+   "bytes": 10187,
+   "note": ""
+  },
+  {
+   "category": "docs:selected",
+   "source": "docs/rag/GUIDELINE_STATUS_2026-10-12.md",
+   "target": "docs/rag/GUIDELINE_STATUS_2026-10-12.md",
+   "files": 1,
+   "bytes": 8455,
+   "note": ""
+  },
+  {
+   "category": "docs:selected",
+   "source": "docs/rag/GUIDELINE_STATUS_2026-10-12.json",
+   "target": "docs/rag/GUIDELINE_STATUS_2026-10-12.json",
+   "files": 1,
+   "bytes": 19677,
+   "note": ""
+  },
+  {
+   "category": "docs:selected",
+   "source": "docs/project/BIOSIMILAR_WORKFLOW_AND_POC_REVIEW_2026-10-04.md",
+   "target": "docs/project/BIOSIMILAR_WORKFLOW_AND_POC_REVIEW_2026-10-04.md",
+   "files": 1,
+   "bytes": 35313,
+   "note": ""
+  },
+  {
+   "category": "docs:selected",
+   "source": "docs/project/LIMITATIONS_AND_NEXT_STEPS_2026-10-12.md",
+   "target": "docs/project/LIMITATIONS_AND_NEXT_STEPS_2026-10-12.md",
+   "files": 1,
+   "bytes": 13968,
+   "note": ""
+  },
+  {
+   "category": "docs:selected",
+   "source": "docs/research/RELATED_RESEARCH_REVIEW_2026-10-06.md",
+   "target": "docs/research/RELATED_RESEARCH_REVIEW_2026-10-06.md",
+   "files": 1,
+   "bytes": 24187,
+   "note": ""
+  },
+  {
+   "category": "docs:gathered-from-code-folder",
+   "source": "pipeline_h/REPAIR_DESIGN.md",
+   "target": "docs/preprocessing/pipeline_h/REPAIR_DESIGN.md",
+   "files": 1,
+   "bytes": 7201,
+   "note": ""
+  },
+  {
+   "category": "docs:gathered-from-code-folder",
+   "source": "pipeline_h/WORK_LOG.md",
+   "target": "docs/preprocessing/pipeline_h/WORK_LOG.md",
+   "files": 1,
+   "bytes": 10293,
+   "note": ""
+  },
+  {
+   "category": "docs:gathered-from-run-folder",
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/FINAL_REPORT.md",
+   "target": "docs/preprocessing/pipeline_h/FINAL_REPORT_ustekinumab_20261014_v2.md",
+   "files": 1,
+   "bytes": 5094,
+   "note": "also kept verbatim in records/"
+  }
+ ],
+ "rewrites": [
+  {
+   "file": "eval/audit_ra_validation_report.py",
+   "changes": {
+    "data/rag/releases/rag_finalization_2026-10-10_v2": 1
+   }
+  },
+  {
+   "file": "eval/h_v2_development_eval.py",
+   "changes": {
+    "data/rag/releases/rag_finalization_2026-10-10_v2": 1,
+    "data/rag/supplemental": 1,
+    "pipeline_h/runs/ustekinumab_20261014_v2/release": 1
+   }
+  },
+  {
+   "file": "eval/ra_guideline_refresh_2026_10_12.py",
+   "changes": {
+    "data/rag/supplemental": 2
+   }
+  },
+  {
+   "file": "eval/ra_span_api_eval.py",
+   "changes": {
+    "data/rag/releases/rag_finalization_2026-10-10_v2": 1,
+    "data/rag/supplemental": 1
+   }
+  },
+  {
+   "file": "eval/ra_structure_compare_2026_10_12.py",
+   "changes": {
+    "data/rag/releases/rag_finalization_2026-10-10_v2": 1,
+    "data/rag/supplemental": 1
+   }
+  },
+  {
+   "file": "eval/ra_structure_development_2026_10_12.py",
+   "changes": {
+    "data/rag/supplemental": 1
+   }
+  },
+  {
+   "file": "eval/ra_today_eval.py",
+   "changes": {
+    "data/rag/releases/rag_finalization_2026-10-10_v2": 1,
+    "data/rag/supplemental": 1
+   }
+  },
+  {
+   "file": "eval/ra_workflow_update_eval.py",
+   "changes": {
+    "data/rag/releases/rag_finalization_2026-10-10_v2": 1,
+    "data/rag/supplemental": 1
+   }
+  },
+  {
+   "file": "ingestion/registry.py",
+   "changes": {
+    "data/rag/releases/rag_finalization_2026-10-10_v2": 1
+   }
+  },
+  {
+   "file": "rag/audit_contract_stage1.py",
+   "changes": {
+    "data/rag/releases/rag_finalization_2026-10-10_v2": 1
+   }
+  },
+  {
+   "file": "rag/eval_contract_stage2.py",
+   "changes": {
+    "data/rag/releases/rag_finalization_2026-10-10_v2": 1
+   }
+  },
+  {
+   "file": "scripts/start_ra_service.ps1",
+   "changes": {
+    "data\\rag\\releases\\rag_finalization_2026-10-10_v2": 1,
+    "data\\rag\\supplemental": 1
+   }
+  },
+  {
+   "file": "tests/test_ra_guideline_topic_retrieval.py",
+   "changes": {
+    "data/rag/supplemental": 1
+   }
+  },
+  {
+   "file": "tests/test_ra_today_service.py",
+   "changes": {
+    "data/rag/supplemental": 1
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/finish.py",
+   "changes": {
+    "data/rag/releases/rag_finalization_2026-10-10_v2": 1
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/prepare.py",
+   "changes": {
+    "data/rag/releases/rag_finalization_2026-10-10_v2": 4,
+    "data/rag/service_release.json": 1
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/acceleration_supervisor.py",
+   "changes": {
+    "re:(?<![\\w/\\\\.])pipeline_h\\.(?=[A-Za-z_])": 5
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/benchmark_batch.py",
+   "changes": {
+    "re:(?<![\\w/\\\\.])pipeline_h\\.(?=[A-Za-z_])": 4
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/checkpoint_restart.py",
+   "changes": {
+    "ROOT/'pipeline_h/": 1,
+    "re:(?<![\\w/\\\\.])pipeline_h\\.(?=[A-Za-z_])": 3
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/chunks.py",
+   "changes": {
+    "re:(?<![\\w/\\\\.])pipeline_h\\.(?=[A-Za-z_])": 2
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/docling_runtime.py",
+   "changes": {
+    "re:(?<![\\w/\\\\.])pipeline_h\\.(?=[A-Za-z_])": 1
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/docling_worker.py",
+   "changes": {
+    "ROOT/'compare_study_standalone": 2,
+    "ROOT=Path(__file__).resolve().parents[1]": 1,
+    "re:(?<![\\w/\\\\.])pipeline_h\\.(?=[A-Za-z_])": 3
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/exclusion_audit.py",
+   "changes": {
+    "re:(?<![\\w/\\\\.])pipeline_h\\.(?=[A-Za-z_])": 1
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/export.py",
+   "changes": {
+    "re:(?<![\\w/\\\\.])pipeline_h\\.(?=[A-Za-z_])": 8
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/finish.py",
+   "changes": {
+    "re:(?<![\\w/\\\\.])pipeline_h\\.(?=[A-Za-z_])": 4
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/geometry_review.py",
+   "changes": {
+    "re:(?<![\\w/\\\\.])pipeline_h\\.(?=[A-Za-z_])": 1
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/geometry_review_server.py",
+   "changes": {
+    "re:(?<![\\w/\\\\.])pipeline_h\\.(?=[A-Za-z_])": 1
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/glyph_fixture.py",
+   "changes": {
+    "ROOT/'pipeline_h/": 5,
+    "ROOT/'compare_study_standalone": 2,
+    "re:(?<![\\w/\\\\.])pipeline_h\\.(?=[A-Za-z_])": 5
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/html_coverage.py",
+   "changes": {
+    "re:(?<![\\w/\\\\.])pipeline_h\\.(?=[A-Za-z_])": 1
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/html_preview.py",
+   "changes": {
+    "re:(?<![\\w/\\\\.])pipeline_h\\.(?=[A-Za-z_])": 2
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/metadata_tools.py",
+   "changes": {
+    "Path(__file__).resolve().parents[1]/'compare_study_standalone/": 1
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/paddle_worker.py",
+   "changes": {
+    "re:(?<![\\w/\\\\.])pipeline_h\\.(?=[A-Za-z_])": 2
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/prepare.py",
+   "changes": {
+    "ROOT=Path(__file__).resolve().parents[1]": 1,
+    "re:(?<![\\w/\\\\.])pipeline_h\\.(?=[A-Za-z_])": 1
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/regression.py",
+   "changes": {
+    "ROOT/'pipeline_h/": 2,
+    "ROOT/'compare_study_standalone": 3,
+    "re:(?<![\\w/\\\\.])pipeline_h\\.(?=[A-Za-z_])": 3
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/repair_extraction.py",
+   "changes": {
+    "re:(?<![\\w/\\\\.])pipeline_h\\.(?=[A-Za-z_])": 4
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/repair_run.py",
+   "changes": {
+    "ROOT/'pipeline_h/": 1,
+    "re:(?<![\\w/\\\\.])pipeline_h\\.(?=[A-Za-z_])": 6
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/run.py",
+   "changes": {
+    "ROOT/'pipeline_h/": 1,
+    "re:(?<![\\w/\\\\.])pipeline_h\\.(?=[A-Za-z_])": 10
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/selection.py",
+   "changes": {
+    "re:(?<![\\w/\\\\.])pipeline_h\\.(?=[A-Za-z_])": 4
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/smoke_visual.py",
+   "changes": {
+    "ROOT/'pipeline_h/": 3,
+    "ROOT/'pipeline_h'": 1,
+    "re:(?<![\\w/\\\\.])pipeline_h\\.(?=[A-Za-z_])": 4
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/source_contract.py",
+   "changes": {
+    "re:(?<![\\w/\\\\.])pipeline_h\\.(?=[A-Za-z_])": 3
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/source_router.py",
+   "changes": {
+    "re:(?<![\\w/\\\\.])pipeline_h\\.(?=[A-Za-z_])": 3
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/test_batch.py",
+   "changes": {
+    "re:(?<![\\w/\\\\.])pipeline_h\\.(?=[A-Za-z_])": 4
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/test_html_source.py",
+   "changes": {
+    "re:(?<![\\w/\\\\.])pipeline_h\\.(?=[A-Za-z_])": 1
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/test_policy.py",
+   "changes": {
+    "ROOT/'pipeline_h/": 1,
+    "ROOT/'compare_study_standalone": 1,
+    "re:(?<![\\w/\\\\.])pipeline_h\\.(?=[A-Za-z_])": 5
+   }
+  },
+  {
+   "file": "eval/h_v2_native_candidate.py",
+   "changes": {
+    "re:(?<![\\w/\\\\.])pipeline_h\\.(?=[A-Za-z_])": 1
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/config.local.json",
+   "changes": {
+    "docling.trigram_path": 1
+   }
+  },
+  {
+   "file": "docs/DATA_PREPROCESSING_PIPELINE.md",
+   "changes": {
+    "data/rag/releases/rag_finalization_2026-10-10_v2": 3,
+    "data/rag/supplemental": 2
+   }
+  },
+  {
+   "file": "docs/collection/INGESTION_AGENT_DB_PLAN_2026-10-14.md",
+   "changes": {
+    "data/rag/supplemental": 1
+   }
+  },
+  {
+   "file": "docs/collection/INGESTION_PIPELINE.md",
+   "changes": {
+    "data/rag/supplemental": 1
+   }
+  },
+  {
+   "file": "docs/rag/RAG_PIPELINE_CHUNK_EMBEDDING_GUIDE_2026-10-14.md",
+   "changes": {
+    "data/rag/releases/rag_finalization_2026-10-10_v2": 1,
+    "re:((?:\\.\\./)+)pipeline_h/": 6,
+    "re:(?<![\\w/\\\\.])pipeline_h([/.])(?=[A-Za-z_])": 2
+   }
+  },
+  {
+   "file": "docs/preprocessing/pipeline_h/WORK_LOG.md",
+   "changes": {
+    "data/rag/releases/rag_finalization_2026-10-10_v2": 1
+   }
+  },
+  {
+   "file": "pipelines/pipeline_h/README.md",
+   "changes": {
+    "re:(?<![\\w/\\\\.])pipeline_h([/.])(?=[A-Za-z_])": 5
+   }
+  },
+  {
+   "file": "rag_service/README.md",
+   "changes": {
+    "data/rag/releases/rag_finalization_2026-10-10_v2": 4,
+    "data/rag/supplemental": 1
+   }
+  }
+ ],
+ "integrity_checks": [
+  {
+   "source": "data/rag/releases/rag_finalization_2026-10-10_v2/candidate/chunks.jsonl",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/embedded/rag_finalization_2026-10-10_v2/candidate/chunks.jsonl",
+   "sha256": "bc2ef2ce7211c3f37d3f3150159013c9231b5f57d67cb26601b2a214e4ca626c",
+   "identical": true
+  },
+  {
+   "source": "data/rag/releases/rag_finalization_2026-10-10_v2/candidate/emb/bge-m3/doc.npy",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/embedded/rag_finalization_2026-10-10_v2/candidate/emb/bge-m3/doc.npy",
+   "sha256": "45a6ea30b15b46360e53422a5d2d4bb6871d3ced55b03c7125e2c06225194bb7",
+   "identical": true
+  },
+  {
+   "source": "data/rag/releases/rag_finalization_2026-10-10_v2/release_manifest.json",
+   "target": "data/versions/01_pilot_baseline_2026-10-10/embedded/rag_finalization_2026-10-10_v2/release_manifest.json",
+   "sha256": "d1489ac8be3ad3601c5834e46dc3a1107c3989262a1c7e30f69bd8ebb0d76736",
+   "identical": true
+  },
+  {
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/release/candidate/chunks.jsonl",
+   "target": "data/versions/02_pipeline_h_2026-10-14/embedded/release/candidate/chunks.jsonl",
+   "sha256": "d89adca09645e3312b0d3f8f7fe8327094228f2672331e4c0c5f0d49177a5e3c",
+   "identical": true
+  },
+  {
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/release/candidate/emb/bge-m3/doc.npy",
+   "target": "data/versions/02_pipeline_h_2026-10-14/embedded/release/candidate/emb/bge-m3/doc.npy",
+   "sha256": "bbbceda2ad08d7fe9322a389af1014d2c182f990185f87a5f4e8b766a728812b",
+   "identical": true
+  },
+  {
+   "source": "pipeline_h/runs/ustekinumab_20261014_v2/extraction/source_units.jsonl",
+   "target": "data/versions/02_pipeline_h_2026-10-14/preprocessed/extraction/source_units.jsonl",
+   "sha256": "d4d677fe95db1e97c592945d4e69fd398823368e9db0f4fcbd94ca8a30b41155",
+   "identical": true
+  },
+  {
+   "source": "data/collection.sqlite",
+   "target": "data/collection.sqlite",
+   "sha256": "21ec64a94845818ada91ef805a8d6cb810db5543bb9272121089e72e2b6adda5",
+   "identical": true
+  },
+  {
+   "source": "data/catalog/documents.jsonl",
+   "target": "data/catalog/documents.jsonl",
+   "sha256": "5b995646736920887bfbd91d72972840291e7c7bccbf170dd685c132948e9051",
+   "identical": true
+  }
+ ],
+ "post_build": [
+  {
+   "kst": "2026-10-14 13:52",
+   "action": "write",
+   "paths": [
+    ".env",
+    ".env.example",
+    ".gitignore",
+    "ingestion/__init__.py (+.env load)",
+    "storage/__init__.py",
+    "storage/postgres.py",
+    "pipelines/__init__.py",
+    "pipelines/pipeline_h/config.example.json"
+   ]
+  },
+  {
+   "kst": "2026-10-14 13:55",
+   "action": "copy (missed by static import scan)",
+   "paths": [
+    "load_reviewed.py",
+    "tests/test_rag_generalization.py",
+    "data/runs/rag_updates_2026-10-09/stage1_scope/frozen.json",
+    "data/runs/ra_today_completion_2026-10-12_v3/C04.json"
+   ]
+  },
+  {
+   "kst": "2026-10-14 13:58",
+   "action": "resync (original edited by another session at 13:50)",
+   "paths": [
+    "rag/ra_pipeline.py",
+    "rag/ra_research.py"
+   ]
+  },
+  {
+   "kst": "2026-10-14 13:59",
+   "action": "remove from copy (tests archived tmp batch code)",
+   "paths": [
+    "tests/test_corpus_finalization.py"
+   ]
+  },
+  {
+   "kst": "2026-10-14 14:06",
+   "action": "resync with same path rules (original edited 13:50-14:05)",
+   "paths": [
+    "eval/h_v2_development_eval.py",
+    "eval/h_v2_native_candidate.py",
+    "eval/h_v2_review_packets.py",
+    "eval/finalize_h_v2_native_candidate.py (new)",
+    "eval/h_v2_development_report.py (new)"
+   ]
+  },
+  {
+   "kst": "2026-10-14 14:39",
+   "action": "reflect H v2 RAG development evaluation (code 4.9.3)",
+   "code": [
+    {
+     "source": "rag/ra_pipeline.py",
+     "target": "rag/ra_pipeline.py",
+     "status": "updated",
+     "path_rules_applied": false
+    },
+    {
+     "source": "rag/ra_quantities.py",
+     "target": "rag/ra_quantities.py",
+     "status": "updated",
+     "path_rules_applied": false
+    },
+    {
+     "source": "rag/ra_retrieval.py",
+     "target": "rag/ra_retrieval.py",
+     "status": "updated",
+     "path_rules_applied": false
+    },
+    {
+     "source": "rag/ra_review.py",
+     "target": "rag/ra_review.py",
+     "status": "updated",
+     "path_rules_applied": false
+    },
+    {
+     "source": "rag/ra_statistical_tables.py",
+     "target": "rag/ra_statistical_tables.py",
+     "status": "new",
+     "path_rules_applied": false
+    },
+    {
+     "source": "eval/h_v2_development_eval.py",
+     "target": "eval/h_v2_development_eval.py",
+     "status": "updated",
+     "path_rules_applied": true
+    },
+    {
+     "source": "eval/h_v2_development_report.py",
+     "target": "eval/h_v2_development_report.py",
+     "status": "updated",
+     "path_rules_applied": true
+    },
+    {
+     "source": "eval/h_v2_review_packets.py",
+     "target": "eval/h_v2_review_packets.py",
+     "status": "updated",
+     "path_rules_applied": false
+    },
+    {
+     "source": "eval/h_v2_saved_response_replay.py",
+     "target": "eval/h_v2_saved_response_replay.py",
+     "status": "new",
+     "path_rules_applied": false
+    },
+    {
+     "source": "eval/h_v2_final_review_notes_2026-10-14.json",
+     "target": "eval/h_v2_final_review_notes_2026-10-14.json",
+     "status": "new",
+     "path_rules_applied": false
+    },
+    {
+     "source": "eval/h_v2_review_notes_2026-10-14.json",
+     "target": "eval/h_v2_review_notes_2026-10-14.json",
+     "status": "new",
+     "path_rules_applied": false
+    },
+    {
+     "source": "eval/h_v2_transfer_cases_2026-10-14.json",
+     "target": "eval/h_v2_transfer_cases_2026-10-14.json",
+     "status": "new",
+     "path_rules_applied": false
+    },
+    {
+     "source": "tests/test_ra_proposed_quantities.py",
+     "target": "tests/test_ra_proposed_quantities.py",
+     "status": "new",
+     "path_rules_applied": false
+    },
+    {
+     "source": "tests/test_ra_statistical_table_retrieval.py",
+     "target": "tests/test_ra_statistical_table_retrieval.py",
+     "status": "new",
+     "path_rules_applied": false
+    }
+   ],
+   "data": [
+    {
+     "source": "data/runs/h_v2_rag_development_2026-10-14_luna_v1/native_candidate_v2/extraction",
+     "target": "data/versions/03_pipeline_h_v2_table_recovery_2026-10-14/preprocessed/extraction",
+     "files": 12,
+     "bytes": 457619954
+    },
+    {
+     "source": "data/runs/h_v2_rag_development_2026-10-14_luna_v1/native_candidate_v2/candidate_final",
+     "target": "data/versions/03_pipeline_h_v2_table_recovery_2026-10-14/embedded/candidate_final",
+     "files": 17,
+     "bytes": 414041523
+    },
+    {
+     "source": "data/runs/h_v2_rag_development_2026-10-14_luna_v1/native_candidate_v2/release_final",
+     "target": "data/versions/03_pipeline_h_v2_table_recovery_2026-10-14/embedded/release_final",
+     "files": 17,
+     "bytes": 413498780
+    },
+    {
+     "source": "data/runs/h_v2_rag_development_2026-10-14_luna_v1/native_candidate_v2/candidate_build.json",
+     "target": "data/versions/03_pipeline_h_v2_table_recovery_2026-10-14/records/candidate_build.json",
+     "files": 1,
+     "bytes": 2975
+    },
+    {
+     "source": "data/runs/h_v2_rag_development_2026-10-14_luna_v1/native_candidate_v2/final_candidate_audit.json",
+     "target": "data/versions/03_pipeline_h_v2_table_recovery_2026-10-14/records/final_candidate_audit.json",
+     "files": 1,
+     "bytes": 818
+    },
+    {
+     "source": "data/runs/h_v2_rag_development_2026-10-14_luna_v1/native_fragment_probe/summary.json",
+     "target": "data/versions/03_pipeline_h_v2_table_recovery_2026-10-14/records/native_fragment_probe_summary.json",
+     "files": 1,
+     "bytes": 26507
+    },
+    {
+     "source": "data/runs/h_v2_rag_development_2026-10-14_luna_v1",
+     "target": "data/runs/h_v2_rag_development_2026-10-14_luna_v1",
+     "files": 1017,
+     "bytes": 53722126
+    },
+    {
+     "source": "data/runs/h_v2_rag_development_2026-10-14_v1/INTERRUPTED_BY_MODEL_CORRECTION.json",
+     "target": "data/runs/h_v2_rag_development_2026-10-14_v1/INTERRUPTED_BY_MODEL_CORRECTION.json",
+     "files": 1,
+     "bytes": 437
+    }
+   ],
+   "docs": [
+    {
+     "source": "docs/rag/H_V2_RAG_DEVELOPMENT_EVAL_2026-10-14.md",
+     "target": "docs/rag/H_V2_RAG_DEVELOPMENT_EVAL_2026-10-14.md",
+     "status": "new",
+     "path_rules_applied": true
+    },
+    {
+     "source": "docs/rag/RAG_PIPELINE_CHUNK_EMBEDDING_GUIDE_2026-10-14.md",
+     "target": "docs/rag/RAG_PIPELINE_CHUNK_EMBEDDING_GUIDE_2026-10-14.md",
+     "status": "updated",
+     "path_rules_applied": true
+    }
+   ],
+   "checks": [
+    {
+     "file": "data/versions/03_pipeline_h_v2_table_recovery_2026-10-14/embedded/release_final/candidate/chunks.jsonl",
+     "sha256": "b34e3bfc9fcc474ec244a9f096c379b82577065f28152f272981c46588083eed",
+     "identical": true
+    },
+    {
+     "file": "data/versions/03_pipeline_h_v2_table_recovery_2026-10-14/embedded/release_final/candidate/emb/bge-m3/doc.npy",
+     "sha256": "1a537a6b0bb0999779ab46b6382821937f4869a30964df88bd263132bc271b5f",
+     "identical": true
+    },
+    {
+     "file": "data/versions/03_pipeline_h_v2_table_recovery_2026-10-14/embedded/release_final/release_manifest.json",
+     "sha256": "cf41d791ffc26c826c1b30671586514f1d49f99f30171903d5cff9e08a1f2e96",
+     "identical": true
+    },
+    {
+     "file": "data/versions/03_pipeline_h_v2_table_recovery_2026-10-14/embedded/candidate_final/chunks.jsonl",
+     "sha256": "b34e3bfc9fcc474ec244a9f096c379b82577065f28152f272981c46588083eed",
+     "identical": true
+    },
+    {
+     "file": "data/versions/03_pipeline_h_v2_table_recovery_2026-10-14/preprocessed/extraction/source_units.jsonl",
+     "sha256": "b51b8c0ec4b26f17d08063245c5e203cd13f3827d00cdbd90cc0288a945fec17",
+     "identical": true
+    }
+   ]
+  },
+  {
+   "kst": "2026-10-14 14:52",
+   "action": "tidy root",
+   "moves": {
+    "collect.py": "collection/collect.py",
+    "build_indexes.py": "collection/build_indexes.py",
+    "verify.py": "collection/verify.py",
+    "text_layer.py": "collection/text_layer.py",
+    "load_reviewed.py": "collection/load_reviewed.py",
+    "targets.json": "configs/collection/targets.json",
+    "document_kinds.json": "configs/collection/document_kinds.json",
+    "guidelines.json": "configs/collection/guidelines.json",
+    "names_ko.json": "configs/collection/names_ko.json",
+    "requirements-paddle.lock.txt": "configs/env/requirements-paddle.lock.txt"
+   },
+   "deleted": [
+    "requirements.txt (same 8 pins as pyproject.toml)"
+   ],
+   "edits": [
+    {
+     "note": "first run applied: file moves, collection/__init__.py, requirements.txt removal, edits to collection/collect.py, build_indexes.py, verify.py, load_reviewed.py, ingestion/contracts.py, tasks.py, agent.py, product_search/collect_products.py, discover.py, guidelines.py; stopped at promote.py (2 targets.json reads, not 1)"
+    },
+    {
+     "file": "product_search/promote.py",
+     "replacements": [
+      [
+       "\nimport collect\n",
+       "\nfrom collection import collect\n",
+       1
+      ],
+      [
+       "(PROJECT / \"targets.json\")",
+       "(PROJECT / \"configs/collection/targets.json\")",
+       2
+      ],
+      [
+       "targets_path = PROJECT / \"targets.json\"",
+       "targets_path = PROJECT / \"configs/collection/targets.json\"",
+       1
+      ],
+      [
+       "for script in (\"build_indexes.py\", \"verify.py\"):",
+       "for script in (\"collection.build_indexes\", \"collection.verify\"):",
+       1
+      ],
+      [
+       "subprocess.run([sys.executable, script], cwd=PROJECT",
+       "subprocess.run([sys.executable, \"-m\", script], cwd=PROJECT",
+       1
+      ],
+      [
+       "if script == \"build_indexes.py\" else",
+       "if script == \"collection.build_indexes\" else",
+       1
+      ],
+      [
+       "# move it, then build_indexes.py and verify.py",
+       "# move it, then collection.build_indexes and collection.verify",
+       1
+      ]
+     ]
+    },
+    {
+     "file": "product_search/coverage.py",
+     "replacements": [
+      [
+       "(HERE.parent / \"document_kinds.json\")",
+       "(HERE.parent / \"configs/collection/document_kinds.json\")",
+       1
+      ]
+     ]
+    },
+    {
+     "file": "tests/test_rag_generalization.py",
+     "replacements": [
+      [
+       "from load_reviewed import validate",
+       "from collection.load_reviewed import validate",
+       1
+      ]
+     ]
+    },
+    {
+     "file": "pyproject.toml",
+     "replacements": [
+      [
+       "# Collection, parsing and OCR: same pins as requirements.txt, which produced data/parsed and data/ocr",
+       "# Collection, parsing and OCR: the pins of the original requirements.txt, which produced data/parsed and data/ocr",
+       1
+      ]
+     ]
+    },
+    {
+     "file": "docs/DATA_PREPROCESSING_PIPELINE.md",
+     "markdown": {
+      "\\]\\(((?:\\.\\./)*)(collect|build_indexes|verify|text_layer|load_reviewed)\\.py(#[^)]*)?\\)": 2
+     }
+    },
+    {
+     "file": "preprocess/README.md",
+     "markdown": {
+      "\\]\\(((?:\\.\\./)*)requirements-paddle\\.lock\\.txt\\)": 1
+     }
+    },
+    {
+     "file": "docs/collection/INGESTION_PIPELINE.md",
+     "markdown": {
+      "python (collect|build_indexes|verify|load_reviewed)\\.py": 9
+     }
+    },
+    {
+     "file": "docs/preprocessing/TEXT_LAYER_REPAIR.md",
+     "markdown": {
+      "python (collect|build_indexes|verify|load_reviewed)\\.py": 3
+     }
+    },
+    {
+     "kst": "2026-10-14 14:53",
+     "second_pass": [
+      {
+       "file": "product_search/promote.py",
+       "replacements": [
+        [
+         "\nfrom collect import read_jsonl, write_jsonl\n",
+         "\nfrom collection.collect import read_jsonl, write_jsonl\n",
+         1
+        ]
+       ]
+      },
+      {
+       "file": "rag_service/inventory.py",
+       "replacements": [
+        [
+         "(root/'targets.json')",
+         "(root/'configs/collection/targets.json')",
+         1
+        ]
+       ]
+      },
+      {
+       "file": "tests/test_ingestion_contracts.py",
+       "replacements": [
+        [
+         "(ROOT / \"targets.json\")",
+         "(ROOT / \"configs/collection/targets.json\")",
+         1
+        ]
+       ]
+      },
+      {
+       "file": "tests/test_ingestion_registry.py",
+       "replacements": [
+        [
+         "        import collect\n",
+         "        from collection import collect\n",
+         1
+        ]
+       ]
+      },
+      {
+       "file": "tests/test_ingestion_tasks.py",
+       "replacements": [
+        [
+         "\nimport collect\n",
+         "\nfrom collection import collect\n",
+         1
+        ],
+        [
+         "(ROOT / \"targets.json\")",
+         "(ROOT / \"configs/collection/targets.json\")",
+         1
+        ]
+       ]
+      },
+      {
+       "file": "pipelines/pipeline_h/export.py",
+       "line": 6,
+       "replacements": [
+        [
+         "import text_layer",
+         "from collection import text_layer",
+         1
+        ]
+       ]
+      },
+      {
+       "file": "preprocess/detect.py",
+       "line": 4,
+       "replacements": [
+        [
+         "import text_layer",
+         "from collection import text_layer",
+         1
+        ]
+       ]
+      },
+      {
+       "file": "preprocess/hybrid.py",
+       "line": 15,
+       "replacements": [
+        [
+         "import text_layer",
+         "from collection import text_layer",
+         1
+        ]
+       ]
+      },
+      {
+       "file": "preprocess/native_fonts.py",
+       "line": 6,
+       "replacements": [
+        [
+         "import text_layer",
+         "from collection import text_layer",
+         1
+        ]
+       ]
+      },
+      {
+       "file": "preprocess/native_tables.py",
+       "line": 9,
+       "replacements": [
+        [
+         "import text_layer",
+         "from collection import text_layer",
+         1
+        ]
+       ]
+      },
+      {
+       "file": "preprocess/native_text.py",
+       "line": 13,
+       "replacements": [
+        [
+         "import text_layer",
+         "from collection import text_layer",
+         1
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "kst": "2026-10-14 14:54",
+     "third_pass": [
+      "preprocess/paddle_adapter.py: code-hash list text_layer.py -> collection/text_layer.py",
+      "preprocess/workflow.py: CODE fingerprint text_layer.py -> collection/text_layer.py"
+     ]
+    },
+    {
+     "kst": "2026-10-14 14:57",
+     "fourth_pass": [
+      "preprocess/inventory.py: __import__(\"text_layer\").VERSION -> __import__(\"collection.text_layer\", fromlist=[\"VERSION\"]).VERSION",
+      "tests/test_native_layout_text.py: patch('text_layer.inspect' -> patch('collection.text_layer.inspect'",
+      "tests/test_selective_native.py: patch('text_layer.inspect' -> patch('collection.text_layer.inspect'"
+     ]
+    }
+   ]
+  }
+ ],
+ "verification": {
+  "compileall": "pass",
+  "imports": "241 modules imported, all resolved inside project_shared (rag.check_env runs and exits 0 by design)",
+  "tests_project_shared": "1133 run, OK, skipped 4 (python -m unittest discover -s tests)",
+  "tests_original_same_time": "1140 run, OK, skipped 4; difference = test_selective_queue.py + test_corpus_finalization.py",
+  "tests_pipeline_h": "18 run, OK",
+  "release_load": "both copied releases load via rag.release.load_bundle + rag.search.load_index (10088 / 11536 vectors); candidate paths resolve to the original workspace (absolute paths in release_manifest.json)"
+ }
+}

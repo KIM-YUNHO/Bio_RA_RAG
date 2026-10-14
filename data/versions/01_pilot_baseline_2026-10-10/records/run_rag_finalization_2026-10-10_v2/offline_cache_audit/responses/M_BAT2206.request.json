@@ -1,0 +1,10 @@
+{
+  "question": "FDA BAT2206 제품설명서에서 판상 건선 성인에게 권장되는 체중 100 kg 이하 및 100 kg 초과의 용량, 투여 경로, 초기 및 유지 투여 간격은 무엇인가?",
+  "products": [
+    "BAT2206"
+  ],
+  "jurisdictions": [
+    "US"
+  ],
+  "include_nondefault": false
+}

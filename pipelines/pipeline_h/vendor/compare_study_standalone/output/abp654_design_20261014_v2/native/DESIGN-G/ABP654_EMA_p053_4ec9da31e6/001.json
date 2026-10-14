@@ -1,0 +1,2927 @@
+{
+  "document": "ABP654_EMA_p053_4ec9da31e6",
+  "page": 1,
+  "text": [
+    "Figure 3. Study diagram for study 20190232",
+    "ABP 654",
+    "PASI50",
+    "ABP 654 SC every 12 weeks",
+    "(Weeks 0, 4, 16)",
+    "or",
+    "(Weeks 28, 40)",
+    "R",
+    "better",
+    "N=271",
+    "A",
+    "E",
+    "S",
+    "N",
+    "Dose intensification:",
+    "N",
+    "D",
+    "ABP 654 SC every 8 weeks",
+    "D",
+    "R",
+    "(Weeks 28, 36, 44)",
+    "For subjects meeting",
+    "E",
+    "M",
+    "dose intensification",
+    "criteria*",
+    "E",
+    "一",
+    "Dose intensification:",
+    "F",
+    "N",
+    "Z",
+    "Ustekinumab SC every 8 weeks",
+    "A",
+    "(Weeks 28, 36, 44)",
+    "S",
+    "N",
+    "T",
+    "T",
+    "G",
+    "Ustekinumab SC every 12 weeks",
+    "U",
+    "(Weeks 0, 4, 16)",
+    "Ustekinumab",
+    "PASI50",
+    "RA",
+    "(Weeks 28, 40)",
+    "D",
+    "N",
+    "N=271",
+    "better",
+    "N",
+    "Y",
+    "D",
+    "M",
+    "ZE",
+    "ZE",
+    "ABP 654 SC every 12 weeks",
+    "(Weeks 28, 40)",
+    "≤ 4 weeks",
+    "Primary Endpoint",
+    "Week 28",
+    "Week 32",
+    "Week 52",
+    "Week 12",
+    "Primary Analysis",
+    "Subjects with body weight at baseline ≤100kg receive 45mg SC; >100kg receive 90 mg SC",
+    "At week 28, non-responders (ie, subjects not achieving PASI 50 response of better) will be considered to have completed the study and will complete the end of study procedures (ie, week 52 procedures) at week 28. Subjects missing the week 28 visit or missing the PASI assessment at week 28, will be discontinued from the study.",
+    "*For subjects with PASI 50 response or better but less than PASI 75 response at week 28, based on investigator's discretion, subjects may increase dose frequency to every 8 weeks (Q8W). Subjects with body weight at baseline ≤ 100kg will receive 45mg Q8W and subjects > 100kg at baseline will receive 90mg Q8W at weeks 28, 36, and 44. These subjects will continue on original treatment and will NOT be re-randomized.",
+    "PASI = Psoriasis Area and Severity Index; Q8W = every 8 weeks; Q12W = every 12 weeks; SC = subcutaneous",
+    "Objectives",
+    "The primary objective of the study was to compare the efficacy of ABP 654 with ustekinumab in subjects with moderate to severe Ps.",
+    "The secondary objective was to assess the safety and immunogenicity of ABP 654 compared with ustekinumab.",
+    "Null Hypothesis (H0): Mean difference in PASI percent improvement from baseline at week 12 between ABP 654 and ustekinumab is outside an equivalence margin of (-15, 15),",
+    "versus",
+    "Alternative Hypothesis (HA): Mean difference in PASI percent improvement from baseline at week 12 between ABP 654 and ustekinumab is within an equivalence margin of (-15, 15).",
+    "Outcomes/endpoints",
+    "The primary efficacy endpoint is the Psoriasis Area and Severity Index (PASI) percent improvement from baseline to week 12.",
+    "Secondary Endpoints"
+  ],
+  "tables": [],
+  "table_bboxes": [],
+  "seconds": 1.60062150000158,
+  "flags": {
+    "time_basis": "document_wall_amortized",
+    "route": "MIXED",
+    "ra_timing": {
+      "auto": 0.8658177852630615,
+      "second_reader": 0.7228519916534424,
+      "total": 1.5970280170440674
+    },
+    "qa": {
+      "pages": 1,
+      "routes": {
+        "MIXED": 1
+      },
+      "text_blocks": 79,
+      "text_chars": 2217,
+      "ocr_char_share": 0.641,
+      "tables": 0,
+      "tables_ocr_grid": 0,
+      "numeric_cells": 0,
+      "numeric_cell_parse_rate": null,
+      "needs_review_blocks": 1,
+      "reread_blocks": 2,
+      "garbled_residual": 0,
+      "furniture_blocks": 11,
+      "redacted_blocks": 0,
+      "sections": 4
+    },
+    "agency": "EMA",
+    "doc_type": "assessment_report",
+    "document_structure_summary": {
+      "section_paths": [
+        [],
+        [
+          "Objectives"
+        ],
+        [
+          "Outcomes/endpoints"
+        ],
+        [
+          "Secondary Endpoints"
+        ],
+        [
+          "versus"
+        ]
+      ],
+      "speakers": [
+        "unknown"
+      ],
+      "furniture_blocks": 11,
+      "redacted_blocks": 0,
+      "study_ids": [],
+      "review_blocks": 1
+    },
+    "figure_count_policy": "physical regions and caption groups separate; no parent/child double count; scan image objects separate",
+    "selected_paddle_calls": 0,
+    "added_tables": 0,
+    "replaced_tables": 0,
+    "design_policy": "missing-only-G",
+    "gold_consulted_for_selection": false
+  },
+  "figures": [
+    {
+      "figure_id": "#/pictures/0",
+      "bbox": [
+        61.3,
+        85.41998291015625,
+        542.2,
+        365.3199829101562
+      ],
+      "kind": "picture",
+      "ocr_text": "ABP 654\nPASI50\nABP 654 SC every 12 weeks\n(Weeks 0, 4, 16)\nor\n(Weeks 28, 40)\nR\nbetter\nN=271\nA\nE\nS\nN\nDose intensification:\nN\nC\nD\nABP 654 SC every 8 weeks\nD\nR\n0\n(Weeks 28, 36, 44)\nFor subjects meeting\nE\nM\ndose intensification\n0\nE\nI\ncriteria*\nDose intensification:\nF\nN\nZ\nUstekinumab SC every 8 weeks\nA\n(Weeks 28, 36, 44)\nS\nN\nT\nT\nG\nI\nUstekinumab SC every 12 weeks\nU\n0\n(Weeks 0, 4, 16)\nUstekinumab\nPASI50\n10\nRAN\n(Weeks 28, 40)\nD\nN\nN=271\nbetter\nY\nD\n0\nM\n1\nZE\nABP 654 SC every 12 weeks\n(Weeks 28, 40)\n≤ 4 weeks\nPrimary Endpoint\nWeek 28\nWeek 32\nWeek 52\nWeek 12\nPrimary Analysis",
+      "caption": "Figure 3. Study diagram for study 20190232",
+      "is_logical_group": false,
+      "parent_id": null,
+      "model": "Heron + RapidOCR (no generative VLM)",
+      "status": "unsupported_interpretation",
+      "interpretation": null,
+      "kind_history": [
+        "picture"
+      ],
+      "decorative": false,
+      "source_page": 1,
+      "crop_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\native\\DOC-GPU\\raw\\ABP654_EMA_p053_4ec9da31e6\\figure_crops\\p001_00.png",
+      "crop_sha256": "93d4bec33e201a6a496ea632a1ac15b97e809d9e985e3f5936acaa210e516034",
+      "crop_dpi": 300
+    }
+  ],
+  "document_structure": [
+    {
+      "type": "picture",
+      "ref": "#/pictures/0",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        61.3,
+        85.41998291015625,
+        542.2,
+        365.3199829101562
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "caption": "Figure 3. Study diagram for study 20190232",
+      "text": "",
+      "status": "kept",
+      "ocr_text": "ABP 654\nPASI50\nABP 654 SC every 12 weeks\n(Weeks 0, 4, 16)\nor\n(Weeks 28, 40)\nR\nbetter\nN=271\nA\nE\nS\nN\nDose intensification:\nN\nC\nD\nABP 654 SC every 8 weeks\nD\nR\n0\n(Weeks 28, 36, 44)\nFor subjects meeting\nE\nM\ndose intensification\n0\nE\nI\ncriteria*\nDose intensification:\nF\nN\nZ\nUstekinumab SC every 8 weeks\nA\n(Weeks 28, 36, 44)\nS\nN\nT\nT\nG\nI\nUstekinumab SC every 12 weeks\nU\n0\n(Weeks 0, 4, 16)\nUstekinumab\nPASI50\n10\nRAN\n(Weeks 28, 40)\nD\nN\nN=271\nbetter\nY\nD\n0\nM\n1\nZE\nABP 654 SC every 12 weeks\n(Weeks 28, 40)\n≤ 4 weeks\nPrimary Endpoint\nWeek 28\nWeek 32\nWeek 52\nWeek 12\nPrimary Analysis",
+      "kind_history": [
+        "picture"
+      ],
+      "section_path": [],
+      "speaker": "unknown",
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        61.3,
+        476.6,
+        542.2,
+        756.5
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/0",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        63.2,
+        73.01998291015627,
+        271.5,
+        81.81998291015623
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "caption",
+      "text": "Figure 3. Study diagram for study 20190232",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        63.2,
+        760.1,
+        271.5,
+        768.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/1",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        179.0,
+        104.31998291015623,
+        211.3,
+        113.31998291015623
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "ABP 654",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        179.0,
+        728.6,
+        211.3,
+        737.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/2",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        265.7,
+        105.6199829101563,
+        287.7,
+        113.6199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "PASI50",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        265.7,
+        728.3,
+        287.7,
+        736.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/3",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        358.0,
+        102.31998291015623,
+        456.0,
+        111.31998291015623
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "ABP 654 SC every 12 weeks",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        358.0,
+        730.6,
+        456.0,
+        739.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/4",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        165.7,
+        114.01998291015627,
+        224.3,
+        124.01998291015627
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "(Weeks 0, 4, 16)",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        165.7,
+        717.9,
+        224.3,
+        727.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/5",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        272.0,
+        114.01998291015627,
+        281.0,
+        121.01998291015627
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "or",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        272.0,
+        720.9,
+        281.0,
+        727.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/6",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        379.3,
+        112.01998291015627,
+        434.0,
+        122.01998291015627
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "(Weeks 28, 40)",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        379.3,
+        719.9,
+        434.0,
+        729.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/7",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        103.7,
+        120.31998291015623,
+        113.3,
+        131.01998291015627
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "R",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        103.7,
+        710.9,
+        113.3,
+        721.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/8",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        265.7,
+        121.01998291015627,
+        287.0,
+        129.01998291015627
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "better",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        265.7,
+        712.9,
+        287.0,
+        720.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/9",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        182.0,
+        124.31998291015623,
+        208.3,
+        133.6199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "N=271",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        182.0,
+        708.3,
+        208.3,
+        717.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/10",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        103.7,
+        132.31998291015623,
+        113.3,
+        143.01998291015627
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "A",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        103.7,
+        698.9,
+        113.3,
+        709.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/11",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        525.7,
+        134.6199829101563,
+        534.3,
+        145.01998291015627
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "E",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        525.7,
+        696.9,
+        534.3,
+        707.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/12",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        66.0,
+        143.01998291015627,
+        74.0,
+        153.31998291015623
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "S",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        66.0,
+        688.6,
+        74.0,
+        698.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/13",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        104.3,
+        144.31998291015623,
+        113.3,
+        154.01998291015627
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "N",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        104.3,
+        687.9,
+        113.3,
+        697.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/14",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        369.7,
+        146.01998291015627,
+        444.7,
+        155.01998291015627
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Dose intensification:",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        369.7,
+        686.9,
+        444.7,
+        695.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/15",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        524.7,
+        146.31998291015623,
+        534.7,
+        157.01998291015627
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "N",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        524.7,
+        684.9,
+        534.7,
+        695.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/16",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        66.7,
+        154.31998291015623,
+        74.7,
+        165.01998291015627
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "C",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        66.7,
+        676.9,
+        74.7,
+        687.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/17",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        104.3,
+        155.6199829101563,
+        113.0,
+        165.31998291015623
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "D",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        104.3,
+        676.6,
+        113.0,
+        686.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/18",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        360.3,
+        156.01998291015627,
+        454.0,
+        164.6199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "ABP 654 SC every 8 weeks",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        360.3,
+        677.3,
+        454.0,
+        685.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/19",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        525.3,
+        158.31998291015623,
+        534.0,
+        168.01998291015627
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "D",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        525.3,
+        673.9,
+        534.0,
+        683.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/20",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        66.7,
+        166.01998291015627,
+        74.7,
+        176.6199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "R",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        66.7,
+        665.3,
+        74.7,
+        675.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/21",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        104.7,
+        167.31998291015623,
+        113.3,
+        176.6199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "0",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        104.7,
+        665.3,
+        113.3,
+        674.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/22",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        374.0,
+        166.01998291015627,
+        440.3,
+        175.01998291015627
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "(Weeks 28, 36, 44)",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        374.0,
+        666.9,
+        440.3,
+        675.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/23",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        256.0,
+        170.6199829101563,
+        316.0,
+        179.31998291015623
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "For subjects meeting",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        256.0,
+        662.6,
+        316.0,
+        671.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/24",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        67.0,
+        178.31998291015623,
+        73.7,
+        188.31998291015623
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "E",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        67.0,
+        653.6,
+        73.7,
+        663.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/25",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        103.7,
+        178.6199829101563,
+        115.7,
+        189.6199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "M",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        103.7,
+        652.3,
+        115.7,
+        663.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/26",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        257.7,
+        178.6199829101563,
+        314.7,
+        186.31998291015623
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "dose intensification",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        257.7,
+        655.6,
+        314.7,
+        663.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/27",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        525.3,
+        181.6199829101563,
+        534.7,
+        191.01998291015627
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "0",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        525.3,
+        650.9,
+        534.7,
+        660.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/28",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        272.7,
+        185.6199829101563,
+        298.0,
+        194.01998291015627
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "criteria*",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        272.7,
+        647.9,
+        298.0,
+        656.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/29",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        66.3,
+        189.01998291015627,
+        74.0,
+        200.01998291015627
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "E",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        66.3,
+        641.9,
+        74.0,
+        652.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/30",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        104.3,
+        191.31998291015623,
+        109.7,
+        199.6199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "一",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        104.3,
+        642.3,
+        109.7,
+        650.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/31",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        369.3,
+        190.6199829101563,
+        444.3,
+        199.6199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Dose intensification:",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        369.3,
+        642.3,
+        444.3,
+        651.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/32",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        525.7,
+        193.01998291015627,
+        534.0,
+        203.01998291015627
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "F",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        525.7,
+        638.9,
+        534.0,
+        648.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/33",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        66.7,
+        201.01998291015627,
+        75.0,
+        211.01998291015627
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "N",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        66.7,
+        630.9,
+        75.0,
+        640.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/34",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        104.0,
+        202.31998291015623,
+        112.0,
+        212.31998291015623
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Z",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        104.0,
+        629.6,
+        112.0,
+        639.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/35",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        351.3,
+        199.6199829101563,
+        462.3,
+        210.31998291015623
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Ustekinumab SC every 8 weeks",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        351.3,
+        631.6,
+        462.3,
+        642.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/36",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        66.3,
+        213.01998291015627,
+        72.7,
+        222.01998291015627
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "I",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        66.3,
+        619.9,
+        72.7,
+        628.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/37",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        104.3,
+        213.6199829101563,
+        112.7,
+        223.6199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "A",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        104.3,
+        618.3,
+        112.7,
+        628.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/38",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        373.3,
+        210.31998291015623,
+        440.3,
+        220.31998291015623
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "(Weeks 28, 36, 44)",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        373.3,
+        621.6,
+        440.3,
+        631.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/39",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        525.7,
+        216.31998291015623,
+        533.7,
+        226.31998291015623
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "S",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        525.7,
+        615.6,
+        533.7,
+        625.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/40",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        66.3,
+        225.01998291015627,
+        75.3,
+        234.6199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "N",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        66.3,
+        607.3,
+        75.3,
+        616.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/41",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        104.0,
+        225.31998291015623,
+        112.3,
+        235.01998291015627
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "T",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        104.0,
+        606.9,
+        112.3,
+        616.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/42",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        526.0,
+        227.6199829101563,
+        534.0,
+        237.31998291015623
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "T",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        526.0,
+        604.6,
+        534.0,
+        614.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/43",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        66.7,
+        236.31998291015623,
+        75.3,
+        246.01998291015627
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "G",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        66.7,
+        595.9,
+        75.3,
+        605.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/44",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        104.0,
+        237.31998291015623,
+        110.3,
+        246.31998291015623
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "I",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        104.0,
+        595.6,
+        110.3,
+        604.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/45",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        349.7,
+        241.01998291015627,
+        464.7,
+        250.6199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Ustekinumab SC every 12 weeks",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        349.7,
+        591.3,
+        464.7,
+        600.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/46",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        525.3,
+        240.01998291015627,
+        534.0,
+        249.31998291015623
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "U",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        525.3,
+        592.6,
+        534.0,
+        601.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/47",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        104.3,
+        249.01998291015627,
+        113.3,
+        258.3199829101562
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "0",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        104.3,
+        583.6,
+        113.3,
+        592.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/48",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        166.3,
+        254.01998291015627,
+        224.7,
+        264.0199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "(Weeks 0, 4, 16)",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        166.3,
+        577.9,
+        224.7,
+        587.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/49",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        170.7,
+        244.31998291015623,
+        220.0,
+        253.31998291015623
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Ustekinumab",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        170.7,
+        588.6,
+        220.0,
+        597.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/50",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        263.3,
+        247.01998291015627,
+        285.3,
+        255.31998291015623
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "PASI50",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        263.3,
+        586.6,
+        285.3,
+        594.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/51",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        270.0,
+        255.6199829101563,
+        278.7,
+        262.6199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "10",
+      "status": "reread",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        270.0,
+        579.3,
+        278.7,
+        586.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/52",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        302.3,
+        252.6199829101563,
+        309.7,
+        266.6199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "RA",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        302.3,
+        575.3,
+        309.7,
+        589.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/53",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        380.0,
+        251.31998291015623,
+        433.7,
+        260.3199829101562
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "(Weeks 28, 40)",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        380.0,
+        581.6,
+        433.7,
+        590.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/54",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        525.3,
+        251.6199829101563,
+        534.0,
+        261.0199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "D",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        525.3,
+        580.9,
+        534.0,
+        590.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/55",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        103.7,
+        260.0199829101563,
+        113.7,
+        270.3199829101562
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "N",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        103.7,
+        571.6,
+        113.7,
+        581.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/56",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        182.0,
+        263.6199829101563,
+        209.0,
+        274.0199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "N=271",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        182.0,
+        567.9,
+        209.0,
+        578.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/57",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        263.7,
+        262.6199829101563,
+        284.7,
+        270.6199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "better",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        263.7,
+        571.3,
+        284.7,
+        579.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/58",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        302.7,
+        264.6199829101563,
+        309.3,
+        272.3199829101562
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "N",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        302.7,
+        569.6,
+        309.3,
+        577.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/59",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        526.0,
+        262.6199829101563,
+        534.0,
+        272.6199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Y",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        526.0,
+        569.3,
+        534.0,
+        579.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/60",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        303.0,
+        270.6199829101563,
+        309.3,
+        279.0199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "D",
+      "status": "needs_review",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        303.0,
+        562.9,
+        309.3,
+        571.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/61",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        303.3,
+        277.0199829101563,
+        309.0,
+        284.0199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "0",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        303.3,
+        557.9,
+        309.0,
+        564.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/62",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        303.0,
+        282.6199829101563,
+        310.3,
+        290.0199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "M",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        303.0,
+        551.9,
+        310.3,
+        559.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/63",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        303.3,
+        290.0199829101563,
+        307.3,
+        295.6199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "1",
+      "status": "reread",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        303.3,
+        546.3,
+        307.3,
+        551.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/64",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        302.7,
+        295.3199829101562,
+        308.3,
+        302.6199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "ZE",
+      "status": "reread",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        302.7,
+        539.3,
+        308.3,
+        546.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/65",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        303.0,
+        300.6199829101563,
+        308.3,
+        308.3199829101562
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "ZE",
+      "status": "reread",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        303.0,
+        533.6,
+        308.3,
+        541.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/66",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        358.3,
+        301.0199829101563,
+        454.7,
+        310.0199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "ABP 654 SC every 12 weeks",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        358.3,
+        531.9,
+        454.7,
+        540.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/67",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        378.7,
+        310.3199829101562,
+        433.7,
+        320.3199829101562
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "(Weeks 28, 40)",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        378.7,
+        521.6,
+        433.7,
+        531.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/68",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        69.3,
+        325.3199829101562,
+        110.0,
+        336.61998291015624
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "≤ 4 weeks",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        69.3,
+        505.3,
+        110.0,
+        516.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/69",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        158.3,
+        346.3199829101562,
+        214.3,
+        355.3199829101562
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Primary Endpoint",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        158.3,
+        486.6,
+        214.3,
+        495.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/70",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        258.0,
+        346.0199829101563,
+        287.7,
+        355.0199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Week 28",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        258.0,
+        486.9,
+        287.7,
+        495.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/71",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        309.3,
+        346.0199829101563,
+        338.7,
+        355.0199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Week 32",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        309.3,
+        486.9,
+        338.7,
+        495.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/72",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        511.0,
+        346.0199829101563,
+        542.0,
+        355.3199829101562
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Week 52",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        511.0,
+        486.6,
+        542.0,
+        495.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/73",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        171.3,
+        355.0199829101563,
+        201.0,
+        364.0199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Week 12",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        171.3,
+        477.9,
+        201.0,
+        486.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/74",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        298.7,
+        355.61998291015624,
+        350.7,
+        363.61998291015624
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Primary Analysis",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        298.7,
+        478.3,
+        350.7,
+        486.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/75",
+      "parent": "#/groups/0",
+      "page": 1,
+      "bbox": [
+        87.0,
+        372.0199829101563,
+        388.0,
+        382.0199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "list_item",
+      "text": "Subjects with body weight at baseline ≤100kg receive 45mg SC; >100kg receive 90 mg SC",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        87.0,
+        459.9,
+        388.0,
+        469.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/76",
+      "parent": "#/groups/0",
+      "page": 1,
+      "bbox": [
+        86.7,
+        381.61998291015624,
+        520.3,
+        411.61998291015624
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "list_item",
+      "text": "At week 28, non-responders (ie, subjects not achieving PASI 50 response of better) will be considered to have completed the study and will complete the end of study procedures (ie, week 52 procedures) at week 28. Subjects missing the week 28 visit or missing the PASI assessment at week 28, will be discontinued from the study.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        86.7,
+        430.3,
+        520.3,
+        460.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/77",
+      "parent": "#/groups/0",
+      "page": 1,
+      "bbox": [
+        87.0,
+        411.61998291015624,
+        522.7,
+        451.0199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "list_item",
+      "text": "*For subjects with PASI 50 response or better but less than PASI 75 response at week 28, based on investigator's discretion, subjects may increase dose frequency to every 8 weeks (Q8W). Subjects with body weight at baseline ≤ 100kg will receive 45mg Q8W and subjects > 100kg at baseline will receive 90mg Q8W at weeks 28, 36, and 44. These subjects will continue on original treatment and will NOT be re-randomized.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        87.0,
+        390.9,
+        522.7,
+        430.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/78",
+      "parent": "#/groups/0",
+      "page": 1,
+      "bbox": [
+        74.0,
+        461.3199829101562,
+        441.0,
+        471.3199829101562
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "list_item",
+      "text": "PASI = Psoriasis Area and Severity Index; Q8W = every 8 weeks; Q12W = every 12 weeks; SC = subcutaneous",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        74.0,
+        370.6,
+        441.0,
+        380.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/79",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        62.9,
+        492.5199829101563,
+        115.6,
+        501.21998291015626
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "section_header",
+      "text": "Objectives",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Objectives"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        62.9,
+        340.7,
+        115.6,
+        349.4
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/80",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        62.4,
+        517.5199829101563,
+        532.8,
+        538.5199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "text",
+      "text": "The primary objective of the study was to compare the efficacy of ABP 654 with ustekinumab in subjects with moderate to severe Ps.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Objectives"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        62.4,
+        303.4,
+        532.8,
+        324.4
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/81",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        62.4,
+        552.4199829101562,
+        532.3,
+        573.5199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "text",
+      "text": "The secondary objective was to assess the safety and immunogenicity of ABP 654 compared with ustekinumab.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Objectives"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        62.4,
+        268.4,
+        532.3,
+        289.5
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/82",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        62.5,
+        587.0199829101563,
+        532.3,
+        610.2199829101562
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "text",
+      "text": "Null Hypothesis (H0): Mean difference in PASI percent improvement from baseline at week 12 between ABP 654 and ustekinumab is outside an equivalence margin of (-15, 15),",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Objectives"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        62.5,
+        231.7,
+        532.3,
+        254.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/83",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        62.7,
+        624.3199829101562,
+        91.7,
+        629.5199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "section_header",
+      "text": "versus",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "versus"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        62.7,
+        212.4,
+        91.7,
+        217.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/84",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        62.5,
+        643.0199829101563,
+        532.5,
+        666.3199829101562
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "text",
+      "text": "Alternative Hypothesis (HA): Mean difference in PASI percent improvement from baseline at week 12 between ABP 654 and ustekinumab is within an equivalence margin of (-15, 15).",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "versus"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        62.5,
+        175.6,
+        532.5,
+        198.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/85",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        62.9,
+        682.4199829101562,
+        169.0,
+        691.1199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "section_header",
+      "text": "Outcomes/endpoints",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Outcomes/endpoints"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        62.9,
+        150.8,
+        169.0,
+        159.5
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/86",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        62.4,
+        707.3199829101562,
+        514.5,
+        728.4199829101562
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "text",
+      "text": "The primary efficacy endpoint is the Psoriasis Area and Severity Index (PASI) percent improvement from baseline to week 12.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Outcomes/endpoints"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        62.4,
+        113.5,
+        514.5,
+        134.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/87",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        63.0,
+        742.4199829101562,
+        157.3,
+        751.1199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "section_header",
+      "text": "Secondary Endpoints",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Secondary Endpoints"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        63.0,
+        90.8,
+        157.3,
+        99.5
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/88",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        62.5,
+        784.4199829101562,
+        127.9,
+        799.0199829101563
+      ],
+      "layer": "furniture",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "Assessment report EMA/228742/2024",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        62.5,
+        42.9,
+        127.9,
+        57.5
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/89",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        488.7,
+        792.7199829101562,
+        532.3,
+        799.4199829101562
+      ],
+      "layer": "furniture",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "Page 53/117",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        488.7,
+        42.5,
+        532.3,
+        49.2
+      ],
+      "coordinate_space": "PDF top-left points"
+    }
+  ],
+  "embedded_image_objects": 1,
+  "figure_counts": {
+    "figure_regions": 1,
+    "figure_groups": 0,
+    "logical_figures": 1,
+    "decorative_images": 0,
+    "interpretation_attempted": 0,
+    "interpretation_completed": 0,
+    "interpretation_needs_review": 0
+  },
+  "table_provenance": []
+}

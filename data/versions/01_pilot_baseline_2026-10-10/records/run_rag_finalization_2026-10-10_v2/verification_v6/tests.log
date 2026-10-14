@@ -1,0 +1,13 @@
+.............................................................................................................................................................................................................................................................................................................................................................................F...........................................................................................................................................................................
+======================================================================
+FAIL: test_requested_indication_and_dose_are_ranked_by_their_printed_facts (test_release_finalization.Finalization.test_requested_indication_and_dose_are_ranked_by_their_printed_facts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\biosimilar_collection\tests\test_release_finalization.py", line 131, in test_requested_indication_and_dose_are_ranked_by_their_printed_facts
+    self.assertIn('printed_requested_indications',cues('pediatric indication minimum age',indication))
+AssertionError: 'printed_requested_indications' not found in []
+
+----------------------------------------------------------------------
+Ran 537 tests in 70.675s
+
+FAILED (failures=1)

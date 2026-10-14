@@ -1,0 +1,1195 @@
+{
+  "files": [
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\0035cda852388f8d991fa6a07d84fb4bdd4d146b1939ae15418b631b06c7997d.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\0035cda852388f8d991fa6a07d84fb4bdd4d146b1939ae15418b631b06c7997d.request.json",
+      "sha256": "e3a36120cd06d3ed0f956686e391c5be5f4015c9e723123f748c26f5b9ade159"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\0035cda852388f8d991fa6a07d84fb4bdd4d146b1939ae15418b631b06c7997d.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\0035cda852388f8d991fa6a07d84fb4bdd4d146b1939ae15418b631b06c7997d.response.json",
+      "sha256": "5f81a68d37c00dec6e544b516c1bbf34c141f6cb74ded36a56a8edfde7ab52ee"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\1f443d1a108f37fdfc05169cf1cc7ca5857c927c6de39765f4e72fedad0e1da7.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\1f443d1a108f37fdfc05169cf1cc7ca5857c927c6de39765f4e72fedad0e1da7.request.json",
+      "sha256": "d899d1f59036972a8339704fbef8467c911973ba149d83c97020a8455e02e967"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\1f443d1a108f37fdfc05169cf1cc7ca5857c927c6de39765f4e72fedad0e1da7.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\1f443d1a108f37fdfc05169cf1cc7ca5857c927c6de39765f4e72fedad0e1da7.response.json",
+      "sha256": "6461603ff2840970daa48499daa1a60bd12b378e2106082cadd9dffb2c5cda61"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\31339a1238608e253f3a47f859e6659c305a914c5c5a2513f26c1fe7a596bdfa.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\31339a1238608e253f3a47f859e6659c305a914c5c5a2513f26c1fe7a596bdfa.request.json",
+      "sha256": "9e1e1d33ab1ea2413f202738a77bc83e4c1e478f18f19229bb0a90bf7cac6dd5"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\31339a1238608e253f3a47f859e6659c305a914c5c5a2513f26c1fe7a596bdfa.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\31339a1238608e253f3a47f859e6659c305a914c5c5a2513f26c1fe7a596bdfa.response.json",
+      "sha256": "6773888ed8a40911b3cddfa2ad793df9c19828bd26c99a2b51b66049a16aae47"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\37d8eb5f3365768bef7b3b3288761886eeb50ce2ac689993d0b2de4793597407.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\37d8eb5f3365768bef7b3b3288761886eeb50ce2ac689993d0b2de4793597407.request.json",
+      "sha256": "e4ef4e73888aa85db022713fa63b976ee46c0e8ced4caef5fdc9c928cc8d3718"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\37d8eb5f3365768bef7b3b3288761886eeb50ce2ac689993d0b2de4793597407.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\37d8eb5f3365768bef7b3b3288761886eeb50ce2ac689993d0b2de4793597407.response.json",
+      "sha256": "bc148957820a4aa9bcc2b3bcb3163b5cf1c0c0ddae322f2059668af98c87b635"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\455ca32be5db833ed516d1c2cb40290b71f70fc55a55511ecbb6eb642d2edd03.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\455ca32be5db833ed516d1c2cb40290b71f70fc55a55511ecbb6eb642d2edd03.request.json",
+      "sha256": "e2bac994d46379613fc37d5705ac1f7e8ce5dd23fe82ba3ef49404466ea664dd"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\455ca32be5db833ed516d1c2cb40290b71f70fc55a55511ecbb6eb642d2edd03.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\455ca32be5db833ed516d1c2cb40290b71f70fc55a55511ecbb6eb642d2edd03.response.json",
+      "sha256": "b33615753151ab59e2fb0982d44417f0487ba595adbeafa067757d38769973f0"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\4d3dd7e55eb9161c931830999869397c0c645beb8cfb953112253bf027922769.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\4d3dd7e55eb9161c931830999869397c0c645beb8cfb953112253bf027922769.request.json",
+      "sha256": "70cead5fbefb9c1c41453f717297b36544443066cf8ca4ed5f59efd584b45131"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\4d3dd7e55eb9161c931830999869397c0c645beb8cfb953112253bf027922769.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\4d3dd7e55eb9161c931830999869397c0c645beb8cfb953112253bf027922769.response.json",
+      "sha256": "efc079b577c650d2a1d3bd65b1dc98e58d650a59483790a9690ed7892a37a48f"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\5f38ade0ba513bb2b2b6a86df768468a00184de8a646491f833e356c0f89c823.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\5f38ade0ba513bb2b2b6a86df768468a00184de8a646491f833e356c0f89c823.request.json",
+      "sha256": "c94292dd78c8f3d206ba06bfe6611c86b8c31031626e10818c89aafadc9e4150"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\5f38ade0ba513bb2b2b6a86df768468a00184de8a646491f833e356c0f89c823.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\5f38ade0ba513bb2b2b6a86df768468a00184de8a646491f833e356c0f89c823.response.json",
+      "sha256": "9927606d6345d0ee905991f664e16a1fa70954b9c8de35d3b10318d965966a3b"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\6459237bc6f08411c1615bcb7ddc501e264e8d0e32177cb8fe12f058c84d4cfe.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\6459237bc6f08411c1615bcb7ddc501e264e8d0e32177cb8fe12f058c84d4cfe.request.json",
+      "sha256": "f83295839f7797a645830e5a4ebe6ecb849f86389b916914ffacf988e7838fd5"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\6459237bc6f08411c1615bcb7ddc501e264e8d0e32177cb8fe12f058c84d4cfe.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\6459237bc6f08411c1615bcb7ddc501e264e8d0e32177cb8fe12f058c84d4cfe.response.json",
+      "sha256": "8d9255dce89e5c71e0d24528cdd882b6834c40cdb9dbef2e7d21c91fb888ab56"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\7266502e01c734c49535bbb6d143b423d7d5d2882ee88ab53039e97348f8b199.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\7266502e01c734c49535bbb6d143b423d7d5d2882ee88ab53039e97348f8b199.request.json",
+      "sha256": "284ae11e5539974fce43b81e76b69362e729161d9c6ec9876bd26d8529339287"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\7266502e01c734c49535bbb6d143b423d7d5d2882ee88ab53039e97348f8b199.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\7266502e01c734c49535bbb6d143b423d7d5d2882ee88ab53039e97348f8b199.response.json",
+      "sha256": "3511516c14b62f3fdb281fc6ad00c9183467f0c2089eadd8789ddf5badb6ea53"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\7a236d494e330be11356d6279b7821d471e4dc28951903104600de99a4e425c4.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\7a236d494e330be11356d6279b7821d471e4dc28951903104600de99a4e425c4.request.json",
+      "sha256": "a04b201e75f4a417dda23ec72ac7999510f69b779d2ceeff2bbe4de0d8d98354"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\7a236d494e330be11356d6279b7821d471e4dc28951903104600de99a4e425c4.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\7a236d494e330be11356d6279b7821d471e4dc28951903104600de99a4e425c4.response.json",
+      "sha256": "223ab76a533d4f66073978956e22c2aa7118752ba454eebb53f67d2812ceb984"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\7ba7417a9acd01516fad4f297dba9d3666576e1231b3423a6c149262397a08fd.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\7ba7417a9acd01516fad4f297dba9d3666576e1231b3423a6c149262397a08fd.request.json",
+      "sha256": "4111087155f511c7d49e8e7e482e3f2926272aaec1373ec1079d43e6e16ae133"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\7ba7417a9acd01516fad4f297dba9d3666576e1231b3423a6c149262397a08fd.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\7ba7417a9acd01516fad4f297dba9d3666576e1231b3423a6c149262397a08fd.response.json",
+      "sha256": "da11202adb711d24ce51940ffc03cab109bbfceefe5fbac24b669d0ad5a8f832"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\7e6c7fd6a2088cdff8561bec27b42718ee1999db8d67d8406fbd1a9c82e9a334.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\7e6c7fd6a2088cdff8561bec27b42718ee1999db8d67d8406fbd1a9c82e9a334.request.json",
+      "sha256": "87e4dd90c4129cca552411b7094b4614f6da541634f8376dff6c923e30cec107"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\7e6c7fd6a2088cdff8561bec27b42718ee1999db8d67d8406fbd1a9c82e9a334.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\7e6c7fd6a2088cdff8561bec27b42718ee1999db8d67d8406fbd1a9c82e9a334.response.json",
+      "sha256": "45933068d806352e8223e146822d4c663baa0f697d6688eba5722e5898f8ca4e"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\8d51f238e6bbc947d18d97be3cee8bceb4f80400fa809601ac76f73ea40ed03e.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\8d51f238e6bbc947d18d97be3cee8bceb4f80400fa809601ac76f73ea40ed03e.request.json",
+      "sha256": "041e6efed4be89552919f6f34cd9f2893bbaabe1371a3da86d955b8b63b1765b"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\8d51f238e6bbc947d18d97be3cee8bceb4f80400fa809601ac76f73ea40ed03e.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\8d51f238e6bbc947d18d97be3cee8bceb4f80400fa809601ac76f73ea40ed03e.response.json",
+      "sha256": "b8f967391f0b6cc072680a63de6e9a315c9ff2d69673ca538917f30db7cd6d4d"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\9becb507f8557d180bd25a24942607ab8a0161199ed78ccc1833628b631d59fa.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\9becb507f8557d180bd25a24942607ab8a0161199ed78ccc1833628b631d59fa.request.json",
+      "sha256": "52b06340f5cab3fbb1889f89928f2daed9808587c696ddc5e0b7fed5b5279c7f"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\9becb507f8557d180bd25a24942607ab8a0161199ed78ccc1833628b631d59fa.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\9becb507f8557d180bd25a24942607ab8a0161199ed78ccc1833628b631d59fa.response.json",
+      "sha256": "a72e4d64299d7efa677b0e7534baa84ba2946f07fbef4792ca88f5cd449d6f65"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\a76d4b49bc7565693d52d8dcc5050e58bd83e10427edc59a1061d345756e00c9.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\a76d4b49bc7565693d52d8dcc5050e58bd83e10427edc59a1061d345756e00c9.request.json",
+      "sha256": "7bddfa62daae381477a565a66b3a4ad5c66c57183f3344d3da9c0f76e0f74a3c"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\a76d4b49bc7565693d52d8dcc5050e58bd83e10427edc59a1061d345756e00c9.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\a76d4b49bc7565693d52d8dcc5050e58bd83e10427edc59a1061d345756e00c9.response.json",
+      "sha256": "e2135e55d748531c127faa5d936dd6a495e4fa9dc026e9c9036ddf08051a409b"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\aaca699aa276974be51c7836f488cf0ac74a0fe5b2db7d2b7c2cecf35fca7d06.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\aaca699aa276974be51c7836f488cf0ac74a0fe5b2db7d2b7c2cecf35fca7d06.request.json",
+      "sha256": "d9307cbff5faf29e9a2a7d3585df86372ef1327d55eec8cf7f6522ec5329de6f"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\aaca699aa276974be51c7836f488cf0ac74a0fe5b2db7d2b7c2cecf35fca7d06.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\aaca699aa276974be51c7836f488cf0ac74a0fe5b2db7d2b7c2cecf35fca7d06.response.json",
+      "sha256": "1cdede6d9fc94ddd1a9304eee574c3ade32d1440df936f8a46635e69f0682454"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\b955d4eceb19ca8d9ca78748990b581a224f855b0df1e1f6bf60930ae6464669.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\b955d4eceb19ca8d9ca78748990b581a224f855b0df1e1f6bf60930ae6464669.request.json",
+      "sha256": "b525785a0c61122d6257b67889062268d152aacc3b3cea3958c45b33c814def1"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\b955d4eceb19ca8d9ca78748990b581a224f855b0df1e1f6bf60930ae6464669.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\b955d4eceb19ca8d9ca78748990b581a224f855b0df1e1f6bf60930ae6464669.response.json",
+      "sha256": "2f3da182caec3ef3bd747cd2310912915c19b0e9571d54a949561154cf559a9e"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\ca26eb4b50c090cdcd368e8d3e8ef450d697f5a7825f6d875d5d4ed523739311.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\ca26eb4b50c090cdcd368e8d3e8ef450d697f5a7825f6d875d5d4ed523739311.request.json",
+      "sha256": "e18abb7643622981cc58fa0a59414ff0b3c03ba1060fe544b8f5824754eb7d4c"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\ca26eb4b50c090cdcd368e8d3e8ef450d697f5a7825f6d875d5d4ed523739311.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\ca26eb4b50c090cdcd368e8d3e8ef450d697f5a7825f6d875d5d4ed523739311.response.json",
+      "sha256": "25fe32a20c63a483d1d63b318000d6115242963c22739670c58c1d2f32aba592"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\cb059498674f277cf854c8dd6c5087b732f6875f5d5f1ad2d4f6e232cbdc5ec6.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\cb059498674f277cf854c8dd6c5087b732f6875f5d5f1ad2d4f6e232cbdc5ec6.request.json",
+      "sha256": "a4af7f1077f476255399276a7156e7032f81cf9e8029c2bf7b3a0533b47967bc"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\cb059498674f277cf854c8dd6c5087b732f6875f5d5f1ad2d4f6e232cbdc5ec6.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\cb059498674f277cf854c8dd6c5087b732f6875f5d5f1ad2d4f6e232cbdc5ec6.response.json",
+      "sha256": "6d3c869b6b1f3e2806f656c014019bd88cb17b5e12f1140ec5bd2dd611d88646"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\d2253db254625b7ae055bb073a1187026f0ee3e705d84b306fb75a20d5dd7c25.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\d2253db254625b7ae055bb073a1187026f0ee3e705d84b306fb75a20d5dd7c25.request.json",
+      "sha256": "2ae4e866d49c8b7c4027f8195a38753ac4f80a9b90dfefc7d26b0da198b00d90"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\d2253db254625b7ae055bb073a1187026f0ee3e705d84b306fb75a20d5dd7c25.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\d2253db254625b7ae055bb073a1187026f0ee3e705d84b306fb75a20d5dd7c25.response.json",
+      "sha256": "d473282e6e94d53774f4180bec23c1b706c870564d57d2df57514335cb546d46"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\d5ffc61272c03f8ecd8f3c08c28fc497ced7650cfb67dd85a26756af4be1ac5f.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\d5ffc61272c03f8ecd8f3c08c28fc497ced7650cfb67dd85a26756af4be1ac5f.request.json",
+      "sha256": "0ba919c365e87826d27fc92f08942ddf67f793d3ccdc7c8bd36eead89eb090cd"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\d5ffc61272c03f8ecd8f3c08c28fc497ced7650cfb67dd85a26756af4be1ac5f.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\d5ffc61272c03f8ecd8f3c08c28fc497ced7650cfb67dd85a26756af4be1ac5f.response.json",
+      "sha256": "7f445c3cf8a123ea980fb3f15ab974be501424ef27887f37d2c29e3bb8400c14"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\dd187cf53a4ff613624eb5d5c3d5cb04d64d6c7efb71da5da53e353535382a1f.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\dd187cf53a4ff613624eb5d5c3d5cb04d64d6c7efb71da5da53e353535382a1f.request.json",
+      "sha256": "59c8cd55ad1343c5256118908eb1fd121c37f34e6be1bcb7fc19a7045c4f5836"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\dd187cf53a4ff613624eb5d5c3d5cb04d64d6c7efb71da5da53e353535382a1f.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\dd187cf53a4ff613624eb5d5c3d5cb04d64d6c7efb71da5da53e353535382a1f.response.json",
+      "sha256": "c32a260880e6b930d4698d03f4c9be39a9ab39601a5cc0e273d800cb9c9a735c"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\dd3325c941ff737b2d4665cbbbbf500af67b8cb293da40891192cb667588e491.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\dd3325c941ff737b2d4665cbbbbf500af67b8cb293da40891192cb667588e491.request.json",
+      "sha256": "9634f85f6a822d82299732328bc07cc3ba539798313322fd21c68e204adeac8d"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\dd3325c941ff737b2d4665cbbbbf500af67b8cb293da40891192cb667588e491.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\dd3325c941ff737b2d4665cbbbbf500af67b8cb293da40891192cb667588e491.response.json",
+      "sha256": "e503a1de704682529099ad849a7ebd5a7720608d396db3018bc47addb09e9688"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\e2255819e7fa25779fb033755697064019fb325a1e01a17d0c29b7b874e6f25c.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\e2255819e7fa25779fb033755697064019fb325a1e01a17d0c29b7b874e6f25c.request.json",
+      "sha256": "0dee01ad55f19b3a78d0220604a07ebf9b67038e2a61da7e9d6311bc929132b6"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\e2255819e7fa25779fb033755697064019fb325a1e01a17d0c29b7b874e6f25c.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\e2255819e7fa25779fb033755697064019fb325a1e01a17d0c29b7b874e6f25c.response.json",
+      "sha256": "9e2617c93ea26f9b927406c49414861d913451a18eb0a0583316df1f542f86d2"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\f7ea2fa30ce80645f72abc7704e144e45c2092f69899fe21850f9654879039c3.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\f7ea2fa30ce80645f72abc7704e144e45c2092f69899fe21850f9654879039c3.request.json",
+      "sha256": "96934c70d172ce4c370285a71c9fb3b26a81e138c72c44c1d74c8db7dfff740e"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development\\api_calls\\f7ea2fa30ce80645f72abc7704e144e45c2092f69899fe21850f9654879039c3.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\f7ea2fa30ce80645f72abc7704e144e45c2092f69899fe21850f9654879039c3.response.json",
+      "sha256": "b37065e15990a5fd0fe7a7298861c8cc1a340f7feeab8b8dbd1077f89496caac"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\0035cda852388f8d991fa6a07d84fb4bdd4d146b1939ae15418b631b06c7997d.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\0035cda852388f8d991fa6a07d84fb4bdd4d146b1939ae15418b631b06c7997d.request.json",
+      "sha256": "e3a36120cd06d3ed0f956686e391c5be5f4015c9e723123f748c26f5b9ade159"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\0035cda852388f8d991fa6a07d84fb4bdd4d146b1939ae15418b631b06c7997d.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\0035cda852388f8d991fa6a07d84fb4bdd4d146b1939ae15418b631b06c7997d.response.json",
+      "sha256": "5f81a68d37c00dec6e544b516c1bbf34c141f6cb74ded36a56a8edfde7ab52ee"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\1f443d1a108f37fdfc05169cf1cc7ca5857c927c6de39765f4e72fedad0e1da7.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\1f443d1a108f37fdfc05169cf1cc7ca5857c927c6de39765f4e72fedad0e1da7.request.json",
+      "sha256": "d899d1f59036972a8339704fbef8467c911973ba149d83c97020a8455e02e967"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\1f443d1a108f37fdfc05169cf1cc7ca5857c927c6de39765f4e72fedad0e1da7.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\1f443d1a108f37fdfc05169cf1cc7ca5857c927c6de39765f4e72fedad0e1da7.response.json",
+      "sha256": "6461603ff2840970daa48499daa1a60bd12b378e2106082cadd9dffb2c5cda61"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\31339a1238608e253f3a47f859e6659c305a914c5c5a2513f26c1fe7a596bdfa.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\31339a1238608e253f3a47f859e6659c305a914c5c5a2513f26c1fe7a596bdfa.request.json",
+      "sha256": "9e1e1d33ab1ea2413f202738a77bc83e4c1e478f18f19229bb0a90bf7cac6dd5"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\31339a1238608e253f3a47f859e6659c305a914c5c5a2513f26c1fe7a596bdfa.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\31339a1238608e253f3a47f859e6659c305a914c5c5a2513f26c1fe7a596bdfa.response.json",
+      "sha256": "6773888ed8a40911b3cddfa2ad793df9c19828bd26c99a2b51b66049a16aae47"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\37d8eb5f3365768bef7b3b3288761886eeb50ce2ac689993d0b2de4793597407.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\37d8eb5f3365768bef7b3b3288761886eeb50ce2ac689993d0b2de4793597407.request.json",
+      "sha256": "e4ef4e73888aa85db022713fa63b976ee46c0e8ced4caef5fdc9c928cc8d3718"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\37d8eb5f3365768bef7b3b3288761886eeb50ce2ac689993d0b2de4793597407.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\37d8eb5f3365768bef7b3b3288761886eeb50ce2ac689993d0b2de4793597407.response.json",
+      "sha256": "bc148957820a4aa9bcc2b3bcb3163b5cf1c0c0ddae322f2059668af98c87b635"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\455ca32be5db833ed516d1c2cb40290b71f70fc55a55511ecbb6eb642d2edd03.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\455ca32be5db833ed516d1c2cb40290b71f70fc55a55511ecbb6eb642d2edd03.request.json",
+      "sha256": "e2bac994d46379613fc37d5705ac1f7e8ce5dd23fe82ba3ef49404466ea664dd"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\455ca32be5db833ed516d1c2cb40290b71f70fc55a55511ecbb6eb642d2edd03.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\455ca32be5db833ed516d1c2cb40290b71f70fc55a55511ecbb6eb642d2edd03.response.json",
+      "sha256": "b33615753151ab59e2fb0982d44417f0487ba595adbeafa067757d38769973f0"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\4c4f19427f058690b934cc42c5699f71a2ee52369468671780400028c5c235bd.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\4c4f19427f058690b934cc42c5699f71a2ee52369468671780400028c5c235bd.request.json",
+      "sha256": "34a9576979c51b3ef8ddbcb3f60b604782dd768e6a39df953520ed513f87f19c"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\4c4f19427f058690b934cc42c5699f71a2ee52369468671780400028c5c235bd.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\4c4f19427f058690b934cc42c5699f71a2ee52369468671780400028c5c235bd.response.json",
+      "sha256": "b5c4a8947c940a9be7de68c270e3895d117cda47bcb2bd693a92a7dd0ffc30ce"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\4d3dd7e55eb9161c931830999869397c0c645beb8cfb953112253bf027922769.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\4d3dd7e55eb9161c931830999869397c0c645beb8cfb953112253bf027922769.request.json",
+      "sha256": "70cead5fbefb9c1c41453f717297b36544443066cf8ca4ed5f59efd584b45131"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\4d3dd7e55eb9161c931830999869397c0c645beb8cfb953112253bf027922769.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\4d3dd7e55eb9161c931830999869397c0c645beb8cfb953112253bf027922769.response.json",
+      "sha256": "efc079b577c650d2a1d3bd65b1dc98e58d650a59483790a9690ed7892a37a48f"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\5f38ade0ba513bb2b2b6a86df768468a00184de8a646491f833e356c0f89c823.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\5f38ade0ba513bb2b2b6a86df768468a00184de8a646491f833e356c0f89c823.request.json",
+      "sha256": "c94292dd78c8f3d206ba06bfe6611c86b8c31031626e10818c89aafadc9e4150"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\5f38ade0ba513bb2b2b6a86df768468a00184de8a646491f833e356c0f89c823.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\5f38ade0ba513bb2b2b6a86df768468a00184de8a646491f833e356c0f89c823.response.json",
+      "sha256": "9927606d6345d0ee905991f664e16a1fa70954b9c8de35d3b10318d965966a3b"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\6459237bc6f08411c1615bcb7ddc501e264e8d0e32177cb8fe12f058c84d4cfe.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\6459237bc6f08411c1615bcb7ddc501e264e8d0e32177cb8fe12f058c84d4cfe.request.json",
+      "sha256": "f83295839f7797a645830e5a4ebe6ecb849f86389b916914ffacf988e7838fd5"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\6459237bc6f08411c1615bcb7ddc501e264e8d0e32177cb8fe12f058c84d4cfe.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\6459237bc6f08411c1615bcb7ddc501e264e8d0e32177cb8fe12f058c84d4cfe.response.json",
+      "sha256": "8d9255dce89e5c71e0d24528cdd882b6834c40cdb9dbef2e7d21c91fb888ab56"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\685997a4dd064d9740c670d85da04955bb3698789e55584c77b946d801c56bf7.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\685997a4dd064d9740c670d85da04955bb3698789e55584c77b946d801c56bf7.request.json",
+      "sha256": "bc73c63b0d530daf673a42b079873054cc0ca36f226fb5b8b0764e905a77ad81"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\685997a4dd064d9740c670d85da04955bb3698789e55584c77b946d801c56bf7.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\685997a4dd064d9740c670d85da04955bb3698789e55584c77b946d801c56bf7.response.json",
+      "sha256": "50a2c565910fcf1a1f7078657e0177cfacb37550530d0c8d46dbd4e76c5791e5"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\7266502e01c734c49535bbb6d143b423d7d5d2882ee88ab53039e97348f8b199.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\7266502e01c734c49535bbb6d143b423d7d5d2882ee88ab53039e97348f8b199.request.json",
+      "sha256": "284ae11e5539974fce43b81e76b69362e729161d9c6ec9876bd26d8529339287"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\7266502e01c734c49535bbb6d143b423d7d5d2882ee88ab53039e97348f8b199.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\7266502e01c734c49535bbb6d143b423d7d5d2882ee88ab53039e97348f8b199.response.json",
+      "sha256": "3511516c14b62f3fdb281fc6ad00c9183467f0c2089eadd8789ddf5badb6ea53"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\7a236d494e330be11356d6279b7821d471e4dc28951903104600de99a4e425c4.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\7a236d494e330be11356d6279b7821d471e4dc28951903104600de99a4e425c4.request.json",
+      "sha256": "a04b201e75f4a417dda23ec72ac7999510f69b779d2ceeff2bbe4de0d8d98354"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\7a236d494e330be11356d6279b7821d471e4dc28951903104600de99a4e425c4.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\7a236d494e330be11356d6279b7821d471e4dc28951903104600de99a4e425c4.response.json",
+      "sha256": "223ab76a533d4f66073978956e22c2aa7118752ba454eebb53f67d2812ceb984"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\7ba7417a9acd01516fad4f297dba9d3666576e1231b3423a6c149262397a08fd.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\7ba7417a9acd01516fad4f297dba9d3666576e1231b3423a6c149262397a08fd.request.json",
+      "sha256": "4111087155f511c7d49e8e7e482e3f2926272aaec1373ec1079d43e6e16ae133"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\7ba7417a9acd01516fad4f297dba9d3666576e1231b3423a6c149262397a08fd.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\7ba7417a9acd01516fad4f297dba9d3666576e1231b3423a6c149262397a08fd.response.json",
+      "sha256": "da11202adb711d24ce51940ffc03cab109bbfceefe5fbac24b669d0ad5a8f832"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\7e6c7fd6a2088cdff8561bec27b42718ee1999db8d67d8406fbd1a9c82e9a334.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\7e6c7fd6a2088cdff8561bec27b42718ee1999db8d67d8406fbd1a9c82e9a334.request.json",
+      "sha256": "87e4dd90c4129cca552411b7094b4614f6da541634f8376dff6c923e30cec107"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\7e6c7fd6a2088cdff8561bec27b42718ee1999db8d67d8406fbd1a9c82e9a334.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\7e6c7fd6a2088cdff8561bec27b42718ee1999db8d67d8406fbd1a9c82e9a334.response.json",
+      "sha256": "45933068d806352e8223e146822d4c663baa0f697d6688eba5722e5898f8ca4e"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\88c23283ad6af600bac1f0e911394279525576bb7ed18168a7e4e84bff3af59f.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\88c23283ad6af600bac1f0e911394279525576bb7ed18168a7e4e84bff3af59f.request.json",
+      "sha256": "bd7976e5faee5ec03557f205d1ff743e2cf0793fe8c7c0eec98ab51a0018d0d7"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\88c23283ad6af600bac1f0e911394279525576bb7ed18168a7e4e84bff3af59f.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\88c23283ad6af600bac1f0e911394279525576bb7ed18168a7e4e84bff3af59f.response.json",
+      "sha256": "a1541773b69cc04eede4a9de5bda3c54e9b570ba25c527691109a4b1898e0e71"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\8d51f238e6bbc947d18d97be3cee8bceb4f80400fa809601ac76f73ea40ed03e.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\8d51f238e6bbc947d18d97be3cee8bceb4f80400fa809601ac76f73ea40ed03e.request.json",
+      "sha256": "041e6efed4be89552919f6f34cd9f2893bbaabe1371a3da86d955b8b63b1765b"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\8d51f238e6bbc947d18d97be3cee8bceb4f80400fa809601ac76f73ea40ed03e.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\8d51f238e6bbc947d18d97be3cee8bceb4f80400fa809601ac76f73ea40ed03e.response.json",
+      "sha256": "b8f967391f0b6cc072680a63de6e9a315c9ff2d69673ca538917f30db7cd6d4d"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\9becb507f8557d180bd25a24942607ab8a0161199ed78ccc1833628b631d59fa.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\9becb507f8557d180bd25a24942607ab8a0161199ed78ccc1833628b631d59fa.request.json",
+      "sha256": "52b06340f5cab3fbb1889f89928f2daed9808587c696ddc5e0b7fed5b5279c7f"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\9becb507f8557d180bd25a24942607ab8a0161199ed78ccc1833628b631d59fa.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\9becb507f8557d180bd25a24942607ab8a0161199ed78ccc1833628b631d59fa.response.json",
+      "sha256": "a72e4d64299d7efa677b0e7534baa84ba2946f07fbef4792ca88f5cd449d6f65"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\a76d4b49bc7565693d52d8dcc5050e58bd83e10427edc59a1061d345756e00c9.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\a76d4b49bc7565693d52d8dcc5050e58bd83e10427edc59a1061d345756e00c9.request.json",
+      "sha256": "7bddfa62daae381477a565a66b3a4ad5c66c57183f3344d3da9c0f76e0f74a3c"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\a76d4b49bc7565693d52d8dcc5050e58bd83e10427edc59a1061d345756e00c9.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\a76d4b49bc7565693d52d8dcc5050e58bd83e10427edc59a1061d345756e00c9.response.json",
+      "sha256": "e2135e55d748531c127faa5d936dd6a495e4fa9dc026e9c9036ddf08051a409b"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\aaca699aa276974be51c7836f488cf0ac74a0fe5b2db7d2b7c2cecf35fca7d06.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\aaca699aa276974be51c7836f488cf0ac74a0fe5b2db7d2b7c2cecf35fca7d06.request.json",
+      "sha256": "d9307cbff5faf29e9a2a7d3585df86372ef1327d55eec8cf7f6522ec5329de6f"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\aaca699aa276974be51c7836f488cf0ac74a0fe5b2db7d2b7c2cecf35fca7d06.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\aaca699aa276974be51c7836f488cf0ac74a0fe5b2db7d2b7c2cecf35fca7d06.response.json",
+      "sha256": "1cdede6d9fc94ddd1a9304eee574c3ade32d1440df936f8a46635e69f0682454"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\b955d4eceb19ca8d9ca78748990b581a224f855b0df1e1f6bf60930ae6464669.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\b955d4eceb19ca8d9ca78748990b581a224f855b0df1e1f6bf60930ae6464669.request.json",
+      "sha256": "b525785a0c61122d6257b67889062268d152aacc3b3cea3958c45b33c814def1"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\b955d4eceb19ca8d9ca78748990b581a224f855b0df1e1f6bf60930ae6464669.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\b955d4eceb19ca8d9ca78748990b581a224f855b0df1e1f6bf60930ae6464669.response.json",
+      "sha256": "2f3da182caec3ef3bd747cd2310912915c19b0e9571d54a949561154cf559a9e"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\ca26eb4b50c090cdcd368e8d3e8ef450d697f5a7825f6d875d5d4ed523739311.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\ca26eb4b50c090cdcd368e8d3e8ef450d697f5a7825f6d875d5d4ed523739311.request.json",
+      "sha256": "e18abb7643622981cc58fa0a59414ff0b3c03ba1060fe544b8f5824754eb7d4c"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\ca26eb4b50c090cdcd368e8d3e8ef450d697f5a7825f6d875d5d4ed523739311.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\ca26eb4b50c090cdcd368e8d3e8ef450d697f5a7825f6d875d5d4ed523739311.response.json",
+      "sha256": "25fe32a20c63a483d1d63b318000d6115242963c22739670c58c1d2f32aba592"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\cb059498674f277cf854c8dd6c5087b732f6875f5d5f1ad2d4f6e232cbdc5ec6.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\cb059498674f277cf854c8dd6c5087b732f6875f5d5f1ad2d4f6e232cbdc5ec6.request.json",
+      "sha256": "a4af7f1077f476255399276a7156e7032f81cf9e8029c2bf7b3a0533b47967bc"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\cb059498674f277cf854c8dd6c5087b732f6875f5d5f1ad2d4f6e232cbdc5ec6.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\cb059498674f277cf854c8dd6c5087b732f6875f5d5f1ad2d4f6e232cbdc5ec6.response.json",
+      "sha256": "6d3c869b6b1f3e2806f656c014019bd88cb17b5e12f1140ec5bd2dd611d88646"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\ced53e70c71c28ab254b42c68fce66c32c260106f108a79342f50cdac17f387b.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\ced53e70c71c28ab254b42c68fce66c32c260106f108a79342f50cdac17f387b.request.json",
+      "sha256": "64ef42a1c15775813aa4d3cdf295979074f8be1160acb4eb13150853818a2030"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\ced53e70c71c28ab254b42c68fce66c32c260106f108a79342f50cdac17f387b.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\ced53e70c71c28ab254b42c68fce66c32c260106f108a79342f50cdac17f387b.response.json",
+      "sha256": "2e938389a446eebaf145af03f4b6dd55ff81f938270883d6d24f69220ab7e33c"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\d2253db254625b7ae055bb073a1187026f0ee3e705d84b306fb75a20d5dd7c25.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\d2253db254625b7ae055bb073a1187026f0ee3e705d84b306fb75a20d5dd7c25.request.json",
+      "sha256": "2ae4e866d49c8b7c4027f8195a38753ac4f80a9b90dfefc7d26b0da198b00d90"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\d2253db254625b7ae055bb073a1187026f0ee3e705d84b306fb75a20d5dd7c25.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\d2253db254625b7ae055bb073a1187026f0ee3e705d84b306fb75a20d5dd7c25.response.json",
+      "sha256": "d473282e6e94d53774f4180bec23c1b706c870564d57d2df57514335cb546d46"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\d5ffc61272c03f8ecd8f3c08c28fc497ced7650cfb67dd85a26756af4be1ac5f.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\d5ffc61272c03f8ecd8f3c08c28fc497ced7650cfb67dd85a26756af4be1ac5f.request.json",
+      "sha256": "0ba919c365e87826d27fc92f08942ddf67f793d3ccdc7c8bd36eead89eb090cd"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\d5ffc61272c03f8ecd8f3c08c28fc497ced7650cfb67dd85a26756af4be1ac5f.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\d5ffc61272c03f8ecd8f3c08c28fc497ced7650cfb67dd85a26756af4be1ac5f.response.json",
+      "sha256": "7f445c3cf8a123ea980fb3f15ab974be501424ef27887f37d2c29e3bb8400c14"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\dd187cf53a4ff613624eb5d5c3d5cb04d64d6c7efb71da5da53e353535382a1f.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\dd187cf53a4ff613624eb5d5c3d5cb04d64d6c7efb71da5da53e353535382a1f.request.json",
+      "sha256": "59c8cd55ad1343c5256118908eb1fd121c37f34e6be1bcb7fc19a7045c4f5836"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\dd187cf53a4ff613624eb5d5c3d5cb04d64d6c7efb71da5da53e353535382a1f.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\dd187cf53a4ff613624eb5d5c3d5cb04d64d6c7efb71da5da53e353535382a1f.response.json",
+      "sha256": "c32a260880e6b930d4698d03f4c9be39a9ab39601a5cc0e273d800cb9c9a735c"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\dd3325c941ff737b2d4665cbbbbf500af67b8cb293da40891192cb667588e491.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\dd3325c941ff737b2d4665cbbbbf500af67b8cb293da40891192cb667588e491.request.json",
+      "sha256": "9634f85f6a822d82299732328bc07cc3ba539798313322fd21c68e204adeac8d"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\dd3325c941ff737b2d4665cbbbbf500af67b8cb293da40891192cb667588e491.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\dd3325c941ff737b2d4665cbbbbf500af67b8cb293da40891192cb667588e491.response.json",
+      "sha256": "e503a1de704682529099ad849a7ebd5a7720608d396db3018bc47addb09e9688"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\e2255819e7fa25779fb033755697064019fb325a1e01a17d0c29b7b874e6f25c.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\e2255819e7fa25779fb033755697064019fb325a1e01a17d0c29b7b874e6f25c.request.json",
+      "sha256": "0dee01ad55f19b3a78d0220604a07ebf9b67038e2a61da7e9d6311bc929132b6"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\e2255819e7fa25779fb033755697064019fb325a1e01a17d0c29b7b874e6f25c.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\e2255819e7fa25779fb033755697064019fb325a1e01a17d0c29b7b874e6f25c.response.json",
+      "sha256": "9e2617c93ea26f9b927406c49414861d913451a18eb0a0583316df1f542f86d2"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\e4b9b74551d1c67ad3e032802456db314cefaa7a853250e78495a8d1c545750a.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\e4b9b74551d1c67ad3e032802456db314cefaa7a853250e78495a8d1c545750a.request.json",
+      "sha256": "e2ab917d1b63c936749da0abce0f82c563a853548a9ada50c78165d27944d2f3"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\e4b9b74551d1c67ad3e032802456db314cefaa7a853250e78495a8d1c545750a.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\e4b9b74551d1c67ad3e032802456db314cefaa7a853250e78495a8d1c545750a.response.json",
+      "sha256": "4f857c25442a814b6612912be9fc777fb38e303a6ddec9df94fac7c86b10763e"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\efc216cc4e590e9a0c5b6c598f73fc38290c756d73b8ba261f02d447803b5f03.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\efc216cc4e590e9a0c5b6c598f73fc38290c756d73b8ba261f02d447803b5f03.request.json",
+      "sha256": "135fb42f9068f2d10a8e4903eb51fddda23822cd2edff4ece7b460b646e82539"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\efc216cc4e590e9a0c5b6c598f73fc38290c756d73b8ba261f02d447803b5f03.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\efc216cc4e590e9a0c5b6c598f73fc38290c756d73b8ba261f02d447803b5f03.response.json",
+      "sha256": "0effcacd504327c81227f18186a58642acfa04341294e1f59101296212268928"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\f7ea2fa30ce80645f72abc7704e144e45c2092f69899fe21850f9654879039c3.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\f7ea2fa30ce80645f72abc7704e144e45c2092f69899fe21850f9654879039c3.request.json",
+      "sha256": "96934c70d172ce4c370285a71c9fb3b26a81e138c72c44c1d74c8db7dfff740e"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_development_v2\\api_calls\\f7ea2fa30ce80645f72abc7704e144e45c2092f69899fe21850f9654879039c3.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\f7ea2fa30ce80645f72abc7704e144e45c2092f69899fe21850f9654879039c3.response.json",
+      "sha256": "b37065e15990a5fd0fe7a7298861c8cc1a340f7feeab8b8dbd1077f89496caac"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_transfer\\api_calls\\1241378a0c807ad486f9ada396e1415c8f6d779da49e077aba53c12e74f867f3.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\1241378a0c807ad486f9ada396e1415c8f6d779da49e077aba53c12e74f867f3.request.json",
+      "sha256": "1ea038214eadec0dfb59016851d8697877bb8ebfdabb3488b7a3f8858fbbf359"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_transfer\\api_calls\\1241378a0c807ad486f9ada396e1415c8f6d779da49e077aba53c12e74f867f3.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\1241378a0c807ad486f9ada396e1415c8f6d779da49e077aba53c12e74f867f3.response.json",
+      "sha256": "28ac4f932310c9759f6d68c2589b528a7ca3aa491dc9c91eed5fd8b92e07a91d"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_transfer\\api_calls\\1d270e2e3e5e971b98bcb63b6beafbbf04b16837f2001eb7ca69674c6bbcc744.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\1d270e2e3e5e971b98bcb63b6beafbbf04b16837f2001eb7ca69674c6bbcc744.request.json",
+      "sha256": "4661ae2e423a9ea959b4cff66fffbc1ccbf48ea90e25dabf08944c29f83cde41"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_transfer\\api_calls\\1d270e2e3e5e971b98bcb63b6beafbbf04b16837f2001eb7ca69674c6bbcc744.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\1d270e2e3e5e971b98bcb63b6beafbbf04b16837f2001eb7ca69674c6bbcc744.response.json",
+      "sha256": "e66aee1528d53671a236354d46df9122d6fd59934d8e19d42b91e9de1702b377"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_transfer\\api_calls\\36ed2173090b5e60e4585a2db3d634d0c80afd2cc8aabe9ae5ff597cacaba8e7.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\36ed2173090b5e60e4585a2db3d634d0c80afd2cc8aabe9ae5ff597cacaba8e7.request.json",
+      "sha256": "976ecfbe825c21dae5e280b9dd5346ac5ff8a00f97fff1ea2b719d06060ecca9"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_transfer\\api_calls\\36ed2173090b5e60e4585a2db3d634d0c80afd2cc8aabe9ae5ff597cacaba8e7.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\36ed2173090b5e60e4585a2db3d634d0c80afd2cc8aabe9ae5ff597cacaba8e7.response.json",
+      "sha256": "a136a2cd63cce6993ccc6a640ca9f154321f498293d137c55b4f6085a4a1bfe0"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_transfer\\api_calls\\51a8d28a2d9cf701f0c5b8505f9e7534f3a726601d95c6bd216bd6c1d31aeabc.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\51a8d28a2d9cf701f0c5b8505f9e7534f3a726601d95c6bd216bd6c1d31aeabc.request.json",
+      "sha256": "0f9cbbd3086c307ccde657f060c896d0184b9015c790a0af26062a7a2caa38d6"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_transfer\\api_calls\\51a8d28a2d9cf701f0c5b8505f9e7534f3a726601d95c6bd216bd6c1d31aeabc.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\51a8d28a2d9cf701f0c5b8505f9e7534f3a726601d95c6bd216bd6c1d31aeabc.response.json",
+      "sha256": "ef8fad07f398645e877d1a74e53ae13e00800d02c26b58155e86d4df2f0a167f"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_transfer\\api_calls\\62201239a97329be29948d6fed2ba826cba8933da2785a4501967b6550644fb3.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\62201239a97329be29948d6fed2ba826cba8933da2785a4501967b6550644fb3.request.json",
+      "sha256": "dca4a57f5f5bedb9fd81ed835ea247b20466ebf0e5d6369432068005ccc6f712"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_transfer\\api_calls\\62201239a97329be29948d6fed2ba826cba8933da2785a4501967b6550644fb3.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\62201239a97329be29948d6fed2ba826cba8933da2785a4501967b6550644fb3.response.json",
+      "sha256": "69f30cba29c39337d7b89738d043d2573a4d7d6565e712965ead34545fcbf6e6"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_transfer\\api_calls\\68a490b0fb8a76c281891b19a33e133e47d9a6aaf82cdf58320d9be186d90f83.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\68a490b0fb8a76c281891b19a33e133e47d9a6aaf82cdf58320d9be186d90f83.request.json",
+      "sha256": "b3b11bc24b25a76b79332fe499cfe5ba20628c9b35ca6290cd065f3058d0236c"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_transfer\\api_calls\\68a490b0fb8a76c281891b19a33e133e47d9a6aaf82cdf58320d9be186d90f83.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\68a490b0fb8a76c281891b19a33e133e47d9a6aaf82cdf58320d9be186d90f83.response.json",
+      "sha256": "2685777a9b5711a03e7763ba1038bf3ffceaece749f1283f05735d4be685be94"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_transfer\\api_calls\\71e7b0be550c13d7be7a53f159883b5637a33d7cce8279f427ebe64367319fd6.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\71e7b0be550c13d7be7a53f159883b5637a33d7cce8279f427ebe64367319fd6.request.json",
+      "sha256": "188cc8209f24afc4587bfc589ebfc89666d5fa43a8baa7627e77f65bb03736be"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_transfer\\api_calls\\71e7b0be550c13d7be7a53f159883b5637a33d7cce8279f427ebe64367319fd6.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\71e7b0be550c13d7be7a53f159883b5637a33d7cce8279f427ebe64367319fd6.response.json",
+      "sha256": "92fae8301f7546da851367afac0a3150eb3e1f4461fc4113f833e5d38ddb3156"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_transfer\\api_calls\\93145fc7d7e353f009d2befdfdbce7e3281a33bd4a98dd3f7339d97f4e9858e6.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\93145fc7d7e353f009d2befdfdbce7e3281a33bd4a98dd3f7339d97f4e9858e6.request.json",
+      "sha256": "bd69bc00f2ec2b7c429f480c2984883a956fed4cdc93eb751828675419d5e711"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_transfer\\api_calls\\93145fc7d7e353f009d2befdfdbce7e3281a33bd4a98dd3f7339d97f4e9858e6.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\93145fc7d7e353f009d2befdfdbce7e3281a33bd4a98dd3f7339d97f4e9858e6.response.json",
+      "sha256": "c3c6bac849b3231e39ee73fe694d57bc8f72191903f507c0dc89f3e2d17591d0"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_transfer\\api_calls\\9ae2957abc3e24d5b80058b87553c0d3f2f1f39a80db6cfd415e2fcc70b37e65.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\9ae2957abc3e24d5b80058b87553c0d3f2f1f39a80db6cfd415e2fcc70b37e65.request.json",
+      "sha256": "1f6926bfc47517984cac5d1eed65517b809a5e52b1f966134ffb45db1019e6ad"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_transfer\\api_calls\\9ae2957abc3e24d5b80058b87553c0d3f2f1f39a80db6cfd415e2fcc70b37e65.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\9ae2957abc3e24d5b80058b87553c0d3f2f1f39a80db6cfd415e2fcc70b37e65.response.json",
+      "sha256": "57855942cb1b619007f418514dc240b18634ce53bbd80478d93eb8e59c3e7926"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_transfer\\api_calls\\c81412de666f92d4d40d71c80d8412ccc7123b18d6f37423e95d314478783065.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\c81412de666f92d4d40d71c80d8412ccc7123b18d6f37423e95d314478783065.request.json",
+      "sha256": "d63832b183e657478ef5f10bc8e8e0ecbdbcc628271448212d93f9aa3d2d68b0"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_transfer\\api_calls\\c81412de666f92d4d40d71c80d8412ccc7123b18d6f37423e95d314478783065.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\c81412de666f92d4d40d71c80d8412ccc7123b18d6f37423e95d314478783065.response.json",
+      "sha256": "34cc39fbf768db4ceda52feb217f4d6136b19a6fb88893467c74c1ecc57b1249"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_transfer\\api_calls\\edc3c36801c00e83d30c06d6b10f5cf6139a371f7dd0269a14a4c253a7846087.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\edc3c36801c00e83d30c06d6b10f5cf6139a371f7dd0269a14a4c253a7846087.request.json",
+      "sha256": "78085a9b41c2c24ed7f1c7b9de5c5ddab66b154e06a471dceb5b43f40a275791"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_transfer\\api_calls\\edc3c36801c00e83d30c06d6b10f5cf6139a371f7dd0269a14a4c253a7846087.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\edc3c36801c00e83d30c06d6b10f5cf6139a371f7dd0269a14a4c253a7846087.response.json",
+      "sha256": "1547f46ef740b2288d104c87c651177a27d79a49cbf64860914a4e816ac178bf"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_transfer\\api_calls\\fa24de6e95b30150a4ba52936c3cdd3a33e8cf646df7d2986e406dd80fb37588.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\fa24de6e95b30150a4ba52936c3cdd3a33e8cf646df7d2986e406dd80fb37588.request.json",
+      "sha256": "a5541db945071ebf7def48ed32786170367f270d587c8b08dfef84096b1d5681"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v1\\openai_transfer\\api_calls\\fa24de6e95b30150a4ba52936c3cdd3a33e8cf646df7d2986e406dd80fb37588.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\fa24de6e95b30150a4ba52936c3cdd3a33e8cf646df7d2986e406dd80fb37588.response.json",
+      "sha256": "b38247486ab5940b1ce8f3029890042805909a54b2cd1c874df5c964ea242aa3"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\0035cda852388f8d991fa6a07d84fb4bdd4d146b1939ae15418b631b06c7997d.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\0035cda852388f8d991fa6a07d84fb4bdd4d146b1939ae15418b631b06c7997d.request.json",
+      "sha256": "e3a36120cd06d3ed0f956686e391c5be5f4015c9e723123f748c26f5b9ade159"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\0035cda852388f8d991fa6a07d84fb4bdd4d146b1939ae15418b631b06c7997d.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\0035cda852388f8d991fa6a07d84fb4bdd4d146b1939ae15418b631b06c7997d.response.json",
+      "sha256": "5f81a68d37c00dec6e544b516c1bbf34c141f6cb74ded36a56a8edfde7ab52ee"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\0eb6e35255040066c4d614e6eb948d6fb2d0820b4d404085a5302b58466827f6.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\0eb6e35255040066c4d614e6eb948d6fb2d0820b4d404085a5302b58466827f6.request.json",
+      "sha256": "9e6aeb5ff175a98696529fc9f73432b20d6de6d64f503c41a62a872d0888b5b8"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\0eb6e35255040066c4d614e6eb948d6fb2d0820b4d404085a5302b58466827f6.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\0eb6e35255040066c4d614e6eb948d6fb2d0820b4d404085a5302b58466827f6.response.json",
+      "sha256": "2ae318454552e8fafc6dec6573634e6df8ceadc2970582bd5335fa69d3a96d6b"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\1241378a0c807ad486f9ada396e1415c8f6d779da49e077aba53c12e74f867f3.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\1241378a0c807ad486f9ada396e1415c8f6d779da49e077aba53c12e74f867f3.request.json",
+      "sha256": "1ea038214eadec0dfb59016851d8697877bb8ebfdabb3488b7a3f8858fbbf359"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\1241378a0c807ad486f9ada396e1415c8f6d779da49e077aba53c12e74f867f3.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\1241378a0c807ad486f9ada396e1415c8f6d779da49e077aba53c12e74f867f3.response.json",
+      "sha256": "28ac4f932310c9759f6d68c2589b528a7ca3aa491dc9c91eed5fd8b92e07a91d"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\1d270e2e3e5e971b98bcb63b6beafbbf04b16837f2001eb7ca69674c6bbcc744.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\1d270e2e3e5e971b98bcb63b6beafbbf04b16837f2001eb7ca69674c6bbcc744.request.json",
+      "sha256": "4661ae2e423a9ea959b4cff66fffbc1ccbf48ea90e25dabf08944c29f83cde41"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\1d270e2e3e5e971b98bcb63b6beafbbf04b16837f2001eb7ca69674c6bbcc744.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\1d270e2e3e5e971b98bcb63b6beafbbf04b16837f2001eb7ca69674c6bbcc744.response.json",
+      "sha256": "e66aee1528d53671a236354d46df9122d6fd59934d8e19d42b91e9de1702b377"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\1f443d1a108f37fdfc05169cf1cc7ca5857c927c6de39765f4e72fedad0e1da7.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\1f443d1a108f37fdfc05169cf1cc7ca5857c927c6de39765f4e72fedad0e1da7.request.json",
+      "sha256": "d899d1f59036972a8339704fbef8467c911973ba149d83c97020a8455e02e967"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\1f443d1a108f37fdfc05169cf1cc7ca5857c927c6de39765f4e72fedad0e1da7.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\1f443d1a108f37fdfc05169cf1cc7ca5857c927c6de39765f4e72fedad0e1da7.response.json",
+      "sha256": "6461603ff2840970daa48499daa1a60bd12b378e2106082cadd9dffb2c5cda61"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\31339a1238608e253f3a47f859e6659c305a914c5c5a2513f26c1fe7a596bdfa.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\31339a1238608e253f3a47f859e6659c305a914c5c5a2513f26c1fe7a596bdfa.request.json",
+      "sha256": "9e1e1d33ab1ea2413f202738a77bc83e4c1e478f18f19229bb0a90bf7cac6dd5"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\31339a1238608e253f3a47f859e6659c305a914c5c5a2513f26c1fe7a596bdfa.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\31339a1238608e253f3a47f859e6659c305a914c5c5a2513f26c1fe7a596bdfa.response.json",
+      "sha256": "6773888ed8a40911b3cddfa2ad793df9c19828bd26c99a2b51b66049a16aae47"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\36ed2173090b5e60e4585a2db3d634d0c80afd2cc8aabe9ae5ff597cacaba8e7.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\36ed2173090b5e60e4585a2db3d634d0c80afd2cc8aabe9ae5ff597cacaba8e7.request.json",
+      "sha256": "976ecfbe825c21dae5e280b9dd5346ac5ff8a00f97fff1ea2b719d06060ecca9"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\36ed2173090b5e60e4585a2db3d634d0c80afd2cc8aabe9ae5ff597cacaba8e7.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\36ed2173090b5e60e4585a2db3d634d0c80afd2cc8aabe9ae5ff597cacaba8e7.response.json",
+      "sha256": "a136a2cd63cce6993ccc6a640ca9f154321f498293d137c55b4f6085a4a1bfe0"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\37d8eb5f3365768bef7b3b3288761886eeb50ce2ac689993d0b2de4793597407.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\37d8eb5f3365768bef7b3b3288761886eeb50ce2ac689993d0b2de4793597407.request.json",
+      "sha256": "e4ef4e73888aa85db022713fa63b976ee46c0e8ced4caef5fdc9c928cc8d3718"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\37d8eb5f3365768bef7b3b3288761886eeb50ce2ac689993d0b2de4793597407.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\37d8eb5f3365768bef7b3b3288761886eeb50ce2ac689993d0b2de4793597407.response.json",
+      "sha256": "bc148957820a4aa9bcc2b3bcb3163b5cf1c0c0ddae322f2059668af98c87b635"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\3a63efae2085a00afad0784228dee321ac344e925c567bf148501061a6d8ac23.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\3a63efae2085a00afad0784228dee321ac344e925c567bf148501061a6d8ac23.request.json",
+      "sha256": "f3a76c1e7dce4c923aff20ef9a20328015e3f5384ee035342344e8141e9f2940"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\3a63efae2085a00afad0784228dee321ac344e925c567bf148501061a6d8ac23.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\3a63efae2085a00afad0784228dee321ac344e925c567bf148501061a6d8ac23.response.json",
+      "sha256": "9727bbbaddb67f77389157724f76934045ad209cdb5435bd526f01756315e761"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\455ca32be5db833ed516d1c2cb40290b71f70fc55a55511ecbb6eb642d2edd03.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\455ca32be5db833ed516d1c2cb40290b71f70fc55a55511ecbb6eb642d2edd03.request.json",
+      "sha256": "e2bac994d46379613fc37d5705ac1f7e8ce5dd23fe82ba3ef49404466ea664dd"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\455ca32be5db833ed516d1c2cb40290b71f70fc55a55511ecbb6eb642d2edd03.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\455ca32be5db833ed516d1c2cb40290b71f70fc55a55511ecbb6eb642d2edd03.response.json",
+      "sha256": "b33615753151ab59e2fb0982d44417f0487ba595adbeafa067757d38769973f0"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\4c4f19427f058690b934cc42c5699f71a2ee52369468671780400028c5c235bd.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\4c4f19427f058690b934cc42c5699f71a2ee52369468671780400028c5c235bd.request.json",
+      "sha256": "34a9576979c51b3ef8ddbcb3f60b604782dd768e6a39df953520ed513f87f19c"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\4c4f19427f058690b934cc42c5699f71a2ee52369468671780400028c5c235bd.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\4c4f19427f058690b934cc42c5699f71a2ee52369468671780400028c5c235bd.response.json",
+      "sha256": "b5c4a8947c940a9be7de68c270e3895d117cda47bcb2bd693a92a7dd0ffc30ce"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\4d3dd7e55eb9161c931830999869397c0c645beb8cfb953112253bf027922769.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\4d3dd7e55eb9161c931830999869397c0c645beb8cfb953112253bf027922769.request.json",
+      "sha256": "70cead5fbefb9c1c41453f717297b36544443066cf8ca4ed5f59efd584b45131"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\4d3dd7e55eb9161c931830999869397c0c645beb8cfb953112253bf027922769.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\4d3dd7e55eb9161c931830999869397c0c645beb8cfb953112253bf027922769.response.json",
+      "sha256": "efc079b577c650d2a1d3bd65b1dc98e58d650a59483790a9690ed7892a37a48f"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\506a999d2352d3539ffe329f05c9df924c8aaa587eb06949c9316fd5e62a270c.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\506a999d2352d3539ffe329f05c9df924c8aaa587eb06949c9316fd5e62a270c.request.json",
+      "sha256": "b1aec93ac938f190234d251b308ed68a950bab0c5971d19a95d1dcd322c93dbd"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\506a999d2352d3539ffe329f05c9df924c8aaa587eb06949c9316fd5e62a270c.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\506a999d2352d3539ffe329f05c9df924c8aaa587eb06949c9316fd5e62a270c.response.json",
+      "sha256": "b6512cc801e7c1ba3a2926da6a5c25e1d24c5e53b8d96b2d5e040beacac8f8fe"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\51a8d28a2d9cf701f0c5b8505f9e7534f3a726601d95c6bd216bd6c1d31aeabc.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\51a8d28a2d9cf701f0c5b8505f9e7534f3a726601d95c6bd216bd6c1d31aeabc.request.json",
+      "sha256": "0f9cbbd3086c307ccde657f060c896d0184b9015c790a0af26062a7a2caa38d6"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\51a8d28a2d9cf701f0c5b8505f9e7534f3a726601d95c6bd216bd6c1d31aeabc.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\51a8d28a2d9cf701f0c5b8505f9e7534f3a726601d95c6bd216bd6c1d31aeabc.response.json",
+      "sha256": "ef8fad07f398645e877d1a74e53ae13e00800d02c26b58155e86d4df2f0a167f"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\5f38ade0ba513bb2b2b6a86df768468a00184de8a646491f833e356c0f89c823.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\5f38ade0ba513bb2b2b6a86df768468a00184de8a646491f833e356c0f89c823.request.json",
+      "sha256": "c94292dd78c8f3d206ba06bfe6611c86b8c31031626e10818c89aafadc9e4150"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\5f38ade0ba513bb2b2b6a86df768468a00184de8a646491f833e356c0f89c823.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\5f38ade0ba513bb2b2b6a86df768468a00184de8a646491f833e356c0f89c823.response.json",
+      "sha256": "9927606d6345d0ee905991f664e16a1fa70954b9c8de35d3b10318d965966a3b"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\62201239a97329be29948d6fed2ba826cba8933da2785a4501967b6550644fb3.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\62201239a97329be29948d6fed2ba826cba8933da2785a4501967b6550644fb3.request.json",
+      "sha256": "dca4a57f5f5bedb9fd81ed835ea247b20466ebf0e5d6369432068005ccc6f712"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\62201239a97329be29948d6fed2ba826cba8933da2785a4501967b6550644fb3.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\62201239a97329be29948d6fed2ba826cba8933da2785a4501967b6550644fb3.response.json",
+      "sha256": "69f30cba29c39337d7b89738d043d2573a4d7d6565e712965ead34545fcbf6e6"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\6459237bc6f08411c1615bcb7ddc501e264e8d0e32177cb8fe12f058c84d4cfe.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\6459237bc6f08411c1615bcb7ddc501e264e8d0e32177cb8fe12f058c84d4cfe.request.json",
+      "sha256": "f83295839f7797a645830e5a4ebe6ecb849f86389b916914ffacf988e7838fd5"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\6459237bc6f08411c1615bcb7ddc501e264e8d0e32177cb8fe12f058c84d4cfe.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\6459237bc6f08411c1615bcb7ddc501e264e8d0e32177cb8fe12f058c84d4cfe.response.json",
+      "sha256": "8d9255dce89e5c71e0d24528cdd882b6834c40cdb9dbef2e7d21c91fb888ab56"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\649273cc0447f3dce969830f92cf610a60487bcb10b5a47187411f44b2a4173c.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\649273cc0447f3dce969830f92cf610a60487bcb10b5a47187411f44b2a4173c.request.json",
+      "sha256": "d8a19c240b68dd97a5ee80e23db09a94d32535084c242c71d9447d23cc7bc884"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\649273cc0447f3dce969830f92cf610a60487bcb10b5a47187411f44b2a4173c.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\649273cc0447f3dce969830f92cf610a60487bcb10b5a47187411f44b2a4173c.response.json",
+      "sha256": "39f97c31d6517e7b0d436da74a76774af66b402958bcb0c0c421008243a334ae"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\6655be49ab4cbb57dcced51f24725fb08574e65d65634c14ba3bc54d1eb7cf6b.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\6655be49ab4cbb57dcced51f24725fb08574e65d65634c14ba3bc54d1eb7cf6b.request.json",
+      "sha256": "5c5df22889b9ec04c9f32857181c1fe67797723eb6c4cfb8d2d918580845d3e3"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\6655be49ab4cbb57dcced51f24725fb08574e65d65634c14ba3bc54d1eb7cf6b.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\6655be49ab4cbb57dcced51f24725fb08574e65d65634c14ba3bc54d1eb7cf6b.response.json",
+      "sha256": "44678c48a131377c23f25ccae638e860fc559cbb638918b536fb69e93b2eb51a"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\685997a4dd064d9740c670d85da04955bb3698789e55584c77b946d801c56bf7.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\685997a4dd064d9740c670d85da04955bb3698789e55584c77b946d801c56bf7.request.json",
+      "sha256": "bc73c63b0d530daf673a42b079873054cc0ca36f226fb5b8b0764e905a77ad81"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\685997a4dd064d9740c670d85da04955bb3698789e55584c77b946d801c56bf7.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\685997a4dd064d9740c670d85da04955bb3698789e55584c77b946d801c56bf7.response.json",
+      "sha256": "50a2c565910fcf1a1f7078657e0177cfacb37550530d0c8d46dbd4e76c5791e5"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\68a490b0fb8a76c281891b19a33e133e47d9a6aaf82cdf58320d9be186d90f83.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\68a490b0fb8a76c281891b19a33e133e47d9a6aaf82cdf58320d9be186d90f83.request.json",
+      "sha256": "b3b11bc24b25a76b79332fe499cfe5ba20628c9b35ca6290cd065f3058d0236c"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\68a490b0fb8a76c281891b19a33e133e47d9a6aaf82cdf58320d9be186d90f83.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\68a490b0fb8a76c281891b19a33e133e47d9a6aaf82cdf58320d9be186d90f83.response.json",
+      "sha256": "2685777a9b5711a03e7763ba1038bf3ffceaece749f1283f05735d4be685be94"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\71e7b0be550c13d7be7a53f159883b5637a33d7cce8279f427ebe64367319fd6.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\71e7b0be550c13d7be7a53f159883b5637a33d7cce8279f427ebe64367319fd6.request.json",
+      "sha256": "188cc8209f24afc4587bfc589ebfc89666d5fa43a8baa7627e77f65bb03736be"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\71e7b0be550c13d7be7a53f159883b5637a33d7cce8279f427ebe64367319fd6.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\71e7b0be550c13d7be7a53f159883b5637a33d7cce8279f427ebe64367319fd6.response.json",
+      "sha256": "92fae8301f7546da851367afac0a3150eb3e1f4461fc4113f833e5d38ddb3156"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\7266502e01c734c49535bbb6d143b423d7d5d2882ee88ab53039e97348f8b199.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\7266502e01c734c49535bbb6d143b423d7d5d2882ee88ab53039e97348f8b199.request.json",
+      "sha256": "284ae11e5539974fce43b81e76b69362e729161d9c6ec9876bd26d8529339287"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\7266502e01c734c49535bbb6d143b423d7d5d2882ee88ab53039e97348f8b199.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\7266502e01c734c49535bbb6d143b423d7d5d2882ee88ab53039e97348f8b199.response.json",
+      "sha256": "3511516c14b62f3fdb281fc6ad00c9183467f0c2089eadd8789ddf5badb6ea53"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\7a236d494e330be11356d6279b7821d471e4dc28951903104600de99a4e425c4.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\7a236d494e330be11356d6279b7821d471e4dc28951903104600de99a4e425c4.request.json",
+      "sha256": "a04b201e75f4a417dda23ec72ac7999510f69b779d2ceeff2bbe4de0d8d98354"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\7a236d494e330be11356d6279b7821d471e4dc28951903104600de99a4e425c4.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\7a236d494e330be11356d6279b7821d471e4dc28951903104600de99a4e425c4.response.json",
+      "sha256": "223ab76a533d4f66073978956e22c2aa7118752ba454eebb53f67d2812ceb984"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\7ba7417a9acd01516fad4f297dba9d3666576e1231b3423a6c149262397a08fd.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\7ba7417a9acd01516fad4f297dba9d3666576e1231b3423a6c149262397a08fd.request.json",
+      "sha256": "4111087155f511c7d49e8e7e482e3f2926272aaec1373ec1079d43e6e16ae133"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\7ba7417a9acd01516fad4f297dba9d3666576e1231b3423a6c149262397a08fd.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\7ba7417a9acd01516fad4f297dba9d3666576e1231b3423a6c149262397a08fd.response.json",
+      "sha256": "da11202adb711d24ce51940ffc03cab109bbfceefe5fbac24b669d0ad5a8f832"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\7e6c7fd6a2088cdff8561bec27b42718ee1999db8d67d8406fbd1a9c82e9a334.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\7e6c7fd6a2088cdff8561bec27b42718ee1999db8d67d8406fbd1a9c82e9a334.request.json",
+      "sha256": "87e4dd90c4129cca552411b7094b4614f6da541634f8376dff6c923e30cec107"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\7e6c7fd6a2088cdff8561bec27b42718ee1999db8d67d8406fbd1a9c82e9a334.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\7e6c7fd6a2088cdff8561bec27b42718ee1999db8d67d8406fbd1a9c82e9a334.response.json",
+      "sha256": "45933068d806352e8223e146822d4c663baa0f697d6688eba5722e5898f8ca4e"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\7f297b4e0a27be8092a2b09e8598a1312988fe4e01fa756ea57d2e37e9fce0d6.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\7f297b4e0a27be8092a2b09e8598a1312988fe4e01fa756ea57d2e37e9fce0d6.request.json",
+      "sha256": "1c363b42f10d02575efba8fea6dc6289ec85ba2e61ba3f2b23e3c6caceb9b218"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\7f297b4e0a27be8092a2b09e8598a1312988fe4e01fa756ea57d2e37e9fce0d6.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\7f297b4e0a27be8092a2b09e8598a1312988fe4e01fa756ea57d2e37e9fce0d6.response.json",
+      "sha256": "69349201659fa9e2d55c3852bb9815555df629c95558b8b46c933a7766ee15c5"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\88c23283ad6af600bac1f0e911394279525576bb7ed18168a7e4e84bff3af59f.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\88c23283ad6af600bac1f0e911394279525576bb7ed18168a7e4e84bff3af59f.request.json",
+      "sha256": "bd7976e5faee5ec03557f205d1ff743e2cf0793fe8c7c0eec98ab51a0018d0d7"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\88c23283ad6af600bac1f0e911394279525576bb7ed18168a7e4e84bff3af59f.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\88c23283ad6af600bac1f0e911394279525576bb7ed18168a7e4e84bff3af59f.response.json",
+      "sha256": "a1541773b69cc04eede4a9de5bda3c54e9b570ba25c527691109a4b1898e0e71"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\8d51f238e6bbc947d18d97be3cee8bceb4f80400fa809601ac76f73ea40ed03e.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\8d51f238e6bbc947d18d97be3cee8bceb4f80400fa809601ac76f73ea40ed03e.request.json",
+      "sha256": "041e6efed4be89552919f6f34cd9f2893bbaabe1371a3da86d955b8b63b1765b"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\8d51f238e6bbc947d18d97be3cee8bceb4f80400fa809601ac76f73ea40ed03e.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\8d51f238e6bbc947d18d97be3cee8bceb4f80400fa809601ac76f73ea40ed03e.response.json",
+      "sha256": "b8f967391f0b6cc072680a63de6e9a315c9ff2d69673ca538917f30db7cd6d4d"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\93145fc7d7e353f009d2befdfdbce7e3281a33bd4a98dd3f7339d97f4e9858e6.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\93145fc7d7e353f009d2befdfdbce7e3281a33bd4a98dd3f7339d97f4e9858e6.request.json",
+      "sha256": "bd69bc00f2ec2b7c429f480c2984883a956fed4cdc93eb751828675419d5e711"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\93145fc7d7e353f009d2befdfdbce7e3281a33bd4a98dd3f7339d97f4e9858e6.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\93145fc7d7e353f009d2befdfdbce7e3281a33bd4a98dd3f7339d97f4e9858e6.response.json",
+      "sha256": "c3c6bac849b3231e39ee73fe694d57bc8f72191903f507c0dc89f3e2d17591d0"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\9ae2957abc3e24d5b80058b87553c0d3f2f1f39a80db6cfd415e2fcc70b37e65.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\9ae2957abc3e24d5b80058b87553c0d3f2f1f39a80db6cfd415e2fcc70b37e65.request.json",
+      "sha256": "1f6926bfc47517984cac5d1eed65517b809a5e52b1f966134ffb45db1019e6ad"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\9ae2957abc3e24d5b80058b87553c0d3f2f1f39a80db6cfd415e2fcc70b37e65.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\9ae2957abc3e24d5b80058b87553c0d3f2f1f39a80db6cfd415e2fcc70b37e65.response.json",
+      "sha256": "57855942cb1b619007f418514dc240b18634ce53bbd80478d93eb8e59c3e7926"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\9becb507f8557d180bd25a24942607ab8a0161199ed78ccc1833628b631d59fa.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\9becb507f8557d180bd25a24942607ab8a0161199ed78ccc1833628b631d59fa.request.json",
+      "sha256": "52b06340f5cab3fbb1889f89928f2daed9808587c696ddc5e0b7fed5b5279c7f"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\9becb507f8557d180bd25a24942607ab8a0161199ed78ccc1833628b631d59fa.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\9becb507f8557d180bd25a24942607ab8a0161199ed78ccc1833628b631d59fa.response.json",
+      "sha256": "a72e4d64299d7efa677b0e7534baa84ba2946f07fbef4792ca88f5cd449d6f65"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\9de726d5a37d9388993b8e0c4c5356aada8c87e1ad2632b1564097b596b734bc.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\9de726d5a37d9388993b8e0c4c5356aada8c87e1ad2632b1564097b596b734bc.request.json",
+      "sha256": "de262293fb8cae80e0e4fa956f3ddf1f251e2b7030cea765c2be719a0254b4f8"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\9de726d5a37d9388993b8e0c4c5356aada8c87e1ad2632b1564097b596b734bc.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\9de726d5a37d9388993b8e0c4c5356aada8c87e1ad2632b1564097b596b734bc.response.json",
+      "sha256": "2b5a4a78f27ee455c3ff10bf0ff594051cbf814c4a9a217b8f1417453c4b9698"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\a76d4b49bc7565693d52d8dcc5050e58bd83e10427edc59a1061d345756e00c9.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\a76d4b49bc7565693d52d8dcc5050e58bd83e10427edc59a1061d345756e00c9.request.json",
+      "sha256": "7bddfa62daae381477a565a66b3a4ad5c66c57183f3344d3da9c0f76e0f74a3c"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\a76d4b49bc7565693d52d8dcc5050e58bd83e10427edc59a1061d345756e00c9.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\a76d4b49bc7565693d52d8dcc5050e58bd83e10427edc59a1061d345756e00c9.response.json",
+      "sha256": "e2135e55d748531c127faa5d936dd6a495e4fa9dc026e9c9036ddf08051a409b"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\aaca699aa276974be51c7836f488cf0ac74a0fe5b2db7d2b7c2cecf35fca7d06.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\aaca699aa276974be51c7836f488cf0ac74a0fe5b2db7d2b7c2cecf35fca7d06.request.json",
+      "sha256": "d9307cbff5faf29e9a2a7d3585df86372ef1327d55eec8cf7f6522ec5329de6f"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\aaca699aa276974be51c7836f488cf0ac74a0fe5b2db7d2b7c2cecf35fca7d06.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\aaca699aa276974be51c7836f488cf0ac74a0fe5b2db7d2b7c2cecf35fca7d06.response.json",
+      "sha256": "1cdede6d9fc94ddd1a9304eee574c3ade32d1440df936f8a46635e69f0682454"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\b955d4eceb19ca8d9ca78748990b581a224f855b0df1e1f6bf60930ae6464669.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\b955d4eceb19ca8d9ca78748990b581a224f855b0df1e1f6bf60930ae6464669.request.json",
+      "sha256": "b525785a0c61122d6257b67889062268d152aacc3b3cea3958c45b33c814def1"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\b955d4eceb19ca8d9ca78748990b581a224f855b0df1e1f6bf60930ae6464669.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\b955d4eceb19ca8d9ca78748990b581a224f855b0df1e1f6bf60930ae6464669.response.json",
+      "sha256": "2f3da182caec3ef3bd747cd2310912915c19b0e9571d54a949561154cf559a9e"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\c81412de666f92d4d40d71c80d8412ccc7123b18d6f37423e95d314478783065.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\c81412de666f92d4d40d71c80d8412ccc7123b18d6f37423e95d314478783065.request.json",
+      "sha256": "d63832b183e657478ef5f10bc8e8e0ecbdbcc628271448212d93f9aa3d2d68b0"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\c81412de666f92d4d40d71c80d8412ccc7123b18d6f37423e95d314478783065.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\c81412de666f92d4d40d71c80d8412ccc7123b18d6f37423e95d314478783065.response.json",
+      "sha256": "34cc39fbf768db4ceda52feb217f4d6136b19a6fb88893467c74c1ecc57b1249"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\ca26eb4b50c090cdcd368e8d3e8ef450d697f5a7825f6d875d5d4ed523739311.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\ca26eb4b50c090cdcd368e8d3e8ef450d697f5a7825f6d875d5d4ed523739311.request.json",
+      "sha256": "e18abb7643622981cc58fa0a59414ff0b3c03ba1060fe544b8f5824754eb7d4c"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\ca26eb4b50c090cdcd368e8d3e8ef450d697f5a7825f6d875d5d4ed523739311.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\ca26eb4b50c090cdcd368e8d3e8ef450d697f5a7825f6d875d5d4ed523739311.response.json",
+      "sha256": "25fe32a20c63a483d1d63b318000d6115242963c22739670c58c1d2f32aba592"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\cb059498674f277cf854c8dd6c5087b732f6875f5d5f1ad2d4f6e232cbdc5ec6.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\cb059498674f277cf854c8dd6c5087b732f6875f5d5f1ad2d4f6e232cbdc5ec6.request.json",
+      "sha256": "a4af7f1077f476255399276a7156e7032f81cf9e8029c2bf7b3a0533b47967bc"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\cb059498674f277cf854c8dd6c5087b732f6875f5d5f1ad2d4f6e232cbdc5ec6.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\cb059498674f277cf854c8dd6c5087b732f6875f5d5f1ad2d4f6e232cbdc5ec6.response.json",
+      "sha256": "6d3c869b6b1f3e2806f656c014019bd88cb17b5e12f1140ec5bd2dd611d88646"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\ced53e70c71c28ab254b42c68fce66c32c260106f108a79342f50cdac17f387b.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\ced53e70c71c28ab254b42c68fce66c32c260106f108a79342f50cdac17f387b.request.json",
+      "sha256": "64ef42a1c15775813aa4d3cdf295979074f8be1160acb4eb13150853818a2030"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\ced53e70c71c28ab254b42c68fce66c32c260106f108a79342f50cdac17f387b.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\ced53e70c71c28ab254b42c68fce66c32c260106f108a79342f50cdac17f387b.response.json",
+      "sha256": "2e938389a446eebaf145af03f4b6dd55ff81f938270883d6d24f69220ab7e33c"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\d2253db254625b7ae055bb073a1187026f0ee3e705d84b306fb75a20d5dd7c25.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\d2253db254625b7ae055bb073a1187026f0ee3e705d84b306fb75a20d5dd7c25.request.json",
+      "sha256": "2ae4e866d49c8b7c4027f8195a38753ac4f80a9b90dfefc7d26b0da198b00d90"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\d2253db254625b7ae055bb073a1187026f0ee3e705d84b306fb75a20d5dd7c25.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\d2253db254625b7ae055bb073a1187026f0ee3e705d84b306fb75a20d5dd7c25.response.json",
+      "sha256": "d473282e6e94d53774f4180bec23c1b706c870564d57d2df57514335cb546d46"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\d5ffc61272c03f8ecd8f3c08c28fc497ced7650cfb67dd85a26756af4be1ac5f.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\d5ffc61272c03f8ecd8f3c08c28fc497ced7650cfb67dd85a26756af4be1ac5f.request.json",
+      "sha256": "0ba919c365e87826d27fc92f08942ddf67f793d3ccdc7c8bd36eead89eb090cd"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\d5ffc61272c03f8ecd8f3c08c28fc497ced7650cfb67dd85a26756af4be1ac5f.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\d5ffc61272c03f8ecd8f3c08c28fc497ced7650cfb67dd85a26756af4be1ac5f.response.json",
+      "sha256": "7f445c3cf8a123ea980fb3f15ab974be501424ef27887f37d2c29e3bb8400c14"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\dd187cf53a4ff613624eb5d5c3d5cb04d64d6c7efb71da5da53e353535382a1f.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\dd187cf53a4ff613624eb5d5c3d5cb04d64d6c7efb71da5da53e353535382a1f.request.json",
+      "sha256": "59c8cd55ad1343c5256118908eb1fd121c37f34e6be1bcb7fc19a7045c4f5836"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\dd187cf53a4ff613624eb5d5c3d5cb04d64d6c7efb71da5da53e353535382a1f.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\dd187cf53a4ff613624eb5d5c3d5cb04d64d6c7efb71da5da53e353535382a1f.response.json",
+      "sha256": "c32a260880e6b930d4698d03f4c9be39a9ab39601a5cc0e273d800cb9c9a735c"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\dd3325c941ff737b2d4665cbbbbf500af67b8cb293da40891192cb667588e491.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\dd3325c941ff737b2d4665cbbbbf500af67b8cb293da40891192cb667588e491.request.json",
+      "sha256": "9634f85f6a822d82299732328bc07cc3ba539798313322fd21c68e204adeac8d"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\dd3325c941ff737b2d4665cbbbbf500af67b8cb293da40891192cb667588e491.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\dd3325c941ff737b2d4665cbbbbf500af67b8cb293da40891192cb667588e491.response.json",
+      "sha256": "e503a1de704682529099ad849a7ebd5a7720608d396db3018bc47addb09e9688"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\e2255819e7fa25779fb033755697064019fb325a1e01a17d0c29b7b874e6f25c.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\e2255819e7fa25779fb033755697064019fb325a1e01a17d0c29b7b874e6f25c.request.json",
+      "sha256": "0dee01ad55f19b3a78d0220604a07ebf9b67038e2a61da7e9d6311bc929132b6"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\e2255819e7fa25779fb033755697064019fb325a1e01a17d0c29b7b874e6f25c.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\e2255819e7fa25779fb033755697064019fb325a1e01a17d0c29b7b874e6f25c.response.json",
+      "sha256": "9e2617c93ea26f9b927406c49414861d913451a18eb0a0583316df1f542f86d2"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\e4b9b74551d1c67ad3e032802456db314cefaa7a853250e78495a8d1c545750a.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\e4b9b74551d1c67ad3e032802456db314cefaa7a853250e78495a8d1c545750a.request.json",
+      "sha256": "e2ab917d1b63c936749da0abce0f82c563a853548a9ada50c78165d27944d2f3"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\e4b9b74551d1c67ad3e032802456db314cefaa7a853250e78495a8d1c545750a.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\e4b9b74551d1c67ad3e032802456db314cefaa7a853250e78495a8d1c545750a.response.json",
+      "sha256": "4f857c25442a814b6612912be9fc777fb38e303a6ddec9df94fac7c86b10763e"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\edc3c36801c00e83d30c06d6b10f5cf6139a371f7dd0269a14a4c253a7846087.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\edc3c36801c00e83d30c06d6b10f5cf6139a371f7dd0269a14a4c253a7846087.request.json",
+      "sha256": "78085a9b41c2c24ed7f1c7b9de5c5ddab66b154e06a471dceb5b43f40a275791"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\edc3c36801c00e83d30c06d6b10f5cf6139a371f7dd0269a14a4c253a7846087.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\edc3c36801c00e83d30c06d6b10f5cf6139a371f7dd0269a14a4c253a7846087.response.json",
+      "sha256": "1547f46ef740b2288d104c87c651177a27d79a49cbf64860914a4e816ac178bf"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\efc216cc4e590e9a0c5b6c598f73fc38290c756d73b8ba261f02d447803b5f03.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\efc216cc4e590e9a0c5b6c598f73fc38290c756d73b8ba261f02d447803b5f03.request.json",
+      "sha256": "135fb42f9068f2d10a8e4903eb51fddda23822cd2edff4ece7b460b646e82539"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\efc216cc4e590e9a0c5b6c598f73fc38290c756d73b8ba261f02d447803b5f03.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\efc216cc4e590e9a0c5b6c598f73fc38290c756d73b8ba261f02d447803b5f03.response.json",
+      "sha256": "0effcacd504327c81227f18186a58642acfa04341294e1f59101296212268928"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\f3932c04a8ca5d4a9547ca7159a9e6427c9ea85f7e32e9476de5a0a26a443d03.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\f3932c04a8ca5d4a9547ca7159a9e6427c9ea85f7e32e9476de5a0a26a443d03.request.json",
+      "sha256": "da84c6a6a3685f4049703b42e8f30a734cacb860dfc161fdb1b4ee4a1aa8fc57"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\f3932c04a8ca5d4a9547ca7159a9e6427c9ea85f7e32e9476de5a0a26a443d03.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\f3932c04a8ca5d4a9547ca7159a9e6427c9ea85f7e32e9476de5a0a26a443d03.response.json",
+      "sha256": "19813bc4ae3f9846d19c34c1b5ea40f0e0702d25e7c187d857d7922265fc75b1"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\f7ea2fa30ce80645f72abc7704e144e45c2092f69899fe21850f9654879039c3.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\f7ea2fa30ce80645f72abc7704e144e45c2092f69899fe21850f9654879039c3.request.json",
+      "sha256": "96934c70d172ce4c370285a71c9fb3b26a81e138c72c44c1d74c8db7dfff740e"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\f7ea2fa30ce80645f72abc7704e144e45c2092f69899fe21850f9654879039c3.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\f7ea2fa30ce80645f72abc7704e144e45c2092f69899fe21850f9654879039c3.response.json",
+      "sha256": "b37065e15990a5fd0fe7a7298861c8cc1a340f7feeab8b8dbd1077f89496caac"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\fa24de6e95b30150a4ba52936c3cdd3a33e8cf646df7d2986e406dd80fb37588.request.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\fa24de6e95b30150a4ba52936c3cdd3a33e8cf646df7d2986e406dd80fb37588.request.json",
+      "sha256": "a5541db945071ebf7def48ed32786170367f270d587c8b08dfef84096b1d5681"
+    },
+    {
+      "source": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_final\\api_calls\\fa24de6e95b30150a4ba52936c3cdd3a33e8cf646df7d2986e406dd80fb37588.response.json",
+      "destination": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\rag_finalization_2026-10-10_v2\\openai_transfer_followup\\api_calls\\fa24de6e95b30150a4ba52936c3cdd3a33e8cf646df7d2986e406dd80fb37588.response.json",
+      "sha256": "b38247486ab5940b1ce8f3029890042805909a54b2cd1c874df5c964ea242aa3"
+    }
+  ],
+  "rule": "Only successful exact payload/model/case API response reuse. Retrieval, source resolver and condition validation rerun under final code."
+}

@@ -1,0 +1,16 @@
+{
+  "document_id": "CTG:NCT04967508:SAP_001.pdf",
+  "version_id": "a6cdb651dbc4bd93c06a42cb8d3878e6ea25b06a172c2fb0c72aac2b14d9182b",
+  "source_url": "https://cdn.clinicaltrials.gov/large-docs/08/NCT04967508/SAP_001.pdf",
+  "pdf_page": 10,
+  "printed_page_label_observed": "9 of 49",
+  "review_status": "assistant_visual_spot_check",
+  "source_availability": "partially_redacted",
+  "redacted_fields_observed": [
+    "population",
+    "intercurrent_events",
+    "intercurrent_event_handling_strategy"
+  ],
+  "image": "data/ocr/CTG_NCT04967508_SAP_001_pdf_p010.png",
+  "notes": "Visible CCI markers and black masking. OCR cannot supply these hidden values."
+}

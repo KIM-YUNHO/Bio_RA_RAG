@@ -1,0 +1,46 @@
+{
+  "version": "visual-evaluation-1",
+  "status": "annotation_contract_frozen_metrics_not_yet_measured",
+  "coordinate_space": "pymupdf_unrotated_crop_points_top_left",
+  "source_identity": ["document_id", "version_id", "pdf_page"],
+  "table_index_base": 0,
+  "sampling": {
+    "random": "SRS without replacement in the frozen eligible-page frame of purposively selected documents. Conditional inclusion probability n/N is recorded per anchor. No corpus-wide estimate.",
+    "stress": "One heuristic anchor per selected family, plus available adjacent pages; actual structure labels remain unknown until independent annotation.",
+    "overlap": "One page job per source/page, multiple memberships allowed. Never add overlapping memberships as independent pages.",
+    "family": "Exact SHA aliases, protocol/SAP study pairs, regulatory dossier variants and same-product large-raster links grouped. Native duplicate/near-page candidates excluded from development comparisons; this is not exhaustive visual deduplication.",
+    "reserve": "Record-clean reserve excludes detected duplicate pages connected to any prior-exposure document, including through intermediate copies.",
+    "context": "Context pages support relationships. Random anchors, stress anchors and whole-document workflow results are reported separately. Context-only pages do not enlarge random sample denominator."
+  },
+  "annotation": {
+    "gold_release_ready": false,
+    "pending": "objects=null and negative_page=null; missing annotations are not empty ground truth.",
+    "review": "Agent drafts cannot be called human Gold. Source inspection must precede inference output inspection. Record reviewer type and time.",
+    "hierarchy": "Figure -> main panel -> inset; legend block -> legend title/items. Shared legend may associate with multiple panels.",
+    "tables": "Cell literals plus zero-based row/column and spans, header/unit/footnote ownership. Redacted or unreadable content remains untranscribed.",
+    "cross_page": "Global object IDs permit previous-page captions and table continuation ownership within the same source document. Source/parent cycles are invalid.",
+    "clinical_semantics_reviewed": false
+  },
+  "metrics": {
+    "object_detection": "Within same SHA and page, one-to-one same-kind bbox matching at IoU>=0.5. Report logical Figure/Table and panel/inset separately. Never substitute physical region count for semantic object count.",
+    "literal_fields": "Normalize Unicode NFKC and whitespace; preserve digits, units and substantive punctuation. Count all annotated readable fields, including fields absent from model candidates. Report exact transcription precision/recall separately from localization and ownership.",
+    "roles": "Score candidate roles against annotations separately from automatically accepted roles. Heading vs legend entry is a role error even when characters match. Unknown/needs-review role is an abstention, not a correct role.",
+    "associations": "Require correct parent/panel or shared-panel set. Text present elsewhere on page is not sufficient ownership evidence.",
+    "tables": "Report literal-cell accuracy and header/unit/footnote association accuracy separately; selected numeric spot checks do not certify entire tables.",
+    "undefined": "Zero denominator yields null, not 100%. Pending/unreadable/ambiguous labels are reported separately with explicit coverage.",
+    "uncertainty": "Report numerator/denominator, subgroup and document/family counts. Do not assume fields within one document are independent observations.",
+    "retrieval": "Questions must be frozen before outputs are examined. Use common multi-document corpus with distractors, and report Korean/English separately. No answer accuracy claim until answer-layer evidence rules are connected.",
+    "cost": "Record elapsed time, page/figure OCR and VLM requests, internal forwards when observable, failures/retries/budget abstention, CPU/GPU memory."
+  },
+  "deployment_gate": {
+    "locked": false,
+    "development_role_precision_target": 0.95,
+    "note": "Provisional development target only. Independent visual labels, recall/abstention coverage and resource budgets must be established and acceptance criteria frozen before final test."
+  },
+  "claims": {
+    "independent_generalization_ready": false,
+    "unseen_product_test": false,
+    "unseen_active_substance_test": false,
+    "retrospective_and_reserve_scores_must_not_be_pooled": true
+  }
+}

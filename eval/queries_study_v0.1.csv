@@ -1,0 +1,41 @@
+query_id,kind,product_id,components,ko,en,note
+V01,indirect,SB17,Q002,피즈치바 건강인 대상 약동학 비교 시험의 대상자 선정 기준(나이·체중·BMI)은?,"Pyzchiva pharmacokinetic comparison study in healthy volunteers: inclusion criteria for age, body weight and BMI",시험을 대상자로 지칭
+V02,indirect,SB17,Q003,SB17 1상 시험에서 투여 용량과 투여 경로는?,SB17 phase 1 trial: dose and route of administration,단계로 지칭(1상이 하나뿐)
+V03,indirect,SB17,Q007,피즈치바 건강인 시험에서 군별로 몇 명이 무작위 배정됐나?,Pyzchiva healthy volunteer study: number of subjects randomised per treatment arm,
+V04,indirect,SB17,Q009,피즈치바 건강인 PK 시험의 투여 후 ADA 양성률을 군별로 알려줘,Pyzchiva PK study in healthy subjects: post-dose anti-drug antibody positive rate by arm,
+V05,indirect,SB17,Q013,피즈치바 1상에서 EU 스텔라라 대비 AUCinf와 Cmax의 기하평균비와 90% 신뢰구간은?,Pyzchiva phase 1: geometric mean ratio and 90% CI of AUCinf and Cmax versus EU-Stelara,
+V06,indirect,SB17,Q006,피즈치바 건강인 시험의 ADA와 중화항체 분석법은?,Pyzchiva healthy volunteer study: assays used for anti-drug and neutralising antibodies,
+V07,indirect,ABP654,Q016,웨젠라 건강인 대상 PK 시험의 대상자 기준(나이·체중·BMI)은?,"Wezenla PK study in healthy volunteers: subject criteria for age, body weight and BMI",
+V08,indirect,ABP654,Q017,ABP 654 1상 시험의 투여 용량과 투여 경로는?,ABP 654 phase 1 trial: dose and route of administration,단계로 지칭(1상이 하나뿐)
+V09,indirect,ABP654,Q021,웨젠라 건강인 시험에서 군별 무작위 배정 인원은?,Wezenla healthy volunteer study: subjects randomised per arm,
+V10,indirect,ABP654,Q024,웨즐라나 건강인 PK 시험에서 투여 후 새로 생긴 ADA 비율을 군별로 알려줘,Wezlana healthy subject PK study: treatment-emergent anti-drug antibody incidence by arm,
+V11,indirect,ABP654,Q026,웨젠라 1상 PK 동등성 시험의 AUCinf·Cmax 기하평균비와 90% 신뢰구간(EU·US 스텔라라 대비)은?,"Wezenla phase 1 PK similarity trial: geometric mean ratios and 90% CI of AUCinf and Cmax versus EU- and US-Stelara",
+V12,indirect,ABP654,Q020,웨젠라 1상 시험의 ADA와 중화항체 분석 방법은?,Wezenla phase 1 study: methods for anti-drug antibody and neutralising antibody testing,
+V13,indirect,ABP654,Q018,웨즐라나 건강인 PK 시험의 1차 약동학 평가변수는?,Wezlana PK study in healthy subjects: primary pharmacokinetic endpoints,
+V14,indirect,CTP43,Q029,스테키마의 첫 번째 PK 시험(뉴질랜드 건강 남성) 대상자 기준은?,Steqeyma first PK study in healthy men in New Zealand: subject inclusion criteria,1.1을 순서·장소로 지칭
+V15,indirect,CTP43,Q030,CT-P43 2파트로 진행된 1상 시험의 투여 용량과 경로는?,CT-P43 two-part phase 1 study: dose and route of administration,1.1을 설계로 지칭
+V16,indirect,CTP43,Q034,스테키마 첫 번째 PK 시험 Part 2에서 군별 무작위 배정 인원은?,Steqeyma first PK study Part 2: subjects randomised per arm,
+V17,indirect,CTP43,Q035,PK 동등성을 입증하지 못한 CT-P43 첫 PK 시험의 PK 분석군 인원은?,CT-P43 first PK study that failed PK equivalence: number of subjects in the PK analysis set per arm,1.1을 결과로 지칭
+V18,indirect,CTP43,Q036,CT-P43 첫 번째 PK 시험에서 투여 후 ADA 양성률은 군별로 어떻게 되나?,CT-P43 first PK study: post-dose anti-drug antibody positive rate by arm,
+V19,indirect,CTP43,Q040,스테키마가 AUC 동등성에 실패한 PK 시험의 기하평균비와 90% 신뢰구간은?,Steqeyma PK study that failed AUC equivalence: geometric mean ratios and 90% CI of AUCinf and Cmax,1.1을 결과로 지칭
+V20,indirect,CTP43,Q041,CT-P43 첫 번째 PK 시험에서 PK 동등성이 입증됐나?,Was PK equivalence shown in the first CT-P43 PK study?,
+V21,indirect,CTP43,Q038,CT-P43 첫 PK 시험에서 단백질 함량·ADA 음성·체중 60~90 kg으로 보정한 사후 분석의 기하평균비는?,"CT-P43 first PK study: post hoc analysis adjusted for protein content, ADA-negative subjects and body weight 60-90 kg, geometric mean ratios",
+V22,indirect,CTP43,Q042,스테키마 일본인 건강 남성 대상 PK 시험의 설계는?,Steqeyma PK study in healthy Japanese men: study design,1.2를 대상자로 지칭
+V23,indirect,CTP43,Q043,CT-P43 재시험(일본인 대상)의 대상자 기준은?,CT-P43 repeat PK study in Japanese subjects: inclusion criteria,
+V24,indirect,CTP43,Q044,CT-P43 두 번째 PK 시험의 투여 용량과 경로는?,CT-P43 second PK study: dose and route of administration,1.2를 순서로 지칭
+V25,indirect,CTP43,Q048,스테키마 일본인 PK 시험에서 군별 무작위 배정 인원은?,Steqeyma Japanese PK study: subjects randomised per arm,
+V26,indirect,CTP43,Q049,CT-P43 일본인 대상 PK 시험의 PK 분석군 인원은?,CT-P43 PK study in Japanese subjects: PK analysis set size per arm,
+V27,indirect,CTP43,Q050,스테키마 두 번째 PK 시험의 투여 후 ADA 양성률은?,Steqeyma second PK study: post-dose anti-drug antibody positive rate by arm,
+V28,indirect,CTP43,Q052,CT-P43 일본인 PK 시험의 AUCinf·Cmax 기하평균비와 90% 신뢰구간은?,CT-P43 Japanese PK study: geometric mean ratios and 90% CI of AUCinf and Cmax,
+V29,indirect,CTP43,Q053,CT-P43 재시험에서 PK 동등성이 입증됐나?,Was PK equivalence shown in the repeat CT-P43 PK study?,
+V30,indirect,CTP43,Q054,CT-P43 두 PK 시험을 합친 분석에서 EU 스텔라라 대비 기하평균비는?,CT-P43 analysis combining both PK studies: geometric mean ratios versus EU-Stelara,pooled를 설명으로 지칭
+P01,product,CTP43,Q041;Q053;Q054,CT-P43은 PK 동등성을 입증했나?,Did CT-P43 demonstrate PK equivalence to Stelara?,1.1 실패·1.2 입증·pooled
+P02,product,CTP43,Q029;Q043,CT-P43 PK 시험의 대상자는 어떤 사람들이었나?,Who were the subjects of the CT-P43 PK studies?,
+P03,product,CTP43,Q030;Q044,CT-P43 PK 시험에서 투여 용량과 경로는?,CT-P43 PK studies: dose and route of administration,
+P04,product,CTP43,Q034;Q048,CT-P43 PK 시험의 군별 무작위 배정 인원은?,CT-P43 PK studies: subjects randomised per arm,
+P05,product,CTP43,Q040;Q052,CT-P43 PK 시험에서 EU 스텔라라 대비 AUCinf·Cmax 기하평균비는?,CT-P43 PK studies: geometric mean ratios of AUCinf and Cmax versus EU-Stelara,
+P06,product,CTP43,Q036;Q050,CT-P43 PK 시험의 투여 후 ADA 양성률은?,CT-P43 PK studies: post-dose anti-drug antibody rates,
+P07,product,CTP43,Q032;Q046,CT-P43 PK 시험의 동등성 한계는?,CT-P43 PK studies: predefined equivalence margin,
+P08,product,CTP43,Q028;Q042,CT-P43 PK 시험의 설계는?,CT-P43 PK studies: study design,
+P09,product,ABP654,Q026,웨젠라 PK 동등성 결과(기하평균비)는?,Wezenla PK equivalence results: geometric mean ratios,PK 시험이 하나뿐
+P10,product,SB17,Q013,피즈치바 PK 시험의 기하평균비는?,Pyzchiva PK similarity: geometric mean ratios,PK 시험이 하나뿐

@@ -1,0 +1,38 @@
+# secrets and local runtime config
+.env
+pipelines/pipeline_h/config.local.json
+pipelines/pipeline_h/vendor/compare_study_standalone/config.json
+
+# environments and caches
+.venv/
+.venv-*/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# large data (keep on shared storage, not in git); catalogs, manifests and READMEs stay tracked
+data/raw/
+data/repaired/
+data/parsed/
+data/collection.sqlite
+data/registry/raw/
+data/versions/*/preprocessed/
+data/versions/*/embedded/
+pdfs_by_product/
+pipelines/pipeline_h/runs/*/
+!pipelines/pipeline_h/runs/glyph_source_regression/
+!pipelines/pipeline_h/runs/glyph_table_context_regression/
+
+# model weights (see pipelines/pipeline_h/README.md for where they come from)
+models/
+
+# DB handoff dumps (shared out of band; see storage/HANDOFF.md)
+storage/handoff/*.dump
+
+# IDE and OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+

@@ -1,0 +1,93 @@
+{
+  "job": {
+    "document": "ABP654_FDA_ChemR_p033.pdf",
+    "page": 1,
+    "key": "ABP654_FDA_ChemR_p033_f69da8cc31",
+    "agency": "FDA",
+    "bbox": [
+      71.52,
+      191.51999999999998,
+      540.0,
+      275.52
+    ],
+    "origin": "PP-DocLayoutV3 table",
+    "detector_score": 0.9575733542442322,
+    "action": "add",
+    "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p033.pdf",
+    "id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_001",
+    "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_control\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_001.png",
+    "image_sha256": "ad90f1c8ca70f9d973675634e606fc8ec8af7f2207f64760ec58f02e8b6443b1",
+    "pixels": [
+      1800,
+      341
+    ],
+    "context_bbox": [
+      68.63999938964844,
+      188.63999938964844,
+      542.8800048828125,
+      278.3999938964844
+    ]
+  },
+  "seconds": 1.794798200004152,
+  "raw": {
+    "res": {
+      "input_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_control\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_001.png",
+      "page_index": null,
+      "page_count": null,
+      "width": 1800,
+      "height": 341,
+      "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": false,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": true,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [],
+        "return_layout_polygon_points": true
+      },
+      "parsing_res_list": [
+        {
+          "block_label": "table",
+          "block_content": "<table><tr><td>Storage temperature/requirements (package labeling)</td><td>Acceptable</td></tr><tr><td>Regulation: 21 CFR 610.61(h)</td><td rowspan=\"2\">✓ Yes ☐ No ☐ N/A</td></tr><tr><td>Recommended labeling practices reference: USP General Chapters: &lt;7&gt; Labeling, USP General Chapters &lt;659&gt; Packaging and Storage Requirements</td></tr></table>",
+          "block_bbox": [
+            0,
+            0,
+            1800,
+            341
+          ],
+          "block_id": 0,
+          "block_order": null,
+          "group_id": 0
+        }
+      ]
+    },
+    "ra_runtime": {
+      "inference_seconds": 1.794,
+      "vl_rec_batch_size": 1,
+      "native_blocks": 0,
+      "vlm_blocks": null,
+      "cuda_peak_allocated_bytes": 2104510976,
+      "cuda_peak_reserved_bytes": 2237661184
+    }
+  },
+  "content": "<table><tr><td>Storage temperature/requirements (package labeling)</td><td>Acceptable</td></tr><tr><td>Regulation: 21 CFR 610.61(h)</td><td rowspan=\"2\">✓ Yes ☐ No ☐ N/A</td></tr><tr><td>Recommended labeling practices reference: USP General Chapters: &lt;7&gt; Labeling, USP General Chapters &lt;659&gt; Packaging and Storage Requirements</td></tr></table>",
+  "table": [
+    [
+      "Storage temperature/requirements (package labeling)",
+      "Acceptable"
+    ],
+    [
+      "Regulation: 21 CFR 610.61(h)",
+      "✓ Yes ☐ No ☐ N/A"
+    ],
+    [
+      "Recommended labeling practices reference: USP General Chapters: <7> Labeling, USP General Chapters <659> Packaging and Storage Requirements",
+      ""
+    ]
+  ],
+  "accepted": true,
+  "error": null,
+  "semantic_status": "source extraction candidate; independent human review pending"
+}

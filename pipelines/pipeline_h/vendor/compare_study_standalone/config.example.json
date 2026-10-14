@@ -1,0 +1,43 @@
+{
+  "runtimes": {
+    "controller": ".venv/Scripts/python.exe",
+    "paddle": ".venv-paddle/Scripts/python.exe",
+    "docling": ".venv-docling/Scripts/python.exe"
+  },
+  "paddle": {
+    "layout_model_dir": "models/paddle/PP-DocLayoutV3_safetensors",
+    "vl_model_dir": "models/paddle/PaddleOCR-VL-1.6",
+    "light_det_model_dir": "models/paddle/PP-OCRv5_mobile_det_safetensors",
+    "light_rec_model_dir": "models/paddle/latin_PP-OCRv5_mobile_rec_safetensors",
+    "device": "gpu:0",
+    "dpi": 150,
+    "max_new_tokens": 4096,
+    "timeout_s": 600,
+    "chart_recognition": true,
+    "image_ocr": true,
+    "release_qwen_before_parser": false,
+    "native_text": true,
+    "vl_rec_batch_size": 1,
+    "parser_backend": "cascade"
+  },
+  "qwen": {
+    "endpoint": "http://127.0.0.1:11434",
+    "model": "qwen3.5:9b",
+    "timeout_s": 1800,
+    "num_ctx": 16384,
+    "num_predict": -1,
+    "crop_dpi": 300,
+    "crop_padding_px": 12,
+    "max_image_edge": 1800,
+    "keep_alive": "5m"
+  },
+  "docling": {
+    "artifacts_path": "models/docling",
+    "det_model_path": "models/docling/RapidOcr/PP-OCRv6_det_small.onnx",
+    "cls_model_path": "models/docling/RapidOcr/ch_ppocr_mobile_v2.0_cls_mobile.onnx",
+    "rec_model_path": "models/docling/RapidOcr/PP-OCRv6_rec_small.onnx",
+    "trigram_path": "resources/trigram_en.json"
+  },
+  "rules": {"qwen_routing": "selected_complex", "figure_policy": "describe_selected"},
+  "common_preprocessing": true
+}

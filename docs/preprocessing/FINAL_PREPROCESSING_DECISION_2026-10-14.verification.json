@@ -1,0 +1,10 @@
+{
+  "status": "confirmed",
+  "selected_case": "H",
+  "report_rows": 9,
+  "protected_final_run_files": 157,
+  "changed_evidence_files": [],
+  "local_links_valid": true,
+  "decision_json_sha256": "16d5521d6e4e7f546f981953a0b2cd758fefff076c0754c3ae5520302d4fc31d",
+  "deployment": "not changed"
+}

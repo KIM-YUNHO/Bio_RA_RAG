@@ -1,0 +1,3478 @@
+{
+  "document": "ABP654_EMA_p036_037_482c552f08",
+  "page": 2,
+  "text": [
+    "demonstrated that ABP 654 is similar to ustekinumab (EU) for inhibition of IL-12-induced IFN-γ production. ABP 654 is within the ustekinumab (EU) quality range, and also in the min-max range – except for one lot.",
+    "Figure 1. Mean IC50 values with standard deviation for inhibition of IL-23 induced STAT-3 and IL-12 induced STAT - 4 phosphorylation.",
+    "Mean ICso Values with Standard Deviation for Inhibition of IL-23-induced",
+    "Mean ICso Values with Standard Deviation for Inhibition of IL-12-induced",
+    "STAT3 Phosphorylation",
+    "STAT4 Phosphorylation",
+    "ABP 654-",
+    "ABP 654-",
+    "Ustekinumab US-",
+    "Ustekinumab US-",
+    "Ustekinumab EU-",
+    "Ustekinumab EU-",
+    "Mean IC50 (nM)",
+    "Mean IC50 (nM)",
+    "EU - European Union; ICso - half maximal inhibitory concentration; IL-23 – interleukin type 23:",
+    "EU - European Union; ICso = half maximal inhibitory concentration; IL-12 - interleukin type 12;",
+    "STAT3  signal transducer and activator of transcription 3; US = United States.",
+    "STAT4 - signal transducer and activator of transcription 4; US - United States.",
+    "The mean ICso values for the 3 lots of ABP 654, ustekinumab US, or ustekinumab EU. Error bars represent the standard deviation.",
+    "The mean ICso values for the 3 lots of ABP 654, ustekinumab US, or ustekinumab EU. Error bars represent the standard deviation.",
+    "the standard deviation.",
+    "the standard deviation.",
+    "The inhibition of IL - 23 and IL - 12 induced release of IFN - γ was assessed for ABP 654, Stelara EU and Stelara US in 3 pairwise comparison experiments using one batch of each product. The standard deviation presented is associated with the 3 replicate experiments and does not represent the batch variability but the test conditions. The concentration range for tested materials was 30 - 0.00384 µg/ml (155322) and 90 - 0.0012 µg/ml (155353) in 5-fold dilutions. The homogenous time resolved fluorescence (HTRF) kit was used to measure IFN-γ levels (human IFN-γ kit).",
+    "The % relative potency was similar for ABP 654, Stelara (EU) and Stelara (US). The summaries of pairwise comparisons are represented in the Table 8 and Table 9.",
+    "Table 2. Summary of pairwise comparison on ABP 654, Stelara (EU) and Stelara (US) in inhibition of IL - 23 induced IFN - γ release assay.",
+    "CV = coefficient of variation; EU = European/Europe; IFN-γ = interferon gamma; IL-23 = interleukin-23; PBMC = peripheral blood mononuclear cell; US = United States.",
+    "Source: ELN ID 20211207-00065",
+    "Table 3. Summary of pairwise comparison on ABP 654, Stelara (EU) and Stelara (US) in inhibition of IL - 12 induced IFN - γ release assay.",
+    "- = not applicable; CV = coefficient of variation; EU = European/Europe; IFN-γ = interferon gamma; IL-12 = interleukin-12; PBMC = peripheral blood mononuclear cell; US = United States.",
+    "Source:ELNID 20220118-00020"
+  ],
+  "tables": [
+    [
+      [
+        "",
+        "",
+        "Relative Potency (%)",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Test Article",
+        "",
+        "Similarity Assay 1",
+        "Similarity Assay 2",
+        "Similarity Assay 3",
+        "Average",
+        "SD",
+        "%CV"
+      ],
+      [
+        "ABP versus EU",
+        "ABP 0010485699",
+        "98.7",
+        "91.9",
+        "115.4",
+        "102.0",
+        "12",
+        "12"
+      ],
+      [
+        "",
+        "EU JES0TML",
+        "95.4",
+        "110.1",
+        "94.6",
+        "100.0",
+        "9",
+        "9"
+      ],
+      [
+        "ABP versus US",
+        "ABP 0010485699",
+        "84.9",
+        "101.5",
+        "82.2",
+        "89.5",
+        "10",
+        "12"
+      ],
+      [
+        "",
+        "US JCS0WMD",
+        "94.9",
+        "86.2",
+        "90.4",
+        "90.5",
+        "4",
+        "5"
+      ],
+      [
+        "EU versus US",
+        "EU JES0TML",
+        "87.3",
+        "89.2",
+        "91.0",
+        "89.2",
+        "2",
+        "2"
+      ],
+      [
+        "",
+        "US JCS0WMD",
+        "81.1",
+        "110.4",
+        "104.8",
+        "98.8",
+        "16",
+        "16"
+      ]
+    ],
+    [
+      [
+        "",
+        "Relative Potency to Plate Control",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "Test Article",
+        "Similarity Assay 1",
+        "Similarity Assay 2",
+        "Similarity Assay 3",
+        "Similarity Assay 4",
+        "Similarity Assay 5",
+        "Similarity Assay 6",
+        "Average",
+        "SD",
+        "%CV",
+        "Total Valid Runs of Pairwise Comparison"
+      ],
+      [
+        "ABP versus",
+        "ABP 0010485699",
+        "99.1%",
+        "116.4%",
+        "",
+        "87.0%",
+        "98.9%",
+        "",
+        "100.4%",
+        "12%",
+        "12%",
+        "4"
+      ],
+      [
+        "EU",
+        "EU JES0TML",
+        "86.4%",
+        "92.9%",
+        "",
+        "87.7%",
+        "91.8%",
+        "",
+        "89.7%",
+        "3%",
+        "3%",
+        ""
+      ],
+      [
+        "ABP versus",
+        "ABP 0010485699",
+        "84.4%",
+        "88.2%",
+        "111.2%",
+        "87.1%",
+        "",
+        "",
+        "92.7%",
+        "12%",
+        "13%",
+        "4"
+      ],
+      [
+        "US",
+        "US JCS0WMD",
+        "81.3%",
+        "83.5%",
+        "101.5%",
+        "91.2%",
+        "",
+        "",
+        "89.4%",
+        "%6",
+        "10%",
+        ""
+      ],
+      [
+        "EU versus",
+        "EU JES0TML",
+        "110.7%",
+        "",
+        "",
+        "",
+        "105.5%",
+        "111.5%",
+        "109.2%",
+        "3%",
+        "3%",
+        "3"
+      ],
+      [
+        "US",
+        "US JCS0WMD",
+        "107.4%",
+        "",
+        "",
+        "",
+        "97.5%",
+        "118.5%",
+        "107.8%",
+        "11%",
+        "10%",
+        ""
+      ]
+    ]
+  ],
+  "table_bboxes": [
+    [
+      62.9,
+      481.61998291015624,
+      485.7,
+      571.6199829101563
+    ],
+    [
+      62.4,
+      627.4199829101562,
+      493.0,
+      739.2199829101562
+    ]
+  ],
+  "seconds": 2.88176145000034,
+  "flags": {
+    "time_basis": "document_wall_amortized",
+    "route": "MIXED",
+    "ra_timing": {
+      "None": 0.6526608467102051,
+      "auto": 3.4904534816741943,
+      "second_reader": 1.5883395671844482,
+      "total": 5.760783910751343
+    },
+    "qa": {
+      "pages": 2,
+      "routes": {
+        "DIGITAL": 1,
+        "MIXED": 1
+      },
+      "text_blocks": 40,
+      "text_chars": 6465,
+      "ocr_char_share": 0.207,
+      "tables": 2,
+      "tables_ocr_grid": 0,
+      "numeric_cells": 100,
+      "numeric_cell_parse_rate": 0.78,
+      "needs_review_blocks": 4,
+      "reread_blocks": 2,
+      "garbled_residual": 0,
+      "furniture_blocks": 14,
+      "redacted_blocks": 0,
+      "sections": 2
+    },
+    "agency": "EMA",
+    "doc_type": "assessment_report",
+    "document_structure_summary": {
+      "section_paths": [
+        [
+          "2.5.2. Pharmacology",
+          "Primary pharmacodynamic studies"
+        ]
+      ],
+      "speakers": [
+        "unknown"
+      ],
+      "furniture_blocks": 12,
+      "redacted_blocks": 0,
+      "study_ids": [],
+      "review_blocks": 4
+    },
+    "figure_count_policy": "physical regions and caption groups separate; no parent/child double count; scan image objects separate",
+    "selected_paddle_calls": 0,
+    "added_tables": 0,
+    "replaced_tables": 0,
+    "design_policy": "missing-only-G",
+    "gold_consulted_for_selection": false
+  },
+  "figures": [
+    {
+      "figure_id": "#/pictures/0",
+      "bbox": [
+        60.4,
+        152.31998291015623,
+        495.2,
+        293.91998291015625
+      ],
+      "kind": "picture",
+      "ocr_text": "Mean ICso Values with Standard Deviation for Inhibition of IL-23-induced\nMean ICso Values with Standard Deviation for Inhibition of IL-12-induced\nSTAT3 Phosphorylation\nSTAT4 Phosphorylation\nABP 654-\nABP 654-\nUstekinumab US\nUstekinumab US-\nUstekinumab EU-\nUstekinumab EU-\n0\n1\n2\n3\n4\n5\n0\n1\n2\n3\nMean IC50 (nM)\nMean IC50 (nM)\nEU – European Union; ICso – half maximal inhibitory concentration; IL-23 – interleukin type 23;\nEU  European Union; ICso = half maximal inhibitory concentration; IL-12  interleukin type 12;\nSTAT3  signal transducer and activator of transcription 3; US  United States.\nSTAT4 - signal transducer and activator of transcription 4; US  United States.\nThe mean ICso values for the 3 lots of ABP 654, ustekinumab US, or ustekinumab EU. Error bars represent\nThe mean ICso values for the 3 lots of ABP 654, ustekinumab US, or ustekinumab EU. Error bars represent\nthe standard deviation.\nthe standard deviation.",
+      "caption": "Figure 1. Mean IC50 values with standard deviation for inhibition of IL-23 induced STAT-3 and IL-12 induced STAT - 4 phosphorylation.",
+      "is_logical_group": false,
+      "parent_id": null,
+      "model": "Heron + RapidOCR (no generative VLM)",
+      "status": "unsupported_interpretation",
+      "interpretation": null,
+      "kind_history": [
+        "picture"
+      ],
+      "decorative": false,
+      "source_page": 2,
+      "crop_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\native\\DOC-GPU\\raw\\ABP654_EMA_p036_037_482c552f08\\figure_crops\\p002_00.png",
+      "crop_sha256": "f25d4e39b93d87d6efce6051e1dc9bf134ffa591786162ada70059e06e1937a3",
+      "crop_dpi": 300
+    }
+  ],
+  "document_structure": [
+    {
+      "type": "text",
+      "ref": "#/texts/0",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        62.9,
+        76.01998291015627,
+        515.8,
+        112.81998291015623
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "text",
+      "text": "demonstrated that ABP 654 is similar to ustekinumab (EU) for inhibition of IL-12-induced IFN-γ production. ABP 654 is within the ustekinumab (EU) quality range, and also in the min-max range – except for one lot.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        62.9,
+        729.1,
+        515.8,
+        765.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "picture",
+      "ref": "#/pictures/0",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        60.4,
+        152.31998291015623,
+        495.2,
+        293.91998291015625
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "caption": "Figure 1. Mean IC50 values with standard deviation for inhibition of IL-23 induced STAT-3 and IL-12 induced STAT - 4 phosphorylation.",
+      "text": "",
+      "status": "kept",
+      "ocr_text": "Mean ICso Values with Standard Deviation for Inhibition of IL-23-induced\nMean ICso Values with Standard Deviation for Inhibition of IL-12-induced\nSTAT3 Phosphorylation\nSTAT4 Phosphorylation\nABP 654-\nABP 654-\nUstekinumab US\nUstekinumab US-\nUstekinumab EU-\nUstekinumab EU-\n0\n1\n2\n3\n4\n5\n0\n1\n2\n3\nMean IC50 (nM)\nMean IC50 (nM)\nEU – European Union; ICso – half maximal inhibitory concentration; IL-23 – interleukin type 23;\nEU  European Union; ICso = half maximal inhibitory concentration; IL-12  interleukin type 12;\nSTAT3  signal transducer and activator of transcription 3; US  United States.\nSTAT4 - signal transducer and activator of transcription 4; US  United States.\nThe mean ICso values for the 3 lots of ABP 654, ustekinumab US, or ustekinumab EU. Error bars represent\nThe mean ICso values for the 3 lots of ABP 654, ustekinumab US, or ustekinumab EU. Error bars represent\nthe standard deviation.\nthe standard deviation.",
+      "kind_history": [
+        "picture"
+      ],
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        60.4,
+        548.0,
+        495.2,
+        689.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/1",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        63.2,
+        127.01998291015627,
+        520.7,
+        146.6199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "caption",
+      "text": "Figure 1. Mean IC50 values with standard deviation for inhibition of IL-23 induced STAT-3 and IL-12 induced STAT - 4 phosphorylation.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        63.2,
+        695.3,
+        520.7,
+        714.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/2",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        95.0,
+        154.6199829101563,
+        257.3,
+        161.01998291015627
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Mean ICso Values with Standard Deviation for Inhibition of IL-23-induced",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        95.0,
+        680.9,
+        257.3,
+        687.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/3",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        317.3,
+        155.31998291015623,
+        483.3,
+        161.01998291015627
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Mean ICso Values with Standard Deviation for Inhibition of IL-12-induced",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        317.3,
+        680.9,
+        483.3,
+        686.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/4",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        137.0,
+        160.01998291015627,
+        192.7,
+        167.01998291015627
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "STAT3 Phosphorylation",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        137.0,
+        674.9,
+        192.7,
+        681.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/5",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        360.7,
+        161.01998291015627,
+        417.3,
+        168.01998291015627
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "STAT4 Phosphorylation",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        360.7,
+        673.9,
+        417.3,
+        680.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/6",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        100.3,
+        183.31998291015623,
+        127.7,
+        189.6199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "ABP 654-",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        100.3,
+        652.3,
+        127.7,
+        658.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/7",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        337.7,
+        195.01998291015627,
+        361.0,
+        201.01998291015627
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "ABP 654-",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        337.7,
+        640.9,
+        361.0,
+        646.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/8",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        78.0,
+        205.6199829101563,
+        127.0,
+        212.31998291015623
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Ustekinumab US-",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        78.0,
+        629.6,
+        127.0,
+        636.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/9",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        319.3,
+        214.31998291015623,
+        361.3,
+        220.01998291015627
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Ustekinumab US-",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        319.3,
+        621.9,
+        361.3,
+        627.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/10",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        78.0,
+        229.31998291015623,
+        127.3,
+        235.01998291015627
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Ustekinumab EU-",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        78.0,
+        606.9,
+        127.3,
+        612.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/11",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        319.3,
+        233.6199829101563,
+        361.7,
+        239.31998291015623
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Ustekinumab EU-",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        319.3,
+        602.6,
+        361.7,
+        608.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/12",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        126.3,
+        251.01998291015627,
+        131.7,
+        257.6199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "0",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        126.3,
+        584.3,
+        131.7,
+        590.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/13",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        149.7,
+        251.31998291015623,
+        154.3,
+        257.3199829101562
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "1",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        149.7,
+        584.6,
+        154.3,
+        590.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/14",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        172.0,
+        251.01998291015627,
+        178.3,
+        258.0199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "2",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        172.0,
+        583.9,
+        178.3,
+        590.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/15",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        195.3,
+        251.01998291015627,
+        201.0,
+        257.6199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "3",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        195.3,
+        584.3,
+        201.0,
+        590.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/16",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        218.7,
+        251.01998291015627,
+        224.0,
+        257.3199829101562
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "4",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        218.7,
+        584.6,
+        224.0,
+        590.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/17",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        241.7,
+        251.01998291015627,
+        247.3,
+        257.6199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "5",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        241.7,
+        584.3,
+        247.3,
+        590.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/18",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        359.7,
+        253.01998291015627,
+        364.3,
+        259.0199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "0",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        359.7,
+        582.9,
+        364.3,
+        588.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/19",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        391.7,
+        253.01998291015627,
+        396.0,
+        259.0199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "1",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        391.7,
+        582.9,
+        396.0,
+        588.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/20",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        423.0,
+        252.6199829101563,
+        428.3,
+        259.3199829101562
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "2",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        423.0,
+        582.6,
+        428.3,
+        589.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/21",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        454.7,
+        253.31998291015623,
+        459.7,
+        259.0199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "3",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        454.7,
+        582.9,
+        459.7,
+        588.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/22",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        163.0,
+        259.6199829101563,
+        210.0,
+        268.0199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Mean IC50 (nM)",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        163.0,
+        573.9,
+        210.0,
+        582.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/23",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        390.0,
+        260.3199829101562,
+        428.7,
+        267.3199829101562
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Mean IC50 (nM)",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        390.0,
+        574.6,
+        428.7,
+        581.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/24",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        71.3,
+        272.0199829101563,
+        234.0,
+        278.0199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "EU - European Union; ICso - half maximal inhibitory concentration; IL-23 – interleukin type 23:",
+      "status": "needs_review",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        71.3,
+        563.9,
+        234.0,
+        569.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/25",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        293.7,
+        272.3199829101562,
+        459.3,
+        277.3199829101562
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "EU - European Union; ICso = half maximal inhibitory concentration; IL-12 - interleukin type 12;",
+      "status": "needs_review",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        293.7,
+        564.6,
+        459.3,
+        569.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/26",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        71.7,
+        277.3199829101562,
+        207.3,
+        282.3199829101562
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "STAT3  signal transducer and activator of transcription 3; US = United States.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        71.7,
+        559.6,
+        207.3,
+        564.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/27",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        293.3,
+        277.0199829101563,
+        432.7,
+        282.0199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "STAT4 - signal transducer and activator of transcription 4; US - United States.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        293.3,
+        559.9,
+        432.7,
+        564.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/28",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        71.3,
+        284.0199829101563,
+        256.7,
+        289.3199829101562
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "The mean ICso values for the 3 lots of ABP 654, ustekinumab US, or ustekinumab EU. Error bars represent the standard deviation.",
+      "status": "reread",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        71.3,
+        552.6,
+        256.7,
+        557.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/29",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        293.3,
+        284.0199829101563,
+        483.0,
+        289.0199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "The mean ICso values for the 3 lots of ABP 654, ustekinumab US, or ustekinumab EU. Error bars represent the standard deviation.",
+      "status": "reread",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        293.3,
+        552.9,
+        483.0,
+        557.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/30",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        71.7,
+        288.6199829101563,
+        112.0,
+        293.0199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "the standard deviation.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        71.7,
+        548.9,
+        112.0,
+        553.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/31",
+      "parent": "#/pictures/0",
+      "page": 2,
+      "bbox": [
+        293.7,
+        288.6199829101563,
+        334.7,
+        293.6199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "the standard deviation.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        293.7,
+        548.3,
+        334.7,
+        553.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/32",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        62.4,
+        326.8199829101562,
+        518.8,
+        405.71998291015626
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "text",
+      "text": "The inhibition of IL - 23 and IL - 12 induced release of IFN - γ was assessed for ABP 654, Stelara EU and Stelara US in 3 pairwise comparison experiments using one batch of each product. The standard deviation presented is associated with the 3 replicate experiments and does not represent the batch variability but the test conditions. The concentration range for tested materials was 30 - 0.00384 µg/ml (155322) and 90 - 0.0012 µg/ml (155353) in 5-fold dilutions. The homogenous time resolved fluorescence (HTRF) kit was used to measure IFN-γ levels (human IFN-γ kit).",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        62.4,
+        436.2,
+        518.8,
+        515.1
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/33",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        62.4,
+        417.91998291015625,
+        508.1,
+        440.61998291015624
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "text",
+      "text": "The % relative potency was similar for ABP 654, Stelara (EU) and Stelara (US). The summaries of pairwise comparisons are represented in the Table 8 and Table 9.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        62.4,
+        401.3,
+        508.1,
+        424.0
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "table",
+      "ref": "#/tables/0",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        62.9,
+        481.61998291015624,
+        485.7,
+        571.6199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "caption": "Table 2. Summary of pairwise comparison on ABP 654, Stelara (EU) and Stelara (US) in inhibition of IL - 23 induced IFN - γ release assay.",
+      "n_rows": 8,
+      "n_cols": 8,
+      "cells": [
+        {
+          "r": 0,
+          "c": 2,
+          "rs": 1,
+          "cs": 6,
+          "text": "Relative Potency (%)",
+          "header": true,
+          "bbox": [
+            339.7,
+            349.9,
+            400.0,
+            358.6
+          ]
+        },
+        {
+          "r": 1,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Similarity Assay 1",
+          "header": true,
+          "bbox": [
+            229.7,
+            330.9,
+            257.3,
+            346.6
+          ]
+        },
+        {
+          "r": 1,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Similarity Assay 2",
+          "header": true,
+          "bbox": [
+            279.0,
+            330.9,
+            307.0,
+            346.3
+          ]
+        },
+        {
+          "r": 1,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "Similarity Assay 3",
+          "header": true,
+          "bbox": [
+            328.3,
+            330.9,
+            356.3,
+            346.6
+          ]
+        },
+        {
+          "r": 1,
+          "c": 0,
+          "rs": 1,
+          "cs": 2,
+          "text": "Test Article",
+          "header": true,
+          "bbox": [
+            125.3,
+            331.6,
+            158.3,
+            338.3
+          ]
+        },
+        {
+          "r": 1,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "Average",
+          "header": true,
+          "bbox": [
+            377.3,
+            330.9,
+            403.0,
+            338.3
+          ]
+        },
+        {
+          "r": 1,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "SD",
+          "header": true,
+          "bbox": [
+            425.0,
+            330.9,
+            436.3,
+            338.9
+          ]
+        },
+        {
+          "r": 1,
+          "c": 7,
+          "rs": 1,
+          "cs": 1,
+          "text": "%CV",
+          "header": true,
+          "bbox": [
+            458.3,
+            330.9,
+            475.3,
+            338.9
+          ]
+        },
+        {
+          "r": 2,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "ABP 0010485699",
+          "header": false,
+          "bbox": [
+            145.7,
+            322.9,
+            197.0,
+            329.6
+          ]
+        },
+        {
+          "r": 2,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "98.7",
+          "header": false,
+          "bbox": [
+            236.3,
+            322.3,
+            251.0,
+            330.3
+          ]
+        },
+        {
+          "r": 2,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "91.9",
+          "header": false,
+          "bbox": [
+            285.3,
+            322.3,
+            300.7,
+            330.3
+          ]
+        },
+        {
+          "r": 2,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "115.4",
+          "header": false,
+          "bbox": [
+            333.7,
+            322.3,
+            351.7,
+            329.9
+          ]
+        },
+        {
+          "r": 2,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "102.0",
+          "header": false,
+          "bbox": [
+            381.7,
+            321.3,
+            399.3,
+            328.9
+          ]
+        },
+        {
+          "r": 2,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "12",
+          "header": false,
+          "bbox": [
+            426.3,
+            320.9,
+            436.0,
+            329.3
+          ]
+        },
+        {
+          "r": 2,
+          "c": 7,
+          "rs": 1,
+          "cs": 1,
+          "text": "12",
+          "header": false,
+          "bbox": [
+            462.3,
+            320.9,
+            471.7,
+            329.3
+          ]
+        },
+        {
+          "r": 2,
+          "c": 0,
+          "rs": 2,
+          "cs": 1,
+          "text": "ABP versus EU",
+          "header": false,
+          "bbox": [
+            71.0,
+            317.9,
+            116.3,
+            324.9
+          ]
+        },
+        {
+          "r": 3,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "EU JES0TML",
+          "header": false,
+          "bbox": [
+            151.3,
+            312.9,
+            191.0,
+            320.3
+          ],
+          "status": "needs_review"
+        },
+        {
+          "r": 3,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "95.4",
+          "header": false,
+          "bbox": [
+            236.3,
+            312.6,
+            251.0,
+            320.6
+          ]
+        },
+        {
+          "r": 3,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "110.1",
+          "header": false,
+          "bbox": [
+            284.7,
+            312.6,
+            301.7,
+            320.6
+          ]
+        },
+        {
+          "r": 3,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "94.6",
+          "header": false,
+          "bbox": [
+            335.0,
+            312.6,
+            350.3,
+            320.6
+          ]
+        },
+        {
+          "r": 3,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "100.0",
+          "header": false,
+          "bbox": [
+            381.7,
+            311.6,
+            399.0,
+            319.3
+          ]
+        },
+        {
+          "r": 3,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "9",
+          "header": false,
+          "bbox": [
+            427.7,
+            311.6,
+            434.0,
+            319.3
+          ]
+        },
+        {
+          "r": 3,
+          "c": 7,
+          "rs": 1,
+          "cs": 1,
+          "text": "9",
+          "header": false,
+          "bbox": [
+            463.7,
+            311.6,
+            470.0,
+            318.9
+          ]
+        },
+        {
+          "r": 4,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "ABP 0010485699",
+          "header": false,
+          "bbox": [
+            145.7,
+            303.6,
+            197.0,
+            309.9
+          ]
+        },
+        {
+          "r": 4,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "84.9",
+          "header": false,
+          "bbox": [
+            236.3,
+            302.9,
+            251.3,
+            310.6
+          ]
+        },
+        {
+          "r": 4,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "101.5",
+          "header": false,
+          "bbox": [
+            284.7,
+            302.9,
+            302.3,
+            310.6
+          ]
+        },
+        {
+          "r": 4,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "82.2",
+          "header": false,
+          "bbox": [
+            335.0,
+            302.9,
+            350.0,
+            310.6
+          ]
+        },
+        {
+          "r": 4,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "89.5",
+          "header": false,
+          "bbox": [
+            382.7,
+            301.3,
+            397.3,
+            309.6
+          ]
+        },
+        {
+          "r": 4,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "10",
+          "header": false,
+          "bbox": [
+            426.3,
+            301.3,
+            435.7,
+            309.3
+          ]
+        },
+        {
+          "r": 4,
+          "c": 7,
+          "rs": 1,
+          "cs": 1,
+          "text": "12",
+          "header": false,
+          "bbox": [
+            462.0,
+            301.3,
+            471.7,
+            309.3
+          ]
+        },
+        {
+          "r": 4,
+          "c": 0,
+          "rs": 2,
+          "cs": 1,
+          "text": "ABP versus US",
+          "header": false,
+          "bbox": [
+            71.0,
+            297.9,
+            116.0,
+            305.3
+          ]
+        },
+        {
+          "r": 5,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "US JCS0WMD",
+          "header": false,
+          "bbox": [
+            149.7,
+            293.9,
+            192.7,
+            300.3
+          ]
+        },
+        {
+          "r": 5,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "94.9",
+          "header": false,
+          "bbox": [
+            236.0,
+            292.9,
+            251.7,
+            301.3
+          ]
+        },
+        {
+          "r": 5,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "86.2",
+          "header": false,
+          "bbox": [
+            285.7,
+            293.3,
+            300.7,
+            300.9
+          ]
+        },
+        {
+          "r": 5,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "90.4",
+          "header": false,
+          "bbox": [
+            335.0,
+            293.3,
+            349.7,
+            300.9
+          ]
+        },
+        {
+          "r": 5,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "90.5",
+          "header": false,
+          "bbox": [
+            382.7,
+            291.6,
+            397.7,
+            299.6
+          ]
+        },
+        {
+          "r": 5,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "4",
+          "header": false,
+          "bbox": [
+            428.0,
+            292.3,
+            433.7,
+            298.6
+          ]
+        },
+        {
+          "r": 5,
+          "c": 7,
+          "rs": 1,
+          "cs": 1,
+          "text": "5",
+          "header": false,
+          "bbox": [
+            463.7,
+            291.9,
+            470.0,
+            298.9
+          ]
+        },
+        {
+          "r": 6,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "EU JES0TML",
+          "header": false,
+          "bbox": [
+            151.0,
+            283.6,
+            191.0,
+            290.6
+          ]
+        },
+        {
+          "r": 6,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "87.3",
+          "header": false,
+          "bbox": [
+            236.3,
+            282.9,
+            251.3,
+            290.9
+          ]
+        },
+        {
+          "r": 6,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "89.2",
+          "header": false,
+          "bbox": [
+            285.7,
+            282.9,
+            300.7,
+            290.9
+          ]
+        },
+        {
+          "r": 6,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "91.0",
+          "header": false,
+          "bbox": [
+            335.0,
+            282.9,
+            350.0,
+            290.9
+          ]
+        },
+        {
+          "r": 6,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "89.2",
+          "header": false,
+          "bbox": [
+            382.3,
+            281.6,
+            397.7,
+            289.9
+          ]
+        },
+        {
+          "r": 6,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "2",
+          "header": false,
+          "bbox": [
+            427.7,
+            281.9,
+            434.0,
+            289.3
+          ]
+        },
+        {
+          "r": 6,
+          "c": 7,
+          "rs": 1,
+          "cs": 1,
+          "text": "2",
+          "header": false,
+          "bbox": [
+            463.7,
+            281.9,
+            470.0,
+            289.3
+          ]
+        },
+        {
+          "r": 6,
+          "c": 0,
+          "rs": 2,
+          "cs": 1,
+          "text": "EU versus US",
+          "header": false,
+          "bbox": [
+            73.3,
+            278.3,
+            114.3,
+            285.9
+          ]
+        },
+        {
+          "r": 7,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "US JCS0WMD",
+          "header": false,
+          "bbox": [
+            150.0,
+            273.9,
+            193.0,
+            280.6
+          ]
+        },
+        {
+          "r": 7,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "81.1",
+          "header": false,
+          "bbox": [
+            236.3,
+            273.3,
+            250.7,
+            281.3
+          ]
+        },
+        {
+          "r": 7,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "110.4",
+          "header": false,
+          "bbox": [
+            284.7,
+            273.3,
+            302.0,
+            280.9
+          ]
+        },
+        {
+          "r": 7,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "104.8",
+          "header": false,
+          "bbox": [
+            334.0,
+            273.3,
+            351.7,
+            280.9
+          ]
+        },
+        {
+          "r": 7,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "98.8",
+          "header": false,
+          "bbox": [
+            382.7,
+            272.3,
+            397.7,
+            279.9
+          ]
+        },
+        {
+          "r": 7,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "16",
+          "header": false,
+          "bbox": [
+            426.3,
+            272.3,
+            436.0,
+            280.3
+          ]
+        },
+        {
+          "r": 7,
+          "c": 7,
+          "rs": 1,
+          "cs": 1,
+          "text": "16",
+          "header": false,
+          "bbox": [
+            462.3,
+            272.3,
+            471.7,
+            280.3
+          ]
+        }
+      ],
+      "status": "needs_review",
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        62.9,
+        270.3,
+        485.7,
+        360.3
+      ],
+      "coordinate_space": "PDF top-left points",
+      "cell_coordinate_space": "PDF bottom-left points (original ra_prep)"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/34",
+      "parent": "#/tables/0",
+      "page": 2,
+      "bbox": [
+        62.6,
+        454.91998291015625,
+        524.9,
+        474.5199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "caption",
+      "text": "Table 2. Summary of pairwise comparison on ABP 654, Stelara (EU) and Stelara (US) in inhibition of IL - 23 induced IFN - γ release assay.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        62.6,
+        367.4,
+        524.9,
+        387.0
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/35",
+      "parent": "#/groups/0",
+      "page": 2,
+      "bbox": [
+        63.0,
+        569.6199829101563,
+        484.0,
+        577.6199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "CV = coefficient of variation; EU = European/Europe; IFN-γ = interferon gamma; IL-23 = interleukin-23; PBMC = peripheral blood mononuclear cell; US = United States.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        63.0,
+        264.3,
+        484.0,
+        272.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/36",
+      "parent": "#/groups/1",
+      "page": 2,
+      "bbox": [
+        63.3,
+        578.0199829101563,
+        150.7,
+        584.3199829101562
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Source: ELN ID 20211207-00065",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        63.3,
+        257.6,
+        150.7,
+        263.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "table",
+      "ref": "#/tables/1",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        62.4,
+        627.4199829101562,
+        493.0,
+        739.2199829101562
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "caption": "Table 3. Summary of pairwise comparison on ABP 654, Stelara (EU) and Stelara (US) in inhibition of IL - 12 induced IFN - γ release assay.",
+      "n_rows": 8,
+      "n_cols": 12,
+      "cells": [
+        {
+          "r": 0,
+          "c": 1,
+          "rs": 1,
+          "cs": 11,
+          "text": "Relative Potency to Plate Control",
+          "header": true,
+          "bbox": [
+            278.7,
+            203.9,
+            375.3,
+            211.3
+          ]
+        },
+        {
+          "r": 1,
+          "c": 11,
+          "rs": 1,
+          "cs": 1,
+          "text": "Total Valid Runs of Pairwise Comparison",
+          "header": true,
+          "bbox": [
+            452.7,
+            170.3,
+            490.7,
+            201.3
+          ]
+        },
+        {
+          "r": 1,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Similarity Assay 1",
+          "header": true,
+          "bbox": [
+            163.7,
+            170.6,
+            192.3,
+            186.9
+          ]
+        },
+        {
+          "r": 1,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Similarity Assay 2",
+          "header": true,
+          "bbox": [
+            196.7,
+            170.6,
+            225.7,
+            186.3
+          ]
+        },
+        {
+          "r": 1,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "Similarity Assay 3",
+          "header": true,
+          "bbox": [
+            229.7,
+            170.6,
+            258.7,
+            186.3
+          ]
+        },
+        {
+          "r": 1,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "Similarity Assay 4",
+          "header": true,
+          "bbox": [
+            263.0,
+            170.6,
+            292.0,
+            186.3
+          ]
+        },
+        {
+          "r": 1,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "Similarity Assay 5",
+          "header": true,
+          "bbox": [
+            296.3,
+            170.6,
+            325.0,
+            186.3
+          ]
+        },
+        {
+          "r": 1,
+          "c": 7,
+          "rs": 1,
+          "cs": 1,
+          "text": "Similarity Assay 6",
+          "header": true,
+          "bbox": [
+            329.0,
+            170.6,
+            357.7,
+            186.3
+          ]
+        },
+        {
+          "r": 1,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Test Article",
+          "header": true,
+          "bbox": [
+            95.3,
+            171.3,
+            130.0,
+            178.9
+          ]
+        },
+        {
+          "r": 1,
+          "c": 8,
+          "rs": 1,
+          "cs": 1,
+          "text": "Average",
+          "header": true,
+          "bbox": [
+            362.3,
+            170.9,
+            389.0,
+            178.6
+          ]
+        },
+        {
+          "r": 1,
+          "c": 9,
+          "rs": 1,
+          "cs": 1,
+          "text": "SD",
+          "header": true,
+          "bbox": [
+            396.0,
+            170.9,
+            408.7,
+            179.6
+          ]
+        },
+        {
+          "r": 1,
+          "c": 10,
+          "rs": 1,
+          "cs": 1,
+          "text": "%CV",
+          "header": true,
+          "bbox": [
+            423.7,
+            170.6,
+            441.0,
+            179.9
+          ]
+        },
+        {
+          "r": 2,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "ABP versus",
+          "header": false,
+          "bbox": [
+            65.3,
+            155.9,
+            87.3,
+            171.3
+          ]
+        },
+        {
+          "r": 2,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "ABP 0010485699",
+          "header": false,
+          "bbox": [
+            103.3,
+            162.3,
+            156.0,
+            169.6
+          ]
+        },
+        {
+          "r": 2,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "99.1%",
+          "header": false,
+          "bbox": [
+            167.3,
+            161.6,
+            189.0,
+            170.3
+          ]
+        },
+        {
+          "r": 2,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "116.4%",
+          "header": false,
+          "bbox": [
+            199.0,
+            161.6,
+            223.3,
+            170.6
+          ]
+        },
+        {
+          "r": 2,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "87.0%",
+          "header": false,
+          "bbox": [
+            266.7,
+            161.6,
+            288.0,
+            170.3
+          ]
+        },
+        {
+          "r": 2,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "98.9%",
+          "header": false,
+          "bbox": [
+            300.0,
+            161.6,
+            321.3,
+            170.3
+          ]
+        },
+        {
+          "r": 2,
+          "c": 8,
+          "rs": 1,
+          "cs": 1,
+          "text": "100.4%",
+          "header": false,
+          "bbox": [
+            364.3,
+            161.9,
+            388.0,
+            169.9
+          ]
+        },
+        {
+          "r": 2,
+          "c": 9,
+          "rs": 1,
+          "cs": 1,
+          "text": "12%",
+          "header": false,
+          "bbox": [
+            395.3,
+            161.3,
+            411.0,
+            170.6
+          ]
+        },
+        {
+          "r": 2,
+          "c": 10,
+          "rs": 1,
+          "cs": 1,
+          "text": "12%",
+          "header": false,
+          "bbox": [
+            424.7,
+            161.3,
+            440.7,
+            170.6
+          ]
+        },
+        {
+          "r": 2,
+          "c": 11,
+          "rs": 2,
+          "cs": 1,
+          "text": "4",
+          "header": false,
+          "bbox": [
+            469.3,
+            156.9,
+            473.7,
+            162.3
+          ]
+        },
+        {
+          "r": 3,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "EU",
+          "header": false,
+          "bbox": [
+            65.7,
+            148.6,
+            77.3,
+            156.6
+          ]
+        },
+        {
+          "r": 3,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "EU JES0TML",
+          "header": false,
+          "bbox": [
+            109.3,
+            151.3,
+            149.7,
+            158.3
+          ]
+        },
+        {
+          "r": 3,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "86.4%",
+          "header": false,
+          "bbox": [
+            167.7,
+            150.3,
+            188.7,
+            158.6
+          ]
+        },
+        {
+          "r": 3,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "92.9%",
+          "header": false,
+          "bbox": [
+            201.0,
+            150.3,
+            221.7,
+            158.6
+          ]
+        },
+        {
+          "r": 3,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "87.7%",
+          "header": false,
+          "bbox": [
+            267.0,
+            150.3,
+            288.0,
+            158.6
+          ]
+        },
+        {
+          "r": 3,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "91.8%",
+          "header": false,
+          "bbox": [
+            300.0,
+            150.3,
+            321.3,
+            158.6
+          ]
+        },
+        {
+          "r": 3,
+          "c": 8,
+          "rs": 1,
+          "cs": 1,
+          "text": "89.7%",
+          "header": false,
+          "bbox": [
+            365.3,
+            150.3,
+            386.3,
+            158.6
+          ]
+        },
+        {
+          "r": 3,
+          "c": 9,
+          "rs": 1,
+          "cs": 1,
+          "text": "3%",
+          "header": false,
+          "bbox": [
+            396.0,
+            149.9,
+            409.0,
+            158.9
+          ]
+        },
+        {
+          "r": 3,
+          "c": 10,
+          "rs": 1,
+          "cs": 1,
+          "text": "3%",
+          "header": false,
+          "bbox": [
+            426.0,
+            149.9,
+            438.7,
+            158.9
+          ]
+        },
+        {
+          "r": 4,
+          "c": 0,
+          "rs": 2,
+          "cs": 1,
+          "text": "ABP versus",
+          "header": false,
+          "bbox": [
+            65.3,
+            133.6,
+            87.0,
+            148.6
+          ]
+        },
+        {
+          "r": 4,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "ABP 0010485699",
+          "header": false,
+          "bbox": [
+            103.3,
+            139.6,
+            156.0,
+            147.3
+          ]
+        },
+        {
+          "r": 4,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "84.4%",
+          "header": false,
+          "bbox": [
+            167.7,
+            139.3,
+            188.7,
+            147.3
+          ]
+        },
+        {
+          "r": 4,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "88.2%",
+          "header": false,
+          "bbox": [
+            201.0,
+            139.3,
+            221.7,
+            147.3
+          ]
+        },
+        {
+          "r": 4,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "111.2%",
+          "header": false,
+          "bbox": [
+            232.3,
+            138.9,
+            256.7,
+            147.6
+          ]
+        },
+        {
+          "r": 4,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "87.1%",
+          "header": false,
+          "bbox": [
+            267.0,
+            139.3,
+            288.0,
+            147.3
+          ]
+        },
+        {
+          "r": 4,
+          "c": 8,
+          "rs": 1,
+          "cs": 1,
+          "text": "92.7%",
+          "header": false,
+          "bbox": [
+            365.3,
+            139.3,
+            386.3,
+            147.3
+          ]
+        },
+        {
+          "r": 4,
+          "c": 9,
+          "rs": 1,
+          "cs": 1,
+          "text": "12%",
+          "header": false,
+          "bbox": [
+            395.3,
+            138.9,
+            410.7,
+            147.6
+          ]
+        },
+        {
+          "r": 4,
+          "c": 10,
+          "rs": 1,
+          "cs": 1,
+          "text": "13%",
+          "header": false,
+          "bbox": [
+            424.7,
+            138.6,
+            440.7,
+            147.6
+          ]
+        },
+        {
+          "r": 4,
+          "c": 11,
+          "rs": 2,
+          "cs": 1,
+          "text": "4",
+          "header": false,
+          "bbox": [
+            469.0,
+            133.9,
+            474.0,
+            139.9
+          ]
+        },
+        {
+          "r": 5,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "US",
+          "header": false,
+          "bbox": [
+            65.3,
+            125.9,
+            77.3,
+            133.9
+          ]
+        },
+        {
+          "r": 5,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "US JCS0WMD",
+          "header": false,
+          "bbox": [
+            107.3,
+            128.6,
+            151.7,
+            135.6
+          ]
+        },
+        {
+          "r": 5,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "81.3%",
+          "header": false,
+          "bbox": [
+            167.7,
+            128.3,
+            188.7,
+            136.3
+          ]
+        },
+        {
+          "r": 5,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "83.5%",
+          "header": false,
+          "bbox": [
+            201.0,
+            128.3,
+            221.7,
+            136.3
+          ]
+        },
+        {
+          "r": 5,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "101.5%",
+          "header": false,
+          "bbox": [
+            232.7,
+            128.3,
+            256.3,
+            136.3
+          ]
+        },
+        {
+          "r": 5,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "91.2%",
+          "header": false,
+          "bbox": [
+            267.0,
+            128.3,
+            288.0,
+            136.3
+          ]
+        },
+        {
+          "r": 5,
+          "c": 8,
+          "rs": 1,
+          "cs": 1,
+          "text": "89.4%",
+          "header": false,
+          "bbox": [
+            365.3,
+            128.3,
+            386.3,
+            136.3
+          ]
+        },
+        {
+          "r": 5,
+          "c": 9,
+          "rs": 1,
+          "cs": 1,
+          "text": "%6",
+          "header": false,
+          "bbox": [
+            396.3,
+            127.6,
+            409.0,
+            136.6
+          ],
+          "status": "needs_review"
+        },
+        {
+          "r": 5,
+          "c": 10,
+          "rs": 1,
+          "cs": 1,
+          "text": "10%",
+          "header": false,
+          "bbox": [
+            425.3,
+            127.9,
+            440.3,
+            136.3
+          ]
+        },
+        {
+          "r": 6,
+          "c": 0,
+          "rs": 2,
+          "cs": 1,
+          "text": "EU versus",
+          "header": false,
+          "bbox": [
+            65.3,
+            110.6,
+            87.0,
+            125.9
+          ]
+        },
+        {
+          "r": 6,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "EU JES0TML",
+          "header": false,
+          "bbox": [
+            109.3,
+            117.6,
+            149.7,
+            124.6
+          ]
+        },
+        {
+          "r": 6,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "110.7%",
+          "header": false,
+          "bbox": [
+            166.7,
+            116.6,
+            190.3,
+            124.6
+          ]
+        },
+        {
+          "r": 6,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "105.5%",
+          "header": false,
+          "bbox": [
+            299.0,
+            116.6,
+            323.0,
+            124.6
+          ]
+        },
+        {
+          "r": 6,
+          "c": 7,
+          "rs": 1,
+          "cs": 1,
+          "text": "111.5%",
+          "header": false,
+          "bbox": [
+            332.0,
+            116.6,
+            356.0,
+            124.6
+          ]
+        },
+        {
+          "r": 6,
+          "c": 8,
+          "rs": 1,
+          "cs": 1,
+          "text": "109.2%",
+          "header": false,
+          "bbox": [
+            364.3,
+            116.6,
+            388.0,
+            124.6
+          ]
+        },
+        {
+          "r": 6,
+          "c": 9,
+          "rs": 1,
+          "cs": 1,
+          "text": "3%",
+          "header": false,
+          "bbox": [
+            396.0,
+            116.3,
+            409.0,
+            124.9
+          ]
+        },
+        {
+          "r": 6,
+          "c": 10,
+          "rs": 1,
+          "cs": 1,
+          "text": "3%",
+          "header": false,
+          "bbox": [
+            426.0,
+            116.3,
+            438.7,
+            125.3
+          ]
+        },
+        {
+          "r": 6,
+          "c": 11,
+          "rs": 2,
+          "cs": 1,
+          "text": "3",
+          "header": false,
+          "bbox": [
+            469.0,
+            111.3,
+            474.0,
+            117.9
+          ]
+        },
+        {
+          "r": 7,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "US",
+          "header": false,
+          "bbox": [
+            65.3,
+            103.3,
+            77.3,
+            111.3
+          ]
+        },
+        {
+          "r": 7,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "US JCS0WMD",
+          "header": false,
+          "bbox": [
+            107.7,
+            105.9,
+            151.7,
+            112.9
+          ]
+        },
+        {
+          "r": 7,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "107.4%",
+          "header": false,
+          "bbox": [
+            166.7,
+            105.6,
+            190.3,
+            113.6
+          ]
+        },
+        {
+          "r": 7,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "97.5%",
+          "header": false,
+          "bbox": [
+            300.3,
+            105.3,
+            321.0,
+            114.3
+          ]
+        },
+        {
+          "r": 7,
+          "c": 7,
+          "rs": 1,
+          "cs": 1,
+          "text": "118.5%",
+          "header": false,
+          "bbox": [
+            331.7,
+            105.3,
+            356.3,
+            113.9
+          ]
+        },
+        {
+          "r": 7,
+          "c": 8,
+          "rs": 1,
+          "cs": 1,
+          "text": "107.8%",
+          "header": false,
+          "bbox": [
+            364.3,
+            105.6,
+            388.3,
+            113.6
+          ]
+        },
+        {
+          "r": 7,
+          "c": 9,
+          "rs": 1,
+          "cs": 1,
+          "text": "11%",
+          "header": false,
+          "bbox": [
+            395.0,
+            104.9,
+            411.0,
+            113.9
+          ]
+        },
+        {
+          "r": 7,
+          "c": 10,
+          "rs": 1,
+          "cs": 1,
+          "text": "10%",
+          "header": false,
+          "bbox": [
+            425.3,
+            105.3,
+            440.3,
+            113.9
+          ]
+        }
+      ],
+      "status": "needs_review",
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        62.4,
+        102.7,
+        493.0,
+        214.5
+      ],
+      "coordinate_space": "PDF top-left points",
+      "cell_coordinate_space": "PDF bottom-left points (original ra_prep)"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/37",
+      "parent": "#/tables/1",
+      "page": 2,
+      "bbox": [
+        62.6,
+        601.4199829101562,
+        524.9,
+        621.0199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "caption",
+      "text": "Table 3. Summary of pairwise comparison on ABP 654, Stelara (EU) and Stelara (US) in inhibition of IL - 12 induced IFN - γ release assay.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        62.6,
+        220.9,
+        524.9,
+        240.5
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/38",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        67.0,
+        738.6199829101563,
+        490.3,
+        753.0199829101563
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "- = not applicable; CV = coefficient of variation; EU = European/Europe; IFN-γ = interferon gamma; IL-12 = interleukin-12; PBMC = peripheral blood mononuclear cell; US = United States.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        67.0,
+        88.9,
+        490.3,
+        103.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/39",
+      "parent": "#/groups/2",
+      "page": 2,
+      "bbox": [
+        62.7,
+        753.3199829101562,
+        150.0,
+        759.3199829101562
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Source:ELNID 20220118-00020",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        62.7,
+        82.6,
+        150.0,
+        88.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/40",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        62.5,
+        784.4199829101562,
+        127.9,
+        799.0199829101563
+      ],
+      "layer": "furniture",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "Assessment report EMA/228742/2024",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        62.5,
+        42.9,
+        127.9,
+        57.5
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/41",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        488.7,
+        792.7199829101562,
+        532.3,
+        799.4199829101562
+      ],
+      "layer": "furniture",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "Page 37/117",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        488.7,
+        42.5,
+        532.3,
+        49.2
+      ],
+      "coordinate_space": "PDF top-left points"
+    }
+  ],
+  "embedded_image_objects": 3,
+  "figure_counts": {
+    "figure_regions": 1,
+    "figure_groups": 0,
+    "logical_figures": 1,
+    "decorative_images": 0,
+    "interpretation_attempted": 0,
+    "interpretation_completed": 0,
+    "interpretation_needs_review": 0
+  },
+  "table_provenance": [
+    {
+      "origin": "fresh Docling + corrections",
+      "table_index": 0
+    },
+    {
+      "origin": "fresh Docling + corrections",
+      "table_index": 1
+    }
+  ]
+}

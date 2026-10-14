@@ -1,0 +1,291 @@
+{
+  "pipeline_version": "ra-research-rag-4.9.3",
+  "rows": [
+    {
+      "phase": "table_focus",
+      "case": "T01",
+      "source_report_sha256": "481cc9c26d357d637e28092dfe908e44fd65db69398a385515136d6c1482c883",
+      "before_claims": 6,
+      "after_claims": 7,
+      "before_reasons": [
+        "review_added_quantity_not_in_proposed_assertion"
+      ],
+      "after_reasons": [],
+      "identical_cached_model_inputs": 2,
+      "status": "partial",
+      "claims": 7,
+      "citations": 51,
+      "exact_quote_ranges": true,
+      "own_review_source_boundary": true,
+      "rejected": 0,
+      "gaps": [
+        "EMA SB17-1001 PK 분석표에서 SB17·EU Stelara·US Stelara의 Cmax 산술평균과 표준편차를 각각 원문 단위와 함께 정리하고, 중앙값이나 기하평균과 구분해줘.",
+        "EMA SB17-1001 PK 분석표에서 SB17·EU Stelara·US Stelara의 Cmax 산술평균과 표준편차를 각각 원문 단위와 함께 정리해줘.",
+        "중앙값이나 기하평균과 구분해줘."
+      ],
+      "reviewed_condition_restorations": 0,
+      "memo_issues": 1,
+      "meeting_question_drafts": 1,
+      "seconds": 14.563,
+      "timings": {
+        "understanding": 0.016,
+        "retrieval": 0.531,
+        "context": 0.172,
+        "generation_and_review": 13.844
+      },
+      "research_added_packets": 0,
+      "semantic_accuracy_certified": false
+    },
+    {
+      "phase": "table_focus",
+      "case": "T02",
+      "source_report_sha256": "0af1da4a8481a6ceea6fb8047ca47b38cd026030ba0d727cb5ce7a2623b41637",
+      "before_claims": 3,
+      "after_claims": 3,
+      "before_reasons": [],
+      "after_reasons": [],
+      "identical_cached_model_inputs": 2,
+      "status": "partial",
+      "claims": 3,
+      "citations": 16,
+      "exact_quote_ranges": true,
+      "own_review_source_boundary": true,
+      "rejected": 0,
+      "gaps": [
+        "EMA ABP 654의 Study 20190230 PK 요약표에서 ABP 654군의 Tmax 중앙값·범위와 t1/2 평균·표준편차를 각각 구분하여 단위와 함께 확인해줘.",
+        "EMA ABP 654의 Study 20190230 PK 요약표에서 ABP 654군의 Tmax 중앙값·범위와 t1/2 평균·표준편차를 단위와 함께 확인해줘.",
+        "두 통계량을 구분해줘."
+      ],
+      "reviewed_condition_restorations": 0,
+      "memo_issues": 1,
+      "meeting_question_drafts": 1,
+      "seconds": 8.453,
+      "timings": {
+        "understanding": 0.0,
+        "retrieval": 0.187,
+        "context": 0.11,
+        "generation_and_review": 8.156
+      },
+      "research_added_packets": 0,
+      "semantic_accuracy_certified": false
+    },
+    {
+      "phase": "table_focus",
+      "case": "T03",
+      "source_report_sha256": "cd581033b0b0b0c387a38c57903709e466978ec1ca6c87bfe67ee80f11e491b1",
+      "before_claims": 2,
+      "after_claims": 2,
+      "before_reasons": [],
+      "after_reasons": [],
+      "identical_cached_model_inputs": 2,
+      "status": "partial",
+      "claims": 2,
+      "citations": 33,
+      "exact_quote_ranges": true,
+      "own_review_source_boundary": true,
+      "rejected": 0,
+      "gaps": [
+        "EMA SB17-1001 PK 분석표에서 SB17, EU Stelara, US Stelara의 Cmax 중앙값을 ng/mL 단위로 각각 확인하고, 산술평균과 구분해줘.",
+        "EMA SB17-1001 PK 분석표에서 SB17·EU Stelara·US Stelara의 Cmax 중앙값을 ng/mL 단위로 각각 확인해줘.",
+        "산술평균과 구분해줘."
+      ],
+      "reviewed_condition_restorations": 0,
+      "memo_issues": 1,
+      "meeting_question_drafts": 1,
+      "seconds": 7.547,
+      "timings": {
+        "understanding": 0.0,
+        "retrieval": 0.156,
+        "context": 0.172,
+        "generation_and_review": 7.219
+      },
+      "research_added_packets": 0,
+      "semantic_accuracy_certified": false
+    },
+    {
+      "phase": "table_focus",
+      "case": "T04",
+      "source_report_sha256": "af3de135507bb3637b6780d67cd6de663755e89dd4401524b5fd3ac0bbf040c0",
+      "before_claims": 3,
+      "after_claims": 3,
+      "before_reasons": [],
+      "after_reasons": [],
+      "identical_cached_model_inputs": 2,
+      "status": "partial",
+      "claims": 3,
+      "citations": 25,
+      "exact_quote_ranges": true,
+      "own_review_source_boundary": true,
+      "rejected": 0,
+      "gaps": [
+        "EMA ABP 654의 Study 20190230 PK 요약표에서 US ustekinumab군과 EU ustekinumab군을 구분하여 Tmax 중앙값·범위 및 t1/2 평균·표준편차를 시간 단위로 확인해줘.",
+        "EMA ABP 654의 Study 20190230 PK 요약표에서 US ustekinumab군과 EU ustekinumab군의 Tmax 중앙값·범위 및 t1/2 평균·표준편차를 시간 단위로 확인해줘.",
+        "각 군과 통계량을 구분해줘."
+      ],
+      "reviewed_condition_restorations": 0,
+      "memo_issues": 1,
+      "meeting_question_drafts": 1,
+      "seconds": 13.234,
+      "timings": {
+        "understanding": 0.0,
+        "retrieval": 0.203,
+        "context": 0.094,
+        "generation_and_review": 12.937
+      },
+      "research_added_packets": 0,
+      "semantic_accuracy_certified": false
+    },
+    {
+      "phase": "transfer_utf8",
+      "case": "G01",
+      "source_report_sha256": "fc006b74dbeb4a78b595b86480125a2675a730cdef53c2bf8b42af9e11f98698",
+      "before_claims": 2,
+      "after_claims": 2,
+      "before_reasons": [],
+      "after_reasons": [],
+      "identical_cached_model_inputs": 2,
+      "status": "partial",
+      "claims": 2,
+      "citations": 3,
+      "exact_quote_ranges": true,
+      "own_review_source_boundary": true,
+      "rejected": 0,
+      "gaps": [
+        "층화에 사용한 기준과 시점 / ABP654",
+        "EMA ABP654의 건강인 PK 시험 Study 20190230에서 성별과 민족에 따른 층화 기준을 설명하고, 실제 등록 인원과 층화 기준을 구분해줘.",
+        "EMA ABP654의 건강인 PK 시험 Study 20190230에서 성별과 민족에 따른 층화 기준을 설명해줘.",
+        "실제 등록 인원과 층화 기준은 구분해줘."
+      ],
+      "reviewed_condition_restorations": 0,
+      "memo_issues": 1,
+      "meeting_question_drafts": 1,
+      "seconds": 11.813,
+      "timings": {
+        "understanding": 3.25,
+        "retrieval": 0.36,
+        "context": 0.14,
+        "generation_and_review": 8.063
+      },
+      "research_added_packets": 0,
+      "semantic_accuracy_certified": false
+    },
+    {
+      "phase": "transfer_utf8",
+      "case": "G02",
+      "source_report_sha256": "dd01aa0e3a162e27cdbddfb6866e7b831c4fe482ed9f590319d211c4ef639e5b",
+      "before_claims": 1,
+      "after_claims": 1,
+      "before_reasons": [],
+      "after_reasons": [],
+      "identical_cached_model_inputs": 2,
+      "status": "partial",
+      "claims": 1,
+      "citations": 2,
+      "exact_quote_ranges": true,
+      "own_review_source_boundary": true,
+      "rejected": 0,
+      "gaps": [
+        "실제 투여 용량·경로와 요청한 시험 조건 / SB17",
+        "FDA Pyzchiva 라벨에서 성인 궤양성 대장염의 최초 정맥 유도 용량을 체중별로 정리하고 피하 유지요법 시작 시점과 투여 간격을 알려줘."
+      ],
+      "reviewed_condition_restorations": 0,
+      "memo_issues": 1,
+      "meeting_question_drafts": 1,
+      "seconds": 7.843,
+      "timings": {
+        "understanding": 2.812,
+        "retrieval": 0.172,
+        "context": 0.047,
+        "generation_and_review": 4.812
+      },
+      "research_added_packets": 0,
+      "semantic_accuracy_certified": false
+    },
+    {
+      "phase": "transfer_utf8",
+      "case": "G03",
+      "source_report_sha256": "156634ec6947937b9b4eaef5a72ce0a365be1fff51d93014fd70cfd21b44ac30",
+      "before_claims": 5,
+      "after_claims": 5,
+      "before_reasons": [
+        "review_added_quantity_not_in_proposed_assertion",
+        "uncertain",
+        "uncertain"
+      ],
+      "after_reasons": [
+        "review_added_quantity_not_in_proposed_assertion",
+        "uncertain",
+        "uncertain"
+      ],
+      "identical_cached_model_inputs": 2,
+      "status": "partial",
+      "claims": 5,
+      "citations": 7,
+      "exact_quote_ranges": true,
+      "own_review_source_boundary": true,
+      "rejected": 3,
+      "gaps": [
+        "Health Canada Yesintek 제품 모노그래프에서 성인 판상 건선의 체중별 용량과 투여 경로 및 초기·유지 투여 시점을 설명해줘."
+      ],
+      "reviewed_condition_restorations": 0,
+      "memo_issues": 1,
+      "meeting_question_drafts": 1,
+      "seconds": 13.437,
+      "timings": {
+        "understanding": 2.5,
+        "retrieval": 0.156,
+        "context": 0.094,
+        "generation_and_review": 10.687
+      },
+      "research_added_packets": 0,
+      "semantic_accuracy_certified": false
+    },
+    {
+      "phase": "transfer_utf8",
+      "case": "G04",
+      "source_report_sha256": "4912a901e26eb1d8620abd354e20dd8baa1818f44e764d29ca3a1840e9b81841",
+      "before_claims": 3,
+      "after_claims": 4,
+      "before_reasons": [
+        "review_added_quantity_not_in_proposed_assertion",
+        "uncertain",
+        "uncertain",
+        "review_added_quantity_not_in_proposed_assertion",
+        "uncertain"
+      ],
+      "after_reasons": [
+        "uncertain",
+        "uncertain",
+        "review_added_quantity_not_in_proposed_assertion",
+        "uncertain"
+      ],
+      "identical_cached_model_inputs": 2,
+      "status": "partial",
+      "claims": 4,
+      "citations": 32,
+      "exact_quote_ranges": true,
+      "own_review_source_boundary": true,
+      "rejected": 4,
+      "gaps": [
+        "EMA SB17-1001 PK 분석표에서 SB17, EU Stelara, US Stelara의 AUCinf 산술평균과 표준편차를 각 군별로 원문 단위와 함께 정리하고, 기하평균과 구분해줘.",
+        "EMA SB17-1001 PK 분석표에서 SB17·EU Stelara·US Stelara의 AUCinf 산술평균과 표준편차를 각 군별로 원문 단위와 함께 정리해줘.",
+        "기하평균과 구분해줘."
+      ],
+      "reviewed_condition_restorations": 0,
+      "memo_issues": 1,
+      "meeting_question_drafts": 1,
+      "seconds": 15.734,
+      "timings": {
+        "understanding": 3.125,
+        "retrieval": 0.266,
+        "context": 0.156,
+        "generation_and_review": 12.187
+      },
+      "research_added_packets": 0,
+      "semantic_accuracy_certified": false
+    }
+  ],
+  "new_provider_calls": 0,
+  "fresh_generation": false,
+  "independent_holdout": false
+}

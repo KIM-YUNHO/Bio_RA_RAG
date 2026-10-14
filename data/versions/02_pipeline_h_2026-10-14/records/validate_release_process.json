@@ -1,0 +1,16 @@
+{
+  "pid": 14568,
+  "command": [
+    "C:\\Users\\Admin\\Documents\\biosimilar_collection\\.venv\\Scripts\\python.exe",
+    "-u",
+    "-X",
+    "utf8",
+    "-m",
+    "pipeline_h.finish",
+    "--run",
+    "C:\\Users\\Admin\\Documents\\biosimilar_collection\\pipeline_h\\runs\\ustekinumab_20261014_v2",
+    "--stage",
+    "release"
+  ],
+  "started": 1791950176.1975408
+}

@@ -1,0 +1,43 @@
+{
+  "reviewer_type": "source-based agent review, not independent human expert",
+  "rules": [
+    "Literal quotation is provenance only; value-to-endpoint, arm, comparison, analysis, population and timepoint must also match.",
+    "Equivalent source passages are allowed, but must be documented separately from original strict page labels.",
+    "Correct means all required facts, no misleading substitution; partial means some facts without a misleading substitution; incorrect means at least one misleading numeric or scope attribution; missed means no answer to an answerable question.",
+    "Explicitly labelled related context is scored separately for relevance and is not automatically a fabricated fact.",
+    "Counts refer to required fact groups below, not overlapping raw gold rows or arbitrary answer item counts.",
+    "No semantic verdict is issued merely from status=answered or literal precision=1.",
+    "Negative and exclusion controls have separate denominators from answerable questions.",
+    "All source versions must match; source review and pending expert review are recorded."
+  ],
+  "required_fact_groups": {
+    "Q001": ["Phase I", "randomised", "double blind", "three arms", "parallel group", "single dose"],
+    "Q002": ["age 18-55 inclusive", "weight 60-90 kg inclusive", "BMI 19-29.9 kg/m2 inclusive"],
+    "Q003": ["45 mg single dose", "subcutaneous injection"],
+    "Q004": ["Cmax primary endpoint", "AUC0-inf/AUCinf primary endpoint"],
+    "Q005": ["equivalence margin 0.8-1.25 or 80-125%"],
+    "Q006": ["ADA bridging ligand-binding assay, ECL/MSD", "ADA three-tiered approach", "NAb competitive ligand-binding assay, ECL/MSD"],
+    "Q007": ["SB17 randomised 67", "EU Stelara randomised 67", "US Stelara randomised 67"],
+    "Q008": ["SB17 PK set N=67", "EU Stelara PK set N=67", "US Stelara PK set N=67"],
+    "Q009": ["SB17 post-dose ADA 18/67 (26.9%)", "EU Stelara post-dose ADA 23/67 (34.3%)", "US Stelara post-dose ADA 23/67 (34.3%)"],
+    "Q010": ["SB17 Day99 NAb among ADA-positive 5/14 (35.7%)", "EU Stelara Day99 NAb among ADA-positive 12/19 (63.2%)", "US Stelara Day99 NAb among ADA-positive 11/19 (57.9%)"],
+    "Q011": ["Weight-adjusted ad-hoc SB17/EU AUCinf 1.01 (0.92,1.11)", "Weight-adjusted ad-hoc SB17/EU Cmax 0.93 (0.85,1.02)"],
+    "Q012": ["Weight-adjusted ad-hoc SB17/US AUCinf 1.02 (0.94,1.12)", "Weight-adjusted ad-hoc SB17/US Cmax 0.96 (0.88,1.05)", "Weight-adjusted ad-hoc EU/US AUCinf 1.00 (0.92,1.10)", "Weight-adjusted ad-hoc EU/US Cmax 1.02 (0.94,1.12)"],
+    "Q013": ["Primary SB17/EU AUCinf 0.99 (0.90,1.08)", "Primary SB17/EU Cmax 0.90 (0.82,0.98)"],
+    "Q014": ["SB17/EU equivalence concluded within predefined margin", "SB17/US equivalence concluded", "EU/US equivalence concluded"],
+    "D01": ["Table7 Incidences of ADAs and NAbs by Visits & Treatment Group", "Safety Set1"],
+    "D02": ["Upper panel Concentration (ng/mL)", "Lower panel Concentration (ng/mL)", "Upper Linear Scale", "Lower Semi-Logarithmic Scale", "SB17 45mg legend", "EU sourced Stelara 45mg legend"],
+    "D03": ["No value is attributed to an SB17-1001 90mg arm; abstain or correct the premise"],
+    "D04": ["No evidence-backed answer or items when explicitly scoped to default-excluded protocol"],
+    "D05": ["Week28 transition entry", "PASI50 response", "Eligible-subject qualification retained"],
+    "D06": ["本剤 Cmax mean 5.095 SD1.498 μg/mL", "EU 承認品 Cmax mean5.689 SD1.877 μg/mL", "米国 承認品 Cmax mean5.420 SD1.659 μg/mL"],
+    "D07": ["45mg Cmax median2.4 mcg/mL", "45mg Cmax mean2.7 mcg/mL", "90mg Cmax median5.3 mcg/mL", "90mg Cmax mean6.1 mcg/mL"],
+    "D08": ["Primary SB17/EU AUCinf0.99 (0.90,1.08)", "Primary SB17/EU Cmax0.90 (0.82,0.98)"]
+  },
+  "source_notes": {
+    "Q008": "EMA physical p43 Table3 PKS N=67 in each arm; Table4 and p47 distinguish analysed n=62/64/60. Do not replace PK-set membership N with endpoint analysed n. Visually checked p43.",
+    "Q012": "EMA physical p46 Table7 visually checked; row direction and ad-hoc weight adjustment required.",
+    "D07": "HC physical p27 visually checked: 45mg median2.4 mean2.7, 90mg median5.3 mean6.1 mcg/mL. Source C0379T04 CSR, not SB17-1001.",
+    "all": "Draft gold labels are not expert-certified. Holdout source documents are absent from current live index; no holdout claim is made."
+  }
+}

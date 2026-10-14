@@ -1,0 +1,27 @@
+{
+  "reference_version": "ra-transfer-literal-spots-1",
+  "review_method": "agent_visual_source_check_on_250dpi_pdf_region_renders",
+  "domain_expert_reviewed": false,
+  "scope": "Eighteen literal numeric cell spots across four tables. Chosen from source PDF renders after transfer inference, before reading selected table cell output. Not blinded, not full table/header/section semantic annotation or corpus accuracy.",
+  "document_versions": {
+    "EMA:64196": "123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c",
+    "EMA:64792": "513959da3a6d724b63160792cbf18acb7f83d3396ab8147f491d543ce392bcce"
+  },
+  "cases": [
+    {"case_id":"wezenla_table4","document_id":"EMA:64196","pdf_page":44,"kind":"table","bbox_pdf":[66.2,101.76,523.3635,181.92],"spotchecks":[
+      {"row_prefix":["ABP 654"],"exact_row_labels":true,"cells":{"1":"11500 (36.1)","4":"10200000 (39.2)","5":"10900000 (40.8)","6":"588.110 (133.6061)"}}
+    ]},
+    {"case_id":"wezenla_table5","document_id":"EMA:64196","pdf_page":44,"kind":"table","bbox_pdf":[63.8014,343.2,472.994,506.4],"spotchecks":[
+      {"row_prefix":["ABP 654"],"exact_row_labels":true,"cells":{"1":"10783692.1 [76]","2":"11419.0 [78]","3":"10137829.7 [78]"}},
+      {"row_prefix":["ABP 654 vs ustekinumab (US)"],"cells":{"1":"1.0124 (0.9289, 1.1034)"}}
+    ]},
+    {"case_id":"steqeyma_table5","document_id":"EMA:64792","pdf_page":34,"kind":"table","bbox_pdf":[64.7608,441.12,556.4635,665.28],"spotchecks":[
+      {"row_prefix":["Geometric mean"],"cells":{"1":"197.07","2":"155.33","3":"154.11"}},
+      {"row_prefix":["Geometric mean"],"cells":{"1":"5.16","2":"4.35","3":"4.55"}}
+    ]},
+    {"case_id":"steqeyma_table10","document_id":"EMA:64792","pdf_page":41,"kind":"table","bbox_pdf":[62.842,90.72,450.4476,420.96],"spotchecks":[
+      {"row_prefix":["Mean (SD)"],"cells":{"1":"34.6 (10.26)"}},
+      {"row_prefix":["Asian (Japanese)"],"cells":{"2":"110 (100.0)","3":"107 (100.0)","4":"331 (100.0)"}}
+    ]}
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "completed_at": "2026-10-10T06:02:00.278778+00:00",
+  "rows": [
+    {
+      "case": "T03",
+      "result_units": 1,
+      "supplied_pages": [
+        [
+          {
+            "document_id": "FDA:761285Orig1s000,761331Orig1s000:Approv",
+            "pdf_page": 6
+          },
+          {
+            "document_id": "FDA:761285Orig1s000,761331Orig1s000:ChemR",
+            "pdf_page": 39
+          },
+          {
+            "document_id": "FDA:761285Orig1s000,761331Orig1s000:Approv",
+            "pdf_page": 7
+          },
+          {
+            "document_id": "FDA:761285Orig1s000,761331Orig1s000:AdminCorres",
+            "pdf_page": 15
+          }
+        ]
+      ]
+    },
+    {
+      "case": "T04",
+      "result_units": 1,
+      "supplied_pages": [
+        [
+          {
+            "document_id": "FDA:761338Orig1Orig2s000:Approv",
+            "pdf_page": 5
+          },
+          {
+            "document_id": "FDA:761338Orig1Orig2s000:AdminCorres",
+            "pdf_page": 30
+          }
+        ]
+      ]
+    }
+  ],
+  "api_calls": 0,
+  "new_query_interpretation": false,
+  "generation_performed": false,
+  "gold_in_selection": false,
+  "answer_accuracy_certified": false,
+  "verification_sha256": "cfd2c72e3c7029abe2513ce71c525bdd89ff0eb9ddd187ed7b1129f9919fffd3"
+}

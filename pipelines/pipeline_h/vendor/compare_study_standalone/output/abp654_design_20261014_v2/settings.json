@@ -1,0 +1,180 @@
+{
+  "runtimes": {
+    "controller": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\.venv\\Scripts\\python.exe",
+    "paddle": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\.venv-paddle\\Scripts\\python.exe",
+    "docling": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study\\.venv-docling\\Scripts\\python.exe"
+  },
+  "paddle": {
+    "layout_model_dir": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\models\\paddle\\PP-DocLayoutV3_safetensors",
+    "vl_model_dir": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\models\\paddle\\PaddleOCR-VL-1.6",
+    "light_det_model_dir": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\models\\paddle\\PP-OCRv5_mobile_det_safetensors",
+    "light_rec_model_dir": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\models\\paddle\\latin_PP-OCRv5_mobile_rec_safetensors",
+    "device": "gpu:0",
+    "dpi": 150,
+    "max_new_tokens": 4096,
+    "timeout_s": 600,
+    "chart_recognition": false,
+    "image_ocr": true,
+    "release_qwen_before_parser": false,
+    "native_text": true,
+    "vl_rec_batch_size": 1,
+    "parser_backend": "cascade",
+    "python": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\.venv-paddle\\Scripts\\python.exe"
+  },
+  "qwen": {
+    "endpoint": "http://127.0.0.1:11434",
+    "model": "qwen3.5:9b",
+    "timeout_s": 1800,
+    "num_ctx": 16384,
+    "num_predict": -1,
+    "crop_dpi": 300,
+    "crop_padding_px": 12,
+    "max_image_edge": 1800,
+    "keep_alive": "5m"
+  },
+  "docling": {
+    "artifacts_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study\\bench\\models\\docling",
+    "det_model_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study\\bench\\models\\docling\\RapidOcr\\PP-OCRv6_det_small.onnx",
+    "cls_model_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study\\bench\\models\\docling\\RapidOcr\\ch_ppocr_mobile_v2.0_cls_mobile.onnx",
+    "rec_model_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study\\bench\\models\\docling\\RapidOcr\\PP-OCRv6_rec_small.onnx",
+    "trigram_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\resources\\trigram_en.json"
+  },
+  "rules": {
+    "qwen_routing": "selected_complex",
+    "figure_policy": "describe_selected"
+  },
+  "common_preprocessing": true,
+  "evaluation_gold": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\gold.json",
+  "input_metadata": {
+    "ABP654_EMA_p036_037.pdf": {
+      "agency": "EMA",
+      "doc_type": "assessment_report",
+      "source_id": "EMA",
+      "source_title": "EMA Public Assessment Report",
+      "source_pdf_pages": [
+        36,
+        37
+      ],
+      "source_sha256": "123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c"
+    },
+    "ABP654_EMA_p044.pdf": {
+      "agency": "EMA",
+      "doc_type": "assessment_report",
+      "source_id": "EMA",
+      "source_title": "EMA Public Assessment Report",
+      "source_pdf_pages": [
+        44
+      ],
+      "source_sha256": "123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c"
+    },
+    "ABP654_EMA_p050.pdf": {
+      "agency": "EMA",
+      "doc_type": "assessment_report",
+      "source_id": "EMA",
+      "source_title": "EMA Public Assessment Report",
+      "source_pdf_pages": [
+        50
+      ],
+      "source_sha256": "123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c"
+    },
+    "ABP654_EMA_p053.pdf": {
+      "agency": "EMA",
+      "doc_type": "assessment_report",
+      "source_id": "EMA",
+      "source_title": "EMA Public Assessment Report",
+      "source_pdf_pages": [
+        53
+      ],
+      "source_sha256": "123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c"
+    },
+    "ABP654_FDA_ChemR_p006.pdf": {
+      "agency": "FDA",
+      "doc_type": "chemistry_review",
+      "source_id": "FDA_ChemR",
+      "source_title": "FDA Product Quality Review",
+      "source_pdf_pages": [
+        6
+      ],
+      "source_sha256": "09ec859d146b09203f4132ef7528b37b48cba76711e893a5a9f7270d24c089e3"
+    },
+    "ABP654_FDA_ChemR_p012_013.pdf": {
+      "agency": "FDA",
+      "doc_type": "chemistry_review",
+      "source_id": "FDA_ChemR",
+      "source_title": "FDA Product Quality Review",
+      "source_pdf_pages": [
+        12,
+        13
+      ],
+      "source_sha256": "09ec859d146b09203f4132ef7528b37b48cba76711e893a5a9f7270d24c089e3"
+    },
+    "ABP654_FDA_ChemR_p033.pdf": {
+      "agency": "FDA",
+      "doc_type": "chemistry_review",
+      "source_id": "FDA_ChemR",
+      "source_title": "FDA Product Quality Review",
+      "source_pdf_pages": [
+        33
+      ],
+      "source_sha256": "09ec859d146b09203f4132ef7528b37b48cba76711e893a5a9f7270d24c089e3"
+    },
+    "ABP654_FDA_Multi_p035.pdf": {
+      "agency": "FDA",
+      "doc_type": "multidisciplinary_review",
+      "source_id": "FDA_Multi",
+      "source_title": "FDA Biosimilar Multidisciplinary Evaluation and Review",
+      "source_pdf_pages": [
+        35
+      ],
+      "source_sha256": "2bc7f2e93c191783a960144f66d6a45cabfc3738ce986bcff95ee715ea25a145"
+    },
+    "ABP654_HC_p028.pdf": {
+      "agency": "HC",
+      "doc_type": "product_monograph",
+      "source_id": "HC",
+      "source_title": "Health Canada WEZLANA Product Monograph",
+      "source_pdf_pages": [
+        28
+      ],
+      "source_sha256": "83a4e0fdd8a24e0f670d11268893e21babd4bed528c6d8def40635002d330287"
+    },
+    "ABP654_HC_p030.pdf": {
+      "agency": "HC",
+      "doc_type": "product_monograph",
+      "source_id": "HC",
+      "source_title": "Health Canada WEZLANA Product Monograph",
+      "source_pdf_pages": [
+        30
+      ],
+      "source_sha256": "83a4e0fdd8a24e0f670d11268893e21babd4bed528c6d8def40635002d330287"
+    },
+    "ABP654_HC_p034_035.pdf": {
+      "agency": "HC",
+      "doc_type": "product_monograph",
+      "source_id": "HC",
+      "source_title": "Health Canada WEZLANA Product Monograph",
+      "source_pdf_pages": [
+        34,
+        35
+      ],
+      "source_sha256": "83a4e0fdd8a24e0f670d11268893e21babd4bed528c6d8def40635002d330287"
+    },
+    "ABP654_HC_p038.pdf": {
+      "agency": "HC",
+      "doc_type": "product_monograph",
+      "source_id": "HC",
+      "source_title": "Health Canada WEZLANA Product Monograph",
+      "source_pdf_pages": [
+        38
+      ],
+      "source_sha256": "83a4e0fdd8a24e0f670d11268893e21babd4bed528c6d8def40635002d330287"
+    }
+  },
+  "dataset_manifest": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\dataset_manifest.json",
+  "experiment_protocol": {
+    "description": "15 original-type pages, three complete pipelines, one serial run per engine; no result selection by retry.",
+    "development_set": "Source page renders inspected by assistant before this run; native text assists excerpts. FDA candidate references visually checked for selected samples. Human and independent review still pending. Two pages overlap previous demo. This is an exposed development set, not a held-out test.",
+    "configuration_delta": "Paddle chart_recognition=false to retain label OCR and avoid generated chart digitization; Qwen output remains unlimited (-1), context 16384."
+  },
+  "_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\config.local.json"
+}

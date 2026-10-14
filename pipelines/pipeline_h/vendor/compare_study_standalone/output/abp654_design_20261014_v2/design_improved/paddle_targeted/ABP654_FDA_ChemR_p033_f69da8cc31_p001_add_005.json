@@ -1,0 +1,92 @@
+{
+  "job": {
+    "document": "ABP654_FDA_ChemR_p033.pdf",
+    "page": 1,
+    "key": "ABP654_FDA_ChemR_p033_f69da8cc31",
+    "agency": "FDA",
+    "bbox": [
+      71.52,
+      286.56,
+      541.44,
+      422.88
+    ],
+    "edge_coverage": [
+      0.9969356486210419,
+      0.9969356486210419,
+      0.9894366197183099,
+      0.9894366197183099
+    ],
+    "origin": "source_closed_border",
+    "action": "add",
+    "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p033.pdf",
+    "id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_005",
+    "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_005.png",
+    "image_sha256": "8771784f94864a666cc64ba0ba121db69841ee8e97b93e84490750707b37c553",
+    "pixels": [
+      1800,
+      538
+    ],
+    "context_bbox": [
+      68.63999938964844,
+      283.67999267578125,
+      544.3200073242188,
+      425.760009765625
+    ]
+  },
+  "seconds": 3.4138646999999764,
+  "raw": {
+    "res": {
+      "input_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_005.png",
+      "page_index": null,
+      "page_count": null,
+      "width": 1800,
+      "height": 538,
+      "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": false,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": true,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [],
+        "return_layout_polygon_points": true
+      },
+      "parsing_res_list": [
+        {
+          "block_label": "table",
+          "block_content": "<table><tr><td>Comment/Recommendation: For the vials, recommend revise to read as: &quot;Store unopened vial upright and refrigerated at 2°C to 8°C (36°F to 46°F) in the original carton to protect from light. Do not freeze.&quot;</td></tr><tr><td>The applicant responded that the 45 mg and 130 mg vial carton are designed such that the vial is horizontal when storing the carton. Horizontal vial orientation is supported by vial stability studies conducted in both the upright and inverted orientations for which stability data meet stability acceptance criteria at the recommended storage condition through the latest stability time point tested. Therefore, the applicant did not include the recommend language &quot;Store the vial upright&quot;, which is acceptable from an OBP labeling perspective.</td></tr></table>",
+          "block_bbox": [
+            0,
+            0,
+            1800,
+            538
+          ],
+          "block_id": 0,
+          "block_order": null,
+          "group_id": 0
+        }
+      ]
+    },
+    "ra_runtime": {
+      "inference_seconds": 3.413,
+      "vl_rec_batch_size": 1,
+      "native_blocks": 0,
+      "vlm_blocks": null,
+      "cuda_peak_allocated_bytes": 2184946176,
+      "cuda_peak_reserved_bytes": 2384461824
+    }
+  },
+  "content": "<table><tr><td>Comment/Recommendation: For the vials, recommend revise to read as: &quot;Store unopened vial upright and refrigerated at 2°C to 8°C (36°F to 46°F) in the original carton to protect from light. Do not freeze.&quot;</td></tr><tr><td>The applicant responded that the 45 mg and 130 mg vial carton are designed such that the vial is horizontal when storing the carton. Horizontal vial orientation is supported by vial stability studies conducted in both the upright and inverted orientations for which stability data meet stability acceptance criteria at the recommended storage condition through the latest stability time point tested. Therefore, the applicant did not include the recommend language &quot;Store the vial upright&quot;, which is acceptable from an OBP labeling perspective.</td></tr></table>",
+  "table": [
+    [
+      "Comment/Recommendation: For the vials, recommend revise to read as: \"Store unopened vial upright and refrigerated at 2°C to 8°C (36°F to 46°F) in the original carton to protect from light. Do not freeze.\""
+    ],
+    [
+      "The applicant responded that the 45 mg and 130 mg vial carton are designed such that the vial is horizontal when storing the carton. Horizontal vial orientation is supported by vial stability studies conducted in both the upright and inverted orientations for which stability data meet stability acceptance criteria at the recommended storage condition through the latest stability time point tested. Therefore, the applicant did not include the recommend language \"Store the vial upright\", which is acceptable from an OBP labeling perspective."
+    ]
+  ],
+  "accepted": true,
+  "error": null,
+  "semantic_status": "source extraction candidate; independent human review pending"
+}

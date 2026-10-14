@@ -1,0 +1,48 @@
+{
+  "reviewer": "Codex implementation agent, source-based review; not independent expert certification",
+  "independent_holdout": false,
+  "pipeline_version": "ra-research-rag-4.9.2",
+  "fresh_generation": true,
+  "counts": {
+    "partial": 1,
+    "correct": 3
+  },
+  "rows": [
+    {
+      "case": "T01",
+      "verdict": "partial",
+      "reason": "세 군 Cmax SD와 단위·통계량 구분은 맞으나, 초안의 평균±SD 공통 단위 구문을 검증기가 해석하지 못해 세 군 산술평균을 제거했다.",
+      "report": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\table_focus\\v2\\T01.json",
+      "report_sha256": "481cc9c26d357d637e28092dfe908e44fd65db69398a385515136d6c1482c883",
+      "runtime_status": "partial",
+      "before": "no_answer"
+    },
+    {
+      "case": "T02",
+      "verdict": "correct",
+      "reason": "ABP654 시험의 세 군 Tmax 중앙값·범위와 반감기 평균·SD를 원문 시간 단위로 보존했다.",
+      "report": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\table_focus\\v2\\T02.json",
+      "report_sha256": "0af1da4a8481a6ceea6fb8047ca47b38cd026030ba0d727cb5ce7a2623b41637",
+      "runtime_status": "partial",
+      "before": "correct"
+    },
+    {
+      "case": "T03",
+      "verdict": "correct",
+      "reason": "SB17-1001 세 군 Cmax 중앙값과 단위를 반환하고 Mean·SD와의 차이를 구분했다.",
+      "report": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\table_focus\\v2\\T03.json",
+      "report_sha256": "cd581033b0b0b0c387a38c57903709e466978ec1ca6c87bfe67ee80f11e491b1",
+      "runtime_status": "partial",
+      "before": "no_answer"
+    },
+    {
+      "case": "T04",
+      "verdict": "correct",
+      "reason": "US/EU 대조군의 Tmax 중앙값·범위와 반감기 평균·SD, 원문 시간 단위를 모두 보존했다.",
+      "report": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\table_focus\\v2\\T04.json",
+      "report_sha256": "af3de135507bb3637b6780d67cd6de663755e89dd4401524b5fd3ac0bbf040c0",
+      "runtime_status": "partial",
+      "before": "correct"
+    }
+  ]
+}

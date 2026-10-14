@@ -1,0 +1,11 @@
+{
+  "current_case": "T06",
+  "completed_cases": 17,
+  "api_usage": {
+    "attempts": 0,
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "max_new_attempts": 0
+  },
+  "stage": "offline_cache_audit"
+}

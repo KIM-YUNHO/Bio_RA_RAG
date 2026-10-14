@@ -1,0 +1,190 @@
+{
+  "summary": {
+    "n": 6,
+    "answerable_n": 6,
+    "page_hit@5": 1.0,
+    "mrr@5": 0.9166666666666666,
+    "gold_in_answer_context_n": 6,
+    "accepted_items": 12,
+    "literal_valid_items": 12,
+    "literal_precision": 1.0,
+    "items_with_review_links": 12,
+    "status_counts": {
+      "completed": 4,
+      "completed_with_errors": 2
+    },
+    "latency_seconds": {
+      "p50": 8.359,
+      "p95": 18.543,
+      "mean": 10.164
+    },
+    "input_tokens": 56576,
+    "output_tokens": 2433,
+    "repair_attempts": 0,
+    "semantic_scoring": "Separate source-based agent adjudication required; no LLM judge or expert certification"
+  },
+  "rows": [
+    {
+      "id": "T01",
+      "suite": "newly_tested_approved_RA3_sources",
+      "topic": "source_transfer",
+      "expected": "answerable",
+      "status": "completed",
+      "unit_statuses": [
+        "answered"
+      ],
+      "first_gold_page_rank": 1,
+      "gold_page_hit@5": true,
+      "gold_in_answer_context": true,
+      "items": 2,
+      "literal_valid_items": 2,
+      "items_with_review_links": 2,
+      "items_with_expected_source_version": 2,
+      "rejected_items": 0,
+      "repair_attempts": 0,
+      "repair_accepted": 0,
+      "seconds": 21.719,
+      "usage": {
+        "input_tokens": 10543,
+        "output_tokens": 465
+      },
+      "semantic_verdict": "pending_evaluator_review; literal validity is not semantic correctness"
+    },
+    {
+      "id": "T02",
+      "suite": "newly_tested_approved_RA3_sources",
+      "topic": "source_transfer",
+      "expected": "answerable",
+      "status": "completed",
+      "unit_statuses": [
+        "answered"
+      ],
+      "first_gold_page_rank": 1,
+      "gold_page_hit@5": true,
+      "gold_in_answer_context": true,
+      "items": 3,
+      "literal_valid_items": 3,
+      "items_with_review_links": 3,
+      "items_with_expected_source_version": 3,
+      "rejected_items": 0,
+      "repair_attempts": 0,
+      "repair_accepted": 0,
+      "seconds": 7.156,
+      "usage": {
+        "input_tokens": 10682,
+        "output_tokens": 592
+      },
+      "semantic_verdict": "pending_evaluator_review; literal validity is not semantic correctness"
+    },
+    {
+      "id": "T03",
+      "suite": "newly_tested_approved_RA3_sources",
+      "topic": "source_transfer",
+      "expected": "answerable",
+      "status": "completed_with_errors",
+      "unit_statuses": [
+        "error"
+      ],
+      "first_gold_page_rank": 1,
+      "gold_page_hit@5": true,
+      "gold_in_answer_context": true,
+      "items": 0,
+      "literal_valid_items": 0,
+      "items_with_review_links": 0,
+      "items_with_expected_source_version": 0,
+      "rejected_items": 0,
+      "repair_attempts": 0,
+      "repair_accepted": 0,
+      "seconds": 8.078,
+      "usage": {
+        "input_tokens": 7325,
+        "output_tokens": 222
+      },
+      "semantic_verdict": "pending_evaluator_review; literal validity is not semantic correctness"
+    },
+    {
+      "id": "T04",
+      "suite": "newly_tested_approved_RA3_sources",
+      "topic": "source_transfer",
+      "expected": "answerable",
+      "status": "completed_with_errors",
+      "unit_statuses": [
+        "error"
+      ],
+      "first_gold_page_rank": 2,
+      "gold_page_hit@5": true,
+      "gold_in_answer_context": true,
+      "items": 0,
+      "literal_valid_items": 0,
+      "items_with_review_links": 0,
+      "items_with_expected_source_version": 0,
+      "rejected_items": 0,
+      "repair_attempts": 0,
+      "repair_accepted": 0,
+      "seconds": 8.64,
+      "usage": {
+        "input_tokens": 7201,
+        "output_tokens": 229
+      },
+      "semantic_verdict": "pending_evaluator_review; literal validity is not semantic correctness"
+    },
+    {
+      "id": "T05",
+      "suite": "newly_tested_approved_RA3_sources",
+      "topic": "source_transfer",
+      "expected": "answerable",
+      "status": "completed",
+      "unit_statuses": [
+        "partial"
+      ],
+      "first_gold_page_rank": 1,
+      "gold_page_hit@5": true,
+      "gold_in_answer_context": true,
+      "items": 4,
+      "literal_valid_items": 4,
+      "items_with_review_links": 4,
+      "items_with_expected_source_version": 4,
+      "rejected_items": 0,
+      "repair_attempts": 0,
+      "repair_accepted": 0,
+      "seconds": 6.375,
+      "usage": {
+        "input_tokens": 10384,
+        "output_tokens": 505
+      },
+      "semantic_verdict": "pending_evaluator_review; literal validity is not semantic correctness"
+    },
+    {
+      "id": "T06",
+      "suite": "newly_tested_approved_RA3_sources",
+      "topic": "source_transfer",
+      "expected": "answerable",
+      "status": "completed",
+      "unit_statuses": [
+        "answered"
+      ],
+      "first_gold_page_rank": 1,
+      "gold_page_hit@5": true,
+      "gold_in_answer_context": true,
+      "items": 3,
+      "literal_valid_items": 3,
+      "items_with_review_links": 3,
+      "items_with_expected_source_version": 3,
+      "rejected_items": 0,
+      "repair_attempts": 0,
+      "repair_accepted": 0,
+      "seconds": 9.016,
+      "usage": {
+        "input_tokens": 10441,
+        "output_tokens": 420
+      },
+      "semantic_verdict": "pending_evaluator_review; literal validity is not semantic correctness"
+    }
+  ],
+  "api_usage": {
+    "attempts": 4,
+    "prompt_tokens": 18256,
+    "completion_tokens": 495,
+    "max_new_attempts": 4
+  }
+}

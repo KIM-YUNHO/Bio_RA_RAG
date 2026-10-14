@@ -1,0 +1,46 @@
+{
+  "runtimes": {
+    "controller": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\.venv\\Scripts\\python.exe",
+    "paddle": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\.venv-paddle\\Scripts\\python.exe",
+    "docling": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study\\.venv-docling\\Scripts\\python.exe"
+  },
+  "paddle": {
+    "layout_model_dir": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\models\\paddle\\PP-DocLayoutV3_safetensors",
+    "vl_model_dir": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\models\\paddle\\PaddleOCR-VL-1.6",
+    "light_det_model_dir": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\models\\paddle\\PP-OCRv5_mobile_det_safetensors",
+    "light_rec_model_dir": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\models\\paddle\\latin_PP-OCRv5_mobile_rec_safetensors",
+    "device": "cpu",
+    "dpi": 150,
+    "max_new_tokens": 4096,
+    "timeout_s": 600,
+    "chart_recognition": false,
+    "image_ocr": true,
+    "release_qwen_before_parser": false,
+    "native_text": true,
+    "vl_rec_batch_size": 1,
+    "parser_backend": "cascade"
+  },
+  "qwen": {
+    "endpoint": "http://127.0.0.1:11434",
+    "model": "qwen3.5:9b",
+    "timeout_s": 1800,
+    "num_ctx": 16384,
+    "num_predict": -1,
+    "crop_dpi": 300,
+    "crop_padding_px": 12,
+    "max_image_edge": 1800,
+    "keep_alive": "5m"
+  },
+  "docling": {
+    "artifacts_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study\\bench\\models\\docling",
+    "det_model_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study\\bench\\models\\docling\\RapidOcr\\PP-OCRv6_det_small.onnx",
+    "cls_model_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study\\bench\\models\\docling\\RapidOcr\\ch_ppocr_mobile_v2.0_cls_mobile.onnx",
+    "rec_model_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study\\bench\\models\\docling\\RapidOcr\\PP-OCRv6_rec_small.onnx",
+    "trigram_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\resources\\trigram_en.json"
+  },
+  "rules": {
+    "figure_policy": "printed_labels_caption_context_only",
+    "selection": "production-h-2-footnote-glyph-review"
+  },
+  "common_preprocessing": true
+}

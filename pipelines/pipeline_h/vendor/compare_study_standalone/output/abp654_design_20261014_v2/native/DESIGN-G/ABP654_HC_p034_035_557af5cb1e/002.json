@@ -1,0 +1,768 @@
+{
+  "document": "ABP654_HC_p034_035_557af5cb1e",
+  "page": 2,
+  "text": [
+    "a. In PHOENIX 1 and 2, conventional systemic agents include acitretin, PUVA, methotrexate, and cyclosporine. In ACCEPT, conventional systemic agents included PUVA, methotrexate, and cyclosporine. All patients were required to be etanercept naïve at baseline in ACCEPT, but in PHOENIX 1 and 2 patients may have previously received etanercept.",
+    "PHOENIX 1 evaluated the safety and efficacy of ustekinumab versus placebo in 766 patients with plaque psoriasis. Patients were randomized in equal proportion to placebo, 45 mg or 90 mg of ustekinumab. Patients randomized to ustekinumab received 45 mg or 90 mg doses at Weeks 0 and 4 followed by the same dose every 12 weeks. Patients randomized to receive placebo at Weeks 0 and 4 crossed over to receive ustekinumab (either 45 mg or 90 mg) at Weeks 12 and 16 followed by the same dose every 12 weeks. To evaluate the efficacy of every 12-week dosing, patients who were PASI 75 responders at both Weeks 28 and 40 were re-randomized to either continue dosing of ustekinumab every 12 weeks or to placebo (ie, withdrawal of therapy). Patients withdrawn from ustekinumab at Week 40 reinitiated ustekinumab at their original dosing regimen when they experienced at least a 50% loss of their PASI improvement obtained at Week 40. Patients were followed for at least 76 weeks.",
+    "PHOENIX 2 evaluated the safety and efficacy of ustekinumab versus placebo in 1230 patients with plaque psoriasis. This study design was identical to PHOENIX 1 through Week 28.",
+    "Dose Adjustment (every 8 weeks)",
+    "At Week 28, PHOENIX 1 patients who were nonresponders (< PASI 50 response) discontinued treatment and patients who were partial responders (≥ PASI 50 response and < PASI 75 response) were adjusted to every-8-week dosing. PASI 75 responders at Week 28 who became partial responders or nonresponders at Week 40 were adjusted to every-8-week dosing.",
+    "In PHOENIX 2, patients who were partial responders at Week 28 were re-randomized to either continue every 12 weeks dosing of ustekinumab or to switch to every 8 weeks dosing.",
+    "All patients were followed for up to 76 weeks in PHOENIX 1 and up to 52 weeks in PHOENIX 2 following first administration of study treatment.",
+    "In both studies, the primary endpoint was the proportion of patients who achieved a reduction in score of at least 75% from baseline at Week 12 by the PASI (PASI 75). Patients achieving ≥ 90% improvement in PASI from baseline (PASI 90) were considered PASI 90 responders and patients with ≥ 50% improvement in PASI from baseline (PASI 50) were considered PASI 50 responders. Another key efficacy assessment was the Physician's Global Assessment (PGA), a 6-category scale ranging from 0 (cleared) to 5 (severe) that indicates the physician's overall assessment of psoriasis focusing on plaque thickness/induration, erythema, and scaling."
+  ],
+  "tables": [
+    [
+      [
+        "",
+        "PHOENIX 1 ",
+        "",
+        "PHOENIX 2 ",
+        "",
+        "ACCEPT",
+        ""
+      ],
+      [
+        "",
+        "Placebo ",
+        "Ustekinumab ",
+        "Placebo ",
+        "Ustekinumab Etanercept ",
+        "",
+        "Ustekinumab"
+      ],
+      [
+        "Failed to respond to,  had contraindication  for, or intolerant to ≥ 1  conventional therapy a ",
+        "139 (55%) ",
+        "270 (53%) ",
+        "254 (62%) ",
+        "490 (60%) ",
+        "",
+        "347 (100%) 555 (100%)"
+      ],
+      [
+        "Failed to respond to,  had contraindication  for, or intolerant to ≥ 3  conventional  therapies a ",
+        "30 (12%) ",
+        "54 (11%) ",
+        "66 (16%) ",
+        "134 (16%) ",
+        "52 (15%) ",
+        "78 (14%)"
+      ]
+    ]
+  ],
+  "table_bboxes": [
+    [
+      71.1,
+      71.0,
+      548.3,
+      225.39999999999998
+    ]
+  ],
+  "seconds": 0.7306824499974027,
+  "flags": {
+    "time_basis": "document_wall_amortized",
+    "route": "DIGITAL",
+    "ra_timing": {
+      "None": 1.4283418655395508,
+      "second_reader": 0.0,
+      "total": 1.4595704078674316
+    },
+    "qa": {
+      "pages": 2,
+      "routes": {
+        "DIGITAL": 2
+      },
+      "text_blocks": 10,
+      "text_chars": 2994,
+      "ocr_char_share": 0.0,
+      "tables": 3,
+      "tables_ocr_grid": 0,
+      "numeric_cells": 90,
+      "numeric_cell_parse_rate": 0.711,
+      "needs_review_blocks": 0,
+      "reread_blocks": 0,
+      "garbled_residual": 0,
+      "furniture_blocks": 4,
+      "redacted_blocks": 0,
+      "sections": 1
+    },
+    "agency": "HC",
+    "doc_type": "product_monograph",
+    "document_structure_summary": {
+      "section_paths": [
+        [],
+        [
+          "Dose Adjustment (every 8 weeks)"
+        ]
+      ],
+      "speakers": [
+        "label"
+      ],
+      "furniture_blocks": 2,
+      "redacted_blocks": 0,
+      "study_ids": [],
+      "review_blocks": 0
+    },
+    "figure_count_policy": "physical regions and caption groups separate; no parent/child double count; scan image objects separate",
+    "selected_paddle_calls": 0,
+    "added_tables": 0,
+    "replaced_tables": 0,
+    "design_policy": "missing-only-G",
+    "gold_consulted_for_selection": false
+  },
+  "figures": [],
+  "document_structure": [
+    {
+      "type": "table",
+      "ref": "#/tables/2",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        71.1,
+        71.0,
+        548.3,
+        225.39999999999998
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "caption": "",
+      "n_rows": 4,
+      "n_cols": 7,
+      "cells": [
+        {
+          "r": 0,
+          "c": 1,
+          "rs": 1,
+          "cs": 2,
+          "text": "PHOENIX 1 ",
+          "header": true,
+          "bbox": [
+            213.5,
+            707.0,
+            264.5,
+            714.4
+          ]
+        },
+        {
+          "r": 0,
+          "c": 3,
+          "rs": 1,
+          "cs": 2,
+          "text": "PHOENIX 2 ",
+          "header": true,
+          "bbox": [
+            336.0,
+            707.0,
+            388.0,
+            714.4
+          ]
+        },
+        {
+          "r": 0,
+          "c": 5,
+          "rs": 1,
+          "cs": 2,
+          "text": "ACCEPT",
+          "header": true,
+          "bbox": [
+            464.5,
+            707.0,
+            505.3,
+            714.4
+          ]
+        },
+        {
+          "r": 1,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Placebo ",
+          "header": true,
+          "bbox": [
+            188.2,
+            689.0,
+            225.4,
+            696.3
+          ]
+        },
+        {
+          "r": 1,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Ustekinumab ",
+          "header": true,
+          "bbox": [
+            239.8,
+            689.0,
+            301.3,
+            696.3
+          ]
+        },
+        {
+          "r": 1,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Placebo ",
+          "header": true,
+          "bbox": [
+            309.7,
+            689.0,
+            346.8,
+            696.3
+          ]
+        },
+        {
+          "r": 1,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "Ustekinumab Etanercept ",
+          "header": true,
+          "bbox": [
+            356.6,
+            687.2,
+            475.5,
+            696.3
+          ]
+        },
+        {
+          "r": 1,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "Ustekinumab",
+          "header": true,
+          "bbox": [
+            484.5,
+            689.0,
+            546.0,
+            696.3
+          ]
+        },
+        {
+          "r": 2,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Failed to respond to,  had contraindication  for, or intolerant to ≥ 1  conventional therapy a ",
+          "header": false,
+          "bbox": [
+            77.8,
+            634.5,
+            173.6,
+            678.3
+          ]
+        },
+        {
+          "r": 2,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "139 (55%) ",
+          "header": false,
+          "bbox": [
+            187.5,
+            634.5,
+            232.1,
+            643.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "270 (53%) ",
+          "header": false,
+          "bbox": [
+            245.1,
+            634.5,
+            290.5,
+            643.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "254 (62%) ",
+          "header": false,
+          "bbox": [
+            307.9,
+            634.5,
+            353.3,
+            643.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "490 (60%) ",
+          "header": false,
+          "bbox": [
+            366.3,
+            634.5,
+            411.8,
+            643.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "347 (100%) 555 (100%)",
+          "header": false,
+          "bbox": [
+            430.5,
+            634.5,
+            540.4,
+            643.8
+          ]
+        },
+        {
+          "r": 3,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Failed to respond to,  had contraindication  for, or intolerant to ≥ 3  conventional  therapies a ",
+          "header": false,
+          "bbox": [
+            77.8,
+            571.1,
+            174.9,
+            626.3
+          ]
+        },
+        {
+          "r": 3,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "30 (12%) ",
+          "header": false,
+          "bbox": [
+            189.6,
+            571.0,
+            229.2,
+            580.4
+          ]
+        },
+        {
+          "r": 3,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "54 (11%) ",
+          "header": false,
+          "bbox": [
+            248.0,
+            571.0,
+            287.6,
+            580.4
+          ]
+        },
+        {
+          "r": 3,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "66 (16%) ",
+          "header": false,
+          "bbox": [
+            310.9,
+            571.0,
+            350.5,
+            580.4
+          ]
+        },
+        {
+          "r": 3,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "134 (16%) ",
+          "header": false,
+          "bbox": [
+            367.3,
+            571.0,
+            411.8,
+            580.4
+          ]
+        },
+        {
+          "r": 3,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "52 (15%) ",
+          "header": false,
+          "bbox": [
+            433.4,
+            571.0,
+            472.9,
+            580.4
+          ]
+        },
+        {
+          "r": 3,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "78 (14%)",
+          "header": false,
+          "bbox": [
+            495.3,
+            571.0,
+            534.8,
+            580.4
+          ]
+        }
+      ],
+      "status": "kept",
+      "section_path": [],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        71.1,
+        566.6,
+        548.3,
+        721.0
+      ],
+      "coordinate_space": "PDF top-left points",
+      "cell_coordinate_space": "PDF bottom-left points (original ra_prep)"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/4",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        77.9,
+        229.39999999999998,
+        539.9,
+        268.70000000000005
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "a. In PHOENIX 1 and 2, conventional systemic agents include acitretin, PUVA, methotrexate, and cyclosporine. In ACCEPT, conventional systemic agents included PUVA, methotrexate, and cyclosporine. All patients were required to be etanercept naïve at baseline in ACCEPT, but in PHOENIX 1 and 2 patients may have previously received etanercept.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        77.9,
+        523.3,
+        539.9,
+        562.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/5",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        72.1,
+        280.2,
+        548.0,
+        414.9
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "PHOENIX 1 evaluated the safety and efficacy of ustekinumab versus placebo in 766 patients with plaque psoriasis. Patients were randomized in equal proportion to placebo, 45 mg or 90 mg of ustekinumab. Patients randomized to ustekinumab received 45 mg or 90 mg doses at Weeks 0 and 4 followed by the same dose every 12 weeks. Patients randomized to receive placebo at Weeks 0 and 4 crossed over to receive ustekinumab (either 45 mg or 90 mg) at Weeks 12 and 16 followed by the same dose every 12 weeks. To evaluate the efficacy of every 12-week dosing, patients who were PASI 75 responders at both Weeks 28 and 40 were re-randomized to either continue dosing of ustekinumab every 12 weeks or to placebo (ie, withdrawal of therapy). Patients withdrawn from ustekinumab at Week 40 reinitiated ustekinumab at their original dosing regimen when they experienced at least a 50% loss of their PASI improvement obtained at Week 40. Patients were followed for at least 76 weeks.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        72.1,
+        377.1,
+        548.0,
+        511.8
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/6",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        72.1,
+        425.3,
+        532.5,
+        448.4
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "PHOENIX 2 evaluated the safety and efficacy of ustekinumab versus placebo in 1230 patients with plaque psoriasis. This study design was identical to PHOENIX 1 through Week 28.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        72.1,
+        343.6,
+        532.5,
+        366.7
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/7",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        72.5,
+        462.7,
+        236.0,
+        473.0
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "section_header",
+      "text": "Dose Adjustment (every 8 weeks)",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Dose Adjustment (every 8 weeks)"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        72.5,
+        319.0,
+        236.0,
+        329.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/8",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        72.0,
+        481.3,
+        541.0,
+        529.7
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "At Week 28, PHOENIX 1 patients who were nonresponders (< PASI 50 response) discontinued treatment and patients who were partial responders (≥ PASI 50 response and < PASI 75 response) were adjusted to every-8-week dosing. PASI 75 responders at Week 28 who became partial responders or nonresponders at Week 40 were adjusted to every-8-week dosing.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Dose Adjustment (every 8 weeks)"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        72.0,
+        262.3,
+        541.0,
+        310.7
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/9",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        72.5,
+        537.9,
+        534.4,
+        560.9
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "In PHOENIX 2, patients who were partial responders at Week 28 were re-randomized to either continue every 12 weeks dosing of ustekinumab or to switch to every 8 weeks dosing.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Dose Adjustment (every 8 weeks)"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        72.5,
+        231.1,
+        534.4,
+        254.1
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/10",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        72.0,
+        569.2,
+        537.2,
+        592.2
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "All patients were followed for up to 76 weeks in PHOENIX 1 and up to 52 weeks in PHOENIX 2 following first administration of study treatment.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Dose Adjustment (every 8 weeks)"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        72.0,
+        199.8,
+        537.2,
+        222.8
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/11",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        72.0,
+        600.6,
+        547.3,
+        686.8
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "In both studies, the primary endpoint was the proportion of patients who achieved a reduction in score of at least 75% from baseline at Week 12 by the PASI (PASI 75). Patients achieving ≥ 90% improvement in PASI from baseline (PASI 90) were considered PASI 90 responders and patients with ≥ 50% improvement in PASI from baseline (PASI 50) were considered PASI 50 responders. Another key efficacy assessment was the Physician's Global Assessment (PGA), a 6-category scale ranging from 0 (cleared) to 5 (severe) that indicates the physician's overall assessment of psoriasis focusing on plaque thickness/induration, erythema, and scaling.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Dose Adjustment (every 8 weeks)"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        72.0,
+        105.2,
+        547.3,
+        191.4
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/12",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        72.1,
+        723.0,
+        183.8,
+        731.5
+      ],
+      "layer": "furniture",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "WEZLANA™ (ustekinumab)",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        72.1,
+        60.5,
+        183.8,
+        69.0
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/13",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        479.4,
+        723.0,
+        540.3,
+        731.4
+      ],
+      "layer": "furniture",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "Page 35 of 116",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        479.4,
+        60.6,
+        540.3,
+        69.0
+      ],
+      "coordinate_space": "PDF top-left points"
+    }
+  ],
+  "embedded_image_objects": 0,
+  "figure_counts": {
+    "figure_regions": 0,
+    "figure_groups": 0,
+    "logical_figures": 0,
+    "decorative_images": 0,
+    "interpretation_attempted": 0,
+    "interpretation_completed": 0,
+    "interpretation_needs_review": 0
+  },
+  "table_provenance": [
+    {
+      "origin": "fresh Docling + corrections",
+      "table_index": 0
+    }
+  ]
+}

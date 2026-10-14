@@ -1,0 +1,39 @@
+{
+  "n": 6,
+  "summary": {
+    "n": 6,
+    "answerable_n": 6,
+    "page_hit@5": 1.0,
+    "mrr@5": 0.9166666666666666,
+    "gold_in_answer_context_n": 5,
+    "accepted_items": 16,
+    "literal_valid_items": 16,
+    "literal_precision": 1.0,
+    "items_with_review_links": 16,
+    "status_counts": {
+      "completed": 6
+    },
+    "latency_seconds": {
+      "p50": 8.164,
+      "p95": 17.406,
+      "mean": 9.747333333333334
+    },
+    "input_tokens": 56688,
+    "output_tokens": 2422,
+    "repair_attempts": 0,
+    "semantic_scoring": "Separate source-based agent adjudication required; no LLM judge or expert certification"
+  },
+  "api_usage": {
+    "attempts": 2,
+    "prompt_tokens": 9054,
+    "completion_tokens": 208,
+    "max_new_attempts": 2
+  },
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "all_requests_exclude_gold": true,
+  "semantic_adjudication": "pending_source_review",
+  "answer_accuracy_certified": false,
+  "offline_only": false,
+  "cache_misses": []
+}

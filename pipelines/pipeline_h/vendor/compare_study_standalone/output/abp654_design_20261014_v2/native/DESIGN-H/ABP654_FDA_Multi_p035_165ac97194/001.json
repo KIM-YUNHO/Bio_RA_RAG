@@ -1,0 +1,1044 @@
+{
+  "document": "ABP654_FDA_Multi_p035_165ac97194",
+  "page": 1,
+  "text": [
+    "PK Similarity Assessment",
+    "PK similarity between ABP 654, US-Stelara and EU-Stelara has been demonstrated in a 3-arm, parallel PK similarity study in healthy subjects (Study 20190230). PK samples were collected pre-dose on Day 1, and post-dose at 8 hr and 24 hr and on Days 3, 7, 9, 11, 13, 21, 28, 35, 49, 56, 70, 98 and 112. The point estimates and 90% &,V of the GMRs of PK parameters (AUC0-inf, Cmax and AUClast) were all within the pre-defined criteria of 0.8 to 1.25 (Table 8). The mean serum concentration-time profiles were similar between the ABP 654, US-Stelara and EU-Stelara treatment groups (Figure 2). The PK parameters following a single dose of ABP 654, US-Stelara and EU-Stelara are summarized in Table 8. In general, PK parameters and inter-subject variability were comparable across the three treatment groups.",
+    "Figure 2. Mean (±SD) Concentrations Over Time by Treatment (Study 20190230)",
+    "0 12 24 36 48 60 72 84 96 108",
+    "12000",
+    "16000",
+    "Time (days)",
+    "Concentration (ng/mL)",
+    "ABP 654",
+    "US-Stelara",
+    "EU-Stelara",
+    "Source: FDA Analysis",
+    "Table 8. Summary of PK Parameters (Study 20190230)"
+  ],
+  "tables": [
+    [
+      [
+        "PK Parameters",
+        "Geometric Mean (Geometric CV%)",
+        "",
+        ""
+      ],
+      [
+        "",
+        "ABP 654 (n=78)",
+        "US-Stelara (n=79)",
+        "EU-Stelara (n=80)"
+      ],
+      [
+        "$ C_{max} $ (ng/mL)",
+        "11546 (36.1)",
+        "11258 (33.8)",
+        "12085 (32.8)"
+      ],
+      [
+        "$ AUC_{last} $ (h*ng/mL)",
+        "10175553 (39.6)",
+        "9784499 (38.5)",
+        "10684286 (33.5)"
+      ],
+      [
+        "$ AUC_{0-inf} $ (h*ng/mL)",
+        "10859684 (40.9)",
+        "10592020 (38.5)",
+        "11310320 (35.3)"
+      ],
+      [
+        "$ T_{max} $ (h) $ ^{a} $",
+        "144 (24, 288)",
+        "192 (48, 648)",
+        "192 (48, 648)"
+      ]
+    ]
+  ],
+  "table_bboxes": [
+    [
+      71.5,
+      628.7,
+      540.5,
+      708.6
+    ]
+  ],
+  "seconds": 5.68160390000412,
+  "flags": {
+    "time_basis": "document_wall_amortized",
+    "route": "DIGITAL",
+    "ra_timing": {
+      "None": 0.43566203117370605,
+      "second_reader": 0.0,
+      "total": 0.46041059494018555
+    },
+    "qa": {
+      "pages": 1,
+      "routes": {
+        "DIGITAL": 1
+      },
+      "text_blocks": 13,
+      "text_chars": 1069,
+      "ocr_char_share": 0.0,
+      "tables": 1,
+      "tables_ocr_grid": 0,
+      "numeric_cells": 5,
+      "numeric_cell_parse_rate": 0.0,
+      "needs_review_blocks": 0,
+      "reread_blocks": 0,
+      "garbled_residual": 0,
+      "furniture_blocks": 6,
+      "redacted_blocks": 0,
+      "sections": 1
+    },
+    "agency": "FDA",
+    "doc_type": "multidisciplinary_review",
+    "document_structure_summary": {
+      "section_paths": [
+        [
+          "PK Similarity Assessment"
+        ]
+      ],
+      "speakers": [
+        "unknown"
+      ],
+      "furniture_blocks": 6,
+      "redacted_blocks": 0,
+      "study_ids": [],
+      "review_blocks": 0
+    },
+    "figure_count_policy": "physical regions and caption groups separate; no parent/child double count; scan image objects separate",
+    "selected_paddle_calls": 1,
+    "added_tables": 0,
+    "replaced_tables": 1,
+    "design_policy": "visual-preservation-boxes-multi-value-gate-2",
+    "gold_consulted_for_selection": false
+  },
+  "figures": [
+    {
+      "figure_id": "#/pictures/0",
+      "bbox": [
+        82.7,
+        289.8,
+        501.7,
+        570.8
+      ],
+      "kind": "picture",
+      "ocr_text": "",
+      "caption": "Figure 2. Mean (±SD) Concentrations Over Time by Treatment (Study 20190230)",
+      "is_logical_group": false,
+      "parent_id": null,
+      "model": "Heron + RapidOCR (no generative VLM)",
+      "status": "unsupported_interpretation",
+      "interpretation": null,
+      "kind_history": [
+        "picture"
+      ],
+      "decorative": false,
+      "source_page": 1,
+      "crop_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\native\\DOC-GPU\\raw\\ABP654_FDA_Multi_p035_165ac97194\\figure_crops\\p001_00.png",
+      "crop_sha256": "4f01cfcdad782efd5c396080c5d46c69e683eece77ab7776f89092f0f0073fb3",
+      "crop_dpi": 300
+    }
+  ],
+  "document_structure": [
+    {
+      "type": "text",
+      "ref": "#/texts/0",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.7,
+        38.10000000000002,
+        334.3,
+        47.5
+      ],
+      "layer": "furniture",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "page_header",
+      "text": "Biosimilar Multidisciplinary Evaluation and Review (BMER)",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        72.7,
+        744.5,
+        334.3,
+        753.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/1",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.9,
+        74.5,
+        223.4,
+        85.79999999999995
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "section_header",
+      "text": "PK Similarity Assessment",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        72.9,
+        706.2,
+        223.4,
+        717.5
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/2",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.0,
+        100.29999999999995,
+        543.5,
+        235.79999999999995
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "PK similarity between ABP 654, US-Stelara and EU-Stelara has been demonstrated in a 3-arm, parallel PK similarity study in healthy subjects (Study 20190230). PK samples were collected pre-dose on Day 1, and post-dose at 8 hr and 24 hr and on Days 3, 7, 9, 11, 13, 21, 28, 35, 49, 56, 70, 98 and 112. The point estimates and 90% &,V of the GMRs of PK parameters (AUC0-inf, Cmax and AUClast) were all within the pre-defined criteria of 0.8 to 1.25 (Table 8). The mean serum concentration-time profiles were similar between the ABP 654, US-Stelara and EU-Stelara treatment groups (Figure 2). The PK parameters following a single dose of ABP 654, US-Stelara and EU-Stelara are summarized in Table 8. In general, PK parameters and inter-subject variability were comparable across the three treatment groups.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        72.0,
+        556.2,
+        543.5,
+        691.7
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "picture",
+      "ref": "#/pictures/0",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        82.7,
+        289.8,
+        501.7,
+        570.8
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "caption": "Figure 2. Mean (±SD) Concentrations Over Time by Treatment (Study 20190230)",
+      "text": "",
+      "status": "kept",
+      "ocr_text": "",
+      "kind_history": [
+        "picture"
+      ],
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        82.7,
+        221.2,
+        501.7,
+        502.2
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/3",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        72.8,
+        251.89999999999998,
+        489.5,
+        262.20000000000005
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "caption",
+      "text": "Figure 2. Mean (±SD) Concentrations Over Time by Treatment (Study 20190230)",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        72.8,
+        529.8,
+        489.5,
+        540.1
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/4",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        137.0,
+        542.0,
+        495.2,
+        549.9
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "0 12 24 36 48 60 72 84 96 108",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        137.0,
+        242.1,
+        495.2,
+        250.0
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/5",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        126.4,
+        527.7,
+        131.5,
+        535.7
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "0",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        126.4,
+        256.3,
+        131.5,
+        264.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/6",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        107.9,
+        474.5,
+        131.5,
+        482.5
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "4000",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        107.9,
+        309.5,
+        131.5,
+        317.5
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/7",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        108.2,
+        421.4,
+        131.5,
+        429.3
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "8000",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        108.2,
+        362.7,
+        131.5,
+        370.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/8",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        102.5,
+        368.0,
+        131.5,
+        376.0
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "12000",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        102.5,
+        416.0,
+        131.5,
+        424.0
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/9",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        102.5,
+        314.9,
+        131.5,
+        322.8
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "16000",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        102.5,
+        469.2,
+        131.5,
+        477.1
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/10",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        286.7,
+        558.7,
+        352.5,
+        569.9
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "Time (days)",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        286.7,
+        222.1,
+        352.5,
+        233.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/11",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        84.7,
+        348.5,
+        96.0,
+        475.0
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "Concentration (ng/mL)",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        84.7,
+        317.0,
+        96.0,
+        443.5
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/12",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        412.5,
+        393.5,
+        458.7,
+        402.2
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "ABP 654",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        412.5,
+        389.8,
+        458.7,
+        398.5
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/13",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        413.5,
+        412.9,
+        469.6,
+        421.8
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "US-Stelara",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        413.5,
+        370.2,
+        469.6,
+        379.1
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/14",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        413.5,
+        432.4,
+        469.6,
+        441.3
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "EU-Stelara",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        413.5,
+        350.7,
+        469.6,
+        359.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/15",
+      "parent": "#/groups/0",
+      "page": 1,
+      "bbox": [
+        72.5,
+        583.3,
+        168.9,
+        592.7
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "Source: FDA Analysis",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        72.5,
+        199.3,
+        168.9,
+        208.7
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "table",
+      "ref": "#/tables/0",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        71.5,
+        628.7,
+        540.5,
+        708.6
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "caption": "Table 8. Summary of PK Parameters (Study 20190230)",
+      "n_rows": 6,
+      "n_cols": 2,
+      "cells": [
+        {
+          "r": 0,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "PK Parameters Geometric Mean (Geometric CV%) ",
+          "header": true,
+          "bbox": [
+            92.4,
+            149.7,
+            456.7,
+            160.0
+          ]
+        },
+        {
+          "r": 1,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "ABP 654 (n=78) US-Stelara (n=79) EU-Stelara (n=80) ",
+          "header": true,
+          "bbox": [
+            207.4,
+            136.5,
+            530.0,
+            146.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "C max   (ng/mL) ",
+          "header": false,
+          "bbox": [
+            78.2,
+            123.4,
+            142.9,
+            133.7
+          ]
+        },
+        {
+          "r": 2,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "11546 (36.1) 11258 (33.8) 12085 (32.8) ",
+          "header": false,
+          "bbox": [
+            217.7,
+            123.4,
+            515.5,
+            133.7
+          ]
+        },
+        {
+          "r": 3,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "AUClast (h*ng/mL) 10175553 (39.6) 9784499 (38.5) 10684286 (33.5) ",
+          "header": false,
+          "bbox": [
+            77.6,
+            110.3,
+            524.7,
+            120.6
+          ]
+        },
+        {
+          "r": 4,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "AUC0-inf (h*ng/mL) 10859684 (40.9) 10592020 (38.5) 11310320 (35.3) ",
+          "header": false,
+          "bbox": [
+            77.6,
+            97.1,
+            524.7,
+            107.4
+          ]
+        },
+        {
+          "r": 5,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "T max   (h) a ",
+          "header": false,
+          "bbox": [
+            77.9,
+            84.0,
+            117.7,
+            94.3
+          ]
+        },
+        {
+          "r": 5,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "144 (24, 288) 192 (48, 648) 192 (48, 648) ",
+          "header": false,
+          "bbox": [
+            216.0,
+            84.0,
+            517.1,
+            94.3
+          ]
+        }
+      ],
+      "status": "kept",
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        71.5,
+        83.4,
+        540.5,
+        163.3
+      ],
+      "coordinate_space": "PDF top-left points",
+      "cell_coordinate_space": "PDF bottom-left points (original ra_prep)"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/16",
+      "parent": "#/tables/0",
+      "page": 1,
+      "bbox": [
+        72.2,
+        608.9,
+        356.9,
+        619.2
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "caption",
+      "text": "Table 8. Summary of PK Parameters (Study 20190230)",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        72.2,
+        172.8,
+        356.9,
+        183.1
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/17",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        10.6,
+        776.2,
+        92.3,
+        782.1
+      ],
+      "layer": "furniture",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "Reference ID: 5270260",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        10.6,
+        9.9,
+        92.3,
+        15.8
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/18",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        579.0,
+        749.3,
+        592.0,
+        756.3
+      ],
+      "layer": "furniture",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "21",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        579.0,
+        35.7,
+        592.0,
+        42.7
+      ],
+      "coordinate_space": "PDF top-left points"
+    }
+  ],
+  "embedded_image_objects": 0,
+  "figure_counts": {
+    "figure_regions": 1,
+    "figure_groups": 0,
+    "logical_figures": 1,
+    "decorative_images": 0,
+    "interpretation_attempted": 0,
+    "interpretation_completed": 0,
+    "interpretation_needs_review": 0
+  },
+  "suppressed_table_candidates": [],
+  "table_provenance": [
+    {
+      "origin": "new PaddleOCR-VL table crop",
+      "crop_id": "ABP654_FDA_Multi_p035_165ac97194_p001_replace_007",
+      "gate": {
+        "accepted": true,
+        "issues": [],
+        "semantic_status": "unverified source extraction candidate",
+        "numeric_evidence_eligible": false,
+        "missing_original_numbers": [],
+        "existing_label_word_recall": 1.0,
+        "structural_alarm_reduction": 4,
+        "protection_scope": "numeric literal set and label word coverage; not semantic truth"
+      }
+    }
+  ],
+  "vlm_candidates": [
+    {
+      "crop_id": "ABP654_FDA_Multi_p035_165ac97194_p001_replace_007",
+      "document": "ABP654_FDA_Multi_p035.pdf",
+      "page": 1,
+      "action": "replace",
+      "gate": {
+        "accepted": true,
+        "issues": [],
+        "semantic_status": "unverified source extraction candidate",
+        "numeric_evidence_eligible": false,
+        "missing_original_numbers": [],
+        "existing_label_word_recall": 1.0,
+        "structural_alarm_reduction": 4,
+        "protection_scope": "numeric literal set and label word coverage; not semantic truth"
+      },
+      "candidate_table": [
+        [
+          "PK Parameters",
+          "Geometric Mean (Geometric CV%)",
+          "",
+          ""
+        ],
+        [
+          "",
+          "ABP 654 (n=78)",
+          "US-Stelara (n=79)",
+          "EU-Stelara (n=80)"
+        ],
+        [
+          "$ C_{max} $ (ng/mL)",
+          "11546 (36.1)",
+          "11258 (33.8)",
+          "12085 (32.8)"
+        ],
+        [
+          "$ AUC_{last} $ (h*ng/mL)",
+          "10175553 (39.6)",
+          "9784499 (38.5)",
+          "10684286 (33.5)"
+        ],
+        [
+          "$ AUC_{0-inf} $ (h*ng/mL)",
+          "10859684 (40.9)",
+          "10592020 (38.5)",
+          "11310320 (35.3)"
+        ],
+        [
+          "$ T_{max} $ (h) $ ^{a} $",
+          "144 (24, 288)",
+          "192 (48, 648)",
+          "192 (48, 648)"
+        ]
+      ],
+      "bbox": [
+        71.5,
+        628.7,
+        540.5,
+        708.6
+      ]
+    }
+  ],
+  "replaced_table_candidates": [
+    {
+      "table_index": 0,
+      "old": [
+        [
+          "",
+          "PK Parameters Geometric Mean (Geometric CV%) "
+        ],
+        [
+          "",
+          "ABP 654 (n=78) US-Stelara (n=79) EU-Stelara (n=80) "
+        ],
+        [
+          "C max   (ng/mL) ",
+          "11546 (36.1) 11258 (33.8) 12085 (32.8) "
+        ],
+        [
+          "AUClast (h*ng/mL) 10175553 (39.6) 9784499 (38.5) 10684286 (33.5) ",
+          ""
+        ],
+        [
+          "AUC0-inf (h*ng/mL) 10859684 (40.9) 10592020 (38.5) 11310320 (35.3) ",
+          ""
+        ],
+        [
+          "T max   (h) a ",
+          "144 (24, 288) 192 (48, 648) 192 (48, 648) "
+        ]
+      ],
+      "bbox": [
+        71.5,
+        628.7,
+        540.5,
+        708.6
+      ]
+    }
+  ]
+}

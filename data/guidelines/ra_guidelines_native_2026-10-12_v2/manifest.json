@@ -1,0 +1,172 @@
+{
+  "version": "ra-guideline-native-1",
+  "created_at": "2026-10-12T05:37:53.128310+00:00",
+  "catalog_sha256": "cb2821173cc4837142726d69aca1c73136295bb8345c6b0d3df99b3f5c3f3ff1",
+  "chunks_sha256": "e11f7605d55130927b281a2bd2a6299fb8161b7dae94220821f26887ee4438ab",
+  "documents": 21,
+  "chunks": 236,
+  "sources": [
+    {
+      "document_id": "GL:EMA-SBMP-REV1",
+      "raw_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\6f3cbc94c718f651fd1774fbbad29698f97e899e95d91dbc21cebc3678208b94.pdf",
+      "raw_sha256": "6f3cbc94c718f651fd1774fbbad29698f97e899e95d91dbc21cebc3678208b94",
+      "parsed_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\parsed\\GL_EMA-SBMP-REV1.pages.jsonl",
+      "parsed_sha256": "32304db822a6c713cff3fc77c0de823fb37917099170535ef71d92eb01d1c393"
+    },
+    {
+      "document_id": "GL:EMA-SBMP-NONCLIN-CLIN-REV1",
+      "raw_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\c78f56ddfd798603e7b9463d048e274d971c96925198c9401c90ae87cd948f2a.pdf",
+      "raw_sha256": "c78f56ddfd798603e7b9463d048e274d971c96925198c9401c90ae87cd948f2a",
+      "parsed_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\parsed\\GL_EMA-SBMP-NONCLIN-CLIN-REV1.pages.jsonl",
+      "parsed_sha256": "faf0a53e02603bfbdbc3fa881fb787782ef577dc9ab5170ccafb98cda88e32f4"
+    },
+    {
+      "document_id": "GL:EMA-SBMP-QUALITY-REV1",
+      "raw_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\a5a189418db43ad6a744a63c94fd7e54570286c917f1c209b907824eb30dc22f.pdf",
+      "raw_sha256": "a5a189418db43ad6a744a63c94fd7e54570286c917f1c209b907824eb30dc22f",
+      "parsed_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\parsed\\GL_EMA-SBMP-QUALITY-REV1.pages.jsonl",
+      "parsed_sha256": "a3258381a88b2a920075b702c0caa4b34be4df303fc28dccdfaf8db0128d9348"
+    },
+    {
+      "document_id": "GL:EMA-SBMP-MAB",
+      "raw_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\42b4a9c19085f28cd59afb2b2f347d9d49f1d0254922075730d1a53af960ba52.pdf",
+      "raw_sha256": "42b4a9c19085f28cd59afb2b2f347d9d49f1d0254922075730d1a53af960ba52",
+      "parsed_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\parsed\\GL_EMA-SBMP-MAB.pages.jsonl",
+      "parsed_sha256": "50bcb452d9e0c4fa076fce141f03f047eb87d8d065fa7f92b35d2a603143cc40"
+    },
+    {
+      "document_id": "GL:EMA-TAILORED-CLINICAL-RP",
+      "raw_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\ra_guideline_refresh_2026-10-12_v1\\37cdada2d626b9c421d81aff5c1d5e23f0450e4cfeae2e031c7e934fb93284d0.pdf",
+      "raw_sha256": "37cdada2d626b9c421d81aff5c1d5e23f0450e4cfeae2e031c7e934fb93284d0",
+      "parsed_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\ra_guideline_refresh_2026-10-12_v1\\37cdada2d626b9c421d81aff5c1d5e23f0450e4cfeae2e031c7e934fb93284d0.pages.jsonl",
+      "parsed_sha256": "5bae753f5f41515256ed648dc62ef4ecb4ce4b3fdca08e2dd8c73cd97b7bb80b"
+    },
+    {
+      "document_id": "GL:EMA-HMA-INTERCHANGEABILITY-2022",
+      "raw_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\89a40e10578aca8061290404a39cd920e100421ba0f24d292a15096fa319bcbb.pdf",
+      "raw_sha256": "89a40e10578aca8061290404a39cd920e100421ba0f24d292a15096fa319bcbb",
+      "parsed_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\parsed\\GL_EMA-HMA-INTERCHANGEABILITY-2022.pages.jsonl",
+      "parsed_sha256": "2158a361312e7b640c6bd19a5fcef8918a2761476e479c1c6d951640451c26cd"
+    },
+    {
+      "document_id": "GL:FDA-CES-UPDATED-2025",
+      "raw_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\fde88732eb2d130bd7297a815513433e2655cdeba0c2dd431ed74c54e20e0f06.pdf",
+      "raw_sha256": "fde88732eb2d130bd7297a815513433e2655cdeba0c2dd431ed74c54e20e0f06",
+      "parsed_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\parsed\\GL_FDA-CES-UPDATED-2025.pages.jsonl",
+      "parsed_sha256": "33777dba1a30e7162171e40ac11243105fdbf57157316bf4b24451cb6865fe49"
+    },
+    {
+      "document_id": "GL:FDA-SCIENTIFIC-CONSIDERATIONS-2015",
+      "raw_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b1da780bdba75f8e39a5c9072ad85f918759649c131d0dce005eeac3cb1980e3.pdf",
+      "raw_sha256": "b1da780bdba75f8e39a5c9072ad85f918759649c131d0dce005eeac3cb1980e3",
+      "parsed_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\parsed\\GL_FDA-SCIENTIFIC-CONSIDERATIONS-2015.pages.jsonl",
+      "parsed_sha256": "fa9b1e15be377408c1e74e50dfdab3544f488d4b362ee624b3f633a6d726bae2"
+    },
+    {
+      "document_id": "GL:FDA-CLINPHARM-2016",
+      "raw_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\5357fdfec77d93fb685b8a8533d715c72c9bd34767837b8bad5177a57b833407.pdf",
+      "raw_sha256": "5357fdfec77d93fb685b8a8533d715c72c9bd34767837b8bad5177a57b833407",
+      "parsed_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\parsed\\GL_FDA-CLINPHARM-2016.pages.jsonl",
+      "parsed_sha256": "e1dfb833e16e142ac9fc45dcb7f42ed135da45aae386a93d8e72eb20709616f4"
+    },
+    {
+      "document_id": "GL:FDA-QUALITY-CAA",
+      "raw_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b55b8b138cd743a054d09bb7391b2d7d58f0a9bbde018fa64212099ce2b91a52.pdf",
+      "raw_sha256": "b55b8b138cd743a054d09bb7391b2d7d58f0a9bbde018fa64212099ce2b91a52",
+      "parsed_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\parsed\\GL_FDA-QUALITY-CAA.pages.jsonl",
+      "parsed_sha256": "73fe2a9b22eb150b27c0accc6644a8181dd83d34f5bf237d5a04ae52804b8d20"
+    },
+    {
+      "document_id": "GL:FDA-QA-REV4",
+      "raw_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\31b7feccc464854341fd8123b58a03b71411ba046bf8b128ea1a886cf181ce42.pdf",
+      "raw_sha256": "31b7feccc464854341fd8123b58a03b71411ba046bf8b128ea1a886cf181ce42",
+      "parsed_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\parsed\\GL_FDA-QA-REV4.pages.jsonl",
+      "parsed_sha256": "887beb2a5139cf1b7e816248e59f0dc2b63303dc647bc4686ac2a8efbde700b6"
+    },
+    {
+      "document_id": "GL:FDA-INTERCHANGEABILITY-UPDATE-2024",
+      "raw_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\3f7e18374ecb3e591a785dc19ab1a80c347a089534ca2c75ecf5b1995247ca3d.pdf",
+      "raw_sha256": "3f7e18374ecb3e591a785dc19ab1a80c347a089534ca2c75ecf5b1995247ca3d",
+      "parsed_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\parsed\\GL_FDA-INTERCHANGEABILITY-UPDATE-2024.pages.jsonl",
+      "parsed_sha256": "1537ce01fbd7989cf2a2d6a2f6d2154634e152dfd8d517e47719777c8de433e1"
+    },
+    {
+      "document_id": "GL:FDA-INTERCHANGEABILITY-2019",
+      "raw_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\18231ba4d66adca1f5cc735bcbb9e3212f2ba00d5dd80372e4aac27e437dab2a.pdf",
+      "raw_sha256": "18231ba4d66adca1f5cc735bcbb9e3212f2ba00d5dd80372e4aac27e437dab2a",
+      "parsed_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\parsed\\GL_FDA-INTERCHANGEABILITY-2019.pages.jsonl",
+      "parsed_sha256": "d8d1601fcec40b9c6945bb3b74bd65f02abebc745a34573c8e5dddf67c5573e3"
+    },
+    {
+      "document_id": "GL:HC-BIOSIMILAR-2026",
+      "raw_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\8a144e673405655d29fe8c1dd020e576d17494ef087e8096bfffb20dddb070b7.html",
+      "raw_sha256": "8a144e673405655d29fe8c1dd020e576d17494ef087e8096bfffb20dddb070b7",
+      "parsed_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\parsed\\GL_HC-BIOSIMILAR-2026.pages.jsonl",
+      "parsed_sha256": "ee1ddbcc090c0e4ba833c3d85a89c3c727e0c3e082dfb197f8e29e48e1e6df92"
+    },
+    {
+      "document_id": "GL:HC-BIOSIMILAR-2026:considerations",
+      "raw_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\541437e97a97be273af3f01bc79c4f3489d04160977173b8093fd31ed1d2f0d6.html",
+      "raw_sha256": "541437e97a97be273af3f01bc79c4f3489d04160977173b8093fd31ed1d2f0d6",
+      "parsed_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\parsed\\GL_HC-BIOSIMILAR-2026_considerations.pages.jsonl",
+      "parsed_sha256": "b57598e95b6d51923e567cd27408a7f1bb3527c47a63f5738137737a846e9b7d"
+    },
+    {
+      "document_id": "GL:HC-BIOSIMILAR-2026:quality",
+      "raw_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\570c5dbebf16327b358e193b8ec7ac333c14a43d50113a109be19fe312fced1d.html",
+      "raw_sha256": "570c5dbebf16327b358e193b8ec7ac333c14a43d50113a109be19fe312fced1d",
+      "parsed_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\parsed\\GL_HC-BIOSIMILAR-2026_quality.pages.jsonl",
+      "parsed_sha256": "7586300efa95cc324117035b8165c5152558cdcf44feacbe4e8bee902fa051c9"
+    },
+    {
+      "document_id": "GL:HC-BIOSIMILAR-2026:non-clinical-and-clinical",
+      "raw_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\53fc984a31578f4b7ee24c9f1d55f21129dab34f490ab532e2e3f8f2bbf64760.html",
+      "raw_sha256": "53fc984a31578f4b7ee24c9f1d55f21129dab34f490ab532e2e3f8f2bbf64760",
+      "parsed_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\parsed\\GL_HC-BIOSIMILAR-2026_non-clinical-and-clinical.pages.jsonl",
+      "parsed_sha256": "0b4cf325f930481f73318babc4f54c7c70c960d648c1e62d9c27159f6ffa7c06"
+    },
+    {
+      "document_id": "GL:HC-BIOSIMILAR-2026:new-drug-submissions",
+      "raw_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\99965a7bed5beb41efbf66d1588b6346d80f2a2680fa8db02261f499392ef07d.html",
+      "raw_sha256": "99965a7bed5beb41efbf66d1588b6346d80f2a2680fa8db02261f499392ef07d",
+      "parsed_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\parsed\\GL_HC-BIOSIMILAR-2026_new-drug-submissions.pages.jsonl",
+      "parsed_sha256": "1bb7f8960752ff0042d0cde5a8144f0427cd595d0b764f52617b6e7f9360c4d8"
+    },
+    {
+      "document_id": "GL:HC-BIOSIMILAR-2026:indications-labelling-risk-management-plan",
+      "raw_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\fc7b3e35d8f67a86ef2cc2a0629a294bd6f94aaa78f49cad09d229d6954f1e77.html",
+      "raw_sha256": "fc7b3e35d8f67a86ef2cc2a0629a294bd6f94aaa78f49cad09d229d6954f1e77",
+      "parsed_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\parsed\\GL_HC-BIOSIMILAR-2026_indications-labelling-risk-management-plan.pages.jsonl",
+      "parsed_sha256": "89617e0afd08c3a6bf0ba2599426f0ed049c6592cb4bc5598e511f432538addc"
+    },
+    {
+      "document_id": "GL:HC-BIOSIMILAR-2026:post-market",
+      "raw_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\0b02108156d814d1d50f914fa0fe364192e539d1379a4629c957729d22300f0e.html",
+      "raw_sha256": "0b02108156d814d1d50f914fa0fe364192e539d1379a4629c957729d22300f0e",
+      "parsed_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\parsed\\GL_HC-BIOSIMILAR-2026_post-market.pages.jsonl",
+      "parsed_sha256": "4698b6d409a4edec030edd75250b74914ba4d7865e9a639ba03759db91117620"
+    },
+    {
+      "document_id": "GL:HC-BIOSIMILAR-2026:summary-changes",
+      "raw_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\04be4988f1ae008f9b171a504f24dc349eb2e3e7b3f8eb3747a5951cd350e26a.html",
+      "raw_sha256": "04be4988f1ae008f9b171a504f24dc349eb2e3e7b3f8eb3747a5951cd350e26a",
+      "parsed_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\parsed\\GL_HC-BIOSIMILAR-2026_summary-changes.pages.jsonl",
+      "parsed_sha256": "686df3b3525a07de63f0907e328252f8d0038e96259c21c4004dfde6eb4884b8"
+    }
+  ],
+  "skipped": [
+    {
+      "document_id": "GL:FDA-QUALITY-CAA",
+      "pdf_page": 23,
+      "reason": "native_text_unavailable"
+    }
+  ],
+  "jurisdictions": {
+    "EU": 63,
+    "US": 121,
+    "CA": 52
+  },
+  "current_validity_verified": false,
+  "new_model_calls": 0,
+  "active_index_updated": false
+}

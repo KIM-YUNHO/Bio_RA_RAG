@@ -1,0 +1,11 @@
+{
+  "dataset_version": "ra-dataset-2026-10-08-v2",
+  "development_product_ids": ["SB17", "ABP654", "CTP43"],
+  "locked_product_cohorts": {
+    "BMAB1200": "product_validation_locked",
+    "BAT2206": "product_test_locked"
+  },
+  "reference_product_ids": ["CNTO1275"],
+  "strict_holdout_ready": false,
+  "notice": "Prior QA source derivation exists for both locked products; these cohorts are not certified unseen tests. Native inventory is allowed; model inference stays disabled until an evaluation protocol is fixed."
+}

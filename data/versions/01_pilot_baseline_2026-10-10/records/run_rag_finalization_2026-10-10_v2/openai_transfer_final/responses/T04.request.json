@@ -1,0 +1,10 @@
+{
+  "question": "FDA CTP43 허가 서신에 기재된 소아 적응증의 최저 연령과 허가된 소아 적응증은?",
+  "products": [
+    "CTP43"
+  ],
+  "jurisdictions": [
+    "US"
+  ],
+  "include_nondefault": true
+}

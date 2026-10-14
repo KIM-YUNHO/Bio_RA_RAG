@@ -1,0 +1,24 @@
+# Local PostgreSQL + pgvector for the ingestion backend (docs/collection/INGESTION_AGENT_DB_PLAN_2026-10-14.md, P1).
+# Start: docker compose -f ingestion/db/compose.yaml up -d
+# Bound to 127.0.0.1 only; the password is a local development value. Airflow is added to this file later (P6), with its own database.
+name: biosim
+services:
+  db:
+    # pgvector 0.8.7 on PostgreSQL 17.11, pulled 2026-10-14 (image built 2026-10-01); pinned by digest.
+    image: pgvector/pgvector@sha256:ac08538c6f8b9904c33c8224c5e5706dbe760aca29db1d096972b4052c22a75d
+    environment:
+      POSTGRES_USER: biosim
+      POSTGRES_PASSWORD: ${BIOSIM_DB_PASSWORD:-biosim_local}
+      POSTGRES_DB: biosim
+    ports:
+      - "127.0.0.1:${BIOSIM_DB_PORT:-5432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U biosim -d biosim"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+volumes:
+  pgdata:

@@ -1,0 +1,1060 @@
+{
+  "document_id": 1,
+  "sha256": "1fe6519556ed3796271e5cd69a1c35eb315eac44932808257153ca83f04c9ee6",
+  "agency": "HC",
+  "doc_type": "product_monograph",
+  "program_id": null,
+  "engine": "prep-1.4+docling2.137.0+tables-accurate+repair1+pictables1",
+  "watermarks_removed": 0,
+  "routes": [
+    {
+      "page": 1,
+      "route": "DIGITAL",
+      "reason": "chars=2125"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "ref": "#/texts/0",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.9,
+        709.6,
+        201.8,
+        717.6
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "section_header",
+      "text": "10.3 Pharmacokinetics",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "10.3 Pharmacokinetics"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/1",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.3,
+        652.5,
+        540.8,
+        699.1
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "The median pharmacokinetic parameters of ustekinumab following a single SC administration in adult patients with psoriasis are shown in Table 14. The pharmacokinetic parameters of ustekinumab (CL/F, Vz/F, and t1/2) were generally comparable between 45 mg and 90 mg subcutaneous doses.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "10.3 Pharmacokinetics"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "table",
+      "ref": "#/tables/0",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        70.8,
+        389.2,
+        546.8,
+        608.2
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "caption": "Table 14 . Summary of Pharmacokinetic Parameters of Ustekinumab Following a Single 45 or 90 mg Subcutaneous Administration in Adult Patients with Psoriasis",
+      "n_rows": 8,
+      "n_cols": 7,
+      "cells": [
+        {
+          "r": 0,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Dose ",
+          "header": true,
+          "bbox": [
+            78.6,
+            591.1,
+            101.9,
+            598.4
+          ]
+        },
+        {
+          "r": 0,
+          "c": 1,
+          "rs": 1,
+          "cs": 3,
+          "text": "45 mg ",
+          "header": true,
+          "bbox": [
+            253.2,
+            589.1,
+            281.1,
+            598.4
+          ]
+        },
+        {
+          "r": 0,
+          "c": 4,
+          "rs": 1,
+          "cs": 3,
+          "text": "90 mg",
+          "header": true,
+          "bbox": [
+            438.9,
+            589.1,
+            466.7,
+            598.4
+          ]
+        },
+        {
+          "r": 1,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "PK parameter ",
+          "header": true,
+          "bbox": [
+            78.6,
+            569.3,
+            143.0,
+            578.4
+          ]
+        },
+        {
+          "r": 1,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "n ",
+          "header": true,
+          "bbox": [
+            186.8,
+            571.3,
+            191.5,
+            576.6
+          ]
+        },
+        {
+          "r": 1,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Median  (Range)",
+          "header": true,
+          "bbox": [
+            224.4,
+            558.2,
+            260.5,
+            578.8
+          ]
+        },
+        {
+          "r": 1,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Mean  (± SD)",
+          "header": true,
+          "bbox": [
+            305.1,
+            558.2,
+            332.8,
+            578.8
+          ]
+        },
+        {
+          "r": 1,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "n ",
+          "header": true,
+          "bbox": [
+            375.8,
+            571.3,
+            380.5,
+            576.6
+          ]
+        },
+        {
+          "r": 1,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "Median  (Range)",
+          "header": true,
+          "bbox": [
+            415.2,
+            558.2,
+            451.3,
+            578.8
+          ]
+        },
+        {
+          "r": 1,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "Mean  (± SD)",
+          "header": true,
+          "bbox": [
+            492.6,
+            558.2,
+            520.3,
+            578.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "C max  (mcg/mL) ",
+          "header": false,
+          "bbox": [
+            78.4,
+            536.7,
+            141.0,
+            546.0
+          ]
+        },
+        {
+          "r": 2,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "22 ",
+          "header": false,
+          "bbox": [
+            183.9,
+            537.8,
+            194.2,
+            545.0
+          ]
+        },
+        {
+          "r": 2,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "2.4 (1.0, 5.4)",
+          "header": false,
+          "bbox": [
+            223.3,
+            529.5,
+            262.2,
+            551.2
+          ]
+        },
+        {
+          "r": 2,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "2.7 (± 1.2) ",
+          "header": false,
+          "bbox": [
+            307.3,
+            529.5,
+            335.1,
+            551.2
+          ]
+        },
+        {
+          "r": 2,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "24 ",
+          "header": false,
+          "bbox": [
+            372.8,
+            537.8,
+            383.1,
+            545.0
+          ]
+        },
+        {
+          "r": 2,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "5.3 (1.2, 12.3)",
+          "header": false,
+          "bbox": [
+            411.3,
+            529.5,
+            455.8,
+            551.2
+          ]
+        },
+        {
+          "r": 2,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "6.1 (± 3.6)",
+          "header": false,
+          "bbox": [
+            494.5,
+            529.5,
+            522.3,
+            551.2
+          ]
+        },
+        {
+          "r": 3,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "t max  (day) ",
+          "header": false,
+          "bbox": [
+            78.1,
+            515.8,
+            117.1,
+            525.1
+          ]
+        },
+        {
+          "r": 3,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "22 ",
+          "header": false,
+          "bbox": [
+            183.9,
+            516.9,
+            194.2,
+            524.1
+          ]
+        },
+        {
+          "r": 3,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "13.5  (1.9, 58.2) ",
+          "header": false,
+          "bbox": [
+            220.5,
+            500.4,
+            264.9,
+            524.1
+          ]
+        },
+        {
+          "r": 3,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "15.3  (± 13.5) ",
+          "header": false,
+          "bbox": [
+            304.5,
+            500.4,
+            337.8,
+            524.1
+          ]
+        },
+        {
+          "r": 3,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "24 ",
+          "header": false,
+          "bbox": [
+            372.8,
+            516.9,
+            383.1,
+            524.1
+          ]
+        },
+        {
+          "r": 3,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "7.0  (2.9, 27.1) ",
+          "header": false,
+          "bbox": [
+            411.3,
+            500.4,
+            455.8,
+            524.1
+          ]
+        },
+        {
+          "r": 3,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "9.9 (± 7.4)",
+          "header": false,
+          "bbox": [
+            494.5,
+            500.4,
+            522.3,
+            524.1
+          ]
+        },
+        {
+          "r": 4,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "AUC (mcg·day/mL) ",
+          "header": false,
+          "bbox": [
+            77.9,
+            480.6,
+            162.9,
+            490.0
+          ]
+        },
+        {
+          "r": 4,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "18 ",
+          "header": false,
+          "bbox": [
+            184.7,
+            481.6,
+            194.3,
+            488.9
+          ]
+        },
+        {
+          "r": 4,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "84.9 (31.2, 1261.9)",
+          "header": false,
+          "bbox": [
+            212.2,
+            473.4,
+            273.4,
+            495.2
+          ]
+        },
+        {
+          "r": 4,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "196.7 (± 298.2) ",
+          "header": false,
+          "bbox": [
+            301.8,
+            473.4,
+            340.6,
+            495.2
+          ]
+        },
+        {
+          "r": 4,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "21 ",
+          "header": false,
+          "bbox": [
+            372.8,
+            481.8,
+            381.8,
+            488.9
+          ]
+        },
+        {
+          "r": 4,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "226.9 (57.1, 755.5)",
+          "header": false,
+          "bbox": [
+            405.7,
+            473.4,
+            461.3,
+            495.2
+          ]
+        },
+        {
+          "r": 4,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "274.9 (± 206.5)",
+          "header": false,
+          "bbox": [
+            489.0,
+            473.4,
+            527.8,
+            495.2
+          ]
+        },
+        {
+          "r": 5,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "t1/2 (day) ",
+          "header": false,
+          "bbox": [
+            78.1,
+            453.6,
+            113.8,
+            463.0
+          ]
+        },
+        {
+          "r": 5,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "18 ",
+          "header": false,
+          "bbox": [
+            184.7,
+            454.6,
+            194.3,
+            461.9
+          ]
+        },
+        {
+          "r": 5,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "19.8 (5.0, 353.6)",
+          "header": false,
+          "bbox": [
+            217.7,
+            446.4,
+            267.7,
+            468.2
+          ]
+        },
+        {
+          "r": 5,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "45.6 (± 80.2) ",
+          "header": false,
+          "bbox": [
+            304.5,
+            446.4,
+            337.8,
+            468.2
+          ]
+        },
+        {
+          "r": 5,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "21 ",
+          "header": false,
+          "bbox": [
+            372.8,
+            454.8,
+            381.8,
+            461.9
+          ]
+        },
+        {
+          "r": 5,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "21.2 (13.6, 85.8)",
+          "header": false,
+          "bbox": [
+            408.6,
+            446.4,
+            458.6,
+            468.2
+          ]
+        },
+        {
+          "r": 5,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "26.7 (± 19.3)",
+          "header": false,
+          "bbox": [
+            491.7,
+            446.4,
+            525.1,
+            468.2
+          ]
+        },
+        {
+          "r": 6,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "CL/F (mL/day/kg) ",
+          "header": false,
+          "bbox": [
+            78.4,
+            426.6,
+            154.6,
+            436.0
+          ]
+        },
+        {
+          "r": 6,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "18 ",
+          "header": false,
+          "bbox": [
+            184.7,
+            427.6,
+            194.3,
+            434.9
+          ]
+        },
+        {
+          "r": 6,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "5.3 (0.2, 12.9)",
+          "header": false,
+          "bbox": [
+            220.5,
+            419.4,
+            264.9,
+            441.2
+          ]
+        },
+        {
+          "r": 6,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "5.8 (± 3.5) ",
+          "header": false,
+          "bbox": [
+            307.3,
+            419.4,
+            335.1,
+            441.2
+          ]
+        },
+        {
+          "r": 6,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "21 ",
+          "header": false,
+          "bbox": [
+            372.8,
+            427.8,
+            381.8,
+            434.9
+          ]
+        },
+        {
+          "r": 6,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "4.5 (1.5, 14.9)",
+          "header": false,
+          "bbox": [
+            411.3,
+            419.4,
+            455.8,
+            441.1
+          ]
+        },
+        {
+          "r": 6,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "5.7 (± 3.6)",
+          "header": false,
+          "bbox": [
+            494.5,
+            419.4,
+            522.3,
+            441.0
+          ]
+        },
+        {
+          "r": 7,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "V z /F (mL/kg) ",
+          "header": false,
+          "bbox": [
+            77.9,
+            399.6,
+            132.9,
+            409.0
+          ]
+        },
+        {
+          "r": 7,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "18 ",
+          "header": false,
+          "bbox": [
+            184.7,
+            400.6,
+            194.3,
+            407.9
+          ]
+        },
+        {
+          "r": 7,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "154.2 (32.6, 280.5)",
+          "header": false,
+          "bbox": [
+            215.0,
+            392.4,
+            270.6,
+            414.2
+          ]
+        },
+        {
+          "r": 7,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "160.5 (± 64.5) ",
+          "header": false,
+          "bbox": [
+            304.5,
+            392.4,
+            337.8,
+            414.2
+          ]
+        },
+        {
+          "r": 7,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "21 ",
+          "header": false,
+          "bbox": [
+            372.8,
+            400.8,
+            381.8,
+            407.9
+          ]
+        },
+        {
+          "r": 7,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "160.5 (37.3, 354.1)",
+          "header": false,
+          "bbox": [
+            405.7,
+            392.4,
+            461.3,
+            414.2
+          ]
+        },
+        {
+          "r": 7,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "178.7 (± 85.2)",
+          "header": false,
+          "bbox": [
+            491.7,
+            392.4,
+            525.1,
+            414.2
+          ]
+        }
+      ],
+      "status": "kept",
+      "section_path": [
+        "10.3 Pharmacokinetics"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/2",
+      "parent": "#/tables/0",
+      "page": 1,
+      "bbox": [
+        74.9,
+        613.2,
+        546.0,
+        636.1
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "caption",
+      "text": "Table 14 . Summary of Pharmacokinetic Parameters of Ustekinumab Following a Single 45 or 90 mg Subcutaneous Administration in Adult Patients with Psoriasis",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "10.3 Pharmacokinetics"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/3",
+      "parent": "#/groups/0",
+      "page": 1,
+      "bbox": [
+        72.4,
+        381.4,
+        189.0,
+        388.1
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "Source data: C0379T04 CSR",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "10.3 Pharmacokinetics"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/4",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.8,
+        354.9,
+        147.8,
+        365.1
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "section_header",
+      "text": "Dose Linearity",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "10.3 Pharmacokinetics",
+        "Dose Linearity"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/5",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.3,
+        310.1,
+        543.1,
+        346.5
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "The systemic exposure of ustekinumab (Cmax and AUC) increased in a linear manner following a single subcutaneous administration at doses ranging from approximately 24 mg to 240 mg in patients with psoriasis.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "10.3 Pharmacokinetics",
+        "Dose Linearity"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/6",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.4,
+        285.3,
+        233.5,
+        295.6
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "section_header",
+      "text": "Single Dose vs. Multiple Doses",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "10.3 Pharmacokinetics",
+        "Single Dose vs. Multiple Doses"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/7",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.1,
+        178.1,
+        547.9,
+        277.0
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "Serum concentration - time profiles of ustekinumab were generally predictable after single or multiple subcutaneous dose administrations on the basis of a one-compartment model. In patients with psoriasis, steady-state serum concentrations of ustekinumab were achieved by Week 28 after initial subcutaneous doses at Weeks 0 and 4 followed by doses every 12 weeks. The median steady-state trough concentration ranged from 0.21 mcg/mL to 0.26 mcg/mL (45 mg; n = 242 to 390) and from 0.47 mcg/mL to 0.49 mcg/mL (90 mg; n = 236 to 386) in patients with psoriasis. There was no apparent accumulation in serum ustekinumab concentration over time when given subcutaneously every 12 weeks.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "10.3 Pharmacokinetics",
+        "Single Dose vs. Multiple Doses"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/8",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.1,
+        60.5,
+        183.8,
+        69.0
+      ],
+      "layer": "furniture",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "WEZLANA™ (ustekinumab)",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/9",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        479.4,
+        60.6,
+        540.3,
+        69.0
+      ],
+      "layer": "furniture",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "Page 28 of 116",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    }
+  ],
+  "qa": {
+    "pages": 1,
+    "routes": {
+      "DIGITAL": 1
+    },
+    "text_blocks": 8,
+    "text_chars": 1417,
+    "ocr_char_share": 0.0,
+    "tables": 1,
+    "tables_ocr_grid": 0,
+    "numeric_cells": 39,
+    "numeric_cell_parse_rate": 0.308,
+    "needs_review_blocks": 0,
+    "reread_blocks": 0,
+    "garbled_residual": 0,
+    "furniture_blocks": 2,
+    "redacted_blocks": 0,
+    "sections": 3
+  },
+  "timing": {
+    "None": 0.6398401260375977,
+    "second_reader": 0.0,
+    "total": 0.6512711048126221
+  },
+  "_signals": {
+    "1": {
+      "page": 1,
+      "width": 612.0,
+      "height": 792.0,
+      "chars": 2125,
+      "img_cov": 0.0,
+      "bare_img_cov": 0.0,
+      "invisible_text": 0.0,
+      "n_text_objs": 162,
+      "n_paths": 98,
+      "garble": 0.0,
+      "bare_boxes": []
+    }
+  }
+}

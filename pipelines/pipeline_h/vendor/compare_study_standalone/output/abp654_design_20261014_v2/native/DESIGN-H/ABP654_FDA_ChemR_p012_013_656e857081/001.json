@@ -1,0 +1,1774 @@
+{
+  "document": "ABP654_FDA_ChemR_p012_013_656e857081",
+  "page": 1,
+  "text": [
+    "FDA",
+    "U.S. FOOD & DRUG",
+    "ADMINISTRATION",
+    "FDA",
+    "U.S. FOOD & DRUG",
+    "ADMINISTRATION",
+    "Our assessment of the data supports that the Applicant established the analytical component of the scientific bridge between ABP 654, US-Stelara, and EU-Stelara, using the same methods and statistical approaches used to evaluate that ABP 654 is highly similar to US-Stelara. This supports the relevance of the data generated from clinical studies using EU-Stelara as the comparator for the assessment of biosimilarity.",
+    "B. Comparative Analytical Results",
+    "Table A. Quality Attributes Analyzed in the Comparative Analytical Assessment"
+  ],
+  "tables": [
+    [
+      [
+        "Physico-chemical/Functional Characteristics",
+        "Quality Attribute Assessed",
+        "Supports a Demonstration of Highly Similar?",
+        "Supports the Analytical Component of the Scientific Bridge?"
+      ],
+      [
+        "Primary Structure",
+        "Amino acid sequence",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "Intact molecular weight",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "Reduced and deglycosylated mass of HC and LC",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "Post Translational Modifications",
+        "Methionine and tryptophan Oxidation",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "Deamidation",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "HC Glycation",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "Isomerization",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "N-terminal pyroglutamate",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "C-terminal Lys truncation",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "Purity and impurities",
+        "Size variants by SEC-HPLC",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "Size variants by reduced CE-SDS",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "Size variants by non-reduced CE-SDS",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "Size variants by SE-HPLC-LS and SV-AUC",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "Non-glycosylated HC",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "Charge variants by CE-HPLC",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "Glycosylation",
+        "Glycan map",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "Afucosylation",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "High Mannose",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "β-Galactosylation",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "α-Galactosylation",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "Sialylation: levels and types (NANA, NGNA)",
+        "Yes",
+        "Yes"
+      ],
+      [
+        "",
+        "Other glycans G0F, G1F, G2F",
+        "Yes",
+        ""
+      ],
+      [
+        "High Order Structure",
+        "Disulfide structure",
+        "Yes",
+        "Yes Yes"
+      ]
+    ]
+  ],
+  "table_bboxes": [
+    [
+      35.3,
+      243.39999999999998,
+      576.3,
+      712.0
+    ]
+  ],
+  "seconds": 7.843796149998525,
+  "flags": {
+    "time_basis": "document_wall_amortized",
+    "route": "IMAGE",
+    "ra_timing": {
+      "auto": 12.789998769760132,
+      "second_reader": 2.8895509243011475,
+      "total": 15.67954969406128
+    },
+    "qa": {
+      "pages": 2,
+      "routes": {
+        "IMAGE": 2
+      },
+      "text_blocks": 15,
+      "text_chars": 660,
+      "ocr_char_share": 1.0,
+      "tables": 2,
+      "tables_ocr_grid": 0,
+      "numeric_cells": 10,
+      "numeric_cell_parse_rate": 0.0,
+      "needs_review_blocks": 0,
+      "reread_blocks": 1,
+      "garbled_residual": 0,
+      "furniture_blocks": 6,
+      "redacted_blocks": 0,
+      "sections": 1
+    },
+    "agency": "FDA",
+    "doc_type": "chemistry_review",
+    "document_structure_summary": {
+      "section_paths": [
+        [],
+        [
+          "B. Comparative Analytical Results"
+        ]
+      ],
+      "speakers": [
+        "unknown"
+      ],
+      "furniture_blocks": 3,
+      "redacted_blocks": 0,
+      "study_ids": [],
+      "review_blocks": 0
+    },
+    "figure_count_policy": "physical regions and caption groups separate; no parent/child double count; scan image objects separate",
+    "selected_paddle_calls": 0,
+    "added_tables": 0,
+    "replaced_tables": 0,
+    "design_policy": "visual-preservation-boxes-multi-value-gate-2",
+    "gold_consulted_for_selection": false
+  },
+  "figures": [
+    {
+      "figure_id": "#/pictures/0",
+      "bbox": [
+        71.7,
+        35.799999999999955,
+        185.7,
+        61.799999999999955
+      ],
+      "kind": "picture",
+      "ocr_text": "FDA\nU.S. FOOD & DRUG\nADMINISTRATION",
+      "caption": "",
+      "is_logical_group": false,
+      "parent_id": null,
+      "model": "Heron + RapidOCR (no generative VLM)",
+      "status": "unsupported_interpretation",
+      "interpretation": null,
+      "kind_history": [
+        "picture"
+      ],
+      "decorative": true,
+      "source_page": 1,
+      "crop_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\native\\DOC-GPU\\raw\\ABP654_FDA_ChemR_p012_013_656e857081\\figure_crops\\p001_00.png",
+      "crop_sha256": "87d1a337e50591072bed484feebf0b4ce43ccff96e23ca0e1d1b2fafb8b4876b",
+      "crop_dpi": 300
+    }
+  ],
+  "document_structure": [
+    {
+      "type": "text",
+      "ref": "#/texts/0",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        390.7,
+        25.0,
+        563.7,
+        69.0
+      ],
+      "layer": "furniture",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "page_header",
+      "text": "Department of Health and Human Services Food and Drug Administration Center for Drug Evaluation and Research Office of Biotechnology Products",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        390.7,
+        723.0,
+        563.7,
+        767.0
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "picture",
+      "ref": "#/pictures/0",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        71.7,
+        35.799999999999955,
+        185.7,
+        61.799999999999955
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "caption": "",
+      "text": "",
+      "status": "kept",
+      "ocr_text": "FDA\nU.S. FOOD & DRUG\nADMINISTRATION",
+      "kind_history": [
+        "picture"
+      ],
+      "section_path": [],
+      "speaker": "unknown",
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        71.7,
+        730.2,
+        185.7,
+        756.2
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/1",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        73.3,
+        39.700000000000045,
+        93.0,
+        50.299999999999955
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "FDA",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        73.3,
+        741.7,
+        93.0,
+        752.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/2",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        95.7,
+        39.299999999999955,
+        184.7,
+        50.299999999999955
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "U.S. FOOD & DRUG",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        95.7,
+        741.7,
+        184.7,
+        752.7
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/3",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        96.3,
+        51.299999999999955,
+        154.7,
+        58.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "ADMINISTRATION",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        96.3,
+        734.0,
+        154.7,
+        740.7
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/4",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        74.0,
+        41.0,
+        91.7,
+        49.299999999999955
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "FDA",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        74.0,
+        742.7,
+        91.7,
+        751.0
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/5",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        95.0,
+        38.0,
+        185.3,
+        51.700000000000045
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "U.S. FOOD & DRUG",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        95.0,
+        740.3,
+        185.3,
+        754.0
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/6",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        96.0,
+        51.700000000000045,
+        155.0,
+        58.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "ADMINISTRATION",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        96.0,
+        734.0,
+        155.0,
+        740.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/7",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        69.3,
+        85.29999999999995,
+        541.0,
+        155.70000000000005
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Our assessment of the data supports that the Applicant established the analytical component of the scientific bridge between ABP 654, US-Stelara, and EU-Stelara, using the same methods and statistical approaches used to evaluate that ABP 654 is highly similar to US-Stelara. This supports the relevance of the data generated from clinical studies using EU-Stelara as the comparator for the assessment of biosimilarity.",
+      "status": "reread",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        69.3,
+        636.3,
+        541.0,
+        706.7
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/8",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        70.7,
+        167.29999999999995,
+        270.3,
+        180.70000000000005
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "section_header",
+      "text": "B. Comparative Analytical Results",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "B. Comparative Analytical Results"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        70.7,
+        611.3,
+        270.3,
+        624.7
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "table",
+      "ref": "#/tables/0",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        35.3,
+        243.39999999999998,
+        576.3,
+        712.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "caption": "Table A. Quality Attributes Analyzed in the Comparative Analytical Assessment",
+      "n_rows": 24,
+      "n_cols": 4,
+      "cells": [
+        {
+          "r": 0,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Supports the Analytical Component of the Scientific Bridge?",
+          "header": true,
+          "bbox": [
+            459.7,
+            492.0,
+            565.3,
+            547.0
+          ]
+        },
+        {
+          "r": 0,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Physico-chemical/Functional Characteristics",
+          "header": true,
+          "bbox": [
+            40.0,
+            499.3,
+            158.7,
+            541.0
+          ]
+        },
+        {
+          "r": 0,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Supports a Demonstration of Highly Similar?",
+          "header": true,
+          "bbox": [
+            342.7,
+            498.0,
+            445.7,
+            540.3
+          ]
+        },
+        {
+          "r": 0,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Quality Attribute Assessed",
+          "header": true,
+          "bbox": [
+            172.0,
+            512.3,
+            329.0,
+            526.7
+          ]
+        },
+        {
+          "r": 1,
+          "c": 0,
+          "rs": 3,
+          "cs": 1,
+          "text": "Primary Structure",
+          "header": false,
+          "bbox": [
+            40.0,
+            477.0,
+            137.0,
+            491.7
+          ]
+        },
+        {
+          "r": 1,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Amino acid sequence",
+          "header": false,
+          "bbox": [
+            166.7,
+            477.0,
+            285.3,
+            492.0
+          ]
+        },
+        {
+          "r": 1,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            380.0,
+            476.3,
+            407.7,
+            493.0
+          ]
+        },
+        {
+          "r": 1,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            499.7,
+            476.3,
+            526.3,
+            492.7
+          ]
+        },
+        {
+          "r": 2,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Intact molecular weight",
+          "header": false,
+          "bbox": [
+            167.0,
+            462.7,
+            293.3,
+            477.3
+          ]
+        },
+        {
+          "r": 2,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            379.7,
+            461.3,
+            408.0,
+            478.7
+          ]
+        },
+        {
+          "r": 2,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            499.0,
+            461.3,
+            526.7,
+            478.7
+          ]
+        },
+        {
+          "r": 3,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Reduced and deglycosylated mass of HC and LC",
+          "header": false,
+          "bbox": [
+            166.7,
+            435.7,
+            324.3,
+            463.7
+          ]
+        },
+        {
+          "r": 3,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            380.0,
+            447.3,
+            407.0,
+            464.7
+          ]
+        },
+        {
+          "r": 3,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            499.0,
+            447.7,
+            526.0,
+            465.0
+          ]
+        },
+        {
+          "r": 4,
+          "c": 0,
+          "rs": 6,
+          "cs": 1,
+          "text": "Post Translational Modifications",
+          "header": false,
+          "bbox": [
+            40.0,
+            407.3,
+            139.3,
+            435.7
+          ]
+        },
+        {
+          "r": 4,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Methionine and tryptophan Oxidation",
+          "header": false,
+          "bbox": [
+            166.7,
+            407.0,
+            312.3,
+            435.3
+          ]
+        },
+        {
+          "r": 4,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            379.7,
+            419.3,
+            407.0,
+            437.0
+          ]
+        },
+        {
+          "r": 4,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            499.0,
+            419.3,
+            526.0,
+            437.0
+          ]
+        },
+        {
+          "r": 5,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Deamidation",
+          "header": false,
+          "bbox": [
+            167.3,
+            393.0,
+            237.7,
+            406.3
+          ]
+        },
+        {
+          "r": 5,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            380.0,
+            391.3,
+            407.0,
+            407.7
+          ]
+        },
+        {
+          "r": 5,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            499.3,
+            391.3,
+            526.3,
+            407.7
+          ]
+        },
+        {
+          "r": 6,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "HC Glycation",
+          "header": false,
+          "bbox": [
+            166.7,
+            378.0,
+            241.3,
+            393.7
+          ]
+        },
+        {
+          "r": 6,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            379.7,
+            376.7,
+            407.7,
+            394.0
+          ]
+        },
+        {
+          "r": 6,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            499.0,
+            376.7,
+            526.7,
+            394.0
+          ]
+        },
+        {
+          "r": 7,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Isomerization",
+          "header": false,
+          "bbox": [
+            167.0,
+            364.3,
+            241.7,
+            377.7
+          ]
+        },
+        {
+          "r": 7,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            380.0,
+            362.7,
+            407.3,
+            379.3
+          ]
+        },
+        {
+          "r": 7,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            499.3,
+            362.7,
+            526.3,
+            379.3
+          ]
+        },
+        {
+          "r": 8,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "N-terminal pyroglutamate",
+          "header": false,
+          "bbox": [
+            166.0,
+            348.7,
+            305.3,
+            365.0
+          ]
+        },
+        {
+          "r": 8,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            380.0,
+            349.0,
+            407.0,
+            365.3
+          ]
+        },
+        {
+          "r": 8,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            499.3,
+            349.0,
+            526.3,
+            365.3
+          ]
+        },
+        {
+          "r": 9,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "C-terminal Lys truncation",
+          "header": false,
+          "bbox": [
+            167.3,
+            335.3,
+            304.0,
+            349.7
+          ]
+        },
+        {
+          "r": 9,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            380.0,
+            333.7,
+            407.0,
+            352.0
+          ]
+        },
+        {
+          "r": 9,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            498.7,
+            333.7,
+            526.7,
+            351.3
+          ]
+        },
+        {
+          "r": 10,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Size variants by SEC-HPLC",
+          "header": false,
+          "bbox": [
+            166.7,
+            321.0,
+            319.3,
+            335.0
+          ]
+        },
+        {
+          "r": 10,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            380.0,
+            319.7,
+            407.3,
+            336.3
+          ]
+        },
+        {
+          "r": 10,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            499.3,
+            319.7,
+            526.3,
+            336.3
+          ]
+        },
+        {
+          "r": 11,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Size variants by reduced CE-SDS",
+          "header": false,
+          "bbox": [
+            166.0,
+            292.7,
+            326.0,
+            321.3
+          ]
+        },
+        {
+          "r": 11,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            380.0,
+            304.7,
+            407.0,
+            323.3
+          ]
+        },
+        {
+          "r": 11,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            499.3,
+            305.7,
+            526.3,
+            322.0
+          ]
+        },
+        {
+          "r": 10,
+          "c": 0,
+          "rs": 6,
+          "cs": 1,
+          "text": "Purity and impurities",
+          "header": false,
+          "bbox": [
+            40.3,
+            279.0,
+            152.0,
+            294.3
+          ]
+        },
+        {
+          "r": 12,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Size variants by non-reduced CE-SDS",
+          "header": false,
+          "bbox": [
+            166.3,
+            265.3,
+            325.7,
+            293.3
+          ]
+        },
+        {
+          "r": 12,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            380.0,
+            278.0,
+            407.3,
+            294.0
+          ]
+        },
+        {
+          "r": 12,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            499.0,
+            277.3,
+            526.0,
+            295.0
+          ]
+        },
+        {
+          "r": 13,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Size variants by SE-HPLC-LS and SV-AUC",
+          "header": false,
+          "bbox": [
+            166.3,
+            237.7,
+            329.3,
+            265.3
+          ]
+        },
+        {
+          "r": 13,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            379.7,
+            249.0,
+            407.0,
+            266.3
+          ]
+        },
+        {
+          "r": 13,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            499.0,
+            249.0,
+            526.0,
+            266.3
+          ]
+        },
+        {
+          "r": 14,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Non-glycosylated HC",
+          "header": false,
+          "bbox": [
+            166.7,
+            221.7,
+            283.7,
+            237.0
+          ]
+        },
+        {
+          "r": 14,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            380.0,
+            221.3,
+            407.3,
+            238.0
+          ]
+        },
+        {
+          "r": 14,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            499.3,
+            221.3,
+            526.3,
+            238.0
+          ]
+        },
+        {
+          "r": 15,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Charge variants by CE-HPLC",
+          "header": false,
+          "bbox": [
+            167.0,
+            208.7,
+            327.7,
+            222.3
+          ]
+        },
+        {
+          "r": 15,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            380.0,
+            206.3,
+            407.0,
+            224.7
+          ]
+        },
+        {
+          "r": 15,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            499.0,
+            206.3,
+            526.3,
+            224.7
+          ]
+        },
+        {
+          "r": 16,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Glycan map",
+          "header": false,
+          "bbox": [
+            167.0,
+            192.7,
+            235.3,
+            208.0
+          ]
+        },
+        {
+          "r": 16,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            379.7,
+            192.3,
+            407.7,
+            209.7
+          ]
+        },
+        {
+          "r": 16,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            499.0,
+            192.3,
+            526.7,
+            209.7
+          ]
+        },
+        {
+          "r": 17,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Afucosylation",
+          "header": false,
+          "bbox": [
+            166.7,
+            179.0,
+            242.0,
+            193.3
+          ]
+        },
+        {
+          "r": 17,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            380.0,
+            177.3,
+            407.0,
+            195.7
+          ]
+        },
+        {
+          "r": 17,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            499.3,
+            177.3,
+            526.0,
+            195.7
+          ]
+        },
+        {
+          "r": 18,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "High Mannose",
+          "header": false,
+          "bbox": [
+            167.3,
+            165.3,
+            248.0,
+            179.3
+          ]
+        },
+        {
+          "r": 18,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            379.7,
+            164.0,
+            407.3,
+            181.3
+          ]
+        },
+        {
+          "r": 18,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            499.0,
+            164.0,
+            526.7,
+            181.3
+          ]
+        },
+        {
+          "r": 19,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "β-Galactosylation",
+          "header": false,
+          "bbox": [
+            167.0,
+            150.7,
+            263.3,
+            165.0
+          ]
+        },
+        {
+          "r": 19,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            380.0,
+            149.0,
+            407.0,
+            167.3
+          ]
+        },
+        {
+          "r": 19,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            499.0,
+            149.0,
+            526.3,
+            167.3
+          ]
+        },
+        {
+          "r": 16,
+          "c": 0,
+          "rs": 7,
+          "cs": 1,
+          "text": "Glycosylation",
+          "header": false,
+          "bbox": [
+            40.3,
+            138.3,
+            115.0,
+            153.0
+          ]
+        },
+        {
+          "r": 20,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "α-Galactosylation",
+          "header": false,
+          "bbox": [
+            166.7,
+            136.7,
+            263.0,
+            151.0
+          ]
+        },
+        {
+          "r": 20,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            380.0,
+            135.3,
+            407.0,
+            152.7
+          ]
+        },
+        {
+          "r": 20,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            499.3,
+            135.3,
+            526.0,
+            152.7
+          ]
+        },
+        {
+          "r": 21,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Sialylation: levels and types (NANA, NGNA)",
+          "header": false,
+          "bbox": [
+            166.3,
+            108.0,
+            318.0,
+            137.0
+          ]
+        },
+        {
+          "r": 21,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            380.0,
+            121.3,
+            407.0,
+            137.7
+          ]
+        },
+        {
+          "r": 21,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            499.3,
+            121.3,
+            526.3,
+            137.7
+          ]
+        },
+        {
+          "r": 22,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Other glycans G0F, G1F, G2F",
+          "header": false,
+          "bbox": [
+            166.7,
+            94.3,
+            331.3,
+            108.7
+          ]
+        },
+        {
+          "r": 22,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            380.0,
+            92.7,
+            407.0,
+            110.3
+          ]
+        },
+        {
+          "r": 23,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes Yes",
+          "header": false,
+          "bbox": [
+            499.3,
+            79.0,
+            526.0,
+            110.3
+          ]
+        },
+        {
+          "r": 23,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "High Order Structure",
+          "header": false,
+          "bbox": [
+            39.7,
+            80.0,
+            154.3,
+            94.3
+          ]
+        },
+        {
+          "r": 23,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Disulfide structure",
+          "header": false,
+          "bbox": [
+            167.7,
+            80.7,
+            266.3,
+            94.0
+          ]
+        },
+        {
+          "r": 23,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Yes",
+          "header": false,
+          "bbox": [
+            380.3,
+            79.0,
+            407.0,
+            95.3
+          ]
+        }
+      ],
+      "status": "kept",
+      "section_path": [
+        "B. Comparative Analytical Results"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        35.3,
+        80.0,
+        576.3,
+        548.6
+      ],
+      "coordinate_space": "PDF top-left points",
+      "cell_coordinate_space": "PDF bottom-left points (original ra_prep)"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/9",
+      "parent": "#/tables/0",
+      "page": 1,
+      "bbox": [
+        69.3,
+        205.0,
+        527.3,
+        222.29999999999995
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "caption",
+      "text": "Table A. Quality Attributes Analyzed in the Comparative Analytical Assessment",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "B. Comparative Analytical Results"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        69.3,
+        569.7,
+        527.3,
+        587.0
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/10",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        7.3,
+        772.7,
+        95.3,
+        784.7
+      ],
+      "layer": "furniture",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "page_footer",
+      "text": "Reference ID: 5270372",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        7.3,
+        7.3,
+        95.3,
+        19.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/11",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        274.0,
+        729.7,
+        338.0,
+        743.0
+      ],
+      "layer": "furniture",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "page_footer",
+      "text": "Page 11 of 20",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        274.0,
+        49.0,
+        338.0,
+        62.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    }
+  ],
+  "embedded_image_objects": 1,
+  "figure_counts": {
+    "figure_regions": 0,
+    "figure_groups": 0,
+    "logical_figures": 0,
+    "decorative_images": 1,
+    "interpretation_attempted": 0,
+    "interpretation_completed": 0,
+    "interpretation_needs_review": 0
+  },
+  "table_provenance": [
+    {
+      "origin": "fresh Docling + corrections",
+      "table_index": 0
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "checked_at": "2026-10-10T05:33:30.847704+00:00",
+  "passed": true,
+  "release": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\rag\\releases\\rag_finalization_2026-10-10_v2",
+  "release_manifest_sha256": "d1489ac8be3ad3601c5834e46dc3a1107c3989262a1c7e30f69bd8ebb0d76736",
+  "chunks_sha256": "bc2ef2ce7211c3f37d3f3150159013c9231b5f57d67cb26601b2a214e4ca626c",
+  "documents": 92,
+  "products": [
+    "ABP654",
+    "BAT2206",
+    "BMAB1200",
+    "CTP43",
+    "SB17"
+  ],
+  "jurisdictions": [
+    "CA",
+    "EU",
+    "US"
+  ],
+  "chunks": 10088,
+  "default_chunks": 8335,
+  "generation_provider": "ollama",
+  "api_evaluation_provider": "openai",
+  "local_generation_quality_certified": false,
+  "new_model_calls": 0,
+  "checks": [
+    {
+      "port": 8765,
+      "path": "/",
+      "status": 200
+    },
+    {
+      "port": 8765,
+      "path": "/app.js",
+      "status": 200
+    },
+    {
+      "port": 8765,
+      "path": "/style.css",
+      "status": 200
+    },
+    {
+      "port": 8766,
+      "path": "/",
+      "status": 200
+    },
+    {
+      "port": 8766,
+      "path": "/app.js",
+      "status": 200
+    },
+    {
+      "port": 8766,
+      "path": "/style.css",
+      "status": 200
+    },
+    {
+      "type": "unsupported_scope",
+      "status": 400
+    },
+    {
+      "type": "unsupported_scope",
+      "status": 400
+    },
+    {
+      "type": "source_pdf_range",
+      "status": 206,
+      "content_range": "bytes 0-15/8569628",
+      "document_key": "d1"
+    },
+    {
+      "type": "source_page_detail",
+      "status": 200,
+      "page_id": "0d6c29bb3cbdfa6f8eead138"
+    }
+  ],
+  "urls": {
+    "rag": "http://127.0.0.1:8765",
+    "review": "http://127.0.0.1:8766"
+  }
+}

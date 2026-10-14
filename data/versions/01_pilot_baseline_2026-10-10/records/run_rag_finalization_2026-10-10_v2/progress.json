@@ -1,0 +1,580 @@
+{
+  "stage": "complete",
+  "started_at": "2026-10-10T05:10:56.294028+00:00",
+  "components": [
+    {
+      "component": 1,
+      "rebuilt": true,
+      "chunks": 1027,
+      "boundary_headings": [
+        {
+          "unit_id": "x6ddda2315e77b7357abc771bf728",
+          "title": "PK study SB17-1001"
+        }
+      ]
+    },
+    {
+      "component": 2,
+      "rebuilt": false,
+      "chunks": 176,
+      "boundary_headings": []
+    },
+    {
+      "component": 3,
+      "rebuilt": true,
+      "chunks": 329,
+      "boundary_headings": [
+        {
+          "unit_id": "x027b0c7bdb45c52f30dfe5503726",
+          "title": "PK similarity study in healthy adult subjects (20190230)"
+        },
+        {
+          "unit_id": "xf8fa1a5c458bf863c96db9ed961b",
+          "title": "Clinical study in adult patients with moderate to severe plaque psoriasis (20190232)"
+        },
+        {
+          "unit_id": "xab98603bac4102fcf75937d665ce",
+          "title": "PK similarity study in healthy adult subjects (20190230)"
+        },
+        {
+          "unit_id": "xe7ceefb2cc41bddf8c30dd1373de",
+          "title": "Clinical study in adult patients with moderate to severe plaque psoriasis (20190232)"
+        },
+        {
+          "unit_id": "xe2b3ba1de4bac061f956f869ede1",
+          "title": "Single dose PK study 20190230"
+        },
+        {
+          "unit_id": "xfea6d0787fb535614758f9cdaed1",
+          "title": "Single dose PK study 20190230"
+        },
+        {
+          "unit_id": "x13922cb7e1179e9e639943e06f1c",
+          "title": "Single dose PK study 20190230"
+        }
+      ]
+    },
+    {
+      "component": 4,
+      "rebuilt": false,
+      "chunks": 2,
+      "boundary_headings": []
+    },
+    {
+      "component": 5,
+      "rebuilt": false,
+      "chunks": 24,
+      "boundary_headings": []
+    },
+    {
+      "component": 6,
+      "rebuilt": false,
+      "chunks": 289,
+      "boundary_headings": []
+    },
+    {
+      "component": 7,
+      "rebuilt": false,
+      "chunks": 371,
+      "boundary_headings": []
+    },
+    {
+      "component": 8,
+      "rebuilt": false,
+      "chunks": 6,
+      "boundary_headings": []
+    },
+    {
+      "component": 9,
+      "rebuilt": false,
+      "chunks": 4,
+      "boundary_headings": []
+    },
+    {
+      "component": 10,
+      "rebuilt": false,
+      "chunks": 23,
+      "boundary_headings": []
+    },
+    {
+      "component": 11,
+      "rebuilt": false,
+      "chunks": 28,
+      "boundary_headings": []
+    },
+    {
+      "component": 12,
+      "rebuilt": false,
+      "chunks": 409,
+      "boundary_headings": []
+    },
+    {
+      "component": 13,
+      "rebuilt": false,
+      "chunks": 28,
+      "boundary_headings": []
+    },
+    {
+      "component": 14,
+      "rebuilt": false,
+      "chunks": 306,
+      "boundary_headings": []
+    },
+    {
+      "component": 15,
+      "rebuilt": false,
+      "chunks": 2,
+      "boundary_headings": []
+    },
+    {
+      "component": 16,
+      "rebuilt": false,
+      "chunks": 5,
+      "boundary_headings": []
+    },
+    {
+      "component": 17,
+      "rebuilt": false,
+      "chunks": 5,
+      "boundary_headings": []
+    },
+    {
+      "component": 18,
+      "rebuilt": false,
+      "chunks": 17,
+      "boundary_headings": []
+    },
+    {
+      "component": 19,
+      "rebuilt": false,
+      "chunks": 25,
+      "boundary_headings": []
+    },
+    {
+      "component": 20,
+      "rebuilt": false,
+      "chunks": 292,
+      "boundary_headings": []
+    },
+    {
+      "component": 21,
+      "rebuilt": false,
+      "chunks": 1,
+      "boundary_headings": []
+    },
+    {
+      "component": 22,
+      "rebuilt": false,
+      "chunks": 3,
+      "boundary_headings": []
+    },
+    {
+      "component": 23,
+      "rebuilt": false,
+      "chunks": 5,
+      "boundary_headings": []
+    },
+    {
+      "component": 24,
+      "rebuilt": false,
+      "chunks": 6,
+      "boundary_headings": []
+    },
+    {
+      "component": 25,
+      "rebuilt": false,
+      "chunks": 217,
+      "boundary_headings": []
+    },
+    {
+      "component": 26,
+      "rebuilt": false,
+      "chunks": 235,
+      "boundary_headings": []
+    },
+    {
+      "component": 27,
+      "rebuilt": false,
+      "chunks": 331,
+      "boundary_headings": []
+    },
+    {
+      "component": 28,
+      "rebuilt": false,
+      "chunks": 5,
+      "boundary_headings": []
+    },
+    {
+      "component": 29,
+      "rebuilt": false,
+      "chunks": 7,
+      "boundary_headings": []
+    },
+    {
+      "component": 30,
+      "rebuilt": false,
+      "chunks": 7,
+      "boundary_headings": []
+    },
+    {
+      "component": 31,
+      "rebuilt": false,
+      "chunks": 13,
+      "boundary_headings": []
+    },
+    {
+      "component": 32,
+      "rebuilt": false,
+      "chunks": 73,
+      "boundary_headings": []
+    },
+    {
+      "component": 33,
+      "rebuilt": false,
+      "chunks": 71,
+      "boundary_headings": []
+    },
+    {
+      "component": 34,
+      "rebuilt": false,
+      "chunks": 164,
+      "boundary_headings": []
+    },
+    {
+      "component": 35,
+      "rebuilt": false,
+      "chunks": 155,
+      "boundary_headings": []
+    },
+    {
+      "component": 36,
+      "rebuilt": false,
+      "chunks": 189,
+      "boundary_headings": []
+    },
+    {
+      "component": 37,
+      "rebuilt": false,
+      "chunks": 282,
+      "boundary_headings": []
+    },
+    {
+      "component": 38,
+      "rebuilt": false,
+      "chunks": 1,
+      "boundary_headings": []
+    },
+    {
+      "component": 39,
+      "rebuilt": false,
+      "chunks": 3,
+      "boundary_headings": []
+    },
+    {
+      "component": 40,
+      "rebuilt": false,
+      "chunks": 5,
+      "boundary_headings": []
+    },
+    {
+      "component": 41,
+      "rebuilt": false,
+      "chunks": 15,
+      "boundary_headings": []
+    },
+    {
+      "component": 42,
+      "rebuilt": false,
+      "chunks": 173,
+      "boundary_headings": []
+    },
+    {
+      "component": 43,
+      "rebuilt": false,
+      "chunks": 449,
+      "boundary_headings": []
+    },
+    {
+      "component": 44,
+      "rebuilt": false,
+      "chunks": 5,
+      "boundary_headings": []
+    },
+    {
+      "component": 45,
+      "rebuilt": false,
+      "chunks": 5,
+      "boundary_headings": []
+    },
+    {
+      "component": 46,
+      "rebuilt": false,
+      "chunks": 5,
+      "boundary_headings": []
+    },
+    {
+      "component": 47,
+      "rebuilt": false,
+      "chunks": 27,
+      "boundary_headings": []
+    },
+    {
+      "component": 48,
+      "rebuilt": false,
+      "chunks": 17,
+      "boundary_headings": []
+    },
+    {
+      "component": 49,
+      "rebuilt": false,
+      "chunks": 112,
+      "boundary_headings": []
+    },
+    {
+      "component": 50,
+      "rebuilt": false,
+      "chunks": 103,
+      "boundary_headings": []
+    },
+    {
+      "component": 51,
+      "rebuilt": false,
+      "chunks": 206,
+      "boundary_headings": []
+    },
+    {
+      "component": 52,
+      "rebuilt": false,
+      "chunks": 319,
+      "boundary_headings": []
+    },
+    {
+      "component": 53,
+      "rebuilt": false,
+      "chunks": 318,
+      "boundary_headings": []
+    },
+    {
+      "component": 54,
+      "rebuilt": false,
+      "chunks": 5,
+      "boundary_headings": []
+    },
+    {
+      "component": 55,
+      "rebuilt": false,
+      "chunks": 6,
+      "boundary_headings": []
+    },
+    {
+      "component": 56,
+      "rebuilt": false,
+      "chunks": 16,
+      "boundary_headings": []
+    },
+    {
+      "component": 57,
+      "rebuilt": false,
+      "chunks": 34,
+      "boundary_headings": []
+    },
+    {
+      "component": 58,
+      "rebuilt": false,
+      "chunks": 173,
+      "boundary_headings": []
+    },
+    {
+      "component": 59,
+      "rebuilt": false,
+      "chunks": 112,
+      "boundary_headings": []
+    },
+    {
+      "component": 60,
+      "rebuilt": false,
+      "chunks": 237,
+      "boundary_headings": []
+    },
+    {
+      "component": 61,
+      "rebuilt": false,
+      "chunks": 1,
+      "boundary_headings": []
+    },
+    {
+      "component": 62,
+      "rebuilt": false,
+      "chunks": 4,
+      "boundary_headings": []
+    },
+    {
+      "component": 63,
+      "rebuilt": false,
+      "chunks": 138,
+      "boundary_headings": []
+    },
+    {
+      "component": 64,
+      "rebuilt": false,
+      "chunks": 253,
+      "boundary_headings": []
+    },
+    {
+      "component": 65,
+      "rebuilt": false,
+      "chunks": 7,
+      "boundary_headings": []
+    },
+    {
+      "component": 66,
+      "rebuilt": false,
+      "chunks": 170,
+      "boundary_headings": []
+    },
+    {
+      "component": 67,
+      "rebuilt": false,
+      "chunks": 3,
+      "boundary_headings": []
+    },
+    {
+      "component": 68,
+      "rebuilt": false,
+      "chunks": 6,
+      "boundary_headings": []
+    },
+    {
+      "component": 69,
+      "rebuilt": false,
+      "chunks": 9,
+      "boundary_headings": []
+    },
+    {
+      "component": 70,
+      "rebuilt": false,
+      "chunks": 133,
+      "boundary_headings": []
+    },
+    {
+      "component": 71,
+      "rebuilt": false,
+      "chunks": 395,
+      "boundary_headings": []
+    },
+    {
+      "component": 72,
+      "rebuilt": false,
+      "chunks": 4,
+      "boundary_headings": []
+    },
+    {
+      "component": 73,
+      "rebuilt": false,
+      "chunks": 4,
+      "boundary_headings": []
+    },
+    {
+      "component": 74,
+      "rebuilt": false,
+      "chunks": 4,
+      "boundary_headings": []
+    },
+    {
+      "component": 75,
+      "rebuilt": false,
+      "chunks": 5,
+      "boundary_headings": []
+    },
+    {
+      "component": 76,
+      "rebuilt": false,
+      "chunks": 5,
+      "boundary_headings": []
+    },
+    {
+      "component": 77,
+      "rebuilt": false,
+      "chunks": 7,
+      "boundary_headings": []
+    },
+    {
+      "component": 78,
+      "rebuilt": false,
+      "chunks": 12,
+      "boundary_headings": []
+    },
+    {
+      "component": 79,
+      "rebuilt": false,
+      "chunks": 12,
+      "boundary_headings": []
+    },
+    {
+      "component": 80,
+      "rebuilt": false,
+      "chunks": 26,
+      "boundary_headings": []
+    },
+    {
+      "component": 81,
+      "rebuilt": false,
+      "chunks": 52,
+      "boundary_headings": []
+    },
+    {
+      "component": 82,
+      "rebuilt": false,
+      "chunks": 92,
+      "boundary_headings": []
+    },
+    {
+      "component": 83,
+      "rebuilt": false,
+      "chunks": 167,
+      "boundary_headings": []
+    },
+    {
+      "component": 84,
+      "rebuilt": false,
+      "chunks": 147,
+      "boundary_headings": []
+    },
+    {
+      "component": 85,
+      "rebuilt": false,
+      "chunks": 171,
+      "boundary_headings": []
+    },
+    {
+      "component": 86,
+      "rebuilt": false,
+      "chunks": 262,
+      "boundary_headings": []
+    },
+    {
+      "component": 87,
+      "rebuilt": false,
+      "chunks": 351,
+      "boundary_headings": []
+    },
+    {
+      "component": 88,
+      "rebuilt": false,
+      "chunks": 169,
+      "boundary_headings": []
+    },
+    {
+      "component": 89,
+      "rebuilt": false,
+      "chunks": 1,
+      "boundary_headings": []
+    }
+  ],
+  "new_ocr_calls": 0,
+  "new_qwen_calls": 0,
+  "new_openai_calls": 0,
+  "new_embedding_inputs": 86,
+  "reused_vectors": 10002,
+  "completed_at": "2026-10-10T05:13:12.811982+00:00"
+}

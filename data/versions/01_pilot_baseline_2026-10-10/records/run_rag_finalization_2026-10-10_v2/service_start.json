@@ -1,0 +1,22 @@
+﻿{
+    "bind":  "127.0.0.1",
+    "verification_sha256":  "cfd2c72e3c7029abe2513ce71c525bdd89ff0eb9ddd187ed7b1129f9919fffd3",
+    "release":  "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\rag\\releases\\rag_finalization_2026-10-10_v2",
+    "api_evaluation_provider":  "openai",
+    "processes":  [
+                      {
+                          "module":  "rag_service",
+                          "port":  8765,
+                          "pid":  15828,
+                          "release":  "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\rag\\releases\\rag_finalization_2026-10-10_v2"
+                      },
+                      {
+                          "module":  "review_viewer",
+                          "port":  8766,
+                          "pid":  26192,
+                          "release":  "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\rag\\releases\\rag_finalization_2026-10-10_v2"
+                      }
+                  ],
+    "generation_provider":  "ollama",
+    "started_at":  "2026-10-10T06:01:43.3627841Z"
+}

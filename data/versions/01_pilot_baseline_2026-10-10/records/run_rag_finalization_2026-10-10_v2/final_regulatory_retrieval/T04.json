@@ -1,0 +1,3280 @@
+{
+  "question": "FDA CTP43 허가 서신에 기재된 소아 적응증의 최저 연령과 허가된 소아 적응증은?",
+  "understanding": {
+    "intent": "fact_lookup",
+    "products": [
+      "CTP43"
+    ],
+    "studies": [],
+    "study_scope": "unspecified",
+    "study_mentions": [],
+    "jurisdictions": [
+      "US"
+    ],
+    "jurisdiction_mentions": [
+      {
+        "jurisdiction": "US",
+        "role": "regulator",
+        "quote": "FDA"
+      }
+    ],
+    "doc_groups": [
+      "correspondence"
+    ],
+    "topic": "other",
+    "english_query": "What is the minimum age for pediatric indications and the approved pediatric indications stated in the FDA correspondence for CTP43?",
+    "keywords": [
+      "FDA",
+      "CTP43",
+      "pediatric indications",
+      "minimum age",
+      "approval letter"
+    ],
+    "scope_warnings": [],
+    "scope_validation": "grounded_roles",
+    "scope_resolver_version": "scope-3",
+    "studies_from_model": [],
+    "model_interpretation": {
+      "intent": "fact_lookup",
+      "products": [
+        "CTP43"
+      ],
+      "studies": [],
+      "study_scope": "unspecified",
+      "study_mentions": [],
+      "jurisdictions": [
+        "US"
+      ],
+      "jurisdiction_mentions": [
+        {
+          "jurisdiction": "US",
+          "role": "regulator",
+          "quote": "FDA"
+        }
+      ],
+      "doc_groups": [
+        "correspondence"
+      ],
+      "topic": "other",
+      "english_query": "What is the minimum age for pediatric indications and the approved pediatric indications stated in the FDA correspondence for CTP43?",
+      "keywords": [
+        "FDA",
+        "CTP43",
+        "pediatric indications",
+        "minimum age",
+        "approval letter"
+      ]
+    },
+    "missing_role_quotes": [],
+    "glossary_expansion": [],
+    "search_terms": "What is the minimum age for pediatric indications and the approved pediatric indications stated in the FDA correspondence for CTP43? FDA CTP43 pediatric indications minimum age approval letter",
+    "protected": [
+      "FDA",
+      "CTP43"
+    ],
+    "missing": [],
+    "attempts": 1,
+    "model": "gpt-4o-mini-2024-07-18",
+    "prompt_tokens": 2792,
+    "completion_tokens": 112,
+    "prompt_version": "understand-7",
+    "source": "FDA CTP43 허가 서신에 기재된 소아 적응증의 최저 연령과 허가된 소아 적응증은?",
+    "cache_fingerprint": "7838ff92d7443b56f71ba37f9af8feb5444438c1835abfef2ca9ac50d6287f9f",
+    "request_scope": {
+      "model": {
+        "products": [
+          "CTP43"
+        ],
+        "jurisdictions": [
+          "US"
+        ]
+      },
+      "allowed": {
+        "products": [
+          "CTP43"
+        ],
+        "jurisdictions": [
+          "US"
+        ]
+      },
+      "pinned": {
+        "products": true,
+        "jurisdictions": true
+      },
+      "adjustments": [],
+      "conflicts": [],
+      "status": "applied"
+    }
+  },
+  "results": [
+    {
+      "unit": {
+        "product": "CTP43",
+        "jurisdiction": "US",
+        "doc_groups": [
+          "correspondence"
+        ],
+        "studies": [],
+        "study_candidates": [
+          "ST_CTP43_1_1",
+          "ST_CTP43_1_1_P1",
+          "ST_CTP43_1_1_P2",
+          "ST_CTP43_1_2",
+          "ST_CTP43_3_1",
+          "ST_CTP43_3_2",
+          "ST_CTP43_POOLED"
+        ],
+        "study_scope": "unspecified",
+        "decomposed": false,
+        "topic": "other",
+        "retrieval_policy": "general"
+      },
+      "retrieved_pages": [
+        {
+          "score": 8,
+          "document_id": "FDA:761338Orig1Orig2s000:Approv",
+          "version_id": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+          "pdf_page": 5,
+          "source_url": "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/761338Orig1Orig2s000Approv.pdf",
+          "evidence_status": "unreviewed_retrieval",
+          "locator_type": "pdf_page",
+          "product_id": "CTP43",
+          "jurisdiction": "US",
+          "doc_group": "correspondence",
+          "document_type": "Approval Letter(s)",
+          "doc_date": "2025-10-27",
+          "title": "Steqeyma (BLA 761338 ORIG-2) — Approval Letter(s)",
+          "section": null,
+          "best_chunk": "FDA:761338Orig1Orig2s000:Approv:b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9:a86587dac014:0005:p75e698797958635de1",
+          "source_kinds": [
+            "preprocessed"
+          ],
+          "redaction_markers": 4,
+          "also_in": [],
+          "locations": [
+            [
+              "FDA:761338Orig1Orig2s000:Approv",
+              "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+              5
+            ]
+          ],
+          "excerpt": "introduce or deliver for introduction into interstate commerce, Steqeyma, under your \nexisting Department of Health and Human Services U.S. License No. 1996.\nSteqeyma is indicated for treatment of:\nAd",
+          "study_candidates": [],
+          "study_attribution_status": "heuristic_unverified",
+          "representation_evidence": [
+            {
+              "chunk_id": "FDA:761338Orig1Orig2s000:Approv:b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9:a86587dac014:0005:p75e698797958635de1",
+              "document_id": "FDA:761338Orig1Orig2s000:Approv",
+              "version_id": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+              "pdf_page": 5,
+              "representation": {
+                "unit_ids": [
+                  "xdd2ded7077bb5cdab6fb864a2fda",
+                  "xbf6af7c80dee00fa4394108f34be",
+                  "x9e87bc84f015371749663aab2f56",
+                  "x94a240e38ecf3f21e9ed532533fa",
+                  "xeba2eada847e3114e2cea6060c13",
+                  "xe30dc851aaf22b9acb21450f585a",
+                  "x4ff749d8816d28b5128baf43b9b2",
+                  "xea8b78b647c1d465fe9416da06a7",
+                  "x501e6147d218b4ad21db31977926",
+                  "x0c05f2930a83db90702851e827e2",
+                  "x14ee5406444b918d62e45c2605ed",
+                  "x1b17fb71a6692aeb124a73843dfb",
+                  "xaaa9282f3a347544e9c91ed4d051",
+                  "x2e2fa594150c5f78e0f230c3743b",
+                  "x758dfaf7f339f46ed062e732a9c4",
+                  "x6d434c0757b3702a7a15a4508da0",
+                  "x31bd806222b2b3211042b66db63e",
+                  "x96836947a35cd668e3a07fa1dea9",
+                  "x3858e3841b9fc76bfa00e978029f"
+                ],
+                "origins": {
+                  "xdd2ded7077bb5cdab6fb864a2fda": "native_text_layer",
+                  "xbf6af7c80dee00fa4394108f34be": "native_text_layer",
+                  "x9e87bc84f015371749663aab2f56": "native_text_layer",
+                  "x94a240e38ecf3f21e9ed532533fa": "native_text_layer",
+                  "xeba2eada847e3114e2cea6060c13": "native_text_layer",
+                  "xe30dc851aaf22b9acb21450f585a": "native_text_layer",
+                  "x4ff749d8816d28b5128baf43b9b2": "native_text_layer",
+                  "xea8b78b647c1d465fe9416da06a7": "native_text_layer",
+                  "x501e6147d218b4ad21db31977926": "native_text_layer",
+                  "x0c05f2930a83db90702851e827e2": "native_text_layer",
+                  "x14ee5406444b918d62e45c2605ed": "native_text_layer",
+                  "x1b17fb71a6692aeb124a73843dfb": "native_text_layer",
+                  "xaaa9282f3a347544e9c91ed4d051": "native_text_layer",
+                  "x2e2fa594150c5f78e0f230c3743b": "native_text_layer",
+                  "x758dfaf7f339f46ed062e732a9c4": "native_text_layer",
+                  "x6d434c0757b3702a7a15a4508da0": "native_text_layer",
+                  "x31bd806222b2b3211042b66db63e": "native_text_layer",
+                  "x96836947a35cd668e3a07fa1dea9": "native_text_layer",
+                  "x3858e3841b9fc76bfa00e978029f": "native_text_layer"
+                },
+                "retrieval_eligible": true,
+                "numeric_evidence_eligible": false,
+                "semantic_status": "unverified",
+                "description_review_required": false
+              },
+              "document_metadata": {
+                "ingredient": "ustekinumab",
+                "product_kind": "biosimilar",
+                "family": "decision_letter",
+                "author": "regulator",
+                "tier": "record",
+                "default_search": false
+              },
+              "source_refs": [
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 5,
+                  "bbox_pdf": [
+                    68.64,
+                    86.88,
+                    518.88,
+                    116.64
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 5,
+                  "bbox_pdf": [
+                    69.6,
+                    128.16,
+                    279.84,
+                    143.52
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 5,
+                  "bbox_pdf": [
+                    69.6,
+                    156.0,
+                    174.72,
+                    170.4
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 5,
+                  "bbox_pdf": [
+                    86.88,
+                    170.88,
+                    535.68,
+                    198.72
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 5,
+                  "bbox_pdf": [
+                    87.36,
+                    199.68,
+                    264.96,
+                    213.12
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 5,
+                  "bbox_pdf": [
+                    86.88,
+                    214.08,
+                    383.04,
+                    228.0
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 5,
+                  "bbox_pdf": [
+                    86.88,
+                    228.48,
+                    383.52,
+                    242.88
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 5,
+                  "bbox_pdf": [
+                    70.08,
+                    255.84,
+                    290.4,
+                    270.24
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 5,
+                  "bbox_pdf": [
+                    87.36,
+                    270.72,
+                    535.68,
+                    298.08
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 5,
+                  "bbox_pdf": [
+                    86.88,
+                    299.52,
+                    264.96,
+                    313.44
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 5,
+                  "bbox_pdf": [
+                    69.6,
+                    323.52,
+                    254.88,
+                    338.4
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 5,
+                  "bbox_pdf": [
+                    69.12,
+                    352.32,
+                    534.72,
+                    408.48
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 5,
+                  "bbox_pdf": [
+                    69.12,
+                    408.96,
+                    532.32,
+                    449.76
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 5,
+                  "bbox_pdf": [
+                    69.6,
+                    461.76,
+                    168.96,
+                    476.16
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 5,
+                  "bbox_pdf": [
+                    68.64,
+                    489.6,
+                    537.6,
+                    546.72
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 5,
+                  "bbox_pdf": [
+                    70.08,
+                    558.72,
+                    185.76,
+                    572.64
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 5,
+                  "bbox_pdf": [
+                    68.64,
+                    586.08,
+                    525.12,
+                    657.12
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 5,
+                  "bbox_pdf": [
+                    69.12,
+                    668.64,
+                    541.92,
+                    712.32
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 5,
+                  "bbox_pdf": [
+                    69.12,
+                    719.04,
+                    241.44,
+                    757.92
+                  ]
+                }
+              ],
+              "visual_parent": {
+                "figure_id": null,
+                "table_id": null,
+                "caption": null,
+                "member_unit_ids": [],
+                "context_unit_ids": [],
+                "context_roles": {},
+                "figure_labels": null,
+                "association_status": null,
+                "continuation_status": null
+              }
+            }
+          ]
+        },
+        {
+          "score": 0.0831,
+          "document_id": "FDA:761338Orig1Orig2s000:Approv",
+          "version_id": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+          "pdf_page": 13,
+          "source_url": "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/761338Orig1Orig2s000Approv.pdf",
+          "evidence_status": "unreviewed_retrieval",
+          "locator_type": "pdf_page",
+          "product_id": "CTP43",
+          "jurisdiction": "US",
+          "doc_group": "correspondence",
+          "document_type": "Approval Letter(s)",
+          "doc_date": "2025-10-27",
+          "title": "Steqeyma (BLA 761338 ORIG-2) — Approval Letter(s)",
+          "section": null,
+          "best_chunk": "FDA:761338Orig1Orig2s000:Approv:b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9:a86587dac014:0013:p7cc5b343ffdfe954d9",
+          "source_kinds": [
+            "preprocessed"
+          ],
+          "redaction_markers": 0,
+          "also_in": [],
+          "locations": [
+            [
+              "FDA:761338Orig1Orig2s000:Approv",
+              "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+              13
+            ]
+          ],
+          "excerpt": "CARTON AND CONTAINER LABELING\nSubmit final printed carton and container labeling that are identical to the enclosed \ncarton and container labeling, as soon as they are available, but no more than 30 d",
+          "study_candidates": [],
+          "study_attribution_status": "heuristic_unverified",
+          "representation_evidence": [
+            {
+              "chunk_id": "FDA:761338Orig1Orig2s000:Approv:b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9:a86587dac014:0013:p7cc5b343ffdfe954d9",
+              "document_id": "FDA:761338Orig1Orig2s000:Approv",
+              "version_id": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+              "pdf_page": 13,
+              "representation": {
+                "unit_ids": [
+                  "x6ea28078ade77c9511fa19a253d7",
+                  "x71867b1172d6404ee4dca56e6776",
+                  "xfe5836566feb326d4926e7f19451",
+                  "x92f3e717010e64cb08a255c19bb1",
+                  "x9c7d941d9a51bd44ad947b8df124",
+                  "x4188477528212df44a6e40abfc27",
+                  "x4825d9b674bf6cd20e7e521d696f",
+                  "xd40fccaebed9c73bb645443bd259",
+                  "x5ec7aaefceb74036f59769e5cb99",
+                  "xfa3647861dffecf3c7c69c5e055c",
+                  "xab603eaa67055cf7a968e2c57c81",
+                  "x751d90c6bff783cc16d8d416c960",
+                  "x921e5ea114e4d35ad44ab7628779",
+                  "xc3f6f144f8467060de3d645f206e",
+                  "x03fa6105a809fd8fc60ce7a04f8e"
+                ],
+                "origins": {
+                  "x6ea28078ade77c9511fa19a253d7": "native_text_layer",
+                  "x71867b1172d6404ee4dca56e6776": "native_text_layer",
+                  "xfe5836566feb326d4926e7f19451": "native_text_layer",
+                  "x92f3e717010e64cb08a255c19bb1": "native_text_layer",
+                  "x9c7d941d9a51bd44ad947b8df124": "native_text_layer",
+                  "x4188477528212df44a6e40abfc27": "native_text_layer",
+                  "x4825d9b674bf6cd20e7e521d696f": "native_text_layer",
+                  "xd40fccaebed9c73bb645443bd259": "native_text_layer",
+                  "x5ec7aaefceb74036f59769e5cb99": "native_text_layer",
+                  "xfa3647861dffecf3c7c69c5e055c": "native_text_layer",
+                  "xab603eaa67055cf7a968e2c57c81": "native_text_layer",
+                  "x751d90c6bff783cc16d8d416c960": "native_text_layer",
+                  "x921e5ea114e4d35ad44ab7628779": "native_text_layer",
+                  "xc3f6f144f8467060de3d645f206e": "native_text_layer",
+                  "x03fa6105a809fd8fc60ce7a04f8e": "native_text_layer"
+                },
+                "retrieval_eligible": true,
+                "numeric_evidence_eligible": false,
+                "semantic_status": "unverified",
+                "description_review_required": false
+              },
+              "document_metadata": {
+                "ingredient": "ustekinumab",
+                "product_kind": "biosimilar",
+                "family": "decision_letter",
+                "author": "regulator",
+                "tier": "record",
+                "default_search": false
+              },
+              "source_refs": [
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 13,
+                  "bbox_pdf": [
+                    69.6,
+                    86.88,
+                    294.24,
+                    101.28
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 13,
+                  "bbox_pdf": [
+                    68.16,
+                    114.72,
+                    540.48,
+                    227.52
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 13,
+                  "bbox_pdf": [
+                    68.64,
+                    237.6,
+                    299.52,
+                    252.96
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 13,
+                  "bbox_pdf": [
+                    68.64,
+                    266.4,
+                    538.08,
+                    350.88
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 13,
+                  "bbox_pdf": [
+                    69.12,
+                    362.88,
+                    299.04,
+                    377.28
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 13,
+                  "bbox_pdf": [
+                    68.64,
+                    376.8,
+                    520.8,
+                    420.0
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 13,
+                  "bbox_pdf": [
+                    68.16,
+                    431.52,
+                    534.24,
+                    488.64
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 13,
+                  "bbox_pdf": [
+                    69.6,
+                    500.64,
+                    293.28,
+                    514.56
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 13,
+                  "bbox_pdf": [
+                    68.16,
+                    515.04,
+                    524.16,
+                    571.68
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 13,
+                  "bbox_pdf": [
+                    69.6,
+                    584.16,
+                    242.4,
+                    598.08
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 13,
+                  "bbox_pdf": [
+                    69.12,
+                    598.08,
+                    530.88,
+                    655.2
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 13,
+                  "bbox_pdf": [
+                    68.64,
+                    665.76,
+                    524.16,
+                    694.56
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 13,
+                  "bbox_pdf": [
+                    69.6,
+                    718.56,
+                    240.48,
+                    731.04
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 13,
+                  "bbox_pdf": [
+                    70.08,
+                    731.52,
+                    186.24,
+                    744.96
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+                  "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+                  "pdf_page": 13,
+                  "bbox_pdf": [
+                    70.08,
+                    745.44,
+                    136.32,
+                    757.92
+                  ]
+                }
+              ],
+              "visual_parent": {
+                "figure_id": null,
+                "table_id": null,
+                "caption": null,
+                "member_unit_ids": [],
+                "context_unit_ids": [],
+                "context_roles": {},
+                "figure_labels": null,
+                "association_status": null,
+                "continuation_status": null
+              }
+            }
+          ]
+        },
+        {
+          "score": 0.0819,
+          "document_id": "FDA:letter:761338Orig1s003ltr",
+          "version_id": "1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2",
+          "pdf_page": 3,
+          "source_url": "https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2025/761338Orig1s003ltr.pdf",
+          "evidence_status": "unreviewed_retrieval",
+          "locator_type": "pdf_page",
+          "product_id": "CTP43",
+          "jurisdiction": "US",
+          "doc_group": "correspondence",
+          "document_type": "Approval Letter",
+          "doc_date": null,
+          "title": "Steqeyma (BLA 761338 SUPPL-3, 2025-06-13) — Approval Letter",
+          "section": null,
+          "best_chunk": "FDA:letter:761338Orig1s003ltr:1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2:23e45fc028aa:0003:p906165301087651346",
+          "source_kinds": [
+            "preprocessed"
+          ],
+          "redaction_markers": 3,
+          "also_in": [],
+          "locations": [
+            [
+              "FDA:letter:761338Orig1s003ltr",
+              "1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2",
+              3
+            ]
+          ],
+          "excerpt": "BLA 761338/S-003 \nPage 3\nYou must submit final promotional materials and Prescribing Information, accompanied \nby a Form FDA 2253, at the time of initial dissemination or publication [21 CFR \n601.12(f",
+          "study_candidates": [],
+          "study_attribution_status": "heuristic_unverified",
+          "representation_evidence": [
+            {
+              "chunk_id": "FDA:letter:761338Orig1s003ltr:1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2:23e45fc028aa:0003:p906165301087651346",
+              "document_id": "FDA:letter:761338Orig1s003ltr",
+              "version_id": "1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2",
+              "pdf_page": 3,
+              "representation": {
+                "unit_ids": [
+                  "x9b6e712bbce96ba53845427f15fe",
+                  "xa9e095bfb5f6709f552e99a468d2",
+                  "xd13afa76f9a1396ed8ef525dd139",
+                  "x41fa09258889286f1a608b79021f",
+                  "x6dc80fc0c41d61c32c55fa18e2cb",
+                  "x5feaccd13899d791935e1dd0a1b9",
+                  "x84eec7753ae619d01857294604c9",
+                  "x8eabc3f22c704b936cc795392c1c",
+                  "xe2d5c53ce3841563ec7ffc76b271",
+                  "xc5107dcdd941fe101ae686bb604e",
+                  "xebf9636bd96da61bfba062494474",
+                  "xde21cd9aa3baf8c9d2787b4279f5",
+                  "xa3189ab72a7e791440c0098de280",
+                  "xfa2e1a662282e8c4a9fef9a75520",
+                  "x6f638ee39c2dbac22bfbc1c4d099",
+                  "xbffebfd19ed663a27e0c64b55424",
+                  "x6d5e0435d5dd1f1e81a7f587bfcc",
+                  "x91dd1c96d466f19ae247fdb5250d"
+                ],
+                "origins": {
+                  "x9b6e712bbce96ba53845427f15fe": "native_text_layer",
+                  "xa9e095bfb5f6709f552e99a468d2": "native_text_layer",
+                  "xd13afa76f9a1396ed8ef525dd139": "native_text_layer",
+                  "x41fa09258889286f1a608b79021f": "native_text_layer",
+                  "x6dc80fc0c41d61c32c55fa18e2cb": "native_text_layer",
+                  "x5feaccd13899d791935e1dd0a1b9": "native_text_layer",
+                  "x84eec7753ae619d01857294604c9": "native_text_layer",
+                  "x8eabc3f22c704b936cc795392c1c": "native_text_layer",
+                  "xe2d5c53ce3841563ec7ffc76b271": "native_text_layer",
+                  "xc5107dcdd941fe101ae686bb604e": "native_text_layer",
+                  "xebf9636bd96da61bfba062494474": "native_text_layer",
+                  "xde21cd9aa3baf8c9d2787b4279f5": "native_text_layer",
+                  "xa3189ab72a7e791440c0098de280": "native_text_layer",
+                  "xfa2e1a662282e8c4a9fef9a75520": "native_text_layer",
+                  "x6f638ee39c2dbac22bfbc1c4d099": "native_text_layer",
+                  "xbffebfd19ed663a27e0c64b55424": "native_text_layer",
+                  "x6d5e0435d5dd1f1e81a7f587bfcc": "native_text_layer",
+                  "x91dd1c96d466f19ae247fdb5250d": "native_text_layer"
+                },
+                "retrieval_eligible": true,
+                "numeric_evidence_eligible": false,
+                "semantic_status": "unverified",
+                "description_review_required": false
+              },
+              "document_metadata": {
+                "ingredient": "ustekinumab",
+                "product_kind": "biosimilar",
+                "family": "decision_letter",
+                "author": "regulator",
+                "tier": "record",
+                "default_search": false
+              },
+              "source_refs": [
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2.pdf",
+                  "sha256": "1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2",
+                  "pdf_page": 3,
+                  "bbox_pdf": [
+                    69.6,
+                    35.52,
+                    175.2,
+                    64.32
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2.pdf",
+                  "sha256": "1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2",
+                  "pdf_page": 3,
+                  "bbox_pdf": [
+                    68.64,
+                    100.32,
+                    535.68,
+                    158.4
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2.pdf",
+                  "sha256": "1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2",
+                  "pdf_page": 3,
+                  "bbox_pdf": [
+                    69.6,
+                    168.96,
+                    299.52,
+                    183.36
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2.pdf",
+                  "sha256": "1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2",
+                  "pdf_page": 3,
+                  "bbox_pdf": [
+                    68.64,
+                    197.28,
+                    538.08,
+                    281.76
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2.pdf",
+                  "sha256": "1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2",
+                  "pdf_page": 3,
+                  "bbox_pdf": [
+                    68.64,
+                    293.76,
+                    516.96,
+                    323.04
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2.pdf",
+                  "sha256": "1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2",
+                  "pdf_page": 3,
+                  "bbox_pdf": [
+                    70.08,
+                    334.56,
+                    494.88,
+                    349.44
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2.pdf",
+                  "sha256": "1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2",
+                  "pdf_page": 3,
+                  "bbox_pdf": [
+                    68.64,
+                    362.88,
+                    537.12,
+                    405.12
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2.pdf",
+                  "sha256": "1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2",
+                  "pdf_page": 3,
+                  "bbox_pdf": [
+                    86.88,
+                    418.08,
+                    525.12,
+                    459.84
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2.pdf",
+                  "sha256": "1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2",
+                  "pdf_page": 3,
+                  "bbox_pdf": [
+                    68.64,
+                    473.28,
+                    508.8,
+                    501.6
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2.pdf",
+                  "sha256": "1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2",
+                  "pdf_page": 3,
+                  "bbox_pdf": [
+                    68.64,
+                    514.56,
+                    519.84,
+                    543.84
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2.pdf",
+                  "sha256": "1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2",
+                  "pdf_page": 3,
+                  "bbox_pdf": [
+                    68.64,
+                    555.36,
+                    482.88,
+                    584.64
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2.pdf",
+                  "sha256": "1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2",
+                  "pdf_page": 3,
+                  "bbox_pdf": [
+                    86.4,
+                    609.12,
+                    503.52,
+                    667.2
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2.pdf",
+                  "sha256": "1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2",
+                  "pdf_page": 3,
+                  "bbox_pdf": [
+                    69.6,
+                    694.56,
+                    473.28,
+                    708.0
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2.pdf",
+                  "sha256": "1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2",
+                  "pdf_page": 3,
+                  "bbox_pdf": [
+                    70.08,
+                    707.52,
+                    473.76,
+                    720.0
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2.pdf",
+                  "sha256": "1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2",
+                  "pdf_page": 3,
+                  "bbox_pdf": [
+                    70.56,
+                    719.52,
+                    240.48,
+                    732.0
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2.pdf",
+                  "sha256": "1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2",
+                  "pdf_page": 3,
+                  "bbox_pdf": [
+                    70.08,
+                    731.52,
+                    186.24,
+                    744.96
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2.pdf",
+                  "sha256": "1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2",
+                  "pdf_page": 3,
+                  "bbox_pdf": [
+                    70.08,
+                    745.44,
+                    135.84,
+                    757.44
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2.pdf",
+                  "sha256": "1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2",
+                  "pdf_page": 3,
+                  "bbox_pdf": [
+                    9.12,
+                    773.76,
+                    94.08,
+                    784.32
+                  ]
+                }
+              ],
+              "visual_parent": {
+                "figure_id": null,
+                "table_id": null,
+                "caption": null,
+                "member_unit_ids": [],
+                "context_unit_ids": [],
+                "context_roles": {},
+                "figure_labels": null,
+                "association_status": null,
+                "continuation_status": null
+              }
+            }
+          ]
+        },
+        {
+          "score": 0.0758,
+          "document_id": "FDA:761338Orig1Orig2s000:CrossR",
+          "version_id": "2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5",
+          "pdf_page": 19,
+          "source_url": "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/761338Orig1Orig2s000CrossR.pdf",
+          "evidence_status": "unreviewed_retrieval",
+          "locator_type": "pdf_page",
+          "product_id": "CTP43",
+          "jurisdiction": "US",
+          "doc_group": "assessment",
+          "document_type": "Cross Discipline Team Leader Review",
+          "doc_date": "2025-10-27",
+          "title": "Steqeyma (BLA 761338 ORIG-2) — Cross Discipline Team Leader Review",
+          "section": null,
+          "best_chunk": "FDA:761338Orig1Orig2s000:CrossR:2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5:53234afcd0dd:0019:pb05121d82a02cde0b7",
+          "source_kinds": [
+            "preprocessed"
+          ],
+          "redaction_markers": 0,
+          "also_in": [],
+          "locations": [
+            [
+              "FDA:761338Orig1Orig2s000:CrossR",
+              "2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5",
+              19
+            ]
+          ],
+          "excerpt": "Cross Discipline Team Leader and Multidisciplinary Evaluation and Review Memo\n• Plaque psoriasis in pediatric patients < 6 years of age\n• Psoriatic arthritis in pediatric patients < 6 years of age\n• C",
+          "study_candidates": [],
+          "study_attribution_status": "heuristic_unverified",
+          "representation_evidence": [
+            {
+              "chunk_id": "FDA:761338Orig1Orig2s000:CrossR:2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5:53234afcd0dd:0019:pb05121d82a02cde0b7",
+              "document_id": "FDA:761338Orig1Orig2s000:CrossR",
+              "version_id": "2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5",
+              "pdf_page": 19,
+              "representation": {
+                "unit_ids": [
+                  "x6ee4e281d307d2dcd930317325f0",
+                  "x8e4036cd6db7eee340f115fe517b",
+                  "x216a7259615cedbcb4dc06064430",
+                  "xe6a9e882c74643dae41d84728137",
+                  "x154fc385e279fc2f7a3645780ce8",
+                  "xead05031950e9a905f66ba2d0a3c",
+                  "xcfa2dfb8e714794b685d5c1efe51",
+                  "xc999a76c38bf6fd6214d353c90d3",
+                  "x04594396368f184a48f5d79c99ca",
+                  "x2322502865e589f6325eb07aa1f0",
+                  "x03c392a10a15f279d6cf47da05c3",
+                  "x095b976cd724bb23b94768148374",
+                  "xa34d5034131588e74473b9f788a6",
+                  "x7deda6480d96951dfd0629a04853",
+                  "x7a666fd435295acc77196414fb9f"
+                ],
+                "origins": {
+                  "x6ee4e281d307d2dcd930317325f0": "native_text_layer",
+                  "x8e4036cd6db7eee340f115fe517b": "native_text_layer",
+                  "x216a7259615cedbcb4dc06064430": "native_text_layer",
+                  "xe6a9e882c74643dae41d84728137": "native_text_layer",
+                  "x154fc385e279fc2f7a3645780ce8": "native_text_layer",
+                  "xead05031950e9a905f66ba2d0a3c": "native_text_layer",
+                  "xcfa2dfb8e714794b685d5c1efe51": "native_text_layer",
+                  "xc999a76c38bf6fd6214d353c90d3": "native_text_layer",
+                  "x04594396368f184a48f5d79c99ca": "native_text_layer",
+                  "x2322502865e589f6325eb07aa1f0": "native_text_layer",
+                  "x03c392a10a15f279d6cf47da05c3": "native_text_layer",
+                  "x095b976cd724bb23b94768148374": "native_text_layer",
+                  "xa34d5034131588e74473b9f788a6": "native_text_layer",
+                  "x7deda6480d96951dfd0629a04853": "native_text_layer",
+                  "x7a666fd435295acc77196414fb9f": "native_text_layer"
+                },
+                "retrieval_eligible": true,
+                "numeric_evidence_eligible": false,
+                "semantic_status": "unverified",
+                "description_review_required": false
+              },
+              "document_metadata": {
+                "ingredient": "ustekinumab",
+                "product_kind": "biosimilar",
+                "family": "assessment_report",
+                "author": "regulator",
+                "tier": "core",
+                "default_search": true
+              },
+              "source_refs": [
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5.pdf",
+                  "sha256": "2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5",
+                  "pdf_page": 19,
+                  "bbox_pdf": [
+                    62.4,
+                    36.48,
+                    401.28,
+                    48.96
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5.pdf",
+                  "sha256": "2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5",
+                  "pdf_page": 19,
+                  "bbox_pdf": [
+                    79.2,
+                    72.96,
+                    387.84,
+                    87.84
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5.pdf",
+                  "sha256": "2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5",
+                  "pdf_page": 19,
+                  "bbox_pdf": [
+                    79.68,
+                    88.32,
+                    389.28,
+                    102.24
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5.pdf",
+                  "sha256": "2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5",
+                  "pdf_page": 19,
+                  "bbox_pdf": [
+                    79.68,
+                    102.72,
+                    393.12,
+                    116.64
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5.pdf",
+                  "sha256": "2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5",
+                  "pdf_page": 19,
+                  "bbox_pdf": [
+                    80.16,
+                    117.6,
+                    393.6,
+                    131.52
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5.pdf",
+                  "sha256": "2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5",
+                  "pdf_page": 19,
+                  "bbox_pdf": [
+                    61.92,
+                    144.48,
+                    485.76,
+                    187.68
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5.pdf",
+                  "sha256": "2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5",
+                  "pdf_page": 19,
+                  "bbox_pdf": [
+                    61.92,
+                    199.68,
+                    521.76,
+                    298.56
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5.pdf",
+                  "sha256": "2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5",
+                  "pdf_page": 19,
+                  "bbox_pdf": [
+                    61.44,
+                    310.08,
+                    519.84,
+                    394.56
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5.pdf",
+                  "sha256": "2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5",
+                  "pdf_page": 19,
+                  "bbox_pdf": [
+                    99.36,
+                    411.36,
+                    452.64,
+                    448.32
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5.pdf",
+                  "sha256": "2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5",
+                  "pdf_page": 19,
+                  "bbox_pdf": [
+                    61.44,
+                    456.96,
+                    520.32,
+                    541.44
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5.pdf",
+                  "sha256": "2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5",
+                  "pdf_page": 19,
+                  "bbox_pdf": [
+                    62.4,
+                    552.96,
+                    297.12,
+                    569.28
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5.pdf",
+                  "sha256": "2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5",
+                  "pdf_page": 19,
+                  "bbox_pdf": [
+                    62.4,
+                    580.8,
+                    519.36,
+                    610.08
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5.pdf",
+                  "sha256": "2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5",
+                  "pdf_page": 19,
+                  "bbox_pdf": [
+                    147.84,
+                    622.08,
+                    346.56,
+                    636.96
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5.pdf",
+                  "sha256": "2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5",
+                  "pdf_page": 19,
+                  "bbox_pdf": [
+                    62.4,
+                    662.88,
+                    427.2,
+                    678.72
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5.pdf",
+                  "sha256": "2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5",
+                  "pdf_page": 19,
+                  "bbox_pdf": [
+                    61.92,
+                    706.56,
+                    215.04,
+                    721.44
+                  ]
+                }
+              ],
+              "visual_parent": {
+                "figure_id": null,
+                "table_id": null,
+                "caption": null,
+                "member_unit_ids": [],
+                "context_unit_ids": [],
+                "context_roles": {},
+                "figure_labels": null,
+                "association_status": null,
+                "continuation_status": null
+              }
+            }
+          ]
+        },
+        {
+          "score": 0.0667,
+          "document_id": "FDA:761338Orig1Orig2s000:AdminCorres",
+          "version_id": "36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb",
+          "pdf_page": 34,
+          "source_url": "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/761338Orig1Orig2s000AdminCorres.pdf",
+          "evidence_status": "unreviewed_retrieval",
+          "locator_type": "pdf_page",
+          "product_id": "CTP43",
+          "jurisdiction": "US",
+          "doc_group": "correspondence",
+          "document_type": "Administrative and Correspondence Documents",
+          "doc_date": "2025-10-27",
+          "title": "Steqeyma (BLA 761338 ORIG-2) — Administrative and Correspondence Documents",
+          "section": "2.0 QUESTION AND RESPONSES",
+          "best_chunk": "FDA:761338Orig1Orig2s000:AdminCorres:36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb:22c6e946ef74:0034:p960855ebeb0b28dac1",
+          "source_kinds": [
+            "preprocessed"
+          ],
+          "redaction_markers": 1,
+          "also_in": [],
+          "locations": [
+            [
+              "FDA:761338Orig1Orig2s000:AdminCorres",
+              "36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb",
+              34
+            ]
+          ],
+          "excerpt": "Question 4:\nAs mentioned in Question 1, for the initial BLA submission, CELLTRION proposes to\ninclude two strengths of CT-P43 (45 mg and 90 mg) presented in PFS that can \nadminister the same dosage in",
+          "study_candidates": [],
+          "study_attribution_status": "heuristic_unverified",
+          "representation_evidence": [
+            {
+              "chunk_id": "FDA:761338Orig1Orig2s000:AdminCorres:36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb:22c6e946ef74:0034:p960855ebeb0b28dac1",
+              "document_id": "FDA:761338Orig1Orig2s000:AdminCorres",
+              "version_id": "36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb",
+              "pdf_page": 34,
+              "representation": {
+                "unit_ids": [
+                  "x9a2bd839906a58c042e3e76568c3",
+                  "xc478f472175cc1df060f49609d46",
+                  "xce9686faacc4834bb517bce2be6b",
+                  "x4f3fa65b84043cecbf197cd64b68",
+                  "xc3fd34d99480507e79e7c8de0a8b",
+                  "xc38885762f023bedc67317483cf3",
+                  "x3ce63a2248afb233d8fe046b3d51",
+                  "xcee965bb42f666d6ac5c755ac1d6"
+                ],
+                "origins": {
+                  "x9a2bd839906a58c042e3e76568c3": "native_text_layer",
+                  "xc478f472175cc1df060f49609d46": "native_text_layer",
+                  "xce9686faacc4834bb517bce2be6b": "native_text_layer",
+                  "x4f3fa65b84043cecbf197cd64b68": "native_text_layer",
+                  "xc3fd34d99480507e79e7c8de0a8b": "native_text_layer",
+                  "xc38885762f023bedc67317483cf3": "native_text_layer",
+                  "x3ce63a2248afb233d8fe046b3d51": "native_text_layer",
+                  "xcee965bb42f666d6ac5c755ac1d6": "native_text_layer"
+                },
+                "retrieval_eligible": true,
+                "numeric_evidence_eligible": false,
+                "semantic_status": "unverified",
+                "description_review_required": false
+              },
+              "document_metadata": {
+                "ingredient": "ustekinumab",
+                "product_kind": "biosimilar",
+                "family": "correspondence",
+                "author": "mixed",
+                "tier": "record",
+                "default_search": false
+              },
+              "source_refs": [
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb.pdf",
+                  "sha256": "36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb",
+                  "pdf_page": 34,
+                  "bbox_pdf": [
+                    69.12,
+                    86.88,
+                    140.16,
+                    100.8
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb.pdf",
+                  "sha256": "36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb",
+                  "pdf_page": 34,
+                  "bbox_pdf": [
+                    68.16,
+                    101.28,
+                    539.52,
+                    254.88
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb.pdf",
+                  "sha256": "36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb",
+                  "pdf_page": 34,
+                  "bbox_pdf": [
+                    69.12,
+                    266.4,
+                    243.84,
+                    279.84
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb.pdf",
+                  "sha256": "36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb",
+                  "pdf_page": 34,
+                  "bbox_pdf": [
+                    68.16,
+                    280.8,
+                    538.08,
+                    401.28
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb.pdf",
+                  "sha256": "36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb",
+                  "pdf_page": 34,
+                  "bbox_pdf": [
+                    68.16,
+                    413.28,
+                    536.64,
+                    474.72
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb.pdf",
+                  "sha256": "36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb",
+                  "pdf_page": 34,
+                  "bbox_pdf": [
+                    68.16,
+                    487.2,
+                    540.0,
+                    548.16
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb.pdf",
+                  "sha256": "36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb",
+                  "pdf_page": 34,
+                  "bbox_pdf": [
+                    68.64,
+                    561.6,
+                    541.44,
+                    710.4
+                  ]
+                },
+                {
+                  "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb.pdf",
+                  "sha256": "36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb",
+                  "pdf_page": 34,
+                  "bbox_pdf": [
+                    68.64,
+                    718.08,
+                    241.44,
+                    757.92
+                  ]
+                }
+              ],
+              "visual_parent": {
+                "figure_id": null,
+                "table_id": null,
+                "caption": null,
+                "member_unit_ids": [],
+                "context_unit_ids": [],
+                "context_roles": {},
+                "figure_labels": null,
+                "association_status": null,
+                "continuation_status": null
+              }
+            }
+          ]
+        }
+      ],
+      "evidence": {
+        "E1": {
+          "chunk_id": "FDA:761338Orig1Orig2s000:Approv:b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9:a86587dac014:0005:p75e698797958635de1",
+          "document_id": "FDA:761338Orig1Orig2s000:Approv",
+          "version_id": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+          "pdf_page": 5,
+          "title": "Steqeyma (BLA 761338 ORIG-2) — Approval Letter(s)",
+          "source_url": "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/761338Orig1Orig2s000Approv.pdf",
+          "product_id": "CTP43",
+          "jurisdiction": "US",
+          "document_type": "Approval Letter(s)",
+          "document_metadata": {
+            "ingredient": "ustekinumab",
+            "product_kind": "biosimilar",
+            "family": "decision_letter",
+            "author": "regulator",
+            "tier": "record",
+            "default_search": false
+          },
+          "studies": [],
+          "study_candidates": {
+            "version": "source-study-candidates-2",
+            "status": "unverified",
+            "anchors": []
+          },
+          "analysis_context": {
+            "status": "unresolved",
+            "analysis_id": null,
+            "population": null,
+            "comparison": null,
+            "endpoint": null,
+            "timepoint": null
+          },
+          "locator_type": "pdf_page",
+          "pdf_page_label": "5",
+          "text": "introduce or deliver for introduction into interstate commerce, Steqeyma, under your \nexisting Department of Health and Human Services U.S. License No. 1996.\nSteqeyma is indicated for treatment of:\nAdult patients with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\n• moderately to severely active Crohn’s disease (CD)\n• moderately to severely active Ulcerative colitis (UC)\nPediatric patients 6 years and older with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\nMANUFACTURING LOCATIONS\nUnder this license, you are approved to manufacture ustekinumab-stba drug substance\nat CELLTRION, Inc. \n, Incheon, Republic of Korea (FEI 3005241015). The final \nformulated product will be manufactured, filled, labeled, and packaged at CELLTRION \nPharm, Inc., Cheongju, Republic of Korea (FEI 3012279978) \n \n(b) (4)\n(b) (4)\n. You may label your product with the proprietary name,\nSteqeyma, and market it in 45 mg/0.5 mL injection, 90 mg/1.0 mL injection and 130 \nmg/26 mL injection.\nDATING PERIOD\nThe dating period for Steqeyma shall be 36 months from the date of manufacture when \nstored at 5±3 °C. The date of manufacture shall be defined as the date of final sterile \nfiltration of the formulated drug product. The dating period for your drug substance shall \nbe\nmonths from the date of manufacture when stored at \n \n(b) (4)\n(b) (4)\nFDA LOT RELEASE\nYou are not currently required to submit samples of future lots of Steqeyma to the \nCenter for Drug Evaluation and Research (CDER) for release by the Director, CDER, \nunder 21 CFR 610.2. We will continue to monitor compliance with 21 CFR 610.1, \nrequiring completion of tests for conformity with standards applicable to each product \nprior to release of each lot.\nAny changes in the manufacturing, testing, packaging, or labeling of Steqeyma, or in the \nmanufacturing facilities, will require the submission of information to your BLA for our \nreview and written approval, consistent with 21 CFR 601.12.\nU.S. Food and Drug Administration \nSilver Spring, MD 20993 \nwww.fda.gov",
+          "representation": {
+            "unit_ids": [
+              "xdd2ded7077bb5cdab6fb864a2fda",
+              "xbf6af7c80dee00fa4394108f34be",
+              "x9e87bc84f015371749663aab2f56",
+              "x94a240e38ecf3f21e9ed532533fa",
+              "xeba2eada847e3114e2cea6060c13",
+              "xe30dc851aaf22b9acb21450f585a",
+              "x4ff749d8816d28b5128baf43b9b2",
+              "xea8b78b647c1d465fe9416da06a7",
+              "x501e6147d218b4ad21db31977926",
+              "x0c05f2930a83db90702851e827e2",
+              "x14ee5406444b918d62e45c2605ed",
+              "x1b17fb71a6692aeb124a73843dfb",
+              "xaaa9282f3a347544e9c91ed4d051",
+              "x2e2fa594150c5f78e0f230c3743b",
+              "x758dfaf7f339f46ed062e732a9c4",
+              "x6d434c0757b3702a7a15a4508da0",
+              "x31bd806222b2b3211042b66db63e",
+              "x96836947a35cd668e3a07fa1dea9",
+              "x3858e3841b9fc76bfa00e978029f"
+            ],
+            "origins": {
+              "xdd2ded7077bb5cdab6fb864a2fda": "native_text_layer",
+              "xbf6af7c80dee00fa4394108f34be": "native_text_layer",
+              "x9e87bc84f015371749663aab2f56": "native_text_layer",
+              "x94a240e38ecf3f21e9ed532533fa": "native_text_layer",
+              "xeba2eada847e3114e2cea6060c13": "native_text_layer",
+              "xe30dc851aaf22b9acb21450f585a": "native_text_layer",
+              "x4ff749d8816d28b5128baf43b9b2": "native_text_layer",
+              "xea8b78b647c1d465fe9416da06a7": "native_text_layer",
+              "x501e6147d218b4ad21db31977926": "native_text_layer",
+              "x0c05f2930a83db90702851e827e2": "native_text_layer",
+              "x14ee5406444b918d62e45c2605ed": "native_text_layer",
+              "x1b17fb71a6692aeb124a73843dfb": "native_text_layer",
+              "xaaa9282f3a347544e9c91ed4d051": "native_text_layer",
+              "x2e2fa594150c5f78e0f230c3743b": "native_text_layer",
+              "x758dfaf7f339f46ed062e732a9c4": "native_text_layer",
+              "x6d434c0757b3702a7a15a4508da0": "native_text_layer",
+              "x31bd806222b2b3211042b66db63e": "native_text_layer",
+              "x96836947a35cd668e3a07fa1dea9": "native_text_layer",
+              "x3858e3841b9fc76bfa00e978029f": "native_text_layer"
+            },
+            "retrieval_eligible": true,
+            "numeric_evidence_eligible": false,
+            "semantic_status": "unverified",
+            "description_review_required": false
+          },
+          "source_refs": [
+            {
+              "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+              "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+              "pdf_page": 5,
+              "bbox_pdf": [
+                68.64,
+                86.88,
+                518.88,
+                116.64
+              ]
+            },
+            {
+              "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+              "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+              "pdf_page": 5,
+              "bbox_pdf": [
+                69.6,
+                128.16,
+                279.84,
+                143.52
+              ]
+            },
+            {
+              "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+              "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+              "pdf_page": 5,
+              "bbox_pdf": [
+                69.6,
+                156.0,
+                174.72,
+                170.4
+              ]
+            },
+            {
+              "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+              "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+              "pdf_page": 5,
+              "bbox_pdf": [
+                86.88,
+                170.88,
+                535.68,
+                198.72
+              ]
+            },
+            {
+              "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+              "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+              "pdf_page": 5,
+              "bbox_pdf": [
+                87.36,
+                199.68,
+                264.96,
+                213.12
+              ]
+            },
+            {
+              "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+              "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+              "pdf_page": 5,
+              "bbox_pdf": [
+                86.88,
+                214.08,
+                383.04,
+                228.0
+              ]
+            },
+            {
+              "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+              "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+              "pdf_page": 5,
+              "bbox_pdf": [
+                86.88,
+                228.48,
+                383.52,
+                242.88
+              ]
+            },
+            {
+              "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+              "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+              "pdf_page": 5,
+              "bbox_pdf": [
+                70.08,
+                255.84,
+                290.4,
+                270.24
+              ]
+            },
+            {
+              "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+              "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+              "pdf_page": 5,
+              "bbox_pdf": [
+                87.36,
+                270.72,
+                535.68,
+                298.08
+              ]
+            },
+            {
+              "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+              "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+              "pdf_page": 5,
+              "bbox_pdf": [
+                86.88,
+                299.52,
+                264.96,
+                313.44
+              ]
+            },
+            {
+              "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+              "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+              "pdf_page": 5,
+              "bbox_pdf": [
+                69.6,
+                323.52,
+                254.88,
+                338.4
+              ]
+            },
+            {
+              "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+              "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+              "pdf_page": 5,
+              "bbox_pdf": [
+                69.12,
+                352.32,
+                534.72,
+                408.48
+              ]
+            },
+            {
+              "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+              "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+              "pdf_page": 5,
+              "bbox_pdf": [
+                69.12,
+                408.96,
+                532.32,
+                449.76
+              ]
+            },
+            {
+              "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+              "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+              "pdf_page": 5,
+              "bbox_pdf": [
+                69.6,
+                461.76,
+                168.96,
+                476.16
+              ]
+            },
+            {
+              "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+              "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+              "pdf_page": 5,
+              "bbox_pdf": [
+                68.64,
+                489.6,
+                537.6,
+                546.72
+              ]
+            },
+            {
+              "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+              "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+              "pdf_page": 5,
+              "bbox_pdf": [
+                70.08,
+                558.72,
+                185.76,
+                572.64
+              ]
+            },
+            {
+              "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+              "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+              "pdf_page": 5,
+              "bbox_pdf": [
+                68.64,
+                586.08,
+                525.12,
+                657.12
+              ]
+            },
+            {
+              "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+              "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+              "pdf_page": 5,
+              "bbox_pdf": [
+                69.12,
+                668.64,
+                541.92,
+                712.32
+              ]
+            },
+            {
+              "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+              "sha256": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+              "pdf_page": 5,
+              "bbox_pdf": [
+                69.12,
+                719.04,
+                241.44,
+                757.92
+              ]
+            }
+          ],
+          "source_spans": [
+            {
+              "unit_index": 46,
+              "unit_id": "xdd2ded7077bb5cdab6fb864a2fda",
+              "representation_start": 0,
+              "representation_end": 157,
+              "separator_before": "",
+              "role": "content"
+            },
+            {
+              "unit_index": 47,
+              "unit_id": "xbf6af7c80dee00fa4394108f34be",
+              "representation_start": 0,
+              "representation_end": 39,
+              "separator_before": "\n",
+              "role": "content"
+            },
+            {
+              "unit_index": 48,
+              "unit_id": "x9e87bc84f015371749663aab2f56",
+              "representation_start": 0,
+              "representation_end": 20,
+              "separator_before": "\n",
+              "role": "content"
+            },
+            {
+              "unit_index": 49,
+              "unit_id": "x94a240e38ecf3f21e9ed532533fa",
+              "representation_start": 0,
+              "representation_end": 99,
+              "separator_before": "\n",
+              "role": "content"
+            },
+            {
+              "unit_index": 50,
+              "unit_id": "xeba2eada847e3114e2cea6060c13",
+              "representation_start": 0,
+              "representation_end": 34,
+              "separator_before": "\n",
+              "role": "content"
+            },
+            {
+              "unit_index": 51,
+              "unit_id": "xe30dc851aaf22b9acb21450f585a",
+              "representation_start": 0,
+              "representation_end": 52,
+              "separator_before": "\n",
+              "role": "content"
+            },
+            {
+              "unit_index": 52,
+              "unit_id": "x4ff749d8816d28b5128baf43b9b2",
+              "representation_start": 0,
+              "representation_end": 55,
+              "separator_before": "\n",
+              "role": "content"
+            },
+            {
+              "unit_index": 53,
+              "unit_id": "xea8b78b647c1d465fe9416da06a7",
+              "representation_start": 0,
+              "representation_end": 42,
+              "separator_before": "\n",
+              "role": "content"
+            },
+            {
+              "unit_index": 54,
+              "unit_id": "x501e6147d218b4ad21db31977926",
+              "representation_start": 0,
+              "representation_end": 99,
+              "separator_before": "\n",
+              "role": "content"
+            },
+            {
+              "unit_index": 55,
+              "unit_id": "x0c05f2930a83db90702851e827e2",
+              "representation_start": 0,
+              "representation_end": 34,
+              "separator_before": "\n",
+              "role": "content"
+            },
+            {
+              "unit_index": 56,
+              "unit_id": "x14ee5406444b918d62e45c2605ed",
+              "representation_start": 0,
+              "representation_end": 23,
+              "separator_before": "\n",
+              "role": "content"
+            },
+            {
+              "unit_index": 57,
+              "unit_id": "x1b17fb71a6692aeb124a73843dfb",
+              "representation_start": 0,
+              "representation_end": 323,
+              "separator_before": "\n",
+              "role": "content"
+            },
+            {
+              "unit_index": 58,
+              "unit_id": "xaaa9282f3a347544e9c91ed4d051",
+              "representation_start": 0,
+              "representation_end": 158,
+              "separator_before": "\n",
+              "role": "content"
+            },
+            {
+              "unit_index": 59,
+              "unit_id": "x2e2fa594150c5f78e0f230c3743b",
+              "representation_start": 0,
+              "representation_end": 13,
+              "separator_before": "\n",
+              "role": "content"
+            },
+            {
+              "unit_index": 60,
+              "unit_id": "x758dfaf7f339f46ed062e732a9c4",
+              "representation_start": 0,
+              "representation_end": 338,
+              "separator_before": "\n",
+              "role": "content"
+            },
+            {
+              "unit_index": 61,
+              "unit_id": "x6d434c0757b3702a7a15a4508da0",
+              "representation_start": 0,
+              "representation_end": 15,
+              "separator_before": "\n",
+              "role": "content"
+            },
+            {
+              "unit_index": 62,
+              "unit_id": "x31bd806222b2b3211042b66db63e",
+              "representation_start": 0,
+              "representation_end": 363,
+              "separator_before": "\n",
+              "role": "content"
+            },
+            {
+              "unit_index": 63,
+              "unit_id": "x96836947a35cd668e3a07fa1dea9",
+              "representation_start": 0,
+              "representation_end": 239,
+              "separator_before": "\n",
+              "role": "content"
+            },
+            {
+              "unit_index": 64,
+              "unit_id": "x3858e3841b9fc76bfa00e978029f",
+              "representation_start": 0,
+              "representation_end": 71,
+              "separator_before": "\n",
+              "role": "content"
+            }
+          ],
+          "structure": {
+            "kind": "text",
+            "section_path": [],
+            "parent_id": "FDA:761338Orig1Orig2s000:Approv:b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9:p5:ae02d23f0764aac7",
+            "section_id": null,
+            "ancestor_section_ids": [],
+            "heading_studies": [],
+            "heading_anchors": [],
+            "previous_chunk_id": null,
+            "next_chunk_id": null,
+            "caption": null,
+            "table_id": null,
+            "figure_id": null,
+            "logical_group_id": null,
+            "member_unit_ids": [],
+            "context_unit_ids": [],
+            "context_roles": {},
+            "association_status": null,
+            "continuation_status": null,
+            "part_index": 0,
+            "part_count": 1,
+            "repeated_context": false
+          },
+          "retrieval_role": "retrieved",
+          "also_in": [],
+          "evidence_status": "unreviewed_retrieval",
+          "review_links": [
+            {
+              "pdf_page": 5,
+              "asset_id": "xdd2ded7077bb5cdab6fb864a2fda",
+              "url": "http://127.0.0.1:8766/#doc=d51&page=5&asset=xdd2ded7077bb5cdab6fb864a2fda&index=bc2ef2ce7211c3f37d3f3150159013c9231b5f57d67cb26601b2a214e4ca626c"
+            },
+            {
+              "pdf_page": 5,
+              "asset_id": "xbf6af7c80dee00fa4394108f34be",
+              "url": "http://127.0.0.1:8766/#doc=d51&page=5&asset=xbf6af7c80dee00fa4394108f34be&index=bc2ef2ce7211c3f37d3f3150159013c9231b5f57d67cb26601b2a214e4ca626c"
+            },
+            {
+              "pdf_page": 5,
+              "asset_id": "x9e87bc84f015371749663aab2f56",
+              "url": "http://127.0.0.1:8766/#doc=d51&page=5&asset=x9e87bc84f015371749663aab2f56&index=bc2ef2ce7211c3f37d3f3150159013c9231b5f57d67cb26601b2a214e4ca626c"
+            },
+            {
+              "pdf_page": 5,
+              "asset_id": "x94a240e38ecf3f21e9ed532533fa",
+              "url": "http://127.0.0.1:8766/#doc=d51&page=5&asset=x94a240e38ecf3f21e9ed532533fa&index=bc2ef2ce7211c3f37d3f3150159013c9231b5f57d67cb26601b2a214e4ca626c"
+            },
+            {
+              "pdf_page": 5,
+              "asset_id": "xeba2eada847e3114e2cea6060c13",
+              "url": "http://127.0.0.1:8766/#doc=d51&page=5&asset=xeba2eada847e3114e2cea6060c13&index=bc2ef2ce7211c3f37d3f3150159013c9231b5f57d67cb26601b2a214e4ca626c"
+            },
+            {
+              "pdf_page": 5,
+              "asset_id": "xe30dc851aaf22b9acb21450f585a",
+              "url": "http://127.0.0.1:8766/#doc=d51&page=5&asset=xe30dc851aaf22b9acb21450f585a&index=bc2ef2ce7211c3f37d3f3150159013c9231b5f57d67cb26601b2a214e4ca626c"
+            },
+            {
+              "pdf_page": 5,
+              "asset_id": "x4ff749d8816d28b5128baf43b9b2",
+              "url": "http://127.0.0.1:8766/#doc=d51&page=5&asset=x4ff749d8816d28b5128baf43b9b2&index=bc2ef2ce7211c3f37d3f3150159013c9231b5f57d67cb26601b2a214e4ca626c"
+            },
+            {
+              "pdf_page": 5,
+              "asset_id": "xea8b78b647c1d465fe9416da06a7",
+              "url": "http://127.0.0.1:8766/#doc=d51&page=5&asset=xea8b78b647c1d465fe9416da06a7&index=bc2ef2ce7211c3f37d3f3150159013c9231b5f57d67cb26601b2a214e4ca626c"
+            },
+            {
+              "pdf_page": 5,
+              "asset_id": "x501e6147d218b4ad21db31977926",
+              "url": "http://127.0.0.1:8766/#doc=d51&page=5&asset=x501e6147d218b4ad21db31977926&index=bc2ef2ce7211c3f37d3f3150159013c9231b5f57d67cb26601b2a214e4ca626c"
+            },
+            {
+              "pdf_page": 5,
+              "asset_id": "x0c05f2930a83db90702851e827e2",
+              "url": "http://127.0.0.1:8766/#doc=d51&page=5&asset=x0c05f2930a83db90702851e827e2&index=bc2ef2ce7211c3f37d3f3150159013c9231b5f57d67cb26601b2a214e4ca626c"
+            },
+            {
+              "pdf_page": 5,
+              "asset_id": "x14ee5406444b918d62e45c2605ed",
+              "url": "http://127.0.0.1:8766/#doc=d51&page=5&asset=x14ee5406444b918d62e45c2605ed&index=bc2ef2ce7211c3f37d3f3150159013c9231b5f57d67cb26601b2a214e4ca626c"
+            },
+            {
+              "pdf_page": 5,
+              "asset_id": "x1b17fb71a6692aeb124a73843dfb",
+              "url": "http://127.0.0.1:8766/#doc=d51&page=5&asset=x1b17fb71a6692aeb124a73843dfb&index=bc2ef2ce7211c3f37d3f3150159013c9231b5f57d67cb26601b2a214e4ca626c"
+            },
+            {
+              "pdf_page": 5,
+              "asset_id": "xaaa9282f3a347544e9c91ed4d051",
+              "url": "http://127.0.0.1:8766/#doc=d51&page=5&asset=xaaa9282f3a347544e9c91ed4d051&index=bc2ef2ce7211c3f37d3f3150159013c9231b5f57d67cb26601b2a214e4ca626c"
+            },
+            {
+              "pdf_page": 5,
+              "asset_id": "x2e2fa594150c5f78e0f230c3743b",
+              "url": "http://127.0.0.1:8766/#doc=d51&page=5&asset=x2e2fa594150c5f78e0f230c3743b&index=bc2ef2ce7211c3f37d3f3150159013c9231b5f57d67cb26601b2a214e4ca626c"
+            },
+            {
+              "pdf_page": 5,
+              "asset_id": "x758dfaf7f339f46ed062e732a9c4",
+              "url": "http://127.0.0.1:8766/#doc=d51&page=5&asset=x758dfaf7f339f46ed062e732a9c4&index=bc2ef2ce7211c3f37d3f3150159013c9231b5f57d67cb26601b2a214e4ca626c"
+            },
+            {
+              "pdf_page": 5,
+              "asset_id": "x6d434c0757b3702a7a15a4508da0",
+              "url": "http://127.0.0.1:8766/#doc=d51&page=5&asset=x6d434c0757b3702a7a15a4508da0&index=bc2ef2ce7211c3f37d3f3150159013c9231b5f57d67cb26601b2a214e4ca626c"
+            },
+            {
+              "pdf_page": 5,
+              "asset_id": "x31bd806222b2b3211042b66db63e",
+              "url": "http://127.0.0.1:8766/#doc=d51&page=5&asset=x31bd806222b2b3211042b66db63e&index=bc2ef2ce7211c3f37d3f3150159013c9231b5f57d67cb26601b2a214e4ca626c"
+            },
+            {
+              "pdf_page": 5,
+              "asset_id": "x96836947a35cd668e3a07fa1dea9",
+              "url": "http://127.0.0.1:8766/#doc=d51&page=5&asset=x96836947a35cd668e3a07fa1dea9&index=bc2ef2ce7211c3f37d3f3150159013c9231b5f57d67cb26601b2a214e4ca626c"
+            },
+            {
+              "pdf_page": 5,
+              "asset_id": "x3858e3841b9fc76bfa00e978029f",
+              "url": "http://127.0.0.1:8766/#doc=d51&page=5&asset=x3858e3841b9fc76bfa00e978029f&index=bc2ef2ce7211c3f37d3f3150159013c9231b5f57d67cb26601b2a214e4ca626c"
+            }
+          ]
+        },
+        "E2": {
+          "chunk_id": "heading:x35b40f0dc0bc7871350e07a798d2:0:26",
+          "document_id": "FDA:761338Orig1Orig2s000:AdminCorres",
+          "version_id": "36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb",
+          "pdf_page": 30,
+          "title": "Steqeyma (BLA 761338 ORIG-2) — Administrative and Correspondence Documents",
+          "source_url": "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/761338Orig1Orig2s000AdminCorres.pdf",
+          "product_id": "CTP43",
+          "jurisdiction": "US",
+          "document_type": "Administrative and Correspondence Documents",
+          "document_metadata": {
+            "ingredient": "ustekinumab",
+            "product_kind": "biosimilar",
+            "family": "correspondence",
+            "author": "mixed",
+            "tier": "record",
+            "default_search": false
+          },
+          "studies": [],
+          "study_candidates": {
+            "version": "source-study-candidates-2",
+            "status": "unverified",
+            "anchors": []
+          },
+          "analysis_context": {
+            "status": "unresolved",
+            "analysis_id": null,
+            "population": null,
+            "comparison": null,
+            "endpoint": null,
+            "timepoint": null
+          },
+          "locator_type": "pdf_page",
+          "pdf_page_label": "34",
+          "text": "2.0\nQUESTION AND RESPONSES",
+          "representation": {
+            "unit_ids": [
+              "x35b40f0dc0bc7871350e07a798d2"
+            ],
+            "origins": {
+              "x35b40f0dc0bc7871350e07a798d2": "native_text_layer"
+            },
+            "retrieval_eligible": true,
+            "numeric_evidence_eligible": false,
+            "semantic_status": "unverified",
+            "description_review_required": false
+          },
+          "source_refs": [
+            {
+              "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\raw\\36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb.pdf",
+              "sha256": "36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb",
+              "pdf_page": 30,
+              "bbox_pdf": [
+                69.12,
+                100.32,
+                280.32,
+                114.72
+              ]
+            }
+          ],
+          "source_spans": [
+            {
+              "unit_index": 410,
+              "unit_id": "x35b40f0dc0bc7871350e07a798d2",
+              "representation_start": 0,
+              "representation_end": 26,
+              "separator_before": "",
+              "role": "content"
+            }
+          ],
+          "structure": {
+            "kind": "text",
+            "section_path": [
+              "2.0 QUESTION AND RESPONSES"
+            ],
+            "parent_id": "FDA:761338Orig1Orig2s000:AdminCorres:36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb:p34:26c958dc2fccc2aa",
+            "section_id": "FDA:761338Orig1Orig2s000:AdminCorres:36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb:s3f7f42db4550e76d",
+            "ancestor_section_ids": [
+              "FDA:761338Orig1Orig2s000:AdminCorres:36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb:s3f7f42db4550e76d"
+            ],
+            "heading_studies": [],
+            "heading_anchors": [
+              {
+                "section_id": "FDA:761338Orig1Orig2s000:AdminCorres:36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb:s3f7f42db4550e76d",
+                "parent_section_id": null,
+                "title": "2.0 QUESTION AND RESPONSES",
+                "kind": "numbered",
+                "basis": "numbered_heading",
+                "study_keys": [],
+                "depth": 1,
+                "heading_location": {
+                  "pdf_page": 30,
+                  "source_kind": "preprocessed",
+                  "region": null,
+                  "block_id": "x35b40f0dc0bc7871350e07a798d2",
+                  "bbox_pdf": [
+                    69.12,
+                    100.32,
+                    280.32,
+                    114.72
+                  ],
+                  "line_start": 0,
+                  "line_end": 1,
+                  "representation_start": 0,
+                  "representation_end": 26,
+                  "joiner": "\n"
+                }
+              }
+            ],
+            "previous_chunk_id": null,
+            "next_chunk_id": null,
+            "caption": null,
+            "table_id": null,
+            "figure_id": null,
+            "logical_group_id": null,
+            "member_unit_ids": [],
+            "context_unit_ids": [],
+            "context_roles": {},
+            "association_status": null,
+            "continuation_status": null,
+            "part_index": 0,
+            "part_count": 1,
+            "repeated_context": false
+          },
+          "retrieval_role": "source_heading",
+          "also_in": [],
+          "evidence_status": "unreviewed_retrieval",
+          "review_links": [
+            {
+              "pdf_page": 30,
+              "asset_id": "x35b40f0dc0bc7871350e07a798d2",
+              "url": "http://127.0.0.1:8766/#doc=d53&page=30&asset=x35b40f0dc0bc7871350e07a798d2&index=bc2ef2ce7211c3f37d3f3150159013c9231b5f57d67cb26601b2a214e4ca626c"
+            }
+          ]
+        }
+      },
+      "candidates": {
+        "S1": {
+          "id": "S1",
+          "evidence": "E1",
+          "value": "introduce or deliver for introduction into interstate commerce, Steqeyma, under your \nexisting Department of Health and Human Services U.S. License No. 1996.\nSteqeyma is indicated for treatment of:\n",
+          "quote": "introduce or deliver for introduction into interstate commerce, Steqeyma, under your \nexisting Department of Health and Human Services U.S. License No. 1996.\nSteqeyma is indicated for treatment of:\n",
+          "start": 0,
+          "end": 198,
+          "quote_start": 0,
+          "quote_end": 198,
+          "kind": "source_paragraph",
+          "printed_studies": [],
+          "value_eligible": false
+        },
+        "S2": {
+          "id": "S2",
+          "evidence": "E1",
+          "value": "1996",
+          "quote": "introduce or deliver for introduction into interstate commerce, Steqeyma, under your \nexisting Department of Health and Human Services U.S. License No. 1996.\nSteqeyma is indicated for treatment of:\n",
+          "start": 152,
+          "end": 156,
+          "quote_start": 0,
+          "quote_end": 198,
+          "kind": "literal_number",
+          "context_ids": [
+            "S1"
+          ],
+          "printed_studies": [],
+          "value_eligible": false
+        },
+        "S3": {
+          "id": "S3",
+          "evidence": "E1",
+          "value": "introduce or deliver for introduction into interstate commerce, Steqeyma, under your ",
+          "quote": "introduce or deliver for introduction into interstate commerce, Steqeyma, under your ",
+          "start": 0,
+          "end": 85,
+          "quote_start": 0,
+          "quote_end": 85,
+          "kind": "source_line",
+          "context_ids": [
+            "S1"
+          ],
+          "printed_studies": [],
+          "value_eligible": false
+        },
+        "S4": {
+          "id": "S4",
+          "evidence": "E1",
+          "value": "existing Department of Health and Human Services U.S. License No. 1996.",
+          "quote": "existing Department of Health and Human Services U.S. License No. 1996.",
+          "start": 86,
+          "end": 157,
+          "quote_start": 86,
+          "quote_end": 157,
+          "kind": "source_line",
+          "context_ids": [
+            "S1"
+          ],
+          "printed_studies": [],
+          "value_eligible": false
+        },
+        "S5": {
+          "id": "S5",
+          "evidence": "E1",
+          "value": "Steqeyma is indicated for treatment of:",
+          "quote": "Steqeyma is indicated for treatment of:",
+          "start": 158,
+          "end": 197,
+          "quote_start": 158,
+          "quote_end": 197,
+          "kind": "source_line",
+          "context_ids": [
+            "S1"
+          ],
+          "printed_studies": [],
+          "value_eligible": false
+        },
+        "S6": {
+          "id": "S6",
+          "evidence": "E1",
+          "value": "Adult patients with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\n• moderately to severely active Crohn’s disease (CD)\n• moderately to severely active Ulcerative colitis (UC)\n",
+          "quote": "Adult patients with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\n• moderately to severely active Crohn’s disease (CD)\n• moderately to severely active Ulcerative colitis (UC)\n",
+          "start": 198,
+          "end": 463,
+          "quote_start": 198,
+          "quote_end": 463,
+          "kind": "source_paragraph",
+          "printed_studies": [],
+          "value_eligible": false
+        },
+        "S7": {
+          "id": "S7",
+          "evidence": "E1",
+          "value": "Adult patients with:",
+          "quote": "Adult patients with:",
+          "start": 198,
+          "end": 218,
+          "quote_start": 198,
+          "quote_end": 218,
+          "kind": "source_line",
+          "context_ids": [
+            "S6"
+          ],
+          "printed_studies": [],
+          "value_eligible": false
+        },
+        "S8": {
+          "id": "S8",
+          "evidence": "E1",
+          "value": "• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy",
+          "quote": "• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy",
+          "start": 219,
+          "end": 298,
+          "quote_start": 219,
+          "quote_end": 298,
+          "kind": "source_line",
+          "context_ids": [
+            "S6"
+          ],
+          "printed_studies": [],
+          "value_eligible": false
+        },
+        "S9": {
+          "id": "S9",
+          "evidence": "E1",
+          "value": "or systemic therapy",
+          "quote": "or systemic therapy",
+          "start": 299,
+          "end": 318,
+          "quote_start": 299,
+          "quote_end": 318,
+          "kind": "source_line",
+          "context_ids": [
+            "S6"
+          ],
+          "printed_studies": [],
+          "value_eligible": false
+        },
+        "S10": {
+          "id": "S10",
+          "evidence": "E1",
+          "value": "• active psoriatic arthritis (PsA)",
+          "quote": "• active psoriatic arthritis (PsA)",
+          "start": 319,
+          "end": 353,
+          "quote_start": 319,
+          "quote_end": 353,
+          "kind": "source_line",
+          "context_ids": [
+            "S6"
+          ],
+          "printed_studies": [],
+          "value_eligible": false
+        },
+        "S11": {
+          "id": "S11",
+          "evidence": "E1",
+          "value": "• moderately to severely active Crohn’s disease (CD)",
+          "quote": "• moderately to severely active Crohn’s disease (CD)",
+          "start": 354,
+          "end": 406,
+          "quote_start": 354,
+          "quote_end": 406,
+          "kind": "source_line",
+          "context_ids": [
+            "S6"
+          ],
+          "printed_studies": [],
+          "value_eligible": false
+        },
+        "S12": {
+          "id": "S12",
+          "evidence": "E1",
+          "value": "• moderately to severely active Ulcerative colitis (UC)",
+          "quote": "• moderately to severely active Ulcerative colitis (UC)",
+          "start": 407,
+          "end": 462,
+          "quote_start": 407,
+          "quote_end": 462,
+          "kind": "source_line",
+          "context_ids": [
+            "S6"
+          ],
+          "printed_studies": [],
+          "value_eligible": false
+        },
+        "S13": {
+          "id": "S13",
+          "evidence": "E1",
+          "value": "Pediatric patients 6 years and older with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\nMANUFACTURING LOCATIONS\nUnder this license, you are approved to manufacture ustekinumab-stba drug substance\nat CELLTRION, Inc. \n, Incheon, Republic of Korea (FEI 3005241015). The final \nformulated product will be manufactured, filled, labeled, and packaged at CELLTRION \nPharm, Inc., Cheongju, Republic of Korea (FEI 3012279978) \n \n(b) (4)\n(b) (4)\n. You may label your product with the proprietary name,\nSteqeyma, and market it in 45 mg/0.5 mL injection, 90 mg/1.0 mL injection and 130 \nmg/26 mL injection.\nDATING PERIOD\nThe dating period for Steqeyma shall be 36 months from the date of manufacture when \nstored at 5±3 °C. The date of manufacture shall be defined as the date of final sterile \nfiltration of the formulated drug product. The dating period for your drug substance shall \nbe\nmonths from the date of manufacture when stored at \n \n(b) (4)\n(b) (4)\nFDA LOT RELEASE\nYou are not currently required to submit samples of future lots of Steqeyma to the \nCenter for Drug Evaluation and Research (CDER) for release by the Director, CDER, \nunder 21 CFR 610.2. We will continue to monitor compliance with 21 CFR 610.1, \nrequiring completion of tests for conformity with standards applicable to each product \nprior to release of each lot.\nAny changes in the manufacturing, testing, packaging, or labeling of Steqeyma, or in the \nmanufacturing facilities, will require the submission of information to your BLA for our \nreview and written approval, consistent with 21 CFR 601.12.\nU.S. Food and Drug Administration \nSilver Spring, MD 20993 \nwww.fda.gov",
+          "quote": "Pediatric patients 6 years and older with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\nMANUFACTURING LOCATIONS\nUnder this license, you are approved to manufacture ustekinumab-stba drug substance\nat CELLTRION, Inc. \n, Incheon, Republic of Korea (FEI 3005241015). The final \nformulated product will be manufactured, filled, labeled, and packaged at CELLTRION \nPharm, Inc., Cheongju, Republic of Korea (FEI 3012279978) \n \n(b) (4)\n(b) (4)\n. You may label your product with the proprietary name,\nSteqeyma, and market it in 45 mg/0.5 mL injection, 90 mg/1.0 mL injection and 130 \nmg/26 mL injection.\nDATING PERIOD\nThe dating period for Steqeyma shall be 36 months from the date of manufacture when \nstored at 5±3 °C. The date of manufacture shall be defined as the date of final sterile \nfiltration of the formulated drug product. The dating period for your drug substance shall \nbe\nmonths from the date of manufacture when stored at \n \n(b) (4)\n(b) (4)\nFDA LOT RELEASE\nYou are not currently required to submit samples of future lots of Steqeyma to the \nCenter for Drug Evaluation and Research (CDER) for release by the Director, CDER, \nunder 21 CFR 610.2. We will continue to monitor compliance with 21 CFR 610.1, \nrequiring completion of tests for conformity with standards applicable to each product \nprior to release of each lot.\nAny changes in the manufacturing, testing, packaging, or labeling of Steqeyma, or in the \nmanufacturing facilities, will require the submission of information to your BLA for our \nreview and written approval, consistent with 21 CFR 601.12.\nU.S. Food and Drug Administration \nSilver Spring, MD 20993 \nwww.fda.gov",
+          "start": 463,
+          "end": 2192,
+          "quote_start": 463,
+          "quote_end": 2192,
+          "kind": "source_paragraph",
+          "printed_studies": []
+        },
+        "S14": {
+          "id": "S14",
+          "evidence": "E1",
+          "value": "6 years",
+          "quote": "Pediatric patients 6 years and older with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\nMANUFACTURING LOCATIONS\nUnder this license, you are approved to manufacture ustekinumab-stba drug substance\nat CELLTRION, Inc. \n, Incheon, Republic of Korea (FEI 3005241015). The final \nformulated product will be manufactured, filled, labeled, and packaged at CELLTRION \nPharm, Inc., Cheongju, Republic of Korea (FEI 3012279978) \n \n(b) (4)\n(b) (4)\n. You may label your product with the proprietary name,\nSteqeyma, and market it in 45 mg/0.5 mL injection, 90 mg/1.0 mL injection and 130 \nmg/26 mL injection.\nDATING PERIOD\nThe dating period for Steqeyma shall be 36 months from the date of manufacture when \nstored at 5±3 °C. The date of manufacture shall be defined as the date of final sterile \nfiltration of the formulated drug product. The dating period for your drug substance shall \nbe\nmonths from the date of manufacture when stored at \n \n(b) (4)\n(b) (4)\nFDA LOT RELEASE\nYou are not currently required to submit samples of future lots of Steqeyma to the \nCenter for Drug Evaluation and Research (CDER) for release by the Director, CDER, \nunder 21 CFR 610.2. We will continue to monitor compliance with 21 CFR 610.1, \nrequiring completion of tests for conformity with standards applicable to each product \nprior to release of each lot.\nAny changes in the manufacturing, testing, packaging, or labeling of Steqeyma, or in the \nmanufacturing facilities, will require the submission of information to your BLA for our \nreview and written approval, consistent with 21 CFR 601.12.\nU.S. Food and Drug Administration \nSilver Spring, MD 20993 \nwww.fda.gov",
+          "start": 482,
+          "end": 489,
+          "quote_start": 463,
+          "quote_end": 2192,
+          "kind": "literal_number",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S15": {
+          "id": "S15",
+          "evidence": "E1",
+          "value": "3005241015)",
+          "quote": "Pediatric patients 6 years and older with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\nMANUFACTURING LOCATIONS\nUnder this license, you are approved to manufacture ustekinumab-stba drug substance\nat CELLTRION, Inc. \n, Incheon, Republic of Korea (FEI 3005241015). The final \nformulated product will be manufactured, filled, labeled, and packaged at CELLTRION \nPharm, Inc., Cheongju, Republic of Korea (FEI 3012279978) \n \n(b) (4)\n(b) (4)\n. You may label your product with the proprietary name,\nSteqeyma, and market it in 45 mg/0.5 mL injection, 90 mg/1.0 mL injection and 130 \nmg/26 mL injection.\nDATING PERIOD\nThe dating period for Steqeyma shall be 36 months from the date of manufacture when \nstored at 5±3 °C. The date of manufacture shall be defined as the date of final sterile \nfiltration of the formulated drug product. The dating period for your drug substance shall \nbe\nmonths from the date of manufacture when stored at \n \n(b) (4)\n(b) (4)\nFDA LOT RELEASE\nYou are not currently required to submit samples of future lots of Steqeyma to the \nCenter for Drug Evaluation and Research (CDER) for release by the Director, CDER, \nunder 21 CFR 610.2. We will continue to monitor compliance with 21 CFR 610.1, \nrequiring completion of tests for conformity with standards applicable to each product \nprior to release of each lot.\nAny changes in the manufacturing, testing, packaging, or labeling of Steqeyma, or in the \nmanufacturing facilities, will require the submission of information to your BLA for our \nreview and written approval, consistent with 21 CFR 601.12.\nU.S. Food and Drug Administration \nSilver Spring, MD 20993 \nwww.fda.gov",
+          "start": 803,
+          "end": 814,
+          "quote_start": 463,
+          "quote_end": 2192,
+          "kind": "literal_number",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S16": {
+          "id": "S16",
+          "evidence": "E1",
+          "value": "3012279978)",
+          "quote": "Pediatric patients 6 years and older with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\nMANUFACTURING LOCATIONS\nUnder this license, you are approved to manufacture ustekinumab-stba drug substance\nat CELLTRION, Inc. \n, Incheon, Republic of Korea (FEI 3005241015). The final \nformulated product will be manufactured, filled, labeled, and packaged at CELLTRION \nPharm, Inc., Cheongju, Republic of Korea (FEI 3012279978) \n \n(b) (4)\n(b) (4)\n. You may label your product with the proprietary name,\nSteqeyma, and market it in 45 mg/0.5 mL injection, 90 mg/1.0 mL injection and 130 \nmg/26 mL injection.\nDATING PERIOD\nThe dating period for Steqeyma shall be 36 months from the date of manufacture when \nstored at 5±3 °C. The date of manufacture shall be defined as the date of final sterile \nfiltration of the formulated drug product. The dating period for your drug substance shall \nbe\nmonths from the date of manufacture when stored at \n \n(b) (4)\n(b) (4)\nFDA LOT RELEASE\nYou are not currently required to submit samples of future lots of Steqeyma to the \nCenter for Drug Evaluation and Research (CDER) for release by the Director, CDER, \nunder 21 CFR 610.2. We will continue to monitor compliance with 21 CFR 610.1, \nrequiring completion of tests for conformity with standards applicable to each product \nprior to release of each lot.\nAny changes in the manufacturing, testing, packaging, or labeling of Steqeyma, or in the \nmanufacturing facilities, will require the submission of information to your BLA for our \nreview and written approval, consistent with 21 CFR 601.12.\nU.S. Food and Drug Administration \nSilver Spring, MD 20993 \nwww.fda.gov",
+          "start": 958,
+          "end": 969,
+          "quote_start": 463,
+          "quote_end": 2192,
+          "kind": "literal_number",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S17": {
+          "id": "S17",
+          "evidence": "E1",
+          "value": "(4)",
+          "quote": "Pediatric patients 6 years and older with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\nMANUFACTURING LOCATIONS\nUnder this license, you are approved to manufacture ustekinumab-stba drug substance\nat CELLTRION, Inc. \n, Incheon, Republic of Korea (FEI 3005241015). The final \nformulated product will be manufactured, filled, labeled, and packaged at CELLTRION \nPharm, Inc., Cheongju, Republic of Korea (FEI 3012279978) \n \n(b) (4)\n(b) (4)\n. You may label your product with the proprietary name,\nSteqeyma, and market it in 45 mg/0.5 mL injection, 90 mg/1.0 mL injection and 130 \nmg/26 mL injection.\nDATING PERIOD\nThe dating period for Steqeyma shall be 36 months from the date of manufacture when \nstored at 5±3 °C. The date of manufacture shall be defined as the date of final sterile \nfiltration of the formulated drug product. The dating period for your drug substance shall \nbe\nmonths from the date of manufacture when stored at \n \n(b) (4)\n(b) (4)\nFDA LOT RELEASE\nYou are not currently required to submit samples of future lots of Steqeyma to the \nCenter for Drug Evaluation and Research (CDER) for release by the Director, CDER, \nunder 21 CFR 610.2. We will continue to monitor compliance with 21 CFR 610.1, \nrequiring completion of tests for conformity with standards applicable to each product \nprior to release of each lot.\nAny changes in the manufacturing, testing, packaging, or labeling of Steqeyma, or in the \nmanufacturing facilities, will require the submission of information to your BLA for our \nreview and written approval, consistent with 21 CFR 601.12.\nU.S. Food and Drug Administration \nSilver Spring, MD 20993 \nwww.fda.gov",
+          "start": 977,
+          "end": 980,
+          "quote_start": 463,
+          "quote_end": 2192,
+          "kind": "literal_number",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S18": {
+          "id": "S18",
+          "evidence": "E1",
+          "value": "(4)",
+          "quote": "Pediatric patients 6 years and older with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\nMANUFACTURING LOCATIONS\nUnder this license, you are approved to manufacture ustekinumab-stba drug substance\nat CELLTRION, Inc. \n, Incheon, Republic of Korea (FEI 3005241015). The final \nformulated product will be manufactured, filled, labeled, and packaged at CELLTRION \nPharm, Inc., Cheongju, Republic of Korea (FEI 3012279978) \n \n(b) (4)\n(b) (4)\n. You may label your product with the proprietary name,\nSteqeyma, and market it in 45 mg/0.5 mL injection, 90 mg/1.0 mL injection and 130 \nmg/26 mL injection.\nDATING PERIOD\nThe dating period for Steqeyma shall be 36 months from the date of manufacture when \nstored at 5±3 °C. The date of manufacture shall be defined as the date of final sterile \nfiltration of the formulated drug product. The dating period for your drug substance shall \nbe\nmonths from the date of manufacture when stored at \n \n(b) (4)\n(b) (4)\nFDA LOT RELEASE\nYou are not currently required to submit samples of future lots of Steqeyma to the \nCenter for Drug Evaluation and Research (CDER) for release by the Director, CDER, \nunder 21 CFR 610.2. We will continue to monitor compliance with 21 CFR 610.1, \nrequiring completion of tests for conformity with standards applicable to each product \nprior to release of each lot.\nAny changes in the manufacturing, testing, packaging, or labeling of Steqeyma, or in the \nmanufacturing facilities, will require the submission of information to your BLA for our \nreview and written approval, consistent with 21 CFR 601.12.\nU.S. Food and Drug Administration \nSilver Spring, MD 20993 \nwww.fda.gov",
+          "start": 985,
+          "end": 988,
+          "quote_start": 463,
+          "quote_end": 2192,
+          "kind": "literal_number",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S19": {
+          "id": "S19",
+          "evidence": "E1",
+          "value": "45 mg",
+          "quote": "Pediatric patients 6 years and older with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\nMANUFACTURING LOCATIONS\nUnder this license, you are approved to manufacture ustekinumab-stba drug substance\nat CELLTRION, Inc. \n, Incheon, Republic of Korea (FEI 3005241015). The final \nformulated product will be manufactured, filled, labeled, and packaged at CELLTRION \nPharm, Inc., Cheongju, Republic of Korea (FEI 3012279978) \n \n(b) (4)\n(b) (4)\n. You may label your product with the proprietary name,\nSteqeyma, and market it in 45 mg/0.5 mL injection, 90 mg/1.0 mL injection and 130 \nmg/26 mL injection.\nDATING PERIOD\nThe dating period for Steqeyma shall be 36 months from the date of manufacture when \nstored at 5±3 °C. The date of manufacture shall be defined as the date of final sterile \nfiltration of the formulated drug product. The dating period for your drug substance shall \nbe\nmonths from the date of manufacture when stored at \n \n(b) (4)\n(b) (4)\nFDA LOT RELEASE\nYou are not currently required to submit samples of future lots of Steqeyma to the \nCenter for Drug Evaluation and Research (CDER) for release by the Director, CDER, \nunder 21 CFR 610.2. We will continue to monitor compliance with 21 CFR 610.1, \nrequiring completion of tests for conformity with standards applicable to each product \nprior to release of each lot.\nAny changes in the manufacturing, testing, packaging, or labeling of Steqeyma, or in the \nmanufacturing facilities, will require the submission of information to your BLA for our \nreview and written approval, consistent with 21 CFR 601.12.\nU.S. Food and Drug Administration \nSilver Spring, MD 20993 \nwww.fda.gov",
+          "start": 1072,
+          "end": 1077,
+          "quote_start": 463,
+          "quote_end": 2192,
+          "kind": "literal_number",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S20": {
+          "id": "S20",
+          "evidence": "E1",
+          "value": "0.5 mL",
+          "quote": "Pediatric patients 6 years and older with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\nMANUFACTURING LOCATIONS\nUnder this license, you are approved to manufacture ustekinumab-stba drug substance\nat CELLTRION, Inc. \n, Incheon, Republic of Korea (FEI 3005241015). The final \nformulated product will be manufactured, filled, labeled, and packaged at CELLTRION \nPharm, Inc., Cheongju, Republic of Korea (FEI 3012279978) \n \n(b) (4)\n(b) (4)\n. You may label your product with the proprietary name,\nSteqeyma, and market it in 45 mg/0.5 mL injection, 90 mg/1.0 mL injection and 130 \nmg/26 mL injection.\nDATING PERIOD\nThe dating period for Steqeyma shall be 36 months from the date of manufacture when \nstored at 5±3 °C. The date of manufacture shall be defined as the date of final sterile \nfiltration of the formulated drug product. The dating period for your drug substance shall \nbe\nmonths from the date of manufacture when stored at \n \n(b) (4)\n(b) (4)\nFDA LOT RELEASE\nYou are not currently required to submit samples of future lots of Steqeyma to the \nCenter for Drug Evaluation and Research (CDER) for release by the Director, CDER, \nunder 21 CFR 610.2. We will continue to monitor compliance with 21 CFR 610.1, \nrequiring completion of tests for conformity with standards applicable to each product \nprior to release of each lot.\nAny changes in the manufacturing, testing, packaging, or labeling of Steqeyma, or in the \nmanufacturing facilities, will require the submission of information to your BLA for our \nreview and written approval, consistent with 21 CFR 601.12.\nU.S. Food and Drug Administration \nSilver Spring, MD 20993 \nwww.fda.gov",
+          "start": 1078,
+          "end": 1084,
+          "quote_start": 463,
+          "quote_end": 2192,
+          "kind": "literal_number",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S21": {
+          "id": "S21",
+          "evidence": "E1",
+          "value": "90 mg",
+          "quote": "Pediatric patients 6 years and older with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\nMANUFACTURING LOCATIONS\nUnder this license, you are approved to manufacture ustekinumab-stba drug substance\nat CELLTRION, Inc. \n, Incheon, Republic of Korea (FEI 3005241015). The final \nformulated product will be manufactured, filled, labeled, and packaged at CELLTRION \nPharm, Inc., Cheongju, Republic of Korea (FEI 3012279978) \n \n(b) (4)\n(b) (4)\n. You may label your product with the proprietary name,\nSteqeyma, and market it in 45 mg/0.5 mL injection, 90 mg/1.0 mL injection and 130 \nmg/26 mL injection.\nDATING PERIOD\nThe dating period for Steqeyma shall be 36 months from the date of manufacture when \nstored at 5±3 °C. The date of manufacture shall be defined as the date of final sterile \nfiltration of the formulated drug product. The dating period for your drug substance shall \nbe\nmonths from the date of manufacture when stored at \n \n(b) (4)\n(b) (4)\nFDA LOT RELEASE\nYou are not currently required to submit samples of future lots of Steqeyma to the \nCenter for Drug Evaluation and Research (CDER) for release by the Director, CDER, \nunder 21 CFR 610.2. We will continue to monitor compliance with 21 CFR 610.1, \nrequiring completion of tests for conformity with standards applicable to each product \nprior to release of each lot.\nAny changes in the manufacturing, testing, packaging, or labeling of Steqeyma, or in the \nmanufacturing facilities, will require the submission of information to your BLA for our \nreview and written approval, consistent with 21 CFR 601.12.\nU.S. Food and Drug Administration \nSilver Spring, MD 20993 \nwww.fda.gov",
+          "start": 1096,
+          "end": 1101,
+          "quote_start": 463,
+          "quote_end": 2192,
+          "kind": "literal_number",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S22": {
+          "id": "S22",
+          "evidence": "E1",
+          "value": "1.0 mL",
+          "quote": "Pediatric patients 6 years and older with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\nMANUFACTURING LOCATIONS\nUnder this license, you are approved to manufacture ustekinumab-stba drug substance\nat CELLTRION, Inc. \n, Incheon, Republic of Korea (FEI 3005241015). The final \nformulated product will be manufactured, filled, labeled, and packaged at CELLTRION \nPharm, Inc., Cheongju, Republic of Korea (FEI 3012279978) \n \n(b) (4)\n(b) (4)\n. You may label your product with the proprietary name,\nSteqeyma, and market it in 45 mg/0.5 mL injection, 90 mg/1.0 mL injection and 130 \nmg/26 mL injection.\nDATING PERIOD\nThe dating period for Steqeyma shall be 36 months from the date of manufacture when \nstored at 5±3 °C. The date of manufacture shall be defined as the date of final sterile \nfiltration of the formulated drug product. The dating period for your drug substance shall \nbe\nmonths from the date of manufacture when stored at \n \n(b) (4)\n(b) (4)\nFDA LOT RELEASE\nYou are not currently required to submit samples of future lots of Steqeyma to the \nCenter for Drug Evaluation and Research (CDER) for release by the Director, CDER, \nunder 21 CFR 610.2. We will continue to monitor compliance with 21 CFR 610.1, \nrequiring completion of tests for conformity with standards applicable to each product \nprior to release of each lot.\nAny changes in the manufacturing, testing, packaging, or labeling of Steqeyma, or in the \nmanufacturing facilities, will require the submission of information to your BLA for our \nreview and written approval, consistent with 21 CFR 601.12.\nU.S. Food and Drug Administration \nSilver Spring, MD 20993 \nwww.fda.gov",
+          "start": 1102,
+          "end": 1108,
+          "quote_start": 463,
+          "quote_end": 2192,
+          "kind": "literal_number",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S23": {
+          "id": "S23",
+          "evidence": "E1",
+          "value": "130 \nmg",
+          "quote": "Pediatric patients 6 years and older with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\nMANUFACTURING LOCATIONS\nUnder this license, you are approved to manufacture ustekinumab-stba drug substance\nat CELLTRION, Inc. \n, Incheon, Republic of Korea (FEI 3005241015). The final \nformulated product will be manufactured, filled, labeled, and packaged at CELLTRION \nPharm, Inc., Cheongju, Republic of Korea (FEI 3012279978) \n \n(b) (4)\n(b) (4)\n. You may label your product with the proprietary name,\nSteqeyma, and market it in 45 mg/0.5 mL injection, 90 mg/1.0 mL injection and 130 \nmg/26 mL injection.\nDATING PERIOD\nThe dating period for Steqeyma shall be 36 months from the date of manufacture when \nstored at 5±3 °C. The date of manufacture shall be defined as the date of final sterile \nfiltration of the formulated drug product. The dating period for your drug substance shall \nbe\nmonths from the date of manufacture when stored at \n \n(b) (4)\n(b) (4)\nFDA LOT RELEASE\nYou are not currently required to submit samples of future lots of Steqeyma to the \nCenter for Drug Evaluation and Research (CDER) for release by the Director, CDER, \nunder 21 CFR 610.2. We will continue to monitor compliance with 21 CFR 610.1, \nrequiring completion of tests for conformity with standards applicable to each product \nprior to release of each lot.\nAny changes in the manufacturing, testing, packaging, or labeling of Steqeyma, or in the \nmanufacturing facilities, will require the submission of information to your BLA for our \nreview and written approval, consistent with 21 CFR 601.12.\nU.S. Food and Drug Administration \nSilver Spring, MD 20993 \nwww.fda.gov",
+          "start": 1123,
+          "end": 1130,
+          "quote_start": 463,
+          "quote_end": 2192,
+          "kind": "literal_number",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S24": {
+          "id": "S24",
+          "evidence": "E1",
+          "value": "26 mL",
+          "quote": "Pediatric patients 6 years and older with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\nMANUFACTURING LOCATIONS\nUnder this license, you are approved to manufacture ustekinumab-stba drug substance\nat CELLTRION, Inc. \n, Incheon, Republic of Korea (FEI 3005241015). The final \nformulated product will be manufactured, filled, labeled, and packaged at CELLTRION \nPharm, Inc., Cheongju, Republic of Korea (FEI 3012279978) \n \n(b) (4)\n(b) (4)\n. You may label your product with the proprietary name,\nSteqeyma, and market it in 45 mg/0.5 mL injection, 90 mg/1.0 mL injection and 130 \nmg/26 mL injection.\nDATING PERIOD\nThe dating period for Steqeyma shall be 36 months from the date of manufacture when \nstored at 5±3 °C. The date of manufacture shall be defined as the date of final sterile \nfiltration of the formulated drug product. The dating period for your drug substance shall \nbe\nmonths from the date of manufacture when stored at \n \n(b) (4)\n(b) (4)\nFDA LOT RELEASE\nYou are not currently required to submit samples of future lots of Steqeyma to the \nCenter for Drug Evaluation and Research (CDER) for release by the Director, CDER, \nunder 21 CFR 610.2. We will continue to monitor compliance with 21 CFR 610.1, \nrequiring completion of tests for conformity with standards applicable to each product \nprior to release of each lot.\nAny changes in the manufacturing, testing, packaging, or labeling of Steqeyma, or in the \nmanufacturing facilities, will require the submission of information to your BLA for our \nreview and written approval, consistent with 21 CFR 601.12.\nU.S. Food and Drug Administration \nSilver Spring, MD 20993 \nwww.fda.gov",
+          "start": 1131,
+          "end": 1136,
+          "quote_start": 463,
+          "quote_end": 2192,
+          "kind": "literal_number",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S25": {
+          "id": "S25",
+          "evidence": "E1",
+          "value": "36",
+          "quote": "Pediatric patients 6 years and older with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\nMANUFACTURING LOCATIONS\nUnder this license, you are approved to manufacture ustekinumab-stba drug substance\nat CELLTRION, Inc. \n, Incheon, Republic of Korea (FEI 3005241015). The final \nformulated product will be manufactured, filled, labeled, and packaged at CELLTRION \nPharm, Inc., Cheongju, Republic of Korea (FEI 3012279978) \n \n(b) (4)\n(b) (4)\n. You may label your product with the proprietary name,\nSteqeyma, and market it in 45 mg/0.5 mL injection, 90 mg/1.0 mL injection and 130 \nmg/26 mL injection.\nDATING PERIOD\nThe dating period for Steqeyma shall be 36 months from the date of manufacture when \nstored at 5±3 °C. The date of manufacture shall be defined as the date of final sterile \nfiltration of the formulated drug product. The dating period for your drug substance shall \nbe\nmonths from the date of manufacture when stored at \n \n(b) (4)\n(b) (4)\nFDA LOT RELEASE\nYou are not currently required to submit samples of future lots of Steqeyma to the \nCenter for Drug Evaluation and Research (CDER) for release by the Director, CDER, \nunder 21 CFR 610.2. We will continue to monitor compliance with 21 CFR 610.1, \nrequiring completion of tests for conformity with standards applicable to each product \nprior to release of each lot.\nAny changes in the manufacturing, testing, packaging, or labeling of Steqeyma, or in the \nmanufacturing facilities, will require the submission of information to your BLA for our \nreview and written approval, consistent with 21 CFR 601.12.\nU.S. Food and Drug Administration \nSilver Spring, MD 20993 \nwww.fda.gov",
+          "start": 1202,
+          "end": 1204,
+          "quote_start": 463,
+          "quote_end": 2192,
+          "kind": "literal_number",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S26": {
+          "id": "S26",
+          "evidence": "E1",
+          "value": "5",
+          "quote": "Pediatric patients 6 years and older with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\nMANUFACTURING LOCATIONS\nUnder this license, you are approved to manufacture ustekinumab-stba drug substance\nat CELLTRION, Inc. \n, Incheon, Republic of Korea (FEI 3005241015). The final \nformulated product will be manufactured, filled, labeled, and packaged at CELLTRION \nPharm, Inc., Cheongju, Republic of Korea (FEI 3012279978) \n \n(b) (4)\n(b) (4)\n. You may label your product with the proprietary name,\nSteqeyma, and market it in 45 mg/0.5 mL injection, 90 mg/1.0 mL injection and 130 \nmg/26 mL injection.\nDATING PERIOD\nThe dating period for Steqeyma shall be 36 months from the date of manufacture when \nstored at 5±3 °C. The date of manufacture shall be defined as the date of final sterile \nfiltration of the formulated drug product. The dating period for your drug substance shall \nbe\nmonths from the date of manufacture when stored at \n \n(b) (4)\n(b) (4)\nFDA LOT RELEASE\nYou are not currently required to submit samples of future lots of Steqeyma to the \nCenter for Drug Evaluation and Research (CDER) for release by the Director, CDER, \nunder 21 CFR 610.2. We will continue to monitor compliance with 21 CFR 610.1, \nrequiring completion of tests for conformity with standards applicable to each product \nprior to release of each lot.\nAny changes in the manufacturing, testing, packaging, or labeling of Steqeyma, or in the \nmanufacturing facilities, will require the submission of information to your BLA for our \nreview and written approval, consistent with 21 CFR 601.12.\nU.S. Food and Drug Administration \nSilver Spring, MD 20993 \nwww.fda.gov",
+          "start": 1257,
+          "end": 1258,
+          "quote_start": 463,
+          "quote_end": 2192,
+          "kind": "literal_number",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S27": {
+          "id": "S27",
+          "evidence": "E1",
+          "value": "3 °C",
+          "quote": "Pediatric patients 6 years and older with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\nMANUFACTURING LOCATIONS\nUnder this license, you are approved to manufacture ustekinumab-stba drug substance\nat CELLTRION, Inc. \n, Incheon, Republic of Korea (FEI 3005241015). The final \nformulated product will be manufactured, filled, labeled, and packaged at CELLTRION \nPharm, Inc., Cheongju, Republic of Korea (FEI 3012279978) \n \n(b) (4)\n(b) (4)\n. You may label your product with the proprietary name,\nSteqeyma, and market it in 45 mg/0.5 mL injection, 90 mg/1.0 mL injection and 130 \nmg/26 mL injection.\nDATING PERIOD\nThe dating period for Steqeyma shall be 36 months from the date of manufacture when \nstored at 5±3 °C. The date of manufacture shall be defined as the date of final sterile \nfiltration of the formulated drug product. The dating period for your drug substance shall \nbe\nmonths from the date of manufacture when stored at \n \n(b) (4)\n(b) (4)\nFDA LOT RELEASE\nYou are not currently required to submit samples of future lots of Steqeyma to the \nCenter for Drug Evaluation and Research (CDER) for release by the Director, CDER, \nunder 21 CFR 610.2. We will continue to monitor compliance with 21 CFR 610.1, \nrequiring completion of tests for conformity with standards applicable to each product \nprior to release of each lot.\nAny changes in the manufacturing, testing, packaging, or labeling of Steqeyma, or in the \nmanufacturing facilities, will require the submission of information to your BLA for our \nreview and written approval, consistent with 21 CFR 601.12.\nU.S. Food and Drug Administration \nSilver Spring, MD 20993 \nwww.fda.gov",
+          "start": 1259,
+          "end": 1263,
+          "quote_start": 463,
+          "quote_end": 2192,
+          "kind": "literal_number",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S28": {
+          "id": "S28",
+          "evidence": "E1",
+          "value": "(4)",
+          "quote": "Pediatric patients 6 years and older with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\nMANUFACTURING LOCATIONS\nUnder this license, you are approved to manufacture ustekinumab-stba drug substance\nat CELLTRION, Inc. \n, Incheon, Republic of Korea (FEI 3005241015). The final \nformulated product will be manufactured, filled, labeled, and packaged at CELLTRION \nPharm, Inc., Cheongju, Republic of Korea (FEI 3012279978) \n \n(b) (4)\n(b) (4)\n. You may label your product with the proprietary name,\nSteqeyma, and market it in 45 mg/0.5 mL injection, 90 mg/1.0 mL injection and 130 \nmg/26 mL injection.\nDATING PERIOD\nThe dating period for Steqeyma shall be 36 months from the date of manufacture when \nstored at 5±3 °C. The date of manufacture shall be defined as the date of final sterile \nfiltration of the formulated drug product. The dating period for your drug substance shall \nbe\nmonths from the date of manufacture when stored at \n \n(b) (4)\n(b) (4)\nFDA LOT RELEASE\nYou are not currently required to submit samples of future lots of Steqeyma to the \nCenter for Drug Evaluation and Research (CDER) for release by the Director, CDER, \nunder 21 CFR 610.2. We will continue to monitor compliance with 21 CFR 610.1, \nrequiring completion of tests for conformity with standards applicable to each product \nprior to release of each lot.\nAny changes in the manufacturing, testing, packaging, or labeling of Steqeyma, or in the \nmanufacturing facilities, will require the submission of information to your BLA for our \nreview and written approval, consistent with 21 CFR 601.12.\nU.S. Food and Drug Administration \nSilver Spring, MD 20993 \nwww.fda.gov",
+          "start": 1489,
+          "end": 1492,
+          "quote_start": 463,
+          "quote_end": 2192,
+          "kind": "literal_number",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S29": {
+          "id": "S29",
+          "evidence": "E1",
+          "value": "(4)",
+          "quote": "Pediatric patients 6 years and older with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\nMANUFACTURING LOCATIONS\nUnder this license, you are approved to manufacture ustekinumab-stba drug substance\nat CELLTRION, Inc. \n, Incheon, Republic of Korea (FEI 3005241015). The final \nformulated product will be manufactured, filled, labeled, and packaged at CELLTRION \nPharm, Inc., Cheongju, Republic of Korea (FEI 3012279978) \n \n(b) (4)\n(b) (4)\n. You may label your product with the proprietary name,\nSteqeyma, and market it in 45 mg/0.5 mL injection, 90 mg/1.0 mL injection and 130 \nmg/26 mL injection.\nDATING PERIOD\nThe dating period for Steqeyma shall be 36 months from the date of manufacture when \nstored at 5±3 °C. The date of manufacture shall be defined as the date of final sterile \nfiltration of the formulated drug product. The dating period for your drug substance shall \nbe\nmonths from the date of manufacture when stored at \n \n(b) (4)\n(b) (4)\nFDA LOT RELEASE\nYou are not currently required to submit samples of future lots of Steqeyma to the \nCenter for Drug Evaluation and Research (CDER) for release by the Director, CDER, \nunder 21 CFR 610.2. We will continue to monitor compliance with 21 CFR 610.1, \nrequiring completion of tests for conformity with standards applicable to each product \nprior to release of each lot.\nAny changes in the manufacturing, testing, packaging, or labeling of Steqeyma, or in the \nmanufacturing facilities, will require the submission of information to your BLA for our \nreview and written approval, consistent with 21 CFR 601.12.\nU.S. Food and Drug Administration \nSilver Spring, MD 20993 \nwww.fda.gov",
+          "start": 1497,
+          "end": 1500,
+          "quote_start": 463,
+          "quote_end": 2192,
+          "kind": "literal_number",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S30": {
+          "id": "S30",
+          "evidence": "E1",
+          "value": "21",
+          "quote": "Pediatric patients 6 years and older with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\nMANUFACTURING LOCATIONS\nUnder this license, you are approved to manufacture ustekinumab-stba drug substance\nat CELLTRION, Inc. \n, Incheon, Republic of Korea (FEI 3005241015). The final \nformulated product will be manufactured, filled, labeled, and packaged at CELLTRION \nPharm, Inc., Cheongju, Republic of Korea (FEI 3012279978) \n \n(b) (4)\n(b) (4)\n. You may label your product with the proprietary name,\nSteqeyma, and market it in 45 mg/0.5 mL injection, 90 mg/1.0 mL injection and 130 \nmg/26 mL injection.\nDATING PERIOD\nThe dating period for Steqeyma shall be 36 months from the date of manufacture when \nstored at 5±3 °C. The date of manufacture shall be defined as the date of final sterile \nfiltration of the formulated drug product. The dating period for your drug substance shall \nbe\nmonths from the date of manufacture when stored at \n \n(b) (4)\n(b) (4)\nFDA LOT RELEASE\nYou are not currently required to submit samples of future lots of Steqeyma to the \nCenter for Drug Evaluation and Research (CDER) for release by the Director, CDER, \nunder 21 CFR 610.2. We will continue to monitor compliance with 21 CFR 610.1, \nrequiring completion of tests for conformity with standards applicable to each product \nprior to release of each lot.\nAny changes in the manufacturing, testing, packaging, or labeling of Steqeyma, or in the \nmanufacturing facilities, will require the submission of information to your BLA for our \nreview and written approval, consistent with 21 CFR 601.12.\nU.S. Food and Drug Administration \nSilver Spring, MD 20993 \nwww.fda.gov",
+          "start": 1690,
+          "end": 1692,
+          "quote_start": 463,
+          "quote_end": 2192,
+          "kind": "literal_number",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S31": {
+          "id": "S31",
+          "evidence": "E1",
+          "value": "610.2",
+          "quote": "Pediatric patients 6 years and older with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\nMANUFACTURING LOCATIONS\nUnder this license, you are approved to manufacture ustekinumab-stba drug substance\nat CELLTRION, Inc. \n, Incheon, Republic of Korea (FEI 3005241015). The final \nformulated product will be manufactured, filled, labeled, and packaged at CELLTRION \nPharm, Inc., Cheongju, Republic of Korea (FEI 3012279978) \n \n(b) (4)\n(b) (4)\n. You may label your product with the proprietary name,\nSteqeyma, and market it in 45 mg/0.5 mL injection, 90 mg/1.0 mL injection and 130 \nmg/26 mL injection.\nDATING PERIOD\nThe dating period for Steqeyma shall be 36 months from the date of manufacture when \nstored at 5±3 °C. The date of manufacture shall be defined as the date of final sterile \nfiltration of the formulated drug product. The dating period for your drug substance shall \nbe\nmonths from the date of manufacture when stored at \n \n(b) (4)\n(b) (4)\nFDA LOT RELEASE\nYou are not currently required to submit samples of future lots of Steqeyma to the \nCenter for Drug Evaluation and Research (CDER) for release by the Director, CDER, \nunder 21 CFR 610.2. We will continue to monitor compliance with 21 CFR 610.1, \nrequiring completion of tests for conformity with standards applicable to each product \nprior to release of each lot.\nAny changes in the manufacturing, testing, packaging, or labeling of Steqeyma, or in the \nmanufacturing facilities, will require the submission of information to your BLA for our \nreview and written approval, consistent with 21 CFR 601.12.\nU.S. Food and Drug Administration \nSilver Spring, MD 20993 \nwww.fda.gov",
+          "start": 1697,
+          "end": 1702,
+          "quote_start": 463,
+          "quote_end": 2192,
+          "kind": "literal_number",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S32": {
+          "id": "S32",
+          "evidence": "E1",
+          "value": "21",
+          "quote": "Pediatric patients 6 years and older with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\nMANUFACTURING LOCATIONS\nUnder this license, you are approved to manufacture ustekinumab-stba drug substance\nat CELLTRION, Inc. \n, Incheon, Republic of Korea (FEI 3005241015). The final \nformulated product will be manufactured, filled, labeled, and packaged at CELLTRION \nPharm, Inc., Cheongju, Republic of Korea (FEI 3012279978) \n \n(b) (4)\n(b) (4)\n. You may label your product with the proprietary name,\nSteqeyma, and market it in 45 mg/0.5 mL injection, 90 mg/1.0 mL injection and 130 \nmg/26 mL injection.\nDATING PERIOD\nThe dating period for Steqeyma shall be 36 months from the date of manufacture when \nstored at 5±3 °C. The date of manufacture shall be defined as the date of final sterile \nfiltration of the formulated drug product. The dating period for your drug substance shall \nbe\nmonths from the date of manufacture when stored at \n \n(b) (4)\n(b) (4)\nFDA LOT RELEASE\nYou are not currently required to submit samples of future lots of Steqeyma to the \nCenter for Drug Evaluation and Research (CDER) for release by the Director, CDER, \nunder 21 CFR 610.2. We will continue to monitor compliance with 21 CFR 610.1, \nrequiring completion of tests for conformity with standards applicable to each product \nprior to release of each lot.\nAny changes in the manufacturing, testing, packaging, or labeling of Steqeyma, or in the \nmanufacturing facilities, will require the submission of information to your BLA for our \nreview and written approval, consistent with 21 CFR 601.12.\nU.S. Food and Drug Administration \nSilver Spring, MD 20993 \nwww.fda.gov",
+          "start": 1748,
+          "end": 1750,
+          "quote_start": 463,
+          "quote_end": 2192,
+          "kind": "literal_number",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S33": {
+          "id": "S33",
+          "evidence": "E1",
+          "value": "610.1",
+          "quote": "Pediatric patients 6 years and older with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\nMANUFACTURING LOCATIONS\nUnder this license, you are approved to manufacture ustekinumab-stba drug substance\nat CELLTRION, Inc. \n, Incheon, Republic of Korea (FEI 3005241015). The final \nformulated product will be manufactured, filled, labeled, and packaged at CELLTRION \nPharm, Inc., Cheongju, Republic of Korea (FEI 3012279978) \n \n(b) (4)\n(b) (4)\n. You may label your product with the proprietary name,\nSteqeyma, and market it in 45 mg/0.5 mL injection, 90 mg/1.0 mL injection and 130 \nmg/26 mL injection.\nDATING PERIOD\nThe dating period for Steqeyma shall be 36 months from the date of manufacture when \nstored at 5±3 °C. The date of manufacture shall be defined as the date of final sterile \nfiltration of the formulated drug product. The dating period for your drug substance shall \nbe\nmonths from the date of manufacture when stored at \n \n(b) (4)\n(b) (4)\nFDA LOT RELEASE\nYou are not currently required to submit samples of future lots of Steqeyma to the \nCenter for Drug Evaluation and Research (CDER) for release by the Director, CDER, \nunder 21 CFR 610.2. We will continue to monitor compliance with 21 CFR 610.1, \nrequiring completion of tests for conformity with standards applicable to each product \nprior to release of each lot.\nAny changes in the manufacturing, testing, packaging, or labeling of Steqeyma, or in the \nmanufacturing facilities, will require the submission of information to your BLA for our \nreview and written approval, consistent with 21 CFR 601.12.\nU.S. Food and Drug Administration \nSilver Spring, MD 20993 \nwww.fda.gov",
+          "start": 1755,
+          "end": 1760,
+          "quote_start": 463,
+          "quote_end": 2192,
+          "kind": "literal_number",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S34": {
+          "id": "S34",
+          "evidence": "E1",
+          "value": "21",
+          "quote": "Pediatric patients 6 years and older with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\nMANUFACTURING LOCATIONS\nUnder this license, you are approved to manufacture ustekinumab-stba drug substance\nat CELLTRION, Inc. \n, Incheon, Republic of Korea (FEI 3005241015). The final \nformulated product will be manufactured, filled, labeled, and packaged at CELLTRION \nPharm, Inc., Cheongju, Republic of Korea (FEI 3012279978) \n \n(b) (4)\n(b) (4)\n. You may label your product with the proprietary name,\nSteqeyma, and market it in 45 mg/0.5 mL injection, 90 mg/1.0 mL injection and 130 \nmg/26 mL injection.\nDATING PERIOD\nThe dating period for Steqeyma shall be 36 months from the date of manufacture when \nstored at 5±3 °C. The date of manufacture shall be defined as the date of final sterile \nfiltration of the formulated drug product. The dating period for your drug substance shall \nbe\nmonths from the date of manufacture when stored at \n \n(b) (4)\n(b) (4)\nFDA LOT RELEASE\nYou are not currently required to submit samples of future lots of Steqeyma to the \nCenter for Drug Evaluation and Research (CDER) for release by the Director, CDER, \nunder 21 CFR 610.2. We will continue to monitor compliance with 21 CFR 610.1, \nrequiring completion of tests for conformity with standards applicable to each product \nprior to release of each lot.\nAny changes in the manufacturing, testing, packaging, or labeling of Steqeyma, or in the \nmanufacturing facilities, will require the submission of information to your BLA for our \nreview and written approval, consistent with 21 CFR 601.12.\nU.S. Food and Drug Administration \nSilver Spring, MD 20993 \nwww.fda.gov",
+          "start": 2106,
+          "end": 2108,
+          "quote_start": 463,
+          "quote_end": 2192,
+          "kind": "literal_number",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S35": {
+          "id": "S35",
+          "evidence": "E1",
+          "value": "601.12",
+          "quote": "Pediatric patients 6 years and older with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\nMANUFACTURING LOCATIONS\nUnder this license, you are approved to manufacture ustekinumab-stba drug substance\nat CELLTRION, Inc. \n, Incheon, Republic of Korea (FEI 3005241015). The final \nformulated product will be manufactured, filled, labeled, and packaged at CELLTRION \nPharm, Inc., Cheongju, Republic of Korea (FEI 3012279978) \n \n(b) (4)\n(b) (4)\n. You may label your product with the proprietary name,\nSteqeyma, and market it in 45 mg/0.5 mL injection, 90 mg/1.0 mL injection and 130 \nmg/26 mL injection.\nDATING PERIOD\nThe dating period for Steqeyma shall be 36 months from the date of manufacture when \nstored at 5±3 °C. The date of manufacture shall be defined as the date of final sterile \nfiltration of the formulated drug product. The dating period for your drug substance shall \nbe\nmonths from the date of manufacture when stored at \n \n(b) (4)\n(b) (4)\nFDA LOT RELEASE\nYou are not currently required to submit samples of future lots of Steqeyma to the \nCenter for Drug Evaluation and Research (CDER) for release by the Director, CDER, \nunder 21 CFR 610.2. We will continue to monitor compliance with 21 CFR 610.1, \nrequiring completion of tests for conformity with standards applicable to each product \nprior to release of each lot.\nAny changes in the manufacturing, testing, packaging, or labeling of Steqeyma, or in the \nmanufacturing facilities, will require the submission of information to your BLA for our \nreview and written approval, consistent with 21 CFR 601.12.\nU.S. Food and Drug Administration \nSilver Spring, MD 20993 \nwww.fda.gov",
+          "start": 2113,
+          "end": 2119,
+          "quote_start": 463,
+          "quote_end": 2192,
+          "kind": "literal_number",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S36": {
+          "id": "S36",
+          "evidence": "E1",
+          "value": "20993",
+          "quote": "Pediatric patients 6 years and older with:\n• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy\nor systemic therapy\n• active psoriatic arthritis (PsA)\nMANUFACTURING LOCATIONS\nUnder this license, you are approved to manufacture ustekinumab-stba drug substance\nat CELLTRION, Inc. \n, Incheon, Republic of Korea (FEI 3005241015). The final \nformulated product will be manufactured, filled, labeled, and packaged at CELLTRION \nPharm, Inc., Cheongju, Republic of Korea (FEI 3012279978) \n \n(b) (4)\n(b) (4)\n. You may label your product with the proprietary name,\nSteqeyma, and market it in 45 mg/0.5 mL injection, 90 mg/1.0 mL injection and 130 \nmg/26 mL injection.\nDATING PERIOD\nThe dating period for Steqeyma shall be 36 months from the date of manufacture when \nstored at 5±3 °C. The date of manufacture shall be defined as the date of final sterile \nfiltration of the formulated drug product. The dating period for your drug substance shall \nbe\nmonths from the date of manufacture when stored at \n \n(b) (4)\n(b) (4)\nFDA LOT RELEASE\nYou are not currently required to submit samples of future lots of Steqeyma to the \nCenter for Drug Evaluation and Research (CDER) for release by the Director, CDER, \nunder 21 CFR 610.2. We will continue to monitor compliance with 21 CFR 610.1, \nrequiring completion of tests for conformity with standards applicable to each product \nprior to release of each lot.\nAny changes in the manufacturing, testing, packaging, or labeling of Steqeyma, or in the \nmanufacturing facilities, will require the submission of information to your BLA for our \nreview and written approval, consistent with 21 CFR 601.12.\nU.S. Food and Drug Administration \nSilver Spring, MD 20993 \nwww.fda.gov",
+          "start": 2174,
+          "end": 2179,
+          "quote_start": 463,
+          "quote_end": 2192,
+          "kind": "literal_number",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S37": {
+          "id": "S37",
+          "evidence": "E1",
+          "value": "Pediatric patients 6 years and older with:",
+          "quote": "Pediatric patients 6 years and older with:",
+          "start": 463,
+          "end": 505,
+          "quote_start": 463,
+          "quote_end": 505,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S38": {
+          "id": "S38",
+          "evidence": "E1",
+          "value": "• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy",
+          "quote": "• moderate to severe plaque psoriasis (PsO) who are candidates for phototherapy",
+          "start": 506,
+          "end": 585,
+          "quote_start": 506,
+          "quote_end": 585,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S39": {
+          "id": "S39",
+          "evidence": "E1",
+          "value": "or systemic therapy",
+          "quote": "or systemic therapy",
+          "start": 586,
+          "end": 605,
+          "quote_start": 586,
+          "quote_end": 605,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S40": {
+          "id": "S40",
+          "evidence": "E1",
+          "value": "• active psoriatic arthritis (PsA)",
+          "quote": "• active psoriatic arthritis (PsA)",
+          "start": 606,
+          "end": 640,
+          "quote_start": 606,
+          "quote_end": 640,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S41": {
+          "id": "S41",
+          "evidence": "E1",
+          "value": "MANUFACTURING LOCATIONS",
+          "quote": "MANUFACTURING LOCATIONS",
+          "start": 641,
+          "end": 664,
+          "quote_start": 641,
+          "quote_end": 664,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S42": {
+          "id": "S42",
+          "evidence": "E1",
+          "value": "Under this license, you are approved to manufacture ustekinumab-stba drug substance",
+          "quote": "Under this license, you are approved to manufacture ustekinumab-stba drug substance",
+          "start": 665,
+          "end": 748,
+          "quote_start": 665,
+          "quote_end": 748,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S43": {
+          "id": "S43",
+          "evidence": "E1",
+          "value": "at CELLTRION, Inc. ",
+          "quote": "at CELLTRION, Inc. ",
+          "start": 749,
+          "end": 768,
+          "quote_start": 749,
+          "quote_end": 768,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S44": {
+          "id": "S44",
+          "evidence": "E1",
+          "value": ", Incheon, Republic of Korea (FEI 3005241015). The final ",
+          "quote": ", Incheon, Republic of Korea (FEI 3005241015). The final ",
+          "start": 769,
+          "end": 826,
+          "quote_start": 769,
+          "quote_end": 826,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S45": {
+          "id": "S45",
+          "evidence": "E1",
+          "value": "formulated product will be manufactured, filled, labeled, and packaged at CELLTRION ",
+          "quote": "formulated product will be manufactured, filled, labeled, and packaged at CELLTRION ",
+          "start": 827,
+          "end": 911,
+          "quote_start": 827,
+          "quote_end": 911,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S46": {
+          "id": "S46",
+          "evidence": "E1",
+          "value": "Pharm, Inc., Cheongju, Republic of Korea (FEI 3012279978) ",
+          "quote": "Pharm, Inc., Cheongju, Republic of Korea (FEI 3012279978) ",
+          "start": 912,
+          "end": 970,
+          "quote_start": 912,
+          "quote_end": 970,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S47": {
+          "id": "S47",
+          "evidence": "E1",
+          "value": "(b) (4)",
+          "quote": "(b) (4)",
+          "start": 973,
+          "end": 980,
+          "quote_start": 973,
+          "quote_end": 980,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S48": {
+          "id": "S48",
+          "evidence": "E1",
+          "value": "(b) (4)",
+          "quote": "(b) (4)",
+          "start": 981,
+          "end": 988,
+          "quote_start": 981,
+          "quote_end": 988,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S49": {
+          "id": "S49",
+          "evidence": "E1",
+          "value": ". You may label your product with the proprietary name,",
+          "quote": ". You may label your product with the proprietary name,",
+          "start": 989,
+          "end": 1044,
+          "quote_start": 989,
+          "quote_end": 1044,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S50": {
+          "id": "S50",
+          "evidence": "E1",
+          "value": "Steqeyma, and market it in 45 mg/0.5 mL injection, 90 mg/1.0 mL injection and 130 ",
+          "quote": "Steqeyma, and market it in 45 mg/0.5 mL injection, 90 mg/1.0 mL injection and 130 ",
+          "start": 1045,
+          "end": 1127,
+          "quote_start": 1045,
+          "quote_end": 1127,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S51": {
+          "id": "S51",
+          "evidence": "E1",
+          "value": "mg/26 mL injection.",
+          "quote": "mg/26 mL injection.",
+          "start": 1128,
+          "end": 1147,
+          "quote_start": 1128,
+          "quote_end": 1147,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S52": {
+          "id": "S52",
+          "evidence": "E1",
+          "value": "DATING PERIOD",
+          "quote": "DATING PERIOD",
+          "start": 1148,
+          "end": 1161,
+          "quote_start": 1148,
+          "quote_end": 1161,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S53": {
+          "id": "S53",
+          "evidence": "E1",
+          "value": "The dating period for Steqeyma shall be 36 months from the date of manufacture when ",
+          "quote": "The dating period for Steqeyma shall be 36 months from the date of manufacture when ",
+          "start": 1162,
+          "end": 1246,
+          "quote_start": 1162,
+          "quote_end": 1246,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S54": {
+          "id": "S54",
+          "evidence": "E1",
+          "value": "stored at 5±3 °C. The date of manufacture shall be defined as the date of final sterile ",
+          "quote": "stored at 5±3 °C. The date of manufacture shall be defined as the date of final sterile ",
+          "start": 1247,
+          "end": 1335,
+          "quote_start": 1247,
+          "quote_end": 1335,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S55": {
+          "id": "S55",
+          "evidence": "E1",
+          "value": "months from the date of manufacture when stored at ",
+          "quote": "months from the date of manufacture when stored at ",
+          "start": 1431,
+          "end": 1482,
+          "quote_start": 1431,
+          "quote_end": 1482,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S56": {
+          "id": "S56",
+          "evidence": "E1",
+          "value": "(b) (4)",
+          "quote": "(b) (4)",
+          "start": 1485,
+          "end": 1492,
+          "quote_start": 1485,
+          "quote_end": 1492,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S57": {
+          "id": "S57",
+          "evidence": "E1",
+          "value": "(b) (4)",
+          "quote": "(b) (4)",
+          "start": 1493,
+          "end": 1500,
+          "quote_start": 1493,
+          "quote_end": 1500,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S58": {
+          "id": "S58",
+          "evidence": "E1",
+          "value": "FDA LOT RELEASE",
+          "quote": "FDA LOT RELEASE",
+          "start": 1501,
+          "end": 1516,
+          "quote_start": 1501,
+          "quote_end": 1516,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S59": {
+          "id": "S59",
+          "evidence": "E1",
+          "value": "You are not currently required to submit samples of future lots of Steqeyma to the ",
+          "quote": "You are not currently required to submit samples of future lots of Steqeyma to the ",
+          "start": 1517,
+          "end": 1600,
+          "quote_start": 1517,
+          "quote_end": 1600,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": [],
+          "value_eligible": false
+        },
+        "S60": {
+          "id": "S60",
+          "evidence": "E1",
+          "value": "Center for Drug Evaluation and Research (CDER) for release by the Director, CDER, ",
+          "quote": "Center for Drug Evaluation and Research (CDER) for release by the Director, CDER, ",
+          "start": 1601,
+          "end": 1683,
+          "quote_start": 1601,
+          "quote_end": 1683,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S61": {
+          "id": "S61",
+          "evidence": "E1",
+          "value": "under 21 CFR 610.2. We will continue to monitor compliance with 21 CFR 610.1, ",
+          "quote": "under 21 CFR 610.2. We will continue to monitor compliance with 21 CFR 610.1, ",
+          "start": 1684,
+          "end": 1762,
+          "quote_start": 1684,
+          "quote_end": 1762,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S62": {
+          "id": "S62",
+          "evidence": "E1",
+          "value": "requiring completion of tests for conformity with standards applicable to each product ",
+          "quote": "requiring completion of tests for conformity with standards applicable to each product ",
+          "start": 1763,
+          "end": 1850,
+          "quote_start": 1763,
+          "quote_end": 1850,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S63": {
+          "id": "S63",
+          "evidence": "E1",
+          "value": "prior to release of each lot.",
+          "quote": "prior to release of each lot.",
+          "start": 1851,
+          "end": 1880,
+          "quote_start": 1851,
+          "quote_end": 1880,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S64": {
+          "id": "S64",
+          "evidence": "E1",
+          "value": "Any changes in the manufacturing, testing, packaging, or labeling of Steqeyma, or in the ",
+          "quote": "Any changes in the manufacturing, testing, packaging, or labeling of Steqeyma, or in the ",
+          "start": 1881,
+          "end": 1970,
+          "quote_start": 1881,
+          "quote_end": 1970,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S65": {
+          "id": "S65",
+          "evidence": "E1",
+          "value": "manufacturing facilities, will require the submission of information to your BLA for our ",
+          "quote": "manufacturing facilities, will require the submission of information to your BLA for our ",
+          "start": 1971,
+          "end": 2060,
+          "quote_start": 1971,
+          "quote_end": 2060,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S66": {
+          "id": "S66",
+          "evidence": "E1",
+          "value": "review and written approval, consistent with 21 CFR 601.12.",
+          "quote": "review and written approval, consistent with 21 CFR 601.12.",
+          "start": 2061,
+          "end": 2120,
+          "quote_start": 2061,
+          "quote_end": 2120,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S67": {
+          "id": "S67",
+          "evidence": "E1",
+          "value": "U.S. Food and Drug Administration ",
+          "quote": "U.S. Food and Drug Administration ",
+          "start": 2121,
+          "end": 2155,
+          "quote_start": 2121,
+          "quote_end": 2155,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S68": {
+          "id": "S68",
+          "evidence": "E1",
+          "value": "Silver Spring, MD 20993 ",
+          "quote": "Silver Spring, MD 20993 ",
+          "start": 2156,
+          "end": 2180,
+          "quote_start": 2156,
+          "quote_end": 2180,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S69": {
+          "id": "S69",
+          "evidence": "E1",
+          "value": "www.fda.gov",
+          "quote": "www.fda.gov",
+          "start": 2181,
+          "end": 2192,
+          "quote_start": 2181,
+          "quote_end": 2192,
+          "kind": "source_line",
+          "context_ids": [
+            "S13"
+          ],
+          "printed_studies": []
+        },
+        "S70": {
+          "id": "S70",
+          "evidence": "E2",
+          "value": "2.0\nQUESTION AND RESPONSES",
+          "quote": "2.0\nQUESTION AND RESPONSES",
+          "start": 0,
+          "end": 26,
+          "quote_start": 0,
+          "quote_end": 26,
+          "kind": "source_paragraph",
+          "printed_studies": [],
+          "value_eligible": false
+        },
+        "S71": {
+          "id": "S71",
+          "evidence": "E2",
+          "value": "2.0",
+          "quote": "2.0\nQUESTION AND RESPONSES",
+          "start": 0,
+          "end": 3,
+          "quote_start": 0,
+          "quote_end": 26,
+          "kind": "literal_number",
+          "context_ids": [
+            "S70"
+          ],
+          "printed_studies": [],
+          "value_eligible": false
+        },
+        "S72": {
+          "id": "S72",
+          "evidence": "E2",
+          "value": "2.0",
+          "quote": "2.0",
+          "start": 0,
+          "end": 3,
+          "quote_start": 0,
+          "quote_end": 3,
+          "kind": "source_line",
+          "context_ids": [
+            "S70"
+          ],
+          "printed_studies": [],
+          "value_eligible": false
+        },
+        "S73": {
+          "id": "S73",
+          "evidence": "E2",
+          "value": "QUESTION AND RESPONSES",
+          "quote": "QUESTION AND RESPONSES",
+          "start": 4,
+          "end": 26,
+          "quote_start": 4,
+          "quote_end": 26,
+          "kind": "source_line",
+          "context_ids": [
+            "S70"
+          ],
+          "printed_studies": [],
+          "value_eligible": false
+        }
+      },
+      "prompt_tokens": 3013
+    }
+  ],
+  "api_calls": 0,
+  "generation_performed": false
+}

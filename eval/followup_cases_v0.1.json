@@ -1,0 +1,31 @@
+{
+  "version": "followup-cases-0.1",
+  "created": "2026-10-13 KST",
+  "note": "Rule-level truth for rag/followup.resolve: which products and source agencies a follow-up inherits. Written by Claude from the service's own question style (no practitioner questions exist), so scores are optimistic. Case F01 is the user's real 2026-10-13 18:53/18:55 conversation.",
+  "cases": [
+    {"id": "F01", "previous": "EMA 문서에서 CTP43 평가할 때 중점적으로 본 이슈가 뭐인지 알려줄 수 있을까?", "follow_up": "중요 확인 위험은 없다고 하는데, 이슈가 아예 없던거야?", "inherited": {"products": ["CTP43"], "jurisdictions": ["EU"]}},
+    {"id": "F02", "previous": "EMA 문서에서 SB17-1001 시험의 투여 용량과 경로는?", "follow_up": "그럼 FDA는?", "inherited": {"products": ["SB17"]}},
+    {"id": "F03", "previous": "EMA 문서에서 SB17-1001 시험의 투여 용량과 경로는?", "follow_up": "Health Canada 문서에도 같은 내용이 있어?", "inherited": {"products": ["SB17"]}},
+    {"id": "F04", "previous": "EMA 문서에서 SB17-1001 시험의 투여 용량과 경로는?", "follow_up": "ABP654는 어땠어?", "inherited": {"jurisdictions": ["EU"]}},
+    {"id": "F05", "previous": "FDA 문서에서 CT-P43 3상 시험 설계를 알려줘", "follow_up": "대상자 수는 몇 명이었어?", "inherited": {"products": ["CTP43"], "jurisdictions": ["US"]}},
+    {"id": "F06", "previous": "FDA 문서에서 CT-P43 3상 시험 설계를 알려줘", "follow_up": "다른 제품들도 같은 설계였어?", "inherited": {"jurisdictions": ["US"]}},
+    {"id": "F07", "previous": "FDA 문서에서 CT-P43 3상 시험 설계를 알려줘", "follow_up": "모든 기관 문서에서 확인해줘", "inherited": {"products": ["CTP43"]}},
+    {"id": "F08", "previous": "Pyzchiva의 ADA 발생률은 EMA에서 어떻게 보고됐어?", "follow_up": "중화항체도 있었어?", "inherited": {"products": ["SB17"], "jurisdictions": ["EU"]}},
+    {"id": "F09", "previous": "Pyzchiva의 ADA 발생률은 EMA에서 어떻게 보고됐어?", "follow_up": "웨젠라는?", "inherited": {"jurisdictions": ["EU"]}},
+    {"id": "F10", "previous": "Yesintek 승인 서한은 언제 나왔어?", "follow_up": "그 서한에 조건이 붙어 있었어?", "inherited": {"products": ["BMAB1200"]}},
+    {"id": "F11", "previous": "Yesintek 승인 서한은 언제 나왔어?", "follow_up": "EMA 승인은 언제였어?", "inherited": {"products": ["BMAB1200"]}},
+    {"id": "F12", "previous": "BAT2206의 FDA 라벨에서 판상 건선 용법은?", "follow_up": "크론병 용법도 알려줘", "inherited": {"products": ["BAT2206"], "jurisdictions": ["US"]}},
+    {"id": "F13", "previous": "BAT2206의 FDA 라벨에서 판상 건선 용법은?", "follow_up": "Usymro EMA 제품정보와 차이가 있어?", "inherited": {}},
+    {"id": "F14", "previous": "EMA 바이오시밀러 지침에서 대조약 선택 기준은?", "follow_up": "비EEA 대조약은 어떻게 다뤄?", "inherited": {"jurisdictions": ["EU"]}},
+    {"id": "F15", "previous": "EMA 바이오시밀러 지침에서 대조약 선택 기준은?", "follow_up": "FDA 지침은 어떻게 말해?", "inherited": {}},
+    {"id": "F16", "previous": "SB17이랑 ABP654의 PK 시험 설계를 EMA 문서로 비교해줘", "follow_up": "채혈 시점은 어떻게 달랐어?", "inherited": {"products": ["ABP654", "SB17"], "jurisdictions": ["EU"]}},
+    {"id": "F17", "previous": "SB17이랑 ABP654의 PK 시험 설계를 EMA 문서로 비교해줘", "follow_up": "CT-P43도 같이 비교해줘", "inherited": {"jurisdictions": ["EU"]}},
+    {"id": "F18", "previous": "3상 시험은 어떻게 진행되었지?", "follow_up": "SB17 기준으로 다시 알려줘", "inherited": {}},
+    {"id": "F19", "previous": "3상 시험은 어떻게 진행되었지?", "follow_up": "기간은 얼마나 됐어?", "inherited": {}},
+    {"id": "F20", "previous": "EMA와 FDA 문서에서 CTP43 면역원성 결과를 비교해줘", "follow_up": "차이가 나는 이유가 뭐야?", "inherited": {"products": ["CTP43"], "jurisdictions": ["EU", "US"]}},
+    {"id": "F21", "previous": "EMA와 FDA 문서에서 CTP43 면역원성 결과를 비교해줘", "follow_up": "HC는?", "inherited": {"products": ["CTP43"]}},
+    {"id": "F22", "previous": "셀트리온 제품의 EMA 평가에서 주요 쟁점은?", "follow_up": "해결은 어떻게 됐어?", "inherited": {"products": ["CTP43"], "jurisdictions": ["EU"]}},
+    {"id": "F23", "previous": "EMA 문서에서 CTP43 평가할 때 중점적으로 본 이슈가 뭐인지 알려줄 수 있을까?", "follow_up": "각 제품별로 정리해줘", "inherited": {"jurisdictions": ["EU"]}},
+    {"id": "F24", "previous": "EMA 문서에서 CTP43 평가할 때 중점적으로 본 이슈가 뭐인지 알려줄 수 있을까?", "follow_up": "기관별로 비교해줘", "inherited": {"products": ["CTP43"]}}
+  ]
+}

@@ -1,0 +1,1344 @@
+{
+  "created_utc": "2026-10-13T19:29:01.435690+00:00",
+  "policy": {
+    "version": "visual-preservation-boxes-multi-value-gate-2",
+    "control": "live missing-only G, unchanged primary tables and figures",
+    "improved": "H: preserve original chart evidence, missing closed-border regions, multi-value table repair",
+    "primary": "fresh Heron + RapidOCR/PP-OCRv6 + TableFormer accurate + existing ra_prep corrections",
+    "shared": "same new primary and same new independent PP-DocLayoutV3 inventory",
+    "vlm": "PaddleOCR-VL-1.6-0.9B table; independent process and new calls for each branch",
+    "crop_dpi": 300,
+    "crop_padding_px": 12,
+    "max_image_edge": 1800,
+    "box_policy": "closed source border: width>=40%, height 2.5%-45%, each edge coverage>=70%; adjacent visual notes preserved as figure context",
+    "table_alarm": "two or more value(parenthesized-statistic) groups in one non-first-row cell",
+    "replacement_gate": "valid nonempty structure, all original numeric literal types, >=90% label word coverage, fewer multi-value cells",
+    "label_normalization": "existing comparable_text math-subscript normalization before label words and value groups",
+    "chart_gate": "independent chart and original picture: preserve figure and archive conflicting table",
+    "gold_used_for_routing": false,
+    "retries": 0,
+    "limit": "same exposed development pages; gates do not prove clinical semantics"
+  },
+  "jobs": [
+    {
+      "document": "ABP654_EMA_p044.pdf",
+      "page": 1,
+      "key": "ABP654_EMA_p044_fe50ff21bf",
+      "agency": "EMA",
+      "bbox": [
+        63.5,
+        342.5199829101563,
+        474.4,
+        506.0199829101563
+      ],
+      "origin": "existing_table_structure_alarm",
+      "action": "replace",
+      "table_index": 1,
+      "original_table": [
+        [
+          "Treatment and Comparison",
+          "AUCinf (hr*ng/mL) Cmax (ng/mL) LS Geometric Mean [n] LS Geometric Mean [n]",
+          "Cmax (ng/mL)",
+          "AUClast (hr*ng/mL) LS Geometric Mean [n]"
+        ],
+        [
+          "ABP 654",
+          "10783692.1 [76]",
+          "11419.0 [78]",
+          "10137829.7 [78]"
+        ],
+        [
+          "Ustekinumab (US)",
+          "10651782.5 [76]",
+          "11384.9 [79]",
+          "9975870.4 [79]"
+        ],
+        [
+          "Ustekinumab (EU)",
+          "11482547.0 [77]",
+          "12081.5 [80]",
+          "10752507.0 [80]"
+        ],
+        [
+          "",
+          "Ratio of LS Geometric Means (90% Cl)",
+          "",
+          ""
+        ],
+        [
+          "ABP 654 vs ustekinumab (US) 1.0124 (0.9289, 1.1034)1.0030 (0.9314, 1.0801) 1.0162 (0.9358, 1.1035)",
+          "",
+          "",
+          ""
+        ],
+        [
+          "ABP 654 vs ustekinumab (EU) 0.9391 (0.8620, 1.0232) 0.9452 (0.8779, 1.0175) 0.9428 (0.8685, 1.0235)",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Ustekinumab (US) vs ustekinumab (EU)",
+          "",
+          "0.9276 (0.8514, 1.0107) 0.9423 (0.8755, 1.0143) 0.9278 (0.8549, 1.0069)",
+          ""
+        ]
+      ],
+      "quality_alarm": {
+        "issues": [
+          "multiple_value_groups_in_one_cell"
+        ],
+        "cells": [
+          {
+            "r": 5,
+            "c": 0,
+            "value_groups": 3,
+            "text": "ABP 654 vs ustekinumab (US) 1.0124 (0.9289, 1.1034)1.0030 (0.9314, 1.0801) 1.0162 (0.9358, 1.1035)"
+          },
+          {
+            "r": 6,
+            "c": 0,
+            "value_groups": 3,
+            "text": "ABP 654 vs ustekinumab (EU) 0.9391 (0.8620, 1.0232) 0.9452 (0.8779, 1.0175) 0.9428 (0.8685, 1.0235)"
+          },
+          {
+            "r": 7,
+            "c": 2,
+            "value_groups": 3,
+            "text": "0.9276 (0.8514, 1.0107) 0.9423 (0.8755, 1.0143) 0.9278 (0.8549, 1.0069)"
+          }
+        ]
+      },
+      "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_EMA_p044.pdf",
+      "id": "ABP654_EMA_p044_fe50ff21bf_p001_replace_000",
+      "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_EMA_p044_fe50ff21bf_p001_replace_000.png",
+      "image_sha256": "c89a907d2e779779750e65b0615fb236e030e6e9c5731cf93289873f38229cd8",
+      "pixels": [
+        1737,
+        706
+      ],
+      "context_bbox": [
+        60.619998931884766,
+        339.6399841308594,
+        477.2799987792969,
+        508.8999938964844
+      ]
+    },
+    {
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "key": "ABP654_FDA_ChemR_p033_f69da8cc31",
+      "agency": "FDA",
+      "bbox": [
+        73.92,
+        84.96,
+        538.0799999999999,
+        167.51999999999998
+      ],
+      "origin": "PP-DocLayoutV3 table",
+      "detector_score": 0.7304331660270691,
+      "action": "add",
+      "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p033.pdf",
+      "id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_001",
+      "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_001.png",
+      "image_sha256": "e8d14d1485f61fd3a64b354f807be3164d6a2158d64ac06bdf2605ca115c1308",
+      "pixels": [
+        1800,
+        338
+      ],
+      "context_bbox": [
+        71.04000091552734,
+        82.08000183105469,
+        540.9600219726562,
+        170.39999389648438
+      ]
+    },
+    {
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "key": "ABP654_FDA_ChemR_p033_f69da8cc31",
+      "agency": "FDA",
+      "bbox": [
+        71.52,
+        191.51999999999998,
+        540.0,
+        275.52
+      ],
+      "origin": "PP-DocLayoutV3 table",
+      "detector_score": 0.9575733542442322,
+      "action": "add",
+      "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p033.pdf",
+      "id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_002",
+      "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_002.png",
+      "image_sha256": "ad90f1c8ca70f9d973675634e606fc8ec8af7f2207f64760ec58f02e8b6443b1",
+      "pixels": [
+        1800,
+        341
+      ],
+      "context_bbox": [
+        68.63999938964844,
+        188.63999938964844,
+        542.8800048828125,
+        278.3999938964844
+      ]
+    },
+    {
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "key": "ABP654_FDA_ChemR_p033_f69da8cc31",
+      "agency": "FDA",
+      "bbox": [
+        71.03999999999999,
+        446.88,
+        540.0,
+        518.88
+      ],
+      "origin": "PP-DocLayoutV3 table",
+      "detector_score": 0.9440029859542847,
+      "action": "add",
+      "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p033.pdf",
+      "id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_003",
+      "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_003.png",
+      "image_sha256": "bad7db50fb52aa750050bd29575df97525dd5779767e493869e2c5e0ae45f9d4",
+      "pixels": [
+        1800,
+        295
+      ],
+      "context_bbox": [
+        68.16000366210938,
+        444.0,
+        542.8800048828125,
+        521.760009765625
+      ]
+    },
+    {
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "key": "ABP654_FDA_ChemR_p033_f69da8cc31",
+      "agency": "FDA",
+      "bbox": [
+        71.03999999999999,
+        624.9599999999999,
+        540.0,
+        697.4399999999999
+      ],
+      "origin": "PP-DocLayoutV3 table",
+      "detector_score": 0.9436938762664795,
+      "action": "add",
+      "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p033.pdf",
+      "id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_004",
+      "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_004.png",
+      "image_sha256": "b60d004798853b393f05cd28e708a7d7c42b337d76dc70b9ae5cdfee0061571a",
+      "pixels": [
+        1800,
+        297
+      ],
+      "context_bbox": [
+        68.16000366210938,
+        622.0800170898438,
+        542.8800048828125,
+        700.3200073242188
+      ]
+    },
+    {
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "key": "ABP654_FDA_ChemR_p033_f69da8cc31",
+      "agency": "FDA",
+      "bbox": [
+        71.52,
+        286.56,
+        541.44,
+        422.88
+      ],
+      "edge_coverage": [
+        0.9969356486210419,
+        0.9969356486210419,
+        0.9894366197183099,
+        0.9894366197183099
+      ],
+      "origin": "source_closed_border",
+      "action": "add",
+      "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p033.pdf",
+      "id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_005",
+      "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_005.png",
+      "image_sha256": "8771784f94864a666cc64ba0ba121db69841ee8e97b93e84490750707b37c553",
+      "pixels": [
+        1800,
+        538
+      ],
+      "context_bbox": [
+        68.63999938964844,
+        283.67999267578125,
+        544.3200073242188,
+        425.760009765625
+      ]
+    },
+    {
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "key": "ABP654_FDA_ChemR_p033_f69da8cc31",
+      "agency": "FDA",
+      "bbox": [
+        71.52,
+        530.88,
+        541.44,
+        600.48
+      ],
+      "edge_coverage": [
+        0.9969356486210419,
+        0.9969356486210419,
+        0.9793103448275862,
+        0.9793103448275862
+      ],
+      "origin": "source_closed_border",
+      "action": "add",
+      "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p033.pdf",
+      "id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_006",
+      "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_006.png",
+      "image_sha256": "ac2e1889074cdc1e0440fd1ed83273cbfa405c6e987137a16d05e19ee44977cf",
+      "pixels": [
+        1800,
+        285
+      ],
+      "context_bbox": [
+        68.63999938964844,
+        528.0,
+        544.3200073242188,
+        603.3599853515625
+      ]
+    },
+    {
+      "document": "ABP654_FDA_Multi_p035.pdf",
+      "page": 1,
+      "key": "ABP654_FDA_Multi_p035_165ac97194",
+      "agency": "FDA",
+      "bbox": [
+        71.5,
+        628.7,
+        540.5,
+        708.6
+      ],
+      "origin": "existing_table_structure_alarm",
+      "action": "replace",
+      "table_index": 0,
+      "original_table": [
+        [
+          "",
+          "PK Parameters Geometric Mean (Geometric CV%) "
+        ],
+        [
+          "",
+          "ABP 654 (n=78) US-Stelara (n=79) EU-Stelara (n=80) "
+        ],
+        [
+          "C max   (ng/mL) ",
+          "11546 (36.1) 11258 (33.8) 12085 (32.8) "
+        ],
+        [
+          "AUClast (h*ng/mL) 10175553 (39.6) 9784499 (38.5) 10684286 (33.5) ",
+          ""
+        ],
+        [
+          "AUC0-inf (h*ng/mL) 10859684 (40.9) 10592020 (38.5) 11310320 (35.3) ",
+          ""
+        ],
+        [
+          "T max   (h) a ",
+          "144 (24, 288) 192 (48, 648) 192 (48, 648) "
+        ]
+      ],
+      "quality_alarm": {
+        "issues": [
+          "multiple_value_groups_in_one_cell"
+        ],
+        "cells": [
+          {
+            "r": 2,
+            "c": 1,
+            "value_groups": 3,
+            "text": "11546 (36.1) 11258 (33.8) 12085 (32.8) "
+          },
+          {
+            "r": 3,
+            "c": 0,
+            "value_groups": 3,
+            "text": "AUClast (h*ng/mL) 10175553 (39.6) 9784499 (38.5) 10684286 (33.5) "
+          },
+          {
+            "r": 4,
+            "c": 0,
+            "value_groups": 3,
+            "text": "AUC0-inf (h*ng/mL) 10859684 (40.9) 10592020 (38.5) 11310320 (35.3) "
+          },
+          {
+            "r": 5,
+            "c": 1,
+            "value_groups": 3,
+            "text": "144 (24, 288) 192 (48, 648) 192 (48, 648) "
+          }
+        ]
+      },
+      "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_Multi_p035.pdf",
+      "id": "ABP654_FDA_Multi_p035_165ac97194_p001_replace_007",
+      "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_FDA_Multi_p035_165ac97194_p001_replace_007.png",
+      "image_sha256": "34f3579cc1bd90d218eb4246683462b338e0fd4dc4821343cbc962be5fe5551e",
+      "pixels": [
+        1800,
+        325
+      ],
+      "context_bbox": [
+        68.62000274658203,
+        625.8200073242188,
+        543.3800048828125,
+        711.47998046875
+      ]
+    },
+    {
+      "document": "ABP654_HC_p034_035.pdf",
+      "page": 2,
+      "key": "ABP654_HC_p034_035_557af5cb1e",
+      "agency": "HC",
+      "bbox": [
+        71.1,
+        71.0,
+        548.3,
+        225.39999999999998
+      ],
+      "origin": "existing_table_structure_alarm",
+      "action": "replace",
+      "table_index": 0,
+      "original_table": [
+        [
+          "",
+          "PHOENIX 1 ",
+          "",
+          "PHOENIX 2 ",
+          "",
+          "ACCEPT",
+          ""
+        ],
+        [
+          "",
+          "Placebo ",
+          "Ustekinumab ",
+          "Placebo ",
+          "Ustekinumab Etanercept ",
+          "",
+          "Ustekinumab"
+        ],
+        [
+          "Failed to respond to,  had contraindication  for, or intolerant to ≥ 1  conventional therapy a ",
+          "139 (55%) ",
+          "270 (53%) ",
+          "254 (62%) ",
+          "490 (60%) ",
+          "",
+          "347 (100%) 555 (100%)"
+        ],
+        [
+          "Failed to respond to,  had contraindication  for, or intolerant to ≥ 3  conventional  therapies a ",
+          "30 (12%) ",
+          "54 (11%) ",
+          "66 (16%) ",
+          "134 (16%) ",
+          "52 (15%) ",
+          "78 (14%)"
+        ]
+      ],
+      "quality_alarm": {
+        "issues": [
+          "multiple_value_groups_in_one_cell"
+        ],
+        "cells": [
+          {
+            "r": 2,
+            "c": 6,
+            "value_groups": 2,
+            "text": "347 (100%) 555 (100%)"
+          }
+        ]
+      },
+      "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_HC_p034_035.pdf",
+      "id": "ABP654_HC_p034_035_557af5cb1e_p002_replace_008",
+      "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_HC_p034_035_557af5cb1e_p002_replace_008.png",
+      "image_sha256": "c7f6d4e0f195e46251c8b277f40ca0a8c4533cfc504a59d61ad668f629c91fd0",
+      "pixels": [
+        1800,
+        598
+      ],
+      "context_bbox": [
+        68.22000122070312,
+        68.12000274658203,
+        551.1799926757812,
+        228.27999877929688
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "document": "ABP654_EMA_p036_037.pdf",
+      "page": 2,
+      "bbox": [
+        62.841999161541224,
+        481.4399902274155,
+        484.9867263535739,
+        570.2399884248949
+      ],
+      "origin": "PP-DocLayoutV3 table",
+      "detector_score": 0.9449975490570068,
+      "primary_tables": [
+        0
+      ],
+      "figure_conflicts": [],
+      "action": "keep_existing_table"
+    },
+    {
+      "document": "ABP654_EMA_p036_037.pdf",
+      "page": 2,
+      "bbox": [
+        62.36228924427755,
+        627.3599872654357,
+        491.2229552780016,
+        737.7599850244642
+      ],
+      "origin": "PP-DocLayoutV3 table",
+      "detector_score": 0.9532528519630432,
+      "primary_tables": [
+        1
+      ],
+      "figure_conflicts": [],
+      "action": "keep_existing_table"
+    },
+    {
+      "document": "ABP654_EMA_p036_037.pdf",
+      "page": 2,
+      "bbox": [
+        63.32170907880489,
+        481.4399902274155,
+        485.4664362708375,
+        570.7199884151515
+      ],
+      "edge_coverage": [
+        0.9977272727272727,
+        0.9977272727272727,
+        0.989247311827957,
+        0.989247311827957
+      ],
+      "origin": "source_closed_border",
+      "primary_tables": [
+        0
+      ],
+      "figure_conflicts": [],
+      "action": "keep_existing_table"
+    },
+    {
+      "document": "ABP654_EMA_p036_037.pdf",
+      "page": 2,
+      "bbox": [
+        62.36228924427755,
+        626.879987275179,
+        492.66208502979265,
+        739.6799849854907
+      ],
+      "edge_coverage": [
+        0.9977703455964325,
+        0.9977703455964325,
+        0.9914893617021276,
+        0.9914893617021276
+      ],
+      "origin": "source_closed_border",
+      "primary_tables": [
+        1
+      ],
+      "figure_conflicts": [],
+      "action": "keep_existing_table"
+    },
+    {
+      "document": "ABP654_EMA_p044.pdf",
+      "page": 1,
+      "bbox": [
+        66.19996858238694,
+        101.75999793440886,
+        523.3635197346678,
+        181.91999630726866
+      ],
+      "origin": "PP-DocLayoutV3 table",
+      "detector_score": 0.9280260801315308,
+      "primary_tables": [
+        0
+      ],
+      "figure_conflicts": [],
+      "action": "keep_existing_table"
+    },
+    {
+      "document": "ABP654_EMA_p044.pdf",
+      "page": 1,
+      "bbox": [
+        63.80141899606857,
+        343.1999930335015,
+        472.99397842198204,
+        506.399989720761
+      ],
+      "origin": "PP-DocLayoutV3 table",
+      "detector_score": 0.9670403599739075,
+      "primary_tables": [
+        1
+      ],
+      "figure_conflicts": [],
+      "action": "keep_existing_table"
+    },
+    {
+      "document": "ABP654_EMA_p044.pdf",
+      "page": 1,
+      "bbox": [
+        67.63909833417796,
+        101.2799979441522,
+        525.2823594037225,
+        180.47999633649871
+      ],
+      "edge_coverage": [
+        0.9979035639412998,
+        0.9979035639412998,
+        0.9878787878787879,
+        0.9878787878787879
+      ],
+      "origin": "source_closed_border",
+      "primary_tables": [
+        0
+      ],
+      "figure_conflicts": [],
+      "action": "keep_existing_table"
+    },
+    {
+      "document": "ABP654_EMA_p044.pdf",
+      "page": 1,
+      "bbox": [
+        64.28112891333224,
+        343.1999930335015,
+        474.43310817377306,
+        506.399989720761
+      ],
+      "edge_coverage": [
+        0.9976608187134502,
+        0.9976608187134502,
+        0.9941176470588236,
+        0.9941176470588236
+      ],
+      "origin": "source_closed_border",
+      "primary_tables": [
+        1
+      ],
+      "figure_conflicts": [],
+      "action": "keep_existing_table"
+    },
+    {
+      "document": "ABP654_EMA_p044.pdf",
+      "page": 1,
+      "bbox": [
+        63.5,
+        342.5199829101563,
+        474.4,
+        506.0199829101563
+      ],
+      "action": "repair_existing_table",
+      "table_index": 1,
+      "quality_alarm": {
+        "issues": [
+          "multiple_value_groups_in_one_cell"
+        ],
+        "cells": [
+          {
+            "r": 5,
+            "c": 0,
+            "value_groups": 3,
+            "text": "ABP 654 vs ustekinumab (US) 1.0124 (0.9289, 1.1034)1.0030 (0.9314, 1.0801) 1.0162 (0.9358, 1.1035)"
+          },
+          {
+            "r": 6,
+            "c": 0,
+            "value_groups": 3,
+            "text": "ABP 654 vs ustekinumab (EU) 0.9391 (0.8620, 1.0232) 0.9452 (0.8779, 1.0175) 0.9428 (0.8685, 1.0235)"
+          },
+          {
+            "r": 7,
+            "c": 2,
+            "value_groups": 3,
+            "text": "0.9276 (0.8514, 1.0107) 0.9423 (0.8755, 1.0143) 0.9278 (0.8549, 1.0069)"
+          }
+        ]
+      }
+    },
+    {
+      "document": "ABP654_EMA_p050.pdf",
+      "page": 1,
+      "bbox": [
+        64.3199986943905,
+        92.10430411462531,
+        775.6799842547392,
+        392.4027123216849
+      ],
+      "origin": "PP-DocLayoutV3 table",
+      "detector_score": 0.9736137986183167,
+      "primary_tables": [
+        0
+      ],
+      "figure_conflicts": [],
+      "action": "keep_existing_table"
+    },
+    {
+      "document": "ABP654_EMA_p053.pdf",
+      "page": 1,
+      "bbox": [
+        68.11880825144164,
+        366.71999255607716,
+        530.5591684936228,
+        476.15999033459235
+      ],
+      "edge_coverage": [
+        0.9979253112033195,
+        0.9979253112033195,
+        0.9912280701754386,
+        0.9912280701754386
+      ],
+      "origin": "source_closed_border",
+      "primary_tables": [],
+      "figure_conflicts": [],
+      "action": "preserve_visual_context",
+      "figure_id": "#/pictures/0"
+    },
+    {
+      "document": "ABP654_FDA_ChemR_p012_013.pdf",
+      "page": 1,
+      "bbox": [
+        35.04,
+        242.88,
+        577.4399999999999,
+        712.3199999999999
+      ],
+      "origin": "PP-DocLayoutV3 table",
+      "detector_score": 0.9840919971466064,
+      "primary_tables": [
+        0
+      ],
+      "figure_conflicts": [],
+      "action": "keep_existing_table"
+    },
+    {
+      "document": "ABP654_FDA_ChemR_p012_013.pdf",
+      "page": 2,
+      "bbox": [
+        34.56,
+        85.92,
+        577.4399999999999,
+        704.64
+      ],
+      "origin": "PP-DocLayoutV3 table",
+      "detector_score": 0.98553466796875,
+      "primary_tables": [
+        0
+      ],
+      "figure_conflicts": [],
+      "action": "keep_existing_table"
+    },
+    {
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "bbox": [
+        73.92,
+        84.96,
+        538.0799999999999,
+        167.51999999999998
+      ],
+      "origin": "PP-DocLayoutV3 table",
+      "detector_score": 0.7304331660270691,
+      "primary_tables": [],
+      "figure_conflicts": [],
+      "action": "add_missing_region"
+    },
+    {
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "bbox": [
+        71.52,
+        191.51999999999998,
+        540.0,
+        275.52
+      ],
+      "origin": "PP-DocLayoutV3 table",
+      "detector_score": 0.9575733542442322,
+      "primary_tables": [],
+      "figure_conflicts": [],
+      "action": "add_missing_region"
+    },
+    {
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "bbox": [
+        71.03999999999999,
+        446.88,
+        540.0,
+        518.88
+      ],
+      "origin": "PP-DocLayoutV3 table",
+      "detector_score": 0.9440029859542847,
+      "primary_tables": [],
+      "figure_conflicts": [],
+      "action": "add_missing_region"
+    },
+    {
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "bbox": [
+        71.03999999999999,
+        624.9599999999999,
+        540.0,
+        697.4399999999999
+      ],
+      "origin": "PP-DocLayoutV3 table",
+      "detector_score": 0.9436938762664795,
+      "primary_tables": [],
+      "figure_conflicts": [],
+      "action": "add_missing_region"
+    },
+    {
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "bbox": [
+        71.52,
+        84.48,
+        541.44,
+        167.04
+      ],
+      "edge_coverage": [
+        0.9969356486210419,
+        0.9969356486210419,
+        0.9825581395348837,
+        0.9825581395348837
+      ],
+      "origin": "source_closed_border",
+      "primary_tables": [],
+      "figure_conflicts": [],
+      "action": "duplicate_region"
+    },
+    {
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "bbox": [
+        71.52,
+        192.0,
+        541.44,
+        275.52
+      ],
+      "edge_coverage": [
+        0.9969356486210419,
+        0.9969356486210419,
+        0.9827586206896551,
+        0.9827586206896551
+      ],
+      "origin": "source_closed_border",
+      "primary_tables": [],
+      "figure_conflicts": [],
+      "action": "duplicate_region"
+    },
+    {
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "bbox": [
+        71.52,
+        286.56,
+        541.44,
+        422.88
+      ],
+      "edge_coverage": [
+        0.9969356486210419,
+        0.9969356486210419,
+        0.9894366197183099,
+        0.9894366197183099
+      ],
+      "origin": "source_closed_border",
+      "primary_tables": [],
+      "figure_conflicts": [],
+      "action": "add_missing_region"
+    },
+    {
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "bbox": [
+        71.52,
+        446.88,
+        541.44,
+        519.84
+      ],
+      "edge_coverage": [
+        0.9969356486210419,
+        0.9969356486210419,
+        0.9802631578947368,
+        0.9802631578947368
+      ],
+      "origin": "source_closed_border",
+      "primary_tables": [],
+      "figure_conflicts": [],
+      "action": "duplicate_region"
+    },
+    {
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "bbox": [
+        71.52,
+        530.88,
+        541.44,
+        600.48
+      ],
+      "edge_coverage": [
+        0.9969356486210419,
+        0.9969356486210419,
+        0.9793103448275862,
+        0.9793103448275862
+      ],
+      "origin": "source_closed_border",
+      "primary_tables": [],
+      "figure_conflicts": [],
+      "action": "add_missing_region"
+    },
+    {
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "bbox": [
+        71.52,
+        624.96,
+        541.44,
+        698.88
+      ],
+      "edge_coverage": [
+        0.9969356486210419,
+        0.9969356486210419,
+        0.9805194805194806,
+        0.9805194805194806
+      ],
+      "origin": "source_closed_border",
+      "primary_tables": [],
+      "figure_conflicts": [],
+      "action": "duplicate_region"
+    },
+    {
+      "document": "ABP654_FDA_Multi_p035.pdf",
+      "page": 1,
+      "bbox": [
+        71.03999999999999,
+        627.84,
+        540.0,
+        709.4399999999999
+      ],
+      "origin": "PP-DocLayoutV3 table",
+      "detector_score": 0.9597482085227966,
+      "primary_tables": [
+        0
+      ],
+      "figure_conflicts": [],
+      "action": "keep_existing_table"
+    },
+    {
+      "document": "ABP654_FDA_Multi_p035.pdf",
+      "page": 1,
+      "bbox": [
+        71.52,
+        628.32,
+        540.96,
+        709.92
+      ],
+      "edge_coverage": [
+        0.9969325153374233,
+        0.9969325153374233,
+        0.9823529411764705,
+        0.9823529411764705
+      ],
+      "origin": "source_closed_border",
+      "primary_tables": [
+        0
+      ],
+      "figure_conflicts": [],
+      "action": "keep_existing_table"
+    },
+    {
+      "document": "ABP654_FDA_Multi_p035.pdf",
+      "page": 1,
+      "bbox": [
+        71.5,
+        628.7,
+        540.5,
+        708.6
+      ],
+      "action": "repair_existing_table",
+      "table_index": 0,
+      "quality_alarm": {
+        "issues": [
+          "multiple_value_groups_in_one_cell"
+        ],
+        "cells": [
+          {
+            "r": 2,
+            "c": 1,
+            "value_groups": 3,
+            "text": "11546 (36.1) 11258 (33.8) 12085 (32.8) "
+          },
+          {
+            "r": 3,
+            "c": 0,
+            "value_groups": 3,
+            "text": "AUClast (h*ng/mL) 10175553 (39.6) 9784499 (38.5) 10684286 (33.5) "
+          },
+          {
+            "r": 4,
+            "c": 0,
+            "value_groups": 3,
+            "text": "AUC0-inf (h*ng/mL) 10859684 (40.9) 10592020 (38.5) 11310320 (35.3) "
+          },
+          {
+            "r": 5,
+            "c": 1,
+            "value_groups": 3,
+            "text": "144 (24, 288) 192 (48, 648) 192 (48, 648) "
+          }
+        ]
+      }
+    },
+    {
+      "document": "ABP654_HC_p028.pdf",
+      "page": 1,
+      "bbox": [
+        71.03999999999999,
+        183.35999999999999,
+        545.76,
+        401.76
+      ],
+      "origin": "PP-DocLayoutV3 table",
+      "detector_score": 0.9732766151428223,
+      "primary_tables": [
+        0
+      ],
+      "figure_conflicts": [],
+      "action": "keep_existing_table"
+    },
+    {
+      "document": "ABP654_HC_p028.pdf",
+      "page": 1,
+      "bbox": [
+        71.52,
+        184.32,
+        547.2,
+        403.2
+      ],
+      "edge_coverage": [
+        0.9969727547931383,
+        0.9969727547931383,
+        0.993421052631579,
+        0.993421052631579
+      ],
+      "origin": "source_closed_border",
+      "primary_tables": [
+        0
+      ],
+      "figure_conflicts": [],
+      "action": "keep_existing_table"
+    },
+    {
+      "document": "ABP654_HC_p034_035.pdf",
+      "page": 1,
+      "bbox": [
+        71.03999999999999,
+        71.52,
+        546.24,
+        330.71999999999997
+      ],
+      "origin": "PP-DocLayoutV3 table",
+      "detector_score": 0.9719504714012146,
+      "primary_tables": [
+        0
+      ],
+      "figure_conflicts": [],
+      "action": "keep_existing_table"
+    },
+    {
+      "document": "ABP654_HC_p034_035.pdf",
+      "page": 1,
+      "bbox": [
+        71.03999999999999,
+        377.28,
+        546.72,
+        671.04
+      ],
+      "origin": "PP-DocLayoutV3 table",
+      "detector_score": 0.9769376516342163,
+      "primary_tables": [
+        1
+      ],
+      "figure_conflicts": [],
+      "action": "keep_existing_table"
+    },
+    {
+      "document": "ABP654_HC_p034_035.pdf",
+      "page": 1,
+      "bbox": [
+        71.52,
+        71.52,
+        547.2,
+        332.64
+      ],
+      "edge_coverage": [
+        0.9969727547931383,
+        0.9969727547931383,
+        0.9963235294117647,
+        0.9963235294117647
+      ],
+      "origin": "source_closed_border",
+      "primary_tables": [
+        0
+      ],
+      "figure_conflicts": [],
+      "action": "keep_existing_table"
+    },
+    {
+      "document": "ABP654_HC_p034_035.pdf",
+      "page": 1,
+      "bbox": [
+        71.52,
+        377.76,
+        548.64,
+        672.0
+      ],
+      "edge_coverage": [
+        0.9969818913480886,
+        0.9969818913480886,
+        0.9951060358890701,
+        0.9951060358890701
+      ],
+      "origin": "source_closed_border",
+      "primary_tables": [
+        1
+      ],
+      "figure_conflicts": [],
+      "action": "keep_existing_table"
+    },
+    {
+      "document": "ABP654_HC_p034_035.pdf",
+      "page": 2,
+      "bbox": [
+        71.03999999999999,
+        72.0,
+        546.72,
+        224.16
+      ],
+      "origin": "PP-DocLayoutV3 table",
+      "detector_score": 0.971344530582428,
+      "primary_tables": [
+        0
+      ],
+      "figure_conflicts": [],
+      "action": "keep_existing_table"
+    },
+    {
+      "document": "ABP654_HC_p034_035.pdf",
+      "page": 2,
+      "bbox": [
+        71.52,
+        71.52,
+        548.64,
+        225.6
+      ],
+      "edge_coverage": [
+        0.9969818913480886,
+        0.9969818913480886,
+        0.9937694704049844,
+        0.9937694704049844
+      ],
+      "origin": "source_closed_border",
+      "primary_tables": [
+        0
+      ],
+      "figure_conflicts": [],
+      "action": "keep_existing_table"
+    },
+    {
+      "document": "ABP654_HC_p034_035.pdf",
+      "page": 2,
+      "bbox": [
+        71.1,
+        71.0,
+        548.3,
+        225.39999999999998
+      ],
+      "action": "repair_existing_table",
+      "table_index": 0,
+      "quality_alarm": {
+        "issues": [
+          "multiple_value_groups_in_one_cell"
+        ],
+        "cells": [
+          {
+            "r": 2,
+            "c": 6,
+            "value_groups": 2,
+            "text": "347 (100%) 555 (100%)"
+          }
+        ]
+      }
+    },
+    {
+      "document": "ABP654_HC_p038.pdf",
+      "page": 1,
+      "bbox": [
+        184.32,
+        546.72,
+        466.56,
+        569.28
+      ],
+      "edge_coverage": [
+        0.9948979591836735,
+        0.9948979591836735,
+        0.9361702127659575,
+        0.9361702127659575
+      ],
+      "origin": "source_closed_border",
+      "primary_tables": [],
+      "figure_conflicts": [
+        "chart-preserved-1-0"
+      ],
+      "action": "preserve_figure"
+    }
+  ],
+  "visual_decisions": [
+    {
+      "document": "ABP654_EMA_p036_037.pdf",
+      "page": 2,
+      "bbox": [
+        72.91590742407837,
+        152.15999691135664,
+        275.8332024266122,
+        268.3199945534648
+      ],
+      "prior_picture": true,
+      "already_figure": true,
+      "restored": false,
+      "suppressed_tables": []
+    },
+    {
+      "document": "ABP654_EMA_p036_037.pdf",
+      "page": 2,
+      "bbox": [
+        284.46798093735833,
+        153.59999688212656,
+        484.9867263535739,
+        271.6799944852614
+      ],
+      "prior_picture": true,
+      "already_figure": true,
+      "restored": false,
+      "suppressed_tables": []
+    },
+    {
+      "document": "ABP654_FDA_Multi_p035.pdf",
+      "page": 1,
+      "bbox": [
+        81.11999999999999,
+        286.08,
+        504.0,
+        570.72
+      ],
+      "prior_picture": true,
+      "already_figure": true,
+      "restored": false,
+      "suppressed_tables": []
+    },
+    {
+      "document": "ABP654_HC_p038.pdf",
+      "page": 1,
+      "bbox": [
+        119.52,
+        290.4,
+        497.28,
+        528.96
+      ],
+      "prior_picture": true,
+      "already_figure": false,
+      "restored": true,
+      "suppressed_tables": [
+        {
+          "table_index": 0,
+          "bbox": [
+            120.6,
+            273.5,
+            496.5,
+            569.5
+          ],
+          "table": [
+            [
+              "",
+              "PHOENIX 1",
+              "PHOENIX 2"
+            ],
+            [
+              "100",
+              "",
+              ""
+            ],
+            [
+              "",
+              "80",
+              ""
+            ],
+            [
+              "",
+              "60",
+              ""
+            ],
+            [
+              "Percent of Patients",
+              "",
+              ""
+            ],
+            [
+              "",
+              "40",
+              ""
+            ],
+            [
+              "",
+              "20",
+              ""
+            ],
+            [
+              "",
+              "151278_v5",
+              "15335_v6"
+            ],
+            [
+              "0",
+              "",
+              ""
+            ],
+            [
+              "",
+              "0 24 8 12 16 20 24 28 32 36",
+              "024812 16 2024 28"
+            ],
+            [
+              "",
+              "Week",
+              "Week"
+            ],
+            [
+              "",
+              "CNTO 1275 45 mg",
+              "CNTO 1275 90 mg"
+            ]
+          ],
+          "numeric_evidence_eligible": false,
+          "reason": "original_picture_and_independent_chart_conflict_with_table"
+        }
+      ]
+    }
+  ],
+  "selection_frozen_before_gold_read": true,
+  "policy_sha256": "3abf72b83faf92f5ce28890c48197768416a7d9d63fdfdd544350c5a5a139df9"
+}

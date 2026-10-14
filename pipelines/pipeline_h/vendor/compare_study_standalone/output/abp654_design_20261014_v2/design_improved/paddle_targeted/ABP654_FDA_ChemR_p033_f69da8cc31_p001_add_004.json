@@ -1,0 +1,89 @@
+{
+  "job": {
+    "document": "ABP654_FDA_ChemR_p033.pdf",
+    "page": 1,
+    "key": "ABP654_FDA_ChemR_p033_f69da8cc31",
+    "agency": "FDA",
+    "bbox": [
+      71.03999999999999,
+      624.9599999999999,
+      540.0,
+      697.4399999999999
+    ],
+    "origin": "PP-DocLayoutV3 table",
+    "detector_score": 0.9436938762664795,
+    "action": "add",
+    "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p033.pdf",
+    "id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_004",
+    "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_004.png",
+    "image_sha256": "b60d004798853b393f05cd28e708a7d7c42b337d76dc70b9ae5cdfee0061571a",
+    "pixels": [
+      1800,
+      297
+    ],
+    "context_bbox": [
+      68.16000366210938,
+      622.0800170898438,
+      542.8800048828125,
+      700.3200073242188
+    ]
+  },
+  "seconds": 1.1734938000008697,
+  "raw": {
+    "res": {
+      "input_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_004.png",
+      "page_index": null,
+      "page_count": null,
+      "width": 1800,
+      "height": 297,
+      "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": false,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": true,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [],
+        "return_layout_polygon_points": true
+      },
+      "parsing_res_list": [
+        {
+          "block_label": "table",
+          "block_content": "<table><tr><td>Multiple dose containers (recommended individual dose) (package labeling)</td><td>Acceptable</td></tr><tr><td>Regulation: 21 CFR 610.61(j)</td><td>☐ Yes ☐ No ☒ N/A</td></tr></table>",
+          "block_bbox": [
+            0,
+            0,
+            1800,
+            297
+          ],
+          "block_id": 0,
+          "block_order": null,
+          "group_id": 0
+        }
+      ]
+    },
+    "ra_runtime": {
+      "inference_seconds": 1.173,
+      "vl_rec_batch_size": 1,
+      "native_blocks": 0,
+      "vlm_blocks": null,
+      "cuda_peak_allocated_bytes": 2091467264,
+      "cuda_peak_reserved_bytes": 2294284288
+    }
+  },
+  "content": "<table><tr><td>Multiple dose containers (recommended individual dose) (package labeling)</td><td>Acceptable</td></tr><tr><td>Regulation: 21 CFR 610.61(j)</td><td>☐ Yes ☐ No ☒ N/A</td></tr></table>",
+  "table": [
+    [
+      "Multiple dose containers (recommended individual dose) (package labeling)",
+      "Acceptable"
+    ],
+    [
+      "Regulation: 21 CFR 610.61(j)",
+      "☐ Yes ☐ No ☒ N/A"
+    ]
+  ],
+  "accepted": true,
+  "error": null,
+  "semantic_status": "source extraction candidate; independent human review pending"
+}

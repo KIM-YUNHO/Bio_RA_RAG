@@ -1,0 +1,9 @@
+{
+  "reason": "PowerShell stdin encoding replaced Korean text with question marks when creating the transfer-only input file.",
+  "reports": 4,
+  "provider_calls": 12,
+  "excluded_from_quality_metrics": true,
+  "original_input_sha256": "28fb262f572049611ce8465b60eda8317bebb1cd75ed0997ff4a176cd35d3e49",
+  "replacement_input": "eval/h_v2_transfer_cases_2026-10-14.json",
+  "automatic_retry": false
+}

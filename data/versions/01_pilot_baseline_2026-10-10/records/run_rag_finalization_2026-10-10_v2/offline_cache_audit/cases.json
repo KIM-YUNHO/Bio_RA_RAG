@@ -1,0 +1,835 @@
+[
+  {
+    "id": "Q002",
+    "suite": "historical_dev",
+    "topic": "population",
+    "question": "SB17-1001 시험에서 대상자 선정기준(연령, 체중, BMI)은?",
+    "payload": {
+      "question": "SB17-1001 시험에서 대상자 선정기준(연령, 체중, BMI)은?",
+      "products": [
+        "SB17"
+      ],
+      "jurisdictions": [
+        "EU"
+      ]
+    },
+    "expected": "answerable",
+    "gold_pages": [
+      38
+    ],
+    "document_id": "EMA:63563",
+    "version_id": "fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76",
+    "gold": [
+      {
+        "gold_id": "G-SB17-002",
+        "product_id": "P_SB17",
+        "study_key": "ST_SB17_1001",
+        "field_id": "design_population",
+        "analysis_id": "NA",
+        "arm": "NA",
+        "comparison": "NA",
+        "analysis_set": "NA",
+        "timepoint": "",
+        "row_type": "CORE",
+        "status": "REPORTED",
+        "value_text": "Healthy male or female, aged 18-55 years (inclusive); body weight 60.0-90.0 kg, BMI 19.0-29.9 kg/m2",
+        "value_num": "",
+        "ci_low": "",
+        "ci_high": "",
+        "unit": "",
+        "n_test": "",
+        "n_ref": "",
+        "denominator": "",
+        "source_id": "SRC_EPAR_PYZ",
+        "source_sha256": "fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76",
+        "pdf_page": "38",
+        "printed_page": "Page 38/168",
+        "locator": "Key inclusion criteria 1-2",
+        "modality": "TEXT",
+        "evidence_quote": "Healthy male or female, aged 18-55 years (inclusive) on the day of signing the informed consent.",
+        "alt_locations": "",
+        "searched_scope": "",
+        "auto_text_check": "PASS",
+        "cross_source_id": "",
+        "cross_value": "",
+        "gold_tier": "AI_DRAFT",
+        "notes": ""
+      }
+    ],
+    "analysis": "NA",
+    "study": "ST_SB17_1001",
+    "gold_status": "AI_DRAFT; evaluator source review required"
+  },
+  {
+    "id": "Q005",
+    "suite": "historical_dev",
+    "topic": "margin",
+    "question": "SB17-1001 시험에서 PK 동등성 한계(equivalence margin)는?",
+    "payload": {
+      "question": "SB17-1001 시험에서 PK 동등성 한계(equivalence margin)는?",
+      "products": [
+        "SB17"
+      ],
+      "jurisdictions": [
+        "EU"
+      ]
+    },
+    "expected": "answerable",
+    "gold_pages": [
+      39
+    ],
+    "document_id": "EMA:63563",
+    "version_id": "fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76",
+    "gold": [
+      {
+        "gold_id": "G-SB17-007",
+        "product_id": "P_SB17",
+        "study_key": "ST_SB17_1001",
+        "field_id": "equiv_margin",
+        "analysis_id": "NA",
+        "arm": "NA",
+        "comparison": "NA",
+        "analysis_set": "NA",
+        "timepoint": "",
+        "row_type": "CORE",
+        "status": "REPORTED",
+        "value_text": "0.8 to 1.25 (80% to 125%)",
+        "value_num": "",
+        "ci_low": "",
+        "ci_high": "",
+        "unit": "ratio",
+        "n_test": "",
+        "n_ref": "",
+        "denominator": "",
+        "source_id": "SRC_EPAR_PYZ",
+        "source_sha256": "fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76",
+        "pdf_page": "39",
+        "printed_page": "Page 39/168",
+        "locator": "Objectives",
+        "modality": "TEXT",
+        "evidence_quote": "entirely contained within the equivalence margin of 0.8 to 1.25",
+        "alt_locations": "",
+        "searched_scope": "",
+        "auto_text_check": "PASS",
+        "cross_source_id": "",
+        "cross_value": "",
+        "gold_tier": "AI_DRAFT",
+        "notes": "EMA 심사는 SB17 vs EU 비교만 1차 판정 기준(p41). US 관련 비교는 FDA용."
+      }
+    ],
+    "analysis": "NA",
+    "study": "ST_SB17_1001",
+    "gold_status": "AI_DRAFT; evaluator source review required"
+  },
+  {
+    "id": "Q008",
+    "suite": "historical_dev",
+    "topic": "n_pk_set",
+    "question": "SB17-1001 시험에서 군별 PK 분석군(PK set) 인원은?",
+    "payload": {
+      "question": "SB17-1001 시험에서 군별 PK 분석군(PK set) 인원은?",
+      "products": [
+        "SB17"
+      ],
+      "jurisdictions": [
+        "EU"
+      ]
+    },
+    "expected": "answerable",
+    "gold_pages": [
+      42,
+      43,
+      47
+    ],
+    "document_id": "EMA:63563",
+    "version_id": "fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76",
+    "gold": [
+      {
+        "gold_id": "G-SB17-012",
+        "product_id": "P_SB17",
+        "study_key": "ST_SB17_1001",
+        "field_id": "n_pk_set",
+        "analysis_id": "NA",
+        "arm": "TEST",
+        "comparison": "NA",
+        "analysis_set": "PK_SET",
+        "timepoint": "",
+        "row_type": "CORE",
+        "status": "REPORTED",
+        "value_text": "67",
+        "value_num": "67",
+        "ci_low": "",
+        "ci_high": "",
+        "unit": "명",
+        "n_test": "",
+        "n_ref": "",
+        "denominator": "",
+        "source_id": "SRC_EPAR_PYZ",
+        "source_sha256": "fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76",
+        "pdf_page": "42",
+        "printed_page": "Page 42/168",
+        "locator": "Patient flow",
+        "modality": "TEXT",
+        "evidence_quote": "were randomised, all of whom included in the SAF and PKS",
+        "alt_locations": "p43 Table 3 (이미지), p47 Table 8 'N = 67'",
+        "searched_scope": "",
+        "auto_text_check": "PASS",
+        "cross_source_id": "",
+        "cross_value": "",
+        "gold_tier": "AI_DRAFT",
+        "notes": "PKS N=67이지만 평가변수별 실제 분석 n은 62/64/60 → GMR 행의 n_test/n_ref 참조"
+      },
+      {
+        "gold_id": "G-SB17-013",
+        "product_id": "P_SB17",
+        "study_key": "ST_SB17_1001",
+        "field_id": "n_pk_set",
+        "analysis_id": "NA",
+        "arm": "EU_RP",
+        "comparison": "NA",
+        "analysis_set": "PK_SET",
+        "timepoint": "",
+        "row_type": "CORE",
+        "status": "REPORTED",
+        "value_text": "67",
+        "value_num": "67",
+        "ci_low": "",
+        "ci_high": "",
+        "unit": "명",
+        "n_test": "",
+        "n_ref": "",
+        "denominator": "",
+        "source_id": "SRC_EPAR_PYZ",
+        "source_sha256": "fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76",
+        "pdf_page": "42",
+        "printed_page": "Page 42/168",
+        "locator": "Patient flow",
+        "modality": "TEXT",
+        "evidence_quote": "were randomised, all of whom included in the SAF and PKS",
+        "alt_locations": "p43 Table 3 (이미지), p47 Table 8 'N = 67'",
+        "searched_scope": "",
+        "auto_text_check": "PASS",
+        "cross_source_id": "",
+        "cross_value": "",
+        "gold_tier": "AI_DRAFT",
+        "notes": "PKS N=67이지만 평가변수별 실제 분석 n은 62/64/60 → GMR 행의 n_test/n_ref 참조"
+      },
+      {
+        "gold_id": "G-SB17-014",
+        "product_id": "P_SB17",
+        "study_key": "ST_SB17_1001",
+        "field_id": "n_pk_set",
+        "analysis_id": "NA",
+        "arm": "US_RP",
+        "comparison": "NA",
+        "analysis_set": "PK_SET",
+        "timepoint": "",
+        "row_type": "CORE",
+        "status": "REPORTED",
+        "value_text": "67",
+        "value_num": "67",
+        "ci_low": "",
+        "ci_high": "",
+        "unit": "명",
+        "n_test": "",
+        "n_ref": "",
+        "denominator": "",
+        "source_id": "SRC_EPAR_PYZ",
+        "source_sha256": "fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76",
+        "pdf_page": "42",
+        "printed_page": "Page 42/168",
+        "locator": "Patient flow",
+        "modality": "TEXT",
+        "evidence_quote": "were randomised, all of whom included in the SAF and PKS",
+        "alt_locations": "p43 Table 3 (이미지), p47 Table 8 'N = 67'",
+        "searched_scope": "",
+        "auto_text_check": "PASS",
+        "cross_source_id": "",
+        "cross_value": "",
+        "gold_tier": "AI_DRAFT",
+        "notes": "PKS N=67이지만 평가변수별 실제 분석 n은 62/64/60 → GMR 행의 n_test/n_ref 참조"
+      }
+    ],
+    "analysis": "NA",
+    "study": "ST_SB17_1001",
+    "gold_status": "AI_DRAFT; evaluator source review required"
+  },
+  {
+    "id": "Q012",
+    "suite": "historical_dev",
+    "topic": "gmr",
+    "question": "SB17-1001 시험에서 사후 ANCOVA(체중 공변량) 분석의 US Stelara 대비, EU Stelara와 US Stelara 간 AUCinf, Cmax의 기하평균비(GMR)와 90% CI는?",
+    "payload": {
+      "question": "SB17-1001 시험에서 사후 ANCOVA(체중 공변량) 분석의 US Stelara 대비, EU Stelara와 US Stelara 간 AUCinf, Cmax의 기하평균비(GMR)와 90% CI는?",
+      "products": [
+        "SB17"
+      ],
+      "jurisdictions": [
+        "EU"
+      ]
+    },
+    "expected": "answerable",
+    "gold_pages": [
+      46
+    ],
+    "document_id": "EMA:63563",
+    "version_id": "fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76",
+    "gold": [
+      {
+        "gold_id": "G-SB17-035",
+        "product_id": "P_SB17",
+        "study_key": "ST_SB17_1001",
+        "field_id": "pk_gmr_auc_inf",
+        "analysis_id": "ADHOC_ANCOVA_WT",
+        "arm": "NA",
+        "comparison": "TEST_vs_US_RP",
+        "analysis_set": "PK_SET",
+        "timepoint": "Single dose",
+        "row_type": "EXTRA",
+        "status": "REPORTED",
+        "value_text": "1.02 (0.94, 1.12)",
+        "value_num": "102.0",
+        "ci_low": "94.0",
+        "ci_high": "112.0",
+        "unit": "%",
+        "n_test": "62",
+        "n_ref": "60",
+        "denominator": "",
+        "source_id": "SRC_EPAR_PYZ",
+        "source_sha256": "fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76",
+        "pdf_page": "46",
+        "printed_page": "Page 46/168",
+        "locator": "Table 7 (ad-hoc ANCOVA, 체중 공변량)",
+        "modality": "IMAGE",
+        "evidence_quote": "",
+        "alt_locations": "",
+        "searched_scope": "",
+        "auto_text_check": "IMAGE(시각 확인)",
+        "cross_source_id": "",
+        "cross_value": "",
+        "gold_tier": "AI_DRAFT",
+        "notes": "사후 분석. 1차 분석 값과 혼동 금지 (분석 함정 사례)"
+      },
+      {
+        "gold_id": "G-SB17-036",
+        "product_id": "P_SB17",
+        "study_key": "ST_SB17_1001",
+        "field_id": "pk_gmr_cmax",
+        "analysis_id": "ADHOC_ANCOVA_WT",
+        "arm": "NA",
+        "comparison": "TEST_vs_US_RP",
+        "analysis_set": "PK_SET",
+        "timepoint": "Single dose",
+        "row_type": "EXTRA",
+        "status": "REPORTED",
+        "value_text": "0.96 (0.88, 1.05)",
+        "value_num": "96.0",
+        "ci_low": "88.0",
+        "ci_high": "105.0",
+        "unit": "%",
+        "n_test": "62",
+        "n_ref": "60",
+        "denominator": "",
+        "source_id": "SRC_EPAR_PYZ",
+        "source_sha256": "fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76",
+        "pdf_page": "46",
+        "printed_page": "Page 46/168",
+        "locator": "Table 7 (ad-hoc ANCOVA, 체중 공변량)",
+        "modality": "IMAGE",
+        "evidence_quote": "",
+        "alt_locations": "",
+        "searched_scope": "",
+        "auto_text_check": "IMAGE(시각 확인)",
+        "cross_source_id": "",
+        "cross_value": "",
+        "gold_tier": "AI_DRAFT",
+        "notes": "사후 분석. 1차 분석 값과 혼동 금지 (분석 함정 사례)"
+      },
+      {
+        "gold_id": "G-SB17-037",
+        "product_id": "P_SB17",
+        "study_key": "ST_SB17_1001",
+        "field_id": "pk_gmr_auc_inf",
+        "analysis_id": "ADHOC_ANCOVA_WT",
+        "arm": "NA",
+        "comparison": "EU_RP_vs_US_RP",
+        "analysis_set": "PK_SET",
+        "timepoint": "Single dose",
+        "row_type": "EXTRA",
+        "status": "REPORTED",
+        "value_text": "1.00 (0.92, 1.10)",
+        "value_num": "100.0",
+        "ci_low": "92.0",
+        "ci_high": "110.0",
+        "unit": "%",
+        "n_test": "64",
+        "n_ref": "60",
+        "denominator": "",
+        "source_id": "SRC_EPAR_PYZ",
+        "source_sha256": "fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76",
+        "pdf_page": "46",
+        "printed_page": "Page 46/168",
+        "locator": "Table 7 (ad-hoc ANCOVA, 체중 공변량)",
+        "modality": "IMAGE",
+        "evidence_quote": "",
+        "alt_locations": "",
+        "searched_scope": "",
+        "auto_text_check": "IMAGE(시각 확인)",
+        "cross_source_id": "",
+        "cross_value": "",
+        "gold_tier": "AI_DRAFT",
+        "notes": "사후 분석. 1차 분석 값과 혼동 금지 (분석 함정 사례)"
+      },
+      {
+        "gold_id": "G-SB17-038",
+        "product_id": "P_SB17",
+        "study_key": "ST_SB17_1001",
+        "field_id": "pk_gmr_cmax",
+        "analysis_id": "ADHOC_ANCOVA_WT",
+        "arm": "NA",
+        "comparison": "EU_RP_vs_US_RP",
+        "analysis_set": "PK_SET",
+        "timepoint": "Single dose",
+        "row_type": "EXTRA",
+        "status": "REPORTED",
+        "value_text": "1.02 (0.94, 1.12)",
+        "value_num": "102.0",
+        "ci_low": "94.0",
+        "ci_high": "112.0",
+        "unit": "%",
+        "n_test": "64",
+        "n_ref": "60",
+        "denominator": "",
+        "source_id": "SRC_EPAR_PYZ",
+        "source_sha256": "fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76",
+        "pdf_page": "46",
+        "printed_page": "Page 46/168",
+        "locator": "Table 7 (ad-hoc ANCOVA, 체중 공변량)",
+        "modality": "IMAGE",
+        "evidence_quote": "",
+        "alt_locations": "",
+        "searched_scope": "",
+        "auto_text_check": "IMAGE(시각 확인)",
+        "cross_source_id": "",
+        "cross_value": "",
+        "gold_tier": "AI_DRAFT",
+        "notes": "사후 분석. 1차 분석 값과 혼동 금지 (분석 함정 사례)"
+      }
+    ],
+    "analysis": "ADHOC_ANCOVA_WT",
+    "study": "ST_SB17_1001",
+    "gold_status": "AI_DRAFT; evaluator source review required"
+  },
+  {
+    "id": "D02",
+    "suite": "diagnostic",
+    "topic": "figure_scope",
+    "question": "EMA SB17-1001의 Figure 3에서 두 패널의 Y축 단위, 선형/반로그 스케일, 두 치료군 범례는 무엇인가?",
+    "payload": {
+      "question": "EMA SB17-1001의 Figure 3에서 두 패널의 Y축 단위, 선형/반로그 스케일, 두 치료군 범례는 무엇인가?",
+      "products": [
+        "SB17"
+      ],
+      "jurisdictions": [
+        "EU"
+      ],
+      "include_nondefault": false
+    },
+    "expected": "answerable",
+    "gold_pages": [
+      44
+    ],
+    "document_id": "EMA:63563",
+    "version_id": "fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76",
+    "rubric": [
+      "Concentration (ng/mL)",
+      "Linear Scale",
+      "Semi-Logarithmic Scale",
+      "SB17 45 mg",
+      "EU sourced Stelara 45 mg",
+      "Do not substitute labels from SB17-3001 Figure 4"
+    ],
+    "gold_status": "agent-authored diagnostic; not expert gold"
+  },
+  {
+    "id": "D03",
+    "suite": "diagnostic",
+    "topic": "false_premise",
+    "question": "EMA SB17-1001 건강인 시험의 90 mg 투여군에서 EU Stelara 대비 Cmax 기하평균비와 90% 신뢰구간은?",
+    "payload": {
+      "question": "EMA SB17-1001 건강인 시험의 90 mg 투여군에서 EU Stelara 대비 Cmax 기하평균비와 90% 신뢰구간은?",
+      "products": [
+        "SB17"
+      ],
+      "jurisdictions": [
+        "EU"
+      ],
+      "include_nondefault": false
+    },
+    "expected": "abstain_or_correct_premise",
+    "gold_pages": [
+      39,
+      43,
+      45
+    ],
+    "document_id": "EMA:63563",
+    "version_id": "fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76",
+    "rubric": [
+      "Study used 45 mg/0.5 mL, not a 90 mg arm",
+      "Do not present 45 mg primary or adjusted results as a 90 mg result"
+    ],
+    "gold_status": "agent-authored diagnostic; not expert gold"
+  },
+  {
+    "id": "D07",
+    "suite": "diagnostic",
+    "topic": "label_table",
+    "question": "Health Canada 제품설명서에서 건선 성인에게 우스테키누맙 45 mg과 90 mg을 단회 피하 투여했을 때 Cmax 중앙값과 평균은?",
+    "payload": {
+      "question": "Health Canada 제품설명서에서 건선 성인에게 우스테키누맙 45 mg과 90 mg을 단회 피하 투여했을 때 Cmax 중앙값과 평균은?",
+      "products": [
+        "SB17"
+      ],
+      "jurisdictions": [
+        "CA"
+      ],
+      "include_nondefault": true,
+      "documents": [
+        "d3"
+      ]
+    },
+    "expected": "answerable",
+    "gold_pages": [
+      27
+    ],
+    "document_id": "HC:PM:00082519",
+    "version_id": "692365dcf3c0b32a2fd7b8c43a8d99545f0a263f36f10866ce6f0fd3d4e2a403",
+    "rubric": [
+      "Copy four Cmax values with dose, median/mean and units",
+      "These label data are not automatically an SB17-1001 result"
+    ],
+    "gold_status": "agent-authored diagnostic; not expert gold"
+  },
+  {
+    "id": "M_SB17",
+    "suite": "five_product_label_development",
+    "topic": "adult_label_dosing",
+    "question": "FDA SB17 제품설명서에서 판상 건선 성인에게 권장되는 체중 100 kg 이하 및 100 kg 초과의 용량, 투여 경로, 초기 및 유지 투여 간격은 무엇인가?",
+    "payload": {
+      "question": "FDA SB17 제품설명서에서 판상 건선 성인에게 권장되는 체중 100 kg 이하 및 100 kg 초과의 용량, 투여 경로, 초기 및 유지 투여 간격은 무엇인가?",
+      "products": [
+        "SB17"
+      ],
+      "jurisdictions": [
+        "US"
+      ],
+      "include_nondefault": false
+    },
+    "expected": "answerable",
+    "document_id": "FDA:label:761373s006,761425s005lbl",
+    "version_id": "ea1e7f5e91f04c71b4dbf6c9101b967ecb7acaa7a33846b74cc548c25546bbef",
+    "gold_pages": [
+      4
+    ],
+    "rubric": [
+      "Adult plaque psoriasis, not pediatric or psoriatic arthritis",
+      "100 kg or less: 45 mg; more than 100 kg: 90 mg",
+      "Subcutaneous; initial dose and 4 weeks later; then every 12 weeks",
+      "Keep weight boundary attached to its dose; source quotations must support displayed conditions"
+    ],
+    "gold_status": "Source-inspected agent development card; not independent holdout or expert gold"
+  },
+  {
+    "id": "M_ABP654",
+    "suite": "five_product_label_development",
+    "topic": "adult_label_dosing",
+    "question": "FDA ABP654 제품설명서에서 판상 건선 성인에게 권장되는 체중 100 kg 이하 및 100 kg 초과의 용량, 투여 경로, 초기 및 유지 투여 간격은 무엇인가?",
+    "payload": {
+      "question": "FDA ABP654 제품설명서에서 판상 건선 성인에게 권장되는 체중 100 kg 이하 및 100 kg 초과의 용량, 투여 경로, 초기 및 유지 투여 간격은 무엇인가?",
+      "products": [
+        "ABP654"
+      ],
+      "jurisdictions": [
+        "US"
+      ],
+      "include_nondefault": false
+    },
+    "expected": "answerable",
+    "document_id": "FDA:label:761285s006lbl761331s006lbl",
+    "version_id": "29bfeedf7441c2680814dc2ba25de283b40375f54f2a676d24feba2f53dea053",
+    "gold_pages": [
+      4
+    ],
+    "rubric": [
+      "Adult plaque psoriasis, not pediatric or psoriatic arthritis",
+      "100 kg or less: 45 mg; more than 100 kg: 90 mg",
+      "Subcutaneous; initial dose and 4 weeks later; then every 12 weeks",
+      "Keep weight boundary attached to its dose; source quotations must support displayed conditions"
+    ],
+    "gold_status": "Source-inspected agent development card; not independent holdout or expert gold"
+  },
+  {
+    "id": "M_CTP43",
+    "suite": "five_product_label_development",
+    "topic": "adult_label_dosing",
+    "question": "FDA CTP43 제품설명서에서 판상 건선 성인에게 권장되는 체중 100 kg 이하 및 100 kg 초과의 용량, 투여 경로, 초기 및 유지 투여 간격은 무엇인가?",
+    "payload": {
+      "question": "FDA CTP43 제품설명서에서 판상 건선 성인에게 권장되는 체중 100 kg 이하 및 100 kg 초과의 용량, 투여 경로, 초기 및 유지 투여 간격은 무엇인가?",
+      "products": [
+        "CTP43"
+      ],
+      "jurisdictions": [
+        "US"
+      ],
+      "include_nondefault": false
+    },
+    "expected": "answerable",
+    "document_id": "FDA:label:761338s007lbl",
+    "version_id": "a5ec163593ed260b55d58006c420351560532f0993a83f5ac9b0644943124605",
+    "gold_pages": [
+      3
+    ],
+    "rubric": [
+      "Adult plaque psoriasis, not pediatric or psoriatic arthritis",
+      "100 kg or less: 45 mg; more than 100 kg: 90 mg",
+      "Subcutaneous; initial dose and 4 weeks later; then every 12 weeks",
+      "Keep weight boundary attached to its dose; source quotations must support displayed conditions"
+    ],
+    "gold_status": "Source-inspected agent development card; not independent holdout or expert gold"
+  },
+  {
+    "id": "M_BMAB1200",
+    "suite": "five_product_label_development",
+    "topic": "adult_label_dosing",
+    "question": "FDA BMAB1200 제품설명서에서 판상 건선 성인에게 권장되는 체중 100 kg 이하 및 100 kg 초과의 용량, 투여 경로, 초기 및 유지 투여 간격은 무엇인가?",
+    "payload": {
+      "question": "FDA BMAB1200 제품설명서에서 판상 건선 성인에게 권장되는 체중 100 kg 이하 및 100 kg 초과의 용량, 투여 경로, 초기 및 유지 투여 간격은 무엇인가?",
+      "products": [
+        "BMAB1200"
+      ],
+      "jurisdictions": [
+        "US"
+      ],
+      "include_nondefault": false
+    },
+    "expected": "answerable",
+    "document_id": "FDA:label:761406s002lbl",
+    "version_id": "be379f8b3eec9e46e87207c6c9cbb4ba1d71eb016ba19aa1734f9032e7a4b7ae",
+    "gold_pages": [
+      3
+    ],
+    "rubric": [
+      "Adult plaque psoriasis, not pediatric or psoriatic arthritis",
+      "100 kg or less: 45 mg; more than 100 kg: 90 mg",
+      "Subcutaneous; initial dose and 4 weeks later; then every 12 weeks",
+      "Keep weight boundary attached to its dose; source quotations must support displayed conditions"
+    ],
+    "gold_status": "Source-inspected agent development card; not independent holdout or expert gold"
+  },
+  {
+    "id": "M_BAT2206",
+    "suite": "five_product_label_development",
+    "topic": "adult_label_dosing",
+    "question": "FDA BAT2206 제품설명서에서 판상 건선 성인에게 권장되는 체중 100 kg 이하 및 100 kg 초과의 용량, 투여 경로, 초기 및 유지 투여 간격은 무엇인가?",
+    "payload": {
+      "question": "FDA BAT2206 제품설명서에서 판상 건선 성인에게 권장되는 체중 100 kg 이하 및 100 kg 초과의 용량, 투여 경로, 초기 및 유지 투여 간격은 무엇인가?",
+      "products": [
+        "BAT2206"
+      ],
+      "jurisdictions": [
+        "US"
+      ],
+      "include_nondefault": false
+    },
+    "expected": "answerable",
+    "document_id": "FDA:label:761419s000lbl",
+    "version_id": "7783bf048fda949de0c92df0d9dc122c243da041afbcbf9382fb1a815590fc5e",
+    "gold_pages": [
+      3
+    ],
+    "rubric": [
+      "Adult plaque psoriasis, not pediatric or psoriatic arthritis",
+      "100 kg or less: 45 mg; more than 100 kg: 90 mg",
+      "Subcutaneous; initial dose and 4 weeks later; then every 12 weeks",
+      "Keep weight boundary attached to its dose; source quotations must support displayed conditions"
+    ],
+    "gold_status": "Source-inspected agent development card; not independent holdout or expert gold"
+  },
+  {
+    "id": "T01",
+    "suite": "newly_tested_approved_RA3_sources",
+    "topic": "source_transfer",
+    "question": "EMA ABP654 평가보고서의 20190230 건강인 PK 시험에서 단회 투여 용량과 투여 경로는?",
+    "payload": {
+      "question": "EMA ABP654 평가보고서의 20190230 건강인 PK 시험에서 단회 투여 용량과 투여 경로는?",
+      "products": [
+        "ABP654"
+      ],
+      "jurisdictions": [
+        "EU"
+      ],
+      "include_nondefault": false
+    },
+    "expected": "answerable",
+    "document_id": "EMA:64196",
+    "version_id": "123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c",
+    "gold_pages": [
+      42
+    ],
+    "rubric": [
+      "90 mg",
+      "single SC injection"
+    ],
+    "raw_path": "data/raw/123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c.pdf",
+    "gold_status": "Agent source-inspected newly tested development transfer; not expert/independent holdout"
+  },
+  {
+    "id": "T02",
+    "suite": "newly_tested_approved_RA3_sources",
+    "topic": "source_transfer",
+    "question": "EMA CTP43 평가보고서의 CT-P43 3.1 시험에서 1차 유효성 평가변수의 정의, 평가 시점과 주 분석 집단은?",
+    "payload": {
+      "question": "EMA CTP43 평가보고서의 CT-P43 3.1 시험에서 1차 유효성 평가변수의 정의, 평가 시점과 주 분석 집단은?",
+      "products": [
+        "CTP43"
+      ],
+      "jurisdictions": [
+        "EU"
+      ],
+      "include_nondefault": false
+    },
+    "expected": "answerable",
+    "document_id": "EMA:64792",
+    "version_id": "513959da3a6d724b63160792cbf18acb7f83d3396ab8147f491d543ce392bcce",
+    "gold_pages": [
+      63,
+      71,
+      84,
+      127
+    ],
+    "rubric": [
+      "mean percent improvement from baseline in PASI score",
+      "Week 12",
+      "FAS"
+    ],
+    "raw_path": "data/raw/513959da3a6d724b63160792cbf18acb7f83d3396ab8147f491d543ce392bcce.pdf",
+    "gold_status": "Agent source-inspected newly tested development transfer; not expert/independent holdout"
+  },
+  {
+    "id": "T03",
+    "suite": "newly_tested_approved_RA3_sources",
+    "topic": "source_transfer",
+    "question": "FDA ABP654 최초 허가 서신에서 첫 상업적 시판 후 FDA에 통지해야 하는 기한과 통지해야 하는 내용은?",
+    "payload": {
+      "question": "FDA ABP654 최초 허가 서신에서 첫 상업적 시판 후 FDA에 통지해야 하는 기한과 통지해야 하는 내용은?",
+      "products": [
+        "ABP654"
+      ],
+      "jurisdictions": [
+        "US"
+      ],
+      "include_nondefault": true
+    },
+    "expected": "answerable",
+    "document_id": "FDA:761285Orig1s000,761331Orig1s000:Approv",
+    "version_id": "2d67f8b3708d62196f49627a5865505e450104e12c3c1db73d27febe89f5a4de",
+    "gold_pages": [
+      6
+    ],
+    "rubric": [
+      "within 30 days",
+      "date of the first commercial marketing"
+    ],
+    "raw_path": "data/raw/2d67f8b3708d62196f49627a5865505e450104e12c3c1db73d27febe89f5a4de.pdf",
+    "gold_status": "Agent source-inspected newly tested development transfer; not expert/independent holdout"
+  },
+  {
+    "id": "T04",
+    "suite": "newly_tested_approved_RA3_sources",
+    "topic": "source_transfer",
+    "question": "FDA CTP43 허가 서신에 기재된 소아 적응증의 최저 연령과 허가된 소아 적응증은?",
+    "payload": {
+      "question": "FDA CTP43 허가 서신에 기재된 소아 적응증의 최저 연령과 허가된 소아 적응증은?",
+      "products": [
+        "CTP43"
+      ],
+      "jurisdictions": [
+        "US"
+      ],
+      "include_nondefault": true
+    },
+    "expected": "answerable",
+    "document_id": "FDA:761338Orig1Orig2s000:Approv",
+    "version_id": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+    "gold_pages": [
+      1,
+      3,
+      13
+    ],
+    "rubric": [
+      "6 years and older",
+      "moderate to severe plaque psoriasis",
+      "active psoriatic arthritis"
+    ],
+    "raw_path": "data/raw/b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9.pdf",
+    "gold_status": "Agent source-inspected newly tested development transfer; not expert/independent holdout"
+  },
+  {
+    "id": "T05",
+    "suite": "newly_tested_approved_RA3_sources",
+    "topic": "source_transfer",
+    "question": "HC ABP654 제품 모노그래프에서 건선 성인의 단회 피하 투여 후 45 mg 및 90 mg의 tmax 중앙값과 평균 및 단위는?",
+    "payload": {
+      "question": "HC ABP654 제품 모노그래프에서 건선 성인의 단회 피하 투여 후 45 mg 및 90 mg의 tmax 중앙값과 평균 및 단위는?",
+      "products": [
+        "ABP654"
+      ],
+      "jurisdictions": [
+        "CA"
+      ],
+      "include_nondefault": false
+    },
+    "expected": "answerable",
+    "document_id": "HC:PM:00078625",
+    "version_id": "83a4e0fdd8a24e0f670d11268893e21babd4bed528c6d8def40635002d330287",
+    "gold_pages": [
+      28
+    ],
+    "rubric": [
+      "45 mg median 13.5 mean 15.3 day",
+      "90 mg median 7.0 mean 9.9 day"
+    ],
+    "raw_path": "data/raw/83a4e0fdd8a24e0f670d11268893e21babd4bed528c6d8def40635002d330287.pdf",
+    "gold_status": "Agent source-inspected newly tested development transfer; not expert/independent holdout"
+  },
+  {
+    "id": "T06",
+    "suite": "newly_tested_approved_RA3_sources",
+    "topic": "source_transfer",
+    "question": "HC CTP43 제품 모노그래프에서 프리필드 펜의 실온 보관 최대 온도와 기간, 냉장고에 다시 넣을 수 있는 조건은?",
+    "payload": {
+      "question": "HC CTP43 제품 모노그래프에서 프리필드 펜의 실온 보관 최대 온도와 기간, 냉장고에 다시 넣을 수 있는 조건은?",
+      "products": [
+        "CTP43"
+      ],
+      "jurisdictions": [
+        "CA"
+      ],
+      "include_nondefault": false
+    },
+    "expected": "answerable",
+    "document_id": "HC:PM:00085585",
+    "version_id": "3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd",
+    "gold_pages": [
+      32,
+      103
+    ],
+    "rubric": [
+      "up to 25°C",
+      "up to 31 days",
+      "returned to the refrigerator once before the end of this period up to original expiry date"
+    ],
+    "raw_path": "data/raw/3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd.pdf",
+    "gold_status": "Agent source-inspected newly tested development transfer; not expert/independent holdout"
+  }
+]

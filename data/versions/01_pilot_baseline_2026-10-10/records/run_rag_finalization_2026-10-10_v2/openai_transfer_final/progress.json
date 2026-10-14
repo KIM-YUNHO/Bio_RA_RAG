@@ -1,0 +1,11 @@
+{
+  "current_case": "T06",
+  "completed_cases": 5,
+  "api_usage": {
+    "attempts": 5,
+    "prompt_tokens": 22303,
+    "completion_tokens": 755,
+    "max_new_attempts": 10
+  },
+  "stage": "evaluating"
+}

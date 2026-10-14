@@ -1,0 +1,7 @@
+# Core orchestration, PDF/native extraction and source geometry.
+PyMuPDF==1.26.6
+Pillow==12.3.0
+fonttools==4.66.1
+numpy==2.5.3
+opencv-python==5.0.0.93
+pypdfium2==5.13.0

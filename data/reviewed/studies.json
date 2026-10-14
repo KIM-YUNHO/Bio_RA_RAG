@@ -1,0 +1,806 @@
+{
+ "schema_version": "studies-1",
+ "created_at": "2026-10-06 KST",
+ "review_status": "assistant_checked_against_sources",
+ "domain_expert_review_pending": true,
+ "notes": [
+  "One entry per clinical study, study part, or analysis that spans studies. Keys match gold/gold_data.py study_key and eval/queries_v0.1.csv.",
+  "aliases are regular expressions for identifiers as they appear in the collected documents (typos included). They are applied only within the product's own documents.",
+  "cues are words that tell a study apart from the other studies of the same phase in the same product (\"Japanese\" for CT-P43 1.2). Descriptions shared by a phase (healthy subjects, PASI, ...) live in rag/study_context.py PHASE_CUES. Used when a study's number is not written (step 2 of docs/RAG_STUDY_CONTEXT_PLAN.md). ko_names are for reading Korean questions.",
+  "evidence lists the pages the facts were taken from. Counts are as reported by the cited document; agencies sometimes differ (see notes in each entry).",
+  "products gives each product's English and Korean names (brand names and developer) for reading Korean questions; the Korean forms are transliterations, so add new spellings when questions use them.",
+  "ko_cues are Korean words that pick out one study among the product's studies of the same phase (rag/understand_query.py). Studies that are the only one of their phase need none.",
+  "2026-10-09: Product identity/schema coverage expanded to all5 catalog biosimilars. BMAB1200/BAT2206 clinical study entries and production preprocessing remain pending; no study facts inferred from product registration.",
+  "2026-10-09: Three literal study identities added from eligible FDA/EMA sources for BMAB1200/BAT2206. No dose, enrollment, phase, population or numeric facts added. Protected evaluation sources remain excluded."
+ ],
+ "studies": [
+  {
+   "study_key": "ST_SB17_1001",
+   "product_id": "SB17",
+   "kind": "study",
+   "internal_id": "SB17-1001",
+   "registry_ids": {
+    "nct": "NCT04772274",
+    "eudract": "2020-004447-88"
+   },
+   "phase": "1",
+   "purpose": "comparative PK similarity (SB17 vs EU-Stelara vs US-Stelara)",
+   "population": "healthy subjects",
+   "design": "randomised, double-blind, three-arm, parallel-group, single-dose",
+   "dose_route": "45 mg SC, single dose",
+   "arms": [
+    "SB17",
+    "EU-Stelara",
+    "US-Stelara"
+   ],
+   "n_randomized": {
+    "total": 201,
+    "per_arm": [
+     67,
+     67,
+     67
+    ]
+   },
+   "countries": [
+    "France"
+   ],
+   "aliases": [
+    "\\bSB-?\\s?17\\s?-\\s?1001\\b",
+    "\\bStud(?:y|ies) 1001\\b"
+   ],
+   "cues": [],
+   "ko_names": [
+    "SB17 1상",
+    "SB17 건강인 시험",
+    "피즈치바 PK 시험",
+    "피즈치바 건강인 대상 시험"
+   ],
+   "evidence": [
+    {
+     "document_id": "EMA:63563",
+     "pdf_page": 37,
+     "what": "Table 2 tabular overview; design, population, country"
+    },
+    {
+     "document_id": "FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",
+     "pdf_page": 39,
+     "what": "Table 2: EudraCT number, 67 per arm"
+    },
+    {
+     "document_id": "CTG:NCT04772274",
+     "pdf_page": null,
+     "what": "ClinicalTrials.gov record (studies table): org_study_id, phase, enrollment 201"
+    }
+   ],
+   "ko_cues": []
+  },
+  {
+   "study_key": "ST_SB17_3001",
+   "product_id": "SB17",
+   "kind": "study",
+   "internal_id": "SB17-3001",
+   "registry_ids": {
+    "nct": "NCT04967508",
+    "eudract": "2020-006115-19"
+   },
+   "phase": "3",
+   "purpose": "comparative efficacy, safety and immunogenicity vs EU-Stelara; transition to SB17 after week 28",
+   "population": "patients with moderate to severe plaque psoriasis",
+   "design": "randomised, double-blind, multicentre, active-controlled; transition period",
+   "dose_route": "45 mg SC at weeks 0 and 4, then every 12 weeks up to week 40 (all subjects 45 mg at randomisation)",
+   "arms": [
+    "SB17",
+    "EU-Stelara",
+    "EU-Stelara/SB17 (transition)"
+   ],
+   "n_randomized": {
+    "total": 503,
+    "per_arm": [
+     249,
+     254
+    ]
+   },
+   "countries": [
+    "Czech Republic",
+    "Estonia",
+    "Hungary",
+    "Latvia",
+    "Lithuania",
+    "Poland",
+    "Republic of Korea",
+    "Ukraine"
+   ],
+   "aliases": [
+    "\\bSB-?\\s?17\\s?-\\s?3001\\b",
+    "\\bStud(?:y|ies) 3001\\b"
+   ],
+   "cues": [],
+   "ko_names": [
+    "SB17 3상",
+    "SB17 건선 환자 시험",
+    "피즈치바 3상",
+    "피즈치바 유효성 시험"
+   ],
+   "evidence": [
+    {
+     "document_id": "EMA:63563",
+     "pdf_page": 37,
+     "what": "Table 2 tabular overview"
+    },
+    {
+     "document_id": "EMA:63563",
+     "pdf_page": 65,
+     "what": "main study description"
+    },
+    {
+     "document_id": "FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",
+     "pdf_page": 39,
+     "what": "Table 2: EudraCT number, arms 249/254"
+    },
+    {
+     "document_id": "CTG:NCT04967508",
+     "pdf_page": null,
+     "what": "ClinicalTrials.gov record: enrollment 503"
+    },
+    {
+     "document_id": "EMA:63563",
+     "pdf_page": 71,
+     "what": "dosing"
+    }
+   ],
+   "ko_cues": []
+  },
+  {
+   "study_key": "ST_ABP_20190230",
+   "product_id": "ABP654",
+   "kind": "study",
+   "internal_id": "20190230",
+   "registry_ids": {},
+   "phase": "1",
+   "purpose": "comparative PK similarity (ABP 654 vs US-Stelara vs EU-Stelara)",
+   "population": "healthy adults, 18-45 years, 50-90 kg",
+   "design": "randomised, double-blind, single-dose, three-arm, parallel-group",
+   "dose_route": "90 mg SC, single dose",
+   "arms": [
+    "ABP 654",
+    "US-Stelara",
+    "EU-Stelara"
+   ],
+   "n_randomized": {
+    "total": 238,
+    "per_arm": [
+     79,
+     79,
+     80
+    ],
+    "note": "EMA gives only the total (238 randomised / 237 treated); per-arm counts are from FDA"
+   },
+   "countries": [
+    "United States"
+   ],
+   "aliases": [
+    "\\b20190230\\b"
+   ],
+   "cues": [],
+   "ko_names": [
+    "ABP 654 1상",
+    "웨젠라 건강인 시험",
+    "웨젠라 PK 시험",
+    "ABP 654 PK 시험"
+   ],
+   "evidence": [
+    {
+     "document_id": "EMA:64196",
+     "pdf_page": 41,
+     "what": "tabular overview; population criteria, 238/237"
+    },
+    {
+     "document_id": "EMA:64196",
+     "pdf_page": 42,
+     "what": "design, 3 centres in the US"
+    },
+    {
+     "document_id": "FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",
+     "pdf_page": 24,
+     "what": "Table 2: 79/79/80"
+    }
+   ],
+   "notes": "No ClinicalTrials.gov record found for 20190230 (docs/BIOSIMILAR_PROJECT_NEXT_STEPS.md, task 1).",
+   "ko_cues": []
+  },
+  {
+   "study_key": "ST_ABP_20190232",
+   "product_id": "ABP654",
+   "kind": "study",
+   "internal_id": "20190232",
+   "registry_ids": {
+    "nct": "NCT04607980",
+    "eudract": "2020-003184-25"
+   },
+   "phase": "3",
+   "purpose": "comparative efficacy, safety and immunogenicity vs EU-Stelara; re-randomisation (switch to ABP 654) at week 28",
+   "population": "adults with moderate to severe plaque psoriasis",
+   "design": "randomised, double-blind, active-controlled, multicentre",
+   "dose_route": "SC, 45 mg (≤100 kg) or 90 mg (>100 kg)",
+   "arms": [
+    "ABP 654",
+    "EU-Stelara",
+    "EU-Stelara/ABP 654 (re-randomised)"
+   ],
+   "n_randomized": {
+    "total": 563,
+    "per_arm": [
+     281,
+     282
+    ]
+   },
+   "countries": [
+    "8 countries, 84 centres"
+   ],
+   "aliases": [
+    "\\b20190232\\b",
+    "\\b20910232\\b"
+   ],
+   "cues": [],
+   "ko_names": [
+    "ABP 654 3상",
+    "웨젠라 건선 환자 시험",
+    "웨젠라 3상",
+    "웨젠라 유효성 시험"
+   ],
+   "evidence": [
+    {
+     "document_id": "EMA:64196",
+     "pdf_page": 41,
+     "what": "tabular overview 563/562"
+    },
+    {
+     "document_id": "EMA:64196",
+     "pdf_page": 69,
+     "what": "summary table: EudraCT and NCT numbers"
+    },
+    {
+     "document_id": "FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",
+     "pdf_page": 54,
+     "what": "563 randomised: 281/282"
+    }
+   ],
+   "notes": "20910232 is a typo for 20190232 in EMA:64196 p102.",
+   "ko_cues": []
+  },
+  {
+   "study_key": "ST_ABP_20200417",
+   "product_id": "ABP654",
+   "kind": "study",
+   "internal_id": "20200417",
+   "registry_ids": {
+    "nct": "NCT04761627"
+   },
+   "phase": "3",
+   "purpose": "interchangeability (alternating ABP 654 and Stelara)",
+   "population": "patients with moderate to severe plaque psoriasis",
+   "dose_route": "SC",
+   "arms": [],
+   "n_randomized": {
+    "total": 494,
+    "note": "ClinicalTrials.gov enrollment"
+   },
+   "countries": [],
+   "aliases": [
+    "\\b20200417\\b"
+   ],
+   "cues": [
+    "interchangeab",
+    "alternating"
+   ],
+   "ko_names": [
+    "웨젠라 교체투여 시험",
+    "ABP 654 상호교환성 시험"
+   ],
+   "evidence": [
+    {
+     "document_id": "CTG:NCT04761627",
+     "pdf_page": null,
+     "what": "ClinicalTrials.gov record and protocol"
+    }
+   ],
+   "notes": "Not mentioned in the EMA, FDA or Health Canada assessment documents collected; appears only in the sponsor protocol and SAP.",
+   "ko_cues": [
+    "교체투여",
+    "상호교환"
+   ]
+  },
+  {
+   "study_key": "ST_CTP43_1_1",
+   "product_id": "CTP43",
+   "kind": "study",
+   "internal_id": "CT-P43 1.1",
+   "registry_ids": {
+    "nct": "NCT04428814"
+   },
+   "phase": "1",
+   "purpose": "Part 1: initial safety; Part 2: comparative PK similarity (CT-P43 vs EU-Stelara vs US-Stelara)",
+   "population": "healthy male subjects",
+   "design": "two-part, randomised, double-blind, three-arm, parallel-group, single-dose",
+   "dose_route": "45 mg/0.5 mL SC via PFS, single dose",
+   "arms": [
+    "CT-P43",
+    "EU-Stelara",
+    "US-Stelara"
+   ],
+   "n_randomized": {
+    "total": 271,
+    "note": "Part 1: 30 (14/16); Part 2: 241 (80/82/79)"
+   },
+   "countries": [
+    "New Zealand"
+   ],
+   "outcome": "Part 2 failed PK similarity on AUC0-inf (upper 90% CI above 125%); Cmax within margin",
+   "aliases": [
+    "\\bCT\\s?-?\\s?P\\s?-?\\s?(?:P\\s?)?(?:43|34)\\s?[\\.\\-]?\\s?1\\.1(?!\\d)",
+    "\\bStud(?:y|ies) 1\\.1(?!\\d)"
+   ],
+   "cues": [
+    "New Zealand",
+    "protein content",
+    "first PK study",
+    "Part 1",
+    "Part 2"
+   ],
+   "ko_names": [
+    "CT-P43 1.1",
+    "스테키마 첫 번째 PK 시험",
+    "CT-P43 실패한 PK 시험",
+    "CT-P43 건강 남성 시험(뉴질랜드)"
+   ],
+   "evidence": [
+    {
+     "document_id": "EMA:64792",
+     "pdf_page": 29,
+     "what": "tabular overview: Part 1 30 (14/16), Part 2 241 (80/82/79)"
+    },
+    {
+     "document_id": "EMA:64792",
+     "pdf_page": 31,
+     "what": "design"
+    },
+    {
+     "document_id": "EMA:64792",
+     "pdf_page": 87,
+     "what": "conducted in New Zealand"
+    },
+    {
+     "document_id": "FDA:761338Orig1Orig2s000:MultidisciplineR",
+     "pdf_page": 80,
+     "what": "design and randomised counts; failed PK similarity"
+    }
+   ],
+   "notes": "FDA p37 says the study was conducted in Canada; EMA p87 and FDA p80/p146 say New Zealand. FDA did not rely on this study (p41).",
+   "ko_cues": [
+    "첫 번째 PK",
+    "첫번째 PK",
+    "첫 PK",
+    "뉴질랜드",
+    "2파트",
+    "두 파트",
+    "실패한"
+   ]
+  },
+  {
+   "study_key": "ST_CTP43_1_1_P1",
+   "product_id": "CTP43",
+   "kind": "study_part",
+   "parent": "ST_CTP43_1_1",
+   "internal_id": "CT-P43 1.1 Part 1",
+   "phase": "1",
+   "purpose": "initial safety, CT-P43 vs EU-Stelara",
+   "n_randomized": {
+    "total": 30,
+    "per_arm": [
+     14,
+     16
+    ]
+   },
+   "aliases": [
+    "\\bCT\\s?-?\\s?P\\s?-?\\s?(?:43|34)\\s?\\.?\\s?1\\.1\\s?Part\\s?1\\b"
+   ],
+   "cues": [
+    "pilot",
+    "initial safety",
+    "Part 1"
+   ],
+   "ko_names": [
+    "CT-P43 1.1 Part 1"
+   ],
+   "evidence": [
+    {
+     "document_id": "EMA:64792",
+     "pdf_page": 29,
+     "what": "tabular overview"
+    }
+   ],
+   "ko_cues": [
+    "Part 1",
+    "파트 1",
+    "파트1"
+   ]
+  },
+  {
+   "study_key": "ST_CTP43_1_1_P2",
+   "product_id": "CTP43",
+   "kind": "study_part",
+   "parent": "ST_CTP43_1_1",
+   "internal_id": "CT-P43 1.1 Part 2",
+   "phase": "1",
+   "purpose": "comparative PK similarity, CT-P43 vs EU-Stelara vs US-Stelara",
+   "n_randomized": {
+    "total": 241,
+    "per_arm": [
+     80,
+     82,
+     79
+    ]
+   },
+   "aliases": [
+    "\\bCT\\s?-?\\s?P\\s?-?\\s?(?:43|34)\\s?\\.?\\s?1\\.1\\s?Part\\s?2\\b"
+   ],
+   "cues": [
+    "Part 2"
+   ],
+   "ko_names": [
+    "CT-P43 1.1 Part 2"
+   ],
+   "evidence": [
+    {
+     "document_id": "EMA:64792",
+     "pdf_page": 32,
+     "what": "241 randomised: 80/82/79"
+    }
+   ],
+   "ko_cues": [
+    "Part 2",
+    "파트 2",
+    "파트2"
+   ]
+  },
+  {
+   "study_key": "ST_CTP43_1_2",
+   "product_id": "CTP43",
+   "kind": "study",
+   "internal_id": "CT-P43 1.2",
+   "registry_ids": {},
+   "phase": "1",
+   "purpose": "comparative PK similarity, repeated after CT-P43 1.1 (CT-P43 vs EU-Stelara vs US-Stelara)",
+   "population": "healthy Japanese male subjects, body weight 50-90 kg strata",
+   "design": "randomised, double-blind, three-arm, parallel-group, single-dose",
+   "dose_route": "45 mg/0.5 mL SC via PFS, single dose",
+   "arms": [
+    "CT-P43",
+    "EU-Stelara",
+    "US-Stelara"
+   ],
+   "n_randomized": {
+    "total": 331,
+    "per_arm": [
+     114,
+     110,
+     107
+    ]
+   },
+   "countries": [
+    "Japan"
+   ],
+   "outcome": "PK similarity shown for AUC0-inf and Cmax in all comparisons",
+   "aliases": [
+    "\\bCT\\s?-?\\s?P\\s?-?\\s?(?:P\\s?)?(?:43|34)\\s?[\\.\\-]?\\s?1\\.2(?!\\d)",
+    "\\bStud(?:y|ies) 1\\.2(?!\\d)"
+   ],
+   "cues": [
+    "Japanese",
+    "second PK study"
+   ],
+   "ko_names": [
+    "CT-P43 1.2",
+    "스테키마 일본인 시험",
+    "CT-P43 두 번째 PK 시험",
+    "CT-P43 재시험",
+    "CT-P43 일본인 건강 남성 시험"
+   ],
+   "evidence": [
+    {
+     "document_id": "EMA:64792",
+     "pdf_page": 39,
+     "what": "design, population"
+    },
+    {
+     "document_id": "EMA:64792",
+     "pdf_page": 115,
+     "what": "331 randomised: 114/110/107"
+    },
+    {
+     "document_id": "FDA:761338Orig1Orig2s000:MultidisciplineR",
+     "pdf_page": 28,
+     "what": "Table 3"
+    }
+   ],
+   "notes": "Not registered on ClinicalTrials.gov; other registries not checked. FDA treats this as the pivotal PK study.",
+   "ko_cues": [
+    "일본인",
+    "두 번째 PK",
+    "두번째 PK",
+    "재시험"
+   ]
+  },
+  {
+   "study_key": "ST_CTP43_3_1",
+   "product_id": "CTP43",
+   "kind": "study",
+   "internal_id": "CT-P43 3.1",
+   "registry_ids": {
+    "nct": "NCT04673786",
+    "eudract": "2020-001045-39"
+   },
+   "phase": "3",
+   "purpose": "comparative efficacy, safety and immunogenicity vs EU-Stelara; switch to CT-P43 at week 16",
+   "population": "patients with moderate to severe plaque psoriasis",
+   "design": "randomised, double-blind, active-controlled, parallel-group, multicentre",
+   "dose_route": "SC, 45 mg (≤100 kg) or 90 mg (>100 kg) at weeks 0, 4, 16, 28, 40",
+   "arms": [
+    "CT-P43",
+    "EU-Stelara",
+    "EU-Stelara/CT-P43 (switched)"
+   ],
+   "n_randomized": {
+    "total": 509,
+    "per_arm": [
+     256,
+     253
+    ]
+   },
+   "countries": [
+    "Estonia",
+    "Republic of Korea",
+    "Poland",
+    "Ukraine"
+   ],
+   "aliases": [
+    "\\bCT\\s?-?\\s?P\\s?-?\\s?(?:P\\s?)?(?:43|34)\\s?[\\.\\-]?\\s?-?3\\.1(?!\\d)",
+    "\\bStud(?:y|ies) 3\\.1(?!\\d)"
+   ],
+   "cues": [],
+   "ko_names": [
+    "CT-P43 3상",
+    "스테키마 건선 환자 시험",
+    "스테키마 3상",
+    "스테키마 유효성 시험"
+   ],
+   "evidence": [
+    {
+     "document_id": "EMA:64792",
+     "pdf_page": 30,
+     "what": "tabular overview: 509 (256/253)"
+    },
+    {
+     "document_id": "EMA:64792",
+     "pdf_page": 83,
+     "what": "summary of efficacy: EudraCT number"
+    },
+    {
+     "document_id": "CTG:NCT04673786",
+     "pdf_page": null,
+     "what": "ClinicalTrials.gov record"
+    }
+   ],
+   "notes": "Written as 'CT-P34 3.1' twice in EMA:64792 (p56, p85).",
+   "ko_cues": []
+  },
+  {
+   "study_key": "ST_CTP43_3_2",
+   "product_id": "CTP43",
+   "kind": "planned_study",
+   "internal_id": "CT-P43 3.2",
+   "phase": "3",
+   "purpose": "planned interchangeability study (alternating US-Stelara and CT-P43)",
+   "population": "patients with moderate to severe plaque psoriasis",
+   "aliases": [
+    "\\bCT\\s?-?\\s?P\\s?-?\\s?43\\s?[\\.\\-]?\\s?3\\.2(?!\\d)"
+   ],
+   "cues": [
+    "interchangeab",
+    "alternating"
+   ],
+   "ko_names": [
+    "CT-P43 3.2",
+    "스테키마 교체투여 시험"
+   ],
+   "evidence": [
+    {
+     "document_id": "FDA:761338Orig1Orig2s000:AdminCorres",
+     "pdf_page": 15,
+     "what": "meeting correspondence describing the planned study"
+    }
+   ],
+   "notes": "Mentioned only in FDA correspondence; FDA later found a switching study unnecessary.",
+   "ko_cues": [
+    "교체투여",
+    "상호교환"
+   ]
+  },
+  {
+   "study_key": "ST_CTP43_POOLED",
+   "product_id": "CTP43",
+   "kind": "cross_study_analysis",
+   "covers": [
+    "ST_CTP43_1_1_P2",
+    "ST_CTP43_1_2"
+   ],
+   "internal_id": "pooled post hoc analysis of CT-P43 1.1 Part 2 and CT-P43 1.2",
+   "purpose": "PK similarity CT-P43 vs EU-Stelara on pooled data",
+   "aliases": [
+    "\\bpooled (?:post-?hoc )?analys[ie]s\\b",
+    "\\bpost-?hoc pooled\\b"
+   ],
+   "cues": [
+    "pooled",
+    "tipping point"
+   ],
+   "ko_names": [
+    "CT-P43 통합 분석",
+    "CT-P43 pooled 분석"
+   ],
+   "evidence": [
+    {
+     "document_id": "EMA:64792",
+     "pdf_page": 51,
+     "what": "pooled analysis 90% CIs"
+    },
+    {
+     "document_id": "HC:SBD1739202346124",
+     "pdf_page": 14,
+     "what": "pooled post hoc analysis mentioned"
+    }
+   ],
+   "ko_cues": [
+    "합친",
+    "통합 분석",
+    "통합분석",
+    "pooled"
+   ]
+  },
+  {
+   "study_key": "ST_BMAB1200_NHV",
+   "product_id": "BMAB1200",
+   "kind": "study",
+   "internal_id": "BM12H-NHV-01-G-01",
+   "registry_ids": {},
+   "aliases": [
+    "\\bBM12H\\s*-\\s*NHV\\s*-\\s*01\\s*-\\s*G\\s*-\\s*01\\b"
+   ],
+   "cues": [],
+   "ko_names": [],
+   "ko_cues": [],
+   "review_status": "literal_identifier_checked; clinical fields unassigned",
+   "domain_expert_review_pending": true,
+   "evidence": [
+    {
+     "document_id": "FDA:761406Orig1Orig2s000:MultidisciplineR",
+     "version_id": "da445e2fae0be1b6478783ecdc7661cfa9647cbabace84b8e23dd8ee58e84325",
+     "pdf_page": 43,
+     "what": "Printed study identifier only; no clinical characteristics inferred",
+     "quote": "BM12H-NHV-01-G-01"
+    }
+   ]
+  },
+  {
+   "study_key": "ST_BMAB1200_PSO",
+   "product_id": "BMAB1200",
+   "kind": "study",
+   "internal_id": "BM12H-PSO-03-G-02",
+   "registry_ids": {},
+   "aliases": [
+    "\\bBM12H\\s*-\\s*PSO\\s*-\\s*03\\s*-\\s*G\\s*-\\s*02\\b"
+   ],
+   "cues": [],
+   "ko_names": [],
+   "ko_cues": [],
+   "review_status": "literal_identifier_checked; clinical fields unassigned",
+   "domain_expert_review_pending": true,
+   "evidence": [
+    {
+     "document_id": "FDA:761406Orig1Orig2s000:MultidisciplineR",
+     "version_id": "da445e2fae0be1b6478783ecdc7661cfa9647cbabace84b8e23dd8ee58e84325",
+     "pdf_page": 43,
+     "what": "Printed study identifier only; no clinical characteristics inferred",
+     "quote": "BM12H-PSO-03-G-02"
+    }
+   ]
+  },
+  {
+   "study_key": "ST_BAT2206_002",
+   "product_id": "BAT2206",
+   "kind": "study",
+   "internal_id": "BAT-2206-002-CR",
+   "registry_ids": {},
+   "aliases": [
+    "\\bBAT\\s*-\\s*2206\\s*-\\s*002\\s*-\\s*CR\\b"
+   ],
+   "cues": [],
+   "ko_names": [],
+   "ko_cues": [],
+   "review_status": "literal_identifier_checked; clinical fields unassigned",
+   "domain_expert_review_pending": true,
+   "evidence": [
+    {
+     "document_id": "EMA:69775",
+     "version_id": "31940e85c3cdde30928ef27425cc012edb38b65ce9e35d3596f705b2fab74d00",
+     "pdf_page": 49,
+     "what": "Printed study identifier only; no clinical characteristics inferred",
+     "quote": "BAT-2206-002-CR"
+    }
+   ]
+  }
+ ],
+ "products": {
+  "SB17": {
+   "names": [
+    "Pyzchiva",
+    "SB17"
+   ],
+   "ko_names": [
+    "피즈치바",
+    "삼성바이오에피스"
+   ],
+   "developer": "Samsung Bioepis"
+  },
+  "ABP654": {
+   "names": [
+    "Wezenla (EU)",
+    "Wezlana (US, Canada)",
+    "ABP 654"
+   ],
+   "ko_names": [
+    "웨젠라",
+    "웨즐라나",
+    "암젠"
+   ],
+   "developer": "Amgen"
+  },
+  "CTP43": {
+   "names": [
+    "Steqeyma",
+    "CT-P43"
+   ],
+   "ko_names": [
+    "스테키마",
+    "스테퀘이마",
+    "셀트리온"
+   ],
+   "developer": "Celltrion"
+  },
+  "BMAB1200": {
+   "names": [
+    "BMAB1200",
+    "Bmab1200",
+    "Bmab 1200",
+    "BMAB-1200",
+    "Yesintek"
+   ],
+   "ko_names": [],
+   "developer": "Biocon Biologics",
+   "registration_basis": "data/catalog/products.jsonl; product identity only; clinical study registry expansion pending"
+  },
+  "BAT2206": {
+   "names": [
+    "BAT2206",
+    "BAT 2206",
+    "BAT-2206",
+    "Usymro",
+    "Starjemza"
+   ],
+   "ko_names": [],
+   "developer": "Bio-Thera Solutions (EU: Gedeon Richter)",
+   "registration_basis": "data/catalog/products.jsonl; product identity only; clinical study registry expansion pending"
+  }
+ },
+ "product_catalog_sha256": "b41a047dfb3311c3c26400af6520e81dceb30d0961c98c3fa4dbc610c6ccae6b"
+}

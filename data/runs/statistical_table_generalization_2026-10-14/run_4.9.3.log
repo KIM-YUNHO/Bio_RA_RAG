@@ -1,0 +1,2 @@
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights:  61%|██████    | 237/391 [00:00<00:00, 2291.34it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 2375.34it/s]
+{"label": "4.9.3", "activation_tables": {"cmax_mean_sd": 1, "aucinf_mean_sd": 1, "auclast_mean_sd": 1, "tmax_median_range": 1, "thalf_mean_sd": 1, "cmax_geometric_mean": 6, "aucinf_geometric_mean": 1}}

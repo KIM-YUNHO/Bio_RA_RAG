@@ -1,0 +1,72 @@
+{
+  "excluded_sources": [
+    "PMDA"
+  ],
+  "jurisdiction": {
+    "EMA": "EU",
+    "FDA": "US",
+    "Health Canada": "CA",
+    "PMDA": "JP",
+    "ClinicalTrials.gov": "sponsor"
+  },
+  "doc_group": {
+    "EMA": {
+      "assessment-report": "assessment",
+      "overview": "decision_summary",
+      "procedural-steps-after": "decision_summary",
+      "product-information": "label",
+      "all-authorised-presentations": "label",
+      "rmp": "rmp",
+      "rmp-summary": "rmp",
+      "guideline": "guideline",
+      "reflection paper": "guideline",
+      "public statement": "guideline",
+      "variation-report": "assessment",
+      "scientific-conclusion": "decision_summary"
+    },
+    "FDA": {
+      "Multi-Discipline Review": "assessment",
+      "Cross Discipline Team Leader Review": "assessment",
+      "Review document": "assessment",
+      "Product Quality Review(s)": "quality",
+      "Other Review(s)": "other_review",
+      "Printed Labeling": "label",
+      "Approval Letter(s)": "correspondence",
+      "Other Action Letters": "correspondence",
+      "Administrative and Correspondence Documents": "correspondence",
+      "Approval Letter": "correspondence",
+      "Labeling (latest listed)": "label",
+      "guidance": "guideline",
+      "Summary Review": "assessment",
+      "Clinical Review(s)": "assessment",
+      "Clinical Pharmacology and Biopharmaceutics Review(s)": "assessment",
+      "Statistical Review(s)": "assessment",
+      "Non-Clinical Review(s)": "assessment",
+      "Clinical Microbiology/Virology Review(s)": "other_review",
+      "Office Director Memo": "assessment",
+      "Risk Assessment and Risk Mitigation Review(s)": "other_review",
+      "REMS": "rmp"
+    },
+    "Health Canada": {
+      "Summary Basis of Decision": "assessment",
+      "Regulatory Decision Summary": "decision_summary",
+      "Product Monograph": "label",
+      "guidance": "guideline"
+    },
+    "ClinicalTrials.gov": {
+      "Study Protocol": "protocol",
+      "Statistical Analysis Plan": "sap"
+    }
+  },
+  "product_label": {
+    "SB17": "SB17 (Pyzchiva)",
+    "ABP654": "ABP 654 (Wezenla, Wezlana)",
+    "CTP43": "CT-P43 (Steqeyma)",
+    "BMAB1200": "Bmab1200 (Yesintek)",
+    "BAT2206": "BAT2206 (Usymro, Starjemza)",
+    "CNTO1275": "CNTO 1275 (Stelara, reference product)"
+  },
+  "excluded_roles": [
+    "guideline"
+  ]
+}

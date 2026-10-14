@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "pages": 15,
+  "cases": 9,
+  "view_combinations": 405,
+  "javascript_errors": [],
+  "source_pdf_links_verified": 15,
+  "verification_kind": "jsdom DOM unit checks",
+  "actual_browser_visual_verification": false
+}

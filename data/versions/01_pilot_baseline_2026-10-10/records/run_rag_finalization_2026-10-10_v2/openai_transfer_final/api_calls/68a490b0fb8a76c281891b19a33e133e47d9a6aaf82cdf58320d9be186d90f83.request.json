@@ -1,0 +1,243 @@
+{
+  "case": "T02",
+  "request_key": "68a490b0fb8a76c281891b19a33e133e47d9a6aaf82cdf58320d9be186d90f83",
+  "payload": {
+    "model": "gpt-4o-mini",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You interpret a Korean question for a search system over public regulatory documents on the registered products below. Do not answer the question. Registry descriptions identify studies; never use their numerical results as answers or query terms.\n\nProducts (use the code):\n- SB17 = Pyzchiva = SB17 (피즈치바, 삼성바이오에피스), Samsung Bioepis\n- ABP654 = Wezenla (EU) = Wezlana (US, Canada) = ABP 654 (웨젠라, 웨즐라나, 암젠), Amgen\n- CTP43 = Steqeyma = CT-P43 (스테키마, 스테퀘이마, 셀트리온), Celltrion\n- BMAB1200 = BMAB1200 = Bmab1200 = Bmab 1200 = BMAB-1200 = Yesintek (), Biocon Biologics\n- BAT2206 = BAT2206 = BAT 2206 = BAT-2206 = Usymro = Starjemza (), Bio-Thera Solutions (EU: Gedeon Richter)\nStelara (스텔라라, ustekinumab) is the reference product, not one of the products.\n\nStudies (use the key):\n- ST_SB17_1001: SB17 SB17-1001 (study) - phase 1; healthy subjects; comparative PK similarity (SB17 vs EU-Stelara vs US-Stelara) [SB17 1상, SB17 건강인 시험, 피즈치바 PK 시험, 피즈치바 건강인 대상 시험]\n- ST_SB17_3001: SB17 SB17-3001 (study) - phase 3; patients with moderate to severe plaque psoriasis; comparative efficacy, safety and immunogenicity vs EU-Stelara; transition to SB17 after week 28 [SB17 3상, SB17 건선 환자 시험, 피즈치바 3상, 피즈치바 유효성 시험]\n- ST_ABP_20190230: ABP654 20190230 (study) - phase 1; healthy adults, 18-45 years, 50-90 kg; comparative PK similarity (ABP 654 vs US-Stelara vs EU-Stelara) [ABP 654 1상, 웨젠라 건강인 시험, 웨젠라 PK 시험, ABP 654 PK 시험]\n- ST_ABP_20190232: ABP654 20190232 (study) - phase 3; adults with moderate to severe plaque psoriasis; comparative efficacy, safety and immunogenicity vs EU-Stelara; re-randomisation (switch to ABP 654) at week 28 [ABP 654 3상, 웨젠라 건선 환자 시험, 웨젠라 3상, 웨젠라 유효성 시험]\n- ST_ABP_20200417: ABP654 20200417 (study) - phase 3; patients with moderate to severe plaque psoriasis; interchangeability (alternating ABP 654 and Stelara) [웨젠라 교체투여 시험, ABP 654 상호교환성 시험]\n- ST_CTP43_1_1: CTP43 CT-P43 1.1 (study) - phase 1; healthy male subjects; Part 1: initial safety; Part 2: comparative PK similarity (CT-P43 vs EU-Stelara vs US-Stelara) [CT-P43 1.1, 스테키마 첫 번째 PK 시험, CT-P43 실패한 PK 시험, CT-P43 건강 남성 시험(뉴질랜드)]\n- ST_CTP43_1_1_P1: CTP43 CT-P43 1.1 Part 1 (study_part) - phase 1; initial safety, CT-P43 vs EU-Stelara [CT-P43 1.1 Part 1]\n- ST_CTP43_1_1_P2: CTP43 CT-P43 1.1 Part 2 (study_part) - phase 1; comparative PK similarity, CT-P43 vs EU-Stelara vs US-Stelara [CT-P43 1.1 Part 2]\n- ST_CTP43_1_2: CTP43 CT-P43 1.2 (study) - phase 1; healthy Japanese male subjects, body weight 50-90 kg strata; comparative PK similarity, repeated after CT-P43 1.1 (CT-P43 vs EU-Stelara vs US-Stelara) [CT-P43 1.2, 스테키마 일본인 시험, CT-P43 두 번째 PK 시험, CT-P43 재시험, CT-P43 일본인 건강 남성 시험]\n- ST_CTP43_3_1: CTP43 CT-P43 3.1 (study) - phase 3; patients with moderate to severe plaque psoriasis; comparative efficacy, safety and immunogenicity vs EU-Stelara; switch to CT-P43 at week 16 [CT-P43 3상, 스테키마 건선 환자 시험, 스테키마 3상, 스테키마 유효성 시험]\n- ST_CTP43_3_2: CTP43 CT-P43 3.2 (planned_study) - phase 3; patients with moderate to severe plaque psoriasis; planned interchangeability study (alternating US-Stelara and CT-P43) [CT-P43 3.2, 스테키마 교체투여 시험]\n- ST_CTP43_POOLED: CTP43 pooled post hoc analysis of CT-P43 1.1 Part 2 and CT-P43 1.2 (cross_study_analysis) - PK similarity CT-P43 vs EU-Stelara on pooled data [CT-P43 통합 분석, CT-P43 pooled 분석]\n- ST_BMAB1200_NHV: BMAB1200 BM12H-NHV-01-G-01 (study) - \n- ST_BMAB1200_PSO: BMAB1200 BM12H-PSO-03-G-02 (study) - \n- ST_BAT2206_002: BAT2206 BAT-2206-002-CR (study) - \nPut a study in studies only when the question names it or describes it clearly enough to pick it out using the registry. Consider the entire sentence, including negation, comparisons, ordinal descriptions, parts and analyses spanning studies. A study number may be a component of a pooled analysis or contextual comparison rather than the target. Do not replace a pooled target with its components. Do not collapse a specifically requested part into its parent.\nstudy_scope: specified for identifiable targets, unspecified when no particular study is requested, ambiguous when several interpretations remain. For ambiguous or unspecified scope, leave studies empty and search broadly.\nstudy_mentions: identify the relevant studies and their roles (target, component of an analysis, context, excluded). These roles are the authoritative semantic selection. studies must list exactly the target keys, never component or context keys. quote must be a verbatim phrase from the Korean question, including enough surrounding text to support the role; it may describe a study without naming its identifier. Do not translate, rewrite or expand an abbreviated study identifier inside a quote. When a phase applies to multiple products, consider every requested product independently; do not select only the product with a unique phase.\n\nJurisdictions: EU (EMA), US (FDA), CA (Health Canada), JP (PMDA), sponsor (ClinicalTrials.gov or sponsor protocols/SAP). Select only document sources the question requests. A reference product's sourcing region is a comparator, not a document jurisdiction. jurisdiction_mentions assigns regulator/comparator/context roles, with verbatim quotations from the question; regulator means requested document source, including sponsor. Every selected jurisdiction requires a regulator mention. Leave jurisdictions empty when no source is specified. Distinguish an agency from a study's recruitment country.\n\nDocument groups to search:\n- assessment: regulators' assessment reports (EMA EPAR, FDA multi-discipline review, Health Canada Summary Basis of Decision). Default for questions about study design, PK, immunogenicity, efficacy, safety results and regulators' conclusions.\n- decision_summary: short decision summaries and post-authorisation procedural steps.\n- label: product information, prescribing information, product monograph (indications, posology, label text).\n- quality: manufacturing and product quality reviews.\n- other_review: other FDA reviews (labeling, human factors, pediatric).\n- correspondence: approval letters, other action letters, administrative correspondence (approval dates, provisional determinations).\n- rmp: EU risk management plans.\n- protocol, sap: sponsor study protocols and statistical analysis plans (planned design, planned statistical methods).\nChoose every group that could contain the answer.\n\nIntent:\n- fact_lookup: one product, one fact or result.\n- compare_products: the same item across two or more products.\n- compare_jurisdictions: how agencies differ for a product.\n- regulatory_reasoning: why a regulator concluded or required something.\n- document_info: dates, versions, which documents exist.\n- out_of_scope: not about these products or their public documents, asks for predictions or recommendations, or asks to reveal redacted content.\nQuestions about a document's tables or figures, including their printed title,\naxes, units, legend, caption and footnotes, are in scope. Use fact_lookup for\ntheir printed contents, or document_info for source identification. A visual\nquestion does not require digitising plotted curves and is not out_of_scope.\n\nenglish_query: translate the whole question into one natural English question. Keep every part of what is asked. Write product names in English with their code (for example \"Steqeyma (CT-P43)\"). Copy Latin-script terms, numbers, units and study numbers exactly. Use the glossary's English terms.\nkeywords: 3 to 8 search terms that name what is asked, plus glossary variants documents may use instead."
+      },
+      {
+        "role": "user",
+        "content": "Question: EMA CTP43 평가보고서의 CT-P43 3.1 시험에서 1차 유효성 평가변수의 정의, 평가 시점과 주 분석 집단은?\n\nCopy exactly: EMA, CTP43, CT-P43, 3.1\n\nGlossary:\n- 평가변수 = endpoint (variants: endpoints)"
+      }
+    ],
+    "temperature": 0,
+    "seed": 0,
+    "max_tokens": 1000,
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "query_understanding",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "intent": {
+              "type": "string",
+              "enum": [
+                "fact_lookup",
+                "compare_products",
+                "compare_jurisdictions",
+                "regulatory_reasoning",
+                "document_info",
+                "out_of_scope"
+              ]
+            },
+            "products": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "SB17",
+                  "ABP654",
+                  "CTP43",
+                  "BMAB1200",
+                  "BAT2206"
+                ]
+              }
+            },
+            "studies": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ST_SB17_1001",
+                  "ST_SB17_3001",
+                  "ST_ABP_20190230",
+                  "ST_ABP_20190232",
+                  "ST_ABP_20200417",
+                  "ST_CTP43_1_1",
+                  "ST_CTP43_1_1_P1",
+                  "ST_CTP43_1_1_P2",
+                  "ST_CTP43_1_2",
+                  "ST_CTP43_3_1",
+                  "ST_CTP43_3_2",
+                  "ST_CTP43_POOLED",
+                  "ST_BMAB1200_NHV",
+                  "ST_BMAB1200_PSO",
+                  "ST_BAT2206_002"
+                ]
+              }
+            },
+            "study_scope": {
+              "type": "string",
+              "enum": [
+                "specified",
+                "unspecified",
+                "ambiguous"
+              ]
+            },
+            "study_mentions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "study_key": {
+                    "type": "string",
+                    "enum": [
+                      "ST_SB17_1001",
+                      "ST_SB17_3001",
+                      "ST_ABP_20190230",
+                      "ST_ABP_20190232",
+                      "ST_ABP_20200417",
+                      "ST_CTP43_1_1",
+                      "ST_CTP43_1_1_P1",
+                      "ST_CTP43_1_1_P2",
+                      "ST_CTP43_1_2",
+                      "ST_CTP43_3_1",
+                      "ST_CTP43_3_2",
+                      "ST_CTP43_POOLED",
+                      "ST_BMAB1200_NHV",
+                      "ST_BMAB1200_PSO",
+                      "ST_BAT2206_002"
+                    ]
+                  },
+                  "role": {
+                    "type": "string",
+                    "enum": [
+                      "target",
+                      "component",
+                      "context",
+                      "excluded"
+                    ]
+                  },
+                  "quote": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "study_key",
+                  "role",
+                  "quote"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "jurisdictions": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "EU",
+                  "US",
+                  "CA",
+                  "JP",
+                  "sponsor"
+                ]
+              }
+            },
+            "jurisdiction_mentions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "jurisdiction": {
+                    "type": "string",
+                    "enum": [
+                      "EU",
+                      "US",
+                      "CA",
+                      "JP",
+                      "sponsor"
+                    ]
+                  },
+                  "role": {
+                    "type": "string",
+                    "enum": [
+                      "regulator",
+                      "comparator",
+                      "context"
+                    ]
+                  },
+                  "quote": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "jurisdiction",
+                  "role",
+                  "quote"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "doc_groups": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "assessment",
+                  "decision_summary",
+                  "label",
+                  "quality",
+                  "other_review",
+                  "correspondence",
+                  "rmp",
+                  "protocol",
+                  "sap"
+                ]
+              }
+            },
+            "topic": {
+              "type": "string",
+              "enum": [
+                "design",
+                "population",
+                "dosing",
+                "endpoints",
+                "equivalence_margin",
+                "assay",
+                "n_subjects",
+                "immunogenicity",
+                "pk_results",
+                "equivalence_conclusion",
+                "efficacy",
+                "safety",
+                "quality",
+                "labeling",
+                "regulatory_history",
+                "other"
+              ]
+            },
+            "english_query": {
+              "type": "string"
+            },
+            "keywords": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "intent",
+            "products",
+            "studies",
+            "study_scope",
+            "study_mentions",
+            "jurisdictions",
+            "jurisdiction_mentions",
+            "doc_groups",
+            "topic",
+            "english_query",
+            "keywords"
+          ],
+          "additionalProperties": false
+        },
+        "strict": true
+      }
+    }
+  },
+  "gold_sent": false
+}

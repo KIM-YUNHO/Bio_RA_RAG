@@ -1,0 +1,21 @@
+{
+  "sample_version": "ra-visual-transfer-1",
+  "frozen_at_kst": "2026-10-08T01:20:00+09:00",
+  "selection_method": "Two assessment reports not in the five-document development pilot; four candidate table/chart pages selected from the pre-existing heuristic inventory before inference. Purposive transfer check, not random corpus accuracy or expert gold.",
+  "documents": [
+    {
+      "document_id": "EMA:64196",
+      "version_id": "123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c",
+      "label": "EMA-Wezenla",
+      "pages": [43, 44],
+      "roles": ["pk_chart_and_table", "raster_table_candidates"]
+    },
+    {
+      "document_id": "EMA:64792",
+      "version_id": "513959da3a6d724b63160792cbf18acb7f83d3396ab8147f491d543ce392bcce",
+      "label": "EMA-Steqeyma",
+      "pages": [34, 41],
+      "roles": ["semilog_pk_chart", "semilog_pk_chart_and_table"]
+    }
+  ]
+}

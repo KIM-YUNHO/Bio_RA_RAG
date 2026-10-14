@@ -1,0 +1,2881 @@
+{
+  "scope": [
+    "EMA",
+    "FDA",
+    "Health Canada"
+  ],
+  "catalog_document_rows": 101,
+  "eligible_document_rows": 92,
+  "unique_source_documents": 92,
+  "documents": [
+    {
+      "document_id": "EMA:64196",
+      "version_id": "123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c",
+      "product_id": "ABP654",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Wezenla : EPAR - Public assessment report",
+      "family": "assessment_report",
+      "default_search": true,
+      "page_count": 117,
+      "nonempty_text_pages": 117,
+      "protected": [],
+      "runs": [
+        {
+          "run": "data\\preprocessed\\transfer_2026-10-08\\base",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\transfer_2026-10-08\\labels",
+          "pages": null,
+          "status": "extraction_complete"
+        }
+      ],
+      "aliases": [
+        "EMA:64196"
+      ]
+    },
+    {
+      "document_id": "HC:RDS1705591073125",
+      "version_id": "3c6833140283fca3aea6609c76f1c30d45ce7049e73de84afd5d36d8b42a63a4",
+      "product_id": "ABP654",
+      "source": "Health Canada",
+      "kind": "html",
+      "title": "Regulatory Decision Summary for Wezlana/Wezlana I.V.",
+      "family": "decision_summary",
+      "default_search": true,
+      "page_count": 3,
+      "nonempty_text_pages": 3,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "HC:RDS1705591073125"
+      ]
+    },
+    {
+      "document_id": "HC:SBD1721675750511",
+      "version_id": "a5d4cafd1ee59d473a5d81bd847466a6eb6bf333a93b3e7d1eef3e057bcbd6e6",
+      "product_id": "ABP654",
+      "source": "Health Canada",
+      "kind": "html",
+      "title": "Summary Basis of Decision for Wezlana/Wezlana I.V.",
+      "family": "assessment_report",
+      "default_search": true,
+      "page_count": 18,
+      "nonempty_text_pages": 18,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "HC:SBD1721675750511"
+      ]
+    },
+    {
+      "document_id": "FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",
+      "version_id": "2bc7f2e93c191783a960144f66d6a45cabfc3738ce986bcff95ee715ea25a145",
+      "product_id": "ABP654",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Wezlana (BLA 761285 ORIG-1) — Multi-Discipline Review",
+      "family": "assessment_report",
+      "default_search": true,
+      "page_count": 107,
+      "nonempty_text_pages": 107,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR"
+      ]
+    },
+    {
+      "document_id": "EMA:64792",
+      "version_id": "513959da3a6d724b63160792cbf18acb7f83d3396ab8147f491d543ce392bcce",
+      "product_id": "CTP43",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Steqeyma : EPAR - Public assessment report",
+      "family": "assessment_report",
+      "default_search": true,
+      "page_count": 133,
+      "nonempty_text_pages": 133,
+      "protected": [],
+      "runs": [
+        {
+          "run": "data\\preprocessed\\transfer_2026-10-08\\base",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\transfer_2026-10-08\\labels",
+          "pages": null,
+          "status": "extraction_complete"
+        }
+      ],
+      "aliases": [
+        "EMA:64792"
+      ]
+    },
+    {
+      "document_id": "HC:RDS1722628438095",
+      "version_id": "b51095b0f10a2d5122bf722a0863e125d48c9f130583914c83185f309994a9ce",
+      "product_id": "CTP43",
+      "source": "Health Canada",
+      "kind": "html",
+      "title": "Regulatory Decision Summary for Steqeyma/Steqeyma IV",
+      "family": "decision_summary",
+      "default_search": true,
+      "page_count": 7,
+      "nonempty_text_pages": 7,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "HC:RDS1722628438095"
+      ]
+    },
+    {
+      "document_id": "HC:RDS1770824778122",
+      "version_id": "6eac19fac464257d8a5f39ddfcdad76da6a3e4f5b7eb9f8972ab6ce0e922e096",
+      "product_id": "CTP43",
+      "source": "Health Canada",
+      "kind": "html",
+      "title": "Regulatory Decision Summary for Steqeyma, Steqeyma I.V.",
+      "family": "decision_summary",
+      "default_search": true,
+      "page_count": 8,
+      "nonempty_text_pages": 8,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "HC:RDS1770824778122"
+      ]
+    },
+    {
+      "document_id": "HC:SBD1739202346124",
+      "version_id": "81290de921bf268d7c7a2a3f6ce7161ffe55745bd21cc9ea847fa5c3968aefe4",
+      "product_id": "CTP43",
+      "source": "Health Canada",
+      "kind": "html",
+      "title": "Summary Basis of Decision for Steqeyma and Steqeyma I.V.",
+      "family": "assessment_report",
+      "default_search": true,
+      "page_count": 18,
+      "nonempty_text_pages": 18,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "HC:SBD1739202346124"
+      ]
+    },
+    {
+      "document_id": "FDA:761338Orig1Orig2s000:CrossR",
+      "version_id": "2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5",
+      "product_id": "CTP43",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Steqeyma (BLA 761338 ORIG-2) — Cross Discipline Team Leader Review",
+      "family": "assessment_report",
+      "default_search": true,
+      "page_count": 22,
+      "nonempty_text_pages": 21,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761338Orig1Orig2s000:CrossR"
+      ]
+    },
+    {
+      "document_id": "FDA:761338Orig1Orig2s000:MultidisciplineR",
+      "version_id": "51516759220bdde66a304b6818d95d27f9406d05fe46b46be1bd1fef674f83c3",
+      "product_id": "CTP43",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Steqeyma (BLA 761338 ORIG-2) — Multi-Discipline Review",
+      "family": "assessment_report",
+      "default_search": true,
+      "page_count": 160,
+      "nonempty_text_pages": 128,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761338Orig1Orig2s000:MultidisciplineR"
+      ]
+    },
+    {
+      "document_id": "HC:SBD1769005259208",
+      "version_id": "ca45114e8702a184915731e0915211f7922db53fc95060383636886d3ed3de4c",
+      "product_id": "BMAB1200",
+      "source": "Health Canada",
+      "kind": "html",
+      "title": "Summary Basis of Decision for Yesintek and Yesintek I.V.",
+      "family": "assessment_report",
+      "default_search": true,
+      "page_count": 18,
+      "nonempty_text_pages": 18,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "HC:SBD1769005259208"
+      ]
+    },
+    {
+      "document_id": "FDA:761406Orig1Orig2s000:MultidisciplineR",
+      "version_id": "da445e2fae0be1b6478783ecdc7661cfa9647cbabace84b8e23dd8ee58e84325",
+      "product_id": "BMAB1200",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Yesintek (BLA 761406 ORIG-2) — Multi-Discipline Review",
+      "family": "assessment_report",
+      "default_search": true,
+      "page_count": 113,
+      "nonempty_text_pages": 95,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761406Orig1Orig2s000:MultidisciplineR"
+      ]
+    },
+    {
+      "document_id": "EMA:63563",
+      "version_id": "fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76",
+      "product_id": "SB17",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Pyzchiva : EPAR - Public assessment report",
+      "family": "assessment_report",
+      "default_search": true,
+      "page_count": 168,
+      "nonempty_text_pages": 168,
+      "protected": [],
+      "runs": [
+        {
+          "run": "data\\preprocessed\\figure_labels_2026-10-08",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\figure_labels_2026-10-08_v2",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\figure_labels_2026-10-08_v3",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\paddle_qwen_smoke_2026-10-07",
+          "pages": [
+            35,
+            44,
+            50
+          ],
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\pipeline_review_2026-10-08",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\table_context_2026-10-08",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\table_context_2026-10-08_v2",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_core_regroup_2026-10-08_v4",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_core_regroup_2026-10-08_v5",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_core_regroup_2026-10-08_v6",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_core_regroup_2026-10-08_v7",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_revalidation_core_2026-10-08_v2",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_core_2026-10-08_v4",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_core_2026-10-08_v4_attempt1",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_core_2026-10-08_v5",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\quality_2026-10-07\\baseline",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\quality_2026-10-07\\revised",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\quality_2026-10-07\\revised_v2",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\quality_2026-10-07\\rules_step1",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\ra_search_ready_2026-10-08\\extraction",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\ra_workflow_native_v1_2026-10-08\\extraction",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\ra_workflow_native_v1_2026-10-08\\labels",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\ra_workflow_v1_2026-10-08\\extraction",
+          "pages": null,
+          "status": "running"
+        }
+      ],
+      "aliases": [
+        "EMA:63563"
+      ]
+    },
+    {
+      "document_id": "HC:RDS1724776566772",
+      "version_id": "0f2e036965d90749c702c841d465bc229a68f715129912cb01fc66e8f721add1",
+      "product_id": "SB17",
+      "source": "Health Canada",
+      "kind": "html",
+      "title": "Regulatory Decision Summary for Pyzchiva / Pyzchiva I.V. (ustekinumab)",
+      "family": "decision_summary",
+      "default_search": true,
+      "page_count": 3,
+      "nonempty_text_pages": 3,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "HC:RDS1724776566772"
+      ]
+    },
+    {
+      "document_id": "HC:RDS1724778020977",
+      "version_id": "bdfeab95a59271365758c1c9b4cf00555541fce90f64d8028d04eae7a0f3dddb",
+      "product_id": "SB17",
+      "source": "Health Canada",
+      "kind": "html",
+      "title": "Regulatory Decision Summary for Pyzchiva / Pyzchiva I.V. (ustekinumab)",
+      "family": "decision_summary",
+      "default_search": true,
+      "page_count": 7,
+      "nonempty_text_pages": 7,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "HC:RDS1724778020977"
+      ]
+    },
+    {
+      "document_id": "HC:RDS1766500484485",
+      "version_id": "35e7c3bf0923b2f6e2807f70d901002908a0d7f6240db0eecb441e110db21753",
+      "product_id": "SB17",
+      "source": "Health Canada",
+      "kind": "html",
+      "title": "Regulatory Decision Summary for Pyzchiva, Pyzchiva I.V.",
+      "family": "decision_summary",
+      "default_search": true,
+      "page_count": 10,
+      "nonempty_text_pages": 10,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "HC:RDS1766500484485"
+      ]
+    },
+    {
+      "document_id": "FDA:761373Orig1Orig2s001,761425Orig1Orig2s001CrossR",
+      "version_id": "1a342620253d242943092b374ee20acd1afda0e4c26e46aee83565563f38fa85",
+      "product_id": "SB17",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Pyzchiva (BLA 761373 SUPPL-1) — Review document",
+      "family": "assessment_report",
+      "default_search": true,
+      "page_count": 13,
+      "nonempty_text_pages": 13,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761373Orig1Orig2s001,761425Orig1Orig2s001CrossR"
+      ]
+    },
+    {
+      "document_id": "HC:SBD1739909145014",
+      "version_id": "811f2ac440748551e0f86ecb9790fe5b48ee0ade01d6343c5e283a19e8f9c08c",
+      "product_id": "SB17",
+      "source": "Health Canada",
+      "kind": "html",
+      "title": "Summary Basis of Decision for Pyzchiva and Pyzchiva I.V.",
+      "family": "assessment_report",
+      "default_search": true,
+      "page_count": 18,
+      "nonempty_text_pages": 18,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "HC:SBD1739909145014"
+      ]
+    },
+    {
+      "document_id": "FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",
+      "version_id": "a45db692abad62f38efbef242f728cf2ea3fc894a48c16fbdc8201417ef4a6fa",
+      "product_id": "SB17",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Pyzchiva (BLA 761373 ORIG-1) — Multi-Discipline Review",
+      "family": "assessment_report",
+      "default_search": true,
+      "page_count": 152,
+      "nonempty_text_pages": 116,
+      "protected": [],
+      "runs": [
+        {
+          "run": "data\\preprocessed\\figure_labels_2026-10-08",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\figure_labels_2026-10-08_v2",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\figure_labels_2026-10-08_v3",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\pipeline_review_2026-10-08",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\table_context_2026-10-08",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\table_context_2026-10-08_v2",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_core_regroup_2026-10-08_v4",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_core_regroup_2026-10-08_v5",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_core_regroup_2026-10-08_v6",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_core_regroup_2026-10-08_v7",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_revalidation_core_2026-10-08_v2",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_core_2026-10-08_v4",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_core_2026-10-08_v4_attempt1",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_core_2026-10-08_v5",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\quality_2026-10-07\\baseline",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\quality_2026-10-07\\revised",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\quality_2026-10-07\\revised_v2",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\quality_2026-10-07\\rules_step1",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\ra_search_ready_2026-10-08\\extraction",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\ra_workflow_native_v1_2026-10-08\\extraction",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\ra_workflow_native_v1_2026-10-08\\labels",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\ra_workflow_v1_2026-10-08\\extraction",
+          "pages": null,
+          "status": "running"
+        }
+      ],
+      "aliases": [
+        "FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR"
+      ]
+    },
+    {
+      "document_id": "FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",
+      "version_id": "60b9b312f076a85479ad8ce2ced42d6a4f3d1fd3f80954d92add3d2d81a7853f",
+      "product_id": "SB17",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Pyzchiva (BLA 761373 ORIG-2) — Multi-Discipline Review",
+      "family": "assessment_report",
+      "default_search": true,
+      "page_count": 162,
+      "nonempty_text_pages": 135,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR"
+      ]
+    },
+    {
+      "document_id": "EMA:64195",
+      "version_id": "4508035f66e8e0f1781574f839605953e6afbab7590cc6113fa7dbbd46debcbf",
+      "product_id": "ABP654",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Wezenla : EPAR - All authorised presentations",
+      "family": "presentation_list",
+      "default_search": false,
+      "page_count": 1,
+      "nonempty_text_pages": 1,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "EMA:64195"
+      ]
+    },
+    {
+      "document_id": "EMA:64192",
+      "version_id": "5e4c45e5ae05751b97aa729b6fb8a8cfbda220fd72ce3d495880a60c6bdbbbd5",
+      "product_id": "ABP654",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Wezenla : EPAR - Medicine overview",
+      "family": "plain_summary",
+      "default_search": true,
+      "page_count": 3,
+      "nonempty_text_pages": 3,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "EMA:64192"
+      ]
+    },
+    {
+      "document_id": "EMA:64602",
+      "version_id": "b28325c8b00d3ee6a3e36375dacb244832895030479854a34405f0b361395b6e",
+      "product_id": "ABP654",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Wezenla : EPAR - Procedural steps taken and scientific information after authorisation (archive)",
+      "family": "post_authorisation_history",
+      "default_search": true,
+      "page_count": 3,
+      "nonempty_text_pages": 3,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "EMA:64602"
+      ]
+    },
+    {
+      "document_id": "EMA:68524",
+      "version_id": "5ffc63058beac584b7438b4bbf76f8c40e6b107dc83134ac5d6727a70c0b0ea7",
+      "product_id": "ABP654",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Wezenla : EPAR - Procedural steps taken and scientific information after authorisation (archive)",
+      "family": "post_authorisation_history",
+      "default_search": true,
+      "page_count": 3,
+      "nonempty_text_pages": 3,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "EMA:68524"
+      ]
+    },
+    {
+      "document_id": "EMA:64193",
+      "version_id": "340585543adc5c686caf2890d680cab3610a2758b23d83bf7c2aca75f1cc7ffa",
+      "product_id": "ABP654",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Wezenla : EPAR - Risk management plan (archive)",
+      "family": "risk_management_plan",
+      "default_search": false,
+      "page_count": 80,
+      "nonempty_text_pages": 80,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "EMA:64193"
+      ]
+    },
+    {
+      "document_id": "EMA:69692",
+      "version_id": "b8154ff0f7ec966c41491533d19f0c97d57d2be67d85a9389a21b2c1933ba1ac",
+      "product_id": "ABP654",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Wezenla : EPAR - Risk management plan",
+      "family": "risk_management_plan",
+      "default_search": false,
+      "page_count": 87,
+      "nonempty_text_pages": 87,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "EMA:69692"
+      ]
+    },
+    {
+      "document_id": "EMA:64194",
+      "version_id": "ee8a4a8f48f02ce6abe6b0d6d8b9c74092ca858a6dbb9266fd0c8cbbf48dea12",
+      "product_id": "ABP654",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Wezenla : EPAR - Product information",
+      "family": "product_information",
+      "default_search": false,
+      "page_count": 151,
+      "nonempty_text_pages": 151,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "EMA:64194"
+      ]
+    },
+    {
+      "document_id": "FDA:letter:761285Orig1s001;761331Orig1s001ltr",
+      "version_id": "d7d3a186e8d068771475b07d73aa4cc49f3bd5e08608429cb7bbf3ecea0a95c9",
+      "product_id": "ABP654",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Wezlana (BLA 761285/761331 SUPPL-1, 2024-12-27) — Approval Letter",
+      "family": "decision_letter",
+      "default_search": false,
+      "page_count": 5,
+      "nonempty_text_pages": 5,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:letter:761285Orig1s001;761331Orig1s001ltr"
+      ]
+    },
+    {
+      "document_id": "FDA:letter:761285Orig1s004,761331Orig1s004ltr",
+      "version_id": "bdcabf34505385bade673fa3273e9c3d2ea862a67192459bb564f0b41ee4b8fd",
+      "product_id": "ABP654",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Wezlana (BLA 761285/761331 SUPPL-4, 2025-09-26) — Approval Letter",
+      "family": "decision_letter",
+      "default_search": false,
+      "page_count": 5,
+      "nonempty_text_pages": 5,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:letter:761285Orig1s004,761331Orig1s004ltr"
+      ]
+    },
+    {
+      "document_id": "FDA:letter:761285Orig1s006, 761331Orig1s006ltr",
+      "version_id": "5c2860375481d8ad1289227cb1562d41614c6982456ec28374271b87822908ec",
+      "product_id": "ABP654",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Wezlana (BLA 761285/761331 SUPPL-6, 2026-05-13) — Approval Letter",
+      "family": "decision_letter",
+      "default_search": false,
+      "page_count": 5,
+      "nonempty_text_pages": 5,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:letter:761285Orig1s006, 761331Orig1s006ltr"
+      ]
+    },
+    {
+      "document_id": "FDA:761285Orig1s000,761331Orig1s000:Approv",
+      "version_id": "2d67f8b3708d62196f49627a5865505e450104e12c3c1db73d27febe89f5a4de",
+      "product_id": "ABP654",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Wezlana (BLA 761285 ORIG-1) — Approval Letter(s)",
+      "family": "decision_letter",
+      "default_search": false,
+      "page_count": 12,
+      "nonempty_text_pages": 12,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761285Orig1s000,761331Orig1s000:Approv"
+      ]
+    },
+    {
+      "document_id": "FDA:761285Orig1s000,761331Orig1s000:AdminCorres",
+      "version_id": "91db2a473c27dd56f3dd69c17567e386297aef2e02d595d89cf760065cf7e046",
+      "product_id": "ABP654",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Wezlana (BLA 761285 ORIG-1) — Administrative and Correspondence Documents",
+      "family": "correspondence",
+      "default_search": false,
+      "page_count": 30,
+      "nonempty_text_pages": 26,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761285Orig1s000,761331Orig1s000:AdminCorres"
+      ]
+    },
+    {
+      "document_id": "FDA:761285Orig1s000,761331Orig1s000:OtherR",
+      "version_id": "29bed184611ec2199f06d2a2d9c8c01d2f00daa4388b9e141d931803766228fc",
+      "product_id": "ABP654",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Wezlana (BLA 761285 ORIG-1) — Other Review(s)",
+      "family": "other_review",
+      "default_search": false,
+      "page_count": 45,
+      "nonempty_text_pages": 45,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761285Orig1s000,761331Orig1s000:OtherR"
+      ]
+    },
+    {
+      "document_id": "FDA:761285Orig1s000,761331Orig1s000:ChemR",
+      "version_id": "09ec859d146b09203f4132ef7528b37b48cba76711e893a5a9f7270d24c089e3",
+      "product_id": "ABP654",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Wezlana (BLA 761285 ORIG-1) — Product Quality Review(s)",
+      "family": "quality_review",
+      "default_search": true,
+      "page_count": 46,
+      "nonempty_text_pages": 4,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761285Orig1s000,761331Orig1s000:ChemR"
+      ]
+    },
+    {
+      "document_id": "FDA:761285Orig1s000,761331Orig1s000:Lbl",
+      "version_id": "8d3627804efdeaafa5f5d9032503e52825b8ca470b36eb6f927f4372f4a85eda",
+      "product_id": "ABP654",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Wezlana (BLA 761285 ORIG-1) — Printed Labeling",
+      "family": "product_information",
+      "default_search": false,
+      "page_count": 53,
+      "nonempty_text_pages": 45,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761285Orig1s000,761331Orig1s000:Lbl"
+      ]
+    },
+    {
+      "document_id": "FDA:label:761285s006lbl761331s006lbl",
+      "version_id": "29bfeedf7441c2680814dc2ba25de283b40375f54f2a676d24feba2f53dea053",
+      "product_id": "ABP654",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Wezlana (BLA 761285/761331 SUPPL-6, 2026-05-18) — Labeling (latest listed)",
+      "family": "product_information",
+      "default_search": false,
+      "page_count": 58,
+      "nonempty_text_pages": 58,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:label:761285s006lbl761331s006lbl"
+      ]
+    },
+    {
+      "document_id": "HC:PM:00078625",
+      "version_id": "83a4e0fdd8a24e0f670d11268893e21babd4bed528c6d8def40635002d330287",
+      "product_id": "ABP654",
+      "source": "Health Canada",
+      "kind": "pdf",
+      "title": "Wezlana Product Monograph",
+      "family": "product_information",
+      "default_search": false,
+      "page_count": 116,
+      "nonempty_text_pages": 116,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "HC:PM:00078625"
+      ]
+    },
+    {
+      "document_id": "EMA:64791",
+      "version_id": "855ddb02208cb3e2e6e0ff1a903dfcf34b2da83c3c14be6ac0541d9bd7541c53",
+      "product_id": "CTP43",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Steqeyma : EPAR - All authorised presentations",
+      "family": "presentation_list",
+      "default_search": false,
+      "page_count": 1,
+      "nonempty_text_pages": 1,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "EMA:64791"
+      ]
+    },
+    {
+      "document_id": "EMA:64788",
+      "version_id": "e0301eaaed4333c8dc518122d287549fd4696640b5879ed44f7af06a52e8edac",
+      "product_id": "CTP43",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Steqeyma : EPAR - Medicine overview",
+      "family": "plain_summary",
+      "default_search": true,
+      "page_count": 3,
+      "nonempty_text_pages": 3,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "EMA:64788"
+      ]
+    },
+    {
+      "document_id": "EMA:65026",
+      "version_id": "85850c7339a00acf53135f59538affee81d0d352a8999b84a62d29c20606e5f5",
+      "product_id": "CTP43",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Steqeyma : EPAR - Procedural steps taken and scientific information after authorisation (archive)",
+      "family": "post_authorisation_history",
+      "default_search": true,
+      "page_count": 4,
+      "nonempty_text_pages": 4,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "EMA:65026"
+      ]
+    },
+    {
+      "document_id": "EMA:68719",
+      "version_id": "4472869284154f0b285f507826abd91ab3be4e40d9e944c59c1cd1fb4ed8326a",
+      "product_id": "CTP43",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Steqeyma : EPAR - Procedural steps taken and scientific information after authorisation",
+      "family": "post_authorisation_history",
+      "default_search": true,
+      "page_count": 14,
+      "nonempty_text_pages": 14,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "EMA:68719"
+      ]
+    },
+    {
+      "document_id": "EMA:64789",
+      "version_id": "58cc4e84fc11e96849da2db6552653b531d5bb75783455e56edd254f4dfe1e7f",
+      "product_id": "CTP43",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Steqeyma : EPAR - Risk management plan",
+      "family": "risk_management_plan",
+      "default_search": false,
+      "page_count": 84,
+      "nonempty_text_pages": 83,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "EMA:64789"
+      ]
+    },
+    {
+      "document_id": "EMA:64790",
+      "version_id": "9a3509f3b02c3fb7e75de75bcc03208fcf393a04fbbaef6c487f30c100e3060d",
+      "product_id": "CTP43",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Steqeyma : EPAR - Product information",
+      "family": "product_information",
+      "default_search": false,
+      "page_count": 199,
+      "nonempty_text_pages": 199,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "EMA:64790"
+      ]
+    },
+    {
+      "document_id": "FDA:letter:761338Orig1s001ltr",
+      "version_id": "6a2215a461ca55cf7c2f0d50b2ebbe66959e29a9f7d42d108c0f59c59166af80",
+      "product_id": "CTP43",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Steqeyma (BLA 761338 SUPPL-1, 2025-05-01) — Approval Letter",
+      "family": "decision_letter",
+      "default_search": false,
+      "page_count": 5,
+      "nonempty_text_pages": 5,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:letter:761338Orig1s001ltr"
+      ]
+    },
+    {
+      "document_id": "FDA:letter:761338Orig1s003ltr",
+      "version_id": "1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2",
+      "product_id": "CTP43",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Steqeyma (BLA 761338 SUPPL-3, 2025-06-13) — Approval Letter",
+      "family": "decision_letter",
+      "default_search": false,
+      "page_count": 5,
+      "nonempty_text_pages": 5,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:letter:761338Orig1s003ltr"
+      ]
+    },
+    {
+      "document_id": "FDA:letter:761338Orig1s007ltr",
+      "version_id": "3f227b2ea870652c33cf70e8387f119e4cba92eb5832b539f987a3211b0016a7",
+      "product_id": "CTP43",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Steqeyma (BLA 761338 SUPPL-7, 2025-12-15) — Approval Letter",
+      "family": "decision_letter",
+      "default_search": false,
+      "page_count": 5,
+      "nonempty_text_pages": 5,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:letter:761338Orig1s007ltr"
+      ]
+    },
+    {
+      "document_id": "FDA:761338Orig1Orig2s000:OtherActionLtrs",
+      "version_id": "afa770ff85f2b3b2cfe9c16b6893df85f9119206e81e2106e25883a8a609ed43",
+      "product_id": "CTP43",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Steqeyma (BLA 761338 ORIG-2) — Other Action Letters",
+      "family": "decision_letter",
+      "default_search": false,
+      "page_count": 15,
+      "nonempty_text_pages": 9,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761338Orig1Orig2s000:OtherActionLtrs"
+      ]
+    },
+    {
+      "document_id": "FDA:761338Orig1Orig2s000:Approv",
+      "version_id": "b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9",
+      "product_id": "CTP43",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Steqeyma (BLA 761338 ORIG-2) — Approval Letter(s)",
+      "family": "decision_letter",
+      "default_search": false,
+      "page_count": 17,
+      "nonempty_text_pages": 16,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761338Orig1Orig2s000:Approv"
+      ]
+    },
+    {
+      "document_id": "FDA:761338Orig1Orig2s000:OtherR",
+      "version_id": "ca3f32ea0346260d25635ba98e2f45c5073dc06f747ebc34e8075f722ee41b3b",
+      "product_id": "CTP43",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Steqeyma (BLA 761338 ORIG-2) — Other Review(s)",
+      "family": "other_review",
+      "default_search": false,
+      "page_count": 66,
+      "nonempty_text_pages": 58,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761338Orig1Orig2s000:OtherR"
+      ]
+    },
+    {
+      "document_id": "FDA:761338Orig1Orig2s000:AdminCorres",
+      "version_id": "36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb",
+      "product_id": "CTP43",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Steqeyma (BLA 761338 ORIG-2) — Administrative and Correspondence Documents",
+      "family": "correspondence",
+      "default_search": false,
+      "page_count": 69,
+      "nonempty_text_pages": 67,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761338Orig1Orig2s000:AdminCorres"
+      ]
+    },
+    {
+      "document_id": "FDA:761338Orig1Orig2s000:ChemR",
+      "version_id": "4995ff3f746decbdfc67d70063c586d8bdcd7876ec3bd641bb501f33e8ef0981",
+      "product_id": "CTP43",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Steqeyma (BLA 761338 ORIG-2) — Product Quality Review(s)",
+      "family": "quality_review",
+      "default_search": true,
+      "page_count": 81,
+      "nonempty_text_pages": 81,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761338Orig1Orig2s000:ChemR"
+      ]
+    },
+    {
+      "document_id": "FDA:761338Orig1Orig2s000:Lbl",
+      "version_id": "fbfb9e394ac9d42b6cdcd6bedeb819bc7b195c1630dd4981750d378c0acf8727",
+      "product_id": "CTP43",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Steqeyma (BLA 761338 ORIG-2) — Printed Labeling",
+      "family": "product_information",
+      "default_search": false,
+      "page_count": 97,
+      "nonempty_text_pages": 84,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761338Orig1Orig2s000:Lbl"
+      ]
+    },
+    {
+      "document_id": "FDA:label:761338s007lbl",
+      "version_id": "a5ec163593ed260b55d58006c420351560532f0993a83f5ac9b0644943124605",
+      "product_id": "CTP43",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Steqeyma (BLA 761338 SUPPL-7, 2025-12-18) — Labeling (latest listed)",
+      "family": "product_information",
+      "default_search": false,
+      "page_count": 107,
+      "nonempty_text_pages": 107,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:label:761338s007lbl"
+      ]
+    },
+    {
+      "document_id": "HC:PM:00085585",
+      "version_id": "3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd",
+      "product_id": "CTP43",
+      "source": "Health Canada",
+      "kind": "pdf",
+      "title": "Steqeyma Product Monograph",
+      "family": "product_information",
+      "default_search": false,
+      "page_count": 123,
+      "nonempty_text_pages": 123,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "HC:PM:00085585"
+      ]
+    },
+    {
+      "document_id": "FDA:letter:761406Orig1s002ltr",
+      "version_id": "bdb5335a3aa8503d4537e6b530bf9ff5399fbcaff5bcf99b968bcf26d04e0927",
+      "product_id": "BMAB1200",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Yesintek (BLA 761406 SUPPL-2, 2026-08-18) — Approval Letter",
+      "family": "decision_letter",
+      "default_search": false,
+      "page_count": 5,
+      "nonempty_text_pages": 5,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:letter:761406Orig1s002ltr"
+      ]
+    },
+    {
+      "document_id": "FDA:761406Orig1Orig2s000:OtherActionLtrs",
+      "version_id": "661f67a198e73ce84ab49329cf397f692d3a914ada2ee1259dd0ac3592c5f1d8",
+      "product_id": "BMAB1200",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Yesintek (BLA 761406 ORIG-2) — Other Action Letters",
+      "family": "decision_letter",
+      "default_search": false,
+      "page_count": 6,
+      "nonempty_text_pages": 5,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761406Orig1Orig2s000:OtherActionLtrs"
+      ]
+    },
+    {
+      "document_id": "FDA:761406Orig1Orig2s000:Approv",
+      "version_id": "c0d62a8463ea0dc7d33028129d542cb2422d00c7c3aeffa2a5d4dbd44704c541",
+      "product_id": "BMAB1200",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Yesintek (BLA 761406 ORIG-2) — Approval Letter(s)",
+      "family": "decision_letter",
+      "default_search": false,
+      "page_count": 16,
+      "nonempty_text_pages": 16,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761406Orig1Orig2s000:Approv"
+      ]
+    },
+    {
+      "document_id": "FDA:761406Orig1Orig2s000:AdminCorres",
+      "version_id": "e3b8a3b334ad60da3aa121d3b7e87ffcb7c77901ddef8318e6728aafc034a632",
+      "product_id": "BMAB1200",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Yesintek (BLA 761406 ORIG-2) — Administrative and Correspondence Documents",
+      "family": "correspondence",
+      "default_search": false,
+      "page_count": 21,
+      "nonempty_text_pages": 19,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761406Orig1Orig2s000:AdminCorres"
+      ]
+    },
+    {
+      "document_id": "FDA:label:761406s002lbl",
+      "version_id": "be379f8b3eec9e46e87207c6c9cbb4ba1d71eb016ba19aa1734f9032e7a4b7ae",
+      "product_id": "BMAB1200",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Yesintek (BLA 761406 SUPPL-2, 2026-08-18) — Labeling (latest listed)",
+      "family": "product_information",
+      "default_search": false,
+      "page_count": 48,
+      "nonempty_text_pages": 48,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:label:761406s002lbl"
+      ]
+    },
+    {
+      "document_id": "FDA:761406Orig1Orig2s000:ChemR",
+      "version_id": "840187d6c113d7c39d00891dcfb1db3d850ec91e9f5ff896c8a715648f747bd5",
+      "product_id": "BMAB1200",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Yesintek (BLA 761406 ORIG-2) — Product Quality Review(s)",
+      "family": "quality_review",
+      "default_search": true,
+      "page_count": 56,
+      "nonempty_text_pages": 30,
+      "protected": [],
+      "runs": [
+        {
+          "run": "data\\preprocessed\\five_product_delta_2026-10-09\\extraction",
+          "pages": null,
+          "status": "partial"
+        }
+      ],
+      "aliases": [
+        "FDA:761406Orig1Orig2s000:ChemR"
+      ]
+    },
+    {
+      "document_id": "FDA:761406Orig1Orig2s000:OtherR",
+      "version_id": "de47ec6168406105a5ef671daa7763da07e445dc6db1ca29198adc23f1ffd08c",
+      "product_id": "BMAB1200",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Yesintek (BLA 761406 ORIG-2) — Other Review(s)",
+      "family": "other_review",
+      "default_search": false,
+      "page_count": 57,
+      "nonempty_text_pages": 49,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761406Orig1Orig2s000:OtherR"
+      ]
+    },
+    {
+      "document_id": "HC:PM:00084796",
+      "version_id": "62cab3fd94c50541d4106ea4ec5f09565211526f99ab126cda5ab03ce14938f1",
+      "product_id": "BMAB1200",
+      "source": "Health Canada",
+      "kind": "pdf",
+      "title": "Yesintek Product Monograph",
+      "family": "product_information",
+      "default_search": false,
+      "page_count": 87,
+      "nonempty_text_pages": 87,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "HC:PM:00084796"
+      ]
+    },
+    {
+      "document_id": "EMA:69777",
+      "version_id": "7a0150199d2279870825fbe264213fe5b902d0926cdfaf7e47c69b9eacfdb7a8",
+      "product_id": "BAT2206",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Usymro: EPAR - All authorised presentations",
+      "family": "presentation_list",
+      "default_search": false,
+      "page_count": 1,
+      "nonempty_text_pages": 1,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "EMA:69777"
+      ]
+    },
+    {
+      "document_id": "EMA:69776",
+      "version_id": "9794a1d87d37809258c84894156acd8829f22595b70e1d37e908656815a04863",
+      "product_id": "BAT2206",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Usymro: EPAR - Medicine overview",
+      "family": "plain_summary",
+      "default_search": true,
+      "page_count": 3,
+      "nonempty_text_pages": 3,
+      "protected": [],
+      "runs": [
+        {
+          "run": "data\\preprocessed\\five_product_delta_2026-10-09\\extraction",
+          "pages": null,
+          "status": "partial"
+        }
+      ],
+      "aliases": [
+        "EMA:69776"
+      ]
+    },
+    {
+      "document_id": "EMA:70877",
+      "version_id": "aa64fe6cba06f86e73d2ff21981469a521c2db5f45c7e22b057316046b4bb93c",
+      "product_id": "BAT2206",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Usymro : EPAR - Procedural steps taken and scientific information after authorisation",
+      "family": "post_authorisation_history",
+      "default_search": true,
+      "page_count": 4,
+      "nonempty_text_pages": 4,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "EMA:70877"
+      ]
+    },
+    {
+      "document_id": "EMA:69775",
+      "version_id": "31940e85c3cdde30928ef27425cc012edb38b65ce9e35d3596f705b2fab74d00",
+      "product_id": "BAT2206",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Usymro: EPAR - Risk management plan",
+      "family": "risk_management_plan",
+      "default_search": false,
+      "page_count": 86,
+      "nonempty_text_pages": 86,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "EMA:69775"
+      ]
+    },
+    {
+      "document_id": "EMA:69778",
+      "version_id": "274a2e52e504e4f872783b2297b7ce22f2f8fa38a366b8eaea4a5c9ad8e0746b",
+      "product_id": "BAT2206",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Usymro: EPAR - Product information",
+      "family": "product_information",
+      "default_search": false,
+      "page_count": 118,
+      "nonempty_text_pages": 118,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "EMA:69778"
+      ]
+    },
+    {
+      "document_id": "FDA:letter:761419Orig1s000ltr",
+      "version_id": "e594f3b4b27cbb32651dcb4bedc36b69f9b7b1231dc724e300069bd8e23f85a5",
+      "product_id": "BAT2206",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Starjemza (BLA 761419 ORIG-1, 2025-05-27) — Approval Letter",
+      "family": "decision_letter",
+      "default_search": false,
+      "page_count": 7,
+      "nonempty_text_pages": 7,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:letter:761419Orig1s000ltr"
+      ]
+    },
+    {
+      "document_id": "FDA:label:761419s000lbl",
+      "version_id": "7783bf048fda949de0c92df0d9dc122c243da041afbcbf9382fb1a815590fc5e",
+      "product_id": "BAT2206",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Starjemza (BLA 761419 ORIG-1, 2025-06-02) — Labeling (latest listed)",
+      "family": "product_information",
+      "default_search": false,
+      "page_count": 52,
+      "nonempty_text_pages": 52,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:label:761419s000lbl"
+      ]
+    },
+    {
+      "document_id": "EMA:63562",
+      "version_id": "cf05fa35da65f7965df616b257c9d9a242a07eb27bc177083fb0d5d39118e054",
+      "product_id": "SB17",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Pyzchiva : EPAR - All authorised presentations",
+      "family": "presentation_list",
+      "default_search": false,
+      "page_count": 1,
+      "nonempty_text_pages": 1,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "EMA:63562"
+      ]
+    },
+    {
+      "document_id": "EMA:63559",
+      "version_id": "60d0ddbe9d6a525343456bade2dc9200eb27372c700ca1e5d15e39d5249ccd7d",
+      "product_id": "SB17",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Pyzchiva : EPAR - Medicine overview",
+      "family": "plain_summary",
+      "default_search": true,
+      "page_count": 3,
+      "nonempty_text_pages": 3,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "EMA:63559"
+      ]
+    },
+    {
+      "document_id": "EMA:64314",
+      "version_id": "98ace67b111998c7dfe3ea228c53cfe9471a606f5f26c5b967dd87572604dd42",
+      "product_id": "SB17",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Pyzchiva : EPAR - Procedural steps taken and scientific information after authorisation (archive)",
+      "family": "post_authorisation_history",
+      "default_search": true,
+      "page_count": 4,
+      "nonempty_text_pages": 4,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "EMA:64314"
+      ]
+    },
+    {
+      "document_id": "EMA:67941",
+      "version_id": "2e6dd86bc8a3e94cad05aa103216fa6a9586b771bb139c680ec22c737d4db197",
+      "product_id": "SB17",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Pyzchiva : EPAR - Procedural steps taken and scientific information after authorisation",
+      "family": "post_authorisation_history",
+      "default_search": true,
+      "page_count": 8,
+      "nonempty_text_pages": 8,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "EMA:67941"
+      ]
+    },
+    {
+      "document_id": "EMA:63560",
+      "version_id": "53b0e227d19607456987e1a1b9b8efdb8e0d9f3cb430e51776a05ea6c9f5f527",
+      "product_id": "SB17",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Pyzchiva : EPAR - Risk management plan",
+      "family": "risk_management_plan",
+      "default_search": false,
+      "page_count": 68,
+      "nonempty_text_pages": 39,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "EMA:63560"
+      ]
+    },
+    {
+      "document_id": "EMA:63561",
+      "version_id": "24f42a13e263361e45daf03240bd1f30ff701ef234e4b135f72f1f3a44cecfae",
+      "product_id": "SB17",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Pyzchiva : EPAR - Product information",
+      "family": "product_information",
+      "default_search": false,
+      "page_count": 166,
+      "nonempty_text_pages": 166,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "EMA:63561"
+      ]
+    },
+    {
+      "document_id": "FDA:letter:761373Orig1s003, 761425Orig1s003ltr",
+      "version_id": "3164ed8951caffabfa349a32385e2ba20a8e58328ac058c145b92e08bb86519f",
+      "product_id": "SB17",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Pyzchiva (BLA 761373/761425 SUPPL-3, 2025-03-17) — Approval Letter",
+      "family": "decision_letter",
+      "default_search": false,
+      "page_count": 4,
+      "nonempty_text_pages": 4,
+      "protected": [],
+      "runs": [
+        {
+          "run": "data\\preprocessed\\development_delta_v2_2026-10-08",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\development_delta_v2_groups_2026-10-08",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\development_visual_refined_2026-10-08",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\development_visual_refined_2026-10-08_v2",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_label_regroup_2026-10-08_v4",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_label_regroup_2026-10-08_v5",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_label_regroup_2026-10-08_v6",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_label_regroup_2026-10-08_v7",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_revalidation_label_2026-10-08_v2",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_label_2026-10-08_v4",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_label_2026-10-08_v4_attempt1",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_label_2026-10-08_v5",
+          "pages": null,
+          "status": "extraction_complete"
+        }
+      ],
+      "aliases": [
+        "FDA:letter:761373Orig1s003, 761425Orig1s003ltr"
+      ]
+    },
+    {
+      "document_id": "FDA:letter:761373Orig1s004ltr",
+      "version_id": "93b840eeefe055c0b85f6cac2a3f2d20e8fc88ebb486b66baf7c023854f32a82",
+      "product_id": "SB17",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Pyzchiva (BLA 761373 SUPPL-4, 2025-05-05) — Approval Letter",
+      "family": "decision_letter",
+      "default_search": false,
+      "page_count": 4,
+      "nonempty_text_pages": 4,
+      "protected": [],
+      "runs": [
+        {
+          "run": "data\\preprocessed\\development_delta_v2_2026-10-08",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\development_delta_v2_groups_2026-10-08",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\development_visual_refined_2026-10-08",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\development_visual_refined_2026-10-08_v2",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_label_regroup_2026-10-08_v4",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_label_regroup_2026-10-08_v5",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_label_regroup_2026-10-08_v6",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_label_regroup_2026-10-08_v7",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_revalidation_label_2026-10-08_v2",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_label_2026-10-08_v4",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_label_2026-10-08_v4_attempt1",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_label_2026-10-08_v5",
+          "pages": null,
+          "status": "extraction_complete"
+        }
+      ],
+      "aliases": [
+        "FDA:letter:761373Orig1s004ltr"
+      ]
+    },
+    {
+      "document_id": "FDA:letter:761373Orig1s006;761425Orig1s005ltr",
+      "version_id": "9d09510690f3b7fcfb86a81e281112962a0fc7f08bc2637ce0fe5fd6f283ef5c",
+      "product_id": "SB17",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Pyzchiva (BLA 761373/761425 SUPPL-6, 2025-11-19) — Approval Letter",
+      "family": "decision_letter",
+      "default_search": false,
+      "page_count": 4,
+      "nonempty_text_pages": 4,
+      "protected": [],
+      "runs": [
+        {
+          "run": "data\\preprocessed\\development_delta_v2_2026-10-08",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\development_delta_v2_groups_2026-10-08",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\development_visual_refined_2026-10-08",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\development_visual_refined_2026-10-08_v2",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_label_regroup_2026-10-08_v4",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_label_regroup_2026-10-08_v5",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_label_regroup_2026-10-08_v6",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_label_regroup_2026-10-08_v7",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_revalidation_label_2026-10-08_v2",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_label_2026-10-08_v4",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_label_2026-10-08_v4_attempt1",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_label_2026-10-08_v5",
+          "pages": null,
+          "status": "extraction_complete"
+        }
+      ],
+      "aliases": [
+        "FDA:letter:761373Orig1s006;761425Orig1s005ltr"
+      ]
+    },
+    {
+      "document_id": "FDA:letter:761373Orig1s001;761425Orig1s001ltr",
+      "version_id": "08b953e4bb0a84928885dc25e1153b6d4994a4c164e890510b6f68e3f7fffe52",
+      "product_id": "SB17",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Pyzchiva (BLA 761373/761425 SUPPL-1, 2025-08-20) — Approval Letter",
+      "family": "decision_letter",
+      "default_search": false,
+      "page_count": 5,
+      "nonempty_text_pages": 5,
+      "protected": [],
+      "runs": [
+        {
+          "run": "data\\preprocessed\\development_delta_v2_2026-10-08",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\development_delta_v2_groups_2026-10-08",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\development_visual_refined_2026-10-08",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\development_visual_refined_2026-10-08_v2",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_label_regroup_2026-10-08_v4",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_label_regroup_2026-10-08_v5",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_label_regroup_2026-10-08_v6",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_label_regroup_2026-10-08_v7",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_revalidation_label_2026-10-08_v2",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_label_2026-10-08_v4",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_label_2026-10-08_v4_attempt1",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_label_2026-10-08_v5",
+          "pages": null,
+          "status": "extraction_complete"
+        }
+      ],
+      "aliases": [
+        "FDA:letter:761373Orig1s001;761425Orig1s001ltr"
+      ]
+    },
+    {
+      "document_id": "FDA:letter:761373Orig1s002,761425Orig1s002ltr",
+      "version_id": "45acfdabd4906e6899c84f8b3ed829e4e96e069edfa5aaadb3809522f0449c23",
+      "product_id": "SB17",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Pyzchiva (BLA 761373 SUPPL-2, 2024-12-26) — Approval Letter",
+      "family": "decision_letter",
+      "default_search": false,
+      "page_count": 5,
+      "nonempty_text_pages": 5,
+      "protected": [],
+      "runs": [
+        {
+          "run": "data\\preprocessed\\development_delta_v2_2026-10-08",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\development_delta_v2_groups_2026-10-08",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\development_visual_refined_2026-10-08",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\development_visual_refined_2026-10-08_v2",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_label_regroup_2026-10-08_v4",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_label_regroup_2026-10-08_v5",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_label_regroup_2026-10-08_v6",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_label_regroup_2026-10-08_v7",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_revalidation_label_2026-10-08_v2",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_label_2026-10-08_v4",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_label_2026-10-08_v4_attempt1",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_label_2026-10-08_v5",
+          "pages": null,
+          "status": "extraction_complete"
+        }
+      ],
+      "aliases": [
+        "FDA:letter:761373Orig1s002,761425Orig1s002ltr"
+      ]
+    },
+    {
+      "document_id": "FDA:761373Orig2s000,761425Orig2s000:OtherActionLtrs",
+      "version_id": "163fb5a8b957f3b8681e9a7abff4cd3f5c489fec3262904805063b533d008b9d",
+      "product_id": "SB17",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Pyzchiva (BLA 761373 ORIG-2) — Other Action Letters",
+      "family": "decision_letter",
+      "default_search": false,
+      "page_count": 7,
+      "nonempty_text_pages": 6,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761373Orig2s000,761425Orig2s000:OtherActionLtrs"
+      ]
+    },
+    {
+      "document_id": "FDA:761373Orig2s000,761425Orig2s000:Approv",
+      "version_id": "0fce7fb38726a84fa3fc84af664c507fe9a99db855766d1c642c33032c96303d",
+      "product_id": "SB17",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Pyzchiva (BLA 761373 ORIG-2) — Approval Letter(s)",
+      "family": "decision_letter",
+      "default_search": false,
+      "page_count": 10,
+      "nonempty_text_pages": 10,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761373Orig2s000,761425Orig2s000:Approv"
+      ]
+    },
+    {
+      "document_id": "FDA:761373Orig1s000,761425Orig1s000:Approv",
+      "version_id": "81491fe1083bce3f76a89e1ca32aea742d0bcd6dabc55f6096af418a6e916d4b",
+      "product_id": "SB17",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Pyzchiva (BLA 761373 ORIG-1) — Approval Letter(s)",
+      "family": "decision_letter",
+      "default_search": false,
+      "page_count": 12,
+      "nonempty_text_pages": 11,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761373Orig1s000,761425Orig1s000:Approv"
+      ]
+    },
+    {
+      "document_id": "FDA:761373Orig1s000,761425Orig1s000:AdminCorres",
+      "version_id": "d46c417831b0d4adca0eacc6e84535e332073524822e2f7b3a46e52a860773ea",
+      "product_id": "SB17",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Pyzchiva (BLA 761373 ORIG-1) — Administrative and Correspondence Documents",
+      "family": "correspondence",
+      "default_search": false,
+      "page_count": 19,
+      "nonempty_text_pages": 17,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761373Orig1s000,761425Orig1s000:AdminCorres"
+      ]
+    },
+    {
+      "document_id": "FDA:761373Orig2s000,761425Orig2s000:OtherR",
+      "version_id": "14c97488d70ab4e3e8a83a14500fca18d7f13600d1fd4e83938a2b53602e5cc5",
+      "product_id": "SB17",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Pyzchiva (BLA 761373 ORIG-2) — Other Review(s)",
+      "family": "other_review",
+      "default_search": false,
+      "page_count": 36,
+      "nonempty_text_pages": 34,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761373Orig2s000,761425Orig2s000:OtherR"
+      ]
+    },
+    {
+      "document_id": "FDA:761373Orig1s000,761425Orig1s000:OtherR",
+      "version_id": "4ff0c9a3e44f9a7dc2c377a8197b15418875fbc546fc8cb099c7848b77b13f9e",
+      "product_id": "SB17",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Pyzchiva (BLA 761373 ORIG-1) — Other Review(s)",
+      "family": "other_review",
+      "default_search": false,
+      "page_count": 53,
+      "nonempty_text_pages": 41,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761373Orig1s000,761425Orig1s000:OtherR"
+      ]
+    },
+    {
+      "document_id": "FDA:761373Orig1s000,761425Orig1s000:ChemR",
+      "version_id": "c5015d1614c5649e6289a5f58cc5eb62f0f6ea6136025a83f5cf65c1e3522063",
+      "product_id": "SB17",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Pyzchiva (BLA 761373 ORIG-1) — Product Quality Review(s)",
+      "family": "quality_review",
+      "default_search": true,
+      "page_count": 54,
+      "nonempty_text_pages": 23,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761373Orig1s000,761425Orig1s000:ChemR"
+      ]
+    },
+    {
+      "document_id": "FDA:761373Orig1s000,761425Orig1s000:Lbl",
+      "version_id": "005c0016b3ae09b935d8501db8fff16eb8b4827e882ef5b12b73da50db5a5a18",
+      "product_id": "SB17",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Pyzchiva (BLA 761373 ORIG-1) — Printed Labeling",
+      "family": "product_information",
+      "default_search": false,
+      "page_count": 54,
+      "nonempty_text_pages": 49,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761373Orig1s000,761425Orig1s000:Lbl"
+      ]
+    },
+    {
+      "document_id": "FDA:761373Orig2s000,761425Orig2s000:ChemR",
+      "version_id": "c91868e3a4ffb7ca1602ebdac299a565dfb22bc2cb556550fc95f267b5bfa39e",
+      "product_id": "SB17",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Pyzchiva (BLA 761373 ORIG-2) — Product Quality Review(s)",
+      "family": "quality_review",
+      "default_search": true,
+      "page_count": 54,
+      "nonempty_text_pages": 24,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761373Orig2s000,761425Orig2s000:ChemR"
+      ]
+    },
+    {
+      "document_id": "FDA:761373Orig2s000,761425Orig2s000:Lbl",
+      "version_id": "ffd4ee8917f7f25fc8c0a788a151c090e7e366685e06a01d421a98a14db033d5",
+      "product_id": "SB17",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Pyzchiva (BLA 761373 ORIG-2) — Printed Labeling",
+      "family": "product_information",
+      "default_search": false,
+      "page_count": 55,
+      "nonempty_text_pages": 52,
+      "protected": [],
+      "runs": [],
+      "aliases": [
+        "FDA:761373Orig2s000,761425Orig2s000:Lbl"
+      ]
+    },
+    {
+      "document_id": "FDA:label:761373s006,761425s005lbl",
+      "version_id": "ea1e7f5e91f04c71b4dbf6c9101b967ecb7acaa7a33846b74cc548c25546bbef",
+      "product_id": "SB17",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Pyzchiva (BLA 761373/761425 SUPPL-6, 2025-11-19) — Labeling (latest listed)",
+      "family": "product_information",
+      "default_search": false,
+      "page_count": 65,
+      "nonempty_text_pages": 65,
+      "protected": [],
+      "runs": [
+        {
+          "run": "data\\preprocessed\\development_delta_v2_2026-10-08",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\development_delta_v2_groups_2026-10-08",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\development_visual_refined_2026-10-08",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\development_visual_refined_2026-10-08_v2",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_label_regroup_2026-10-08_v4",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_label_regroup_2026-10-08_v5",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_label_regroup_2026-10-08_v6",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_label_regroup_2026-10-08_v7",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_revalidation_label_2026-10-08_v2",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_label_2026-10-08_v4",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_label_2026-10-08_v4_attempt1",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_label_2026-10-08_v5",
+          "pages": null,
+          "status": "extraction_complete"
+        }
+      ],
+      "aliases": [
+        "FDA:label:761373s006,761425s005lbl"
+      ]
+    },
+    {
+      "document_id": "HC:PM:00082519",
+      "version_id": "692365dcf3c0b32a2fd7b8c43a8d99545f0a263f36f10866ce6f0fd3d4e2a403",
+      "product_id": "SB17",
+      "source": "Health Canada",
+      "kind": "pdf",
+      "title": "Pyzchiva Product Monograph",
+      "family": "product_information",
+      "default_search": false,
+      "page_count": 99,
+      "nonempty_text_pages": 99,
+      "protected": [],
+      "runs": [
+        {
+          "run": "data\\preprocessed\\figure_labels_2026-10-08",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\figure_labels_2026-10-08_v2",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\figure_labels_2026-10-08_v3",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\pipeline_review_2026-10-08",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\table_context_2026-10-08",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\table_context_2026-10-08_v2",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_core_regroup_2026-10-08_v4",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_core_regroup_2026-10-08_v5",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_core_regroup_2026-10-08_v6",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_held_core_regroup_2026-10-08_v7",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_revalidation_core_2026-10-08_v2",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_core_2026-10-08_v4",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_core_2026-10-08_v4_attempt1",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_core_2026-10-08_v5",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\quality_2026-10-07\\baseline",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\quality_2026-10-07\\revised",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\quality_2026-10-07\\revised_v2",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\quality_2026-10-07\\rules_step1",
+          "pages": null,
+          "status": "extraction_complete"
+        },
+        {
+          "run": "data\\preprocessed\\ra_search_ready_2026-10-08\\extraction",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\ra_workflow_native_v1_2026-10-08\\extraction",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\ra_workflow_native_v1_2026-10-08\\labels",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\ra_workflow_v1_2026-10-08\\extraction",
+          "pages": null,
+          "status": "running"
+        }
+      ],
+      "aliases": [
+        "HC:PM:00082519"
+      ]
+    }
+  ],
+  "protected_exclusions": [
+    {
+      "document_id": "EMA:66901",
+      "version_id": "33dccfb37460db78a82596c6b36d0fa470ee4159c6a83c24060f275776bfbb4d",
+      "product_id": "BMAB1200",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Yesintek : EPAR - Public assessment report",
+      "family": "assessment_report",
+      "default_search": true,
+      "page_count": 125,
+      "nonempty_text_pages": 125,
+      "protected": [
+        {
+          "run": "data\\preprocessed\\visual_retrospective_trial_2026-10-08",
+          "policy": {
+            "evaluation_cohort": "retrospective_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "prior_artifact_recorded_inspection_unknown"
+          }
+        }
+      ],
+      "runs": [
+        {
+          "run": "data\\preprocessed\\visual_retrospective_trial_2026-10-08",
+          "pages": null,
+          "status": "extraction_complete"
+        }
+      ]
+    },
+    {
+      "document_id": "EMA:69779",
+      "version_id": "53f78012e7a0c1cab636a3b9cc7c8d3de3b750775169953bfda283bc27c1f97e",
+      "product_id": "BAT2206",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Usymro: EPAR - Public assessment report",
+      "family": "assessment_report",
+      "default_search": true,
+      "page_count": 100,
+      "nonempty_text_pages": 100,
+      "protected": [
+        {
+          "run": "data\\preprocessed\\visual_retrospective_trial_2026-10-08",
+          "policy": {
+            "evaluation_cohort": "retrospective_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "prior_artifact_recorded_inspection_unknown"
+          }
+        }
+      ],
+      "runs": [
+        {
+          "run": "data\\preprocessed\\visual_retrospective_trial_2026-10-08",
+          "pages": null,
+          "status": "extraction_complete"
+        }
+      ]
+    },
+    {
+      "document_id": "EMA:66900",
+      "version_id": "d463156937b1d599db5b3a55e26fdd6366a318f69ec1ac274b4fc7b0df3b14ba",
+      "product_id": "BMAB1200",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Yesintek : EPAR - All authorised presentations",
+      "family": "presentation_list",
+      "default_search": false,
+      "page_count": 1,
+      "nonempty_text_pages": 1,
+      "protected": [
+        {
+          "run": "data\\preprocessed\\visual_context_frozen_transfer_2026-10-08_v3",
+          "policy": {
+            "evaluation_cohort": "fixed_document_type_transfer_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v4",
+          "policy": {
+            "evaluation_cohort": "fixed_document_type_transfer_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v4_attempt1",
+          "policy": {
+            "evaluation_cohort": "fixed_document_type_transfer_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v5",
+          "policy": {
+            "evaluation_cohort": "fixed_document_type_transfer_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        }
+      ],
+      "runs": [
+        {
+          "run": "data\\preprocessed\\visual_context_frozen_transfer_2026-10-08_v3",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v4",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v4_attempt1",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v5",
+          "pages": null,
+          "status": "partial"
+        }
+      ]
+    },
+    {
+      "document_id": "EMA:71046",
+      "version_id": "9b4af14e2fc7b2a52b0b75d5fc3760fae7c32aa053b936b57a9a29eb317f176b",
+      "product_id": "BMAB1200",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Yesintek : EPAR - Procedural steps taken and scientific information after authorisation",
+      "family": "post_authorisation_history",
+      "default_search": true,
+      "page_count": 15,
+      "nonempty_text_pages": 15,
+      "protected": [
+        {
+          "run": "data\\preprocessed\\visual_context_frozen_transfer_2026-10-08_v3",
+          "policy": {
+            "evaluation_cohort": "fixed_document_type_transfer_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v4",
+          "policy": {
+            "evaluation_cohort": "fixed_document_type_transfer_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v4_attempt1",
+          "policy": {
+            "evaluation_cohort": "fixed_document_type_transfer_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v5",
+          "policy": {
+            "evaluation_cohort": "fixed_document_type_transfer_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        }
+      ],
+      "runs": [
+        {
+          "run": "data\\preprocessed\\visual_context_frozen_transfer_2026-10-08_v3",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v4",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v4_attempt1",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v5",
+          "pages": null,
+          "status": "partial"
+        }
+      ]
+    },
+    {
+      "document_id": "EMA:66899",
+      "version_id": "c2eb149e2f8e0a36b990a48a3a15fc1d527af61bdadc18d590f9ad1e30614e1b",
+      "product_id": "BMAB1200",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Yesintek : EPAR - Product information",
+      "family": "product_information",
+      "default_search": false,
+      "page_count": 175,
+      "nonempty_text_pages": 175,
+      "protected": [
+        {
+          "run": "data\\preprocessed\\visual_context_frozen_transfer_2026-10-08_v3",
+          "policy": {
+            "evaluation_cohort": "fixed_document_type_transfer_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v4",
+          "policy": {
+            "evaluation_cohort": "fixed_document_type_transfer_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v4_attempt1",
+          "policy": {
+            "evaluation_cohort": "fixed_document_type_transfer_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v5",
+          "policy": {
+            "evaluation_cohort": "fixed_document_type_transfer_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        }
+      ],
+      "runs": [
+        {
+          "run": "data\\preprocessed\\visual_context_frozen_transfer_2026-10-08_v3",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v4",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v4_attempt1",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v5",
+          "pages": null,
+          "status": "partial"
+        }
+      ]
+    },
+    {
+      "document_id": "EMA:66897",
+      "version_id": "1c4b3f1d2b8f803908cd6358c042eaa4558a82dc833fec59c4165f25a5016a32",
+      "product_id": "BMAB1200",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Yesintek : EPAR - Medicine overview",
+      "family": "plain_summary",
+      "default_search": true,
+      "page_count": 3,
+      "nonempty_text_pages": 3,
+      "protected": [
+        {
+          "run": "data\\preprocessed\\visual_context_frozen_transfer_2026-10-08_v3",
+          "policy": {
+            "evaluation_cohort": "fixed_document_type_transfer_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v4",
+          "policy": {
+            "evaluation_cohort": "fixed_document_type_transfer_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v4_attempt1",
+          "policy": {
+            "evaluation_cohort": "fixed_document_type_transfer_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v5",
+          "policy": {
+            "evaluation_cohort": "fixed_document_type_transfer_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        }
+      ],
+      "runs": [
+        {
+          "run": "data\\preprocessed\\visual_context_frozen_transfer_2026-10-08_v3",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v4",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v4_attempt1",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v5",
+          "pages": null,
+          "status": "partial"
+        }
+      ]
+    },
+    {
+      "document_id": "EMA:66898",
+      "version_id": "4d01c5775d36dbf7d91d90d5ca120a3d227b8e1ac4b1f72d81698c7210a46621",
+      "product_id": "BMAB1200",
+      "source": "EMA",
+      "kind": "pdf",
+      "title": "Yesintek : EPAR - Risk management plan",
+      "family": "risk_management_plan",
+      "default_search": false,
+      "page_count": 80,
+      "nonempty_text_pages": 63,
+      "protected": [
+        {
+          "run": "data\\preprocessed\\visual_context_frozen_transfer_2026-10-08_v3",
+          "policy": {
+            "evaluation_cohort": "fixed_document_type_transfer_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v4",
+          "policy": {
+            "evaluation_cohort": "fixed_document_type_transfer_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v4_attempt1",
+          "policy": {
+            "evaluation_cohort": "fixed_document_type_transfer_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v5",
+          "policy": {
+            "evaluation_cohort": "fixed_document_type_transfer_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        }
+      ],
+      "runs": [
+        {
+          "run": "data\\preprocessed\\visual_context_frozen_transfer_2026-10-08_v3",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v4",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v4_attempt1",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_2026-10-08_v5",
+          "pages": null,
+          "status": "partial"
+        }
+      ]
+    },
+    {
+      "document_id": "FDA:761406Orig1Orig2s000:Lbl",
+      "version_id": "8a1c7cef303add5391a3209445ef4f470de3765753d9da33da2848faf5bd35c6",
+      "product_id": "BMAB1200",
+      "source": "FDA",
+      "kind": "pdf",
+      "title": "Yesintek (BLA 761406 ORIG-2) — Printed Labeling",
+      "family": "product_information",
+      "default_search": false,
+      "page_count": 63,
+      "nonempty_text_pages": 52,
+      "protected": [
+        {
+          "run": "data\\preprocessed\\visual_context_generalization_2026-10-08_v1",
+          "policy": {
+            "evaluation_cohort": "context_generalization_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_revalidation_2026-10-08_v2",
+          "policy": {
+            "evaluation_cohort": "context_generalization_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_previous_2026-10-08_v4",
+          "policy": {
+            "evaluation_cohort": "context_generalization_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_previous_2026-10-08_v4_attempt1",
+          "policy": {
+            "evaluation_cohort": "context_generalization_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_previous_2026-10-08_v5",
+          "policy": {
+            "evaluation_cohort": "context_generalization_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        }
+      ],
+      "runs": [
+        {
+          "run": "data\\preprocessed\\visual_context_generalization_2026-10-08_v1",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_revalidation_2026-10-08_v2",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_previous_2026-10-08_v4",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_previous_2026-10-08_v4_attempt1",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_previous_2026-10-08_v5",
+          "pages": null,
+          "status": "partial"
+        }
+      ]
+    },
+    {
+      "document_id": "HC:PM:00085332",
+      "version_id": "e2be082cde032a66d040502842807c09563b83d36cccc23e6ead7ecc90359aa5",
+      "product_id": "BMAB1200",
+      "source": "Health Canada",
+      "kind": "pdf",
+      "title": "Yesintek Product Monograph",
+      "family": "product_information",
+      "default_search": false,
+      "page_count": 99,
+      "nonempty_text_pages": 99,
+      "protected": [
+        {
+          "run": "data\\preprocessed\\visual_context_generalization_2026-10-08_v1",
+          "policy": {
+            "evaluation_cohort": "context_generalization_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_revalidation_2026-10-08_v2",
+          "policy": {
+            "evaluation_cohort": "context_generalization_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_previous_2026-10-08_v4",
+          "policy": {
+            "evaluation_cohort": "context_generalization_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_previous_2026-10-08_v4_attempt1",
+          "policy": {
+            "evaluation_cohort": "context_generalization_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_previous_2026-10-08_v5",
+          "policy": {
+            "evaluation_cohort": "context_generalization_evaluation_only",
+            "model_execution_allowed": true,
+            "exposure_status": "history_not_certified"
+          }
+        }
+      ],
+      "runs": [
+        {
+          "run": "data\\preprocessed\\visual_context_generalization_2026-10-08_v1",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_revalidation_2026-10-08_v2",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_previous_2026-10-08_v4",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_previous_2026-10-08_v4_attempt1",
+          "pages": null,
+          "status": "partial"
+        },
+        {
+          "run": "data\\preprocessed\\visual_context_rmp_revalidation_previous_2026-10-08_v5",
+          "pages": null,
+          "status": "partial"
+        }
+      ]
+    }
+  ],
+  "deduplication": "Exact source SHA256; catalog aliases remain in plan. No source files removed."
+}

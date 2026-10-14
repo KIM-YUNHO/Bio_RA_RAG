@@ -1,0 +1,8 @@
+{
+  "model": "PaddleOCR-VL-1.6-0.9B",
+  "startup_seconds": 7.258108300004096,
+  "elapsed_seconds": 120.25466640000377,
+  "calls": 4,
+  "failed": 0,
+  "max_new_tokens": 4096
+}

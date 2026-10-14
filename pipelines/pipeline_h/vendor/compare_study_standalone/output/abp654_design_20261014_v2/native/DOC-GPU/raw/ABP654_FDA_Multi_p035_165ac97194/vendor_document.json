@@ -1,0 +1,680 @@
+{
+  "document_id": 1,
+  "sha256": "fd84c3f495858adea7d5bb095a096701c3c042da2dd5d69b908f87569dd31ad6",
+  "agency": "FDA",
+  "doc_type": "multidisciplinary_review",
+  "program_id": null,
+  "engine": "prep-1.4+docling2.137.0+tables-accurate+repair1+pictables1",
+  "watermarks_removed": 0,
+  "routes": [
+    {
+      "page": 1,
+      "route": "DIGITAL",
+      "reason": "chars=1561"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "ref": "#/texts/0",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.7,
+        744.5,
+        334.3,
+        753.9
+      ],
+      "layer": "furniture",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "page_header",
+      "text": "Biosimilar Multidisciplinary Evaluation and Review (BMER)",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/1",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.9,
+        706.2,
+        223.4,
+        717.5
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "section_header",
+      "text": "PK Similarity Assessment",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/2",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.0,
+        556.2,
+        543.5,
+        691.7
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "PK similarity between ABP 654, US-Stelara and EU-Stelara has been demonstrated in a 3-arm, parallel PK similarity study in healthy subjects (Study 20190230). PK samples were collected pre-dose on Day 1, and post-dose at 8 hr and 24 hr and on Days 3, 7, 9, 11, 13, 21, 28, 35, 49, 56, 70, 98 and 112. The point estimates and 90% &,V of the GMRs of PK parameters (AUC0-inf, Cmax and AUClast) were all within the pre-defined criteria of 0.8 to 1.25 (Table 8). The mean serum concentration-time profiles were similar between the ABP 654, US-Stelara and EU-Stelara treatment groups (Figure 2). The PK parameters following a single dose of ABP 654, US-Stelara and EU-Stelara are summarized in Table 8. In general, PK parameters and inter-subject variability were comparable across the three treatment groups.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "picture",
+      "ref": "#/pictures/0",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        82.7,
+        221.2,
+        501.7,
+        502.2
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "caption": "Figure 2. Mean (±SD) Concentrations Over Time by Treatment (Study 20190230)",
+      "text": "",
+      "status": "kept",
+      "ocr_text": "",
+      "kind_history": [
+        "picture"
+      ],
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/3",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        72.8,
+        529.8,
+        489.5,
+        540.1
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "caption",
+      "text": "Figure 2. Mean (±SD) Concentrations Over Time by Treatment (Study 20190230)",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/4",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        137.0,
+        242.1,
+        495.2,
+        250.0
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "0 12 24 36 48 60 72 84 96 108",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/5",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        126.4,
+        256.3,
+        131.5,
+        264.3
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "0",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/6",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        107.9,
+        309.5,
+        131.5,
+        317.5
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "4000",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/7",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        108.2,
+        362.7,
+        131.5,
+        370.6
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "8000",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/8",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        102.5,
+        416.0,
+        131.5,
+        424.0
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "12000",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/9",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        102.5,
+        469.2,
+        131.5,
+        477.1
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "16000",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/10",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        286.7,
+        222.1,
+        352.5,
+        233.3
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "Time (days)",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/11",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        84.7,
+        317.0,
+        96.0,
+        443.5
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "Concentration (ng/mL)",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/12",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        412.5,
+        389.8,
+        458.7,
+        398.5
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "ABP 654",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/13",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        413.5,
+        370.2,
+        469.6,
+        379.1
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "US-Stelara",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/14",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        413.5,
+        350.7,
+        469.6,
+        359.6
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "EU-Stelara",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/15",
+      "parent": "#/groups/0",
+      "page": 1,
+      "bbox": [
+        72.5,
+        199.3,
+        168.9,
+        208.7
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "Source: FDA Analysis",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "table",
+      "ref": "#/tables/0",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        71.5,
+        83.4,
+        540.5,
+        163.3
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "caption": "Table 8. Summary of PK Parameters (Study 20190230)",
+      "n_rows": 6,
+      "n_cols": 2,
+      "cells": [
+        {
+          "r": 0,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "PK Parameters Geometric Mean (Geometric CV%) ",
+          "header": true,
+          "bbox": [
+            92.4,
+            149.7,
+            456.7,
+            160.0
+          ]
+        },
+        {
+          "r": 1,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "ABP 654 (n=78) US-Stelara (n=79) EU-Stelara (n=80) ",
+          "header": true,
+          "bbox": [
+            207.4,
+            136.5,
+            530.0,
+            146.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "C max   (ng/mL) ",
+          "header": false,
+          "bbox": [
+            78.2,
+            123.4,
+            142.9,
+            133.7
+          ]
+        },
+        {
+          "r": 2,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "11546 (36.1) 11258 (33.8) 12085 (32.8) ",
+          "header": false,
+          "bbox": [
+            217.7,
+            123.4,
+            515.5,
+            133.7
+          ]
+        },
+        {
+          "r": 3,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "AUClast (h*ng/mL) 10175553 (39.6) 9784499 (38.5) 10684286 (33.5) ",
+          "header": false,
+          "bbox": [
+            77.6,
+            110.3,
+            524.7,
+            120.6
+          ]
+        },
+        {
+          "r": 4,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "AUC0-inf (h*ng/mL) 10859684 (40.9) 10592020 (38.5) 11310320 (35.3) ",
+          "header": false,
+          "bbox": [
+            77.6,
+            97.1,
+            524.7,
+            107.4
+          ]
+        },
+        {
+          "r": 5,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "T max   (h) a ",
+          "header": false,
+          "bbox": [
+            77.9,
+            84.0,
+            117.7,
+            94.3
+          ]
+        },
+        {
+          "r": 5,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "144 (24, 288) 192 (48, 648) 192 (48, 648) ",
+          "header": false,
+          "bbox": [
+            216.0,
+            84.0,
+            517.1,
+            94.3
+          ]
+        }
+      ],
+      "status": "kept",
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/16",
+      "parent": "#/tables/0",
+      "page": 1,
+      "bbox": [
+        72.2,
+        172.8,
+        356.9,
+        183.1
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "caption",
+      "text": "Table 8. Summary of PK Parameters (Study 20190230)",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "PK Similarity Assessment"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/17",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        10.6,
+        9.9,
+        92.3,
+        15.8
+      ],
+      "layer": "furniture",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "Reference ID: 5270260",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/18",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        579.0,
+        35.7,
+        592.0,
+        42.7
+      ],
+      "layer": "furniture",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "21",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    }
+  ],
+  "qa": {
+    "pages": 1,
+    "routes": {
+      "DIGITAL": 1
+    },
+    "text_blocks": 13,
+    "text_chars": 1069,
+    "ocr_char_share": 0.0,
+    "tables": 1,
+    "tables_ocr_grid": 0,
+    "numeric_cells": 5,
+    "numeric_cell_parse_rate": 0.0,
+    "needs_review_blocks": 0,
+    "reread_blocks": 0,
+    "garbled_residual": 0,
+    "furniture_blocks": 6,
+    "redacted_blocks": 0,
+    "sections": 1
+  },
+  "timing": {
+    "None": 0.43566203117370605,
+    "second_reader": 0.0,
+    "total": 0.46041059494018555
+  },
+  "_signals": {
+    "1": {
+      "page": 1,
+      "width": 612.0,
+      "height": 792.0,
+      "chars": 1561,
+      "img_cov": 0.0,
+      "bare_img_cov": 0.0,
+      "invisible_text": 0.0,
+      "n_text_objs": 61,
+      "n_paths": 306,
+      "garble": 0.03,
+      "bare_boxes": []
+    }
+  }
+}

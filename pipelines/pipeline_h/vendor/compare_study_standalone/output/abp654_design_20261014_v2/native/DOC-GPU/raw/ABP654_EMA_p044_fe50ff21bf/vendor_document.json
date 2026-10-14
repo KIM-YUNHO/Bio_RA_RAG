@@ -1,0 +1,1141 @@
+{
+  "document_id": 1,
+  "sha256": "f3322021986f84e14666a1fda6733de99e46fac41a1d80adf40815551030e600",
+  "agency": "EMA",
+  "doc_type": "assessment_report",
+  "program_id": null,
+  "engine": "prep-1.4+docling2.137.0+tables-accurate+repair1+pictables1",
+  "watermarks_removed": 0,
+  "routes": [
+    {
+      "page": 1,
+      "route": "MIXED",
+      "reason": "bare_img_cov=0.33"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "table",
+      "ref": "#/tables/0",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        67.7,
+        661.1,
+        525.5,
+        740.8
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "caption": "Table 4. Summary of ABP654, ustekinumab (EU) and ustekinumab (US) key PK parameters (PK parameter analysis set)",
+      "n_rows": 4,
+      "n_cols": 8,
+      "cells": [
+        {
+          "r": 0,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Cmax (ng/mL) GM (Geo CV [%])",
+          "header": true,
+          "bbox": [
+            131.0,
+            719.3,
+            182.3,
+            737.9
+          ]
+        },
+        {
+          "r": 0,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Clast (ng/mL) GM (Geo CV [%])",
+          "header": true,
+          "bbox": [
+            189.7,
+            719.3,
+            240.3,
+            736.3
+          ]
+        },
+        {
+          "r": 0,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Tmax (h) Median (range)",
+          "header": true,
+          "bbox": [
+            247.0,
+            718.9,
+            292.3,
+            736.3
+          ]
+        },
+        {
+          "r": 0,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "AUClast (h*ng/mL) GM (Geo CV [%])",
+          "header": true,
+          "bbox": [
+            300.3,
+            719.3,
+            351.7,
+            737.9
+          ]
+        },
+        {
+          "r": 0,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "AUCinf (h*ng/mL) GM (Geo CV [%])",
+          "header": true,
+          "bbox": [
+            360.7,
+            718.9,
+            411.7,
+            737.9
+          ]
+        },
+        {
+          "r": 0,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "t1/2 (h) Mean (SD)",
+          "header": true,
+          "bbox": [
+            422.7,
+            719.3,
+            456.3,
+            736.6
+          ]
+        },
+        {
+          "r": 0,
+          "c": 7,
+          "rs": 1,
+          "cs": 1,
+          "text": "AUC%Extrap (%) Mean (SD)",
+          "header": true,
+          "bbox": [
+            469.0,
+            719.6,
+            519.3,
+            736.9
+          ]
+        },
+        {
+          "r": 0,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Treatment",
+          "header": true,
+          "bbox": [
+            82.7,
+            719.9,
+            114.0,
+            728.3
+          ]
+        },
+        {
+          "r": 1,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "145.592 (24.05, 313.15)",
+          "header": false,
+          "bbox": [
+            249.0,
+            700.6,
+            292.7,
+            717.6
+          ]
+        },
+        {
+          "r": 1,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "588.110 (133.6061)",
+          "header": false,
+          "bbox": [
+            424.3,
+            699.9,
+            457.0,
+            717.6
+          ]
+        },
+        {
+          "r": 1,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "ABP 654",
+          "header": false,
+          "bbox": [
+            71.0,
+            704.9,
+            98.7,
+            713.3
+          ]
+        },
+        {
+          "r": 1,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "11500 (36.1)",
+          "header": false,
+          "bbox": [
+            137.7,
+            703.9,
+            175.7,
+            713.9
+          ]
+        },
+        {
+          "r": 1,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "561 (107.3)",
+          "header": false,
+          "bbox": [
+            197.7,
+            703.9,
+            232.3,
+            713.9
+          ]
+        },
+        {
+          "r": 1,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "10200000 (39.2)",
+          "header": false,
+          "bbox": [
+            302.3,
+            704.3,
+            350.0,
+            713.9
+          ]
+        },
+        {
+          "r": 1,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "10900000 (40.8)",
+          "header": false,
+          "bbox": [
+            362.7,
+            704.9,
+            410.0,
+            712.9
+          ]
+        },
+        {
+          "r": 1,
+          "c": 7,
+          "rs": 1,
+          "cs": 1,
+          "text": "5.95 (6.252)",
+          "header": false,
+          "bbox": [
+            476.0,
+            703.9,
+            512.3,
+            713.9
+          ]
+        },
+        {
+          "r": 2,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "190.567 (48.00, 647.38)",
+          "header": false,
+          "bbox": [
+            249.0,
+            681.6,
+            292.7,
+            698.3
+          ]
+        },
+        {
+          "r": 2,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "556.998 (168.9308)",
+          "header": false,
+          "bbox": [
+            424.0,
+            681.3,
+            457.0,
+            698.3
+          ]
+        },
+        {
+          "r": 2,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Ustekinumab (US)",
+          "header": false,
+          "bbox": [
+            71.7,
+            685.6,
+            124.7,
+            694.6
+          ]
+        },
+        {
+          "r": 2,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "11300 (33.8)",
+          "header": false,
+          "bbox": [
+            137.7,
+            685.3,
+            175.7,
+            694.3
+          ]
+        },
+        {
+          "r": 2,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "516 (155.8)",
+          "header": false,
+          "bbox": [
+            197.7,
+            684.9,
+            232.3,
+            694.9
+          ]
+        },
+        {
+          "r": 2,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "9870000 (37.6)",
+          "header": false,
+          "bbox": [
+            303.7,
+            685.6,
+            348.3,
+            694.6
+          ]
+        },
+        {
+          "r": 2,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "10500000 (37.6)",
+          "header": false,
+          "bbox": [
+            362.7,
+            685.6,
+            410.0,
+            694.6
+          ]
+        },
+        {
+          "r": 2,
+          "c": 7,
+          "rs": 1,
+          "cs": 1,
+          "text": "5.66 (6.304)",
+          "header": false,
+          "bbox": [
+            476.3,
+            685.3,
+            512.3,
+            694.3
+          ]
+        },
+        {
+          "r": 3,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "188.550 (48.00, 649.12)",
+          "header": false,
+          "bbox": [
+            249.0,
+            662.6,
+            292.7,
+            679.6
+          ]
+        },
+        {
+          "r": 3,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "579.246 (148.8189)",
+          "header": false,
+          "bbox": [
+            424.7,
+            662.6,
+            456.7,
+            679.6
+          ]
+        },
+        {
+          "r": 3,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Ustekinumab (EU)",
+          "header": false,
+          "bbox": [
+            71.7,
+            667.3,
+            124.7,
+            675.3
+          ]
+        },
+        {
+          "r": 3,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "12100 (32.8)",
+          "header": false,
+          "bbox": [
+            137.7,
+            666.6,
+            175.7,
+            676.3
+          ]
+        },
+        {
+          "r": 3,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "541 (121.4)",
+          "header": false,
+          "bbox": [
+            197.7,
+            666.3,
+            232.3,
+            676.3
+          ]
+        },
+        {
+          "r": 3,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "10800000 (33.5)",
+          "header": false,
+          "bbox": [
+            302.3,
+            666.6,
+            350.0,
+            676.3
+          ]
+        },
+        {
+          "r": 3,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "11500000 (34.8)",
+          "header": false,
+          "bbox": [
+            362.7,
+            667.3,
+            410.0,
+            675.3
+          ]
+        },
+        {
+          "r": 3,
+          "c": 7,
+          "rs": 1,
+          "cs": 1,
+          "text": "5.41 (4.174)",
+          "header": false,
+          "bbox": [
+            476.0,
+            666.6,
+            512.0,
+            676.3
+          ]
+        }
+      ],
+      "status": "kept",
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [
+        "ABP 654 11500"
+      ]
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/0",
+      "parent": "#/tables/0",
+      "page": 1,
+      "bbox": [
+        62.6,
+        749.3,
+        503.6,
+        768.9
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "caption",
+      "text": "Table 4. Summary of ABP654, ustekinumab (EU) and ustekinumab (US) key PK parameters (PK parameter analysis set)",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/1",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        67.7,
+        653.9,
+        520.3,
+        662.3
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "AUC = area under the concentration-time curve; AUC%Extrap = percentage of AUCinf due to extrapolation from the last quantifiable concentration observed to infinity;",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/2",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.0,
+        646.3,
+        505.7,
+        654.3
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "AUCinf = AUC from time 0 extrapolated to infinity; AUCiast = AUC from time 0 to the last quantifiable concentration; Clast = last measurable serum concentration,",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/3",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.3,
+        631.6,
+        523.0,
+        646.3
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Cmax = maximum observed serum concentration; EU = European Union; Geo CV = geometric coefficient of variation; GM = geometric mean; t1/2 = terminal elimination half-life; Tmax = time at which Cmax is observed; US = United States",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/4",
+      "parent": "#/groups/0",
+      "page": 1,
+      "bbox": [
+        67.7,
+        623.9,
+        262.7,
+        631.6
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Note: Geometric mean and Geo CV are only calculated for values > 0.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/5",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        68.3,
+        542.3,
+        523.1,
+        612.7
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "text",
+      "text": "For the comparisons of ABP 654 to ustekinumab (US), ABP 654 to ustekinumab (EU), and ustekinumab (US) to ustekinumab (EU), the point estimates and 90% CIs of the GMRs were fully contained within the prespecified margin of 0.8 to 1.25 for both the primary PK endpoints (AUCinf and C max ) and the secondary PK endpoint of AUClast for the PK parameter analysis set. Therefore, PK similarity was demonstrated between ABP 654 and ustekinumab (US), ABP 654 and ustekinumab (EU), and ustekinumab (US) and ustekinumab (EU).",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "table",
+      "ref": "#/tables/1",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        63.5,
+        335.9,
+        474.4,
+        499.4
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "caption": "Table 5. Summary of statistical assessment of PK parameters (ANCOVA with baseline weight) (PK parameter analysis set)",
+      "n_rows": 8,
+      "n_cols": 4,
+      "cells": [
+        {
+          "r": 0,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "AUCinf (hr*ng/mL) Cmax (ng/mL) LS Geometric Mean [n] LS Geometric Mean [n]",
+          "header": true,
+          "bbox": [
+            184.3,
+            470.3,
+            372.7,
+            493.9
+          ],
+          "status": "reread"
+        },
+        {
+          "r": 0,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Cmax (ng/mL)",
+          "header": true,
+          "bbox": [
+            299.7,
+            481.3,
+            352.3,
+            494.3
+          ]
+        },
+        {
+          "r": 0,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "AUClast (hr*ng/mL) LS Geometric Mean [n]",
+          "header": true,
+          "bbox": [
+            378.3,
+            470.3,
+            469.7,
+            493.9
+          ]
+        },
+        {
+          "r": 0,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Treatment and Comparison",
+          "header": true,
+          "bbox": [
+            66.0,
+            470.6,
+            171.0,
+            481.9
+          ]
+        },
+        {
+          "r": 1,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "ABP 654",
+          "header": false,
+          "bbox": [
+            64.7,
+            453.6,
+            101.7,
+            464.9
+          ]
+        },
+        {
+          "r": 1,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "10783692.1 [76]",
+          "header": false,
+          "bbox": [
+            199.0,
+            452.9,
+            263.0,
+            464.9
+          ]
+        },
+        {
+          "r": 1,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "11419.0 [78]",
+          "header": false,
+          "bbox": [
+            301.3,
+            452.6,
+            351.3,
+            465.6
+          ]
+        },
+        {
+          "r": 1,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "10137829.7 [78]",
+          "header": false,
+          "bbox": [
+            392.7,
+            452.9,
+            456.3,
+            464.9
+          ]
+        },
+        {
+          "r": 2,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Ustekinumab (US)",
+          "header": false,
+          "bbox": [
+            65.3,
+            436.6,
+            137.0,
+            447.6
+          ]
+        },
+        {
+          "r": 2,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "10651782.5 [76]",
+          "header": false,
+          "bbox": [
+            199.0,
+            436.6,
+            263.0,
+            447.9
+          ]
+        },
+        {
+          "r": 2,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "11384.9 [79]",
+          "header": false,
+          "bbox": [
+            301.0,
+            435.9,
+            351.7,
+            449.3
+          ]
+        },
+        {
+          "r": 2,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "9975870.4 [79]",
+          "header": false,
+          "bbox": [
+            394.3,
+            436.6,
+            454.7,
+            447.9
+          ]
+        },
+        {
+          "r": 3,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Ustekinumab (EU)",
+          "header": false,
+          "bbox": [
+            65.3,
+            419.3,
+            137.0,
+            429.9
+          ]
+        },
+        {
+          "r": 3,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "11482547.0 [77]",
+          "header": false,
+          "bbox": [
+            198.3,
+            418.6,
+            263.3,
+            431.3
+          ]
+        },
+        {
+          "r": 3,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "12081.5 [80]",
+          "header": false,
+          "bbox": [
+            301.3,
+            418.6,
+            351.7,
+            430.6
+          ]
+        },
+        {
+          "r": 3,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "10752507.0 [80]",
+          "header": false,
+          "bbox": [
+            392.3,
+            418.6,
+            456.7,
+            431.3
+          ]
+        },
+        {
+          "r": 4,
+          "c": 1,
+          "rs": 1,
+          "cs": 2,
+          "text": "Ratio of LS Geometric Means (90% Cl)",
+          "header": true,
+          "bbox": [
+            194.3,
+            401.6,
+            344.0,
+            413.3
+          ]
+        },
+        {
+          "r": 5,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "ABP 654 vs ustekinumab (US) 1.0124 (0.9289, 1.1034)1.0030 (0.9314, 1.0801) 1.0162 (0.9358, 1.1035)",
+          "header": false,
+          "bbox": [
+            65.3,
+            384.6,
+            471.0,
+            395.6
+          ]
+        },
+        {
+          "r": 6,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "ABP 654 vs ustekinumab (EU) 0.9391 (0.8620, 1.0232) 0.9452 (0.8779, 1.0175) 0.9428 (0.8685, 1.0235)",
+          "header": false,
+          "bbox": [
+            65.3,
+            367.9,
+            470.7,
+            378.9
+          ]
+        },
+        {
+          "r": 7,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Ustekinumab (US) vs ustekinumab (EU)",
+          "header": false,
+          "bbox": [
+            65.0,
+            338.9,
+            148.3,
+            361.3
+          ]
+        },
+        {
+          "r": 7,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "0.9276 (0.8514, 1.0107) 0.9423 (0.8755, 1.0143) 0.9278 (0.8549, 1.0069)",
+          "header": false,
+          "bbox": [
+            184.3,
+            350.6,
+            471.0,
+            361.3
+          ]
+        }
+      ],
+      "status": "kept",
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [
+        "ABP 654 10783692.1"
+      ]
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/6",
+      "parent": "#/tables/1",
+      "page": 1,
+      "bbox": [
+        62.6,
+        507.1,
+        512.1,
+        526.8
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "caption",
+      "text": "Table 5. Summary of statistical assessment of PK parameters (ANCOVA with baseline weight) (PK parameter analysis set)",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/7",
+      "parent": "#/tables/1",
+      "page": 1,
+      "bbox": [
+        64.3,
+        294.9,
+        438.3,
+        335.9
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "footnote",
+      "text": "ANCOVA = analysis of covariance; AUCinf = area under the concentration-time curve from time 0 extrapolated to infinity; AUClast = area under the concentration-time curve from time 0 to the last quantifiable concentration; Cmax = maximum observed drug concentration; EU = European Union; LS = least squares; PK = pharmacokinetic; US = United States",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/8",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        63.7,
+        274.6,
+        472.7,
+        294.6
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Note: Geometric LS mean, ratio of geometric LS means and 90% CI were estimated based on the ANCOVA model with a fixed effect for treatment and adjusting for baseline weight.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/9",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        62.4,
+        255.1,
+        423.0,
+        263.8
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "The partial AUCs were within the prespecified range of 0.80-1.25 (see Table 6).",
+      "status": "needs_review",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/10",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        62.5,
+        42.9,
+        127.9,
+        57.5
+      ],
+      "layer": "furniture",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "Assessment report EMA/228742/2024",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/11",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        488.7,
+        42.5,
+        532.3,
+        49.2
+      ],
+      "layer": "furniture",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "Page 44/117",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": []
+    }
+  ],
+  "qa": {
+    "pages": 1,
+    "routes": {
+      "MIXED": 1
+    },
+    "text_blocks": 10,
+    "text_chars": 1963,
+    "ocr_char_share": 0.621,
+    "tables": 2,
+    "tables_ocr_grid": 0,
+    "numeric_cells": 37,
+    "numeric_cell_parse_rate": 0.486,
+    "needs_review_blocks": 1,
+    "reread_blocks": 0,
+    "garbled_residual": 0,
+    "furniture_blocks": 2,
+    "redacted_blocks": 0,
+    "sections": 0
+  },
+  "timing": {
+    "auto": 1.9781513214111328,
+    "second_reader": 1.0693213939666748,
+    "total": 3.05527400970459
+  },
+  "_signals": {
+    "1": {
+      "page": 1,
+      "width": 595.3,
+      "height": 841.9,
+      "chars": 889,
+      "img_cov": 0.33,
+      "bare_img_cov": 0.33,
+      "invisible_text": 0.0,
+      "n_text_objs": 30,
+      "n_paths": 1,
+      "garble": 0.01,
+      "bare_boxes": [
+        [
+          62.4,
+          611.0,
+          531.8,
+          743.1
+        ],
+        [
+          62.4,
+          257.7,
+          487.1,
+          501.0
+        ]
+      ]
+    }
+  }
+}

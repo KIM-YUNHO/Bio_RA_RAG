@@ -1,0 +1,34 @@
+{
+  "method": "assistant original-page visual spot check; not expert gold labels",
+  "reviewed_pages": [
+    "SB17:43",
+    "ABP654:44",
+    "CTP43:35",
+    "CTP43:43"
+  ],
+  "observations": 8,
+  "findings": [
+    "SB17 Table 4 has 7 logical columns; line extraction produced 11 columns with split headers. N and n are different.",
+    "ABP654 Table 5 on page 44 is an image. Native text extraction does not contain its numeric row. Tesseract restored the spot-checked GMR/CI numerals, but distorted endpoint/header spelling.",
+    "CT-P43 Table 12 on page 43 has merged cells. Native table extraction generated blank/intermediate rows, separating a comparison from its ratio and CI.",
+    "CT-P43 1.1 Part 2 and CT-P43 1.2 results must be stored as distinct studies; initial, repeat and pooled analyses cannot be overwritten into one product value.",
+    "CT-P43 source ratios are percentages; divide by 100 only with explicit source-scale metadata.",
+    "Native-text page coverage does not measure table-cell coverage or correctness."
+  ],
+  "ocr_checked_numerals_ABP654_p044": [
+    "0.9391",
+    "0.8620",
+    "1.0232",
+    "0.9452",
+    "0.8779",
+    "1.0175"
+  ],
+  "ocr_contains_each_checked_numeral": {
+    "0.9391": true,
+    "0.8620": true,
+    "1.0232": true,
+    "0.9452": true,
+    "0.8779": true,
+    "1.0175": true
+  }
+}

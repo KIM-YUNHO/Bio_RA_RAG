@@ -1,0 +1,36 @@
+[project]
+name = "biosimilar-collection"
+version = "0.1.0"
+description = "Biosimilar regulatory evidence collection, OCR and RAG PoC"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    # RAG PoC
+    "openai>=3.23",
+    "pydantic>=2.13,<3",
+    "torch>=2.14",
+    "sentence-transformers>=6.1",
+    "qdrant-client>=1.19",
+    # Collection, parsing and OCR: the pins of the original requirements.txt, which produced data/parsed and data/ocr
+    "PyMuPDF==1.26.6",
+    "pdfplumber==0.11.8",
+    "Pillow==12.3.0",
+    "numpy==2.5.3",
+    "onnxruntime==1.30.0",
+    "rapidocr==3.9.2",
+    "rapid_table==3.0.2",
+    "fonttools==4.66.1",
+    "tiktoken==0.14.0",
+    "psycopg[binary]>=3.2",
+]
+
+[tool.uv]
+package = false
+
+# CUDA 12.6 build: the installed NVIDIA driver (566.14) supports CUDA up to 12.7, so cu128/cu130 would not load.
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu126" }

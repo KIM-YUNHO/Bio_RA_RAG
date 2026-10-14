@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "documents": 92,
+  "pages": 4201,
+  "indexed_documents": 92,
+  "metadata_contract": "all intake metadata unchanged; chunk identity/policy fields checked; raw structural blocks and DOM locators retained",
+  "metadata_field_mismatches": [],
+  "protected_original_artifacts": 189,
+  "protected_originals_unchanged": true,
+  "vectors": [
+    11536,
+    1024
+  ],
+  "truncated_inputs": 0,
+  "vector_self_recall": 1.0,
+  "self_recall_semantic_accuracy": false,
+  "numeric_evidence_approved": false,
+  "source_validation": {
+    "status": "passed",
+    "documents": 92,
+    "pages": 4201,
+    "assets": 70264,
+    "checks": "source hashes, artifact hashes, page/region relationships and representation ranges",
+    "extraction_accuracy_measured": false
+  }
+}

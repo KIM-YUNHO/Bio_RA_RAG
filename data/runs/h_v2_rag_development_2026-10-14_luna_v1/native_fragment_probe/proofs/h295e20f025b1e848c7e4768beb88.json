@@ -1,0 +1,4574 @@
+{
+  "version": "native-closed-table-fragment-1",
+  "source_binding_sha256": "521b8584e88b7bced5c7c5a535f189ad99d75763fc1c9d9badcc6b1fd3761276",
+  "grid": {
+    "html": "<table><tr><td rowspan=\"2\">PK Parameter</td><td rowspan=\"2\">Statistics</td><td>SB17</td><td>EU Stelara</td><td>US Stelara</td></tr><tr><td>N = 67</td><td>N = 67</td><td>N = 67</td></tr><tr><td rowspan=\"6\">AUCinf <br>(ng·h/mL)</td><td>n</td><td>62</td><td>64</td><td>60</td></tr><tr><td>Mean</td><td>5143600</td><td>5273000</td><td>5116600</td></tr><tr><td>SD</td><td>1401400</td><td>1649100</td><td>1526800</td></tr><tr><td>Median</td><td>4969900</td><td>5305400</td><td>4918500</td></tr><tr><td>Min</td><td>2414000</td><td>2045000</td><td>2118000</td></tr><tr><td>Max</td><td>8884000</td><td>10280000</td><td>10200000</td></tr><tr><td rowspan=\"6\">Cmax <br>(ng/mL)</td><td>n</td><td>62</td><td>64</td><td>60</td></tr><tr><td>Mean</td><td>5095</td><td>5689</td><td>5420</td></tr><tr><td>SD</td><td>1498</td><td>1877</td><td>1659</td></tr><tr><td>Median</td><td>5045</td><td>5480</td><td>5400</td></tr><tr><td>Min</td><td>2630</td><td>2950</td><td>1590</td></tr><tr><td>Max</td><td>9030</td><td>13700</td><td>11100</td></tr><tr><td rowspan=\"6\">AUClast <br>(ng·h/mL)</td><td>n</td><td>62</td><td>64</td><td>60</td></tr><tr><td>Mean</td><td>4721000</td><td>4853500</td><td>4769900</td></tr><tr><td>SD</td><td>1262300</td><td>1431100</td><td>1336800</td></tr><tr><td>Median</td><td>4642600</td><td>4993000</td><td>4644100</td></tr><tr><td>Min</td><td>2302000</td><td>1974000</td><td>1959000</td></tr><tr><td>Max</td><td>8526000</td><td>9786000</td><td>9257000</td></tr><tr><td rowspan=\"6\">AUC0-264h <br>(ng·h/mL)</td><td>n</td><td>62</td><td>64</td><td>60</td></tr><tr><td>Mean</td><td>1044800</td><td>1148200</td><td>1117700</td></tr><tr><td>SD</td><td>325730</td><td>365750</td><td>355820</td></tr><tr><td>Median</td><td>1039000</td><td>1104500</td><td>1105300</td></tr><tr><td>Min</td><td>458500</td><td>565500</td><td>291500</td></tr><tr><td>Max</td><td>1780000</td><td>2820000</td><td>2042000</td></tr><tr><td rowspan=\"4\">Tmax <br>(h)</td><td>n</td><td>62</td><td>64</td><td>60</td></tr><tr><td>Median</td><td>168.000</td><td>168.000</td><td>168.000</td></tr><tr><td>Min</td><td>48.00</td><td>12.00</td><td>48.00</td></tr><tr><td>Max</td><td>672.00</td><td>504.00</td><td>1008.00</td></tr><tr><td rowspan=\"6\">Vz/F <br>(mL)</td><td>n</td><td>62</td><td>64</td><td>60</td></tr><tr><td>Mean</td><td>7561.0</td><td>7149.3</td><td>7240.6</td></tr><tr><td>SD</td><td>2312.5</td><td>1744.3</td><td>2241.5</td></tr><tr><td>Median</td><td>7250.2</td><td>6945.2</td><td>6941.4</td></tr><tr><td>Min</td><td>2817</td><td>2825</td><td>3207</td></tr><tr><td>Max</td><td>12910</td><td>11560</td><td>17980</td></tr><tr><td>λz</td><td>n</td><td>62</td><td>64</td><td>60</td></tr></table>",
+    "logical_grid": {
+      "column_count": 5,
+      "rows": [
+        {
+          "row_index": 0,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 0,
+              "row_span": 2,
+              "col_span": 1,
+              "text": "PK Parameter",
+              "state": "visible"
+            },
+            {
+              "column_index": 1,
+              "row_span": 2,
+              "col_span": 1,
+              "text": "Statistics",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "SB17",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "EU Stelara",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "US Stelara",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 1,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "N = 67",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "N = 67",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "N = 67",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 2,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 0,
+              "row_span": 6,
+              "col_span": 1,
+              "text": "AUCinf \n(ng·h/mL)",
+              "state": "visible"
+            },
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "n",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "62",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "64",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "60",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 3,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "Mean",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "5143600",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "5273000",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "5116600",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 4,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "SD",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "1401400",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "1649100",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "1526800",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 5,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "Median",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "4969900",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "5305400",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "4918500",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 6,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "Min",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "2414000",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "2045000",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "2118000",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 7,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "Max",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "8884000",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "10280000",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "10200000",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 8,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 0,
+              "row_span": 6,
+              "col_span": 1,
+              "text": "Cmax \n(ng/mL)",
+              "state": "visible"
+            },
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "n",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "62",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "64",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "60",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 9,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "Mean",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "5095",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "5689",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "5420",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 10,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "SD",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "1498",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "1877",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "1659",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 11,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "Median",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "5045",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "5480",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "5400",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 12,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "Min",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "2630",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "2950",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "1590",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 13,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "Max",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "9030",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "13700",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "11100",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 14,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 0,
+              "row_span": 6,
+              "col_span": 1,
+              "text": "AUClast \n(ng·h/mL)",
+              "state": "visible"
+            },
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "n",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "62",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "64",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "60",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 15,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "Mean",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "4721000",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "4853500",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "4769900",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 16,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "SD",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "1262300",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "1431100",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "1336800",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 17,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "Median",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "4642600",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "4993000",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "4644100",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 18,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "Min",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "2302000",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "1974000",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "1959000",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 19,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "Max",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "8526000",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "9786000",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "9257000",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 20,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 0,
+              "row_span": 6,
+              "col_span": 1,
+              "text": "AUC0-264h \n(ng·h/mL)",
+              "state": "visible"
+            },
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "n",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "62",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "64",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "60",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 21,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "Mean",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "1044800",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "1148200",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "1117700",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 22,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "SD",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "325730",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "365750",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "355820",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 23,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "Median",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "1039000",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "1104500",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "1105300",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 24,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "Min",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "458500",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "565500",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "291500",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 25,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "Max",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "1780000",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "2820000",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "2042000",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 26,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 0,
+              "row_span": 4,
+              "col_span": 1,
+              "text": "Tmax \n(h)",
+              "state": "visible"
+            },
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "n",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "62",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "64",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "60",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 27,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "Median",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "168.000",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "168.000",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "168.000",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 28,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "Min",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "48.00",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "12.00",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "48.00",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 29,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "Max",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "672.00",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "504.00",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "1008.00",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 30,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 0,
+              "row_span": 6,
+              "col_span": 1,
+              "text": "Vz/F \n(mL)",
+              "state": "visible"
+            },
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "n",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "62",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "64",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "60",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 31,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "Mean",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "7561.0",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "7149.3",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "7240.6",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 32,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "SD",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "2312.5",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "1744.3",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "2241.5",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 33,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "Median",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "7250.2",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "6945.2",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "6941.4",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 34,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "Min",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "2817",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "2825",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "3207",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 35,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "Max",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "12910",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "11560",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "17980",
+              "state": "visible"
+            }
+          ]
+        },
+        {
+          "row_index": 36,
+          "section": "body",
+          "cells": [
+            {
+              "column_index": 0,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "λz",
+              "state": "visible"
+            },
+            {
+              "column_index": 1,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "n",
+              "state": "visible"
+            },
+            {
+              "column_index": 2,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "62",
+              "state": "visible"
+            },
+            {
+              "column_index": 3,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "64",
+              "state": "visible"
+            },
+            {
+              "column_index": 4,
+              "row_span": 1,
+              "col_span": 1,
+              "text": "60",
+              "state": "visible"
+            }
+          ]
+        }
+      ],
+      "caption": null,
+      "footnotes": [],
+      "uncertainties": []
+    },
+    "physical_cells": [
+      {
+        "row": 0,
+        "column": 0,
+        "bbox_pdf": [
+          62.75052843595806,
+          88.1400146484375,
+          164.27999877929688,
+          124.67999267578125
+        ],
+        "text": "PK Parameter"
+      },
+      {
+        "row": 0,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          88.1400146484375,
+          231.9600067138672,
+          124.67999267578125
+        ],
+        "text": "Statistics"
+      },
+      {
+        "row": 0,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          88.1400146484375,
+          332.1599884033203,
+          106.44000244140625
+        ],
+        "text": "SB17"
+      },
+      {
+        "row": 0,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          88.1400146484375,
+          432.36000061035156,
+          106.44000244140625
+        ],
+        "text": "EU Stelara"
+      },
+      {
+        "row": 0,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          88.1400146484375,
+          532.6894659745066,
+          106.44000244140625
+        ],
+        "text": "US Stelara"
+      },
+      {
+        "row": 1,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          106.44000244140625,
+          332.1599884033203,
+          124.67999267578125
+        ],
+        "text": "N = 67"
+      },
+      {
+        "row": 1,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          106.44000244140625,
+          432.36000061035156,
+          124.67999267578125
+        ],
+        "text": "N = 67"
+      },
+      {
+        "row": 1,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          106.44000244140625,
+          532.6894659745066,
+          124.67999267578125
+        ],
+        "text": "N = 67"
+      },
+      {
+        "row": 2,
+        "column": 0,
+        "bbox_pdf": [
+          62.75052843595806,
+          124.67999267578125,
+          164.27999877929688,
+          234.239990234375
+        ],
+        "text": "AUCinf \n(ng·h/mL)"
+      },
+      {
+        "row": 2,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          124.67999267578125,
+          231.9600067138672,
+          142.91998291015625
+        ],
+        "text": "n"
+      },
+      {
+        "row": 2,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          124.67999267578125,
+          332.1599884033203,
+          142.91998291015625
+        ],
+        "text": "62"
+      },
+      {
+        "row": 2,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          124.67999267578125,
+          432.36000061035156,
+          142.91998291015625
+        ],
+        "text": "64"
+      },
+      {
+        "row": 2,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          124.67999267578125,
+          532.6894659745066,
+          142.91998291015625
+        ],
+        "text": "60"
+      },
+      {
+        "row": 3,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          142.91998291015625,
+          231.9600067138672,
+          161.15997314453125
+        ],
+        "text": "Mean"
+      },
+      {
+        "row": 3,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          142.91998291015625,
+          332.1599884033203,
+          161.15997314453125
+        ],
+        "text": "5143600"
+      },
+      {
+        "row": 3,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          142.91998291015625,
+          432.36000061035156,
+          161.15997314453125
+        ],
+        "text": "5273000"
+      },
+      {
+        "row": 3,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          142.91998291015625,
+          532.6894659745066,
+          161.15997314453125
+        ],
+        "text": "5116600"
+      },
+      {
+        "row": 4,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          161.15997314453125,
+          231.9600067138672,
+          179.4000244140625
+        ],
+        "text": "SD"
+      },
+      {
+        "row": 4,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          161.15997314453125,
+          332.1599884033203,
+          179.4000244140625
+        ],
+        "text": "1401400"
+      },
+      {
+        "row": 4,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          161.15997314453125,
+          432.36000061035156,
+          179.4000244140625
+        ],
+        "text": "1649100"
+      },
+      {
+        "row": 4,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          161.15997314453125,
+          532.6894659745066,
+          179.4000244140625
+        ],
+        "text": "1526800"
+      },
+      {
+        "row": 5,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          179.4000244140625,
+          231.9600067138672,
+          197.6400146484375
+        ],
+        "text": "Median"
+      },
+      {
+        "row": 5,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          179.4000244140625,
+          332.1599884033203,
+          197.6400146484375
+        ],
+        "text": "4969900"
+      },
+      {
+        "row": 5,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          179.4000244140625,
+          432.36000061035156,
+          197.6400146484375
+        ],
+        "text": "5305400"
+      },
+      {
+        "row": 5,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          179.4000244140625,
+          532.6894659745066,
+          197.6400146484375
+        ],
+        "text": "4918500"
+      },
+      {
+        "row": 6,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          197.6400146484375,
+          231.9600067138672,
+          216.0
+        ],
+        "text": "Min"
+      },
+      {
+        "row": 6,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          197.6400146484375,
+          332.1599884033203,
+          216.0
+        ],
+        "text": "2414000"
+      },
+      {
+        "row": 6,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          197.6400146484375,
+          432.36000061035156,
+          216.0
+        ],
+        "text": "2045000"
+      },
+      {
+        "row": 6,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          197.6400146484375,
+          532.6894659745066,
+          216.0
+        ],
+        "text": "2118000"
+      },
+      {
+        "row": 7,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          216.0,
+          231.9600067138672,
+          234.239990234375
+        ],
+        "text": "Max"
+      },
+      {
+        "row": 7,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          216.0,
+          332.1599884033203,
+          234.239990234375
+        ],
+        "text": "8884000"
+      },
+      {
+        "row": 7,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          216.0,
+          432.36000061035156,
+          234.239990234375
+        ],
+        "text": "10280000"
+      },
+      {
+        "row": 7,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          216.0,
+          532.6894659745066,
+          234.239990234375
+        ],
+        "text": "10200000"
+      },
+      {
+        "row": 8,
+        "column": 0,
+        "bbox_pdf": [
+          62.75052843595806,
+          234.239990234375,
+          164.27999877929688,
+          343.6799774169922
+        ],
+        "text": "Cmax \n(ng/mL)"
+      },
+      {
+        "row": 8,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          234.239990234375,
+          231.9600067138672,
+          252.47998046875
+        ],
+        "text": "n"
+      },
+      {
+        "row": 8,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          234.239990234375,
+          332.1599884033203,
+          252.47998046875
+        ],
+        "text": "62"
+      },
+      {
+        "row": 8,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          234.239990234375,
+          432.36000061035156,
+          252.47998046875
+        ],
+        "text": "64"
+      },
+      {
+        "row": 8,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          234.239990234375,
+          532.6894659745066,
+          252.47998046875
+        ],
+        "text": "60"
+      },
+      {
+        "row": 9,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          252.47998046875,
+          231.9600067138672,
+          270.719970703125
+        ],
+        "text": "Mean"
+      },
+      {
+        "row": 9,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          252.47998046875,
+          332.1599884033203,
+          270.719970703125
+        ],
+        "text": "5095"
+      },
+      {
+        "row": 9,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          252.47998046875,
+          432.36000061035156,
+          270.719970703125
+        ],
+        "text": "5689"
+      },
+      {
+        "row": 9,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          252.47998046875,
+          532.6894659745066,
+          270.719970703125
+        ],
+        "text": "5420"
+      },
+      {
+        "row": 10,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          270.719970703125,
+          231.9600067138672,
+          288.96002197265625
+        ],
+        "text": "SD"
+      },
+      {
+        "row": 10,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          270.719970703125,
+          332.1599884033203,
+          288.96002197265625
+        ],
+        "text": "1498"
+      },
+      {
+        "row": 10,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          270.719970703125,
+          432.36000061035156,
+          288.96002197265625
+        ],
+        "text": "1877"
+      },
+      {
+        "row": 10,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          270.719970703125,
+          532.6894659745066,
+          288.96002197265625
+        ],
+        "text": "1659"
+      },
+      {
+        "row": 11,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          288.96002197265625,
+          231.9600067138672,
+          307.20001220703125
+        ],
+        "text": "Median"
+      },
+      {
+        "row": 11,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          288.96002197265625,
+          332.1599884033203,
+          307.20001220703125
+        ],
+        "text": "5045"
+      },
+      {
+        "row": 11,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          288.96002197265625,
+          432.36000061035156,
+          307.20001220703125
+        ],
+        "text": "5480"
+      },
+      {
+        "row": 11,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          288.96002197265625,
+          532.6894659745066,
+          307.20001220703125
+        ],
+        "text": "5400"
+      },
+      {
+        "row": 12,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          307.20001220703125,
+          231.9600067138672,
+          325.44000244140625
+        ],
+        "text": "Min"
+      },
+      {
+        "row": 12,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          307.20001220703125,
+          332.1599884033203,
+          325.44000244140625
+        ],
+        "text": "2630"
+      },
+      {
+        "row": 12,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          307.20001220703125,
+          432.36000061035156,
+          325.44000244140625
+        ],
+        "text": "2950"
+      },
+      {
+        "row": 12,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          307.20001220703125,
+          532.6894659745066,
+          325.44000244140625
+        ],
+        "text": "1590"
+      },
+      {
+        "row": 13,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          325.44000244140625,
+          231.9600067138672,
+          343.6799774169922
+        ],
+        "text": "Max"
+      },
+      {
+        "row": 13,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          325.44000244140625,
+          332.1599884033203,
+          343.6799774169922
+        ],
+        "text": "9030"
+      },
+      {
+        "row": 13,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          325.44000244140625,
+          432.36000061035156,
+          343.6799774169922
+        ],
+        "text": "13700"
+      },
+      {
+        "row": 13,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          325.44000244140625,
+          532.6894659745066,
+          343.6799774169922
+        ],
+        "text": "11100"
+      },
+      {
+        "row": 14,
+        "column": 0,
+        "bbox_pdf": [
+          62.75052843595806,
+          343.6799774169922,
+          164.27999877929688,
+          453.11997985839844
+        ],
+        "text": "AUClast \n(ng·h/mL)"
+      },
+      {
+        "row": 14,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          343.6799774169922,
+          231.9600067138672,
+          361.9199676513672
+        ],
+        "text": "n"
+      },
+      {
+        "row": 14,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          343.6799774169922,
+          332.1599884033203,
+          361.9199676513672
+        ],
+        "text": "62"
+      },
+      {
+        "row": 14,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          343.6799774169922,
+          432.36000061035156,
+          361.9199676513672
+        ],
+        "text": "64"
+      },
+      {
+        "row": 14,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          343.6799774169922,
+          532.6894659745066,
+          361.9199676513672
+        ],
+        "text": "60"
+      },
+      {
+        "row": 15,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          361.9199676513672,
+          231.9600067138672,
+          380.1599884033203
+        ],
+        "text": "Mean"
+      },
+      {
+        "row": 15,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          361.9199676513672,
+          332.1599884033203,
+          380.1599884033203
+        ],
+        "text": "4721000"
+      },
+      {
+        "row": 15,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          361.9199676513672,
+          432.36000061035156,
+          380.1599884033203
+        ],
+        "text": "4853500"
+      },
+      {
+        "row": 15,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          361.9199676513672,
+          532.6894659745066,
+          380.1599884033203
+        ],
+        "text": "4769900"
+      },
+      {
+        "row": 16,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          380.1599884033203,
+          231.9600067138672,
+          398.3999786376953
+        ],
+        "text": "SD"
+      },
+      {
+        "row": 16,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          380.1599884033203,
+          332.1599884033203,
+          398.3999786376953
+        ],
+        "text": "1262300"
+      },
+      {
+        "row": 16,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          380.1599884033203,
+          432.36000061035156,
+          398.3999786376953
+        ],
+        "text": "1431100"
+      },
+      {
+        "row": 16,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          380.1599884033203,
+          532.6894659745066,
+          398.3999786376953
+        ],
+        "text": "1336800"
+      },
+      {
+        "row": 17,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          398.3999786376953,
+          231.9600067138672,
+          416.6399688720703
+        ],
+        "text": "Median"
+      },
+      {
+        "row": 17,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          398.3999786376953,
+          332.1599884033203,
+          416.6399688720703
+        ],
+        "text": "4642600"
+      },
+      {
+        "row": 17,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          398.3999786376953,
+          432.36000061035156,
+          416.6399688720703
+        ],
+        "text": "4993000"
+      },
+      {
+        "row": 17,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          398.3999786376953,
+          532.6894659745066,
+          416.6399688720703
+        ],
+        "text": "4644100"
+      },
+      {
+        "row": 18,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          416.6399688720703,
+          231.9600067138672,
+          434.87998962402344
+        ],
+        "text": "Min"
+      },
+      {
+        "row": 18,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          416.6399688720703,
+          332.1599884033203,
+          434.87998962402344
+        ],
+        "text": "2302000"
+      },
+      {
+        "row": 18,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          416.6399688720703,
+          432.36000061035156,
+          434.87998962402344
+        ],
+        "text": "1974000"
+      },
+      {
+        "row": 18,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          416.6399688720703,
+          532.6894659745066,
+          434.87998962402344
+        ],
+        "text": "1959000"
+      },
+      {
+        "row": 19,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          434.87998962402344,
+          231.9600067138672,
+          453.11997985839844
+        ],
+        "text": "Max"
+      },
+      {
+        "row": 19,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          434.87998962402344,
+          332.1599884033203,
+          453.11997985839844
+        ],
+        "text": "8526000"
+      },
+      {
+        "row": 19,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          434.87998962402344,
+          432.36000061035156,
+          453.11997985839844
+        ],
+        "text": "9786000"
+      },
+      {
+        "row": 19,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          434.87998962402344,
+          532.6894659745066,
+          453.11997985839844
+        ],
+        "text": "9257000"
+      },
+      {
+        "row": 20,
+        "column": 0,
+        "bbox_pdf": [
+          62.75052843595806,
+          453.11997985839844,
+          164.27999877929688,
+          562.6799621582031
+        ],
+        "text": "AUC0-264h \n(ng·h/mL)"
+      },
+      {
+        "row": 20,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          453.11997985839844,
+          231.9600067138672,
+          471.47999572753906
+        ],
+        "text": "n"
+      },
+      {
+        "row": 20,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          453.11997985839844,
+          332.1599884033203,
+          471.47999572753906
+        ],
+        "text": "62"
+      },
+      {
+        "row": 20,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          453.11997985839844,
+          432.36000061035156,
+          471.47999572753906
+        ],
+        "text": "64"
+      },
+      {
+        "row": 20,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          453.11997985839844,
+          532.6894659745066,
+          471.47999572753906
+        ],
+        "text": "60"
+      },
+      {
+        "row": 21,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          471.47999572753906,
+          231.9600067138672,
+          489.71998596191406
+        ],
+        "text": "Mean"
+      },
+      {
+        "row": 21,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          471.47999572753906,
+          332.1599884033203,
+          489.71998596191406
+        ],
+        "text": "1044800"
+      },
+      {
+        "row": 21,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          471.47999572753906,
+          432.36000061035156,
+          489.71998596191406
+        ],
+        "text": "1148200"
+      },
+      {
+        "row": 21,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          471.47999572753906,
+          532.6894659745066,
+          489.71998596191406
+        ],
+        "text": "1117700"
+      },
+      {
+        "row": 22,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          489.71998596191406,
+          231.9600067138672,
+          507.95997619628906
+        ],
+        "text": "SD"
+      },
+      {
+        "row": 22,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          489.71998596191406,
+          332.1599884033203,
+          507.95997619628906
+        ],
+        "text": "325730"
+      },
+      {
+        "row": 22,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          489.71998596191406,
+          432.36000061035156,
+          507.95997619628906
+        ],
+        "text": "365750"
+      },
+      {
+        "row": 22,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          489.71998596191406,
+          532.6894659745066,
+          507.95997619628906
+        ],
+        "text": "355820"
+      },
+      {
+        "row": 23,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          507.95997619628906,
+          231.9600067138672,
+          526.1999816894531
+        ],
+        "text": "Median"
+      },
+      {
+        "row": 23,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          507.95997619628906,
+          332.1599884033203,
+          526.1999816894531
+        ],
+        "text": "1039000"
+      },
+      {
+        "row": 23,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          507.95997619628906,
+          432.36000061035156,
+          526.1999816894531
+        ],
+        "text": "1104500"
+      },
+      {
+        "row": 23,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          507.95997619628906,
+          532.6894659745066,
+          526.1999816894531
+        ],
+        "text": "1105300"
+      },
+      {
+        "row": 24,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          526.1999816894531,
+          231.9600067138672,
+          544.4399719238281
+        ],
+        "text": "Min"
+      },
+      {
+        "row": 24,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          526.1999816894531,
+          332.1599884033203,
+          544.4399719238281
+        ],
+        "text": "458500"
+      },
+      {
+        "row": 24,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          526.1999816894531,
+          432.36000061035156,
+          544.4399719238281
+        ],
+        "text": "565500"
+      },
+      {
+        "row": 24,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          526.1999816894531,
+          532.6894659745066,
+          544.4399719238281
+        ],
+        "text": "291500"
+      },
+      {
+        "row": 25,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          544.4399719238281,
+          231.9600067138672,
+          562.6799621582031
+        ],
+        "text": "Max"
+      },
+      {
+        "row": 25,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          544.4399719238281,
+          332.1599884033203,
+          562.6799621582031
+        ],
+        "text": "1780000"
+      },
+      {
+        "row": 25,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          544.4399719238281,
+          432.36000061035156,
+          562.6799621582031
+        ],
+        "text": "2820000"
+      },
+      {
+        "row": 25,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          544.4399719238281,
+          532.6894659745066,
+          562.6799621582031
+        ],
+        "text": "2042000"
+      },
+      {
+        "row": 26,
+        "column": 0,
+        "bbox_pdf": [
+          62.75052843595806,
+          562.6799621582031,
+          164.27999877929688,
+          635.6399841308594
+        ],
+        "text": "Tmax \n(h)"
+      },
+      {
+        "row": 26,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          562.6799621582031,
+          231.9600067138672,
+          580.9199523925781
+        ],
+        "text": "n"
+      },
+      {
+        "row": 26,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          562.6799621582031,
+          332.1599884033203,
+          580.9199523925781
+        ],
+        "text": "62"
+      },
+      {
+        "row": 26,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          562.6799621582031,
+          432.36000061035156,
+          580.9199523925781
+        ],
+        "text": "64"
+      },
+      {
+        "row": 26,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          562.6799621582031,
+          532.6894659745066,
+          580.9199523925781
+        ],
+        "text": "60"
+      },
+      {
+        "row": 27,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          580.9199523925781,
+          231.9600067138672,
+          599.1600036621094
+        ],
+        "text": "Median"
+      },
+      {
+        "row": 27,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          580.9199523925781,
+          332.1599884033203,
+          599.1600036621094
+        ],
+        "text": "168.000"
+      },
+      {
+        "row": 27,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          580.9199523925781,
+          432.36000061035156,
+          599.1600036621094
+        ],
+        "text": "168.000"
+      },
+      {
+        "row": 27,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          580.9199523925781,
+          532.6894659745066,
+          599.1600036621094
+        ],
+        "text": "168.000"
+      },
+      {
+        "row": 28,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          599.1600036621094,
+          231.9600067138672,
+          617.3999938964844
+        ],
+        "text": "Min"
+      },
+      {
+        "row": 28,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          599.1600036621094,
+          332.1599884033203,
+          617.3999938964844
+        ],
+        "text": "48.00"
+      },
+      {
+        "row": 28,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          599.1600036621094,
+          432.36000061035156,
+          617.3999938964844
+        ],
+        "text": "12.00"
+      },
+      {
+        "row": 28,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          599.1600036621094,
+          532.6894659745066,
+          617.3999938964844
+        ],
+        "text": "48.00"
+      },
+      {
+        "row": 29,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          617.3999938964844,
+          231.9600067138672,
+          635.6399841308594
+        ],
+        "text": "Max"
+      },
+      {
+        "row": 29,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          617.3999938964844,
+          332.1599884033203,
+          635.6399841308594
+        ],
+        "text": "672.00"
+      },
+      {
+        "row": 29,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          617.3999938964844,
+          432.36000061035156,
+          635.6399841308594
+        ],
+        "text": "504.00"
+      },
+      {
+        "row": 29,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          617.3999938964844,
+          532.6894659745066,
+          635.6399841308594
+        ],
+        "text": "1008.00"
+      },
+      {
+        "row": 30,
+        "column": 0,
+        "bbox_pdf": [
+          62.75052843595806,
+          635.6399841308594,
+          164.27999877929688,
+          745.1999816894531
+        ],
+        "text": "Vz/F \n(mL)"
+      },
+      {
+        "row": 30,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          635.6399841308594,
+          231.9600067138672,
+          653.8800048828125
+        ],
+        "text": "n"
+      },
+      {
+        "row": 30,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          635.6399841308594,
+          332.1599884033203,
+          653.8800048828125
+        ],
+        "text": "62"
+      },
+      {
+        "row": 30,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          635.6399841308594,
+          432.36000061035156,
+          653.8800048828125
+        ],
+        "text": "64"
+      },
+      {
+        "row": 30,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          635.6399841308594,
+          532.6894659745066,
+          653.8800048828125
+        ],
+        "text": "60"
+      },
+      {
+        "row": 31,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          653.8800048828125,
+          231.9600067138672,
+          672.1199951171875
+        ],
+        "text": "Mean"
+      },
+      {
+        "row": 31,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          653.8800048828125,
+          332.1599884033203,
+          672.1199951171875
+        ],
+        "text": "7561.0"
+      },
+      {
+        "row": 31,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          653.8800048828125,
+          432.36000061035156,
+          672.1199951171875
+        ],
+        "text": "7149.3"
+      },
+      {
+        "row": 31,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          653.8800048828125,
+          532.6894659745066,
+          672.1199951171875
+        ],
+        "text": "7240.6"
+      },
+      {
+        "row": 32,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          672.1199951171875,
+          231.9600067138672,
+          690.3599853515625
+        ],
+        "text": "SD"
+      },
+      {
+        "row": 32,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          672.1199951171875,
+          332.1599884033203,
+          690.3599853515625
+        ],
+        "text": "2312.5"
+      },
+      {
+        "row": 32,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          672.1199951171875,
+          432.36000061035156,
+          690.3599853515625
+        ],
+        "text": "1744.3"
+      },
+      {
+        "row": 32,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          672.1199951171875,
+          532.6894659745066,
+          690.3599853515625
+        ],
+        "text": "2241.5"
+      },
+      {
+        "row": 33,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          690.3599853515625,
+          231.9600067138672,
+          708.719970703125
+        ],
+        "text": "Median"
+      },
+      {
+        "row": 33,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          690.3599853515625,
+          332.1599884033203,
+          708.719970703125
+        ],
+        "text": "7250.2"
+      },
+      {
+        "row": 33,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          690.3599853515625,
+          432.36000061035156,
+          708.719970703125
+        ],
+        "text": "6945.2"
+      },
+      {
+        "row": 33,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          690.3599853515625,
+          532.6894659745066,
+          708.719970703125
+        ],
+        "text": "6941.4"
+      },
+      {
+        "row": 34,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          708.719970703125,
+          231.9600067138672,
+          726.9599914550781
+        ],
+        "text": "Min"
+      },
+      {
+        "row": 34,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          708.719970703125,
+          332.1599884033203,
+          726.9599914550781
+        ],
+        "text": "2817"
+      },
+      {
+        "row": 34,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          708.719970703125,
+          432.36000061035156,
+          726.9599914550781
+        ],
+        "text": "2825"
+      },
+      {
+        "row": 34,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          708.719970703125,
+          532.6894659745066,
+          726.9599914550781
+        ],
+        "text": "3207"
+      },
+      {
+        "row": 35,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          726.9599914550781,
+          231.9600067138672,
+          745.1999816894531
+        ],
+        "text": "Max"
+      },
+      {
+        "row": 35,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          726.9599914550781,
+          332.1599884033203,
+          745.1999816894531
+        ],
+        "text": "12910"
+      },
+      {
+        "row": 35,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          726.9599914550781,
+          432.36000061035156,
+          745.1999816894531
+        ],
+        "text": "11560"
+      },
+      {
+        "row": 35,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          726.9599914550781,
+          532.6894659745066,
+          745.1999816894531
+        ],
+        "text": "17980"
+      },
+      {
+        "row": 36,
+        "column": 0,
+        "bbox_pdf": [
+          62.75052843595806,
+          745.1999816894531,
+          164.27999877929688,
+          763.4999745686849
+        ],
+        "text": "λz"
+      },
+      {
+        "row": 36,
+        "column": 1,
+        "bbox_pdf": [
+          164.27999877929688,
+          745.1999816894531,
+          231.9600067138672,
+          763.4999745686849
+        ],
+        "text": "n"
+      },
+      {
+        "row": 36,
+        "column": 2,
+        "bbox_pdf": [
+          231.9600067138672,
+          745.1999816894531,
+          332.1599884033203,
+          763.4999745686849
+        ],
+        "text": "62"
+      },
+      {
+        "row": 36,
+        "column": 3,
+        "bbox_pdf": [
+          332.1599884033203,
+          745.1999816894531,
+          432.36000061035156,
+          763.4999745686849
+        ],
+        "text": "64"
+      },
+      {
+        "row": 36,
+        "column": 4,
+        "bbox_pdf": [
+          432.36000061035156,
+          745.1999816894531,
+          532.6894659745066,
+          763.4999745686849
+        ],
+        "text": "60"
+      }
+    ],
+    "bbox_pdf": [
+      62.75052843595806,
+      88.1400146484375,
+      532.6894659745066,
+      763.4999745686849
+    ],
+    "geometry_status": "source_borders_and_glyph_coverage_checked",
+    "quality": {
+      "version": "table-quality-6",
+      "issues": [],
+      "rows": 37,
+      "columns": 5,
+      "cells": [
+        {
+          "text": "PK Parameter",
+          "row_span": 2,
+          "col_span": 1,
+          "is_header": false,
+          "row": 0,
+          "column": 0,
+          "bbox_pdf": null
+        },
+        {
+          "text": "Statistics",
+          "row_span": 2,
+          "col_span": 1,
+          "is_header": false,
+          "row": 0,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "SB17",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 0,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "EU Stelara",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 0,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "US Stelara",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 0,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "N = 67",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 1,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "N = 67",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 1,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "N = 67",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 1,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "AUCinf \n(ng·h/mL)",
+          "row_span": 6,
+          "col_span": 1,
+          "is_header": false,
+          "row": 2,
+          "column": 0,
+          "bbox_pdf": null
+        },
+        {
+          "text": "n",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 2,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "62",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 2,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "64",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 2,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "60",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 2,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "Mean",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 3,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "5143600",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 3,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "5273000",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 3,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "5116600",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 3,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "SD",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 4,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "1401400",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 4,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "1649100",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 4,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "1526800",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 4,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "Median",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 5,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "4969900",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 5,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "5305400",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 5,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "4918500",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 5,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "Min",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 6,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "2414000",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 6,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "2045000",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 6,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "2118000",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 6,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "Max",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 7,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "8884000",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 7,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "10280000",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 7,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "10200000",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 7,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "Cmax \n(ng/mL)",
+          "row_span": 6,
+          "col_span": 1,
+          "is_header": false,
+          "row": 8,
+          "column": 0,
+          "bbox_pdf": null
+        },
+        {
+          "text": "n",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 8,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "62",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 8,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "64",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 8,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "60",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 8,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "Mean",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 9,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "5095",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 9,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "5689",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 9,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "5420",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 9,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "SD",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 10,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "1498",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 10,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "1877",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 10,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "1659",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 10,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "Median",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 11,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "5045",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 11,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "5480",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 11,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "5400",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 11,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "Min",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 12,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "2630",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 12,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "2950",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 12,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "1590",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 12,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "Max",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 13,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "9030",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 13,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "13700",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 13,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "11100",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 13,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "AUClast \n(ng·h/mL)",
+          "row_span": 6,
+          "col_span": 1,
+          "is_header": false,
+          "row": 14,
+          "column": 0,
+          "bbox_pdf": null
+        },
+        {
+          "text": "n",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 14,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "62",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 14,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "64",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 14,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "60",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 14,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "Mean",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 15,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "4721000",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 15,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "4853500",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 15,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "4769900",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 15,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "SD",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 16,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "1262300",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 16,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "1431100",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 16,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "1336800",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 16,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "Median",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 17,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "4642600",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 17,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "4993000",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 17,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "4644100",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 17,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "Min",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 18,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "2302000",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 18,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "1974000",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 18,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "1959000",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 18,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "Max",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 19,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "8526000",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 19,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "9786000",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 19,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "9257000",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 19,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "AUC0-264h \n(ng·h/mL)",
+          "row_span": 6,
+          "col_span": 1,
+          "is_header": false,
+          "row": 20,
+          "column": 0,
+          "bbox_pdf": null
+        },
+        {
+          "text": "n",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 20,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "62",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 20,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "64",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 20,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "60",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 20,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "Mean",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 21,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "1044800",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 21,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "1148200",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 21,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "1117700",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 21,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "SD",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 22,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "325730",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 22,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "365750",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 22,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "355820",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 22,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "Median",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 23,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "1039000",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 23,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "1104500",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 23,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "1105300",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 23,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "Min",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 24,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "458500",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 24,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "565500",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 24,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "291500",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 24,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "Max",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 25,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "1780000",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 25,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "2820000",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 25,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "2042000",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 25,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "Tmax \n(h)",
+          "row_span": 4,
+          "col_span": 1,
+          "is_header": false,
+          "row": 26,
+          "column": 0,
+          "bbox_pdf": null
+        },
+        {
+          "text": "n",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 26,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "62",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 26,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "64",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 26,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "60",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 26,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "Median",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 27,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "168.000",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 27,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "168.000",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 27,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "168.000",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 27,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "Min",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 28,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "48.00",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 28,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "12.00",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 28,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "48.00",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 28,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "Max",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 29,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "672.00",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 29,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "504.00",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 29,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "1008.00",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 29,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "Vz/F \n(mL)",
+          "row_span": 6,
+          "col_span": 1,
+          "is_header": false,
+          "row": 30,
+          "column": 0,
+          "bbox_pdf": null
+        },
+        {
+          "text": "n",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 30,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "62",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 30,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "64",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 30,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "60",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 30,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "Mean",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 31,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "7561.0",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 31,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "7149.3",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 31,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "7240.6",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 31,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "SD",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 32,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "2312.5",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 32,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "1744.3",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 32,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "2241.5",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 32,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "Median",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 33,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "7250.2",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 33,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "6945.2",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 33,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "6941.4",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 33,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "Min",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 34,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "2817",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 34,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "2825",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 34,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "3207",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 34,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "Max",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 35,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "12910",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 35,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "11560",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 35,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "17980",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 35,
+          "column": 4,
+          "bbox_pdf": null
+        },
+        {
+          "text": "λz",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 36,
+          "column": 0,
+          "bbox_pdf": null
+        },
+        {
+          "text": "n",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 36,
+          "column": 1,
+          "bbox_pdf": null
+        },
+        {
+          "text": "62",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 36,
+          "column": 2,
+          "bbox_pdf": null
+        },
+        {
+          "text": "64",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 36,
+          "column": 3,
+          "bbox_pdf": null
+        },
+        {
+          "text": "60",
+          "row_span": 1,
+          "col_span": 1,
+          "is_header": false,
+          "row": 36,
+          "column": 4,
+          "bbox_pdf": null
+        }
+      ],
+      "text": "PK Parameter\nStatistics\nSB17\nEU Stelara\nUS Stelara\nN = 67\nN = 67\nN = 67\nAUCinf \n(ng·h/mL)\nn\n62\n64\n60\nMean\n5143600\n5273000\n5116600\nSD\n1401400\n1649100\n1526800\nMedian\n4969900\n5305400\n4918500\nMin\n2414000\n2045000\n2118000\nMax\n8884000\n10280000\n10200000\nCmax \n(ng/mL)\nn\n62\n64\n60\nMean\n5095\n5689\n5420\nSD\n1498\n1877\n1659\nMedian\n5045\n5480\n5400\nMin\n2630\n2950\n1590\nMax\n9030\n13700\n11100\nAUClast \n(ng·h/mL)\nn\n62\n64\n60\nMean\n4721000\n4853500\n4769900\nSD\n1262300\n1431100\n1336800\nMedian\n4642600\n4993000\n4644100\nMin\n2302000\n1974000\n1959000\nMax\n8526000\n9786000\n9257000\nAUC0-264h \n(ng·h/mL)\nn\n62\n64\n60\nMean\n1044800\n1148200\n1117700\nSD\n325730\n365750\n355820\nMedian\n1039000\n1104500\n1105300\nMin\n458500\n565500\n291500\nMax\n1780000\n2820000\n2042000\nTmax \n(h)\nn\n62\n64\n60\nMedian\n168.000\n168.000\n168.000\nMin\n48.00\n12.00\n48.00\nMax\n672.00\n504.00\n1008.00\nVz/F \n(mL)\nn\n62\n64\n60\nMean\n7561.0\n7149.3\n7240.6\nSD\n2312.5\n1744.3\n2241.5\nMedian\n7250.2\n6945.2\n6941.4\nMin\n2817\n2825\n3207\nMax\n12910\n11560\n17980\nλz\nn\n62\n64\n60",
+      "numbers": {
+        "67": 3,
+        "62": 7,
+        "64": 7,
+        "60": 7,
+        "5143600": 1,
+        "5273000": 1,
+        "5116600": 1,
+        "1401400": 1,
+        "1649100": 1,
+        "1526800": 1,
+        "4969900": 1,
+        "5305400": 1,
+        "4918500": 1,
+        "2414000": 1,
+        "2045000": 1,
+        "2118000": 1,
+        "8884000": 1,
+        "10280000": 1,
+        "10200000": 1,
+        "5095": 1,
+        "5689": 1,
+        "5420": 1,
+        "1498": 1,
+        "1877": 1,
+        "1659": 1,
+        "5045": 1,
+        "5480": 1,
+        "5400": 1,
+        "2630": 1,
+        "2950": 1,
+        "1590": 1,
+        "9030": 1,
+        "13700": 1,
+        "11100": 1,
+        "4721000": 1,
+        "4853500": 1,
+        "4769900": 1,
+        "1262300": 1,
+        "1431100": 1,
+        "1336800": 1,
+        "4642600": 1,
+        "4993000": 1,
+        "4644100": 1,
+        "2302000": 1,
+        "1974000": 1,
+        "1959000": 1,
+        "8526000": 1,
+        "9786000": 1,
+        "9257000": 1,
+        "1044800": 1,
+        "1148200": 1,
+        "1117700": 1,
+        "325730": 1,
+        "365750": 1,
+        "355820": 1,
+        "1039000": 1,
+        "1104500": 1,
+        "1105300": 1,
+        "458500": 1,
+        "565500": 1,
+        "291500": 1,
+        "1780000": 1,
+        "2820000": 1,
+        "2042000": 1,
+        "168.000": 3,
+        "48.00": 2,
+        "12.00": 1,
+        "672.00": 1,
+        "504.00": 1,
+        "1008.00": 1,
+        "7561.0": 1,
+        "7149.3": 1,
+        "7240.6": 1,
+        "2312.5": 1,
+        "1744.3": 1,
+        "2241.5": 1,
+        "7250.2": 1,
+        "6945.2": 1,
+        "6941.4": 1,
+        "2817": 1,
+        "2825": 1,
+        "3207": 1,
+        "12910": 1,
+        "11560": 1,
+        "17980": 1
+      },
+      "missing_numbers": [],
+      "unsupported_numbers": [],
+      "missing_label_tokens": [],
+      "reference_reliable": true,
+      "semantic_status": "unverified",
+      "numeric_evidence_eligible": false
+    }
+  },
+  "fragment": {
+    "version": "native-closed-table-fragment-1",
+    "html": "<table><tr><th rowspan=\"2\">PK Parameter</th><th rowspan=\"2\">Statistics</th><th>SB17</th><th>EU Stelara</th><th>US Stelara</th></tr><tr><th>N = 67</th><th>N = 67</th><th>N = 67</th></tr><tr><td rowspan=\"6\">AUCinf <br>(ng·h/mL)</td><td>n</td><td>62</td><td>64</td><td>60</td></tr><tr><td>Mean</td><td>5143600</td><td>5273000</td><td>5116600</td></tr><tr><td>SD</td><td>1401400</td><td>1649100</td><td>1526800</td></tr><tr><td>Median</td><td>4969900</td><td>5305400</td><td>4918500</td></tr><tr><td>Min</td><td>2414000</td><td>2045000</td><td>2118000</td></tr><tr><td>Max</td><td>8884000</td><td>10280000</td><td>10200000</td></tr><tr><td rowspan=\"6\">Cmax <br>(ng/mL)</td><td>n</td><td>62</td><td>64</td><td>60</td></tr><tr><td>Mean</td><td>5095</td><td>5689</td><td>5420</td></tr><tr><td>SD</td><td>1498</td><td>1877</td><td>1659</td></tr><tr><td>Median</td><td>5045</td><td>5480</td><td>5400</td></tr><tr><td>Min</td><td>2630</td><td>2950</td><td>1590</td></tr><tr><td>Max</td><td>9030</td><td>13700</td><td>11100</td></tr><tr><td rowspan=\"6\">AUClast <br>(ng·h/mL)</td><td>n</td><td>62</td><td>64</td><td>60</td></tr><tr><td>Mean</td><td>4721000</td><td>4853500</td><td>4769900</td></tr><tr><td>SD</td><td>1262300</td><td>1431100</td><td>1336800</td></tr><tr><td>Median</td><td>4642600</td><td>4993000</td><td>4644100</td></tr><tr><td>Min</td><td>2302000</td><td>1974000</td><td>1959000</td></tr><tr><td>Max</td><td>8526000</td><td>9786000</td><td>9257000</td></tr><tr><td rowspan=\"6\">AUC0-264h <br>(ng·h/mL)</td><td>n</td><td>62</td><td>64</td><td>60</td></tr><tr><td>Mean</td><td>1044800</td><td>1148200</td><td>1117700</td></tr><tr><td>SD</td><td>325730</td><td>365750</td><td>355820</td></tr><tr><td>Median</td><td>1039000</td><td>1104500</td><td>1105300</td></tr><tr><td>Min</td><td>458500</td><td>565500</td><td>291500</td></tr><tr><td>Max</td><td>1780000</td><td>2820000</td><td>2042000</td></tr><tr><td rowspan=\"4\">Tmax <br>(h)</td><td>n</td><td>62</td><td>64</td><td>60</td></tr><tr><td>Median</td><td>168.000</td><td>168.000</td><td>168.000</td></tr><tr><td>Min</td><td>48.00</td><td>12.00</td><td>48.00</td></tr><tr><td>Max</td><td>672.00</td><td>504.00</td><td>1008.00</td></tr><tr><td rowspan=\"6\">Vz/F <br>(mL)</td><td>n</td><td>62</td><td>64</td><td>60</td></tr><tr><td>Mean</td><td>7561.0</td><td>7149.3</td><td>7240.6</td></tr><tr><td>SD</td><td>2312.5</td><td>1744.3</td><td>2241.5</td></tr><tr><td>Median</td><td>7250.2</td><td>6945.2</td><td>6941.4</td></tr><tr><td>Min</td><td>2817</td><td>2825</td><td>3207</td></tr><tr><td>Max</td><td>12910</td><td>11560</td><td>17980</td></tr></table>",
+    "header_source_rows": [
+      0,
+      2
+    ],
+    "closed_source_row_groups": [
+      [
+        2,
+        8
+      ],
+      [
+        8,
+        14
+      ],
+      [
+        14,
+        20
+      ],
+      [
+        20,
+        26
+      ],
+      [
+        26,
+        30
+      ],
+      [
+        30,
+        36
+      ]
+    ],
+    "excluded_source_rows": [
+      36
+    ],
+    "cross_page_relationship": "unresolved",
+    "semantic_approval": false,
+    "numeric_evidence_eligible": false
+  },
+  "semantic_approval": false
+}

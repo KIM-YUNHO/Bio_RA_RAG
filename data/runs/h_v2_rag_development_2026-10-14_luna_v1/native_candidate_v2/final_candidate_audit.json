@@ -1,0 +1,16 @@
+{
+  "provenance_labels_corrected": 11536,
+  "embedding_inputs_unchanged": true,
+  "release": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\native_candidate_v2\\release_final",
+  "documents": 92,
+  "chunks": 11536,
+  "vector_and_chunk_ids_unchanged": true,
+  "source_units_changed": 2,
+  "original_source_refs_preserved": true,
+  "new_provider_calls": 0,
+  "production_pointer_changed": false,
+  "code_sha256": {
+    "C:\\Users\\Admin\\Documents\\biosimilar_collection\\eval\\finalize_h_v2_native_candidate.py": "7a3a5674d7615d3102d8f02059ea8bc623cb5bf91a33241d8cee76572a117e05",
+    "C:\\Users\\Admin\\Documents\\biosimilar_collection\\eval\\h_v2_native_candidate.py": "bd6dfbdf360db1a1dfcd788e41b53f767ba2c77efc2778037f8426dcf4cfc942"
+  }
+}

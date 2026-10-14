@@ -1,0 +1,10 @@
+{
+  "independent_holdout": false,
+  "scope": "New wording over the previously exposed approved corpus; not new-document generalization.",
+  "cases": [
+    {"id":"G01","question":"EMA ABP654의 건강인 PK 시험 Study 20190230에서 성별과 민족에 따른 층화 기준을 설명해줘. 실제 등록 인원과 층화 기준은 구분해줘.","products":["ABP654"],"jurisdictions":["EU"]},
+    {"id":"G02","question":"FDA Pyzchiva 라벨에서 성인 궤양성 대장염의 최초 정맥 유도 용량을 체중별로 정리하고 피하 유지요법 시작 시점과 투여 간격을 알려줘.","products":["SB17"],"jurisdictions":["US"]},
+    {"id":"G03","question":"Health Canada Yesintek 제품 모노그래프에서 성인 판상 건선의 체중별 용량과 투여 경로 및 초기·유지 투여 시점을 설명해줘.","products":["BMAB1200"],"jurisdictions":["CA"]},
+    {"id":"G04","question":"EMA SB17-1001 PK 분석표에서 SB17·EU Stelara·US Stelara의 AUCinf 산술평균과 표준편차를 각 군별로 원문 단위와 함께 정리해줘. 기하평균과 구분해줘.","products":["SB17"],"jurisdictions":["EU"]}
+  ]
+}

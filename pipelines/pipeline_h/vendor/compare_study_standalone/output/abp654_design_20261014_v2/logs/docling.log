@@ -1,0 +1,21 @@
+Skip loading CUDA and cuDNN DLLs since torch is imported.
+Loading weights:   0%|          | 0/770 [00:00<?, ?it/s]Loading weights:  39%|███▊      | 298/770 [00:00<00:00, 2973.98it/s]Loading weights: 100%|██████████| 770/770 [00:00<00:00, 4428.92it/s]
+Loading weights:   0%|          | 0/770 [00:00<?, ?it/s]Loading weights:  38%|███▊      | 294/770 [00:00<00:00, 2893.42it/s]Loading weights: 100%|██████████| 770/770 [00:00<00:00, 4326.73it/s]
+[INFO] 2026-10-14 04:28:07,177 [RapidOCR] base.py:23: Using engine_name: onnxruntime
+[INFO] 2026-10-14 04:28:07,178 [RapidOCR] main.py:63: Using C:\Users\Admin\Documents\biosimilar_collection\compare_study\bench\models\docling\RapidOcr\PP-OCRv6_det_small.onnx
+[INFO] 2026-10-14 04:28:07,229 [RapidOCR] base.py:23: Using engine_name: onnxruntime
+[INFO] 2026-10-14 04:28:07,230 [RapidOCR] main.py:63: Using C:\Users\Admin\Documents\biosimilar_collection\compare_study\bench\models\docling\RapidOcr\ch_ppocr_mobile_v2.0_cls_mobile.onnx
+[INFO] 2026-10-14 04:28:07,263 [RapidOCR] base.py:23: Using engine_name: onnxruntime
+[INFO] 2026-10-14 04:28:07,263 [RapidOCR] main.py:63: Using C:\Users\Admin\Documents\biosimilar_collection\compare_study\bench\models\docling\RapidOcr\PP-OCRv6_rec_small.onnx
+DOC-cuda ABP654_EMA_p036_037_482c552f08 2 pages 5.8s
+DOC-cuda ABP654_EMA_p044_fe50ff21bf 1 pages 3.1s
+DOC-cuda ABP654_EMA_p050_8097f397b0 1 pages 0.5s
+DOC-cuda ABP654_EMA_p053_4ec9da31e6 1 pages 1.6s
+DOC-cuda ABP654_FDA_ChemR_p006_c5f95fd27f 1 pages 5.3s
+DOC-cuda ABP654_FDA_ChemR_p012_013_656e857081 2 pages 15.7s
+DOC-cuda ABP654_FDA_ChemR_p033_f69da8cc31 1 pages 1.8s
+DOC-cuda ABP654_FDA_Multi_p035_165ac97194 1 pages 0.5s
+DOC-cuda ABP654_HC_p028_c68021cb9c 1 pages 0.7s
+DOC-cuda ABP654_HC_p030_7bc86aef67 1 pages 0.1s
+DOC-cuda ABP654_HC_p034_035_557af5cb1e 2 pages 1.5s
+DOC-cuda ABP654_HC_p038_89c4e60a44 1 pages 0.8s

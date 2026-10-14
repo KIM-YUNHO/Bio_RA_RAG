@@ -1,0 +1,130 @@
+{
+  "cases": {
+    "design_control": {
+      "controller_seconds": 84.77541609999025,
+      "total_seconds": 84.77541609999025,
+      "processing_seconds": 48.54570329998387,
+      "calls": 4,
+      "accepted_calls": 4,
+      "timing_basis": "shared common measured stages + independently measured branch"
+    },
+    "design_improved": {
+      "controller_seconds": 107.68763269999181,
+      "total_seconds": 107.68763269999181,
+      "processing_seconds": 71.7127050999843,
+      "calls": 9,
+      "accepted_calls": 8,
+      "timing_basis": "shared common measured stages + independently measured branch"
+    }
+  },
+  "stages": {
+    "docling_controller_seconds": 51.335382299999765,
+    "layout_render_seconds": 1.1802895000000717,
+    "detector_controller_seconds": 11.846373399996082,
+    "design_control": {
+      "selection_seconds": 0.005945799995970447,
+      "crop_seconds": 0.19771899999614106,
+      "vlm_process_wall_seconds": 20.165756700000202,
+      "merge_write_seconds": 0.04394940000202041,
+      "vlm": {
+        "startup_seconds": 11.464873400000215,
+        "startup": {
+          "model_load_seconds": 11.45604650000314,
+          "development_warmup_seconds": 0,
+          "settings": {
+            "paddle": {
+              "python": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\.venv-paddle\\Scripts\\python.exe",
+              "layout_model_dir": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\models\\paddle\\PP-DocLayoutV3_safetensors",
+              "vl_model_dir": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\models\\paddle\\PaddleOCR-VL-1.6",
+              "device": "gpu:0",
+              "dpi": 150,
+              "max_new_tokens": 4096,
+              "timeout_s": 600,
+              "chart_recognition": false,
+              "image_ocr": true,
+              "release_qwen_before_parser": false,
+              "native_text": true,
+              "vl_rec_batch_size": 1,
+              "parser_backend": "paddle_vl",
+              "light_det_model_dir": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\models\\paddle\\PP-OCRv5_mobile_det_safetensors",
+              "light_rec_model_dir": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\models\\paddle\\latin_PP-OCRv5_mobile_rec_safetensors"
+            },
+            "qwen": {
+              "endpoint": "http://127.0.0.1:11434",
+              "model": "qwen3.5:9b",
+              "timeout_s": 1800,
+              "num_ctx": 16384,
+              "num_predict": -1,
+              "crop_padding_px": 12,
+              "crop_dpi": 300,
+              "max_image_edge": 1800,
+              "keep_alive": "5m"
+            },
+            "schema_version": "ra-extraction-1"
+          },
+          "gpu_verification": "benchmark worker verifies all torch model parameters are CUDA",
+          "ocr_recognition_batch_size": null,
+          "ocr_batch_note": "benchmark runtime compatibility fix; production config unchanged",
+          "load_note": "layout lazy-load occurs during the first input page; no fixed development PDF is used"
+        },
+        "processing_seconds": 7.427480300000752,
+        "calls": 4,
+        "accepted": 4
+      }
+    },
+    "design_improved": {
+      "selection_seconds": 0.43965359999856446,
+      "crop_seconds": 0.4368389000010211,
+      "vlm_process_wall_seconds": 42.34696779999649,
+      "merge_write_seconds": 0.10212719999981346,
+      "vlm": {
+        "startup_seconds": 11.07749600000534,
+        "startup": {
+          "model_load_seconds": 11.074443199999223,
+          "development_warmup_seconds": 0,
+          "settings": {
+            "paddle": {
+              "python": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\.venv-paddle\\Scripts\\python.exe",
+              "layout_model_dir": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\models\\paddle\\PP-DocLayoutV3_safetensors",
+              "vl_model_dir": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\models\\paddle\\PaddleOCR-VL-1.6",
+              "device": "gpu:0",
+              "dpi": 150,
+              "max_new_tokens": 4096,
+              "timeout_s": 600,
+              "chart_recognition": false,
+              "image_ocr": true,
+              "release_qwen_before_parser": false,
+              "native_text": true,
+              "vl_rec_batch_size": 1,
+              "parser_backend": "paddle_vl",
+              "light_det_model_dir": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\models\\paddle\\PP-OCRv5_mobile_det_safetensors",
+              "light_rec_model_dir": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\models\\paddle\\latin_PP-OCRv5_mobile_rec_safetensors"
+            },
+            "qwen": {
+              "endpoint": "http://127.0.0.1:11434",
+              "model": "qwen3.5:9b",
+              "timeout_s": 1800,
+              "num_ctx": 16384,
+              "num_predict": -1,
+              "crop_padding_px": 12,
+              "crop_dpi": 300,
+              "max_image_edge": 1800,
+              "keep_alive": "5m"
+            },
+            "schema_version": "ra-extraction-1"
+          },
+          "gpu_verification": "benchmark worker verifies all torch model parameters are CUDA",
+          "ocr_recognition_batch_size": null,
+          "ocr_batch_note": "benchmark runtime compatibility fix; production config unchanged",
+          "load_note": "layout lazy-load occurs during the first input page; no fixed development PDF is used"
+        },
+        "processing_seconds": 29.86347659999592,
+        "calls": 9,
+        "accepted": 9
+      }
+    },
+    "experiment_wall_seconds": 128.68310550000024
+  },
+  "timing_basis": "shared measured common stages + each separately measured branch including VLM load/exit",
+  "experiment_wall_seconds": 128.68310550000024
+}

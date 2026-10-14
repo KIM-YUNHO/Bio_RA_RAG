@@ -1,0 +1,874 @@
+{
+ "labels": [
+  "4.9.3",
+  "4.9.4",
+  "4.9.4-off"
+ ],
+ "activation": {
+  "cmax_mean_sd": {
+   "4.9.3": {
+    "tables": 1,
+    "scopes": 1
+   },
+   "4.9.4": {
+    "tables": 5,
+    "scopes": 5
+   },
+   "4.9.4-off": {
+    "tables": 0,
+    "scopes": 0
+   }
+  },
+  "aucinf_mean_sd": {
+   "4.9.3": {
+    "tables": 1,
+    "scopes": 1
+   },
+   "4.9.4": {
+    "tables": 1,
+    "scopes": 1
+   },
+   "4.9.4-off": {
+    "tables": 0,
+    "scopes": 0
+   }
+  },
+  "auclast_mean_sd": {
+   "4.9.3": {
+    "tables": 1,
+    "scopes": 1
+   },
+   "4.9.4": {
+    "tables": 1,
+    "scopes": 1
+   },
+   "4.9.4-off": {
+    "tables": 0,
+    "scopes": 0
+   }
+  },
+  "tmax_median_range": {
+   "4.9.3": {
+    "tables": 1,
+    "scopes": 1
+   },
+   "4.9.4": {
+    "tables": 6,
+    "scopes": 6
+   },
+   "4.9.4-off": {
+    "tables": 0,
+    "scopes": 0
+   }
+  },
+  "thalf_mean_sd": {
+   "4.9.3": {
+    "tables": 1,
+    "scopes": 1
+   },
+   "4.9.4": {
+    "tables": 5,
+    "scopes": 5
+   },
+   "4.9.4-off": {
+    "tables": 0,
+    "scopes": 0
+   }
+  },
+  "cmax_geometric_mean": {
+   "4.9.3": {
+    "tables": 6,
+    "scopes": 4
+   },
+   "4.9.4": {
+    "tables": 6,
+    "scopes": 4
+   },
+   "4.9.4-off": {
+    "tables": 0,
+    "scopes": 0
+   }
+  },
+  "aucinf_geometric_mean": {
+   "4.9.3": {
+    "tables": 1,
+    "scopes": 1
+   },
+   "4.9.4": {
+    "tables": 5,
+    "scopes": 4
+   },
+   "4.9.4-off": {
+    "tables": 0,
+    "scopes": 0
+   }
+  }
+ },
+ "targets": {
+  "paired/T01": {
+   "4.9.3": {
+    "5": [
+     1
+    ],
+    "12": [
+     1
+    ]
+   },
+   "4.9.4": {
+    "5": [
+     1
+    ],
+    "12": [
+     1
+    ]
+   },
+   "4.9.4-off": {
+    "5": [
+     null
+    ],
+    "12": [
+     9
+    ]
+   }
+  },
+  "paired/T02": {
+   "4.9.3": {
+    "5": [
+     1
+    ],
+    "12": [
+     1
+    ]
+   },
+   "4.9.4": {
+    "5": [
+     1
+    ],
+    "12": [
+     1
+    ]
+   },
+   "4.9.4-off": {
+    "5": [
+     null
+    ],
+    "12": [
+     8
+    ]
+   }
+  },
+  "paired/T03": {
+   "4.9.3": {
+    "5": [
+     1
+    ],
+    "12": [
+     1
+    ]
+   },
+   "4.9.4": {
+    "5": [
+     1
+    ],
+    "12": [
+     1
+    ]
+   },
+   "4.9.4-off": {
+    "5": [
+     2
+    ],
+    "12": [
+     2
+    ]
+   }
+  },
+  "paired/T04": {
+   "4.9.3": {
+    "5": [
+     1
+    ],
+    "12": [
+     1
+    ]
+   },
+   "4.9.4": {
+    "5": [
+     1
+    ],
+    "12": [
+     1
+    ]
+   },
+   "4.9.4-off": {
+    "5": [
+     null
+    ],
+    "12": [
+     6
+    ]
+   }
+  },
+  "table_focus/T01": {
+   "4.9.3": {
+    "5": [
+     1
+    ],
+    "12": [
+     1
+    ]
+   },
+   "4.9.4": {
+    "5": [
+     1
+    ],
+    "12": [
+     1
+    ]
+   },
+   "4.9.4-off": {
+    "5": [
+     null
+    ],
+    "12": [
+     9
+    ]
+   }
+  },
+  "table_focus/T02": {
+   "4.9.3": {
+    "5": [
+     1
+    ],
+    "12": [
+     1
+    ]
+   },
+   "4.9.4": {
+    "5": [
+     1
+    ],
+    "12": [
+     1
+    ]
+   },
+   "4.9.4-off": {
+    "5": [
+     null
+    ],
+    "12": [
+     8
+    ]
+   }
+  },
+  "table_focus/T03": {
+   "4.9.3": {
+    "5": [
+     1
+    ],
+    "12": [
+     1
+    ]
+   },
+   "4.9.4": {
+    "5": [
+     1
+    ],
+    "12": [
+     1
+    ]
+   },
+   "4.9.4-off": {
+    "5": [
+     2
+    ],
+    "12": [
+     2
+    ]
+   }
+  },
+  "table_focus/T04": {
+   "4.9.3": {
+    "5": [
+     1
+    ],
+    "12": [
+     1
+    ]
+   },
+   "4.9.4": {
+    "5": [
+     1
+    ],
+    "12": [
+     1
+    ]
+   },
+   "4.9.4-off": {
+    "5": [
+     null
+    ],
+    "12": [
+     6
+    ]
+   }
+  }
+ },
+ "wording": {
+  "T01.1": {
+   "request": "EMA SB17-1001 PK 분석표에서 SB17·EU Stelara·US Stelara의 Cmax를 확인해줘. 각 군의 산술평균과 표준편차를 원문 단위와 함께 정리하고 중앙값이나 기하평균과 구분해줘.",
+   "4.9.3": {
+    "requested": [],
+    "5": [
+     null
+    ],
+    "12": [
+     9
+    ]
+   },
+   "4.9.4": {
+    "requested": [
+     [
+      "cmax",
+      "mean"
+     ],
+     [
+      "cmax",
+      "sd"
+     ]
+    ],
+    "5": [
+     1
+    ],
+    "12": [
+     1
+    ]
+   },
+   "4.9.4-off": {
+    "requested": [
+     [
+      "cmax",
+      "mean"
+     ],
+     [
+      "cmax",
+      "sd"
+     ]
+    ],
+    "5": [
+     null
+    ],
+    "12": [
+     9
+    ]
+   }
+  },
+  "T01.2": {
+   "request": "EMA SB17-1001 PK 분석표에서 산술평균과 표준편차로 SB17·EU Stelara·US Stelara의 최고혈중농도를 정리해줘. 기하평균이 아닌 값이어야 해.",
+   "4.9.3": {
+    "requested": [],
+    "5": [
+     null
+    ],
+    "12": [
+     9
+    ]
+   },
+   "4.9.4": {
+    "requested": [
+     [
+      "cmax",
+      "mean"
+     ],
+     [
+      "cmax",
+      "sd"
+     ]
+    ],
+    "5": [
+     1
+    ],
+    "12": [
+     1
+    ]
+   },
+   "4.9.4-off": {
+    "requested": [
+     [
+      "cmax",
+      "mean"
+     ],
+     [
+      "cmax",
+      "sd"
+     ]
+    ],
+    "5": [
+     null
+    ],
+    "12": [
+     9
+    ]
+   }
+  },
+  "T01.3": {
+   "request": "From the EMA SB17-1001 PK table, give the arithmetic mean and SD of Cmax for SB17, EU Stelara and US Stelara, not the median or geometric mean.",
+   "4.9.3": {
+    "requested": [
+     [
+      "cmax",
+      "geometric_mean"
+     ],
+     [
+      "cmax",
+      "median"
+     ]
+    ],
+    "5": [
+     null
+    ],
+    "12": [
+     9
+    ]
+   },
+   "4.9.4": {
+    "requested": [
+     [
+      "cmax",
+      "mean"
+     ],
+     [
+      "cmax",
+      "sd"
+     ]
+    ],
+    "5": [
+     1
+    ],
+    "12": [
+     1
+    ]
+   },
+   "4.9.4-off": {
+    "requested": [
+     [
+      "cmax",
+      "mean"
+     ],
+     [
+      "cmax",
+      "sd"
+     ]
+    ],
+    "5": [
+     null
+    ],
+    "12": [
+     9
+    ]
+   }
+  },
+  "T02.1": {
+   "request": "EMA ABP 654의 Study 20190230 PK 요약표에서 ABP 654군의 Tmax와 반감기를 확인해줘. Tmax는 중앙값·범위, 반감기는 평균·표준편차로 단위와 함께 정리해줘.",
+   "4.9.3": {
+    "requested": [],
+    "5": [
+     null
+    ],
+    "12": [
+     8
+    ]
+   },
+   "4.9.4": {
+    "requested": [
+     [
+      "t1/2",
+      "mean"
+     ],
+     [
+      "t1/2",
+      "sd"
+     ],
+     [
+      "tmax",
+      "median"
+     ],
+     [
+      "tmax",
+      "range"
+     ]
+    ],
+    "5": [
+     1
+    ],
+    "12": [
+     1
+    ]
+   },
+   "4.9.4-off": {
+    "requested": [
+     [
+      "t1/2",
+      "mean"
+     ],
+     [
+      "t1/2",
+      "sd"
+     ],
+     [
+      "tmax",
+      "median"
+     ],
+     [
+      "tmax",
+      "range"
+     ]
+    ],
+    "5": [
+     null
+    ],
+    "12": [
+     8
+    ]
+   }
+  },
+  "T02.2": {
+   "request": "In the EMA ABP 654 Study 20190230 PK summary table, report the median and range of Tmax and the mean and SD of terminal half-life for the ABP 654 group.",
+   "4.9.3": {
+    "requested": [
+     [
+      "tmax",
+      "mean"
+     ],
+     [
+      "tmax",
+      "sd"
+     ]
+    ],
+    "5": [
+     null
+    ],
+    "12": [
+     8
+    ]
+   },
+   "4.9.4": {
+    "requested": [
+     [
+      "t1/2",
+      "mean"
+     ],
+     [
+      "t1/2",
+      "sd"
+     ],
+     [
+      "tmax",
+      "median"
+     ],
+     [
+      "tmax",
+      "range"
+     ]
+    ],
+    "5": [
+     1
+    ],
+    "12": [
+     1
+    ]
+   },
+   "4.9.4-off": {
+    "requested": [
+     [
+      "t1/2",
+      "mean"
+     ],
+     [
+      "t1/2",
+      "sd"
+     ],
+     [
+      "tmax",
+      "median"
+     ],
+     [
+      "tmax",
+      "range"
+     ]
+    ],
+    "5": [
+     null
+    ],
+    "12": [
+     8
+    ]
+   }
+  },
+  "T03.1": {
+   "request": "EMA SB17-1001 PK 분석표에서 각 군의 Cmax 중앙값만 ng/mL 단위로 알려줘. 산술평균은 필요 없어.",
+   "4.9.3": {
+    "requested": [
+     [
+      "cmax",
+      "median"
+     ]
+    ],
+    "5": [
+     1
+    ],
+    "12": [
+     1
+    ]
+   },
+   "4.9.4": {
+    "requested": [
+     [
+      "cmax",
+      "median"
+     ]
+    ],
+    "5": [
+     1
+    ],
+    "12": [
+     1
+    ]
+   },
+   "4.9.4-off": {
+    "requested": [
+     [
+      "cmax",
+      "median"
+     ]
+    ],
+    "5": [
+     2
+    ],
+    "12": [
+     2
+    ]
+   }
+  },
+  "T03.2": {
+   "request": "Median Cmax (ng/mL) for SB17, EU Stelara and US Stelara in the EMA SB17-1001 PK table, as opposed to the arithmetic mean.",
+   "4.9.3": {
+    "requested": [
+     [
+      "cmax",
+      "mean"
+     ]
+    ],
+    "5": [
+     1
+    ],
+    "12": [
+     1
+    ]
+   },
+   "4.9.4": {
+    "requested": [
+     [
+      "cmax",
+      "median"
+     ]
+    ],
+    "5": [
+     1
+    ],
+    "12": [
+     1
+    ]
+   },
+   "4.9.4-off": {
+    "requested": [
+     [
+      "cmax",
+      "median"
+     ]
+    ],
+    "5": [
+     2
+    ],
+    "12": [
+     2
+    ]
+   }
+  },
+  "T04.1": {
+   "request": "EMA ABP 654 Study 20190230 PK 요약표에서 US ustekinumab군과 EU ustekinumab군의 t½ 평균·표준편차와 Tmax 중앙값·범위를 시간 단위로 확인해줘.",
+   "4.9.3": {
+    "requested": [
+     [
+      "tmax",
+      "median"
+     ],
+     [
+      "tmax",
+      "range"
+     ]
+    ],
+    "5": [
+     1
+    ],
+    "12": [
+     1
+    ]
+   },
+   "4.9.4": {
+    "requested": [
+     [
+      "t1/2",
+      "mean"
+     ],
+     [
+      "t1/2",
+      "sd"
+     ],
+     [
+      "tmax",
+      "median"
+     ],
+     [
+      "tmax",
+      "range"
+     ]
+    ],
+    "5": [
+     1
+    ],
+    "12": [
+     1
+    ]
+   },
+   "4.9.4-off": {
+    "requested": [
+     [
+      "t1/2",
+      "mean"
+     ],
+     [
+      "t1/2",
+      "sd"
+     ],
+     [
+      "tmax",
+      "median"
+     ],
+     [
+      "tmax",
+      "range"
+     ]
+    ],
+    "5": [
+     null
+    ],
+    "12": [
+     6
+    ]
+   }
+  },
+  "T04.2": {
+   "request": "For the US and EU ustekinumab groups in the EMA ABP 654 Study 20190230 PK summary table, give the median and range of Tmax and the mean and SD of t1/2 in hours.",
+   "4.9.3": {
+    "requested": [
+     [
+      "tmax",
+      "mean"
+     ],
+     [
+      "tmax",
+      "sd"
+     ]
+    ],
+    "5": [
+     null
+    ],
+    "12": [
+     6
+    ]
+   },
+   "4.9.4": {
+    "requested": [
+     [
+      "t1/2",
+      "mean"
+     ],
+     [
+      "t1/2",
+      "sd"
+     ],
+     [
+      "tmax",
+      "median"
+     ],
+     [
+      "tmax",
+      "range"
+     ]
+    ],
+    "5": [
+     1
+    ],
+    "12": [
+     1
+    ]
+   },
+   "4.9.4-off": {
+    "requested": [
+     [
+      "t1/2",
+      "mean"
+     ],
+     [
+      "t1/2",
+      "sd"
+     ],
+     [
+      "tmax",
+      "median"
+     ],
+     [
+      "tmax",
+      "range"
+     ]
+    ],
+    "5": [
+     null
+    ],
+    "12": [
+     6
+    ]
+   }
+  }
+ },
+ "unchanged_groups": {
+  "4.9.3 vs 4.9.4": {
+   "same": 54,
+   "total": 54,
+   "changed": []
+  },
+  "4.9.3 vs 4.9.4-off": {
+   "same": 38,
+   "total": 54,
+   "changed": [
+    "paired/T01@k12",
+    "paired/T01@k5",
+    "paired/T02@k12",
+    "paired/T02@k5",
+    "paired/T03@k12",
+    "paired/T03@k5",
+    "paired/T04@k12",
+    "paired/T04@k5",
+    "table_focus/T01@k12",
+    "table_focus/T01@k5",
+    "table_focus/T02@k12",
+    "table_focus/T02@k5",
+    "table_focus/T03@k12",
+    "table_focus/T03@k5",
+    "table_focus/T04@k12",
+    "table_focus/T04@k5"
+   ]
+  }
+ }
+}

@@ -1,0 +1,156 @@
+{
+  "updated_at": "2026-10-09T21:53:14.535106+00:00",
+  "approved_documents": 92,
+  "products": 5,
+  "protected_excluded_documents": 9,
+  "release": "data/rag/releases/rag_context_update_2026-10-10_v1",
+  "chunks": 10083,
+  "index_complete": true,
+  "ocr_repeated": 0,
+  "complex_qwen_inference_complete": 39,
+  "tests": 513,
+  "tests_passed": true,
+  "actual_api_attempts_today": 60,
+  "source_adjudication": "data/runs/rag_context_update_2026-10-10_v1/source_adjudication.json",
+  "fresh_api_verification_remaining": [],
+  "service_started": false,
+  "active_index_promoted": false,
+  "fresh_api_partial_cases": {},
+  "request_completeness_guard_verified": true,
+  "request_guard_new_api_calls": 2,
+  "remaining_quality_work": [
+    "Verbose/duplicated condition labels and interval qualifications across weight groups",
+    "Some EU/US treatment column labels additionally shown as row_header in count answers",
+    "Unidentified study headings can retain prior study ancestor metadata",
+    "Held structure/figure semantics and unseen EMA/FDA/HC transfer evaluation remain separate"
+  ],
+  "original_complex_qwen_table_outputs_not_adopted": 22,
+  "primary_goal": "Preprocessing pipeline and approved corpus through embeddings",
+  "primary_goal_execution_complete": true,
+  "primary_goal_quality_state": "complete_with_explicit_quality_review",
+  "preprocessing_completion_manifest": "data/runs/rag_context_update_2026-10-10_v1/completion.json",
+  "parsed_pages": 4160,
+  "vectors": 10083,
+  "embedding_dimension": 1024,
+  "source_grid_recovered_tables": 51,
+  "source_grid_indexed_tables": 44,
+  "source_grid_cells": 1583,
+  "new_ocr_calls": 0,
+  "new_qwen_calls": 0,
+  "new_openai_calls": 30,
+  "quality_review": {
+    "review_required_units": 535,
+    "description_review_required_units": 709,
+    "excluded_units": 8873,
+    "exclusion_reasons": {
+      "repeated_page_furniture": 6906,
+      "retrieval_excluded_by_preprocessing": 1951,
+      "represented_by_logical_figure_parent": 962,
+      "empty_representation": 930,
+      "representation_requires_review": 535,
+      "continuation_semantics_require_review": 136,
+      "oversized_table_with_merged_cells": 16
+    },
+    "finalized_structure_review_tables": 20,
+    "model_stage_nonterminal": 0,
+    "ordinary_ocr_pending": 0
+  },
+  "previous_api_results_are_historical": true,
+  "latest_scope_context_audit": "data/runs/rag_context_update_2026-10-10_v1/retrieval_audit",
+  "requested_next_steps_completed": [
+    1,
+    2
+  ],
+  "scope_context_report": "docs/rag/CONTEXT_UPDATE_API_EVAL_2026-10-10.md",
+  "current_release_default_search": {
+    "documents": 53,
+    "chunks": 8330,
+    "BAT2206_default_chunks": 430
+  },
+  "current_release_offline_retrieval": {
+    "questions": 24,
+    "answerable": 23,
+    "strict_page_hit": 19,
+    "gold_page_supplied": 20,
+    "cached_query_understanding": true,
+    "new_api_calls": 0,
+    "end_to_end_accuracy": false
+  },
+  "default_search_policy_verified": true,
+  "default_search_policy_resolved": true,
+  "current_release_new_answer_generation_evaluated": true,
+  "latest_api_evaluation": "data/runs/rag_context_update_2026-10-10_v1/evaluation_completion.json",
+  "api_evaluation_stages": [
+    {
+      "stage": "openai_evaluation",
+      "completed_sha256": "090d4a561e9e77d4f85030075eccd9768825b4a54e77ddfb7268ed94173a3b5b",
+      "frozen_sha256": "0b03071735b7162c79c45a3c6df672bf7a83e89ca70a24a43ad2ffab9e8fa2f5",
+      "cases": 12,
+      "usage": {
+        "attempts": 25,
+        "prompt_tokens": 92969,
+        "completion_tokens": 5885,
+        "max_new_attempts": 32
+      },
+      "understanding_cache_reused": false
+    },
+    {
+      "stage": "openai_value_followup_v2",
+      "completed_sha256": "feb6a4d52aa69866cc505acecdc3daf87b9cc0f6dc49bb16bd720460b07e67d0",
+      "frozen_sha256": "0e343b2a4b50ee836af94117b58f64cb30702a44fc0cc35abb916d41e7dc23d2",
+      "cases": 3,
+      "usage": {
+        "attempts": 3,
+        "prompt_tokens": 13913,
+        "completion_tokens": 904,
+        "max_new_attempts": 7
+      },
+      "understanding_cache_reused": true
+    },
+    {
+      "stage": "openai_count_followup_v3",
+      "completed_sha256": "4565610f21b7f089c8a595ab2075ca8fc955b85573b1282c403101c009ecc4fe",
+      "frozen_sha256": "61d4afb5c5ee0018e3679568d63fdd42168d3430147243f24d347dfc71acf1a6",
+      "cases": 1,
+      "usage": {
+        "attempts": 1,
+        "prompt_tokens": 4747,
+        "completion_tokens": 67,
+        "max_new_attempts": 4
+      },
+      "understanding_cache_reused": true
+    },
+    {
+      "stage": "openai_count_followup_v4",
+      "completed_sha256": "2cf9dcd8998319e39908ba2be1a84535738e6a3494a853a58db08ea23b7997b0",
+      "frozen_sha256": "64c7d346d36157a5963ace43d7615cbbfc0746b4baf27be444eaf4b8bedf85b8",
+      "cases": 1,
+      "usage": {
+        "attempts": 1,
+        "prompt_tokens": 4655,
+        "completion_tokens": 231,
+        "max_new_attempts": 3
+      },
+      "understanding_cache_reused": true
+    }
+  ],
+  "latest_api_core_source_review": {
+    "first_stage_answerable_core_complete": 8,
+    "first_stage_answerable_total": 11,
+    "first_stage_safe_abstention": 1,
+    "selective_followup_cases": [
+      "Q002",
+      "Q008",
+      "Q012"
+    ],
+    "single_code_full_suite": false
+  },
+  "previous_status_snapshot": "data/runs/rag_context_update_2026-10-10_v1/previous_latest_update_status.json",
+  "previous_source_adjudication": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\data\\runs\\corpus_update_2026-10-09\\updated_source_adjudication_v3\\adjudication.json",
+  "request_guard_api_verification": {
+    "kind": "per_arm_PKS_coverage",
+    "new_calls": 2,
+    "final_covered": 3,
+    "required": 3
+  }
+}

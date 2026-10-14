@@ -1,0 +1,416 @@
+{
+  "reviewer": "Codex implementation agent, source-based review; not independent human expert grading",
+  "model": "gpt-5.6-luna",
+  "pipeline_version": "ra-research-rag-4.9.0",
+  "independent_holdout": false,
+  "rubric_sources": {
+    "cases_sha256": "3c31e7e9b8387f4ac78e5a945a99390b8d645d54d28cfa6d509b96b3e435f5e2",
+    "prior_review_sha256": "1806242408a86234b598f2abcd76ae8b5068fbd576dc754b83cf67af995f9818"
+  },
+  "policy": {
+    "correct": "All frozen requested facets supplied with correct values, conditions, source identities and no material false claim.",
+    "partial": "Some requested facets supplied correctly, but at least one required facet omitted.",
+    "no_answer": "No requested core fact/value supplied; related background alone does not count.",
+    "incorrect": "A material incorrect final assertion; raw rejected drafts do not count as delivered errors.",
+    "runtime_status": "Not used as the correctness label.",
+    "population_size": "C02 includes 238 subjects in its pre-existing frozen required_facets; this is stricter than merely identifying healthy adult men/women."
+  },
+  "counts": {
+    "baseline": {
+      "correct": 8,
+      "no_answer": 4,
+      "partial": 5,
+      "safe_control": 2
+    },
+    "v2": {
+      "correct": 11,
+      "no_answer": 3,
+      "partial": 3,
+      "safe_control": 2
+    }
+  },
+  "positive_denominator": 17,
+  "control_denominator": 2,
+  "rows": [
+    {
+      "case": "E01",
+      "question": "EMA SB17-1001 건강인 PK 시험에서 실제 사용한 용량과 투여 경로를 원문으로 확인해줘.",
+      "baseline_verdict": "correct",
+      "v2_verdict": "correct",
+      "reason": "Both supply actual dose and SC route with own study source.",
+      "reports": {
+        "baseline": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\baseline\\E01.json",
+          "sha256": "d7b514640cf108fc31678fcd9cc3a1065e629f48ebeed1bc42ff61c3779197db",
+          "runtime_status": "answered"
+        },
+        "v2": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\v2\\E01.json",
+          "sha256": "936d79599c762c7c4dfa13d7514283138edb64119cc410e28a94ed7d8fd98f06",
+          "runtime_status": "answered"
+        }
+      },
+      "reason_ko": "양쪽 모두 실제 용량과 피하 경로를 자체 시험 원문으로 제시."
+    },
+    {
+      "case": "T01",
+      "question": "EMA SB17-1001 PK 분석표에서 SB17·EU Stelara·US Stelara의 Cmax 산술평균과 표준편차를 각각 원문 단위와 함께 정리해줘. 중앙값이나 기하평균과 구분해줘.",
+      "baseline_verdict": "no_answer",
+      "v2_verdict": "no_answer",
+      "reason": "Neither returns the requested arithmetic means/SDs. Related geometric LSMean/context statements are not counted as an answer to the requested statistics. v2 target table body is review-excluded.",
+      "reports": {
+        "baseline": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\baseline\\T01.json",
+          "sha256": "8b5e5134d3a3d81af6c3fa2161a8dad122a54bd751767622f54080fc4ba4a399",
+          "runtime_status": "partial"
+        },
+        "v2": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\v2\\T01.json",
+          "sha256": "6f16b2f23e43bc999053897fc94efaae47cbf2593af57507892a2a4197f07704",
+          "runtime_status": "partial"
+        }
+      },
+      "reason_ko": "요청한 산술평균·SD 미제시. 다른 분석표의 기하 LSMean 설명은 요청 핵심값으로 계산하지 않음."
+    },
+    {
+      "case": "T02",
+      "question": "EMA ABP 654의 Study 20190230 PK 요약표에서 ABP 654군의 Tmax 중앙값·범위와 t1/2 평균·표준편차를 단위와 함께 확인해줘. 두 통계량을 구분해줘.",
+      "baseline_verdict": "no_answer",
+      "v2_verdict": "correct",
+      "reason": "v2 supplies ABP Tmax median/range and half-life mean/SD with hours; values/roles match original PDF Table 4. Baseline has no final claim.",
+      "reports": {
+        "baseline": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\baseline\\T02.json",
+          "sha256": "4c87c0e946483a0c599247ad9b81f0dfcfebf1bc190e5dddb88416c62827c34d",
+          "runtime_status": "not_found"
+        },
+        "v2": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\v2\\T02.json",
+          "sha256": "ed495a497d46c0392badb706307c49710cadbc786c4329b23d6f5184d8370a13",
+          "runtime_status": "partial"
+        }
+      },
+      "reason_ko": "v2에서 ABP군 Tmax 중앙값·범위와 반감기 평균·SD 및 시간 단위를 원문 Table 4와 일치하게 제시."
+    },
+    {
+      "case": "E03",
+      "question": "EMA SB17-1001과 ABP 654 20190230의 건강인 PK 시험을 비교해줘. 각 시험의 용량·경로·비교약·설계·추적 기간을 쓰고, 체중과 BMI는 실제 분포인지 선정 기준인지 구분해줘.",
+      "baseline_verdict": "partial",
+      "v2_verdict": "partial",
+      "reason": "Baseline omits ABP follow-up duration; v2 additionally loses SB17 dose/route and eligibility criteria after citation/condition review. Relevant source text is supplied.",
+      "reports": {
+        "baseline": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\baseline\\E03.json",
+          "sha256": "3753e68c0a05cd6b5bce523fd57f6c607737463c57d83e568f03267f6a006e00",
+          "runtime_status": "partial"
+        },
+        "v2": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\v2\\E03.json",
+          "sha256": "cb6db7f1674f5b50baa6aa1d5996171eb652e8fe68338a6a614720bdeec038a9",
+          "runtime_status": "partial"
+        }
+      },
+      "reason_ko": "기존본은 ABP 추적 기간이 누락. v2는 공급된 SB17 용량·경로·선정 기준과 ABP 기간이 최종 인용·검토에서 추가 누락."
+    },
+    {
+      "case": "C03",
+      "question": "Health Canada Steqeyma(CT-P43) 제품 모노그래프의 성인 크론병 최초 정맥 유도 용량을 체중 구간별로 쓰고, 이후 피하 유지 용량과 투여 간격을 정리해줘.",
+      "baseline_verdict": "correct",
+      "v2_verdict": "correct",
+      "reason": "Both preserve all IV bands and SC schedule with qualified optional interval.",
+      "reports": {
+        "baseline": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\baseline\\C03.json",
+          "sha256": "8f93a5f5fa2f4a18cb6e56e7e9b72eb52af42f129d7573b28be550b3e45296c5",
+          "runtime_status": "partial"
+        },
+        "v2": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\v2\\C03.json",
+          "sha256": "3608201bcde1611aa591eb65514b10b8caa8b346dc3e1fedf83af974503f3608",
+          "runtime_status": "partial"
+        }
+      },
+      "reason_ko": "양쪽 모두 정맥 유도 3구간과 피하 유지 일정 및 선택적 간격의 조건을 보존."
+    },
+    {
+      "case": "U03",
+      "question": "FDA Steqeyma(CT-P43)의 2025년 5월 1일 BLA 761338/S-001 승인서에서 PREA 소아 평가 요건을 설명해줘. 일반 적용 조건과 이 보충신청이 면제되는 이유를 구분해줘.",
+      "baseline_verdict": "correct",
+      "v2_verdict": "correct",
+      "reason": "Both distinguish PREA general criteria from this supplement having no applicable trigger.",
+      "reports": {
+        "baseline": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\baseline\\U03.json",
+          "sha256": "36f91638489d7263f034fc81332133eb5618516a1d9366a946d4c36d9d17e886",
+          "runtime_status": "partial"
+        },
+        "v2": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\v2\\U03.json",
+          "sha256": "a8fb5e63b05d105ef3f9c9a251803483dbdb6c6a3bfb4dd491b648ebab5f46f3",
+          "runtime_status": "partial"
+        }
+      },
+      "reason_ko": "양쪽 모두 일반 PREA 적용 조건과 해당 보충신청의 적용 기준 미해당 사유를 구분."
+    },
+    {
+      "case": "E04",
+      "question": "EMA 바이오시밀러 지침에서 QTPP 개발 시 여러 비교약 자료를 함께 활용하는 것과, 비EEA 비교약의 분석·임상 브리징 조건을 구분해서 설명해줘. 병용 투여로 해석하지 말고 적용 조건을 써줘.",
+      "baseline_verdict": "partial",
+      "v2_verdict": "partial",
+      "reason": "Both preserve QTPP and analytical bridge conditions but withhold the requested conditional clinical PK/PD bridge explanation.",
+      "reports": {
+        "baseline": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\baseline\\E04.json",
+          "sha256": "cf8f87258fe6432277824131178adcf462be27c5e7d61ee610a70ed6b0bb9283",
+          "runtime_status": "partial"
+        },
+        "v2": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\v2\\E04.json",
+          "sha256": "b228596c705e52d4f186483ac26b51a01f86ee1bb9cdb2fd9a58fbb402c5d5ac",
+          "runtime_status": "partial"
+        }
+      },
+      "reason_ko": "QTPP와 분석 브리징 조건은 유지했지만 임상 PK/PD 브리징의 조건부·사례별 설명이 보류됨."
+    },
+    {
+      "case": "E02",
+      "question": "EMA CT-P43 1.2 건강인 PK 시험의 대상군과 Day -1 층화 조건을 정리해줘. 일본인 여부, 성별, 체중 구간을 원문 기준으로 구분해줘.",
+      "baseline_verdict": "correct",
+      "v2_verdict": "correct",
+      "reason": "Both preserve Japanese male population, Day -1 and all four weight strata.",
+      "reports": {
+        "baseline": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\baseline\\E02.json",
+          "sha256": "18202f44bf94bc007f3a97bc0046e37a2356ebba7bd326cad0563d2b244e8f1a",
+          "runtime_status": "partial"
+        },
+        "v2": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\v2\\E02.json",
+          "sha256": "584d3df3238b23116adc67f62924ff206b0e7bccade9541204abb821e3dc77c8",
+          "runtime_status": "partial"
+        }
+      },
+      "reason_ko": "양쪽 모두 일본인 남성, Day -1 및 체중 4개 층화 구간을 보존."
+    },
+    {
+      "case": "U01",
+      "question": "FDA Starjemza(BAT2206) 허가 라벨의 성인 판상 건선 용량을 알려줘. 체중 100 kg 이하와 초과, 투여 경로와 최초·유지 투여 시점을 구분해줘.",
+      "baseline_verdict": "correct",
+      "v2_verdict": "correct",
+      "reason": "Both preserve two weight bands, doses, SC route and initial/maintenance schedule.",
+      "reports": {
+        "baseline": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\baseline\\U01.json",
+          "sha256": "c5276eeb81ca3ddfac92cca35b18a418c4a228ab49250147b415317f6e49d84f",
+          "runtime_status": "partial"
+        },
+        "v2": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\v2\\U01.json",
+          "sha256": "f775f81d84622ac11f9fb8dee66ca2666cb627a1e064fefbfd9757d60ed1908b",
+          "runtime_status": "partial"
+        }
+      },
+      "reason_ko": "양쪽 모두 체중 2구간, 용량, 피하 경로와 초기·유지 시점을 보존."
+    },
+    {
+      "case": "U02",
+      "question": "FDA Yesintek(BMAB1200) 라벨에서 성인 크론병의 최초 정맥 유도 용량을 체중별로 정리하고, 이후 피하 유지 용량과 시작·반복 시점을 확인해줘.",
+      "baseline_verdict": "correct",
+      "v2_verdict": "correct",
+      "reason": "Both preserve all three IV dose bands and SC maintenance dose/start/interval.",
+      "reports": {
+        "baseline": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\baseline\\U02.json",
+          "sha256": "ab5e4ce60aa90d40b14100057079cfc40d5033236c91cfa730ab4b61502d76bd",
+          "runtime_status": "partial"
+        },
+        "v2": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\v2\\U02.json",
+          "sha256": "6ff2ab2b4c3cfc19bb51f51aee10b1bd56c89b543388162ed59b9e11405b2129",
+          "runtime_status": "partial"
+        }
+      },
+      "reason_ko": "양쪽 모두 정맥 유도 3구간과 피하 유지 용량·시작·반복 시점을 보존."
+    },
+    {
+      "case": "U04",
+      "question": "FDA 2025년 10월 Updated Recommendations for Assessing the Need for Comparative Efficacy Studies 지침의 저장된 원문에서 초안 여부와 검토 범위를 확인해줘. 최종 시행 지침인지와 구분해줘.",
+      "baseline_verdict": "partial",
+      "v2_verdict": "no_answer",
+      "reason": "Baseline identifies draft/not-for-implementation but gives no substantive assessment scope beyond the title. v2 correctly withholds two claims incorrectly assigned to ABP654 after supplementary product-context contamination.",
+      "reports": {
+        "baseline": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\baseline\\U04.json",
+          "sha256": "fd66258f02beb09880146fc8413d58d42ed20d3bdbc12a0a72ea719ee9adcdbc",
+          "runtime_status": "partial"
+        },
+        "v2": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\v2\\U04.json",
+          "sha256": "324682949177657828c213aad5297c0614013c8822f68c9dc0c8cbcdf06d251e",
+          "runtime_status": "not_found"
+        }
+      },
+      "reason_ko": "기존본은 초안·시행 상태를 답했지만 실질적 검토 범위 설명이 부족. v2는 보완 검색의 제품 자료 혼입 뒤 제품 귀속 검사에서 전부 보류."
+    },
+    {
+      "case": "C01",
+      "question": "Health Canada Pyzchiva(SB17) 제품 모노그래프에서 성인 판상 건선의 체중별 용량, 피하 투여 경로, 시작 및 유지 투여 시점을 확인해줘.",
+      "baseline_verdict": "partial",
+      "v2_verdict": "correct",
+      "reason": "Baseline omits initial and maintenance timing. v2 supplies the default schedule and alternative >100 kg dose; optional adjustment remains qualified.",
+      "reports": {
+        "baseline": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\baseline\\C01.json",
+          "sha256": "ad497257a6bdb876991b917a3415066c5aa3a62209d9e6387fcaed3aa4b99d7d",
+          "runtime_status": "partial"
+        },
+        "v2": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\v2\\C01.json",
+          "sha256": "cbfb120b93549db84e2a0c37eb2e229e1882f2603f21f56f11c2260ebf960d59",
+          "runtime_status": "partial"
+        }
+      },
+      "reason_ko": "기존본은 초기·유지 시점 누락. v2는 기본 일정과 100 kg 초과 대안 용량을 조건과 함께 제시."
+    },
+    {
+      "case": "C02",
+      "question": "Health Canada Wezlana(ABP654) SBD의 Study 20190230에서 건강인 대상군, 실제 용량·경로·비교약과 채혈 추적 시점을 정리해줘. EU-Stelara를 캐나다 기준의약품의 대리 비교약으로 인정한 조건도 구분해줘.",
+      "baseline_verdict": "partial",
+      "v2_verdict": "partial",
+      "reason": "Both supply healthy adult men/women, dose, route, comparators, Day 112 and proxy condition, but omit 238 subjects required in the frozen prior case rubric. v2 also preserves Day 1.",
+      "reports": {
+        "baseline": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\baseline\\C02.json",
+          "sha256": "b579ac00cc3ed9d6ea60922b70d8aa13cca1962e03d7d107b1c409350815c7ed",
+          "runtime_status": "partial"
+        },
+        "v2": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\v2\\C02.json",
+          "sha256": "f0759c313768be24cd009e9b4de8f1f6d03697d52e069cb12913ad8f2a97bc90",
+          "runtime_status": "partial"
+        }
+      },
+      "reason_ko": "건강한 성인 남녀, 용량·경로·비교약·Day 112·대리 비교약 조건은 제시. 사전 평가 기준의 238명은 양쪽 모두 누락."
+    },
+    {
+      "case": "C04",
+      "question": "Health Canada 2026 바이오시밀러 제출 지침은 비교 임상 효능시험을 언제 통상 필요하지 않다고 설명하나? 분석 특성평가 조건과, 시험을 포함한다면 제출자료에서 설명해야 할 내용을 구분해줘.",
+      "baseline_verdict": "correct",
+      "v2_verdict": "correct",
+      "reason": "Identical supplied guideline answer: extensive analytical characterization condition, not typically required, and role/value justification if included.",
+      "reports": {
+        "baseline": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\baseline\\C04.json",
+          "sha256": "145a26c98e987ff714557aba90b67292529a637956eab15c4d2f61605148dc28",
+          "runtime_status": "partial"
+        },
+        "v2": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\v2\\C04.json",
+          "sha256": "cbf3ad16cbb7574b7e14ea8536f4259d2e77fbc2a0a7384ba68fe813e61e16a2",
+          "runtime_status": "partial"
+        }
+      },
+      "reason_ko": "동일 입력·응답. 분석 특성평가 조건, 통상 불필요 및 제출 시 역할·가치 설명 요건을 보존."
+    },
+    {
+      "case": "T03",
+      "question": "EMA SB17-1001 PK 분석표에서 SB17·EU Stelara·US Stelara의 Cmax 중앙값을 ng/mL 단위로 각각 확인해줘. 산술평균과 구분해줘.",
+      "baseline_verdict": "no_answer",
+      "v2_verdict": "no_answer",
+      "reason": "Neither supplies the requested three medians. Background LSMean labels do not answer the requested values.",
+      "reports": {
+        "baseline": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\baseline\\T03.json",
+          "sha256": "e38b7e261eb41f896e79b8289d1516e3c97cc90a87c63ad40f0007fa52420cf7",
+          "runtime_status": "partial"
+        },
+        "v2": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\v2\\T03.json",
+          "sha256": "fe4bde1998cf8ac7a7b3a727597c427be03a5760568e16d25002b65e0e0d73b6",
+          "runtime_status": "partial"
+        }
+      },
+      "reason_ko": "양쪽 모두 요청한 세 군 중앙값을 제시하지 못함. LSMean 설명만으로는 답변 충족으로 계산하지 않음."
+    },
+    {
+      "case": "T04",
+      "question": "EMA ABP 654의 Study 20190230 PK 요약표에서 US ustekinumab군과 EU ustekinumab군의 Tmax 중앙값·범위 및 t1/2 평균·표준편차를 시간 단위로 확인해줘. 각 군과 통계량을 구분해줘.",
+      "baseline_verdict": "no_answer",
+      "v2_verdict": "correct",
+      "reason": "v2 supplies both US/EU Tmax median/ranges and half-life means/SDs with hours, matching original PDF Table 4. Baseline has no final claim.",
+      "reports": {
+        "baseline": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\baseline\\T04.json",
+          "sha256": "42b107587ad38a2dd997625939dbed5c18bd07fbe1fdb95477bc1523c0d06d56",
+          "runtime_status": "not_found"
+        },
+        "v2": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\v2\\T04.json",
+          "sha256": "13f8bb70ef8d1bb5062cfe93d412eea0374b9b2968093ceb0ce4d61f9e7955ac",
+          "runtime_status": "partial"
+        }
+      },
+      "reason_ko": "v2에서 US·EU군 Tmax 중앙값·범위와 반감기 평균·SD 및 시간 단위를 원문 Table 4와 일치하게 제시."
+    },
+    {
+      "case": "T05",
+      "question": "Health Canada Steqeyma 제품 모노그래프의 성인 크론병 정맥 유도 용량표에서 체중 55 kg 이하, 55 kg 초과 85 kg 이하, 85 kg 초과의 용량과 바이알 수를 확인해줘. 이후 피하 유지 용량과 투여 일정도 구분해줘.",
+      "baseline_verdict": "correct",
+      "v2_verdict": "correct",
+      "reason": "Both supply all three dose/vial-count bands and SC maintenance schedule.",
+      "reports": {
+        "baseline": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\baseline\\T05.json",
+          "sha256": "334a1bcb289601b0e508f2a9199f55c4f67708f7c1d7922e004e470d9a69fb13",
+          "runtime_status": "partial"
+        },
+        "v2": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\v2\\T05.json",
+          "sha256": "8cbbf357f76afabc9a306a65d26a50c6f9e44db6a51d2c84a432b3bfaf75d544",
+          "runtime_status": "partial"
+        }
+      },
+      "reason_ko": "양쪽 모두 정맥 유도 용량·바이알 수 3구간과 피하 유지 일정을 보존."
+    },
+    {
+      "case": "N01",
+      "question": "EMA SB17-1001 건강인 PK 시험에서 135 mg을 정맥 투여했다는 전제가 맞는지 확인해줘. 실제 투여 용량과 경로를 구분해줘.",
+      "baseline_verdict": "safe_control",
+      "v2_verdict": "safe_control",
+      "reason": "Neither endorses 135 mg IV; both retain the actual SC regimen. v2 distinguishes proposed IV formulation from actual trial administration.",
+      "reports": {
+        "baseline": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\baseline\\N01.json",
+          "sha256": "65c0da911f00ec2bf3a1e0a07b479e3baae41930a0f7ad2fbc316765a1cbe4f4",
+          "runtime_status": "partial"
+        },
+        "v2": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\v2\\N01.json",
+          "sha256": "da7512f6886dee7362d4cadbd9621ed6e4db2d3aabb84af4b50ac3bb0e0a8efb",
+          "runtime_status": "partial"
+        }
+      },
+      "reason_ko": "135 mg 정맥 투여 전제를 지지하지 않고 실제 단회 피하 투여를 제시."
+    },
+    {
+      "case": "N02",
+      "question": "Health Canada BAT2206 제품 모노그래프에서 건강인 PK 시험의 투여 용량을 알려줘.",
+      "baseline_verdict": "safe_control",
+      "v2_verdict": "safe_control",
+      "reason": "Both return no evidence/claims for unavailable BAT2206/Health Canada scope without borrowing another source.",
+      "reports": {
+        "baseline": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\baseline\\N02.json",
+          "sha256": "bf1aac0aac56a47b464eb288bb62af369f23887ae7075121becb01cd34fd520d",
+          "runtime_status": "not_found"
+        },
+        "v2": {
+          "path": "data\\runs\\h_v2_rag_development_2026-10-14_luna_v1\\paired\\v2\\N02.json",
+          "sha256": "eefd41a9dd3e81cba073b34c1eebbc85894e8fa6ea557a2ee069f5d01abe0b9a",
+          "runtime_status": "not_found"
+        }
+      },
+      "reason_ko": "없는 제품·기관 범위에서 다른 자료를 빌리거나 수치·주장을 만들지 않음."
+    }
+  ]
+}

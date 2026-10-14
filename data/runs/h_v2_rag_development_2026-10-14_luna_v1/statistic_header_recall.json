@@ -1,0 +1,98 @@
+{
+  "checks": [
+    {
+      "case": "T01",
+      "requested_roles": [
+        [
+          "cmax",
+          "mean"
+        ],
+        [
+          "cmax",
+          "sd"
+        ]
+      ],
+      "candidates": [
+        {
+          "chunk_id": "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0047:p5b339e01868ced72ca",
+          "document_id": "EMA:63563",
+          "pdf_page": 47
+        }
+      ]
+    },
+    {
+      "case": "T02",
+      "requested_roles": [
+        [
+          "t1/2",
+          "mean"
+        ],
+        [
+          "t1/2",
+          "sd"
+        ],
+        [
+          "tmax",
+          "median"
+        ],
+        [
+          "tmax",
+          "range"
+        ]
+      ],
+      "candidates": [
+        {
+          "chunk_id": "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:p3a85044103479150cc",
+          "document_id": "EMA:64196",
+          "pdf_page": 44
+        }
+      ]
+    },
+    {
+      "case": "T03",
+      "requested_roles": [
+        [
+          "cmax",
+          "median"
+        ]
+      ],
+      "candidates": [
+        {
+          "chunk_id": "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0047:p5b339e01868ced72ca",
+          "document_id": "EMA:63563",
+          "pdf_page": 47
+        }
+      ]
+    },
+    {
+      "case": "T04",
+      "requested_roles": [
+        [
+          "t1/2",
+          "mean"
+        ],
+        [
+          "t1/2",
+          "sd"
+        ],
+        [
+          "tmax",
+          "median"
+        ],
+        [
+          "tmax",
+          "range"
+        ]
+      ],
+      "candidates": [
+        {
+          "chunk_id": "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:p3a85044103479150cc",
+          "document_id": "EMA:64196",
+          "pdf_page": 44
+        }
+      ]
+    }
+  ],
+  "semantic_approval": false,
+  "new_provider_calls": 0
+}

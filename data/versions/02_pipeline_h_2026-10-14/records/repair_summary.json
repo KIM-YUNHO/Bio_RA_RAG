@@ -1,0 +1,17 @@
+{
+  "pipeline": "production-h-4-source-content-geometry",
+  "documents": 92,
+  "pages": 4201,
+  "assets": 70264,
+  "html_dom_units": 1022,
+  "native_geometry_recovered": 1,
+  "geometry_warning_blocks": 16,
+  "parent_run": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\pipeline_h\\runs\\ustekinumab_20261014_v1",
+  "by_asset_type": {
+    "figure": 1331,
+    "text": 65433,
+    "table": 3073,
+    "figure_group": 427
+  },
+  "figure_meaning_generation": false
+}

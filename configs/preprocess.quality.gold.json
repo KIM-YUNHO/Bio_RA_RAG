@@ -1,0 +1,501 @@
+{
+  "reference_version": "ra-visual-spotchecks-3",
+  "review_method": "agent_visual_source_check",
+  "domain_expert_reviewed": false,
+  "scope": "Literal values, selected cell associations, visual type and caption/group relations. Purposive pilot; not full table annotation or corpus accuracy.",
+  "cases": [
+    {
+      "case_id": "ema_native_pk",
+      "document_id": "EMA:63563",
+      "pdf_page": 43,
+      "kind": "table",
+      "bbox_pdf": [
+        62.64,
+        563.99,
+        532.8,
+        665.43
+      ],
+      "spotchecks": [
+        {
+          "row_prefix": [
+            "AUCinf",
+            "SB17"
+          ],
+          "cells": {
+            "2": "67",
+            "3": "62",
+            "4": "4958100",
+            "5": "0.99",
+            "6": "0.90; 1.08"
+          }
+        },
+        {
+          "row_prefix": [
+            "Cmax",
+            "EU Stelara"
+          ],
+          "cells": {
+            "3": "64",
+            "4": "5433",
+            "5": "0.90",
+            "6": "0.82; 0.98"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "ema_raster_pk",
+      "document_id": "EMA:63563",
+      "pdf_page": 45,
+      "kind": "table",
+      "bbox_pdf": [
+        62.35,
+        98.77,
+        422.35,
+        179.03
+      ],
+      "spotchecks": [
+        {
+          "row_prefix": [
+            "AUCinf",
+            "EU Stelara"
+          ],
+          "cells": {
+            "2": "67",
+            "3": "64",
+            "4": "5020000",
+            "5": "0.99",
+            "6": "0.90; 1.08"
+          }
+        },
+        {
+          "row_prefix": [
+            "Cmax",
+            "SB17"
+          ],
+          "cells": {
+            "3": "62",
+            "4": "4882",
+            "5": "0.90",
+            "6": "0.82; 0.98"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "ema_ada_start",
+      "document_id": "EMA:63563",
+      "pdf_page": 49,
+      "kind": "table",
+      "bbox_pdf": [
+        62.35,
+        302.31,
+        515.6,
+        628.46
+      ],
+      "spotchecks": [
+        {
+          "row_prefix": [
+            "NAb",
+            "Day 99",
+            "Positive"
+          ],
+          "cells": {
+            "3": "5/14",
+            "4": "35.7",
+            "5": "12/19",
+            "6": "63.2",
+            "7": "11/19",
+            "8": "57.9"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "ema_ada_fragment",
+      "document_id": "EMA:63563",
+      "pdf_page": 50,
+      "kind": "table",
+      "bbox_pdf": [
+        62.35,
+        76,
+        532,
+        142
+      ],
+      "must_review": true,
+      "spotchecks": [
+        {
+          "row_prefix": [
+            null,
+            null,
+            "Negative"
+          ],
+          "cells": {
+            "0": "",
+            "1": "",
+            "3": "9/14",
+            "4": "64.3",
+            "5": "7/19",
+            "6": "36.8",
+            "7": "8/19",
+            "8": "42.1"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "fda_scanned_redacted_formulation",
+      "document_id": "FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",
+      "pdf_page": 43,
+      "kind": "table",
+      "bbox_pdf": [
+        75,
+        213,
+        530,
+        390
+      ],
+      "must_review": true,
+      "spotchecks": [
+        {
+          "row_prefix": [
+            "Ustekinumab"
+          ],
+          "cells": {
+            "1": "45 mg",
+            "2": "90 mg"
+          },
+          "exact_row_labels": true
+        },
+        {
+          "row_prefix": [
+            "Histidine"
+          ],
+          "cells": {
+            "1": "0.095 mg",
+            "2": "0.190 mg"
+          },
+          "redacted_columns": [
+            3
+          ],
+          "exact_row_labels": true
+        }
+      ]
+    },
+    {
+      "case_id": "fda_native_serum",
+      "document_id": "FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",
+      "pdf_page": 53,
+      "kind": "table",
+      "bbox_pdf": [
+        72.22,
+        133.32,
+        532.47,
+        340.73
+      ],
+      "spotchecks": [
+        {
+          "row_prefix": [
+            "0"
+          ],
+          "cells": {
+            "1": "42.31 (830.7)",
+            "2": "41.56 (772.6)",
+            "3": "1.01"
+          }
+        },
+        {
+          "row_prefix": [
+            "12"
+          ],
+          "cells": {
+            "1": "1560.17 (43.5)",
+            "2": "1156.77 (65.4)",
+            "3": "1.35"
+          }
+        },
+        {
+          "row_prefix": [
+            "28"
+          ],
+          "cells": {
+            "1": "567.22 (70.0)",
+            "2": "408.49 (90.1)",
+            "3": "1.39"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "pmda_japanese_pk",
+      "document_id": "PMDA:3999476:review_report:530100000_30700AMX00272_A100_1",
+      "pdf_page": 12,
+      "kind": "table",
+      "bbox_pdf": [
+        56.84,
+        78.94,
+        539.68,
+        170.42
+      ],
+      "spotchecks": [
+        {
+          "row_prefix": [
+            "本剤"
+          ],
+          "cells": {
+            "1": "62",
+            "2": "5,144 ±1,401",
+            "4": "5.095 ±1.498"
+          }
+        },
+        {
+          "row_prefix": [
+            "EU"
+          ],
+          "cells": {
+            "1": "64",
+            "2": "5,273 ±1,649",
+            "4": "5.689 ±1.877"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "hc_native_dose_summary",
+      "document_id": "HC:PM:00082519",
+      "pdf_page": 27,
+      "kind": "table",
+      "bbox_pdf": [
+        72.24,
+        86.6,
+        539.89,
+        311.6
+      ],
+      "spotchecks": [
+        {
+          "row_prefix": [
+            "Cmax"
+          ],
+          "cells": {
+            "1": "22",
+            "2": "2.4 (1.0, 5.4)",
+            "3": "2.7 (±1.2)",
+            "4": "24",
+            "5": "5.3 (1.2, 12.3)",
+            "6": "6.1 (±3.6)"
+          }
+        },
+        {
+          "row_prefix": [
+            "AUC"
+          ],
+          "cells": {
+            "1": "18",
+            "2": "84.9 (31.2, 1261.9)",
+            "3": "196.7 (±298.2)"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "ema_study_design",
+      "document_id": "EMA:63563",
+      "pdf_page": 38,
+      "kind": "figure",
+      "bbox_pdf": [
+        62.35,
+        193.84,
+        516.14,
+        378.19
+      ],
+      "group_label": "Figure 2",
+      "member_count": 1,
+      "figure_assertions": {
+        "figure_type": [
+          "diagram"
+        ],
+        "x_axis": null,
+        "y_axis": null
+      }
+    },
+    {
+      "case_id": "ema_multi_panel_figure3",
+      "document_id": "EMA:63563",
+      "pdf_page": 44,
+      "kind": "figure",
+      "bbox_pdf": [
+        62.35,
+        216.65,
+        422.35,
+        589.34
+      ],
+      "group_label": "Figure 3",
+      "member_count": 2,
+      "figure_assertions": {
+        "figure_type": [
+          "chart"
+        ],
+        "panels": [
+          "linear",
+          "semi"
+        ],
+        "x_axis": [
+          "hour"
+        ],
+        "y_axis": [
+          "ng/mL"
+        ],
+        "legend": [
+          "SB17",
+          "Stelara"
+        ]
+      }
+    },
+    {
+      "case_id": "fda_serum_chart",
+      "document_id": "FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",
+      "pdf_page": 52,
+      "kind": "figure",
+      "bbox_pdf": [
+        113.21,
+        348.56,
+        498.43,
+        553.84
+      ],
+      "group_label": "Figure 4",
+      "member_count": 1,
+      "figure_assertions": {
+        "figure_type": [
+          "chart"
+        ],
+        "x_axis": [
+          "week"
+        ],
+        "y_axis": [
+          "ng/mL"
+        ],
+        "legend": [
+          "SB17",
+          "Stelara"
+        ]
+      }
+    },
+    {
+      "case_id": "pmda_serum_chart",
+      "document_id": "PMDA:3999476:review_report:530100000_30700AMX00272_A100_1",
+      "pdf_page": 12,
+      "kind": "figure",
+      "bbox_pdf": [
+        56.7,
+        199.87,
+        536.7,
+        447.37
+      ],
+      "group_label": "Figure 1",
+      "member_count": 1,
+      "figure_assertions": {
+        "figure_type": [
+          "chart"
+        ],
+        "y_axis": [
+          "μg/mL"
+        ]
+      }
+    },
+    {
+      "case_id": "pmda_pasi_chart",
+      "document_id": "PMDA:3999476:review_report:530100000_30700AMX00272_A100_1",
+      "pdf_page": 17,
+      "kind": "figure",
+      "bbox_pdf": [
+        58.35,
+        131.25,
+        538.35,
+        398.25
+      ],
+      "group_label": "Figure 2",
+      "member_count": 1,
+      "figure_assertions": {
+        "figure_type": [
+          "chart"
+        ],
+        "y_axis": [
+          "PASI",
+          "%"
+        ]
+      }
+    },
+    {
+      "case_id": "ctg_protocol_diagram",
+      "document_id": "CTG:NCT04967508:Prot_000.pdf",
+      "pdf_page": 10,
+      "kind": "figure",
+      "bbox_pdf": [
+        72,
+        117.07,
+        591.52,
+        380.47
+      ],
+      "group_label": "Figure 1",
+      "member_count": 1,
+      "figure_assertions": {
+        "figure_type": [
+          "diagram"
+        ],
+        "x_axis": [
+          "Week"
+        ],
+        "y_axis": null
+      }
+    },
+    {
+      "case_id": "ema_prose_negative",
+      "document_id": "EMA:63563",
+      "pdf_page": 35,
+      "kind": "negative",
+      "expected_visual_regions": 0
+    },
+    {
+      "case_id": "fda_scanned_prose_negative",
+      "document_id": "FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",
+      "pdf_page": 35,
+      "kind": "negative",
+      "expected_visual_regions": 0
+    },
+    {
+      "case_id": "ema_table9_continuation",
+      "document_id": "EMA:63563",
+      "kind": "group_relation",
+      "group_label": "Table 9",
+      "pdf_pages": [
+        49,
+        50
+      ],
+      "member_count": 2,
+      "relation": "data_fragment_continuation_candidate"
+    },
+    {
+      "case_id": "hc_caption_previous_page",
+      "document_id": "HC:PM:00082519",
+      "kind": "group_relation",
+      "group_label": "Table 14",
+      "pdf_pages": [
+        26,
+        27
+      ],
+      "member_count": 1,
+      "relation": "caption_on_previous_page"
+    }
+  ],
+  "document_versions": {
+    "EMA:63563": "fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76",
+    "FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR": "a45db692abad62f38efbef242f728cf2ea3fc894a48c16fbdc8201417ef4a6fa",
+    "PMDA:3999476:review_report:530100000_30700AMX00272_A100_1": "7c949a139d4981be4f21b0777fc77417fd2e4969b26a1479795eb6d67cc0e471",
+    "HC:PM:00082519": "692365dcf3c0b32a2fd7b8c43a8d99545f0a263f36f10866ce6f0fd3d4e2a403",
+    "CTG:NCT04967508:Prot_000.pdf": "4bd7732e8382c57d158e724a1fde9eea4738bae531a80d5f2064f2cf91067ede"
+  },
+  "annotation_notes": [
+    "Histidine is matched exactly to distinguish Histidine hydrochloride monohydrate.",
+    "CTG p10 has a printed Week timeline title; a diagram can have a literal time axis.",
+    "Figure 3 panel checks require scale names in the panels field; a correct caption/summary alone does not pass that field contract."
+  ]
+}

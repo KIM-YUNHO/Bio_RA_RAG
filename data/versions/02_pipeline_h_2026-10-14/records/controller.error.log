@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\Admin\Documents\biosimilar_collection\pipeline_h\repair_run.py", line 24, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--run',required=True);a=p.parse_args();main(a.run)
+                                                                                       ^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\biosimilar_collection\pipeline_h\repair_run.py", line 14, in main
+    launch(run,'chunks',[runtime,'-u','-X','utf8','-m','pipeline_h.chunks','--run',str(run)])
+  File "C:\Users\Admin\Documents\biosimilar_collection\pipeline_h\run.py", line 17, in launch
+    if process.returncode:raise RuntimeError(f'{stage} exited {process.returncode}; see {logs/(stage+".log")}')
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: chunks exited 1; see C:\Users\Admin\Documents\biosimilar_collection\pipeline_h\runs\ustekinumab_20261014_v2\logs\chunks.log

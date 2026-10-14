@@ -1,0 +1,69 @@
+{
+  "status": "complete",
+  "job": {
+    "id": "glyph_000",
+    "task": "ocr",
+    "action": "glyph",
+    "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p012_013.pdf",
+    "pdf_page": 2,
+    "bbox": [
+      166.3,
+      645.7,
+      250.7,
+      661.6
+    ],
+    "original_text": "FcyRla binding",
+    "block_ref": "#/tables/1",
+    "cell_index": 51,
+    "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\pipeline_h\\runs\\glyph_source_regression\\crops\\glyph_000.png",
+    "image_sha256": "ef7150f1bdc88cb57536fede781557d3a933204cea2f684cffa5c3274ee9fb01",
+    "pixels": [
+      552,
+      124
+    ],
+    "context_bbox": [
+      164.3800048828125,
+      643.780029296875,
+      252.6199951171875,
+      663.52001953125
+    ],
+    "dpi": 450
+  },
+  "seconds": 28.941201399997226,
+  "raw": {
+    "res": {
+      "input_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\pipeline_h\\runs\\glyph_source_regression\\crops\\glyph_000.png",
+      "page_index": null,
+      "page_count": null,
+      "width": 552,
+      "height": 124,
+      "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": false,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": false,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [],
+        "return_layout_polygon_points": true
+      },
+      "parsing_res_list": [
+        {
+          "block_label": "ocr",
+          "block_content": "FcyRla binding",
+          "block_bbox": [
+            0,
+            0,
+            552,
+            124
+          ],
+          "block_id": 0,
+          "block_order": 1,
+          "group_id": 0
+        }
+      ]
+    }
+  },
+  "content": "FcyRla binding"
+}

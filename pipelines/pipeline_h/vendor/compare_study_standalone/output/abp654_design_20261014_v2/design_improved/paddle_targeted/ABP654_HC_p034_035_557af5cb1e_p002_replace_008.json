@@ -1,0 +1,168 @@
+{
+  "job": {
+    "document": "ABP654_HC_p034_035.pdf",
+    "page": 2,
+    "key": "ABP654_HC_p034_035_557af5cb1e",
+    "agency": "HC",
+    "bbox": [
+      71.1,
+      71.0,
+      548.3,
+      225.39999999999998
+    ],
+    "origin": "existing_table_structure_alarm",
+    "action": "replace",
+    "table_index": 0,
+    "original_table": [
+      [
+        "",
+        "PHOENIX 1 ",
+        "",
+        "PHOENIX 2 ",
+        "",
+        "ACCEPT",
+        ""
+      ],
+      [
+        "",
+        "Placebo ",
+        "Ustekinumab ",
+        "Placebo ",
+        "Ustekinumab Etanercept ",
+        "",
+        "Ustekinumab"
+      ],
+      [
+        "Failed to respond to,  had contraindication  for, or intolerant to ≥ 1  conventional therapy a ",
+        "139 (55%) ",
+        "270 (53%) ",
+        "254 (62%) ",
+        "490 (60%) ",
+        "",
+        "347 (100%) 555 (100%)"
+      ],
+      [
+        "Failed to respond to,  had contraindication  for, or intolerant to ≥ 3  conventional  therapies a ",
+        "30 (12%) ",
+        "54 (11%) ",
+        "66 (16%) ",
+        "134 (16%) ",
+        "52 (15%) ",
+        "78 (14%)"
+      ]
+    ],
+    "quality_alarm": {
+      "issues": [
+        "multiple_value_groups_in_one_cell"
+      ],
+      "cells": [
+        {
+          "r": 2,
+          "c": 6,
+          "value_groups": 2,
+          "text": "347 (100%) 555 (100%)"
+        }
+      ]
+    },
+    "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_HC_p034_035.pdf",
+    "id": "ABP654_HC_p034_035_557af5cb1e_p002_replace_008",
+    "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_HC_p034_035_557af5cb1e_p002_replace_008.png",
+    "image_sha256": "c7f6d4e0f195e46251c8b277f40ca0a8c4533cfc504a59d61ad668f629c91fd0",
+    "pixels": [
+      1800,
+      598
+    ],
+    "context_bbox": [
+      68.22000122070312,
+      68.12000274658203,
+      551.1799926757812,
+      228.27999877929688
+    ]
+  },
+  "seconds": 4.373836200000369,
+  "raw": {
+    "res": {
+      "input_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_HC_p034_035_557af5cb1e_p002_replace_008.png",
+      "page_index": null,
+      "page_count": null,
+      "width": 1800,
+      "height": 598,
+      "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": false,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": true,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [],
+        "return_layout_polygon_points": true
+      },
+      "parsing_res_list": [
+        {
+          "block_label": "table",
+          "block_content": "<table><tr><td rowspan=\"2\"></td><td colspan=\"2\">PHOENIX 1</td><td colspan=\"2\">PHOENIX 2</td><td colspan=\"2\">ACCEPT</td></tr><tr><td>Placebo</td><td>Ustekinumab</td><td>Placebo</td><td>Ustekinumab</td><td>Etanercept</td><td>Ustekinumab</td></tr><tr><td>Failed to respond to, had contraindication for, or intolerant to  $ \\ge 1 $ conventional therapy $ ^{a} $</td><td>139 (55%)</td><td>270 (53%)</td><td>254 (62%)</td><td>490 (60%)</td><td>347 (100%)</td><td>555 (100%)</td></tr><tr><td>Failed to respond to, had contraindication for, or intolerant to  $ \\ge 3 $ conventional therapies $ ^{a} $</td><td>30 (12%)</td><td>54 (11%)</td><td>66 (16%)</td><td>134 (16%)</td><td>52 (15%)</td><td>78 (14%)</td></tr></table>",
+          "block_bbox": [
+            0,
+            0,
+            1800,
+            598
+          ],
+          "block_id": 0,
+          "block_order": null,
+          "group_id": 0
+        }
+      ]
+    },
+    "ra_runtime": {
+      "inference_seconds": 4.373,
+      "vl_rec_batch_size": 1,
+      "native_blocks": 0,
+      "vlm_blocks": null,
+      "cuda_peak_allocated_bytes": 2187052544,
+      "cuda_peak_reserved_bytes": 2384461824
+    }
+  },
+  "content": "<table><tr><td rowspan=\"2\"></td><td colspan=\"2\">PHOENIX 1</td><td colspan=\"2\">PHOENIX 2</td><td colspan=\"2\">ACCEPT</td></tr><tr><td>Placebo</td><td>Ustekinumab</td><td>Placebo</td><td>Ustekinumab</td><td>Etanercept</td><td>Ustekinumab</td></tr><tr><td>Failed to respond to, had contraindication for, or intolerant to  $ \\ge 1 $ conventional therapy $ ^{a} $</td><td>139 (55%)</td><td>270 (53%)</td><td>254 (62%)</td><td>490 (60%)</td><td>347 (100%)</td><td>555 (100%)</td></tr><tr><td>Failed to respond to, had contraindication for, or intolerant to  $ \\ge 3 $ conventional therapies $ ^{a} $</td><td>30 (12%)</td><td>54 (11%)</td><td>66 (16%)</td><td>134 (16%)</td><td>52 (15%)</td><td>78 (14%)</td></tr></table>",
+  "table": [
+    [
+      "",
+      "PHOENIX 1",
+      "",
+      "PHOENIX 2",
+      "",
+      "ACCEPT",
+      ""
+    ],
+    [
+      "",
+      "Placebo",
+      "Ustekinumab",
+      "Placebo",
+      "Ustekinumab",
+      "Etanercept",
+      "Ustekinumab"
+    ],
+    [
+      "Failed to respond to, had contraindication for, or intolerant to  $ \\ge 1 $ conventional therapy $ ^{a} $",
+      "139 (55%)",
+      "270 (53%)",
+      "254 (62%)",
+      "490 (60%)",
+      "347 (100%)",
+      "555 (100%)"
+    ],
+    [
+      "Failed to respond to, had contraindication for, or intolerant to  $ \\ge 3 $ conventional therapies $ ^{a} $",
+      "30 (12%)",
+      "54 (11%)",
+      "66 (16%)",
+      "134 (16%)",
+      "52 (15%)",
+      "78 (14%)"
+    ]
+  ],
+  "accepted": true,
+  "error": null,
+  "semantic_status": "source extraction candidate; independent human review pending"
+}

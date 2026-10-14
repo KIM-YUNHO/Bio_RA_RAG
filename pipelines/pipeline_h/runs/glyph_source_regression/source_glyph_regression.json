@@ -1,0 +1,63 @@
+{
+  "task": "actual source crop OCR",
+  "gold_used_for_inference": false,
+  "runtime": "CPU regression only; production worker uses GPU",
+  "results": [
+    {
+      "source_text": "FcyRla binding",
+      "source_crop": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\pipeline_h\\runs\\glyph_source_regression\\crops\\glyph_000.png",
+      "model_text": "FcyRla binding",
+      "gate": {
+        "accepted": false,
+        "content": "FcyRla binding",
+        "issues": [
+          "glyph_source_reread_requires_review"
+        ],
+        "numeric_evidence_eligible": false,
+        "semantic_status": "source-supported OCR candidate; not human verified"
+      }
+    },
+    {
+      "source_text": "FcyRIla (R131) binding",
+      "source_crop": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\pipeline_h\\runs\\glyph_source_regression\\crops\\glyph_001.png",
+      "model_text": "FcyRIIa (R131) binding",
+      "gate": {
+        "accepted": false,
+        "content": "FcyRIIa (R131) binding",
+        "issues": [
+          "glyph_source_reread_requires_review"
+        ],
+        "numeric_evidence_eligible": false,
+        "semantic_status": "source-supported OCR candidate; not human verified"
+      }
+    },
+    {
+      "source_text": "FcyRIlb binding",
+      "source_crop": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\pipeline_h\\runs\\glyph_source_regression\\crops\\glyph_002.png",
+      "model_text": "Fc $ _y $RIIb binding",
+      "gate": {
+        "accepted": false,
+        "content": "Fc  _y RIIb binding",
+        "issues": [
+          "glyph_source_reread_requires_review"
+        ],
+        "numeric_evidence_eligible": false,
+        "semantic_status": "source-supported OCR candidate; not human verified"
+      }
+    },
+    {
+      "source_text": "FcyRIlla (V158) binding",
+      "source_crop": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\pipeline_h\\runs\\glyph_source_regression\\crops\\glyph_003.png",
+      "model_text": "FcyRIIa (V158) binding",
+      "gate": {
+        "accepted": false,
+        "content": "FcyRIIa (V158) binding",
+        "issues": [
+          "glyph_source_reread_requires_review"
+        ],
+        "numeric_evidence_eligible": false,
+        "semantic_status": "source-supported OCR candidate; not human verified"
+      }
+    }
+  ]
+}

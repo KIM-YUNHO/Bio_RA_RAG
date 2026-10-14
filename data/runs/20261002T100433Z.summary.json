@@ -1,0 +1,21 @@
+{
+  "schema_version": "pilot-1",
+  "run_id": "20261002T100433Z",
+  "started_at": "2026-10-02T10:04:33.347499+00:00",
+  "offline": false,
+  "finished_at": "2026-10-02T10:05:41.422358+00:00",
+  "download_count": 19,
+  "unique_raw_objects_in_run": 19,
+  "pdf_documents": 19,
+  "total_pdf_pages": 883,
+  "ema_assessment_pages": 0,
+  "sample_table_candidates": 0,
+  "error_count": 0,
+  "database_counts": {
+    "products": 3,
+    "studies": 6,
+    "document_versions": 77,
+    "pages": 4182,
+    "page_search": 4182
+  }
+}

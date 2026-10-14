@@ -1,0 +1,463 @@
+{
+  "design_control": [
+    {
+      "crop_id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_000",
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "action": "add",
+      "gate": {
+        "accepted": true,
+        "semantic_status": "unverified source extraction candidate"
+      },
+      "candidate_table": [
+        [
+          "Comment/Recommendation: For 130 mg vial, revise Product Strength to read as: \"130mg/26mL (5mg/mL)\" so that the strength per total volume (total drug content supplied in container) followed in close proximity by a parenthetical that includes the strength/mL for single-dose containers that supply a volume of drug greater than 1mL. The applicant has revised as requested."
+        ]
+      ],
+      "bbox": [
+        73.92,
+        84.96,
+        538.0799999999999,
+        167.51999999999998
+      ]
+    },
+    {
+      "crop_id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_001",
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "action": "add",
+      "gate": {
+        "accepted": true,
+        "semantic_status": "unverified source extraction candidate"
+      },
+      "candidate_table": [
+        [
+          "Storage temperature/requirements (package labeling)",
+          "Acceptable"
+        ],
+        [
+          "Regulation: 21 CFR 610.61(h)",
+          "✓ Yes ☐ No ☐ N/A"
+        ],
+        [
+          "Recommended labeling practices reference: USP General Chapters: <7> Labeling, USP General Chapters <659> Packaging and Storage Requirements",
+          ""
+        ]
+      ],
+      "bbox": [
+        71.52,
+        191.51999999999998,
+        540.0,
+        275.52
+      ]
+    },
+    {
+      "crop_id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_002",
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "action": "add",
+      "gate": {
+        "accepted": true,
+        "semantic_status": "unverified source extraction candidate"
+      },
+      "candidate_table": [
+        [
+          "Handling: “Do Not Shake”, “Do not Freeze” or equivalent (package labeling)",
+          "Acceptable"
+        ],
+        [
+          "Regulation: 21 CFR 610.61(i)",
+          "✓ Yes ☐ No ☐ N/A"
+        ]
+      ],
+      "bbox": [
+        71.03999999999999,
+        446.88,
+        540.0,
+        518.88
+      ]
+    },
+    {
+      "crop_id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_003",
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "action": "add",
+      "gate": {
+        "accepted": true,
+        "semantic_status": "unverified source extraction candidate"
+      },
+      "candidate_table": [
+        [
+          "Multiple dose containers (recommended individual dose) (package labeling)",
+          "Acceptable"
+        ],
+        [
+          "Regulation: 21 CFR 610.61(j)",
+          "☐ Yes ☐ No ☒ N/A"
+        ]
+      ],
+      "bbox": [
+        71.03999999999999,
+        624.9599999999999,
+        540.0,
+        697.4399999999999
+      ]
+    }
+  ],
+  "design_improved": [
+    {
+      "crop_id": "ABP654_EMA_p044_fe50ff21bf_p001_replace_000",
+      "document": "ABP654_EMA_p044.pdf",
+      "page": 1,
+      "action": "replace",
+      "gate": {
+        "accepted": true,
+        "issues": [],
+        "semantic_status": "unverified source extraction candidate",
+        "numeric_evidence_eligible": false,
+        "missing_original_numbers": [],
+        "existing_label_word_recall": 1.0,
+        "structural_alarm_reduction": 3,
+        "protection_scope": "numeric literal set and label word coverage; not semantic truth"
+      },
+      "candidate_table": [
+        [
+          "Treatment and Comparison",
+          "AUC $ _{inf} $ (hr*ng/mL) LS Geometric Mean [n]",
+          "C $ _{max} $ (ng/mL) LS Geometric Mean [n]",
+          "AUC $ _{last} $ (hr*ng/mL) LS Geometric Mean [n]"
+        ],
+        [
+          "ABP 654",
+          "10783692.1 [76]",
+          "11419.0 [78]",
+          "10137829.7 [78]"
+        ],
+        [
+          "Ustekinumab (US)",
+          "10651782.5 [76]",
+          "11384.9 [79]",
+          "9975870.4 [79]"
+        ],
+        [
+          "Ustekinumab (EU)",
+          "11482547.0 [77]",
+          "12081.5 [80]",
+          "10752507.0 [80]"
+        ],
+        [
+          "Ratio of LS Geometric Means (90% CI)",
+          "",
+          "",
+          ""
+        ],
+        [
+          "ABP 654 vs ustekinumab (US)",
+          "1.0124 (0.9289, 1.1034)",
+          "1.0030 (0.9314, 1.0801)",
+          "1.0162 (0.9358, 1.1035)"
+        ],
+        [
+          "ABP 654 vs ustekinumab (EU)",
+          "0.9391 (0.8620, 1.0232)",
+          "0.9452 (0.8779, 1.0175)",
+          "0.9428 (0.8685, 1.0235)"
+        ],
+        [
+          "Ustekinumab (US) vs ustekinumab (EU)",
+          "0.9276 (0.8514, 1.0107)",
+          "0.9423 (0.8755, 1.0143)",
+          "0.9278 (0.8549, 1.0069)"
+        ]
+      ],
+      "bbox": [
+        63.5,
+        342.5199829101563,
+        474.4,
+        506.0199829101563
+      ]
+    },
+    {
+      "crop_id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_001",
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "action": "add",
+      "gate": {
+        "accepted": true,
+        "issues": [],
+        "semantic_status": "unverified source extraction candidate",
+        "numeric_evidence_eligible": false
+      },
+      "candidate_table": [
+        [
+          "Comment/Recommendation: For 130 mg vial, revise Product Strength to read as: \"130mg/26mL (5mg/mL)\" so that the strength per total volume (total drug content supplied in container) followed in close proximity by a parenthetical that includes the strength/mL for single-dose containers that supply a volume of drug greater than 1mL. The applicant has revised as requested."
+        ]
+      ],
+      "bbox": [
+        73.92,
+        84.96,
+        538.0799999999999,
+        167.51999999999998
+      ]
+    },
+    {
+      "crop_id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_002",
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "action": "add",
+      "gate": {
+        "accepted": true,
+        "issues": [],
+        "semantic_status": "unverified source extraction candidate",
+        "numeric_evidence_eligible": false
+      },
+      "candidate_table": [
+        [
+          "Storage temperature/requirements (package labeling)",
+          "Acceptable"
+        ],
+        [
+          "Regulation: 21 CFR 610.61(h)",
+          "✓ Yes ☐ No ☐ N/A"
+        ],
+        [
+          "Recommended labeling practices reference: USP General Chapters: <7> Labeling, USP General Chapters <659> Packaging and Storage Requirements",
+          ""
+        ]
+      ],
+      "bbox": [
+        71.52,
+        191.51999999999998,
+        540.0,
+        275.52
+      ]
+    },
+    {
+      "crop_id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_003",
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "action": "add",
+      "gate": {
+        "accepted": true,
+        "issues": [],
+        "semantic_status": "unverified source extraction candidate",
+        "numeric_evidence_eligible": false
+      },
+      "candidate_table": [
+        [
+          "Handling: “Do Not Shake”, “Do not Freeze” or equivalent (package labeling)",
+          "Acceptable"
+        ],
+        [
+          "Regulation: 21 CFR 610.61(i)",
+          "✓ Yes ☐ No ☐ N/A"
+        ]
+      ],
+      "bbox": [
+        71.03999999999999,
+        446.88,
+        540.0,
+        518.88
+      ]
+    },
+    {
+      "crop_id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_004",
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "action": "add",
+      "gate": {
+        "accepted": true,
+        "issues": [],
+        "semantic_status": "unverified source extraction candidate",
+        "numeric_evidence_eligible": false
+      },
+      "candidate_table": [
+        [
+          "Multiple dose containers (recommended individual dose) (package labeling)",
+          "Acceptable"
+        ],
+        [
+          "Regulation: 21 CFR 610.61(j)",
+          "☐ Yes ☐ No ☒ N/A"
+        ]
+      ],
+      "bbox": [
+        71.03999999999999,
+        624.9599999999999,
+        540.0,
+        697.4399999999999
+      ]
+    },
+    {
+      "crop_id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_005",
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "action": "add",
+      "gate": {
+        "accepted": true,
+        "issues": [],
+        "semantic_status": "unverified source extraction candidate",
+        "numeric_evidence_eligible": false
+      },
+      "candidate_table": [
+        [
+          "Comment/Recommendation: For the vials, recommend revise to read as: \"Store unopened vial upright and refrigerated at 2°C to 8°C (36°F to 46°F) in the original carton to protect from light. Do not freeze.\""
+        ],
+        [
+          "The applicant responded that the 45 mg and 130 mg vial carton are designed such that the vial is horizontal when storing the carton. Horizontal vial orientation is supported by vial stability studies conducted in both the upright and inverted orientations for which stability data meet stability acceptance criteria at the recommended storage condition through the latest stability time point tested. Therefore, the applicant did not include the recommend language \"Store the vial upright\", which is acceptable from an OBP labeling perspective."
+        ]
+      ],
+      "bbox": [
+        71.52,
+        286.56,
+        541.44,
+        422.88
+      ]
+    },
+    {
+      "crop_id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_006",
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "action": "add",
+      "gate": {
+        "accepted": true,
+        "issues": [],
+        "semantic_status": "unverified source extraction candidate",
+        "numeric_evidence_eligible": false
+      },
+      "candidate_table": [
+        [
+          "Comment/Recommendation: For the 45 mg and 130mg vial carton labeling, add back the statement of “Do not shake.” to be consistent with the language in the prescribing information. The applicant has revised as requested."
+        ]
+      ],
+      "bbox": [
+        71.52,
+        530.88,
+        541.44,
+        600.48
+      ]
+    },
+    {
+      "crop_id": "ABP654_FDA_Multi_p035_165ac97194_p001_replace_007",
+      "document": "ABP654_FDA_Multi_p035.pdf",
+      "page": 1,
+      "action": "replace",
+      "gate": {
+        "accepted": true,
+        "issues": [],
+        "semantic_status": "unverified source extraction candidate",
+        "numeric_evidence_eligible": false,
+        "missing_original_numbers": [],
+        "existing_label_word_recall": 1.0,
+        "structural_alarm_reduction": 4,
+        "protection_scope": "numeric literal set and label word coverage; not semantic truth"
+      },
+      "candidate_table": [
+        [
+          "PK Parameters",
+          "Geometric Mean (Geometric CV%)",
+          "",
+          ""
+        ],
+        [
+          "",
+          "ABP 654 (n=78)",
+          "US-Stelara (n=79)",
+          "EU-Stelara (n=80)"
+        ],
+        [
+          "$ C_{max} $ (ng/mL)",
+          "11546 (36.1)",
+          "11258 (33.8)",
+          "12085 (32.8)"
+        ],
+        [
+          "$ AUC_{last} $ (h*ng/mL)",
+          "10175553 (39.6)",
+          "9784499 (38.5)",
+          "10684286 (33.5)"
+        ],
+        [
+          "$ AUC_{0-inf} $ (h*ng/mL)",
+          "10859684 (40.9)",
+          "10592020 (38.5)",
+          "11310320 (35.3)"
+        ],
+        [
+          "$ T_{max} $ (h) $ ^{a} $",
+          "144 (24, 288)",
+          "192 (48, 648)",
+          "192 (48, 648)"
+        ]
+      ],
+      "bbox": [
+        71.5,
+        628.7,
+        540.5,
+        708.6
+      ]
+    },
+    {
+      "crop_id": "ABP654_HC_p034_035_557af5cb1e_p002_replace_008",
+      "document": "ABP654_HC_p034_035.pdf",
+      "page": 2,
+      "action": "replace",
+      "gate": {
+        "accepted": false,
+        "issues": [
+          "existing_header_label_words_not_preserved"
+        ],
+        "semantic_status": "unverified source extraction candidate",
+        "numeric_evidence_eligible": false,
+        "missing_original_numbers": [],
+        "existing_label_word_recall": 0.8333333333333334,
+        "structural_alarm_reduction": 1,
+        "protection_scope": "numeric literal set and label word coverage; not semantic truth"
+      },
+      "candidate_table": [
+        [
+          "",
+          "PHOENIX 1",
+          "",
+          "PHOENIX 2",
+          "",
+          "ACCEPT",
+          ""
+        ],
+        [
+          "",
+          "Placebo",
+          "Ustekinumab",
+          "Placebo",
+          "Ustekinumab",
+          "Etanercept",
+          "Ustekinumab"
+        ],
+        [
+          "Failed to respond to, had contraindication for, or intolerant to  $ \\ge 1 $ conventional therapy $ ^{a} $",
+          "139 (55%)",
+          "270 (53%)",
+          "254 (62%)",
+          "490 (60%)",
+          "347 (100%)",
+          "555 (100%)"
+        ],
+        [
+          "Failed to respond to, had contraindication for, or intolerant to  $ \\ge 3 $ conventional therapies $ ^{a} $",
+          "30 (12%)",
+          "54 (11%)",
+          "66 (16%)",
+          "134 (16%)",
+          "52 (15%)",
+          "78 (14%)"
+        ]
+      ],
+      "bbox": [
+        71.1,
+        71.0,
+        548.3,
+        225.39999999999998
+      ]
+    }
+  ]
+}

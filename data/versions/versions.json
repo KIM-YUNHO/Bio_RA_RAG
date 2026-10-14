@@ -1,0 +1,132 @@
+{
+  "updated_kst": "2026-10-14 14:45",
+  "roles": {
+    "pilot": "01_pilot_baseline_2026-10-10",
+    "latest": "03_pipeline_h_v2_table_recovery_2026-10-14",
+    "latest_full_pipeline_run": "02_pipeline_h_2026-10-14",
+    "served_by_ra_service": "01_pilot_baseline_2026-10-10"
+  },
+  "stage_folders": {
+    "preprocessed": "extraction bundles: source_units, extracted_assets, extraction_pages, visual_* (before chunking)",
+    "embedded": "release: release_manifest.json + candidate/{chunks.jsonl, emb/bge-m3/{doc.npy, chunk_ids.json, meta.json}, source_units, visual_*}",
+    "records": "run records: manifests, audits, verification, logs"
+  },
+  "versions": [
+    {
+      "id": "01_pilot_baseline_2026-10-10",
+      "release": "rag_finalization_2026-10-10_v2",
+      "pipeline": "pilot: preprocess/ cascade (native text -> PP-OCRv5 -> selective qwen3.5:9b, earlier PaddleOCR-VL-1.6 results reused) + rag/ chunking/embedding",
+      "pipeline_code": "pipelines/backup_pilot/code_snapshot_2026-10-10",
+      "documents": 92,
+      "pages": 4160,
+      "chunks": 10088,
+      "vectors": [
+        10088,
+        1024
+      ],
+      "chunks_sha256": "bc2ef2ce7211c3f37d3f3150159013c9231b5f57d67cb26601b2a214e4ca626c",
+      "embedded_path": "data/versions/01_pilot_baseline_2026-10-10/embedded/rag_finalization_2026-10-10_v2",
+      "preprocessed_path": "data/versions/01_pilot_baseline_2026-10-10/preprocessed",
+      "origin": "data/rag/releases/rag_finalization_2026-10-10_v2 + 89 component bundles under data/preprocessed/"
+    },
+    {
+      "id": "02_pipeline_h_2026-10-14",
+      "release": "pipeline_h run ustekinumab_20261014_v2",
+      "pipeline": "main: pipelines/pipeline_h (Docling Heron + TableFormer + PP-DocLayoutV3 gap check + selective PaddleOCR-VL-1.6, HTML via DOM) + rag/ chunking/embedding",
+      "pipeline_code": "pipelines/pipeline_h",
+      "documents": 92,
+      "pages": "4102 PDF + 99 HTML DOM preview",
+      "chunks": 11536,
+      "vectors": [
+        11536,
+        1024
+      ],
+      "chunks_sha256": "d89adca09645e3312b0d3f8f7fe8327094228f2672331e4c0c5f0d49177a5e3c",
+      "embedded_path": "data/versions/02_pipeline_h_2026-10-14/embedded/release",
+      "preprocessed_path": "data/versions/02_pipeline_h_2026-10-14/preprocessed/extraction",
+      "origin": "pipeline_h/runs/ustekinumab_20261014_v2/{extraction, html_dom_preview, dom_page_images, candidate, release} + top-level records and logs"
+    },
+    {
+      "id": "03_pipeline_h_v2_table_recovery_2026-10-14",
+      "release": "release_final (H v2 + 2 continuation-table units recovered)",
+      "pipeline": "02 + eval/h_v2_native_candidate.py / finalize_h_v2_native_candidate.py: existing native table validator re-checked all 96 continuation-table candidates; 2 units with verified borders/native text/headers had closed rows recovered (caption chunk replaced by table chunk); 94 stay held. No OCR/VLM calls.",
+      "pipeline_code": "pipelines/pipeline_h + eval/h_v2_native_candidate.py, eval/finalize_h_v2_native_candidate.py",
+      "documents": 92,
+      "chunks": 11536,
+      "vectors": [
+        11536,
+        1024
+      ],
+      "reused_vectors": 11534,
+      "new_vectors": 2,
+      "chunks_sha256": "b34e3bfc9fcc474ec244a9f096c379b82577065f28152f272981c46588083eed",
+      "status": "separate review candidate; not served; used for code 4.9.1-4.9.3 limited evaluations",
+      "embedded_path": "data/versions/03_pipeline_h_v2_table_recovery_2026-10-14/embedded/release_final",
+      "preprocessed_path": "data/versions/03_pipeline_h_v2_table_recovery_2026-10-14/preprocessed/extraction",
+      "evaluation": "docs/rag/H_V2_RAG_DEVELOPMENT_EVAL_2026-10-14.md; records in data/runs/h_v2_rag_development_2026-10-14_luna_v1/",
+      "origin": "data/runs/h_v2_rag_development_2026-10-14_luna_v1/native_candidate_v2/{extraction, candidate_final, release_final}"
+    }
+  ],
+  "identified_not_copied": [
+    {
+      "name": "corpus_update_2026-10-09_ra3_pre_visual",
+      "where": "data/rag/releases/",
+      "why": "superseded intermediate before the pilot"
+    },
+    {
+      "name": "corpus_update_2026-10-09_updated_v1",
+      "where": "data/rag/releases/",
+      "why": "superseded intermediate before the pilot"
+    },
+    {
+      "name": "ordered_updates_2026-10-09 (v1-v4)",
+      "where": "data/rag/releases/",
+      "why": "superseded partial updates"
+    },
+    {
+      "name": "preprocessing_completion_2026-10-10_v2",
+      "where": "data/rag/releases/",
+      "why": "input of the pilot; contained in its lineage"
+    },
+    {
+      "name": "rag_context_update_2026-10-10_v1",
+      "where": "data/rag/releases/",
+      "why": "input of the pilot; contained in its lineage"
+    },
+    {
+      "name": "rag_finalization_2026-10-10_v1",
+      "where": "data/rag/releases/",
+      "why": "replaced by v2 on the same day"
+    },
+    {
+      "name": "rag_native_fragment_2026-10-11_v1",
+      "where": "data/rag/releases/",
+      "why": "development candidate, never served"
+    },
+    {
+      "name": "rag_source_structure_2026-10-11_v1",
+      "where": "data/rag/releases/",
+      "why": "development candidate (dev service only), superseded by pipeline_h"
+    },
+    {
+      "name": "pipeline_h ustekinumab_20261014_v1",
+      "where": "pipeline_h/runs/",
+      "why": "release validation failed (19 incomplete pages); v2 reused its 11,277 vectors and passed"
+    },
+    {
+      "name": "pilot component candidates",
+      "where": "data/rag/candidates/rag_finalization_2026-10-10_v2/components, rag_context_update_2026-10-10_v1/components",
+      "why": "per-component chunks/vectors already composed into the pilot release"
+    },
+    {
+      "name": "native_candidate (first local build)",
+      "where": "data/runs/h_v2_rag_development_2026-10-14_luna_v1/native_candidate/",
+      "why": "discarded after audit found unrelated caption units changed"
+    },
+    {
+      "name": "native_candidate_v2/candidate, release",
+      "where": "data/runs/h_v2_rag_development_2026-10-14_luna_v1/native_candidate_v2/",
+      "why": "before parser provenance label correction; superseded by candidate_final/release_final (same vectors and chunk ids)"
+    }
+  ]
+}

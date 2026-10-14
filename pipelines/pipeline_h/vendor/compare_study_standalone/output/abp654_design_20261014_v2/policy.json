@@ -1,0 +1,19 @@
+{
+  "version": "visual-preservation-boxes-multi-value-gate-2",
+  "control": "live missing-only G, unchanged primary tables and figures",
+  "improved": "H: preserve original chart evidence, missing closed-border regions, multi-value table repair",
+  "primary": "fresh Heron + RapidOCR/PP-OCRv6 + TableFormer accurate + existing ra_prep corrections",
+  "shared": "same new primary and same new independent PP-DocLayoutV3 inventory",
+  "vlm": "PaddleOCR-VL-1.6-0.9B table; independent process and new calls for each branch",
+  "crop_dpi": 300,
+  "crop_padding_px": 12,
+  "max_image_edge": 1800,
+  "box_policy": "closed source border: width>=40%, height 2.5%-45%, each edge coverage>=70%; adjacent visual notes preserved as figure context",
+  "table_alarm": "two or more value(parenthesized-statistic) groups in one non-first-row cell",
+  "replacement_gate": "valid nonempty structure, all original numeric literal types, >=90% label word coverage, fewer multi-value cells",
+  "label_normalization": "existing comparable_text math-subscript normalization before label words and value groups",
+  "chart_gate": "independent chart and original picture: preserve figure and archive conflicting table",
+  "gold_used_for_routing": false,
+  "retries": 0,
+  "limit": "same exposed development pages; gates do not prove clinical semantics"
+}

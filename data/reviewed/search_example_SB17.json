@@ -1,0 +1,34 @@
+{
+  "query": "AUC* AND Cmax AND ratio",
+  "role": "reference_assessment",
+  "result_status": "unreviewed_page_search",
+  "results": [
+    {
+      "product_id": "SB17",
+      "document_id": "EMA:63563",
+      "version_id": "fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76",
+      "pdf_page": 62,
+      "source_url": "https://www.ema.europa.eu/en/documents/assessment-report/pyzchiva-epar-public-assessment-report_en.pdf",
+      "title": "Pyzchiva : EPAR - Public assessment report",
+      "excerpt": " ... The geometric LSMean [ratio] (90% CI) of Pyzchiva and EU sourced Stelara for [AUCinf] and [Cmax] were\n0.99 (0.90 to 1.08) and 0.90 (0.82 to 0.98), respectively. These values for the 90% CIs were within\nthe predefined equivalence margin of 0.8 to 1.25; however the geometric LSMean [ratio] (90% CI) of\nPyzchiva ... "
+    },
+    {
+      "product_id": "SB17",
+      "document_id": "EMA:63563",
+      "version_id": "fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76",
+      "pdf_page": 44,
+      "source_url": "https://www.ema.europa.eu/en/documents/assessment-report/pyzchiva-epar-public-assessment-report_en.pdf",
+      "title": "Pyzchiva : EPAR - Public assessment report",
+      "excerpt": " ... Back transformation provided the [ratio] of geometric LS Means and 90% CIs for these ratios.\n\nEquivalence for the primary endpoints ([AUCinf] and [Cmax]) was determined as follows:\n\nFor the EMA review, equivalence for the primary endpoints ([AUCinf] and [Cmax]) was determined if the\n90% CI for the [ratio] of geometric LS Means of Pyzchiva to EU sourced Stelara was within ... "
+    },
+    {
+      "product_id": "SB17",
+      "document_id": "EMA:63563",
+      "version_id": "fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76",
+      "pdf_page": 39,
+      "source_url": "https://www.ema.europa.eu/en/documents/assessment-report/pyzchiva-epar-public-assessment-report_en.pdf",
+      "title": "Pyzchiva : EPAR - Public assessment report",
+      "excerpt": " ... The PK similarity of Pyzchiva versus EU-Stelara, Pyzchiva versus US-Stelara, and US-Stelara versus\nEU-Stelara would be demonstrated if, for all pairwise comparisons, the 90% CIs of the GMRs for both\n[Cmax] and [AUC0]-inf were entirely contained within the equivalence margin of 0.8 to 1.25 (i.e., 80% to\n125% when the [ratio] was ... "
+    }
+  ]
+}

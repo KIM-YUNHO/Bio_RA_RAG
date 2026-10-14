@@ -1,0 +1,111 @@
+{
+  "n": 17,
+  "summary": {
+    "n": 17,
+    "answerable_n": 16,
+    "page_hit@5": 0.8125,
+    "mrr@5": 0.6927083333333334,
+    "gold_in_answer_context_n": 13,
+    "accepted_items": 29,
+    "literal_valid_items": 29,
+    "literal_precision": 1.0,
+    "items_with_review_links": 29,
+    "status_counts": {
+      "completed_with_errors": 13,
+      "completed": 4
+    },
+    "latency_seconds": {
+      "p50": 6.594,
+      "p95": 9.11,
+      "mean": 7.236294117647058
+    },
+    "input_tokens": 78936,
+    "output_tokens": 4959,
+    "repair_attempts": 0,
+    "semantic_scoring": "Separate source-based agent adjudication required; no LLM judge or expert certification"
+  },
+  "api_usage": {
+    "attempts": 0,
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "max_new_attempts": 0
+  },
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "all_requests_exclude_gold": true,
+  "semantic_adjudication": "pending_source_review",
+  "answer_accuracy_certified": false,
+  "offline_only": true,
+  "cache_misses": [
+    {
+      "case": "Q002",
+      "schema": "source_selection",
+      "request_key": "ae5ad0a3c5d3fbf3900ca7e5063e789685ef427d3c6fe3c837a488857925dc2f"
+    },
+    {
+      "case": "Q005",
+      "schema": "source_selection",
+      "request_key": "39f9013b83d317f31484d2c6664f46f0b98a00adbb7f8a151f5a544fc097cc61"
+    },
+    {
+      "case": "Q012",
+      "schema": "source_selection",
+      "request_key": "599ffc662720ee5b75313d25bd4f68e918673f37d6d32b316ef5887acf97d55a"
+    },
+    {
+      "case": "D02",
+      "schema": "source_selection",
+      "request_key": "29c12cf95a0bc48a2770adb99e776fa7323e5e3b08394e16eb7a7ae621ef0e85"
+    },
+    {
+      "case": "D03",
+      "schema": "source_selection",
+      "request_key": "0999000f10dc3348afe6ad1fb7cbd2363a76e7cf3b4aa5c9d459a3847528a62f"
+    },
+    {
+      "case": "D07",
+      "schema": "source_selection",
+      "request_key": "18de52b6a24c5778fa4fcf1b62bce72b6f7e31dc78633d03ab3ddc65b7f2e2b9"
+    },
+    {
+      "case": "M_CTP43",
+      "schema": "source_selection",
+      "request_key": "ad78fd79cf8a6bbd608cab144fe14496f2566edaf13a2f3a64ac4a8d74e0e70c"
+    },
+    {
+      "case": "M_BMAB1200",
+      "schema": "source_selection",
+      "request_key": "331e5578a5d481e9d691749ab1920cc6bb1cf4b80a276107c9911775188aec68"
+    },
+    {
+      "case": "T01",
+      "schema": "source_selection",
+      "request_key": "506a999d2352d3539ffe329f05c9df924c8aaa587eb06949c9316fd5e62a270c"
+    },
+    {
+      "case": "T02",
+      "schema": "source_selection",
+      "request_key": "6655be49ab4cbb57dcced51f24725fb08574e65d65634c14ba3bc54d1eb7cf6b"
+    },
+    {
+      "case": "T03",
+      "schema": "source_selection",
+      "request_key": "7f297b4e0a27be8092a2b09e8598a1312988fe4e01fa756ea57d2e37e9fce0d6"
+    },
+    {
+      "case": "T04",
+      "schema": "source_selection",
+      "request_key": "f0ceee7dd46a19946a5ed712c9aa238c03dd6ecfae8a2075d0548c885aed6657"
+    },
+    {
+      "case": "T05",
+      "schema": "source_selection",
+      "request_key": "3a63efae2085a00afad0784228dee321ac344e925c567bf148501061a6d8ac23"
+    },
+    {
+      "case": "T06",
+      "schema": "query_understanding",
+      "request_key": "649273cc0447f3dce969830f92cf610a60487bcb10b5a47187411f44b2a4173c"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\Admin\Documents\biosimilar_collection\pipeline_h\chunks.py", line 43, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--run',required=True);a=p.parse_args();print(build(a.run)['chunks'])
+                                                                                             ^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\biosimilar_collection\pipeline_h\chunks.py", line 19, in build
+    summary=original.write(run/'extraction',out)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\biosimilar_collection\rag\preprocessed_chunks.py", line 554, in write
+    chunks, summary, exclusions = build(run, counter, cfg, _loaded=loaded)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<pipeline_h_page_index>", line 214, in build
+  File "C:\Users\Admin\Documents\biosimilar_collection\rag\chunk_schema.py", line 115, in validate_dataset
+    validate(c)
+  File "C:\Users\Admin\Documents\biosimilar_collection\rag\chunk_schema.py", line 99, in validate
+    validate(v, schema["properties"][k], f"{path}.{k}")
+  File "C:\Users\Admin\Documents\biosimilar_collection\rag\chunk_schema.py", line 99, in validate
+    validate(v, schema["properties"][k], f"{path}.{k}")
+  File "C:\Users\Admin\Documents\biosimilar_collection\rag\chunk_schema.py", line 104, in validate
+    validate(v, schema.get("items", {}), f"{path}[{i}]")
+  File "C:\Users\Admin\Documents\biosimilar_collection\rag\chunk_schema.py", line 96, in validate
+    raise ValueError(f"{path}: missing={sorted(missing)}, unknown={sorted(unknown)}")
+ValueError: chunk.provenance.source_refs[0]: missing=[], unknown=['content_locator_type', 'html_ref']
+11536

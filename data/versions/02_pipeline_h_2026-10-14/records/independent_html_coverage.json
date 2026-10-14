@@ -1,0 +1,62 @@
+[
+  {
+    "doc": "HC:RDS1705591073125",
+    "expected_nonempty_text_nodes": 51,
+    "missing_source_text_nodes": [],
+    "scope": "decoded original HTML data nodes inside the content root; explicit non-content tags excluded"
+  },
+  {
+    "doc": "HC:SBD1721675750511",
+    "expected_nonempty_text_nodes": 349,
+    "missing_source_text_nodes": [],
+    "scope": "decoded original HTML data nodes inside the content root; explicit non-content tags excluded"
+  },
+  {
+    "doc": "HC:RDS1722628438095",
+    "expected_nonempty_text_nodes": 86,
+    "missing_source_text_nodes": [],
+    "scope": "decoded original HTML data nodes inside the content root; explicit non-content tags excluded"
+  },
+  {
+    "doc": "HC:RDS1770824778122",
+    "expected_nonempty_text_nodes": 74,
+    "missing_source_text_nodes": [],
+    "scope": "decoded original HTML data nodes inside the content root; explicit non-content tags excluded"
+  },
+  {
+    "doc": "HC:SBD1739202346124",
+    "expected_nonempty_text_nodes": 354,
+    "missing_source_text_nodes": [],
+    "scope": "decoded original HTML data nodes inside the content root; explicit non-content tags excluded"
+  },
+  {
+    "doc": "HC:SBD1769005259208",
+    "expected_nonempty_text_nodes": 337,
+    "missing_source_text_nodes": [],
+    "scope": "decoded original HTML data nodes inside the content root; explicit non-content tags excluded"
+  },
+  {
+    "doc": "HC:RDS1724776566772",
+    "expected_nonempty_text_nodes": 53,
+    "missing_source_text_nodes": [],
+    "scope": "decoded original HTML data nodes inside the content root; explicit non-content tags excluded"
+  },
+  {
+    "doc": "HC:RDS1724778020977",
+    "expected_nonempty_text_nodes": 78,
+    "missing_source_text_nodes": [],
+    "scope": "decoded original HTML data nodes inside the content root; explicit non-content tags excluded"
+  },
+  {
+    "doc": "HC:RDS1766500484485",
+    "expected_nonempty_text_nodes": 90,
+    "missing_source_text_nodes": [],
+    "scope": "decoded original HTML data nodes inside the content root; explicit non-content tags excluded"
+  },
+  {
+    "doc": "HC:SBD1739909145014",
+    "expected_nonempty_text_nodes": 363,
+    "missing_source_text_nodes": [],
+    "scope": "decoded original HTML data nodes inside the content root; explicit non-content tags excluded"
+  }
+]

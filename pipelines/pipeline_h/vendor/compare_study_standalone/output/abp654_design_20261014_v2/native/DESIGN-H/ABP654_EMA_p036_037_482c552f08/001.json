@@ -1,0 +1,471 @@
+{
+  "document": "ABP654_EMA_p036_037_482c552f08",
+  "page": 1,
+  "text": [
+    "The non - clinical package consists of in vitro biological activity studies , discussed under quality aspects, and briefly summarised under nonclinical aspects. Four in vitro pharmacology studies were also conducted to evaluate similar functional activity of ABP 654 and Stelara relevant to the mechanism of action (MOA) as part of the totality of evidence to support the functional similarity. These in vitro pharmacology studies assessed inhibition of IL-23-induced signal transducer and activator of transcription (STAT)3 signalling, IL-12-induced STAT4 signalling, IL-23-induced interferon gamma (IFN-γ) release, and IL-12-induced IFN-γ release in peripheral blood mononuclear cells (PBMCs) from healthy human donors.",
+    "No comparative in vivo - pharmacology, secondary pharmacodynamic (PD), safety pharmacology or PD drug interaction studies nor in vivo pharmacokinetic (PK), toxicokinetic (TK) or toxicology studies were conducted.",
+    "2.5.2. Pharmacology",
+    "Primary pharmacodynamic studies",
+    "ABP 654 has the same amino acid sequence, formulations, dosage forms, and product strengths with Stelara. The most relevant difference between ABP 654 and Stelara is that APB 654 is manufactured in CHO cell line whereas Stelara is manufactured in murine myeloma (Sp2/0) cell line, and this change has led to some differences in glycans between ABP 654 and ustekinumab (EU). ABP 654 does not contain detectable levels of non - human glycans, such as N-glycolylneuraminic acid (NGNA) and alphagalactosylation.",
+    "Further differences were observed in the levels of high mannose. Compared to the reference medicinal product, ABP 654 shows an increase in high mannose. No difference in the PK profile was observed in clinical study 20190230.",
+    "Assays address inhibition of IL-23 and IL-12 mediated signalling, IL-23 and IL-12 receptor-ligand binding, lack of binding to receptor-bound IL-23 and IL-12 on a cell surface, binding kinetics and affinity for IL-23 and IL-12, binding specificity to cytokines related to IL-23 and IL-12, lack of antibody dependent cell mediated cytotoxicity (ADCC), complement dependent cytotoxicity (CDC), and antibody dependent cell mediated cytotoxicity (ADCP) activity, binding to neonatal Fc receptor (FcRn) and first sub - component of complement (C1q), and binding to Fc gamma receptors (FcγRIa, IIa, IIb, IIIa, and IIIb).",
+    "The in vitro pharmacology studies to investigate the functional activity of ABP 654 compared to Stelara EU/US assessed inhibition of IL-23-induced STAT-3 signalling, IL-12-induced STAT-4 signalling, IL-23 induced IFN - γ release and IL-12-induced IFN-γ release in activated T-cells from healthy human donors Human peripheral blood mononuclear cells isolated from one donor were used in the experiments.",
+    "The formulation of the ABP 654 that was used during the pharmacology programme is representative to ABP 654 clinical SC formulation and identical with RMP Stelara SC formulation. The IV formulation of ABP 654 has a slightly different formulation and is also identical with RMP Stelara IV formulation however has not been included to the pharmacology studies.",
+    "The inhibition of the STAT - 3 and STAT - 4 phosphorylation in activated T cells were investigated by using flow cytometry in three different batches of ABP 654, Stelara EU and Stelara US. The concentration range for tested materials was 100nM to 5pM in 3-fold dilutions. ABP 654 showed slightly lower IC50-values of IL-23 inhibited STAT-3 (2.9 - 4.1) in comparison to Stelara EU/US (3.3 - 3.8) with higher standard deviation (0.6 vs 0.3) and lower IC50-values of IL-12 inhibited STAT-4 phosphorylation (1.0 - 1.8) in comparison to Stelara EU/US (1.7 - 2.4) with slightly higher standard deviation (0.5 vs 0.4) (Figure 5). The supportive data from an IL-12-induced IFN-γ production assay"
+  ],
+  "tables": [],
+  "table_bboxes": [],
+  "seconds": 2.88176145000034,
+  "flags": {
+    "time_basis": "document_wall_amortized",
+    "route": "DIGITAL",
+    "ra_timing": {
+      "None": 0.6526608467102051,
+      "auto": 3.4904534816741943,
+      "second_reader": 1.5883395671844482,
+      "total": 5.760783910751343
+    },
+    "qa": {
+      "pages": 2,
+      "routes": {
+        "DIGITAL": 1,
+        "MIXED": 1
+      },
+      "text_blocks": 40,
+      "text_chars": 6465,
+      "ocr_char_share": 0.207,
+      "tables": 2,
+      "tables_ocr_grid": 0,
+      "numeric_cells": 100,
+      "numeric_cell_parse_rate": 0.78,
+      "needs_review_blocks": 4,
+      "reread_blocks": 2,
+      "garbled_residual": 0,
+      "furniture_blocks": 14,
+      "redacted_blocks": 0,
+      "sections": 2
+    },
+    "agency": "EMA",
+    "doc_type": "assessment_report",
+    "document_structure_summary": {
+      "section_paths": [
+        [],
+        [
+          "2.5.2. Pharmacology"
+        ],
+        [
+          "2.5.2. Pharmacology",
+          "Primary pharmacodynamic studies"
+        ]
+      ],
+      "speakers": [
+        "unknown"
+      ],
+      "furniture_blocks": 2,
+      "redacted_blocks": 0,
+      "study_ids": [],
+      "review_blocks": 0
+    },
+    "figure_count_policy": "physical regions and caption groups separate; no parent/child double count; scan image objects separate",
+    "selected_paddle_calls": 0,
+    "added_tables": 0,
+    "replaced_tables": 0,
+    "design_policy": "visual-preservation-boxes-multi-value-gate-2",
+    "gold_consulted_for_selection": false
+  },
+  "figures": [],
+  "document_structure": [
+    {
+      "type": "text",
+      "ref": "#/texts/0",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        62.4,
+        76.01998291015627,
+        529.3,
+        182.7199829101562
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "The non - clinical package consists of in vitro biological activity studies , discussed under quality aspects, and briefly summarised under nonclinical aspects. Four in vitro pharmacology studies were also conducted to evaluate similar functional activity of ABP 654 and Stelara relevant to the mechanism of action (MOA) as part of the totality of evidence to support the functional similarity. These in vitro pharmacology studies assessed inhibition of IL-23-induced signal transducer and activator of transcription (STAT)3 signalling, IL-12-induced STAT4 signalling, IL-23-induced interferon gamma (IFN-γ) release, and IL-12-induced IFN-γ release in peripheral blood mononuclear cells (PBMCs) from healthy human donors.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        62.4,
+        659.2,
+        529.3,
+        765.9
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/1",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        62.9,
+        195.1199829101563,
+        529.1,
+        230.1199829101563
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "No comparative in vivo - pharmacology, secondary pharmacodynamic (PD), safety pharmacology or PD drug interaction studies nor in vivo pharmacokinetic (PK), toxicokinetic (TK) or toxicology studies were conducted.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        62.9,
+        611.8,
+        529.1,
+        646.8
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/2",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        63.4,
+        248.51998291015627,
+        192.4,
+        259.2199829101562
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "section_header",
+      "text": "2.5.2. Pharmacology",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        63.4,
+        582.7,
+        192.4,
+        593.4
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/3",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        106.8,
+        275.41998291015625,
+        281.9,
+        284.0199829101563
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "section_header",
+      "text": "Primary pharmacodynamic studies",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        106.8,
+        557.9,
+        281.9,
+        566.5
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/4",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        62.5,
+        300.41998291015625,
+        529.1,
+        379.11998291015624
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "ABP 654 has the same amino acid sequence, formulations, dosage forms, and product strengths with Stelara. The most relevant difference between ABP 654 and Stelara is that APB 654 is manufactured in CHO cell line whereas Stelara is manufactured in murine myeloma (Sp2/0) cell line, and this change has led to some differences in glycans between ABP 654 and ustekinumab (EU). ABP 654 does not contain detectable levels of non - human glycans, such as N-glycolylneuraminic acid (NGNA) and alphagalactosylation.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        62.5,
+        462.8,
+        529.1,
+        541.5
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/5",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        62.9,
+        391.41998291015625,
+        528.2,
+        428.11998291015624
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "Further differences were observed in the levels of high mannose. Compared to the reference medicinal product, ABP 654 shows an increase in high mannose. No difference in the PK profile was observed in clinical study 20190230.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        62.9,
+        413.8,
+        528.2,
+        450.5
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/6",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        62.5,
+        440.3199829101562,
+        530.0,
+        533.1199829101563
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "Assays address inhibition of IL-23 and IL-12 mediated signalling, IL-23 and IL-12 receptor-ligand binding, lack of binding to receptor-bound IL-23 and IL-12 on a cell surface, binding kinetics and affinity for IL-23 and IL-12, binding specificity to cytokines related to IL-23 and IL-12, lack of antibody dependent cell mediated cytotoxicity (ADCC), complement dependent cytotoxicity (CDC), and antibody dependent cell mediated cytotoxicity (ADCP) activity, binding to neonatal Fc receptor (FcRn) and first sub - component of complement (C1q), and binding to Fc gamma receptors (FcγRIa, IIa, IIb, IIIa, and IIIb).",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        62.5,
+        308.8,
+        530.0,
+        401.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/7",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        62.4,
+        545.3199829101562,
+        530.0,
+        596.1199829101563
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "The in vitro pharmacology studies to investigate the functional activity of ABP 654 compared to Stelara EU/US assessed inhibition of IL-23-induced STAT-3 signalling, IL-12-induced STAT-4 signalling, IL-23 induced IFN - γ release and IL-12-induced IFN-γ release in activated T-cells from healthy human donors Human peripheral blood mononuclear cells isolated from one donor were used in the experiments.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        62.4,
+        245.8,
+        530.0,
+        296.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/8",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        62.4,
+        608.3199829101562,
+        531.9,
+        659.2199829101562
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "The formulation of the ABP 654 that was used during the pharmacology programme is representative to ABP 654 clinical SC formulation and identical with RMP Stelara SC formulation. The IV formulation of ABP 654 has a slightly different formulation and is also identical with RMP Stelara IV formulation however has not been included to the pharmacology studies.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        62.4,
+        182.7,
+        531.9,
+        233.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/9",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        62.4,
+        671.3199829101562,
+        520.0,
+        764.1199829101563
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "The inhibition of the STAT - 3 and STAT - 4 phosphorylation in activated T cells were investigated by using flow cytometry in three different batches of ABP 654, Stelara EU and Stelara US. The concentration range for tested materials was 100nM to 5pM in 3-fold dilutions. ABP 654 showed slightly lower IC50-values of IL-23 inhibited STAT-3 (2.9 - 4.1) in comparison to Stelara EU/US (3.3 - 3.8) with higher standard deviation (0.6 vs 0.3) and lower IC50-values of IL-12 inhibited STAT-4 phosphorylation (1.0 - 1.8) in comparison to Stelara EU/US (1.7 - 2.4) with slightly higher standard deviation (0.5 vs 0.4) (Figure 5). The supportive data from an IL-12-induced IFN-γ production assay",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "2.5.2. Pharmacology",
+        "Primary pharmacodynamic studies"
+      ],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        62.4,
+        77.8,
+        520.0,
+        170.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/10",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        62.5,
+        784.4199829101562,
+        127.9,
+        799.0199829101563
+      ],
+      "layer": "furniture",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "Assessment report EMA/228742/2024",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        62.5,
+        42.9,
+        127.9,
+        57.5
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/11",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        488.7,
+        792.7199829101562,
+        532.3,
+        799.4199829101562
+      ],
+      "layer": "furniture",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "Page 36/117",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        488.7,
+        42.5,
+        532.3,
+        49.2
+      ],
+      "coordinate_space": "PDF top-left points"
+    }
+  ],
+  "embedded_image_objects": 1,
+  "figure_counts": {
+    "figure_regions": 0,
+    "figure_groups": 0,
+    "logical_figures": 0,
+    "decorative_images": 0,
+    "interpretation_attempted": 0,
+    "interpretation_completed": 0,
+    "interpretation_needs_review": 0
+  },
+  "table_provenance": []
+}

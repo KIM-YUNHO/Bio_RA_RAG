@@ -1,0 +1,89 @@
+{
+  "job": {
+    "document": "ABP654_FDA_ChemR_p033.pdf",
+    "page": 1,
+    "key": "ABP654_FDA_ChemR_p033_f69da8cc31",
+    "agency": "FDA",
+    "bbox": [
+      71.52,
+      530.88,
+      541.44,
+      600.48
+    ],
+    "edge_coverage": [
+      0.9969356486210419,
+      0.9969356486210419,
+      0.9793103448275862,
+      0.9793103448275862
+    ],
+    "origin": "source_closed_border",
+    "action": "add",
+    "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p033.pdf",
+    "id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_006",
+    "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_006.png",
+    "image_sha256": "ac2e1889074cdc1e0440fd1ed83273cbfa405c6e987137a16d05e19ee44977cf",
+    "pixels": [
+      1800,
+      285
+    ],
+    "context_bbox": [
+      68.63999938964844,
+      528.0,
+      544.3200073242188,
+      603.3599853515625
+    ]
+  },
+  "seconds": 1.1596210999996401,
+  "raw": {
+    "res": {
+      "input_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_006.png",
+      "page_index": null,
+      "page_count": null,
+      "width": 1800,
+      "height": 285,
+      "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": false,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": true,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [],
+        "return_layout_polygon_points": true
+      },
+      "parsing_res_list": [
+        {
+          "block_label": "table",
+          "block_content": "<table><tr><td>Comment/Recommendation: For the 45 mg and 130mg vial carton labeling, add back the statement of “Do not shake.” to be consistent with the language in the prescribing information. The applicant has revised as requested.</td></tr></table>",
+          "block_bbox": [
+            0,
+            0,
+            1800,
+            285
+          ],
+          "block_id": 0,
+          "block_order": null,
+          "group_id": 0
+        }
+      ]
+    },
+    "ra_runtime": {
+      "inference_seconds": 1.159,
+      "vl_rec_batch_size": 1,
+      "native_blocks": 0,
+      "vlm_blocks": null,
+      "cuda_peak_allocated_bytes": 2080815616,
+      "cuda_peak_reserved_bytes": 2384461824
+    }
+  },
+  "content": "<table><tr><td>Comment/Recommendation: For the 45 mg and 130mg vial carton labeling, add back the statement of “Do not shake.” to be consistent with the language in the prescribing information. The applicant has revised as requested.</td></tr></table>",
+  "table": [
+    [
+      "Comment/Recommendation: For the 45 mg and 130mg vial carton labeling, add back the statement of “Do not shake.” to be consistent with the language in the prescribing information. The applicant has revised as requested."
+    ]
+  ],
+  "accepted": true,
+  "error": null,
+  "semantic_status": "source extraction candidate; independent human review pending"
+}

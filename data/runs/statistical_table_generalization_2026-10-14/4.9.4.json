@@ -1,0 +1,2078 @@
+{
+ "created_utc": "2026-10-14T06:14:12.296481+00:00",
+ "label": "4.9.4",
+ "code_root": "C:\\Users\\Admin\\Documents\\project_shared",
+ "module_disabled": false,
+ "model_calls": 0,
+ "module_version": "ra-printed-statistic-table-retrieval-2-general-requests",
+ "retrieval_version": "ra-task-hybrid-context-6-statistic-table-relevance",
+ "code_sha256": {
+  "rag/ra_statistical_tables.py": "696325b0c948fcb6787c754323bca7909cbf1966ef2c778c7b10c01259732b9e",
+  "rag/ra_retrieval.py": "1c4f0c5677e9a9e7f824cef6cd60d19597aea2f587e1dc804efd42b9452fe630"
+ },
+ "index": {
+  "directory": "C:\\Users\\Admin\\Documents\\project_shared\\data\\versions\\03_pipeline_h_v2_table_recovery_2026-10-14\\embedded\\release_final\\candidate",
+  "chunks_sha256": "b34e3bfc9fcc474ec244a9f096c379b82577065f28152f272981c46588083eed",
+  "chunks": 11536
+ },
+ "k": [
+  5,
+  12
+ ],
+ "activation": {
+  "cmax_mean_sd": {
+   "request": "Cmax 산술평균과 표준편차",
+   "requested": [
+    [
+     "cmax",
+     "mean"
+    ],
+    [
+     "cmax",
+     "sd"
+    ]
+   ],
+   "tables": 5,
+   "scopes": 5,
+   "by_scope": {
+    "ABP654/CA": [
+     {
+      "document_id": "HC:PM:00078625",
+      "pdf_page": 28,
+      "caption": "Table 14. Summary of Pharmacokinetic Parameters of Ustekinumab Following a Single 45 \nor 90 mg Subcutaneous Administrati"
+     }
+    ],
+    "BMAB1200/CA": [
+     {
+      "document_id": "HC:PM:00084796",
+      "pdf_page": 25,
+      "caption": "Table 14. Summary of Pharmacokinetic Parameters of Ustekinumab Following a Single 45 or 90 mg \nSubcutaneous Administrati"
+     }
+    ],
+    "CTP43/CA": [
+     {
+      "document_id": "HC:PM:00085585",
+      "pdf_page": 29,
+      "caption": "Table 14: Summary of Pharmacokinetic Parameters of Ustekinumab Following a Single 45 mg or 90 \nmg Subcutaneous Administr"
+     }
+    ],
+    "SB17/CA": [
+     {
+      "document_id": "HC:PM:00082519",
+      "pdf_page": 27,
+      "caption": ""
+     }
+    ],
+    "SB17/EU": [
+     {
+      "document_id": "EMA:63563",
+      "pdf_page": 47,
+      "caption": "Table 8.  Summary of Pharmacokinetic Parameters (Pharmacokinetic Analysis Set, Study SB17-1001)"
+     }
+    ]
+   }
+  },
+  "aucinf_mean_sd": {
+   "request": "AUCinf 산술평균과 표준편차",
+   "requested": [
+    [
+     "aucinf",
+     "mean"
+    ],
+    [
+     "aucinf",
+     "sd"
+    ]
+   ],
+   "tables": 1,
+   "scopes": 1,
+   "by_scope": {
+    "SB17/EU": [
+     {
+      "document_id": "EMA:63563",
+      "pdf_page": 47,
+      "caption": "Table 8.  Summary of Pharmacokinetic Parameters (Pharmacokinetic Analysis Set, Study SB17-1001)"
+     }
+    ]
+   }
+  },
+  "auclast_mean_sd": {
+   "request": "AUClast 산술평균과 표준편차",
+   "requested": [
+    [
+     "auclast",
+     "mean"
+    ],
+    [
+     "auclast",
+     "sd"
+    ]
+   ],
+   "tables": 1,
+   "scopes": 1,
+   "by_scope": {
+    "SB17/EU": [
+     {
+      "document_id": "EMA:63563",
+      "pdf_page": 47,
+      "caption": "Table 8.  Summary of Pharmacokinetic Parameters (Pharmacokinetic Analysis Set, Study SB17-1001)"
+     }
+    ]
+   }
+  },
+  "tmax_median_range": {
+   "request": "Tmax 중앙값과 범위",
+   "requested": [
+    [
+     "tmax",
+     "median"
+    ],
+    [
+     "tmax",
+     "range"
+    ]
+   ],
+   "tables": 6,
+   "scopes": 6,
+   "by_scope": {
+    "ABP654/CA": [
+     {
+      "document_id": "HC:PM:00078625",
+      "pdf_page": 28,
+      "caption": "Table 14. Summary of Pharmacokinetic Parameters of Ustekinumab Following a Single 45 \nor 90 mg Subcutaneous Administrati"
+     }
+    ],
+    "ABP654/EU": [
+     {
+      "document_id": "EMA:64196",
+      "pdf_page": 44,
+      "caption": "Table 4.  Summary of ABP654, ustekinumab (EU) and ustekinumab (US) key PK parameters (PK\nparameter analysis set)"
+     }
+    ],
+    "BMAB1200/CA": [
+     {
+      "document_id": "HC:PM:00084796",
+      "pdf_page": 25,
+      "caption": "Table 14. Summary of Pharmacokinetic Parameters of Ustekinumab Following a Single 45 or 90 mg \nSubcutaneous Administrati"
+     }
+    ],
+    "CTP43/CA": [
+     {
+      "document_id": "HC:PM:00085585",
+      "pdf_page": 29,
+      "caption": "Table 14: Summary of Pharmacokinetic Parameters of Ustekinumab Following a Single 45 mg or 90 \nmg Subcutaneous Administr"
+     }
+    ],
+    "SB17/CA": [
+     {
+      "document_id": "HC:PM:00082519",
+      "pdf_page": 27,
+      "caption": ""
+     }
+    ],
+    "SB17/EU": [
+     {
+      "document_id": "EMA:63563",
+      "pdf_page": 47,
+      "caption": "Table 8.  Summary of Pharmacokinetic Parameters (Pharmacokinetic Analysis Set, Study SB17-1001)"
+     }
+    ]
+   }
+  },
+  "thalf_mean_sd": {
+   "request": "t1/2 평균과 표준편차",
+   "requested": [
+    [
+     "t1/2",
+     "mean"
+    ],
+    [
+     "t1/2",
+     "sd"
+    ]
+   ],
+   "tables": 5,
+   "scopes": 5,
+   "by_scope": {
+    "ABP654/CA": [
+     {
+      "document_id": "HC:PM:00078625",
+      "pdf_page": 28,
+      "caption": "Table 14. Summary of Pharmacokinetic Parameters of Ustekinumab Following a Single 45 \nor 90 mg Subcutaneous Administrati"
+     }
+    ],
+    "ABP654/EU": [
+     {
+      "document_id": "EMA:64196",
+      "pdf_page": 44,
+      "caption": "Table 4.  Summary of ABP654, ustekinumab (EU) and ustekinumab (US) key PK parameters (PK\nparameter analysis set)"
+     }
+    ],
+    "BMAB1200/CA": [
+     {
+      "document_id": "HC:PM:00084796",
+      "pdf_page": 25,
+      "caption": "Table 14. Summary of Pharmacokinetic Parameters of Ustekinumab Following a Single 45 or 90 mg \nSubcutaneous Administrati"
+     }
+    ],
+    "CTP43/CA": [
+     {
+      "document_id": "HC:PM:00085585",
+      "pdf_page": 29,
+      "caption": "Table 14: Summary of Pharmacokinetic Parameters of Ustekinumab Following a Single 45 mg or 90 \nmg Subcutaneous Administr"
+     }
+    ],
+    "SB17/CA": [
+     {
+      "document_id": "HC:PM:00082519",
+      "pdf_page": 27,
+      "caption": ""
+     }
+    ]
+   }
+  },
+  "cmax_geometric_mean": {
+   "request": "Cmax 기하평균",
+   "requested": [
+    [
+     "cmax",
+     "geometric_mean"
+    ]
+   ],
+   "tables": 6,
+   "scopes": 4,
+   "by_scope": {
+    "ABP654/EU": [
+     {
+      "document_id": "EMA:64196",
+      "pdf_page": 44,
+      "caption": "Table 4.  Summary of ABP654, ustekinumab (EU) and ustekinumab (US) key PK parameters (PK\nparameter analysis set)"
+     }
+    ],
+    "ABP654/US": [
+     {
+      "document_id": "FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",
+      "pdf_page": 35,
+      "caption": "Table 8. Summary of PK Parameters (Study 20190230)"
+     }
+    ],
+    "BMAB1200/US": [
+     {
+      "document_id": "FDA:761406Orig1Orig2s000:MultidisciplineR",
+      "pdf_page": 44,
+      "caption": "Table 7. Summary of statistical analyses for assessment of PK similarity \n(Study BM12H-NHV-01-G-01)"
+     },
+     {
+      "document_id": "FDA:761406Orig1Orig2s000:MultidisciplineR",
+      "pdf_page": 48,
+      "caption": "Table 8. Summary of PK Parameters (Study BM12H-NHV-01-G-01) (Reviewer \ncalculated)"
+     }
+    ],
+    "CTP43/US": [
+     {
+      "document_id": "FDA:761338Orig1Orig2s000:MultidisciplineR",
+      "pdf_page": 148,
+      "caption": "Table 50: Statistical Summary of PK Parameters of Study Drug by Treatment Arm in Study CT-P43 \n1.1"
+     },
+     {
+      "document_id": "FDA:761338Orig1Orig2s000:MultidisciplineR",
+      "pdf_page": 52,
+      "caption": "Table 14: Percent Change in Clearance and half-life by ADA Status (Study CT-P43 \n1.2)"
+     }
+    ]
+   }
+  },
+  "aucinf_geometric_mean": {
+   "request": "AUCinf 기하평균",
+   "requested": [
+    [
+     "aucinf",
+     "geometric_mean"
+    ]
+   ],
+   "tables": 5,
+   "scopes": 4,
+   "by_scope": {
+    "ABP654/EU": [
+     {
+      "document_id": "EMA:64196",
+      "pdf_page": 44,
+      "caption": "Table 4.  Summary of ABP654, ustekinumab (EU) and ustekinumab (US) key PK parameters (PK\nparameter analysis set)"
+     }
+    ],
+    "ABP654/US": [
+     {
+      "document_id": "FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",
+      "pdf_page": 35,
+      "caption": "Table 8. Summary of PK Parameters (Study 20190230)"
+     }
+    ],
+    "BMAB1200/US": [
+     {
+      "document_id": "FDA:761406Orig1Orig2s000:MultidisciplineR",
+      "pdf_page": 44,
+      "caption": "Table 7. Summary of statistical analyses for assessment of PK similarity \n(Study BM12H-NHV-01-G-01)"
+     },
+     {
+      "document_id": "FDA:761406Orig1Orig2s000:MultidisciplineR",
+      "pdf_page": 48,
+      "caption": "Table 8. Summary of PK Parameters (Study BM12H-NHV-01-G-01) (Reviewer \ncalculated)"
+     }
+    ],
+    "CTP43/US": [
+     {
+      "document_id": "FDA:761338Orig1Orig2s000:MultidisciplineR",
+      "pdf_page": 148,
+      "caption": "Table 50: Statistical Summary of PK Parameters of Study Drug by Treatment Arm in Study CT-P43 \n1.1"
+     }
+    ]
+   }
+  }
+ },
+ "frozen_planner": {
+  "paired/C01": {
+   "case": "C01",
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "SB17",
+      "jurisdiction": "CA",
+      "hits": [
+       "HC:PM:00082519:692365dcf3c0b32a2fd7b8c43a8d99545f0a263f36f10866ce6f0fd3d4e2a403:033038cbf370:0005:p2784570b6bc14edff3",
+       "HC:PM:00082519:692365dcf3c0b32a2fd7b8c43a8d99545f0a263f36f10866ce6f0fd3d4e2a403:033038cbf370:0090:pb96855c42c7a313724",
+       "HC:PM:00082519:692365dcf3c0b32a2fd7b8c43a8d99545f0a263f36f10866ce6f0fd3d4e2a403:033038cbf370:0089:p7ff8287d92b4575e46",
+       "HC:PM:00082519:692365dcf3c0b32a2fd7b8c43a8d99545f0a263f36f10866ce6f0fd3d4e2a403:033038cbf370:0006:p2e46423990285405e1",
+       "HC:PM:00082519:692365dcf3c0b32a2fd7b8c43a8d99545f0a263f36f10866ce6f0fd3d4e2a403:033038cbf370:0043:p4cd6490e518fc8b41e"
+      ],
+      "target_rank": null
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "SB17",
+      "jurisdiction": "CA",
+      "hits": [
+       "HC:PM:00082519:692365dcf3c0b32a2fd7b8c43a8d99545f0a263f36f10866ce6f0fd3d4e2a403:033038cbf370:0005:p2784570b6bc14edff3",
+       "HC:PM:00082519:692365dcf3c0b32a2fd7b8c43a8d99545f0a263f36f10866ce6f0fd3d4e2a403:033038cbf370:0090:pb96855c42c7a313724",
+       "HC:PM:00082519:692365dcf3c0b32a2fd7b8c43a8d99545f0a263f36f10866ce6f0fd3d4e2a403:033038cbf370:0089:p7ff8287d92b4575e46",
+       "HC:PM:00082519:692365dcf3c0b32a2fd7b8c43a8d99545f0a263f36f10866ce6f0fd3d4e2a403:033038cbf370:0006:p2e46423990285405e1",
+       "HC:PM:00082519:692365dcf3c0b32a2fd7b8c43a8d99545f0a263f36f10866ce6f0fd3d4e2a403:033038cbf370:0043:p4cd6490e518fc8b41e",
+       "HC:PM:00082519:692365dcf3c0b32a2fd7b8c43a8d99545f0a263f36f10866ce6f0fd3d4e2a403:033038cbf370:0008:pb250169150f85640d8",
+       "HC:PM:00082519:692365dcf3c0b32a2fd7b8c43a8d99545f0a263f36f10866ce6f0fd3d4e2a403:033038cbf370:0008:p8209a477c87badd5a9",
+       "HC:PM:00082519:692365dcf3c0b32a2fd7b8c43a8d99545f0a263f36f10866ce6f0fd3d4e2a403:033038cbf370:0029:pcbe9794bade966b186",
+       "HC:PM:00082519:692365dcf3c0b32a2fd7b8c43a8d99545f0a263f36f10866ce6f0fd3d4e2a403:033038cbf370:0027:p31ec80a95ec949d8b5",
+       "HC:PM:00082519:692365dcf3c0b32a2fd7b8c43a8d99545f0a263f36f10866ce6f0fd3d4e2a403:033038cbf370:0026:p80df67617a300cb7d3",
+       "HC:PM:00082519:692365dcf3c0b32a2fd7b8c43a8d99545f0a263f36f10866ce6f0fd3d4e2a403:033038cbf370:0027:p2ed9420915a40de086",
+       "HC:PM:00082519:692365dcf3c0b32a2fd7b8c43a8d99545f0a263f36f10866ce6f0fd3d4e2a403:033038cbf370:0006:p5667e81827d6cd8f71"
+      ],
+      "target_rank": null
+     }
+    ]
+   },
+   "requested": [
+    []
+   ]
+  },
+  "paired/C02": {
+   "case": "C02",
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "ABP654",
+      "jurisdiction": "CA",
+      "hits": [
+       "HC:SBD1721675750511:a5d4cafd1ee59d473a5d81bd847466a6eb6bf333a93b3e7d1eef3e057bcbd6e6:033038cbf370:0002:pc31b468286b42f5cfe",
+       "HC:SBD1721675750511:a5d4cafd1ee59d473a5d81bd847466a6eb6bf333a93b3e7d1eef3e057bcbd6e6:033038cbf370:0014:pfc476bea3a635e0f74",
+       "HC:SBD1721675750511:a5d4cafd1ee59d473a5d81bd847466a6eb6bf333a93b3e7d1eef3e057bcbd6e6:033038cbf370:0016:p1c1d1b45adcc20f057",
+       "HC:SBD1721675750511:a5d4cafd1ee59d473a5d81bd847466a6eb6bf333a93b3e7d1eef3e057bcbd6e6:033038cbf370:0007:pc9e2f59ccc76133c4e",
+       "HC:PM:00078625:83a4e0fdd8a24e0f670d11268893e21babd4bed528c6d8def40635002d330287:033038cbf370:0106:pac8c031189000191d6"
+      ],
+      "target_rank": null
+     },
+     {
+      "task_id": "T2",
+      "product": "ABP654",
+      "jurisdiction": "CA",
+      "hits": [
+       "HC:SBD1721675750511:a5d4cafd1ee59d473a5d81bd847466a6eb6bf333a93b3e7d1eef3e057bcbd6e6:033038cbf370:0014:pfc476bea3a635e0f74",
+       "HC:SBD1721675750511:a5d4cafd1ee59d473a5d81bd847466a6eb6bf333a93b3e7d1eef3e057bcbd6e6:033038cbf370:0016:p707ffb0eacb9d63b58",
+       "HC:SBD1721675750511:a5d4cafd1ee59d473a5d81bd847466a6eb6bf333a93b3e7d1eef3e057bcbd6e6:033038cbf370:0003:pb002cd7b492389aeaf",
+       "HC:SBD1721675750511:a5d4cafd1ee59d473a5d81bd847466a6eb6bf333a93b3e7d1eef3e057bcbd6e6:033038cbf370:0014:pc8820b61a351a7f01b",
+       "HC:SBD1721675750511:a5d4cafd1ee59d473a5d81bd847466a6eb6bf333a93b3e7d1eef3e057bcbd6e6:033038cbf370:0010:p4660f800c96b48bfc6"
+      ],
+      "target_rank": null
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "ABP654",
+      "jurisdiction": "CA",
+      "hits": [
+       "HC:SBD1721675750511:a5d4cafd1ee59d473a5d81bd847466a6eb6bf333a93b3e7d1eef3e057bcbd6e6:033038cbf370:0002:pc31b468286b42f5cfe",
+       "HC:SBD1721675750511:a5d4cafd1ee59d473a5d81bd847466a6eb6bf333a93b3e7d1eef3e057bcbd6e6:033038cbf370:0014:pfc476bea3a635e0f74",
+       "HC:SBD1721675750511:a5d4cafd1ee59d473a5d81bd847466a6eb6bf333a93b3e7d1eef3e057bcbd6e6:033038cbf370:0016:p1c1d1b45adcc20f057",
+       "HC:SBD1721675750511:a5d4cafd1ee59d473a5d81bd847466a6eb6bf333a93b3e7d1eef3e057bcbd6e6:033038cbf370:0007:pc9e2f59ccc76133c4e",
+       "HC:PM:00078625:83a4e0fdd8a24e0f670d11268893e21babd4bed528c6d8def40635002d330287:033038cbf370:0106:pac8c031189000191d6",
+       "HC:PM:00078625:83a4e0fdd8a24e0f670d11268893e21babd4bed528c6d8def40635002d330287:033038cbf370:0055:p6303a5a91b899796fb",
+       "HC:PM:00078625:83a4e0fdd8a24e0f670d11268893e21babd4bed528c6d8def40635002d330287:033038cbf370:0085:pfe9846929d2a581e1e",
+       "HC:PM:00078625:83a4e0fdd8a24e0f670d11268893e21babd4bed528c6d8def40635002d330287:033038cbf370:0101:p5257e77e40818b90ba",
+       "HC:PM:00078625:83a4e0fdd8a24e0f670d11268893e21babd4bed528c6d8def40635002d330287:033038cbf370:0101:pcb83c6f48f2365161c",
+       "HC:PM:00078625:83a4e0fdd8a24e0f670d11268893e21babd4bed528c6d8def40635002d330287:033038cbf370:0033:p5201d44c982448ef19",
+       "HC:PM:00078625:83a4e0fdd8a24e0f670d11268893e21babd4bed528c6d8def40635002d330287:033038cbf370:0081:p8fb7b40277b9998d5a",
+       "HC:PM:00078625:83a4e0fdd8a24e0f670d11268893e21babd4bed528c6d8def40635002d330287:033038cbf370:0078:p834cbc14782dadb4cf"
+      ],
+      "target_rank": null
+     },
+     {
+      "task_id": "T2",
+      "product": "ABP654",
+      "jurisdiction": "CA",
+      "hits": [
+       "HC:SBD1721675750511:a5d4cafd1ee59d473a5d81bd847466a6eb6bf333a93b3e7d1eef3e057bcbd6e6:033038cbf370:0014:pfc476bea3a635e0f74",
+       "HC:SBD1721675750511:a5d4cafd1ee59d473a5d81bd847466a6eb6bf333a93b3e7d1eef3e057bcbd6e6:033038cbf370:0016:p707ffb0eacb9d63b58",
+       "HC:SBD1721675750511:a5d4cafd1ee59d473a5d81bd847466a6eb6bf333a93b3e7d1eef3e057bcbd6e6:033038cbf370:0003:pb002cd7b492389aeaf",
+       "HC:SBD1721675750511:a5d4cafd1ee59d473a5d81bd847466a6eb6bf333a93b3e7d1eef3e057bcbd6e6:033038cbf370:0014:pc8820b61a351a7f01b",
+       "HC:SBD1721675750511:a5d4cafd1ee59d473a5d81bd847466a6eb6bf333a93b3e7d1eef3e057bcbd6e6:033038cbf370:0010:p4660f800c96b48bfc6",
+       "HC:SBD1721675750511:a5d4cafd1ee59d473a5d81bd847466a6eb6bf333a93b3e7d1eef3e057bcbd6e6:033038cbf370:0004:pabc77920b4e5ebe347",
+       "HC:SBD1721675750511:a5d4cafd1ee59d473a5d81bd847466a6eb6bf333a93b3e7d1eef3e057bcbd6e6:033038cbf370:0007:pc9e2f59ccc76133c4e",
+       "HC:SBD1721675750511:a5d4cafd1ee59d473a5d81bd847466a6eb6bf333a93b3e7d1eef3e057bcbd6e6:033038cbf370:0008:p0f601f7dee65602f2d",
+       "HC:SBD1721675750511:a5d4cafd1ee59d473a5d81bd847466a6eb6bf333a93b3e7d1eef3e057bcbd6e6:033038cbf370:0011:p9666769a17b996d7c9",
+       "HC:SBD1721675750511:a5d4cafd1ee59d473a5d81bd847466a6eb6bf333a93b3e7d1eef3e057bcbd6e6:033038cbf370:0016:p1c1d1b45adcc20f057",
+       "HC:SBD1721675750511:a5d4cafd1ee59d473a5d81bd847466a6eb6bf333a93b3e7d1eef3e057bcbd6e6:033038cbf370:0010:pb6e981cb9081d890ea",
+       "HC:SBD1721675750511:a5d4cafd1ee59d473a5d81bd847466a6eb6bf333a93b3e7d1eef3e057bcbd6e6:033038cbf370:0018:p081abf5a3ccd812344"
+      ],
+      "target_rank": null
+     }
+    ]
+   },
+   "requested": [
+    [],
+    []
+   ]
+  },
+  "paired/C03": {
+   "case": "C03",
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "CTP43",
+      "jurisdiction": "CA",
+      "hits": [
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0008:p61ba40cd9f3ffc468f",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0119:p36f86e9a822710f7a9",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0113:p032574d05d89557eb2",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0095:pc4c01f97a8667758c7",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0113:p471b182ca688f23402"
+      ],
+      "target_rank": null
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "CTP43",
+      "jurisdiction": "CA",
+      "hits": [
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0008:p61ba40cd9f3ffc468f",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0119:p36f86e9a822710f7a9",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0113:p032574d05d89557eb2",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0095:pc4c01f97a8667758c7",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0113:p471b182ca688f23402",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0008:pcf2c4eb483341d021e",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0004:p1e1f998ea0402f6c81",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0030:p03c652685161190e06",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0095:p77b62c444fcd7c43bd",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0008:pcc39dded10c4d2e5e6",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0095:p75f976d51f527a80d2",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0120:p6c66334e5036682523"
+      ],
+      "target_rank": null
+     }
+    ]
+   },
+   "requested": [
+    []
+   ]
+  },
+  "paired/C04": {
+   "case": "C04",
+   "replay": {
+    "5": [],
+    "12": []
+   },
+   "requested": [
+    []
+   ]
+  },
+  "paired/E01": {
+   "case": "E01",
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "SB17",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0037:p268b475c988af8e071",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0059:pf5739f4d555f703f51",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0038:p64481a9bef00ee3104",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0061:pb069a3072d839d5a9f",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0126:p2bf78f1cf33ea7ce77"
+      ],
+      "target_rank": null
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "SB17",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0037:p268b475c988af8e071",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0059:pf5739f4d555f703f51",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0038:p64481a9bef00ee3104",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0061:pb069a3072d839d5a9f",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0126:p2bf78f1cf33ea7ce77",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0047:p81f6ec34c0cc50c1a3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0038:paf0008209fd91314ab",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0039:pec3fc8d071e789651e",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0064:p5f30672c8023b6c9f8",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0037:pe7a898b4cd33893a90",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0142:pf07dd9a6da9b5d2057",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0037:p3533bab0a83420d2bd"
+      ],
+      "target_rank": null
+     }
+    ]
+   },
+   "requested": [
+    []
+   ]
+  },
+  "paired/E02": {
+   "case": "E02",
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "CTP43",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:64792:513959da3a6d724b63160792cbf18acb7f83d3396ab8147f491d543ce392bcce:033038cbf370:0039:p61a3af35818e807ad1",
+       "EMA:64792:513959da3a6d724b63160792cbf18acb7f83d3396ab8147f491d543ce392bcce:033038cbf370:0087:p4cd82e279ea0832efe",
+       "EMA:64792:513959da3a6d724b63160792cbf18acb7f83d3396ab8147f491d543ce392bcce:033038cbf370:0053:pe105c71e7062632ae5",
+       "EMA:64792:513959da3a6d724b63160792cbf18acb7f83d3396ab8147f491d543ce392bcce:033038cbf370:0088:p4a164dd556262439b3",
+       "EMA:64792:513959da3a6d724b63160792cbf18acb7f83d3396ab8147f491d543ce392bcce:033038cbf370:0115:pb201b29a1bb5a40389"
+      ],
+      "target_rank": null
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "CTP43",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:64792:513959da3a6d724b63160792cbf18acb7f83d3396ab8147f491d543ce392bcce:033038cbf370:0039:p61a3af35818e807ad1",
+       "EMA:64792:513959da3a6d724b63160792cbf18acb7f83d3396ab8147f491d543ce392bcce:033038cbf370:0087:p4cd82e279ea0832efe",
+       "EMA:64792:513959da3a6d724b63160792cbf18acb7f83d3396ab8147f491d543ce392bcce:033038cbf370:0053:pe105c71e7062632ae5",
+       "EMA:64792:513959da3a6d724b63160792cbf18acb7f83d3396ab8147f491d543ce392bcce:033038cbf370:0088:p4a164dd556262439b3",
+       "EMA:64792:513959da3a6d724b63160792cbf18acb7f83d3396ab8147f491d543ce392bcce:033038cbf370:0115:pb201b29a1bb5a40389",
+       "EMA:64792:513959da3a6d724b63160792cbf18acb7f83d3396ab8147f491d543ce392bcce:033038cbf370:0031:p61469849ba1f2ea962",
+       "EMA:64792:513959da3a6d724b63160792cbf18acb7f83d3396ab8147f491d543ce392bcce:033038cbf370:0110:p1f63a4c8b5e9da30d0",
+       "EMA:64792:513959da3a6d724b63160792cbf18acb7f83d3396ab8147f491d543ce392bcce:033038cbf370:0056:p22c730b4c7b81d72a1",
+       "EMA:64792:513959da3a6d724b63160792cbf18acb7f83d3396ab8147f491d543ce392bcce:033038cbf370:0115:pdf9b09457c274a4f39",
+       "EMA:64792:513959da3a6d724b63160792cbf18acb7f83d3396ab8147f491d543ce392bcce:033038cbf370:0087:p838293754f0c367997",
+       "EMA:64792:513959da3a6d724b63160792cbf18acb7f83d3396ab8147f491d543ce392bcce:033038cbf370:0127:pf10a7002b90892703d",
+       "EMA:64792:513959da3a6d724b63160792cbf18acb7f83d3396ab8147f491d543ce392bcce:033038cbf370:0041:p7c41a48a0174e19b02"
+      ],
+      "target_rank": null
+     }
+    ]
+   },
+   "requested": [
+    []
+   ]
+  },
+  "paired/E03": {
+   "case": "E03",
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "SB17",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0060:p03902df6b28b5478e7",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p21d647bafa09104453",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0059:pf5739f4d555f703f51",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0038:pca4a9689f50e4c57cc",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0037:p268b475c988af8e071"
+      ],
+      "target_rank": null
+     },
+     {
+      "task_id": "T1",
+      "product": "ABP654",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0041:p9df86064f8c3f7c036",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0041:pcace8d6e0a79562aeb",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0013:p731720241e0b7e9163",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0042:pcc057f8ab2112fe8f3",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0114:p31dc4e34a460176168"
+      ],
+      "target_rank": null
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "SB17",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0060:p03902df6b28b5478e7",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p21d647bafa09104453",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0059:pf5739f4d555f703f51",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0038:pca4a9689f50e4c57cc",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0037:p268b475c988af8e071",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0038:p64481a9bef00ee3104",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0050:p79e9a8499d2256fd73",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0148:p4e90478f91c9e3df04",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0053:p57038d64e8c9537781",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0049:pbf72084cdddd4f4f31",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0046:p084d5b98a8bb786046",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0125:pb9a1c77f1158ef9d10"
+      ],
+      "target_rank": null
+     },
+     {
+      "task_id": "T1",
+      "product": "ABP654",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0041:p9df86064f8c3f7c036",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0041:pcace8d6e0a79562aeb",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0013:p731720241e0b7e9163",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0042:pcc057f8ab2112fe8f3",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0114:p31dc4e34a460176168",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:p0d437668b9b062263d",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0105:p6443b3f566977418bc",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0047:pb7ac7ad1a1842e93a0",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0048:p2d7abd84a9f1531e62",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:pc7329e3f5b4e22462d",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0110:p23f80da7697068df7a",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0069:pd1293f35014871c5b7"
+      ],
+      "target_rank": null
+     }
+    ]
+   },
+   "requested": [
+    []
+   ]
+  },
+  "paired/E04": {
+   "case": "E04",
+   "replay": {
+    "5": [],
+    "12": []
+   },
+   "requested": [
+    []
+   ]
+  },
+  "paired/N01": {
+   "case": "N01",
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "SB17",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0059:pf5739f4d555f703f51",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0038:p64481a9bef00ee3104",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0037:p268b475c988af8e071",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0039:pec3fc8d071e789651e",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0060:p03902df6b28b5478e7"
+      ],
+      "target_rank": null
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "SB17",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0059:pf5739f4d555f703f51",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0038:p64481a9bef00ee3104",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0037:p268b475c988af8e071",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0039:pec3fc8d071e789651e",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0060:p03902df6b28b5478e7",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0126:p2bf78f1cf33ea7ce77",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0059:p38a0404ea37286f242",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0160:pbc8f6d158dd15aa6dc",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0061:pb069a3072d839d5a9f",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0064:p5f30672c8023b6c9f8",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0125:pb9a1c77f1158ef9d10",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0072:pa62ec253424b471e05"
+      ],
+      "target_rank": null
+     }
+    ]
+   },
+   "requested": [
+    []
+   ]
+  },
+  "paired/N02": {
+   "case": "N02",
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "__guideline__",
+      "jurisdiction": "CA",
+      "hits": [],
+      "target_rank": null
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "__guideline__",
+      "jurisdiction": "CA",
+      "hits": [],
+      "target_rank": null
+     }
+    ]
+   },
+   "requested": [
+    []
+   ]
+  },
+  "paired/T01": {
+   "case": "T01",
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "SB17",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0047:p5b339e01868ced72ca",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p54cb174a0f4d7c1a19",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:pe7986ab715e3ffb60d",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p4ad710894d285a9ec3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0043:p5089e92d6d742e02b3"
+      ],
+      "target_rank": 1
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "SB17",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0047:p5b339e01868ced72ca",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p54cb174a0f4d7c1a19",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:pe7986ab715e3ffb60d",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p4ad710894d285a9ec3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0043:p5089e92d6d742e02b3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:p58e3fa6b51b8f1b68e",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0043:p57f6254ef1d6ba6c4c",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0046:p084d5b98a8bb786046",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0048:pac21e91df48a6a1fab",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0062:peb95a1eed598c6efdd",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:p56984401dd87f16ef3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:pdff1acf3662bb9e4a7"
+      ],
+      "target_rank": 1
+     }
+    ]
+   },
+   "requested": [
+    [
+     [
+      "cmax",
+      "mean"
+     ],
+     [
+      "cmax",
+      "sd"
+     ]
+    ]
+   ]
+  },
+  "paired/T02": {
+   "case": "T02",
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "ABP654",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:p3a85044103479150cc",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0084:p2e2c1056a3f1fd1053",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0101:pf1d64d80804ee4d057",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0045:pd2a865af28b7e375e0",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:pf5b7bec8a63613f96c"
+      ],
+      "target_rank": 1
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "ABP654",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:p3a85044103479150cc",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0084:p2e2c1056a3f1fd1053",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0101:pf1d64d80804ee4d057",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0045:pd2a865af28b7e375e0",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:pf5b7bec8a63613f96c",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0083:p523ab6a60a30405cf5",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0043:pf919a1fe5c5d9f5a7f",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0101:p9db75391c32b675f4e",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0098:pecbea66a4306ae509b",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0086:p230fc9d592bfc8e13f",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0107:pa158bf0ecd2dd004c2",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0100:p49c39cca6907b21fc1"
+      ],
+      "target_rank": 1
+     }
+    ]
+   },
+   "requested": [
+    [
+     [
+      "t1/2",
+      "mean"
+     ],
+     [
+      "t1/2",
+      "sd"
+     ],
+     [
+      "tmax",
+      "median"
+     ],
+     [
+      "tmax",
+      "range"
+     ]
+    ]
+   ]
+  },
+  "paired/T03": {
+   "case": "T03",
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "SB17",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0047:p5b339e01868ced72ca",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0043:p5089e92d6d742e02b3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p4ad710894d285a9ec3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0046:p084d5b98a8bb786046",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:pe7986ab715e3ffb60d"
+      ],
+      "target_rank": 1
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "SB17",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0047:p5b339e01868ced72ca",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0043:p5089e92d6d742e02b3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p4ad710894d285a9ec3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0046:p084d5b98a8bb786046",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:pe7986ab715e3ffb60d",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p54cb174a0f4d7c1a19",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:p58e3fa6b51b8f1b68e",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0051:p15078530c4707fe548",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0039:p060f9c10a9fc5fcbbc",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0054:p511ea883ccce26a8a5",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0043:p57f6254ef1d6ba6c4c",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0087:p6b73ce3990483d36b4"
+      ],
+      "target_rank": 1
+     }
+    ]
+   },
+   "requested": [
+    [
+     [
+      "cmax",
+      "median"
+     ]
+    ]
+   ]
+  },
+  "paired/T04": {
+   "case": "T04",
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "ABP654",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:p3a85044103479150cc",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0043:pf919a1fe5c5d9f5a7f",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:pf5b7bec8a63613f96c",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0111:pcbe998bd57217215fb",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0045:pd2a865af28b7e375e0"
+      ],
+      "target_rank": 1
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "ABP654",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:p3a85044103479150cc",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0043:pf919a1fe5c5d9f5a7f",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:pf5b7bec8a63613f96c",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0111:pcbe998bd57217215fb",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0045:pd2a865af28b7e375e0",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0083:p523ab6a60a30405cf5",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0048:p01cb957e1f9b5c2230",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0042:pcc057f8ab2112fe8f3",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:p0d437668b9b062263d",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0101:p11a56f49715ed23541",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0041:pcace8d6e0a79562aeb",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0114:p31dc4e34a460176168"
+      ],
+      "target_rank": 1
+     }
+    ]
+   },
+   "requested": [
+    [
+     [
+      "t1/2",
+      "mean"
+     ],
+     [
+      "t1/2",
+      "sd"
+     ],
+     [
+      "tmax",
+      "median"
+     ],
+     [
+      "tmax",
+      "range"
+     ]
+    ]
+   ]
+  },
+  "paired/T05": {
+   "case": "T05",
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "CTP43",
+      "jurisdiction": "CA",
+      "hits": [
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0008:pcc39dded10c4d2e5e6",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0008:p61ba40cd9f3ffc468f",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0095:pc4c01f97a8667758c7",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0119:p36f86e9a822710f7a9",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0113:p032574d05d89557eb2"
+      ],
+      "target_rank": null
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "CTP43",
+      "jurisdiction": "CA",
+      "hits": [
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0008:pcc39dded10c4d2e5e6",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0008:p61ba40cd9f3ffc468f",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0095:pc4c01f97a8667758c7",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0119:p36f86e9a822710f7a9",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0113:p032574d05d89557eb2",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0062:p7199cfd51c11dd31f2",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0095:p75f976d51f527a80d2",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0004:p1e1f998ea0402f6c81",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0008:pcf2c4eb483341d021e",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0009:p242a5122bea80ab90f",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0113:p4f3ad734232d3a2fa3",
+       "HC:PM:00085585:3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd:033038cbf370:0095:p77b62c444fcd7c43bd"
+      ],
+      "target_rank": null
+     }
+    ]
+   },
+   "requested": [
+    []
+   ]
+  },
+  "paired/U01": {
+   "case": "U01",
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "BAT2206",
+      "jurisdiction": "US",
+      "hits": [
+       "FDA:label:761419s000lbl:7783bf048fda949de0c92df0d9dc122c243da041afbcbf9382fb1a815590fc5e:033038cbf370:0003:p01c5be77f2b527a5d0",
+       "FDA:label:761419s000lbl:7783bf048fda949de0c92df0d9dc122c243da041afbcbf9382fb1a815590fc5e:033038cbf370:0003:pdcd2aae20e9cd65457",
+       "FDA:label:761419s000lbl:7783bf048fda949de0c92df0d9dc122c243da041afbcbf9382fb1a815590fc5e:033038cbf370:0001:p94f9f3bdb9f7de591e",
+       "FDA:label:761419s000lbl:7783bf048fda949de0c92df0d9dc122c243da041afbcbf9382fb1a815590fc5e:033038cbf370:0005:pd7dac09ffec91b55c4",
+       "FDA:label:761419s000lbl:7783bf048fda949de0c92df0d9dc122c243da041afbcbf9382fb1a815590fc5e:033038cbf370:0005:pf719d8c421fd7727db"
+      ],
+      "target_rank": null
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "BAT2206",
+      "jurisdiction": "US",
+      "hits": [
+       "FDA:label:761419s000lbl:7783bf048fda949de0c92df0d9dc122c243da041afbcbf9382fb1a815590fc5e:033038cbf370:0003:p01c5be77f2b527a5d0",
+       "FDA:label:761419s000lbl:7783bf048fda949de0c92df0d9dc122c243da041afbcbf9382fb1a815590fc5e:033038cbf370:0003:pdcd2aae20e9cd65457",
+       "FDA:label:761419s000lbl:7783bf048fda949de0c92df0d9dc122c243da041afbcbf9382fb1a815590fc5e:033038cbf370:0001:p94f9f3bdb9f7de591e",
+       "FDA:label:761419s000lbl:7783bf048fda949de0c92df0d9dc122c243da041afbcbf9382fb1a815590fc5e:033038cbf370:0005:pd7dac09ffec91b55c4",
+       "FDA:label:761419s000lbl:7783bf048fda949de0c92df0d9dc122c243da041afbcbf9382fb1a815590fc5e:033038cbf370:0005:pf719d8c421fd7727db",
+       "FDA:label:761419s000lbl:7783bf048fda949de0c92df0d9dc122c243da041afbcbf9382fb1a815590fc5e:033038cbf370:0004:p48d277cbf97bbdc165",
+       "FDA:label:761419s000lbl:7783bf048fda949de0c92df0d9dc122c243da041afbcbf9382fb1a815590fc5e:033038cbf370:0001:pbd2494e3e36c97d963",
+       "FDA:label:761419s000lbl:7783bf048fda949de0c92df0d9dc122c243da041afbcbf9382fb1a815590fc5e:033038cbf370:0003:pe3835e406cfba2d84b",
+       "FDA:label:761419s000lbl:7783bf048fda949de0c92df0d9dc122c243da041afbcbf9382fb1a815590fc5e:033038cbf370:0001:pc4f7e0b106ab63df0c",
+       "FDA:label:761419s000lbl:7783bf048fda949de0c92df0d9dc122c243da041afbcbf9382fb1a815590fc5e:033038cbf370:0023:p52763e044d3d271f0d",
+       "FDA:label:761419s000lbl:7783bf048fda949de0c92df0d9dc122c243da041afbcbf9382fb1a815590fc5e:033038cbf370:0001:p2e460f39766e7684da",
+       "FDA:label:761419s000lbl:7783bf048fda949de0c92df0d9dc122c243da041afbcbf9382fb1a815590fc5e:033038cbf370:0002:p421ff501acbd187b36"
+      ],
+      "target_rank": null
+     }
+    ]
+   },
+   "requested": [
+    []
+   ]
+  },
+  "paired/U02": {
+   "case": "U02",
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "BMAB1200",
+      "jurisdiction": "US",
+      "hits": [
+       "FDA:label:761406s002lbl:be379f8b3eec9e46e87207c6c9cbb4ba1d71eb016ba19aa1734f9032e7a4b7ae:033038cbf370:0001:p2365c1183fc55d0dd7",
+       "FDA:label:761406s002lbl:be379f8b3eec9e46e87207c6c9cbb4ba1d71eb016ba19aa1734f9032e7a4b7ae:033038cbf370:0005:p7d040de9909c5083bc",
+       "FDA:label:761406s002lbl:be379f8b3eec9e46e87207c6c9cbb4ba1d71eb016ba19aa1734f9032e7a4b7ae:033038cbf370:0005:p70b8dc4f5ba4f2c6d5",
+       "FDA:label:761406s002lbl:be379f8b3eec9e46e87207c6c9cbb4ba1d71eb016ba19aa1734f9032e7a4b7ae:033038cbf370:0006:pc1ef0ac398135af223",
+       "FDA:label:761406s002lbl:be379f8b3eec9e46e87207c6c9cbb4ba1d71eb016ba19aa1734f9032e7a4b7ae:033038cbf370:0001:pd806fe05221c4bbb4e"
+      ],
+      "target_rank": null
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "BMAB1200",
+      "jurisdiction": "US",
+      "hits": [
+       "FDA:label:761406s002lbl:be379f8b3eec9e46e87207c6c9cbb4ba1d71eb016ba19aa1734f9032e7a4b7ae:033038cbf370:0001:p2365c1183fc55d0dd7",
+       "FDA:label:761406s002lbl:be379f8b3eec9e46e87207c6c9cbb4ba1d71eb016ba19aa1734f9032e7a4b7ae:033038cbf370:0005:p7d040de9909c5083bc",
+       "FDA:label:761406s002lbl:be379f8b3eec9e46e87207c6c9cbb4ba1d71eb016ba19aa1734f9032e7a4b7ae:033038cbf370:0005:p70b8dc4f5ba4f2c6d5",
+       "FDA:label:761406s002lbl:be379f8b3eec9e46e87207c6c9cbb4ba1d71eb016ba19aa1734f9032e7a4b7ae:033038cbf370:0006:pc1ef0ac398135af223",
+       "FDA:label:761406s002lbl:be379f8b3eec9e46e87207c6c9cbb4ba1d71eb016ba19aa1734f9032e7a4b7ae:033038cbf370:0001:pd806fe05221c4bbb4e",
+       "FDA:label:761406s002lbl:be379f8b3eec9e46e87207c6c9cbb4ba1d71eb016ba19aa1734f9032e7a4b7ae:033038cbf370:0006:pfead3358e6cc144e27",
+       "FDA:label:761406s002lbl:be379f8b3eec9e46e87207c6c9cbb4ba1d71eb016ba19aa1734f9032e7a4b7ae:033038cbf370:0003:p6c3a97d82fad1b2286",
+       "FDA:label:761406s002lbl:be379f8b3eec9e46e87207c6c9cbb4ba1d71eb016ba19aa1734f9032e7a4b7ae:033038cbf370:0006:pde465ec81fbbaf69a0",
+       "FDA:label:761406s002lbl:be379f8b3eec9e46e87207c6c9cbb4ba1d71eb016ba19aa1734f9032e7a4b7ae:033038cbf370:0005:pef00b7e62ea03b289c",
+       "FDA:label:761406s002lbl:be379f8b3eec9e46e87207c6c9cbb4ba1d71eb016ba19aa1734f9032e7a4b7ae:033038cbf370:0027:pd0c11f83c4497b712d",
+       "FDA:label:761406s002lbl:be379f8b3eec9e46e87207c6c9cbb4ba1d71eb016ba19aa1734f9032e7a4b7ae:033038cbf370:0001:p1a06e75ef449217a5a",
+       "FDA:label:761406s002lbl:be379f8b3eec9e46e87207c6c9cbb4ba1d71eb016ba19aa1734f9032e7a4b7ae:033038cbf370:0001:pf0812896daf965c83a"
+      ],
+      "target_rank": null
+     }
+    ]
+   },
+   "requested": [
+    []
+   ]
+  },
+  "paired/U03": {
+   "case": "U03",
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "CTP43",
+      "jurisdiction": "US",
+      "hits": [
+       "FDA:761338Orig1Orig2s000:CrossR:2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5:033038cbf370:0007:p28197ddc486e769f86",
+       "FDA:letter:761338Orig1s007ltr:3f227b2ea870652c33cf70e8387f119e4cba92eb5832b539f987a3211b0016a7:033038cbf370:0001:pce925e3f76e12d6047",
+       "FDA:761338Orig1Orig2s000:OtherActionLtrs:afa770ff85f2b3b2cfe9c16b6893df85f9119206e81e2106e25883a8a609ed43:033038cbf370:0004:p81b95de1a377edd210",
+       "FDA:letter:761338Orig1s001ltr:6a2215a461ca55cf7c2f0d50b2ebbe66959e29a9f7d42d108c0f59c59166af80:033038cbf370:0002:p51c10a3df6ed366624",
+       "FDA:letter:761338Orig1s001ltr:6a2215a461ca55cf7c2f0d50b2ebbe66959e29a9f7d42d108c0f59c59166af80:033038cbf370:0001:p73710a21d6ad03d9c7"
+      ],
+      "target_rank": null
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "CTP43",
+      "jurisdiction": "US",
+      "hits": [
+       "FDA:761338Orig1Orig2s000:CrossR:2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5:033038cbf370:0007:p28197ddc486e769f86",
+       "FDA:letter:761338Orig1s007ltr:3f227b2ea870652c33cf70e8387f119e4cba92eb5832b539f987a3211b0016a7:033038cbf370:0001:pce925e3f76e12d6047",
+       "FDA:761338Orig1Orig2s000:OtherActionLtrs:afa770ff85f2b3b2cfe9c16b6893df85f9119206e81e2106e25883a8a609ed43:033038cbf370:0004:p81b95de1a377edd210",
+       "FDA:letter:761338Orig1s001ltr:6a2215a461ca55cf7c2f0d50b2ebbe66959e29a9f7d42d108c0f59c59166af80:033038cbf370:0002:p51c10a3df6ed366624",
+       "FDA:letter:761338Orig1s001ltr:6a2215a461ca55cf7c2f0d50b2ebbe66959e29a9f7d42d108c0f59c59166af80:033038cbf370:0001:p73710a21d6ad03d9c7",
+       "FDA:761338Orig1Orig2s000:CrossR:2ec6b220e0c697c31fed04776dbde37d35a24c05be02d28ab7a98ffdfe6b58e5:033038cbf370:0008:p935ac2c406ef2e0527",
+       "FDA:letter:761338Orig1s003ltr:1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2:033038cbf370:0003:pfa7251c09f0ae0d0c8",
+       "FDA:letter:761338Orig1s007ltr:3f227b2ea870652c33cf70e8387f119e4cba92eb5832b539f987a3211b0016a7:033038cbf370:0002:p3f4b9cdddbf2a9fad5",
+       "FDA:761338Orig1Orig2s000:Approv:b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9:033038cbf370:0004:pf38ebc49156f778d65",
+       "FDA:761338Orig1Orig2s000:Approv:b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9:033038cbf370:0013:p11f0807509ef9cc8cc",
+       "FDA:761338Orig1Orig2s000:Approv:b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9:033038cbf370:0010:p887cbe5a30b2d94f10",
+       "FDA:letter:761338Orig1s003ltr:1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2:033038cbf370:0001:p87c3212d4b48c515e6"
+      ],
+      "target_rank": null
+     }
+    ]
+   },
+   "requested": [
+    []
+   ]
+  },
+  "paired/U04": {
+   "case": "U04",
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "ABP654",
+      "jurisdiction": "US",
+      "hits": [
+       "FDA:761285Orig1s000,761331Orig1s000:AdminCorres:91db2a473c27dd56f3dd69c17567e386297aef2e02d595d89cf760065cf7e046:033038cbf370:0025:pd473d5be1e0422cada",
+       "FDA:761285Orig1s000,761331Orig1s000:AdminCorres:91db2a473c27dd56f3dd69c17567e386297aef2e02d595d89cf760065cf7e046:033038cbf370:0015:pb23ab01f74b877dae5",
+       "FDA:761285Orig1s000,761331Orig1s000:AdminCorres:91db2a473c27dd56f3dd69c17567e386297aef2e02d595d89cf760065cf7e046:033038cbf370:0021:p048619e383d2ea33dd",
+       "FDA:761285Orig1s000,761331Orig1s000:AdminCorres:91db2a473c27dd56f3dd69c17567e386297aef2e02d595d89cf760065cf7e046:033038cbf370:0023:p6926fb639a85b112f8",
+       "FDA:761285Orig1s000,761331Orig1s000:AdminCorres:91db2a473c27dd56f3dd69c17567e386297aef2e02d595d89cf760065cf7e046:033038cbf370:0022:p957146cecaf620ebb8"
+      ],
+      "target_rank": null
+     },
+     {
+      "task_id": "T1",
+      "product": "BAT2206",
+      "jurisdiction": "US",
+      "hits": [
+       "FDA:letter:761419Orig1s000ltr:e594f3b4b27cbb32651dcb4bedc36b69f9b7b1231dc724e300069bd8e23f85a5:033038cbf370:0003:pa95558fbf9ae989da4",
+       "FDA:letter:761419Orig1s000ltr:e594f3b4b27cbb32651dcb4bedc36b69f9b7b1231dc724e300069bd8e23f85a5:033038cbf370:0004:p898776c2a52bf302f2",
+       "FDA:letter:761419Orig1s000ltr:e594f3b4b27cbb32651dcb4bedc36b69f9b7b1231dc724e300069bd8e23f85a5:033038cbf370:0006:pc69bf18c07cced308a",
+       "FDA:letter:761419Orig1s000ltr:e594f3b4b27cbb32651dcb4bedc36b69f9b7b1231dc724e300069bd8e23f85a5:033038cbf370:0005:pcd9f3e1b0222e84c99",
+       "FDA:letter:761419Orig1s000ltr:e594f3b4b27cbb32651dcb4bedc36b69f9b7b1231dc724e300069bd8e23f85a5:033038cbf370:0007:p85557e88059cb04430"
+      ],
+      "target_rank": null
+     },
+     {
+      "task_id": "T1",
+      "product": "BMAB1200",
+      "jurisdiction": "US",
+      "hits": [
+       "FDA:761406Orig1Orig2s000:AdminCorres:e3b8a3b334ad60da3aa121d3b7e87ffcb7c77901ddef8318e6728aafc034a632:033038cbf370:0015:p9665ad535f22e3a392",
+       "FDA:761406Orig1Orig2s000:AdminCorres:e3b8a3b334ad60da3aa121d3b7e87ffcb7c77901ddef8318e6728aafc034a632:033038cbf370:0014:pbca407aec77e1b2122",
+       "FDA:761406Orig1Orig2s000:AdminCorres:e3b8a3b334ad60da3aa121d3b7e87ffcb7c77901ddef8318e6728aafc034a632:033038cbf370:0016:p890423af01dafee0d7",
+       "FDA:761406Orig1Orig2s000:AdminCorres:e3b8a3b334ad60da3aa121d3b7e87ffcb7c77901ddef8318e6728aafc034a632:033038cbf370:0019:p5bed3c30d4dbd23c6f",
+       "FDA:761406Orig1Orig2s000:AdminCorres:e3b8a3b334ad60da3aa121d3b7e87ffcb7c77901ddef8318e6728aafc034a632:033038cbf370:0011:p536119e47527f3d77f"
+      ],
+      "target_rank": null
+     },
+     {
+      "task_id": "T1",
+      "product": "CTP43",
+      "jurisdiction": "US",
+      "hits": [
+       "FDA:761338Orig1Orig2s000:AdminCorres:36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb:033038cbf370:0039:p4a0b2308b03c90fd2f",
+       "FDA:761338Orig1Orig2s000:AdminCorres:36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb:033038cbf370:0065:p36bd9bf98787f2e822",
+       "FDA:761338Orig1Orig2s000:AdminCorres:36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb:033038cbf370:0023:p3a7bdb78b720783b04",
+       "FDA:761338Orig1Orig2s000:AdminCorres:36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb:033038cbf370:0021:pa43075714f7be710b5",
+       "FDA:761338Orig1Orig2s000:AdminCorres:36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb:033038cbf370:0053:pb3b0731050fb8bd086"
+      ],
+      "target_rank": null
+     },
+     {
+      "task_id": "T1",
+      "product": "SB17",
+      "jurisdiction": "US",
+      "hits": [
+       "FDA:761373Orig1s000,761425Orig1s000:AdminCorres:d46c417831b0d4adca0eacc6e84535e332073524822e2f7b3a46e52a860773ea:033038cbf370:0017:pd79040dbb0ad4c7ad0",
+       "FDA:761373Orig2s000,761425Orig2s000:Approv:0fce7fb38726a84fa3fc84af664c507fe9a99db855766d1c642c33032c96303d:033038cbf370:0007:p217127a5c49dd64c06",
+       "FDA:761373Orig1s000,761425Orig1s000:Approv:81491fe1083bce3f76a89e1ca32aea742d0bcd6dabc55f6096af418a6e916d4b:033038cbf370:0007:pa72c9f87463d524586",
+       "FDA:letter:761373Orig1s006;761425Orig1s005ltr:9d09510690f3b7fcfb86a81e281112962a0fc7f08bc2637ce0fe5fd6f283ef5c:033038cbf370:0002:p2af809d9e1683a8ecb",
+       "FDA:letter:761373Orig1s004ltr:93b840eeefe055c0b85f6cac2a3f2d20e8fc88ebb486b66baf7c023854f32a82:033038cbf370:0002:p0ebb2e42d0dc275732"
+      ],
+      "target_rank": null
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "ABP654",
+      "jurisdiction": "US",
+      "hits": [
+       "FDA:761285Orig1s000,761331Orig1s000:AdminCorres:91db2a473c27dd56f3dd69c17567e386297aef2e02d595d89cf760065cf7e046:033038cbf370:0025:pd473d5be1e0422cada",
+       "FDA:761285Orig1s000,761331Orig1s000:AdminCorres:91db2a473c27dd56f3dd69c17567e386297aef2e02d595d89cf760065cf7e046:033038cbf370:0015:pb23ab01f74b877dae5",
+       "FDA:761285Orig1s000,761331Orig1s000:AdminCorres:91db2a473c27dd56f3dd69c17567e386297aef2e02d595d89cf760065cf7e046:033038cbf370:0021:p048619e383d2ea33dd",
+       "FDA:761285Orig1s000,761331Orig1s000:AdminCorres:91db2a473c27dd56f3dd69c17567e386297aef2e02d595d89cf760065cf7e046:033038cbf370:0023:p6926fb639a85b112f8",
+       "FDA:761285Orig1s000,761331Orig1s000:AdminCorres:91db2a473c27dd56f3dd69c17567e386297aef2e02d595d89cf760065cf7e046:033038cbf370:0022:p957146cecaf620ebb8",
+       "FDA:letter:761285Orig1s001;761331Orig1s001ltr:d7d3a186e8d068771475b07d73aa4cc49f3bd5e08608429cb7bbf3ecea0a95c9:033038cbf370:0003:p95f899e39f1040eae2",
+       "FDA:761285Orig1s000,761331Orig1s000:Approv:2d67f8b3708d62196f49627a5865505e450104e12c3c1db73d27febe89f5a4de:033038cbf370:0007:pbfd2eee4e25da56070",
+       "FDA:letter:761285Orig1s001;761331Orig1s001ltr:d7d3a186e8d068771475b07d73aa4cc49f3bd5e08608429cb7bbf3ecea0a95c9:033038cbf370:0002:pa863cda3cef775fb8e",
+       "FDA:761285Orig1s000,761331Orig1s000:AdminCorres:91db2a473c27dd56f3dd69c17567e386297aef2e02d595d89cf760065cf7e046:033038cbf370:0027:p8062dab5ec0744f3be",
+       "FDA:761285Orig1s000,761331Orig1s000:AdminCorres:91db2a473c27dd56f3dd69c17567e386297aef2e02d595d89cf760065cf7e046:033038cbf370:0028:pa6d63a0857d7acd151",
+       "FDA:letter:761285Orig1s004,761331Orig1s004ltr:bdcabf34505385bade673fa3273e9c3d2ea862a67192459bb564f0b41ee4b8fd:033038cbf370:0002:p0c8161453f1ccf907e",
+       "FDA:letter:761285Orig1s006, 761331Orig1s006ltr:5c2860375481d8ad1289227cb1562d41614c6982456ec28374271b87822908ec:033038cbf370:0002:pa23bd94c053e2e5eb9"
+      ],
+      "target_rank": null
+     },
+     {
+      "task_id": "T1",
+      "product": "BAT2206",
+      "jurisdiction": "US",
+      "hits": [
+       "FDA:letter:761419Orig1s000ltr:e594f3b4b27cbb32651dcb4bedc36b69f9b7b1231dc724e300069bd8e23f85a5:033038cbf370:0003:pa95558fbf9ae989da4",
+       "FDA:letter:761419Orig1s000ltr:e594f3b4b27cbb32651dcb4bedc36b69f9b7b1231dc724e300069bd8e23f85a5:033038cbf370:0004:p898776c2a52bf302f2",
+       "FDA:letter:761419Orig1s000ltr:e594f3b4b27cbb32651dcb4bedc36b69f9b7b1231dc724e300069bd8e23f85a5:033038cbf370:0006:pc69bf18c07cced308a",
+       "FDA:letter:761419Orig1s000ltr:e594f3b4b27cbb32651dcb4bedc36b69f9b7b1231dc724e300069bd8e23f85a5:033038cbf370:0005:pcd9f3e1b0222e84c99",
+       "FDA:letter:761419Orig1s000ltr:e594f3b4b27cbb32651dcb4bedc36b69f9b7b1231dc724e300069bd8e23f85a5:033038cbf370:0007:p85557e88059cb04430",
+       "FDA:letter:761419Orig1s000ltr:e594f3b4b27cbb32651dcb4bedc36b69f9b7b1231dc724e300069bd8e23f85a5:033038cbf370:0002:p03caf2ea0095b68b86",
+       "FDA:letter:761419Orig1s000ltr:e594f3b4b27cbb32651dcb4bedc36b69f9b7b1231dc724e300069bd8e23f85a5:033038cbf370:0001:pe1e6ee1a8a33ae815c",
+       "FDA:label:761419s000lbl:7783bf048fda949de0c92df0d9dc122c243da041afbcbf9382fb1a815590fc5e:033038cbf370:0001:pfb98a5eb5d23c3f0c0",
+       "FDA:label:761419s000lbl:7783bf048fda949de0c92df0d9dc122c243da041afbcbf9382fb1a815590fc5e:033038cbf370:0012:pb318b9b713693a510a",
+       "FDA:label:761419s000lbl:7783bf048fda949de0c92df0d9dc122c243da041afbcbf9382fb1a815590fc5e:033038cbf370:0002:p6e27c48f90feac92d0",
+       "FDA:label:761419s000lbl:7783bf048fda949de0c92df0d9dc122c243da041afbcbf9382fb1a815590fc5e:033038cbf370:0013:p4613ae708ccd9ab790",
+       "FDA:label:761419s000lbl:7783bf048fda949de0c92df0d9dc122c243da041afbcbf9382fb1a815590fc5e:033038cbf370:0044:p91e576359ca427d857"
+      ],
+      "target_rank": null
+     },
+     {
+      "task_id": "T1",
+      "product": "BMAB1200",
+      "jurisdiction": "US",
+      "hits": [
+       "FDA:761406Orig1Orig2s000:AdminCorres:e3b8a3b334ad60da3aa121d3b7e87ffcb7c77901ddef8318e6728aafc034a632:033038cbf370:0015:p9665ad535f22e3a392",
+       "FDA:761406Orig1Orig2s000:AdminCorres:e3b8a3b334ad60da3aa121d3b7e87ffcb7c77901ddef8318e6728aafc034a632:033038cbf370:0014:pbca407aec77e1b2122",
+       "FDA:761406Orig1Orig2s000:AdminCorres:e3b8a3b334ad60da3aa121d3b7e87ffcb7c77901ddef8318e6728aafc034a632:033038cbf370:0016:p890423af01dafee0d7",
+       "FDA:761406Orig1Orig2s000:AdminCorres:e3b8a3b334ad60da3aa121d3b7e87ffcb7c77901ddef8318e6728aafc034a632:033038cbf370:0019:p5bed3c30d4dbd23c6f",
+       "FDA:761406Orig1Orig2s000:AdminCorres:e3b8a3b334ad60da3aa121d3b7e87ffcb7c77901ddef8318e6728aafc034a632:033038cbf370:0011:p536119e47527f3d77f",
+       "FDA:761406Orig1Orig2s000:Approv:c0d62a8463ea0dc7d33028129d542cb2422d00c7c3aeffa2a5d4dbd44704c541:033038cbf370:0013:p096707a6af3183a754",
+       "FDA:761406Orig1Orig2s000:AdminCorres:e3b8a3b334ad60da3aa121d3b7e87ffcb7c77901ddef8318e6728aafc034a632:033038cbf370:0015:p8ed7ab9dcaefdbcea7",
+       "FDA:761406Orig1Orig2s000:AdminCorres:e3b8a3b334ad60da3aa121d3b7e87ffcb7c77901ddef8318e6728aafc034a632:033038cbf370:0013:p0645f0b7a198263c20",
+       "FDA:761406Orig1Orig2s000:AdminCorres:e3b8a3b334ad60da3aa121d3b7e87ffcb7c77901ddef8318e6728aafc034a632:033038cbf370:0018:pfd1a1454e345ea0fdd",
+       "FDA:761406Orig1Orig2s000:Approv:c0d62a8463ea0dc7d33028129d542cb2422d00c7c3aeffa2a5d4dbd44704c541:033038cbf370:0014:p6f0c9724c79357052f",
+       "FDA:761406Orig1Orig2s000:Approv:c0d62a8463ea0dc7d33028129d542cb2422d00c7c3aeffa2a5d4dbd44704c541:033038cbf370:0006:pc3d74a773327257fc0",
+       "FDA:761406Orig1Orig2s000:Approv:c0d62a8463ea0dc7d33028129d542cb2422d00c7c3aeffa2a5d4dbd44704c541:033038cbf370:0007:pa06ec697a87038ef55"
+      ],
+      "target_rank": null
+     },
+     {
+      "task_id": "T1",
+      "product": "CTP43",
+      "jurisdiction": "US",
+      "hits": [
+       "FDA:761338Orig1Orig2s000:AdminCorres:36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb:033038cbf370:0039:p4a0b2308b03c90fd2f",
+       "FDA:761338Orig1Orig2s000:AdminCorres:36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb:033038cbf370:0065:p36bd9bf98787f2e822",
+       "FDA:761338Orig1Orig2s000:AdminCorres:36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb:033038cbf370:0023:p3a7bdb78b720783b04",
+       "FDA:761338Orig1Orig2s000:AdminCorres:36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb:033038cbf370:0021:pa43075714f7be710b5",
+       "FDA:761338Orig1Orig2s000:AdminCorres:36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb:033038cbf370:0053:pb3b0731050fb8bd086",
+       "FDA:761338Orig1Orig2s000:AdminCorres:36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb:033038cbf370:0065:p7c17b8013dc3ccbe5b",
+       "FDA:761338Orig1Orig2s000:AdminCorres:36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb:033038cbf370:0039:p91db677602c63f0144",
+       "FDA:761338Orig1Orig2s000:Approv:b3764902f8860d572fccb332905559f5fe50063f6f284fa6e88a7111df088ce9:033038cbf370:0007:p001977be97ab8e2431",
+       "FDA:letter:761338Orig1s003ltr:1e93e52de7e20edde1d8be55feb2cc36818ea42d768fb4e463f18afb5240e2b2:033038cbf370:0002:p40373125a61ee24d9f",
+       "FDA:761338Orig1Orig2s000:AdminCorres:36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb:033038cbf370:0053:pa56511f124d6184cbc",
+       "FDA:761338Orig1Orig2s000:AdminCorres:36aa59821080c6a7dd0e62816714fe8d9a7fba933ad56fc12a544fcfdc3674bb:033038cbf370:0036:pfaded60967c9a902ac",
+       "FDA:letter:761338Orig1s001ltr:6a2215a461ca55cf7c2f0d50b2ebbe66959e29a9f7d42d108c0f59c59166af80:033038cbf370:0003:p48e0ddd815d110e53c"
+      ],
+      "target_rank": null
+     },
+     {
+      "task_id": "T1",
+      "product": "SB17",
+      "jurisdiction": "US",
+      "hits": [
+       "FDA:761373Orig1s000,761425Orig1s000:AdminCorres:d46c417831b0d4adca0eacc6e84535e332073524822e2f7b3a46e52a860773ea:033038cbf370:0017:pd79040dbb0ad4c7ad0",
+       "FDA:761373Orig2s000,761425Orig2s000:Approv:0fce7fb38726a84fa3fc84af664c507fe9a99db855766d1c642c33032c96303d:033038cbf370:0007:p217127a5c49dd64c06",
+       "FDA:761373Orig1s000,761425Orig1s000:Approv:81491fe1083bce3f76a89e1ca32aea742d0bcd6dabc55f6096af418a6e916d4b:033038cbf370:0007:pa72c9f87463d524586",
+       "FDA:letter:761373Orig1s006;761425Orig1s005ltr:9d09510690f3b7fcfb86a81e281112962a0fc7f08bc2637ce0fe5fd6f283ef5c:033038cbf370:0002:p2af809d9e1683a8ecb",
+       "FDA:letter:761373Orig1s004ltr:93b840eeefe055c0b85f6cac2a3f2d20e8fc88ebb486b66baf7c023854f32a82:033038cbf370:0002:p0ebb2e42d0dc275732",
+       "FDA:761373Orig1s000,761425Orig1s000:AdminCorres:d46c417831b0d4adca0eacc6e84535e332073524822e2f7b3a46e52a860773ea:033038cbf370:0018:p8f800958d12c051c11",
+       "FDA:letter:761373Orig1s002,761425Orig1s002ltr:45acfdabd4906e6899c84f8b3ed829e4e96e069edfa5aaadb3809522f0449c23:033038cbf370:0002:p3dd8238e5eb1c76ba8",
+       "FDA:761373Orig1s000,761425Orig1s000:AdminCorres:d46c417831b0d4adca0eacc6e84535e332073524822e2f7b3a46e52a860773ea:033038cbf370:0008:p47bb56445726245e2e",
+       "FDA:letter:761373Orig1s001;761425Orig1s001ltr:08b953e4bb0a84928885dc25e1153b6d4994a4c164e890510b6f68e3f7fffe52:033038cbf370:0002:p3059c193add6a34e33",
+       "FDA:761373Orig1s000,761425Orig1s000:Approv:81491fe1083bce3f76a89e1ca32aea742d0bcd6dabc55f6096af418a6e916d4b:033038cbf370:0008:pe5b4389621b35b7f6f",
+       "FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR:a45db692abad62f38efbef242f728cf2ea3fc894a48c16fbdc8201417ef4a6fa:033038cbf370:0029:pab4a3ac11f3faeba4a",
+       "FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR:60b9b312f076a85479ad8ce2ced42d6a4f3d1fd3f80954d92add3d2d81a7853f:033038cbf370:0058:p82099ea101bb39808f"
+      ],
+      "target_rank": null
+     }
+    ]
+   },
+   "requested": [
+    []
+   ]
+  },
+  "table_focus/T01": {
+   "case": "T01",
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "SB17",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0047:p5b339e01868ced72ca",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p54cb174a0f4d7c1a19",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:pe7986ab715e3ffb60d",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p4ad710894d285a9ec3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0043:p5089e92d6d742e02b3"
+      ],
+      "target_rank": 1
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "SB17",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0047:p5b339e01868ced72ca",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p54cb174a0f4d7c1a19",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:pe7986ab715e3ffb60d",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p4ad710894d285a9ec3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0043:p5089e92d6d742e02b3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:p58e3fa6b51b8f1b68e",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0043:p57f6254ef1d6ba6c4c",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0046:p084d5b98a8bb786046",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0048:pac21e91df48a6a1fab",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0062:peb95a1eed598c6efdd",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:p56984401dd87f16ef3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:pdff1acf3662bb9e4a7"
+      ],
+      "target_rank": 1
+     }
+    ]
+   },
+   "requested": [
+    [
+     [
+      "cmax",
+      "mean"
+     ],
+     [
+      "cmax",
+      "sd"
+     ]
+    ]
+   ]
+  },
+  "table_focus/T02": {
+   "case": "T02",
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "ABP654",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:p3a85044103479150cc",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0084:p2e2c1056a3f1fd1053",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0101:pf1d64d80804ee4d057",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0045:pd2a865af28b7e375e0",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:pf5b7bec8a63613f96c"
+      ],
+      "target_rank": 1
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "ABP654",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:p3a85044103479150cc",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0084:p2e2c1056a3f1fd1053",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0101:pf1d64d80804ee4d057",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0045:pd2a865af28b7e375e0",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:pf5b7bec8a63613f96c",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0083:p523ab6a60a30405cf5",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0043:pf919a1fe5c5d9f5a7f",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0101:p9db75391c32b675f4e",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0098:pecbea66a4306ae509b",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0086:p230fc9d592bfc8e13f",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0107:pa158bf0ecd2dd004c2",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0100:p49c39cca6907b21fc1"
+      ],
+      "target_rank": 1
+     }
+    ]
+   },
+   "requested": [
+    [
+     [
+      "t1/2",
+      "mean"
+     ],
+     [
+      "t1/2",
+      "sd"
+     ],
+     [
+      "tmax",
+      "median"
+     ],
+     [
+      "tmax",
+      "range"
+     ]
+    ]
+   ]
+  },
+  "table_focus/T03": {
+   "case": "T03",
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "SB17",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0047:p5b339e01868ced72ca",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0043:p5089e92d6d742e02b3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p4ad710894d285a9ec3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0046:p084d5b98a8bb786046",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:pe7986ab715e3ffb60d"
+      ],
+      "target_rank": 1
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "SB17",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0047:p5b339e01868ced72ca",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0043:p5089e92d6d742e02b3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p4ad710894d285a9ec3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0046:p084d5b98a8bb786046",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:pe7986ab715e3ffb60d",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p54cb174a0f4d7c1a19",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:p58e3fa6b51b8f1b68e",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0051:p15078530c4707fe548",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0039:p060f9c10a9fc5fcbbc",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0054:p511ea883ccce26a8a5",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0043:p57f6254ef1d6ba6c4c",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0087:p6b73ce3990483d36b4"
+      ],
+      "target_rank": 1
+     }
+    ]
+   },
+   "requested": [
+    [
+     [
+      "cmax",
+      "median"
+     ]
+    ]
+   ]
+  },
+  "table_focus/T04": {
+   "case": "T04",
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "ABP654",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:p3a85044103479150cc",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0043:pf919a1fe5c5d9f5a7f",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:pf5b7bec8a63613f96c",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0111:pcbe998bd57217215fb",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0045:pd2a865af28b7e375e0"
+      ],
+      "target_rank": 1
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "ABP654",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:p3a85044103479150cc",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0043:pf919a1fe5c5d9f5a7f",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:pf5b7bec8a63613f96c",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0111:pcbe998bd57217215fb",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0045:pd2a865af28b7e375e0",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0083:p523ab6a60a30405cf5",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0048:p01cb957e1f9b5c2230",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0042:pcc057f8ab2112fe8f3",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:p0d437668b9b062263d",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0101:p11a56f49715ed23541",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0041:pcace8d6e0a79562aeb",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0114:p31dc4e34a460176168"
+      ],
+      "target_rank": 1
+     }
+    ]
+   },
+   "requested": [
+    [
+     [
+      "t1/2",
+      "mean"
+     ],
+     [
+      "t1/2",
+      "sd"
+     ],
+     [
+      "tmax",
+      "median"
+     ],
+     [
+      "tmax",
+      "range"
+     ]
+    ]
+   ]
+  }
+ },
+ "wording": {
+  "T01.1": {
+   "case": "T01",
+   "request": "EMA SB17-1001 PK 분석표에서 SB17·EU Stelara·US Stelara의 Cmax를 확인해줘. 각 군의 산술평균과 표준편차를 원문 단위와 함께 정리하고 중앙값이나 기하평균과 구분해줘.",
+   "requested": [
+    [
+     "cmax",
+     "mean"
+    ],
+    [
+     "cmax",
+     "sd"
+    ]
+   ],
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "SB17",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0047:p5b339e01868ced72ca",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p54cb174a0f4d7c1a19",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:pe7986ab715e3ffb60d",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p4ad710894d285a9ec3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0043:p5089e92d6d742e02b3"
+      ],
+      "target_rank": 1
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "SB17",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0047:p5b339e01868ced72ca",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p54cb174a0f4d7c1a19",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:pe7986ab715e3ffb60d",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p4ad710894d285a9ec3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0043:p5089e92d6d742e02b3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:p58e3fa6b51b8f1b68e",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0043:p57f6254ef1d6ba6c4c",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0046:p084d5b98a8bb786046",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0048:pac21e91df48a6a1fab",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0062:peb95a1eed598c6efdd",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:p56984401dd87f16ef3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:pdff1acf3662bb9e4a7"
+      ],
+      "target_rank": 1
+     }
+    ]
+   }
+  },
+  "T01.2": {
+   "case": "T01",
+   "request": "EMA SB17-1001 PK 분석표에서 산술평균과 표준편차로 SB17·EU Stelara·US Stelara의 최고혈중농도를 정리해줘. 기하평균이 아닌 값이어야 해.",
+   "requested": [
+    [
+     "cmax",
+     "mean"
+    ],
+    [
+     "cmax",
+     "sd"
+    ]
+   ],
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "SB17",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0047:p5b339e01868ced72ca",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p54cb174a0f4d7c1a19",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:pe7986ab715e3ffb60d",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p4ad710894d285a9ec3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0043:p5089e92d6d742e02b3"
+      ],
+      "target_rank": 1
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "SB17",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0047:p5b339e01868ced72ca",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p54cb174a0f4d7c1a19",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:pe7986ab715e3ffb60d",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p4ad710894d285a9ec3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0043:p5089e92d6d742e02b3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:p58e3fa6b51b8f1b68e",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0043:p57f6254ef1d6ba6c4c",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0046:p084d5b98a8bb786046",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0048:pac21e91df48a6a1fab",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0062:peb95a1eed598c6efdd",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:p56984401dd87f16ef3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:pdff1acf3662bb9e4a7"
+      ],
+      "target_rank": 1
+     }
+    ]
+   }
+  },
+  "T01.3": {
+   "case": "T01",
+   "request": "From the EMA SB17-1001 PK table, give the arithmetic mean and SD of Cmax for SB17, EU Stelara and US Stelara, not the median or geometric mean.",
+   "requested": [
+    [
+     "cmax",
+     "mean"
+    ],
+    [
+     "cmax",
+     "sd"
+    ]
+   ],
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "SB17",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0047:p5b339e01868ced72ca",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p54cb174a0f4d7c1a19",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:pe7986ab715e3ffb60d",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p4ad710894d285a9ec3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0043:p5089e92d6d742e02b3"
+      ],
+      "target_rank": 1
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "SB17",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0047:p5b339e01868ced72ca",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p54cb174a0f4d7c1a19",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:pe7986ab715e3ffb60d",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p4ad710894d285a9ec3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0043:p5089e92d6d742e02b3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:p58e3fa6b51b8f1b68e",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0043:p57f6254ef1d6ba6c4c",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0046:p084d5b98a8bb786046",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0048:pac21e91df48a6a1fab",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0062:peb95a1eed598c6efdd",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:p56984401dd87f16ef3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:pdff1acf3662bb9e4a7"
+      ],
+      "target_rank": 1
+     }
+    ]
+   }
+  },
+  "T02.1": {
+   "case": "T02",
+   "request": "EMA ABP 654의 Study 20190230 PK 요약표에서 ABP 654군의 Tmax와 반감기를 확인해줘. Tmax는 중앙값·범위, 반감기는 평균·표준편차로 단위와 함께 정리해줘.",
+   "requested": [
+    [
+     "t1/2",
+     "mean"
+    ],
+    [
+     "t1/2",
+     "sd"
+    ],
+    [
+     "tmax",
+     "median"
+    ],
+    [
+     "tmax",
+     "range"
+    ]
+   ],
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "ABP654",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:p3a85044103479150cc",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0084:p2e2c1056a3f1fd1053",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0101:pf1d64d80804ee4d057",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0045:pd2a865af28b7e375e0",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:pf5b7bec8a63613f96c"
+      ],
+      "target_rank": 1
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "ABP654",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:p3a85044103479150cc",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0084:p2e2c1056a3f1fd1053",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0101:pf1d64d80804ee4d057",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0045:pd2a865af28b7e375e0",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:pf5b7bec8a63613f96c",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0083:p523ab6a60a30405cf5",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0043:pf919a1fe5c5d9f5a7f",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0101:p9db75391c32b675f4e",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0098:pecbea66a4306ae509b",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0086:p230fc9d592bfc8e13f",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0107:pa158bf0ecd2dd004c2",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0100:p49c39cca6907b21fc1"
+      ],
+      "target_rank": 1
+     }
+    ]
+   }
+  },
+  "T02.2": {
+   "case": "T02",
+   "request": "In the EMA ABP 654 Study 20190230 PK summary table, report the median and range of Tmax and the mean and SD of terminal half-life for the ABP 654 group.",
+   "requested": [
+    [
+     "t1/2",
+     "mean"
+    ],
+    [
+     "t1/2",
+     "sd"
+    ],
+    [
+     "tmax",
+     "median"
+    ],
+    [
+     "tmax",
+     "range"
+    ]
+   ],
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "ABP654",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:p3a85044103479150cc",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0084:p2e2c1056a3f1fd1053",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0101:pf1d64d80804ee4d057",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0045:pd2a865af28b7e375e0",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:pf5b7bec8a63613f96c"
+      ],
+      "target_rank": 1
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "ABP654",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:p3a85044103479150cc",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0084:p2e2c1056a3f1fd1053",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0101:pf1d64d80804ee4d057",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0045:pd2a865af28b7e375e0",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:pf5b7bec8a63613f96c",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0083:p523ab6a60a30405cf5",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0043:pf919a1fe5c5d9f5a7f",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0101:p9db75391c32b675f4e",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0098:pecbea66a4306ae509b",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0086:p230fc9d592bfc8e13f",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0107:pa158bf0ecd2dd004c2",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0100:p49c39cca6907b21fc1"
+      ],
+      "target_rank": 1
+     }
+    ]
+   }
+  },
+  "T03.1": {
+   "case": "T03",
+   "request": "EMA SB17-1001 PK 분석표에서 각 군의 Cmax 중앙값만 ng/mL 단위로 알려줘. 산술평균은 필요 없어.",
+   "requested": [
+    [
+     "cmax",
+     "median"
+    ]
+   ],
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "SB17",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0047:p5b339e01868ced72ca",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0043:p5089e92d6d742e02b3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p4ad710894d285a9ec3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0046:p084d5b98a8bb786046",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:pe7986ab715e3ffb60d"
+      ],
+      "target_rank": 1
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "SB17",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0047:p5b339e01868ced72ca",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0043:p5089e92d6d742e02b3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p4ad710894d285a9ec3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0046:p084d5b98a8bb786046",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:pe7986ab715e3ffb60d",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p54cb174a0f4d7c1a19",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:p58e3fa6b51b8f1b68e",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0051:p15078530c4707fe548",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0039:p060f9c10a9fc5fcbbc",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0054:p511ea883ccce26a8a5",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0043:p57f6254ef1d6ba6c4c",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0087:p6b73ce3990483d36b4"
+      ],
+      "target_rank": 1
+     }
+    ]
+   }
+  },
+  "T03.2": {
+   "case": "T03",
+   "request": "Median Cmax (ng/mL) for SB17, EU Stelara and US Stelara in the EMA SB17-1001 PK table, as opposed to the arithmetic mean.",
+   "requested": [
+    [
+     "cmax",
+     "median"
+    ]
+   ],
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "SB17",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0047:p5b339e01868ced72ca",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0043:p5089e92d6d742e02b3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p4ad710894d285a9ec3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0046:p084d5b98a8bb786046",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:pe7986ab715e3ffb60d"
+      ],
+      "target_rank": 1
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "SB17",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0047:p5b339e01868ced72ca",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0043:p5089e92d6d742e02b3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p4ad710894d285a9ec3",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0046:p084d5b98a8bb786046",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:pe7986ab715e3ffb60d",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0045:p54cb174a0f4d7c1a19",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0044:p58e3fa6b51b8f1b68e",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0051:p15078530c4707fe548",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0039:p060f9c10a9fc5fcbbc",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0054:p511ea883ccce26a8a5",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0043:p57f6254ef1d6ba6c4c",
+       "EMA:63563:fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76:033038cbf370:0087:p6b73ce3990483d36b4"
+      ],
+      "target_rank": 1
+     }
+    ]
+   }
+  },
+  "T04.1": {
+   "case": "T04",
+   "request": "EMA ABP 654 Study 20190230 PK 요약표에서 US ustekinumab군과 EU ustekinumab군의 t½ 평균·표준편차와 Tmax 중앙값·범위를 시간 단위로 확인해줘.",
+   "requested": [
+    [
+     "t1/2",
+     "mean"
+    ],
+    [
+     "t1/2",
+     "sd"
+    ],
+    [
+     "tmax",
+     "median"
+    ],
+    [
+     "tmax",
+     "range"
+    ]
+   ],
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "ABP654",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:p3a85044103479150cc",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0043:pf919a1fe5c5d9f5a7f",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:pf5b7bec8a63613f96c",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0111:pcbe998bd57217215fb",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0045:pd2a865af28b7e375e0"
+      ],
+      "target_rank": 1
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "ABP654",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:p3a85044103479150cc",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0043:pf919a1fe5c5d9f5a7f",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:pf5b7bec8a63613f96c",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0111:pcbe998bd57217215fb",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0045:pd2a865af28b7e375e0",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0083:p523ab6a60a30405cf5",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0048:p01cb957e1f9b5c2230",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0042:pcc057f8ab2112fe8f3",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:p0d437668b9b062263d",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0101:p11a56f49715ed23541",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0041:pcace8d6e0a79562aeb",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0114:p31dc4e34a460176168"
+      ],
+      "target_rank": 1
+     }
+    ]
+   }
+  },
+  "T04.2": {
+   "case": "T04",
+   "request": "For the US and EU ustekinumab groups in the EMA ABP 654 Study 20190230 PK summary table, give the median and range of Tmax and the mean and SD of t1/2 in hours.",
+   "requested": [
+    [
+     "t1/2",
+     "mean"
+    ],
+    [
+     "t1/2",
+     "sd"
+    ],
+    [
+     "tmax",
+     "median"
+    ],
+    [
+     "tmax",
+     "range"
+    ]
+   ],
+   "replay": {
+    "5": [
+     {
+      "task_id": "T1",
+      "product": "ABP654",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:p3a85044103479150cc",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0043:pf919a1fe5c5d9f5a7f",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:pf5b7bec8a63613f96c",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0111:pcbe998bd57217215fb",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0045:pd2a865af28b7e375e0"
+      ],
+      "target_rank": 1
+     }
+    ],
+    "12": [
+     {
+      "task_id": "T1",
+      "product": "ABP654",
+      "jurisdiction": "EU",
+      "hits": [
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:p3a85044103479150cc",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0043:pf919a1fe5c5d9f5a7f",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:pf5b7bec8a63613f96c",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0111:pcbe998bd57217215fb",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0045:pd2a865af28b7e375e0",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0083:p523ab6a60a30405cf5",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0048:p01cb957e1f9b5c2230",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0042:pcc057f8ab2112fe8f3",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0044:p0d437668b9b062263d",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0101:p11a56f49715ed23541",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0041:pcace8d6e0a79562aeb",
+       "EMA:64196:123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c:033038cbf370:0114:p31dc4e34a460176168"
+      ],
+      "target_rank": 1
+     }
+    ]
+   }
+  }
+ }
+}

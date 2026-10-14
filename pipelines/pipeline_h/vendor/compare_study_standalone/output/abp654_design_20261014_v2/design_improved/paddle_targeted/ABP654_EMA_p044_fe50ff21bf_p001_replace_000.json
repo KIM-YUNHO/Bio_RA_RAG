@@ -1,0 +1,204 @@
+{
+  "job": {
+    "document": "ABP654_EMA_p044.pdf",
+    "page": 1,
+    "key": "ABP654_EMA_p044_fe50ff21bf",
+    "agency": "EMA",
+    "bbox": [
+      63.5,
+      342.5199829101563,
+      474.4,
+      506.0199829101563
+    ],
+    "origin": "existing_table_structure_alarm",
+    "action": "replace",
+    "table_index": 1,
+    "original_table": [
+      [
+        "Treatment and Comparison",
+        "AUCinf (hr*ng/mL) Cmax (ng/mL) LS Geometric Mean [n] LS Geometric Mean [n]",
+        "Cmax (ng/mL)",
+        "AUClast (hr*ng/mL) LS Geometric Mean [n]"
+      ],
+      [
+        "ABP 654",
+        "10783692.1 [76]",
+        "11419.0 [78]",
+        "10137829.7 [78]"
+      ],
+      [
+        "Ustekinumab (US)",
+        "10651782.5 [76]",
+        "11384.9 [79]",
+        "9975870.4 [79]"
+      ],
+      [
+        "Ustekinumab (EU)",
+        "11482547.0 [77]",
+        "12081.5 [80]",
+        "10752507.0 [80]"
+      ],
+      [
+        "",
+        "Ratio of LS Geometric Means (90% Cl)",
+        "",
+        ""
+      ],
+      [
+        "ABP 654 vs ustekinumab (US) 1.0124 (0.9289, 1.1034)1.0030 (0.9314, 1.0801) 1.0162 (0.9358, 1.1035)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "ABP 654 vs ustekinumab (EU) 0.9391 (0.8620, 1.0232) 0.9452 (0.8779, 1.0175) 0.9428 (0.8685, 1.0235)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Ustekinumab (US) vs ustekinumab (EU)",
+        "",
+        "0.9276 (0.8514, 1.0107) 0.9423 (0.8755, 1.0143) 0.9278 (0.8549, 1.0069)",
+        ""
+      ]
+    ],
+    "quality_alarm": {
+      "issues": [
+        "multiple_value_groups_in_one_cell"
+      ],
+      "cells": [
+        {
+          "r": 5,
+          "c": 0,
+          "value_groups": 3,
+          "text": "ABP 654 vs ustekinumab (US) 1.0124 (0.9289, 1.1034)1.0030 (0.9314, 1.0801) 1.0162 (0.9358, 1.1035)"
+        },
+        {
+          "r": 6,
+          "c": 0,
+          "value_groups": 3,
+          "text": "ABP 654 vs ustekinumab (EU) 0.9391 (0.8620, 1.0232) 0.9452 (0.8779, 1.0175) 0.9428 (0.8685, 1.0235)"
+        },
+        {
+          "r": 7,
+          "c": 2,
+          "value_groups": 3,
+          "text": "0.9276 (0.8514, 1.0107) 0.9423 (0.8755, 1.0143) 0.9278 (0.8549, 1.0069)"
+        }
+      ]
+    },
+    "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_EMA_p044.pdf",
+    "id": "ABP654_EMA_p044_fe50ff21bf_p001_replace_000",
+    "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_EMA_p044_fe50ff21bf_p001_replace_000.png",
+    "image_sha256": "c89a907d2e779779750e65b0615fb236e030e6e9c5731cf93289873f38229cd8",
+    "pixels": [
+      1737,
+      706
+    ],
+    "context_bbox": [
+      60.619998931884766,
+      339.6399841308594,
+      477.2799987792969,
+      508.8999938964844
+    ]
+  },
+  "seconds": 9.620390199997928,
+  "raw": {
+    "res": {
+      "input_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_EMA_p044_fe50ff21bf_p001_replace_000.png",
+      "page_index": null,
+      "page_count": null,
+      "width": 1737,
+      "height": 706,
+      "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": false,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": true,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [],
+        "return_layout_polygon_points": true
+      },
+      "parsing_res_list": [
+        {
+          "block_label": "table",
+          "block_content": "<table><tr><td>Treatment and Comparison</td><td>AUC $ _{inf} $ (hr*ng/mL) LS Geometric Mean [n]</td><td>C $ _{max} $ (ng/mL) LS Geometric Mean [n]</td><td>AUC $ _{last} $ (hr*ng/mL) LS Geometric Mean [n]</td></tr><tr><td>ABP 654</td><td>10783692.1 [76]</td><td>11419.0 [78]</td><td>10137829.7 [78]</td></tr><tr><td>Ustekinumab (US)</td><td>10651782.5 [76]</td><td>11384.9 [79]</td><td>9975870.4 [79]</td></tr><tr><td>Ustekinumab (EU)</td><td>11482547.0 [77]</td><td>12081.5 [80]</td><td>10752507.0 [80]</td></tr><tr><td colspan=\"4\">Ratio of LS Geometric Means (90% CI)</td></tr><tr><td>ABP 654 vs ustekinumab (US)</td><td>1.0124 (0.9289, 1.1034)</td><td>1.0030 (0.9314, 1.0801)</td><td>1.0162 (0.9358, 1.1035)</td></tr><tr><td>ABP 654 vs ustekinumab (EU)</td><td>0.9391 (0.8620, 1.0232)</td><td>0.9452 (0.8779, 1.0175)</td><td>0.9428 (0.8685, 1.0235)</td></tr><tr><td>Ustekinumab (US) vs ustekinumab (EU)</td><td>0.9276 (0.8514, 1.0107)</td><td>0.9423 (0.8755, 1.0143)</td><td>0.9278 (0.8549, 1.0069)</td></tr></table>",
+          "block_bbox": [
+            0,
+            0,
+            1737,
+            706
+          ],
+          "block_id": 0,
+          "block_order": null,
+          "group_id": 0
+        }
+      ]
+    },
+    "ra_runtime": {
+      "inference_seconds": 9.619,
+      "vl_rec_batch_size": 1,
+      "native_blocks": 0,
+      "vlm_blocks": null,
+      "cuda_peak_allocated_bytes": 2186890752,
+      "cuda_peak_reserved_bytes": 2294284288
+    }
+  },
+  "content": "<table><tr><td>Treatment and Comparison</td><td>AUC $ _{inf} $ (hr*ng/mL) LS Geometric Mean [n]</td><td>C $ _{max} $ (ng/mL) LS Geometric Mean [n]</td><td>AUC $ _{last} $ (hr*ng/mL) LS Geometric Mean [n]</td></tr><tr><td>ABP 654</td><td>10783692.1 [76]</td><td>11419.0 [78]</td><td>10137829.7 [78]</td></tr><tr><td>Ustekinumab (US)</td><td>10651782.5 [76]</td><td>11384.9 [79]</td><td>9975870.4 [79]</td></tr><tr><td>Ustekinumab (EU)</td><td>11482547.0 [77]</td><td>12081.5 [80]</td><td>10752507.0 [80]</td></tr><tr><td colspan=\"4\">Ratio of LS Geometric Means (90% CI)</td></tr><tr><td>ABP 654 vs ustekinumab (US)</td><td>1.0124 (0.9289, 1.1034)</td><td>1.0030 (0.9314, 1.0801)</td><td>1.0162 (0.9358, 1.1035)</td></tr><tr><td>ABP 654 vs ustekinumab (EU)</td><td>0.9391 (0.8620, 1.0232)</td><td>0.9452 (0.8779, 1.0175)</td><td>0.9428 (0.8685, 1.0235)</td></tr><tr><td>Ustekinumab (US) vs ustekinumab (EU)</td><td>0.9276 (0.8514, 1.0107)</td><td>0.9423 (0.8755, 1.0143)</td><td>0.9278 (0.8549, 1.0069)</td></tr></table>",
+  "table": [
+    [
+      "Treatment and Comparison",
+      "AUC $ _{inf} $ (hr*ng/mL) LS Geometric Mean [n]",
+      "C $ _{max} $ (ng/mL) LS Geometric Mean [n]",
+      "AUC $ _{last} $ (hr*ng/mL) LS Geometric Mean [n]"
+    ],
+    [
+      "ABP 654",
+      "10783692.1 [76]",
+      "11419.0 [78]",
+      "10137829.7 [78]"
+    ],
+    [
+      "Ustekinumab (US)",
+      "10651782.5 [76]",
+      "11384.9 [79]",
+      "9975870.4 [79]"
+    ],
+    [
+      "Ustekinumab (EU)",
+      "11482547.0 [77]",
+      "12081.5 [80]",
+      "10752507.0 [80]"
+    ],
+    [
+      "Ratio of LS Geometric Means (90% CI)",
+      "",
+      "",
+      ""
+    ],
+    [
+      "ABP 654 vs ustekinumab (US)",
+      "1.0124 (0.9289, 1.1034)",
+      "1.0030 (0.9314, 1.0801)",
+      "1.0162 (0.9358, 1.1035)"
+    ],
+    [
+      "ABP 654 vs ustekinumab (EU)",
+      "0.9391 (0.8620, 1.0232)",
+      "0.9452 (0.8779, 1.0175)",
+      "0.9428 (0.8685, 1.0235)"
+    ],
+    [
+      "Ustekinumab (US) vs ustekinumab (EU)",
+      "0.9276 (0.8514, 1.0107)",
+      "0.9423 (0.8755, 1.0143)",
+      "0.9278 (0.8549, 1.0069)"
+    ]
+  ],
+  "accepted": true,
+  "error": null,
+  "semantic_status": "source extraction candidate; independent human review pending"
+}

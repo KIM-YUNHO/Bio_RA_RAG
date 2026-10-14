@@ -1,0 +1,429 @@
+query_id,agency,document_id,pdf_page,grade,partial,value,note
+Q001,EU,EMA:63563,37,2,0,"randomised, double-blind, three-arm, parallel group, single-dose Phase I",
+Q001,EU,EMA:63563,59,2,0,"randomised, double-blind, parallel group, single dose, 3-arm",
+Q001,EU,EMA:63563,160,2,0,"phase 1 randomised, double-blind, single-dose, parallel group, 3-arm",
+Q001,EU,EMA:63563,38,2,1,"randomised 1:1:1, single dose, three arms",눈가림 없음
+Q001,EU,EMA:63563,41,2,1,"subject-, investigator- and sponsor-blinded",눈가림만
+Q001,EU,EMA:63563,39,1,0,,
+Q001,EU,EMA:63563,126,1,0,,
+Q001,EU,EMA:63563,147,1,0,,
+Q002,EU,EMA:63563,38,2,0,"healthy male or female, 18-55 years; 60.0-90.0 kg; BMI 19.0-29.9",
+Q002,EU,EMA:63563,60,2,1,"60.0-90.0 kg, BMI 19.0-29.9 (female included)",연령은 과학자문 제안으로만 언급
+Q002,EU,EMA:63563,37,1,0,,healthy subjects만
+Q002,EU,EMA:63563,160,1,0,,healthy adult subjects만
+Q002,EU,EMA:63563,127,1,0,,
+Q002,EU,EMA:63563,148,1,0,,
+Q003,EU,EMA:63563,39,2,0,"single dose of 45 mg/0.5 mL, SC injection",
+Q003,EU,EMA:63563,38,2,0,"administered subcutaneously; SB17 45 mg",
+Q003,EU,EMA:63563,60,2,0,single dose of 45 mg for SC injection,
+Q003,EU,EMA:63563,62,2,0,single SC dose of 45 mg/0.5 mL,
+Q003,EU,EMA:63563,160,2,0,"single dose of 45 mg/0.5 mL, SC injection",
+Q003,EU,EMA:63563,162,2,0,single SC dose of 45 mg/0.5 mL,
+Q003,EU,EMA:63563,59,2,1,single subcutaneous (SC) injection,용량 없음
+Q003,EU,EMA:63563,61,2,1,administrated subcutaneously,용량 없음
+Q004,EU,EMA:63563,37,2,0,"AUCinf, Cmax",개요표 OCR
+Q004,EU,EMA:63563,39,2,0,"Cmax and AUC0-inf",
+Q004,EU,EMA:63563,41,2,0,"AUCinf and Cmax",
+Q004,EU,EMA:63563,44,2,0,"AUCinf and Cmax",
+Q004,EU,EMA:63563,48,2,0,"AUCinf and Cmax",
+Q004,EU,EMA:63563,49,2,0,"AUCinf, Cmax",
+Q004,EU,EMA:63563,62,2,0,"AUCinf and Cmax",
+Q004,EU,EMA:63563,160,2,0,"Cmax and AUC0-inf",
+Q004,EU,EMA:63563,40,1,0,,부차 지표
+Q004,EU,EMA:63563,45,1,0,,
+Q004,EU,EMA:63563,51,1,0,,
+Q004,EU,EMA:63563,61,1,0,,부차 지표
+Q005,EU,EMA:63563,39,2,0,0.8 to 1.25 (80% to 125%),
+Q005,EU,EMA:63563,41,2,0,0.80 to 1.25,
+Q005,EU,EMA:63563,44,2,0,0.80 to 1.25,
+Q005,EU,EMA:63563,45,2,0,0.8 to 1.25,
+Q005,EU,EMA:63563,48,2,0,0.8 to 1.25,
+Q005,EU,EMA:63563,62,2,0,0.80 to 1.25,
+Q005,EU,EMA:63563,63,2,0,0.8 to 1.25,
+Q005,EU,EMA:63563,64,2,0,0.8 to 1.25,
+Q005,EU,EMA:63563,160,2,0,80-125%,
+Q005,EU,EMA:63563,162,2,0,0.8 to 1.25,
+Q005,EU,EMA:63563,40,1,0,,표본수 가설
+Q005,EU,EMA:63563,52,1,0,,
+Q005,EU,EMA:63563,165,1,0,,
+Q006,EU,EMA:63563,42,2,0,"ADA: bridging ligand-binding ECL (MSD), three-tiered; NAb: competitive ligand-binding",
+Q006,EU,EMA:63563,145,1,0,,3상 시험의 ECL 언급
+Q007,EU,EMA:63563,38,2,0,"201 randomised 1:1:1; n=67 per arm",
+Q007,EU,EMA:63563,42,2,0,67 per arm,정답셋
+Q007,EU,EMA:63563,43,2,0,Table 3,정답셋 다른 위치
+Q007,EU,EMA:63563,126,2,0,201 randomised; 67 per group,
+Q007,EU,EMA:63563,47,1,0,,PK 분석군 N
+Q008,EU,EMA:63563,42,2,0,PK set,정답셋
+Q008,EU,EMA:63563,43,2,0,"N=67, n=62/64; 126 of 134 included",
+Q008,EU,EMA:63563,46,2,0,"N=67, n=62/64/60",
+Q008,EU,EMA:63563,47,2,0,"N=67, n=62/64/60",
+Q008,EU,EMA:63563,48,2,0,"N=67, n=62/64/60",
+Q008,EU,EMA:63563,62,2,1,n=62 to 64 analysed,
+Q008,EU,EMA:63563,41,1,0,,PKS 정의만
+Q008,EU,EMA:63563,51,1,0,,
+Q009,EU,EMA:63563,50,2,0,"18/67 (26.9%), 23/67 (34.3%), 23/67 (34.3%)",
+Q009,EU,EMA:63563,143,2,0,Table 49 post-dose ADA,
+Q009,EU,EMA:63563,144,2,1,"18, 23, 23 subjects",비율 없음
+Q009,EU,EMA:63563,153,2,1,"18, 23, 23 subjects",비율 없음
+Q009,EU,EMA:63563,49,1,0,,시점별만
+Q009,EU,EMA:63563,142,1,0,,
+Q010,EU,EMA:63563,49,2,0,Table 9 NAb by timepoint,정답셋 다른 위치
+Q010,EU,EMA:63563,50,2,0,"5/14 (35.7%), 12/19 (63.2%), 11/19 (57.9%)",
+Q010,EU,EMA:63563,143,2,0,"5/14 (35.7%), 12/19 (63.2%), 11/19 (57.9%)",
+Q010,EU,EMA:63563,142,1,0,,
+Q011,EU,EMA:63563,46,2,0,"1.01 (0.92, 1.11); 0.93 (0.85, 1.02)",이미지 표
+Q011,EU,EMA:63563,48,2,0,"1.01 (0.92 to 1.11); 0.93 (0.85 to 1.02)",
+Q011,EU,EMA:63563,63,2,0,"1.01 (0.92 to 1.11); 0.93 (0.85 to 1.02)",
+Q011,EU,EMA:63563,162,2,0,"1.01 (0.92 to 1.11); 0.93 (0.85 to 1.02)",
+Q012,EU,EMA:63563,46,2,0,"US: 1.02 (0.94, 1.12), 0.96 (0.88, 1.05)",이미지 표
+Q012,EU,EMA:63563,48,1,0,,수치 없이 범위 안이라고만 서술
+Q013,EU,EMA:63563,43,2,0,"0.99 (0.90; 1.08); 0.90 (0.82; 0.98)",
+Q013,EU,EMA:63563,45,2,0,"0.99 (0.90 to 1.08); 0.90 (0.82 to 0.98)",
+Q013,EU,EMA:63563,62,2,0,"0.99 (0.90 to 1.08); 0.90 (0.82 to 0.98)",
+Q013,EU,EMA:63563,162,2,0,"0.99 (0.90 to 1.08); 0.90 (0.82 to 0.98)",
+Q013,EU,EMA:63563,51,1,0,,ADA 하위군 비율
+Q014,EU,EMA:63563,45,2,0,PK profiles equivalent,
+Q014,EU,EMA:63563,62,2,0,no change to the bioequivalence conclusion,
+Q014,EU,EMA:63563,162,2,0,90% CIs within margin,
+Q014,EU,EMA:63563,165,2,0,PK bioequivalence demonstrated,
+Q014,EU,EMA:63563,167,2,0,PK bioequivalence demonstrated,
+Q014,EU,EMA:63563,48,2,1,ad hoc ANCOVA within margin,사후 분석 결론
+Q014,EU,EMA:63563,52,1,0,,
+Q014,EU,EMA:63563,64,1,0,,
+Q001,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",48,2,0,"randomized, double-blind, three-arm, parallel group, single-dose",
+Q001,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",39,2,0,"Randomized, double-blind, parallel-group, three-arm, single-dose",표 2
+Q001,US,"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",49,2,0,"Randomized, double-blind, parallel-group, three-arm, single-dose",표 2
+Q001,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",133,2,1,"randomized, double-blind, parallel group, single dose",3군 언급 없음
+Q001,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",136,2,1,"randomized, double-blind, single-dose",
+Q001,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",53,1,0,,
+Q002,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",48,2,0,"18 to 55 years; BW 60 to 90 kg; BMI 19.0 to 29.9",
+Q002,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",53,2,0,"18-55 years; BW 60 to 90 kg; BMI 19 to 29.9",
+Q002,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",39,1,0,,healthy subjects만
+Q002,US,"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",49,1,0,,
+Q002,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",94,1,0,,
+Q002,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",133,1,0,,
+Q003,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",48,2,0,"single dose of 45 mg, subcutaneously",
+Q003,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",49,2,0,single SC 45 mg dose,
+Q003,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",50,2,0,single SC 45 mg dose,그림 제목
+Q003,US,"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",60,2,0,single SC 45 mg dose,그림 제목
+Q003,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",53,2,0,"single SC 45 mg; 45 mg/0.5 mL PFS",
+Q003,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",55,2,0,single SC dose of 45 mg,
+Q003,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",94,2,0,single dose of 45 mg SC,
+Q004,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",47,2,0,"AUC0-inf and Cmax",
+Q004,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",49,2,0,"AUC0-inf, Cmax",
+Q004,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",59,2,0,"AUCinf and Cmax",
+Q004,US,"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",69,2,0,"AUCinf and Cmax",
+Q005,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",47,2,0,0.80 to 1.25,
+Q006,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",54,2,1,"ADA: bridging ligand-binding ECL (MSD), three-tiered",NAb는 다음 페이지
+Q006,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",55,2,1,"NAb: competitive ligand-binding ECL (MSD)",
+Q007,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",48,2,0,"201 randomized 1:1:1; n=67 each",
+Q007,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",39,2,0,67 per arm,표 2
+Q007,US,"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",49,2,0,67 per arm,표 2
+Q007,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",55,2,0,"201 randomized 1:1:1; n=67 each",
+Q007,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",94,2,0,67 subjects each (dosed),
+Q007,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",53,2,1,n=201 randomized 1:1:1,군별 인원 없음
+Q008,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",47,2,1,n=67 per arm (표 머리),분석 인원 n은 없음
+Q008,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",59,1,0,,ADA 하위군별 N
+Q008,US,"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",69,1,0,,
+Q009,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",56,2,0,Table 6 post-dose ADA,
+Q009,US,"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",66,2,0,Table 6 post-dose ADA,
+Q009,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",45,1,0,,수치 없이 비슷하다고만 서술
+Q009,US,"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",55,1,0,,
+Q009,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",31,1,0,,
+Q009,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",129,1,0,,
+Q010,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",56,2,0,Table 6 NAb by visit,
+Q010,US,"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",66,2,0,Table 6 NAb by visit,
+Q010,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",46,1,0,,Day 99 NAb가 낮다고만 서술
+Q011,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",47,1,0,,FDA는 1차 분석(ANOVA)만 보고. 사후 ANCOVA 없음
+Q012,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",47,1,0,,FDA는 1차 분석만 보고. US 대비 1차 분석 값은 있음
+Q013,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",47,2,0,"AUC0-inf 0.99 [0.90, 1.08]; Cmax 0.90 [0.82, 0.98]",EMA와 같은 값. US 대비 값도 함께 있음
+Q013,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",61,1,0,,ADA 하위군 비율
+Q013,US,"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",71,1,0,,
+Q014,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",47,2,0,within 0.80 to 1.25,
+Q014,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",31,2,0,PK similarity supports no clinically meaningful differences,
+Q014,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",45,2,0,PK similarity demonstrated,
+Q014,US,"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",55,2,0,PK similarity demonstrated,
+Q014,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",133,2,0,PK similarity demonstrated,
+Q014,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",136,2,0,similar PK demonstrated,
+Q014,US,"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",145,2,0,no clinically meaningful differences in PK,
+Q014,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",137,1,0,,
+Q014,US,"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",35,1,0,,
+Q015,EU,EMA:64196,15,2,0,"randomised, double-blind, single-dose, 3-arm, parallel-group",
+Q015,EU,EMA:64196,41,2,0,"randomised, double-blind, single-dose, 3-arm parallel; ABP 654 / US / EU",개요 표(OCR)
+Q015,EU,EMA:64196,42,2,0,"randomised, double-blind, single-dose, 3-arm, parallel-group",
+Q015,EU,EMA:64196,13,2,1,scientific advice: proposed 3-arm single-dose PK study design,과학자문 단계 설명
+Q015,EU,EMA:64196,110,2,1,"randomised, double-blind, single-dose, 3-arm, parallel-group PK similarity study",결론부 요약(phase 없음)
+Q015,EU,EMA:64196,76,1,0,,single dose PK study in healthy volunteers 언급
+Q016,EU,EMA:64196,41,2,0,"healthy, 18-45 y; BW 50-90 kg; BMI 18.0-30.0 (Japanese 18.0-25.0)",개요 표(OCR)
+Q016,EU,EMA:64196,15,1,0,,healthy subjects 언급
+Q017,EU,EMA:64196,41,2,0,90 mg SC single dose,
+Q017,EU,EMA:64196,42,2,0,single 90 mg SC injection,
+Q017,EU,EMA:64196,77,2,0,single 90 mg SC injection,안전성 노출 절
+Q017,EU,EMA:64196,28,1,0,,
+Q018,EU,EMA:64196,43,2,0,primary PK parameters AUCinf and Cmax,
+Q018,EU,EMA:64196,44,2,0,AUCinf and Cmax (primary),
+Q018,EU,EMA:64196,48,2,0,AUCinf and Cmax (primary),
+Q018,EU,EMA:64196,111,2,0,primary PK endpoints AUCinf and Cmax,결론부
+Q018,EU,EMA:64196,114,2,1,"primary PK parameters AUCinf, Cmax and AUClast",AUClast까지 primary로 기술
+Q019,EU,EMA:64196,44,2,0,0.8 to 1.25,
+Q019,EU,EMA:64196,48,2,0,0.80 to 1.25,
+Q019,EU,EMA:64196,111,2,0,BE criteria 0.80 to 1.25,
+Q019,EU,EMA:64196,114,2,0,acceptance range 80.00-125.00%,
+Q019,EU,EMA:64196,45,1,0,,
+Q020,EU,EMA:64196,42,2,0,"MSD-ECL bridging, 3-tiered ADA; NAb assay",
+Q020,EU,EMA:64196,47,2,0,ADA three-tiered ECL; NAb ECL immunoassay,
+Q020,EU,EMA:64196,93,2,0,single ECL-based bridging immunoassay; positives tested in NAb assay,
+Q021,EU,EMA:64196,41,2,1,randomised/analysed for safety 238/237 (total only),개요 표(OCR); 군별 무작위 수 없음
+Q021,EU,EMA:64196,42,2,1,randomised 1:1:1,비율만
+Q021,EU,EMA:64196,77,1,0,,안전성 분석군 237명 단일 수치
+Q021,EU,EMA:64196,84,1,0,,안전성 분석군 군별 N=78/79/80
+Q022,EU,EMA:64196,43,2,0,PK set n=78/80/79,
+Q022,EU,EMA:64196,44,2,1,n per arm in GMR table,
+Q023,EU,EMA:64196,94,2,0,binding ADA positive anytime 13 (16.7) / 30 (38.0) / 30 (37.5),ABP 654 / US / EU
+Q023,EU,EMA:64196,93,1,0,,ADA 검사 설명
+Q023,EU,EMA:64196,113,1,0,,developing 수치만 있음
+Q023,EU,EMA:64196,107,1,0,,
+Q024,EU,EMA:64196,94,2,0,developing binding ADA through EOS 12 (15.4) / 30 (38.0) / 29 (36.3),ABP 654 / US / EU
+Q024,EU,EMA:64196,113,2,0,developing binding ADA through EOS 15% / 38% / 36%,반올림 백분율
+Q024,EU,EMA:64196,93,1,0,,
+Q024,EU,EMA:64196,107,1,0,,
+Q025,EU,EMA:64196,94,2,0,NAb positive postbaseline through EOS 2 (2.6) / 10 (12.7) / 6 (7.5),ABP 654 / US / EU
+Q025,EU,EMA:64196,113,2,0,neutralising ADA 3% / 13% / 8%,반올림 백분율
+Q025,EU,EMA:64196,93,1,0,,
+Q026,EU,EMA:64196,44,2,0,"vs EU AUCinf 0.9391 (0.8620, 1.0232), Cmax 0.9452, AUClast 0.9428; vs US and US vs EU",표 5(OCR)
+Q026,EU,EMA:64196,111,2,1,"vs EU AUCinf 0.9391 (0.8620, 1.0232), Cmax 0.9452 (0.8779, 1.0175)",vs EU만
+Q026,EU,EMA:64196,45,1,0,,
+Q026,EU,EMA:64196,48,1,0,,
+Q026,EU,EMA:64196,114,1,0,,
+Q027,EU,EMA:64196,44,2,0,90% CIs within 0.8-1.25,
+Q027,EU,EMA:64196,48,2,0,equivalence demonstrated,
+Q027,EU,EMA:64196,49,2,0,PK similarity demonstrated,
+Q027,EU,EMA:64196,111,2,0,90% CIs within BE criteria in all comparisons,
+Q027,EU,EMA:64196,114,2,0,PK biosimilarity formally demonstrated,
+Q027,EU,EMA:64196,36,1,0,,
+Q027,EU,EMA:64196,40,1,0,,
+Q015,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",24,2,0,"double-blind, randomized, parallel-group, active-controlled, single-dose, 3-arm",표 2
+Q015,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",32,2,0,"randomized, double-blind, 3-arm, parallel-group, single-dose",
+Q015,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",33,2,1,"single-dose, 3-arm, parallel-group",무작위·눈가림 언급 없음
+Q015,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",98,2,1,"randomized, double-blind, parallel group, single dose",
+Q015,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",95,2,1,"randomized, double-blind, single-dose, 3-arm, parallel group",원문이 연구번호를 20190232로 오기
+Q016,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",24,2,1,healthy adults,"나이·체중·BMI 기준 없음"
+Q016,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",32,2,1,healthy adult subjects,"나이·체중·BMI 기준 없음"
+Q017,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",24,2,0,"90 mg SC, single-dose, PFS",표 2
+Q017,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",33,2,0,single 90 mg SC injection,
+Q017,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",38,2,0,single 90 mg SC dose,
+Q017,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",79,2,0,single dose of 90 mg SC,
+Q018,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",34,2,0,primary endpoints AUCinf and Cmax; secondary AUClast,
+Q018,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",24,2,0,PK similarity based on AUCinf and Cmax,표 2
+Q018,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",32,2,0,Primary AUC0-inf and Cmax; Secondary AUClast,표 7 구분
+Q019,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",32,2,0,0.8 to 1.25,
+Q019,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",35,2,0,0.8 to 1.25,
+Q019,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",33,2,1,80-125%,텍스트 추출에서 125% 손실(글꼴 인코딩)
+Q020,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",38,2,1,"ADA tested first, positives tested for NAb; assays suitable in presence of drug",분석 플랫폼 기술 없음(OBP 리뷰 참조)
+Q020,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",34,1,0,,PK 정량 MSD-ECL(ADA 아님)
+Q020,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",103,1,0,,PK 정량 MSD-ECL(ADA 아님)
+Q021,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",24,2,0,ABP 654 79 / US-Stelara 79 / EU-Stelara 80,표 2
+Q021,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",79,2,0,238 subjects: 79 / 79 / 80,
+Q022,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",32,2,0,n=78 / 79 / 80 (ABP / US / EU),표 7
+Q022,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",35,2,0,n=78 / 79 / 80 (ABP / US / EU),표 8
+Q023,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",39,2,1,baseline 1/78 / 0/79 / 1/80; treatment-induced 12/78 / 30/79 / 29/80,"anytime 합계 없음; 숫자가 텍스트 추출에서 손실(PDF에서 확인)"
+Q024,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",39,2,0,treatment-induced ADA 12/78 (15.4%) / 30/79 (38.0%) / 29/80 (36.3%),숫자가 텍스트 추출에서 손실(PDF에서 확인)
+Q024,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",31,2,0,ADA 15.4% / 38.0% / 36.3%,숫자가 텍스트 추출에서 손실(PDF에서 확인)
+Q024,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",18,1,0,,수치 없음
+Q024,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",38,1,0,,
+Q025,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",39,2,0,NAb 2/78 (2.6%) / 10/79 (12.7%) / 6/80 (7.5%),숫자가 텍스트 추출에서 손실(PDF에서 확인)
+Q025,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",31,2,0,NAb 2.6% / 12.7% / 7.5%,숫자가 텍스트 추출에서 손실(PDF에서 확인)
+Q025,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",18,1,0,,수치 없음
+Q026,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",32,2,0,"ABP vs EU AUCinf 96.02% (87.12, 105.81), Cmax 95.53% (87.53, 104.27), AUClast 95.30%; ABP vs US AUCinf 102.53%; EU vs US 106.78%",FDA 자체 분석; EMA 값(0.9391)과 다름
+Q026,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",35,1,0,,기하평균만; GMR 없음
+Q026,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",33,1,0,,
+Q027,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",32,2,0,90% CIs within 0.8-1.25 for all comparisons; PK similarity established,
+Q027,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",33,2,0,all pairwise comparisons met PK similarity criteria,
+Q027,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",35,2,0,GMR CIs within 0.8-1.25,
+Q027,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",31,2,0,PK similarity demonstrated,
+Q027,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",18,2,0,PK similarity supports no clinically meaningful differences,
+Q027,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",98,2,0,data support PK similarity,
+Q027,US,"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",95,1,0,,
+Q028,EU,EMA:64792,31,2,0,"Phase 1, 2-part, randomised, double-blind, 3-arm, parallel group, single dose",
+Q028,EU,EMA:64792,29,2,0,"Phase 1, randomised, double-blind, 3-arm, parallel group, single dose",표 2 개요
+Q028,EU,EMA:64792,52,2,1,"randomised, 2-part, double-blind, parallel group, single dose, 3-arm",phase 없음
+Q028,EU,EMA:64792,11,1,0,,과학자문 단계 설계
+Q028,EU,EMA:64792,127,1,0,,
+Q029,EU,EMA:64792,31,2,1,healthy male subjects,"나이·BMI 기준 없음"
+Q029,EU,EMA:64792,29,2,1,healthy male subjects,"나이·BMI 기준 없음"
+Q029,EU,EMA:64792,32,1,0,,기저 인구학(기준 아님)
+Q029,EU,EMA:64792,33,1,0,,기저 BMI 범위
+Q029,EU,EMA:64792,87,1,0,,
+Q030,EU,EMA:64792,31,2,0,single 45 mg/0.5 mL SC via PFS,
+Q030,EU,EMA:64792,29,2,0,45 mg single PFS SC injection,
+Q030,EU,EMA:64792,88,2,0,single dose (45 mg),
+Q031,EU,EMA:64792,31,2,0,AUC0-inf and Cmax,
+Q031,EU,EMA:64792,29,2,0,PK similarity in terms of AUC0-inf and Cmax,
+Q031,EU,EMA:64792,53,2,0,primary endpoints Cmax and AUC0-inf,
+Q031,EU,EMA:64792,34,2,0,primary PK parameters AUC0-inf and Cmax,표 5
+Q031,EU,EMA:64792,35,2,0,primary PK parameters AUC0-inf and Cmax,표 6
+Q032,EU,EMA:64792,31,2,0,80.00% to 125.00%,
+Q032,EU,EMA:64792,53,2,0,80-125%,
+Q032,EU,EMA:64792,35,2,0,pre-defined equivalence margin 80% to 125%,
+Q032,EU,EMA:64792,127,2,0,acceptance range 80.00% to 125.00%,
+Q032,EU,EMA:64792,129,2,0,acceptance range 80.00% to 125.00%,
+Q033,EU,EMA:64792,30,2,0,MSD-ECL and MSD-ECL with SPEAD for ADA/NAb,연구별이 아닌 임상 프로그램 공통
+Q033,EU,EMA:64792,52,1,0,,분석법 밸리데이션 논의
+Q034,EU,EMA:64792,29,2,0,CT-P43 80 / EU 82 / US 79 (Part 2 randomised 241),표 2 개요
+Q034,EU,EMA:64792,32,2,0,80 / 82 / 79 (241 randomised),
+Q034,EU,EMA:64792,88,1,0,,투여 수 80/82/78
+Q035,EU,EMA:64792,34,2,0,PK set N=80 / 81 / 77,
+Q035,EU,EMA:64792,35,2,0,n=79 / 81 / 77 (AUC); 80 / 81 / 77 (Cmax),
+Q035,EU,EMA:64792,38,2,0,PK set N=80 / 81 / 77,
+Q035,EU,EMA:64792,47,2,0,PK set N=80 / 81 / 77,
+Q036,EU,EMA:64792,50,2,0,16.3% (13/80) / 29.3% (24/82) / 43.6% (34/78),표 21
+Q036,EU,EMA:64792,111,2,0,13 [16.3%] / 24 [29.3%] / 34 [43.6%],
+Q036,EU,EMA:64792,36,2,1,13 (16.3%) / 24 (29.3%),US 군 없음
+Q036,EU,EMA:64792,49,1,0,,EU 군 29.3%만
+Q037,EU,EMA:64792,50,2,0,6.3% (5/80) / 7.3% (6/82) / 11.5% (9/78),표 21
+Q037,EU,EMA:64792,111,2,0,5 [6.3%] / 6 [7.3%] / 9 [11.5%],
+Q037,EU,EMA:64792,49,2,1,6.3% / 7.3%,US 군 없음
+Q038,EU,EMA:64792,37,2,0,"AUC0-inf 114.32 (106.51, 122.71); Cmax 111.37 (103.03, 120.37)",표 7 마지막 행
+Q038,EU,EMA:64792,36,1,0,,
+Q038,EU,EMA:64792,127,1,0,,
+Q039,EU,EMA:64792,37,2,0,"AUC0-inf 124.59 (116.71, 133.01); Cmax 116.50 (109.05, 124.46)",표 7 Original 행(US 제외 ANCOVA)
+Q039,EU,EMA:64792,35,1,0,,
+Q040,EU,EMA:64792,35,2,0,"vs EU AUC0-inf 124.36 (115.58, 133.82), Cmax 116.18 (108.42, 124.49); vs US 126.40 / 112.02; EU vs US 101.64 / 96.42",표 6
+Q040,EU,EMA:64792,127,2,1,"vs EU AUC0-inf 90% CI 115.58-133.82",
+Q040,EU,EMA:64792,129,1,0,,
+Q041,EU,EMA:64792,35,2,0,No: AUC0-inf upper 90% CI above 125% (Cmax within),
+Q041,EU,EMA:64792,55,2,0,failed co-primary endpoint AUC0-inf,
+Q041,EU,EMA:64792,127,2,0,could not be demonstrated for AUC0-inf,
+Q041,EU,EMA:64792,129,2,0,could not be demonstrated (AUC0-inf outside 80-125%),
+Q041,EU,EMA:64792,56,1,0,,BE 성립은 전체 결론(1.1 단독 아님)
+Q041,EU,EMA:64792,37,1,0,,post hoc 보정 후 BE 범위
+Q042,EU,EMA:64792,39,2,0,"Phase I, randomised, double-blind, parallel group, single-dose, 3 formulations",
+Q042,EU,EMA:64792,29,2,0,"Phase 1, randomised, double-blind, 3-arm, parallel group, single dose",표 2 개요
+Q043,EU,EMA:64792,39,2,1,healthy Japanese male; BW strata 50-90 kg,"나이·BMI 기준 없음"
+Q043,EU,EMA:64792,29,2,1,healthy Japanese male subjects,
+Q043,EU,EMA:64792,41,1,0,,기저 인구학
+Q043,EU,EMA:64792,115,1,0,,
+Q044,EU,EMA:64792,39,2,0,single 45 mg/0.5 mL SC via PFS,
+Q044,EU,EMA:64792,29,2,0,45 mg single PFS SC injection,
+Q045,EU,EMA:64792,39,2,0,Cmax and AUC0-inf,
+Q045,EU,EMA:64792,40,2,0,AUC0-inf and Cmax,
+Q045,EU,EMA:64792,29,2,0,PK similarity in terms of AUC0-inf and Cmax,
+Q045,EU,EMA:64792,54,2,0,primary endpoints Cmax and AUC0-inf,
+Q046,EU,EMA:64792,40,2,0,80.00% to 125.00%,
+Q046,EU,EMA:64792,44,2,0,80% to 125%,
+Q046,EU,EMA:64792,54,2,0,80-125%,
+Q047,EU,EMA:64792,30,2,0,MSD-ECL and MSD-ECL with SPEAD for ADA/NAb,연구별이 아닌 임상 프로그램 공통
+Q047,EU,EMA:64792,52,1,0,,
+Q048,EU,EMA:64792,29,2,1,randomised 331: CT-P43 114 / EU 110,US 107은 p30
+Q048,EU,EMA:64792,30,2,1,US-Stelara 107,표 이어짐
+Q048,EU,EMA:64792,115,2,0,331 randomised: 114 / 110 / 107,
+Q048,EU,EMA:64792,41,2,1,ITT N=114 / 110 / 107,ITT=무작위 배정 전원
+Q048,EU,EMA:64792,40,1,0,,투여 수 111/108/106
+Q049,EU,EMA:64792,42,2,0,PK set N=110 / 105 / 105,
+Q049,EU,EMA:64792,43,2,0,n=109 / 105 / 105 (AUC); 110 / 105 / 105 (Cmax),
+Q049,EU,EMA:64792,44,2,0,n=109 / 105 / 105 (AUC); 110 / 105 / 105 (Cmax),
+Q049,EU,EMA:64792,45,2,0,PK set N=110 / 105 / 105,
+Q050,EU,EMA:64792,50,2,0,16.2% (18/111) / 44.4% (48/108) / 39.6% (42/106),표 21
+Q050,EU,EMA:64792,112,2,0,18 [16.2%] / 48 [44.4%] / 42 [39.6%],
+Q050,EU,EMA:64792,49,1,0,,EU 군 44.4%만
+Q050,EU,EMA:64792,111,1,0,,EOS 시점 수치
+Q051,EU,EMA:64792,50,2,0,12.6% (14/111) / 16.7% (18/108) / 15.1% (16/106),표 21
+Q051,EU,EMA:64792,112,2,0,14 [12.6%] / 18 [16.7%] / 16 [15.1%],
+Q051,EU,EMA:64792,49,2,1,12.6% / 16.7%,US 군 없음
+Q052,EU,EMA:64792,43,2,0,"vs EU AUC0-inf 108.31 (102.07, 114.94), Cmax 101.25 (95.14, 107.76); vs US 100.56 / 95.03; EU vs US 92.84 / 93.85",표 12
+Q052,EU,EMA:64792,44,2,0,same as Table 12,표 13
+Q052,EU,EMA:64792,54,2,1,vs EU CI only,
+Q053,EU,EMA:64792,44,2,0,all 90% CIs within 80-125%,
+Q053,EU,EMA:64792,54,2,0,entirely contained within 80-125%,
+Q053,EU,EMA:64792,127,2,0,within limits,
+Q053,EU,EMA:64792,129,2,0,primary PK endpoints within pre-defined limits,
+Q053,EU,EMA:64792,56,1,0,,
+Q054,EU,EMA:64792,51,2,1,"AUC0-inf 90% CI 109.55-120.30, Cmax 102.45-112.48",점추정치 없음
+Q054,EU,EMA:64792,54,1,0,,
+Q054,EU,EMA:64792,55,1,0,,
+Q054,EU,EMA:64792,129,1,0,,
+Q028,US,FDA:761338Orig1Orig2s000:MultidisciplineR,28,2,0,"randomized, double-blind, 3-arm, parallel group, single dose",표 3
+Q028,US,FDA:761338Orig1Orig2s000:MultidisciplineR,80,2,0,"randomized, double-blind, 3-arm, parallel group, single dose",
+Q028,US,FDA:761338Orig1Orig2s000:MultidisciplineR,37,2,0,"two part randomized, double-blind, three-arm, parallel-group, single-dose, first-in-human",원문은 실시국을 Canada로 기재(EMA·p80은 New Zealand)
+Q028,US,FDA:761338Orig1Orig2s000:MultidisciplineR,39,2,1,"2-Part, randomized, double-blind, parallel-group, single-dose",
+Q028,US,FDA:761338Orig1Orig2s000:MultidisciplineR,146,2,1,"3-arm, parallel design, two parts",
+Q029,US,FDA:761338Orig1Orig2s000:MultidisciplineR,28,2,1,healthy male volunteers,"나이·BMI 기준 없음"
+Q029,US,FDA:761338Orig1Orig2s000:MultidisciplineR,80,2,1,healthy male volunteers,
+Q029,US,FDA:761338Orig1Orig2s000:MultidisciplineR,146,2,1,healthy male subjects (New Zealand),
+Q029,US,FDA:761338Orig1Orig2s000:MultidisciplineR,89,1,0,,평균 29세(기준 아님)
+Q030,US,FDA:761338Orig1Orig2s000:MultidisciplineR,28,2,0,"45 mg (45 mg/0.5 mL), single PFS SC injection",표 3
+Q030,US,FDA:761338Orig1Orig2s000:MultidisciplineR,80,2,0,45 mg subcutaneous dose,
+Q030,US,FDA:761338Orig1Orig2s000:MultidisciplineR,40,1,0,,모식도(그림)
+Q031,US,FDA:761338Orig1Orig2s000:MultidisciplineR,41,2,0,primary endpoints AUCinf and Cmax,
+Q031,US,FDA:761338Orig1Orig2s000:MultidisciplineR,28,2,0,PK similarity in terms of AUC0-inf and Cmax,표 3
+Q031,US,FDA:761338Orig1Orig2s000:MultidisciplineR,147,2,0,Primary AUC0-inf and Cmax,표 49
+Q032,US,FDA:761338Orig1Orig2s000:MultidisciplineR,147,2,0,0.8 to 1.25,
+Q032,US,FDA:761338Orig1Orig2s000:MultidisciplineR,26,1,0,,125% 상한만 언급
+Q032,US,FDA:761338Orig1Orig2s000:MultidisciplineR,80,1,0,,125% 상한만 언급
+Q033,US,FDA:761338Orig1Orig2s000:MultidisciplineR,47,1,0,,ADA/NAb 단계 검사 서술은 1.2·3.1 대상
+Q033,US,FDA:761338Orig1Orig2s000:MultidisciplineR,156,1,0,,면역원성 분석법 적합하다는 결론만
+Q034,US,FDA:761338Orig1Orig2s000:MultidisciplineR,28,2,0,Part 2 randomized 241: 80 / 82 / 79,표 3
+Q034,US,FDA:761338Orig1Orig2s000:MultidisciplineR,80,2,0,241 randomized: 80 / 82 / 79,
+Q034,US,FDA:761338Orig1Orig2s000:MultidisciplineR,40,1,0,,모식도 계획 N
+Q035,US,FDA:761338Orig1Orig2s000:MultidisciplineR,147,2,0,N=80 / 77 / 81 (CT-P43 / US / EU),표 49 FDA 분석
+Q035,US,FDA:761338Orig1Orig2s000:MultidisciplineR,151,2,0,PK set N=80 / 81 / 77 (CT-P43 / EU / US),표 53
+Q035,US,FDA:761338Orig1Orig2s000:MultidisciplineR,148,1,0,,표 50 N=94/98/77(Part 1 포함으로 보임)
+Q036,US,FDA:761338Orig1Orig2s000:MultidisciplineR,150,2,0,treatment-induced ADA 13 (16.3%) / 24 (29.3%) / 34 (43.6%),표 52
+Q037,US,FDA:761338Orig1Orig2s000:MultidisciplineR,150,2,0,NAb 5 (6.3%) / 6 (7.3%) / 9 (11.5%),표 52
+Q038,US,FDA:761338Orig1Orig2s000:MultidisciplineR,37,1,0,,보정 post hoc 언급만; 수치 없음
+Q038,US,FDA:761338Orig1Orig2s000:MultidisciplineR,149,1,0,,
+Q039,US,FDA:761338Orig1Orig2s000:MultidisciplineR,37,1,0,,수치 없음
+Q040,US,FDA:761338Orig1Orig2s000:MultidisciplineR,147,2,0,"vs US AUC0-inf 127.69 (117.04-139.3), vs EU 130.57 (120.29-141.73), US vs EU 102.25; Cmax 114.85 / 121.34 / 105.64",표 49 FDA 분석; EMA 값(124.36)과 다름
+Q040,US,FDA:761338Orig1Orig2s000:MultidisciplineR,26,1,0,,
+Q040,US,FDA:761338Orig1Orig2s000:MultidisciplineR,80,1,0,,
+Q041,US,FDA:761338Orig1Orig2s000:MultidisciplineR,147,2,0,No: PK similarity not demonstrated,
+Q041,US,FDA:761338Orig1Orig2s000:MultidisciplineR,80,2,0,failed (AUC0-inf upper bound over 125%),
+Q041,US,FDA:761338Orig1Orig2s000:MultidisciplineR,26,2,0,did not meet (AUC0-inf upper bounds over 125%),
+Q041,US,FDA:761338Orig1Orig2s000:MultidisciplineR,37,2,0,failure to demonstrate PK similarity,
+Q041,US,FDA:761338Orig1Orig2s000:MultidisciplineR,41,1,0,,FDA가 1.1에 의존하지 않음
+Q042,US,FDA:761338Orig1Orig2s000:MultidisciplineR,37,2,0,"randomized, double-blind, 3-arm, parallel group, single dose",
+Q042,US,FDA:761338Orig1Orig2s000:MultidisciplineR,80,2,0,"randomized, double-blind, 3-arm, parallel group, single dose",
+Q042,US,FDA:761338Orig1Orig2s000:MultidisciplineR,28,2,0,"randomized, double-blind, 3-arm, parallel group, single dose",표 3
+Q042,US,FDA:761338Orig1Orig2s000:MultidisciplineR,130,2,1,"randomized, double-blind, parallel group, 3-arm",
+Q042,US,FDA:761338Orig1Orig2s000:MultidisciplineR,132,2,1,"randomized, double-blind, parallel group, single dose",
+Q043,US,FDA:761338Orig1Orig2s000:MultidisciplineR,28,2,1,healthy Japanese male volunteers,"나이·BMI 기준 없음"
+Q043,US,FDA:761338Orig1Orig2s000:MultidisciplineR,37,2,1,healthy Japanese male subjects,
+Q043,US,FDA:761338Orig1Orig2s000:MultidisciplineR,80,2,1,healthy Japanese male volunteers,
+Q043,US,FDA:761338Orig1Orig2s000:MultidisciplineR,132,2,1,healthy Japanese adult male subjects,
+Q043,US,FDA:761338Orig1Orig2s000:MultidisciplineR,89,1,0,,평균 35세
+Q044,US,FDA:761338Orig1Orig2s000:MultidisciplineR,28,2,0,"45 mg, single PFS SC injection",표 3(원문 54mg 오기)
+Q044,US,FDA:761338Orig1Orig2s000:MultidisciplineR,80,2,0,single dose of 45 mg SC,
+Q044,US,FDA:761338Orig1Orig2s000:MultidisciplineR,38,2,0,single 45 mg SC injection,
+Q044,US,FDA:761338Orig1Orig2s000:MultidisciplineR,42,2,0,single 45 mg SC dose,
+Q044,US,FDA:761338Orig1Orig2s000:MultidisciplineR,47,2,0,single 45 mg SC dose,
+Q045,US,FDA:761338Orig1Orig2s000:MultidisciplineR,41,2,0,primary endpoints AUCinf and Cmax; secondary AUClast,
+Q045,US,FDA:761338Orig1Orig2s000:MultidisciplineR,28,2,0,PK similarity in terms of AUC0-inf and Cmax,표 3
+Q045,US,FDA:761338Orig1Orig2s000:MultidisciplineR,38,2,0,Primary AUC0-inf and Cmax; Secondary AUC0-t,표 6
+Q046,US,FDA:761338Orig1Orig2s000:MultidisciplineR,37,2,0,0.8 to 1.25,
+Q046,US,FDA:761338Orig1Orig2s000:MultidisciplineR,38,2,0,80-125%,
+Q046,US,FDA:761338Orig1Orig2s000:MultidisciplineR,42,2,0,0.8 to 1.25,
+Q047,US,FDA:761338Orig1Orig2s000:MultidisciplineR,47,2,1,"ADA tested first, positives tested for NAb; assays suitable in presence of drug",분석 플랫폼 기술 없음
+Q047,US,FDA:761338Orig1Orig2s000:MultidisciplineR,156,1,0,,
+Q047,US,FDA:761338Orig1Orig2s000:MultidisciplineR,24,1,0,,3.1의 다단계 검사 언급
+Q048,US,FDA:761338Orig1Orig2s000:MultidisciplineR,80,2,0,331 randomized: 114 / 110 / 107,
+Q048,US,FDA:761338Orig1Orig2s000:MultidisciplineR,28,2,0,Randomized 331: 114 / 110 / 107,표 3
+Q049,US,FDA:761338Orig1Orig2s000:MultidisciplineR,38,2,0,N=109 / 105 / 104 (CT-P43 / US / EU),표 6 FDA 분석; EMA는 EU 105
+Q049,US,FDA:761338Orig1Orig2s000:MultidisciplineR,43,2,0,N=110 / 104 / 105 (CT-P43 / EU / US),표 7
+Q050,US,FDA:761338Orig1Orig2s000:MultidisciplineR,48,2,0,treatment-induced ADA 18/111 (16.2%) / 48/108 (44.4%) / 42/106 (39.6%),표 10
+Q050,US,FDA:761338Orig1Orig2s000:MultidisciplineR,35,2,0,ADA 16.2% / 44.4% / 39.6%,
+Q050,US,FDA:761338Orig1Orig2s000:MultidisciplineR,19,1,0,,수치 없음
+Q050,US,FDA:761338Orig1Orig2s000:MultidisciplineR,39,1,0,,
+Q051,US,FDA:761338Orig1Orig2s000:MultidisciplineR,48,2,0,NAb 14/111 (12.6%) / 18/108 (16.7%) / 16/106 (15.1%),표 10
+Q051,US,FDA:761338Orig1Orig2s000:MultidisciplineR,35,2,0,NAb 12.6% / 16.7% / 15.1%,
+Q051,US,FDA:761338Orig1Orig2s000:MultidisciplineR,19,1,0,,수치 없음
+Q052,US,FDA:761338Orig1Orig2s000:MultidisciplineR,38,2,0,"vs EU AUC0-inf 109.9 (102.23-118.35), Cmax 103.26 (95.47-111.69); vs US 100.27 / 94.84; EU vs US 91.15 / 91.85",표 6 FDA 분석; EMA 값(108.31)과 다름
+Q052,US,FDA:761338Orig1Orig2s000:MultidisciplineR,42,1,0,,범위 내라는 서술만
+Q053,US,FDA:761338Orig1Orig2s000:MultidisciplineR,37,2,0,90% CIs within 0.8-1.25; PK similarity established,
+Q053,US,FDA:761338Orig1Orig2s000:MultidisciplineR,38,2,0,all within 80-125%,
+Q053,US,FDA:761338Orig1Orig2s000:MultidisciplineR,42,2,0,all within 0.8-1.25,
+Q053,US,FDA:761338Orig1Orig2s000:MultidisciplineR,35,2,0,PK similarity demonstrated,
+Q053,US,FDA:761338Orig1Orig2s000:MultidisciplineR,19,2,0,PK similarity supports no clinically meaningful differences,
+Q053,US,FDA:761338Orig1Orig2s000:MultidisciplineR,56,2,0,PK similarity established in CT-P43 1.2,
+Q053,US,FDA:761338Orig1Orig2s000:MultidisciplineR,121,2,0,PK similarity demonstrated,
+Q053,US,FDA:761338Orig1Orig2s000:MultidisciplineR,130,2,0,similar PK demonstrated,
+Q053,US,FDA:761338Orig1Orig2s000:MultidisciplineR,132,2,0,support PK similarity,

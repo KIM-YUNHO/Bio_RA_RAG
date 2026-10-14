@@ -1,0 +1,9 @@
+{
+  "stage": "finished",
+  "status": "complete",
+  "updated_kst": "2026-10-14T12:59:11.210773+09:00",
+  "report": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\pipeline_h\\runs\\ustekinumab_20261014_v2\\FINAL_REPORT.md",
+  "release": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\pipeline_h\\runs\\ustekinumab_20261014_v2\\release",
+  "postcheck": "pipeline_h\\runs\\ustekinumab_20261014_v2\\final_postcheck.json",
+  "provenance_correction": "pipeline_h\\runs\\ustekinumab_20261014_v2\\provenance_correction.json"
+}

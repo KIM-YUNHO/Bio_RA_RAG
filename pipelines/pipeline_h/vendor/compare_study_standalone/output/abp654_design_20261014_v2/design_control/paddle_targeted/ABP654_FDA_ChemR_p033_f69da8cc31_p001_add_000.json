@@ -1,0 +1,84 @@
+{
+  "job": {
+    "document": "ABP654_FDA_ChemR_p033.pdf",
+    "page": 1,
+    "key": "ABP654_FDA_ChemR_p033_f69da8cc31",
+    "agency": "FDA",
+    "bbox": [
+      73.92,
+      84.96,
+      538.0799999999999,
+      167.51999999999998
+    ],
+    "origin": "PP-DocLayoutV3 table",
+    "detector_score": 0.7304331660270691,
+    "action": "add",
+    "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p033.pdf",
+    "id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_000",
+    "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_control\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_000.png",
+    "image_sha256": "e8d14d1485f61fd3a64b354f807be3164d6a2158d64ac06bdf2605ca115c1308",
+    "pixels": [
+      1800,
+      338
+    ],
+    "context_bbox": [
+      71.04000091552734,
+      82.08000183105469,
+      540.9600219726562,
+      170.39999389648438
+    ]
+  },
+  "seconds": 3.0843246999938856,
+  "raw": {
+    "res": {
+      "input_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_control\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_000.png",
+      "page_index": null,
+      "page_count": null,
+      "width": 1800,
+      "height": 338,
+      "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_layout_detection": false,
+        "use_chart_recognition": false,
+        "use_seal_recognition": false,
+        "use_ocr_for_image_block": true,
+        "format_block_content": false,
+        "merge_layout_blocks": true,
+        "markdown_ignore_labels": [],
+        "return_layout_polygon_points": true
+      },
+      "parsing_res_list": [
+        {
+          "block_label": "table",
+          "block_content": "<table><tr><td>Comment/Recommendation: For 130 mg vial, revise Product Strength to read as: &quot;130mg/26mL (5mg/mL)&quot; so that the strength per total volume (total drug content supplied in container) followed in close proximity by a parenthetical that includes the strength/mL for single-dose containers that supply a volume of drug greater than 1mL. The applicant has revised as requested.</td></tr></table>",
+          "block_bbox": [
+            0,
+            0,
+            1800,
+            338
+          ],
+          "block_id": 0,
+          "block_order": null,
+          "group_id": 0
+        }
+      ]
+    },
+    "ra_runtime": {
+      "inference_seconds": 3.083,
+      "vl_rec_batch_size": 1,
+      "native_blocks": 0,
+      "vlm_blocks": null,
+      "cuda_peak_allocated_bytes": 2105559552,
+      "cuda_peak_reserved_bytes": 2181038080
+    }
+  },
+  "content": "<table><tr><td>Comment/Recommendation: For 130 mg vial, revise Product Strength to read as: &quot;130mg/26mL (5mg/mL)&quot; so that the strength per total volume (total drug content supplied in container) followed in close proximity by a parenthetical that includes the strength/mL for single-dose containers that supply a volume of drug greater than 1mL. The applicant has revised as requested.</td></tr></table>",
+  "table": [
+    [
+      "Comment/Recommendation: For 130 mg vial, revise Product Strength to read as: \"130mg/26mL (5mg/mL)\" so that the strength per total volume (total drug content supplied in container) followed in close proximity by a parenthetical that includes the strength/mL for single-dose containers that supply a volume of drug greater than 1mL. The applicant has revised as requested."
+    ]
+  ],
+  "accepted": true,
+  "error": null,
+  "semantic_status": "source extraction candidate; independent human review pending"
+}

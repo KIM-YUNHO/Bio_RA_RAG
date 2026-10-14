@@ -1,0 +1,23 @@
+{
+  "version": "ra-task-development-1",
+  "cohort": "development_only_not_independent_generalization",
+  "adjudication": "Separate source review and RA expert review; no expected answers enter generation",
+  "rubric_dimensions": ["requested_coverage", "factual_correctness", "claim_support", "source_role_attribution", "comparison_applicability", "unnecessary_abstention", "review_effort", "latency_cost"],
+  "cases": [
+    {"id": "RA01", "task_type": "fact_lookup", "question": "EMA 심사보고서에서 SB17의 건강인 PK 시험 투여 용량과 경로는?", "scope": {"products": ["SB17"], "jurisdictions": ["EU"]}},
+    {"id": "RA02", "task_type": "fact_lookup", "question": "FDA 제품정보에서 ABP654의 성인 판상 건선 권장 투여량과 투여 간격을 설명해줘.", "scope": {"products": ["ABP654"], "jurisdictions": ["US"]}},
+    {"id": "RA03", "task_type": "fact_lookup", "question": "Health Canada의 Yesintek 제품정보에서 희석 후 주입액의 보관 조건과 허용 시간을 알려줘.", "scope": {"products": ["BMAB1200"], "jurisdictions": ["CA"]}},
+    {"id": "RA04", "task_type": "comparison", "question": "EMA 심사보고서에서 SB17과 ABP654의 건강인 PK 시험 투여 용량·경로와 대조약 구성을 비교하고, 시험 조건의 차이를 설명해줘.", "scope": {"products": ["SB17", "ABP654"], "jurisdictions": ["EU"]}},
+    {"id": "RA05", "task_type": "comparison", "question": "EMA 심사자료에서 CT-P43과 SB17의 PK 평가변수와 동등성 평가 방법을 비교해줘. 서로 다른 분석 조건은 구분해줘.", "scope": {"products": ["CTP43", "SB17"], "jurisdictions": ["EU"]}},
+    {"id": "RA06", "task_type": "comparison", "question": "SB17의 EMA와 FDA 심사자료에서 면역원성 결과를 어떻게 설명하는지 비교해줘. 시험·시점이 다르면 같은 결과로 합치지 마.", "scope": {"products": ["SB17"], "jurisdictions": ["EU", "US"]}},
+    {"id": "RA07", "task_type": "agency_reasoning", "question": "EMA는 SB17의 임상 PK 유사성을 어떤 결과와 근거로 판단했는가? 신청자 주장과 기관 판단을 구분해줘.", "scope": {"products": ["SB17"], "jurisdictions": ["EU"]}},
+    {"id": "RA08", "task_type": "agency_reasoning", "question": "EMA의 ABP654 심사보고서에서 적응증 외삽을 뒷받침하는 근거와 기관의 결론을 정리해줘.", "scope": {"products": ["ABP654"], "jurisdictions": ["EU"]}},
+    {"id": "RA09", "task_type": "agency_reasoning", "question": "FDA의 CT-P43 승인 자료에서 소아 적응증과 관련된 허가 내용을 설명해줘. 실제 허가 내용과 후속 의무를 구분해줘.", "scope": {"products": ["CTP43"], "jurisdictions": ["US"]}},
+    {"id": "RA10", "task_type": "guidance", "question": "EMA 문서의 바이오시밀러 대조약 선택과 비EEA 대조약 브리징에 대한 설명을 요약해줘. 문서 상태와 적용 범위도 알려줘.", "scope": {"jurisdictions": ["EU"]}},
+    {"id": "RA11", "task_type": "guidance", "question": "수집된 FDA 바이오시밀러 지침에서 비교 유효성 시험의 역할을 설명해줘. 초안과 확정 문서를 구분해줘.", "scope": {"jurisdictions": ["US"]}},
+    {"id": "RA12", "task_type": "guidance_and_precedent", "question": "EMA 지침의 바이오시밀러 PK 비교 설명과 SB17에서 실제 수행한 PK 평가를 연결해 설명해줘. 선례를 일반 요건으로 단정하지 마.", "scope": {"products": ["SB17"], "jurisdictions": ["EU"]}},
+    {"id": "RA13", "task_type": "scope_gap", "question": "Health Canada 문서에서 BAT2206의 희석 후 주입액 안정성 결과를 알려줘.", "scope": {"products": ["BAT2206"], "jurisdictions": ["CA"]}},
+    {"id": "RA14", "task_type": "false_premise", "question": "EMA에서 SB17 건강인 PK 시험의 135mg 정맥 투여군 결과를 보여줘.", "scope": {"products": ["SB17"], "jurisdictions": ["EU"]}},
+    {"id": "RA15", "task_type": "applicability_gap", "question": "SB17 승인 선례만으로 우리 제품도 같은 개발 조건에서 허가된다고 결론낼 수 있는가? 문서에서 확인되는 사실과 추가로 필요한 정보를 구분해줘.", "scope": {"products": ["SB17"], "jurisdictions": ["EU"]}}
+  ]
+}

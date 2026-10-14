@@ -1,0 +1,132 @@
+[
+  {
+    "document": "ABP654_EMA_p036_037.pdf",
+    "page": 2,
+    "bbox": [
+      72.91590742407837,
+      152.15999691135664,
+      275.8332024266122,
+      268.3199945534648
+    ],
+    "prior_picture": true,
+    "already_figure": true,
+    "restored": false,
+    "suppressed_tables": []
+  },
+  {
+    "document": "ABP654_EMA_p036_037.pdf",
+    "page": 2,
+    "bbox": [
+      284.46798093735833,
+      153.59999688212656,
+      484.9867263535739,
+      271.6799944852614
+    ],
+    "prior_picture": true,
+    "already_figure": true,
+    "restored": false,
+    "suppressed_tables": []
+  },
+  {
+    "document": "ABP654_FDA_Multi_p035.pdf",
+    "page": 1,
+    "bbox": [
+      81.11999999999999,
+      286.08,
+      504.0,
+      570.72
+    ],
+    "prior_picture": true,
+    "already_figure": true,
+    "restored": false,
+    "suppressed_tables": []
+  },
+  {
+    "document": "ABP654_HC_p038.pdf",
+    "page": 1,
+    "bbox": [
+      119.52,
+      290.4,
+      497.28,
+      528.96
+    ],
+    "prior_picture": true,
+    "already_figure": false,
+    "restored": true,
+    "suppressed_tables": [
+      {
+        "table_index": 0,
+        "bbox": [
+          120.6,
+          273.5,
+          496.5,
+          569.5
+        ],
+        "table": [
+          [
+            "",
+            "PHOENIX 1",
+            "PHOENIX 2"
+          ],
+          [
+            "100",
+            "",
+            ""
+          ],
+          [
+            "",
+            "80",
+            ""
+          ],
+          [
+            "",
+            "60",
+            ""
+          ],
+          [
+            "Percent of Patients",
+            "",
+            ""
+          ],
+          [
+            "",
+            "40",
+            ""
+          ],
+          [
+            "",
+            "20",
+            ""
+          ],
+          [
+            "",
+            "151278_v5",
+            "15335_v6"
+          ],
+          [
+            "0",
+            "",
+            ""
+          ],
+          [
+            "",
+            "0 24 8 12 16 20 24 28 32 36",
+            "024812 16 2024 28"
+          ],
+          [
+            "",
+            "Week",
+            "Week"
+          ],
+          [
+            "",
+            "CNTO 1275 45 mg",
+            "CNTO 1275 90 mg"
+          ]
+        ],
+        "numeric_evidence_eligible": false,
+        "reason": "original_picture_and_independent_chart_conflict_with_table"
+      }
+    ]
+  }
+]

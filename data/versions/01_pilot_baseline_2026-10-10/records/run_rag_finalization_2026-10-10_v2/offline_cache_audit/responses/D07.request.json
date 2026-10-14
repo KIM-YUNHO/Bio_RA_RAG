@@ -1,0 +1,13 @@
+{
+  "question": "Health Canada 제품설명서에서 건선 성인에게 우스테키누맙 45 mg과 90 mg을 단회 피하 투여했을 때 Cmax 중앙값과 평균은?",
+  "products": [
+    "SB17"
+  ],
+  "jurisdictions": [
+    "CA"
+  ],
+  "include_nondefault": true,
+  "documents": [
+    "d3"
+  ]
+}

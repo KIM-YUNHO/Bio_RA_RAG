@@ -1,0 +1,3913 @@
+{
+  "before_blocks": [
+    {
+      "type": "table",
+      "ref": "#/tables/0",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        71.3,
+        460.5,
+        546.8,
+        720.5
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "caption": "",
+      "n_rows": 3,
+      "n_cols": 6,
+      "cells": [
+        {
+          "r": 0,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Study # ",
+          "header": true,
+          "bbox": [
+            78.0,
+            705.1,
+            113.5,
+            714.4
+          ]
+        },
+        {
+          "r": 0,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Study design",
+          "header": true,
+          "bbox": [
+            151.6,
+            693.5,
+            182.6,
+            714.4
+          ]
+        },
+        {
+          "r": 0,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Dosage, route of  administration and duration",
+          "header": true,
+          "bbox": [
+            219.0,
+            695.5,
+            350.1,
+            714.4
+          ]
+        },
+        {
+          "r": 0,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Study  subjects  (n=number)",
+          "header": true,
+          "bbox": [
+            372.8,
+            682.0,
+            427.0,
+            714.4
+          ]
+        },
+        {
+          "r": 0,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "Mean age  (Range)",
+          "header": true,
+          "bbox": [
+            439.8,
+            693.5,
+            484.2,
+            714.3
+          ]
+        },
+        {
+          "r": 0,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "Sex",
+          "header": true,
+          "bbox": [
+            509.5,
+            707.0,
+            526.7,
+            714.4
+          ]
+        },
+        {
+          "r": 1,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "C0743T09  (PHOENIX 2)",
+          "header": false,
+          "bbox": [
+            78.2,
+            652.5,
+            137.1,
+            673.4
+          ]
+        },
+        {
+          "r": 1,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Double \u0002 Blind  Placebo \u0002 Controlled",
+          "header": false,
+          "bbox": [
+            151.7,
+            631.6,
+            196.0,
+            673.2
+          ]
+        },
+        {
+          "r": 1,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Fixed doses:  Placebo (N = 410) Placebo → 45 mg SC regimen a (n = 197)  Placebo → 90 mg SC regimen a (n = 195)  45 mg SC Weeks 0, 4 then  q12w (n = 409) 90 mg SC Weeks 0, 4 then  q12w (n = 411)",
+          "header": false,
+          "bbox": [
+            218.8,
+            545.6,
+            356.9,
+            673.2
+          ]
+        },
+        {
+          "r": 1,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "n = 1230 ",
+          "header": false,
+          "bbox": [
+            381.0,
+            666.0,
+            419.0,
+            673.3
+          ]
+        },
+        {
+          "r": 1,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "46.2  (18, 86)",
+          "header": false,
+          "bbox": [
+            445.2,
+            652.5,
+            478.5,
+            673.3
+          ]
+        },
+        {
+          "r": 1,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "M = 840 F = 390",
+          "header": false,
+          "bbox": [
+            500.7,
+            654.5,
+            535.7,
+            673.3
+          ]
+        },
+        {
+          "r": 2,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "C0743T12  (ACCEPT)",
+          "header": false,
+          "bbox": [
+            78.2,
+            516.0,
+            124.4,
+            536.9
+          ]
+        },
+        {
+          "r": 2,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Assessor \u0002 Blind Active \u0002 Comparator  Controlled",
+          "header": false,
+          "bbox": [
+            151.2,
+            495.0,
+            206.3,
+            536.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Fixed doses:  Etanercept 50 mg (n = 347)  twice weekly through Week 12  ustekinumab 45 mg (n = 209) at  Week 0 and 4 ustekinumab 90  mg (n = 347) at Week 0 and 4",
+          "header": false,
+          "bbox": [
+            218.8,
+            464.1,
+            360.0,
+            536.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "n = 903 ",
+          "header": false,
+          "bbox": [
+            383.8,
+            529.5,
+            416.2,
+            536.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "45.0  (18, 81)",
+          "header": false,
+          "bbox": [
+            445.2,
+            516.0,
+            478.5,
+            536.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "M = 613  F = 290",
+          "header": false,
+          "bbox": [
+            500.7,
+            518.0,
+            535.7,
+            536.8
+          ]
+        }
+      ],
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/0",
+      "parent": "#/tables/0",
+      "page": 1,
+      "bbox": [
+        77.9,
+        447.2,
+        511.9,
+        455.7
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "footnote",
+      "text": "a . The placebo groups crossed over to receive ustekinumab (45 mg or 90 mg) at Weeks 12 and 16 then q12w",
+      "status": "kept"
+    },
+    {
+      "type": "table",
+      "ref": "#/tables/1",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        71.4,
+        120.5,
+        547.8,
+        413.8
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "caption": "Table 16. Baseline Disease Characteristics in PHOENIX 1, PHOENIX 2 and ACCEPT",
+      "n_rows": 12,
+      "n_cols": 7,
+      "cells": [
+        {
+          "r": 0,
+          "c": 1,
+          "rs": 1,
+          "cs": 2,
+          "text": "PHOENIX 1 ",
+          "header": true,
+          "bbox": [
+            213.5,
+            400.5,
+            264.5,
+            407.9
+          ]
+        },
+        {
+          "r": 0,
+          "c": 3,
+          "rs": 1,
+          "cs": 2,
+          "text": "PHOENIX 2 ",
+          "header": true,
+          "bbox": [
+            336.0,
+            400.5,
+            388.0,
+            407.9
+          ]
+        },
+        {
+          "r": 0,
+          "c": 5,
+          "rs": 1,
+          "cs": 2,
+          "text": "ACCEPT",
+          "header": true,
+          "bbox": [
+            464.5,
+            400.5,
+            505.3,
+            407.9
+          ]
+        },
+        {
+          "r": 1,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Placebo ",
+          "header": true,
+          "bbox": [
+            188.2,
+            382.5,
+            225.4,
+            389.8
+          ]
+        },
+        {
+          "r": 1,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Ustekinumab ",
+          "header": true,
+          "bbox": [
+            239.8,
+            382.5,
+            301.3,
+            389.8
+          ]
+        },
+        {
+          "r": 1,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Placebo ",
+          "header": true,
+          "bbox": [
+            309.7,
+            382.5,
+            346.8,
+            389.8
+          ]
+        },
+        {
+          "r": 1,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "Ustekinumab Etanercept ",
+          "header": true,
+          "bbox": [
+            356.6,
+            380.7,
+            475.5,
+            389.8
+          ]
+        },
+        {
+          "r": 1,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "Ustekinumab",
+          "header": true,
+          "bbox": [
+            484.5,
+            382.5,
+            546.0,
+            389.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Patients randomized  at Week 0",
+          "header": false,
+          "bbox": [
+            78.0,
+            353.0,
+            168.0,
+            371.7
+          ]
+        },
+        {
+          "r": 2,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "n=255 ",
+          "header": false,
+          "bbox": [
+            196.1,
+            364.5,
+            223.0,
+            371.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "n=511 ",
+          "header": false,
+          "bbox": [
+            254.5,
+            364.5,
+            280.0,
+            371.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "n=410 ",
+          "header": false,
+          "bbox": [
+            317.4,
+            364.5,
+            344.2,
+            371.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "n=820 ",
+          "header": false,
+          "bbox": [
+            375.8,
+            364.5,
+            402.7,
+            371.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "n=347 ",
+          "header": false,
+          "bbox": [
+            439.8,
+            364.5,
+            466.7,
+            371.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "n=556",
+          "header": false,
+          "bbox": [
+            501.8,
+            364.5,
+            528.6,
+            371.8
+          ]
+        },
+        {
+          "r": 3,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Median BSA ",
+          "header": false,
+          "bbox": [
+            78.4,
+            335.5,
+            133.1,
+            342.8
+          ]
+        },
+        {
+          "r": 3,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "22.0 ",
+          "header": false,
+          "bbox": [
+            200.0,
+            335.5,
+            218.6,
+            342.7
+          ]
+        },
+        {
+          "r": 3,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "21.0 ",
+          "header": false,
+          "bbox": [
+            258.5,
+            335.5,
+            277.0,
+            342.7
+          ]
+        },
+        {
+          "r": 3,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "20.0 ",
+          "header": false,
+          "bbox": [
+            321.4,
+            335.5,
+            339.9,
+            342.7
+          ]
+        },
+        {
+          "r": 3,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "21.0 ",
+          "header": false,
+          "bbox": [
+            379.8,
+            335.5,
+            398.4,
+            342.7
+          ]
+        },
+        {
+          "r": 3,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "19.0 ",
+          "header": false,
+          "bbox": [
+            444.6,
+            335.5,
+            462.4,
+            342.7
+          ]
+        },
+        {
+          "r": 3,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "20.0",
+          "header": false,
+          "bbox": [
+            505.7,
+            335.5,
+            524.3,
+            342.7
+          ]
+        },
+        {
+          "r": 4,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "BSA ≥ 20% ",
+          "header": false,
+          "bbox": [
+            78.4,
+            317.8,
+            128.0,
+            325.4
+          ]
+        },
+        {
+          "r": 4,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "145 (57%) ",
+          "header": false,
+          "bbox": [
+            187.5,
+            316.0,
+            232.1,
+            325.3
+          ]
+        },
+        {
+          "r": 4,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "276 (54%) ",
+          "header": false,
+          "bbox": [
+            245.1,
+            316.0,
+            290.5,
+            325.3
+          ]
+        },
+        {
+          "r": 4,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "217 (53%) ",
+          "header": false,
+          "bbox": [
+            307.9,
+            316.0,
+            353.3,
+            325.3
+          ]
+        },
+        {
+          "r": 4,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "445 (54%) ",
+          "header": false,
+          "bbox": [
+            366.3,
+            316.0,
+            411.8,
+            325.3
+          ]
+        },
+        {
+          "r": 4,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "169 (49%) ",
+          "header": false,
+          "bbox": [
+            431.1,
+            316.0,
+            475.7,
+            325.3
+          ]
+        },
+        {
+          "r": 4,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "289 (52%)",
+          "header": false,
+          "bbox": [
+            492.3,
+            316.0,
+            537.6,
+            325.3
+          ]
+        },
+        {
+          "r": 5,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Median PASI ",
+          "header": false,
+          "bbox": [
+            78.4,
+            300.5,
+            135.0,
+            307.9
+          ]
+        },
+        {
+          "r": 5,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "17.80 ",
+          "header": false,
+          "bbox": [
+            198.1,
+            300.5,
+            221.5,
+            307.8
+          ]
+        },
+        {
+          "r": 5,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "17.4 ",
+          "header": false,
+          "bbox": [
+            259.3,
+            300.6,
+            277.0,
+            307.8
+          ]
+        },
+        {
+          "r": 5,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "16.90 ",
+          "header": false,
+          "bbox": [
+            319.3,
+            300.5,
+            342.7,
+            307.8
+          ]
+        },
+        {
+          "r": 5,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "17.60 ",
+          "header": false,
+          "bbox": [
+            377.8,
+            300.5,
+            401.2,
+            307.8
+          ]
+        },
+        {
+          "r": 5,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "16.8 ",
+          "header": false,
+          "bbox": [
+            444.6,
+            300.5,
+            462.4,
+            307.8
+          ]
+        },
+        {
+          "r": 5,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "17.1",
+          "header": false,
+          "bbox": [
+            506.5,
+            300.6,
+            522.9,
+            307.8
+          ]
+        },
+        {
+          "r": 6,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "PASI ≥ 20 ",
+          "header": false,
+          "bbox": [
+            78.4,
+            283.0,
+            122.1,
+            290.5
+          ]
+        },
+        {
+          "r": 6,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "91 (36%) ",
+          "header": false,
+          "bbox": [
+            189.6,
+            281.0,
+            229.2,
+            290.4
+          ]
+        },
+        {
+          "r": 6,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "169 (33%) ",
+          "header": false,
+          "bbox": [
+            245.9,
+            281.0,
+            290.5,
+            290.4
+          ]
+        },
+        {
+          "r": 6,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "133 (32%) ",
+          "header": false,
+          "bbox": [
+            308.7,
+            281.0,
+            353.3,
+            290.4
+          ]
+        },
+        {
+          "r": 6,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "300 (37%) ",
+          "header": false,
+          "bbox": [
+            366.6,
+            281.0,
+            411.8,
+            290.4
+          ]
+        },
+        {
+          "r": 6,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "102 (29%) ",
+          "header": false,
+          "bbox": [
+            431.1,
+            281.0,
+            475.7,
+            290.4
+          ]
+        },
+        {
+          "r": 6,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "205 (37%)",
+          "header": false,
+          "bbox": [
+            492.3,
+            281.0,
+            537.6,
+            290.4
+          ]
+        },
+        {
+          "r": 7,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "PGA of marked or  severe ",
+          "header": false,
+          "bbox": [
+            78.0,
+            254.0,
+            157.7,
+            272.9
+          ]
+        },
+        {
+          "r": 7,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "112 (44%) ",
+          "header": false,
+          "bbox": [
+            187.5,
+            252.0,
+            232.1,
+            261.3
+          ]
+        },
+        {
+          "r": 7,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "223 (44%) ",
+          "header": false,
+          "bbox": [
+            245.1,
+            252.0,
+            290.5,
+            261.3
+          ]
+        },
+        {
+          "r": 7,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "160 (39%) ",
+          "header": false,
+          "bbox": [
+            308.7,
+            252.0,
+            353.3,
+            261.3
+          ]
+        },
+        {
+          "r": 7,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "328 (40%) ",
+          "header": false,
+          "bbox": [
+            366.6,
+            252.0,
+            411.8,
+            261.3
+          ]
+        },
+        {
+          "r": 7,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "148 (43%) ",
+          "header": false,
+          "bbox": [
+            431.1,
+            252.0,
+            475.7,
+            261.3
+          ]
+        },
+        {
+          "r": 7,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "242 (44%)",
+          "header": false,
+          "bbox": [
+            492.3,
+            252.0,
+            537.6,
+            261.3
+          ]
+        },
+        {
+          "r": 8,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "History of psoriatic  arthritis ",
+          "header": false,
+          "bbox": [
+            78.0,
+            224.9,
+            159.7,
+            243.8
+          ]
+        },
+        {
+          "r": 8,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "90 (35%) ",
+          "header": false,
+          "bbox": [
+            189.6,
+            223.0,
+            229.2,
+            232.3
+          ]
+        },
+        {
+          "r": 8,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "168 (33%) ",
+          "header": false,
+          "bbox": [
+            245.9,
+            223.0,
+            290.5,
+            232.3
+          ]
+        },
+        {
+          "r": 8,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "105 (26%) ",
+          "header": false,
+          "bbox": [
+            308.7,
+            223.0,
+            353.3,
+            232.3
+          ]
+        },
+        {
+          "r": 8,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "200 (24%) ",
+          "header": false,
+          "bbox": [
+            366.5,
+            223.0,
+            411.8,
+            232.3
+          ]
+        },
+        {
+          "r": 8,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "95 (27%) ",
+          "header": false,
+          "bbox": [
+            433.4,
+            223.0,
+            472.9,
+            232.3
+          ]
+        },
+        {
+          "r": 8,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "157 (28%)",
+          "header": false,
+          "bbox": [
+            493.1,
+            223.0,
+            537.6,
+            232.3
+          ]
+        },
+        {
+          "r": 9,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Prior phototherapy ",
+          "header": false,
+          "bbox": [
+            78.4,
+            205.6,
+            159.7,
+            214.8
+          ]
+        },
+        {
+          "r": 9,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "150 (59%) ",
+          "header": false,
+          "bbox": [
+            187.5,
+            205.6,
+            232.1,
+            214.9
+          ]
+        },
+        {
+          "r": 9,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "342 (67%) ",
+          "header": false,
+          "bbox": [
+            245.3,
+            205.6,
+            290.5,
+            214.9
+          ]
+        },
+        {
+          "r": 9,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "276 (67%) ",
+          "header": false,
+          "bbox": [
+            307.9,
+            205.6,
+            353.3,
+            214.9
+          ]
+        },
+        {
+          "r": 9,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "553 (67%) ",
+          "header": false,
+          "bbox": [
+            366.6,
+            205.6,
+            411.8,
+            214.9
+          ]
+        },
+        {
+          "r": 9,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "224 (65%) ",
+          "header": false,
+          "bbox": [
+            430.3,
+            205.6,
+            475.7,
+            214.9
+          ]
+        },
+        {
+          "r": 9,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "368 (66%)",
+          "header": false,
+          "bbox": [
+            492.4,
+            205.6,
+            537.6,
+            214.9
+          ]
+        },
+        {
+          "r": 10,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Prior conventional  systemic therapy  excluding biologics a ",
+          "header": false,
+          "bbox": [
+            78.0,
+            165.0,
+            164.9,
+            197.2
+          ]
+        },
+        {
+          "r": 10,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "142 (56%) ",
+          "header": false,
+          "bbox": [
+            187.5,
+            165.0,
+            232.1,
+            174.3
+          ]
+        },
+        {
+          "r": 10,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "282 (55%) ",
+          "header": false,
+          "bbox": [
+            245.1,
+            165.0,
+            290.5,
+            174.3
+          ]
+        },
+        {
+          "r": 10,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "241 (59%) ",
+          "header": false,
+          "bbox": [
+            307.9,
+            165.0,
+            353.3,
+            174.3
+          ]
+        },
+        {
+          "r": 10,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "447 (55%) ",
+          "header": false,
+          "bbox": [
+            366.3,
+            165.0,
+            411.8,
+            174.3
+          ]
+        },
+        {
+          "r": 10,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "199 (57%) ",
+          "header": false,
+          "bbox": [
+            431.1,
+            165.0,
+            475.7,
+            174.3
+          ]
+        },
+        {
+          "r": 10,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "311 (56%)",
+          "header": false,
+          "bbox": [
+            492.4,
+            165.0,
+            537.6,
+            174.3
+          ]
+        },
+        {
+          "r": 11,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Prior conventional  systemic or biologic  therapy a ",
+          "header": false,
+          "bbox": [
+            77.8,
+            124.5,
+            164.6,
+            156.7
+          ]
+        },
+        {
+          "r": 11,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "189 (74%) ",
+          "header": false,
+          "bbox": [
+            187.5,
+            124.5,
+            232.1,
+            133.9
+          ]
+        },
+        {
+          "r": 11,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "364 (71%) ",
+          "header": false,
+          "bbox": [
+            245.3,
+            124.5,
+            290.5,
+            133.9
+          ]
+        },
+        {
+          "r": 11,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "287 (70%) ",
+          "header": false,
+          "bbox": [
+            307.9,
+            124.5,
+            353.3,
+            133.9
+          ]
+        },
+        {
+          "r": 11,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "536 (65%) ",
+          "header": false,
+          "bbox": [
+            366.6,
+            124.5,
+            411.8,
+            133.9
+          ]
+        },
+        {
+          "r": 11,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "218 (63%) ",
+          "header": false,
+          "bbox": [
+            430.3,
+            124.5,
+            475.7,
+            133.9
+          ]
+        },
+        {
+          "r": 11,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "337 (61%)",
+          "header": false,
+          "bbox": [
+            492.4,
+            124.5,
+            537.6,
+            133.9
+          ]
+        }
+      ],
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/1",
+      "parent": "#/tables/1",
+      "page": 1,
+      "bbox": [
+        92.7,
+        420.0,
+        525.1,
+        429.8
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "caption",
+      "text": "Table 16. Baseline Disease Characteristics in PHOENIX 1, PHOENIX 2 and ACCEPT",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/2",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.1,
+        60.5,
+        183.8,
+        69.0
+      ],
+      "layer": "furniture",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "WEZLANA™ (ustekinumab)",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/3",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        479.4,
+        60.6,
+        540.3,
+        69.0
+      ],
+      "layer": "furniture",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "Page 34 of 116",
+      "status": "kept"
+    },
+    {
+      "type": "table",
+      "ref": "#/tables/2",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        71.1,
+        566.6,
+        548.3,
+        721.0
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "caption": "",
+      "n_rows": 4,
+      "n_cols": 7,
+      "cells": [
+        {
+          "r": 0,
+          "c": 1,
+          "rs": 1,
+          "cs": 2,
+          "text": "PHOENIX 1 ",
+          "header": true,
+          "bbox": [
+            213.5,
+            707.0,
+            264.5,
+            714.4
+          ]
+        },
+        {
+          "r": 0,
+          "c": 3,
+          "rs": 1,
+          "cs": 2,
+          "text": "PHOENIX 2 ",
+          "header": true,
+          "bbox": [
+            336.0,
+            707.0,
+            388.0,
+            714.4
+          ]
+        },
+        {
+          "r": 0,
+          "c": 5,
+          "rs": 1,
+          "cs": 2,
+          "text": "ACCEPT",
+          "header": true,
+          "bbox": [
+            464.5,
+            707.0,
+            505.3,
+            714.4
+          ]
+        },
+        {
+          "r": 1,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Placebo ",
+          "header": true,
+          "bbox": [
+            188.2,
+            689.0,
+            225.4,
+            696.3
+          ]
+        },
+        {
+          "r": 1,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Ustekinumab ",
+          "header": true,
+          "bbox": [
+            239.8,
+            689.0,
+            301.3,
+            696.3
+          ]
+        },
+        {
+          "r": 1,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Placebo ",
+          "header": true,
+          "bbox": [
+            309.7,
+            689.0,
+            346.8,
+            696.3
+          ]
+        },
+        {
+          "r": 1,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "Ustekinumab Etanercept ",
+          "header": true,
+          "bbox": [
+            356.6,
+            687.2,
+            475.5,
+            696.3
+          ]
+        },
+        {
+          "r": 1,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "Ustekinumab",
+          "header": true,
+          "bbox": [
+            484.5,
+            689.0,
+            546.0,
+            696.3
+          ]
+        },
+        {
+          "r": 2,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Failed to respond to,  had contraindication  for, or intolerant to ≥ 1  conventional therapy a ",
+          "header": false,
+          "bbox": [
+            77.8,
+            634.5,
+            173.6,
+            678.3
+          ]
+        },
+        {
+          "r": 2,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "139 (55%) ",
+          "header": false,
+          "bbox": [
+            187.5,
+            634.5,
+            232.1,
+            643.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "270 (53%) ",
+          "header": false,
+          "bbox": [
+            245.1,
+            634.5,
+            290.5,
+            643.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "254 (62%) ",
+          "header": false,
+          "bbox": [
+            307.9,
+            634.5,
+            353.3,
+            643.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "490 (60%) ",
+          "header": false,
+          "bbox": [
+            366.3,
+            634.5,
+            411.8,
+            643.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "347 (100%) 555 (100%)",
+          "header": false,
+          "bbox": [
+            430.5,
+            634.5,
+            540.4,
+            643.8
+          ]
+        },
+        {
+          "r": 3,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Failed to respond to,  had contraindication  for, or intolerant to ≥ 3  conventional  therapies a ",
+          "header": false,
+          "bbox": [
+            77.8,
+            571.1,
+            174.9,
+            626.3
+          ]
+        },
+        {
+          "r": 3,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "30 (12%) ",
+          "header": false,
+          "bbox": [
+            189.6,
+            571.0,
+            229.2,
+            580.4
+          ]
+        },
+        {
+          "r": 3,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "54 (11%) ",
+          "header": false,
+          "bbox": [
+            248.0,
+            571.0,
+            287.6,
+            580.4
+          ]
+        },
+        {
+          "r": 3,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "66 (16%) ",
+          "header": false,
+          "bbox": [
+            310.9,
+            571.0,
+            350.5,
+            580.4
+          ]
+        },
+        {
+          "r": 3,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "134 (16%) ",
+          "header": false,
+          "bbox": [
+            367.3,
+            571.0,
+            411.8,
+            580.4
+          ]
+        },
+        {
+          "r": 3,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "52 (15%) ",
+          "header": false,
+          "bbox": [
+            433.4,
+            571.0,
+            472.9,
+            580.4
+          ]
+        },
+        {
+          "r": 3,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "78 (14%)",
+          "header": false,
+          "bbox": [
+            495.3,
+            571.0,
+            534.8,
+            580.4
+          ]
+        }
+      ],
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/4",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        77.9,
+        523.3,
+        539.9,
+        562.6
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "a. In PHOENIX 1 and 2, conventional systemic agents include acitretin, PUVA, methotrexate, and cyclosporine. In ACCEPT, conventional systemic agents included PUVA, methotrexate, and cyclosporine. All patients were required to be etanercept naïve at baseline in ACCEPT, but in PHOENIX 1 and 2 patients may have previously received etanercept.",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/5",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        72.1,
+        377.1,
+        548.0,
+        511.8
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "PHOENIX 1 evaluated the safety and efficacy of ustekinumab versus placebo in 766 patients with plaque psoriasis. Patients were randomized in equal proportion to placebo, 45 mg or 90 mg of ustekinumab. Patients randomized to ustekinumab received 45 mg or 90 mg doses at Weeks 0 and 4 followed by the same dose every 12 weeks. Patients randomized to receive placebo at Weeks 0 and 4 crossed over to receive ustekinumab (either 45 mg or 90 mg) at Weeks 12 and 16 followed by the same dose every 12 weeks. To evaluate the efficacy of every 12-week dosing, patients who were PASI 75 responders at both Weeks 28 and 40 were re-randomized to either continue dosing of ustekinumab every 12 weeks or to placebo (ie, withdrawal of therapy). Patients withdrawn from ustekinumab at Week 40 reinitiated ustekinumab at their original dosing regimen when they experienced at least a 50% loss of their PASI improvement obtained at Week 40. Patients were followed for at least 76 weeks.",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/6",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        72.1,
+        343.6,
+        532.5,
+        366.7
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "PHOENIX 2 evaluated the safety and efficacy of ustekinumab versus placebo in 1230 patients with plaque psoriasis. This study design was identical to PHOENIX 1 through Week 28.",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/7",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        72.5,
+        319.0,
+        236.0,
+        329.3
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "section_header",
+      "text": "Dose Adjustment (every 8 weeks)",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/8",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        72.0,
+        262.3,
+        541.0,
+        310.7
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "At Week 28, PHOENIX 1 patients who were nonresponders (< PASI 50 response) discontinued treatment and patients who were partial responders (≥ PASI 50 response and < PASI 75 response) were adjusted to every-8-week dosing. PASI 75 responders at Week 28 who became partial responders or nonresponders at Week 40 were adjusted to every-8-week dosing.",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/9",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        72.5,
+        231.1,
+        534.4,
+        254.1
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "In PHOENIX 2, patients who were partial responders at Week 28 were re-randomized to either continue every 12 weeks dosing of ustekinumab or to switch to every 8 weeks dosing.",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/10",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        72.0,
+        199.8,
+        537.2,
+        222.8
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "All patients were followed for up to 76 weeks in PHOENIX 1 and up to 52 weeks in PHOENIX 2 following first administration of study treatment.",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/11",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        72.0,
+        105.2,
+        547.3,
+        191.4
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "In both studies, the primary endpoint was the proportion of patients who achieved a reduction in score of at least 75% from baseline at Week 12 by the PASI (PASI 75). Patients achieving ≥ 90% improvement in PASI from baseline (PASI 90) were considered PASI 90 responders and patients with ≥ 50% improvement in PASI from baseline (PASI 50) were considered PASI 50 responders. Another key efficacy assessment was the Physician's Global Assessment (PGA), a 6-category scale ranging from 0 (cleared) to 5 (severe) that indicates the physician's overall assessment of psoriasis focusing on plaque thickness/induration, erythema, and scaling.",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/12",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        72.1,
+        60.5,
+        183.8,
+        69.0
+      ],
+      "layer": "furniture",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "WEZLANA™ (ustekinumab)",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/13",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        479.4,
+        60.6,
+        540.3,
+        69.0
+      ],
+      "layer": "furniture",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "Page 35 of 116",
+      "status": "kept"
+    }
+  ],
+  "original_rule_blocks": [
+    {
+      "type": "table",
+      "ref": "#/tables/0",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        71.3,
+        460.5,
+        546.8,
+        720.5
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "caption": "",
+      "n_rows": 3,
+      "n_cols": 6,
+      "cells": [
+        {
+          "r": 0,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Study # ",
+          "header": true,
+          "bbox": [
+            78.0,
+            705.1,
+            113.5,
+            714.4
+          ]
+        },
+        {
+          "r": 0,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Study design",
+          "header": true,
+          "bbox": [
+            151.6,
+            693.5,
+            182.6,
+            714.4
+          ]
+        },
+        {
+          "r": 0,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Dosage, route of  administration and duration",
+          "header": true,
+          "bbox": [
+            219.0,
+            695.5,
+            350.1,
+            714.4
+          ]
+        },
+        {
+          "r": 0,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Study  subjects  (n=number)",
+          "header": true,
+          "bbox": [
+            372.8,
+            682.0,
+            427.0,
+            714.4
+          ]
+        },
+        {
+          "r": 0,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "Mean age  (Range)",
+          "header": true,
+          "bbox": [
+            439.8,
+            693.5,
+            484.2,
+            714.3
+          ]
+        },
+        {
+          "r": 0,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "Sex",
+          "header": true,
+          "bbox": [
+            509.5,
+            707.0,
+            526.7,
+            714.4
+          ]
+        },
+        {
+          "r": 1,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "C0743T09  (PHOENIX 2)",
+          "header": false,
+          "bbox": [
+            78.2,
+            652.5,
+            137.1,
+            673.4
+          ]
+        },
+        {
+          "r": 1,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Double \u0002 Blind  Placebo \u0002 Controlled",
+          "header": false,
+          "bbox": [
+            151.7,
+            631.6,
+            196.0,
+            673.2
+          ]
+        },
+        {
+          "r": 1,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Fixed doses:  Placebo (N = 410) Placebo → 45 mg SC regimen a (n = 197)  Placebo → 90 mg SC regimen a (n = 195)  45 mg SC Weeks 0, 4 then  q12w (n = 409) 90 mg SC Weeks 0, 4 then  q12w (n = 411)",
+          "header": false,
+          "bbox": [
+            218.8,
+            545.6,
+            356.9,
+            673.2
+          ]
+        },
+        {
+          "r": 1,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "n = 1230 ",
+          "header": false,
+          "bbox": [
+            381.0,
+            666.0,
+            419.0,
+            673.3
+          ]
+        },
+        {
+          "r": 1,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "46.2  (18, 86)",
+          "header": false,
+          "bbox": [
+            445.2,
+            652.5,
+            478.5,
+            673.3
+          ]
+        },
+        {
+          "r": 1,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "M = 840 F = 390",
+          "header": false,
+          "bbox": [
+            500.7,
+            654.5,
+            535.7,
+            673.3
+          ]
+        },
+        {
+          "r": 2,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "C0743T12  (ACCEPT)",
+          "header": false,
+          "bbox": [
+            78.2,
+            516.0,
+            124.4,
+            536.9
+          ]
+        },
+        {
+          "r": 2,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Assessor \u0002 Blind Active \u0002 Comparator  Controlled",
+          "header": false,
+          "bbox": [
+            151.2,
+            495.0,
+            206.3,
+            536.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Fixed doses:  Etanercept 50 mg (n = 347)  twice weekly through Week 12  ustekinumab 45 mg (n = 209) at  Week 0 and 4 ustekinumab 90  mg (n = 347) at Week 0 and 4",
+          "header": false,
+          "bbox": [
+            218.8,
+            464.1,
+            360.0,
+            536.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "n = 903 ",
+          "header": false,
+          "bbox": [
+            383.8,
+            529.5,
+            416.2,
+            536.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "45.0  (18, 81)",
+          "header": false,
+          "bbox": [
+            445.2,
+            516.0,
+            478.5,
+            536.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "M = 613  F = 290",
+          "header": false,
+          "bbox": [
+            500.7,
+            518.0,
+            535.7,
+            536.8
+          ]
+        }
+      ],
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/0",
+      "parent": "#/tables/0",
+      "page": 1,
+      "bbox": [
+        77.9,
+        447.2,
+        511.9,
+        455.7
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "footnote",
+      "text": "a . The placebo groups crossed over to receive ustekinumab (45 mg or 90 mg) at Weeks 12 and 16 then q12w",
+      "status": "kept"
+    },
+    {
+      "type": "table",
+      "ref": "#/tables/1",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        71.4,
+        120.5,
+        547.8,
+        413.8
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "caption": "Table 16. Baseline Disease Characteristics in PHOENIX 1, PHOENIX 2 and ACCEPT",
+      "n_rows": 12,
+      "n_cols": 7,
+      "cells": [
+        {
+          "r": 0,
+          "c": 1,
+          "rs": 1,
+          "cs": 2,
+          "text": "PHOENIX 1 ",
+          "header": true,
+          "bbox": [
+            213.5,
+            400.5,
+            264.5,
+            407.9
+          ]
+        },
+        {
+          "r": 0,
+          "c": 3,
+          "rs": 1,
+          "cs": 2,
+          "text": "PHOENIX 2 ",
+          "header": true,
+          "bbox": [
+            336.0,
+            400.5,
+            388.0,
+            407.9
+          ]
+        },
+        {
+          "r": 0,
+          "c": 5,
+          "rs": 1,
+          "cs": 2,
+          "text": "ACCEPT",
+          "header": true,
+          "bbox": [
+            464.5,
+            400.5,
+            505.3,
+            407.9
+          ]
+        },
+        {
+          "r": 1,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Placebo ",
+          "header": true,
+          "bbox": [
+            188.2,
+            382.5,
+            225.4,
+            389.8
+          ]
+        },
+        {
+          "r": 1,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Ustekinumab ",
+          "header": true,
+          "bbox": [
+            239.8,
+            382.5,
+            301.3,
+            389.8
+          ]
+        },
+        {
+          "r": 1,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Placebo ",
+          "header": true,
+          "bbox": [
+            309.7,
+            382.5,
+            346.8,
+            389.8
+          ]
+        },
+        {
+          "r": 1,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "Ustekinumab Etanercept ",
+          "header": true,
+          "bbox": [
+            356.6,
+            380.7,
+            475.5,
+            389.8
+          ]
+        },
+        {
+          "r": 1,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "Ustekinumab",
+          "header": true,
+          "bbox": [
+            484.5,
+            382.5,
+            546.0,
+            389.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Patients randomized  at Week 0",
+          "header": false,
+          "bbox": [
+            78.0,
+            353.0,
+            168.0,
+            371.7
+          ]
+        },
+        {
+          "r": 2,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "n=255 ",
+          "header": false,
+          "bbox": [
+            196.1,
+            364.5,
+            223.0,
+            371.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "n=511 ",
+          "header": false,
+          "bbox": [
+            254.5,
+            364.5,
+            280.0,
+            371.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "n=410 ",
+          "header": false,
+          "bbox": [
+            317.4,
+            364.5,
+            344.2,
+            371.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "n=820 ",
+          "header": false,
+          "bbox": [
+            375.8,
+            364.5,
+            402.7,
+            371.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "n=347 ",
+          "header": false,
+          "bbox": [
+            439.8,
+            364.5,
+            466.7,
+            371.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "n=556",
+          "header": false,
+          "bbox": [
+            501.8,
+            364.5,
+            528.6,
+            371.8
+          ]
+        },
+        {
+          "r": 3,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Median BSA ",
+          "header": false,
+          "bbox": [
+            78.4,
+            335.5,
+            133.1,
+            342.8
+          ]
+        },
+        {
+          "r": 3,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "22.0 ",
+          "header": false,
+          "bbox": [
+            200.0,
+            335.5,
+            218.6,
+            342.7
+          ]
+        },
+        {
+          "r": 3,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "21.0 ",
+          "header": false,
+          "bbox": [
+            258.5,
+            335.5,
+            277.0,
+            342.7
+          ]
+        },
+        {
+          "r": 3,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "20.0 ",
+          "header": false,
+          "bbox": [
+            321.4,
+            335.5,
+            339.9,
+            342.7
+          ]
+        },
+        {
+          "r": 3,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "21.0 ",
+          "header": false,
+          "bbox": [
+            379.8,
+            335.5,
+            398.4,
+            342.7
+          ]
+        },
+        {
+          "r": 3,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "19.0 ",
+          "header": false,
+          "bbox": [
+            444.6,
+            335.5,
+            462.4,
+            342.7
+          ]
+        },
+        {
+          "r": 3,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "20.0",
+          "header": false,
+          "bbox": [
+            505.7,
+            335.5,
+            524.3,
+            342.7
+          ]
+        },
+        {
+          "r": 4,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "BSA ≥ 20% ",
+          "header": false,
+          "bbox": [
+            78.4,
+            317.8,
+            128.0,
+            325.4
+          ]
+        },
+        {
+          "r": 4,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "145 (57%) ",
+          "header": false,
+          "bbox": [
+            187.5,
+            316.0,
+            232.1,
+            325.3
+          ]
+        },
+        {
+          "r": 4,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "276 (54%) ",
+          "header": false,
+          "bbox": [
+            245.1,
+            316.0,
+            290.5,
+            325.3
+          ]
+        },
+        {
+          "r": 4,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "217 (53%) ",
+          "header": false,
+          "bbox": [
+            307.9,
+            316.0,
+            353.3,
+            325.3
+          ]
+        },
+        {
+          "r": 4,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "445 (54%) ",
+          "header": false,
+          "bbox": [
+            366.3,
+            316.0,
+            411.8,
+            325.3
+          ]
+        },
+        {
+          "r": 4,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "169 (49%) ",
+          "header": false,
+          "bbox": [
+            431.1,
+            316.0,
+            475.7,
+            325.3
+          ]
+        },
+        {
+          "r": 4,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "289 (52%)",
+          "header": false,
+          "bbox": [
+            492.3,
+            316.0,
+            537.6,
+            325.3
+          ]
+        },
+        {
+          "r": 5,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Median PASI ",
+          "header": false,
+          "bbox": [
+            78.4,
+            300.5,
+            135.0,
+            307.9
+          ]
+        },
+        {
+          "r": 5,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "17.80 ",
+          "header": false,
+          "bbox": [
+            198.1,
+            300.5,
+            221.5,
+            307.8
+          ]
+        },
+        {
+          "r": 5,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "17.4 ",
+          "header": false,
+          "bbox": [
+            259.3,
+            300.6,
+            277.0,
+            307.8
+          ]
+        },
+        {
+          "r": 5,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "16.90 ",
+          "header": false,
+          "bbox": [
+            319.3,
+            300.5,
+            342.7,
+            307.8
+          ]
+        },
+        {
+          "r": 5,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "17.60 ",
+          "header": false,
+          "bbox": [
+            377.8,
+            300.5,
+            401.2,
+            307.8
+          ]
+        },
+        {
+          "r": 5,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "16.8 ",
+          "header": false,
+          "bbox": [
+            444.6,
+            300.5,
+            462.4,
+            307.8
+          ]
+        },
+        {
+          "r": 5,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "17.1",
+          "header": false,
+          "bbox": [
+            506.5,
+            300.6,
+            522.9,
+            307.8
+          ]
+        },
+        {
+          "r": 6,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "PASI ≥ 20 ",
+          "header": false,
+          "bbox": [
+            78.4,
+            283.0,
+            122.1,
+            290.5
+          ]
+        },
+        {
+          "r": 6,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "91 (36%) ",
+          "header": false,
+          "bbox": [
+            189.6,
+            281.0,
+            229.2,
+            290.4
+          ]
+        },
+        {
+          "r": 6,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "169 (33%) ",
+          "header": false,
+          "bbox": [
+            245.9,
+            281.0,
+            290.5,
+            290.4
+          ]
+        },
+        {
+          "r": 6,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "133 (32%) ",
+          "header": false,
+          "bbox": [
+            308.7,
+            281.0,
+            353.3,
+            290.4
+          ]
+        },
+        {
+          "r": 6,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "300 (37%) ",
+          "header": false,
+          "bbox": [
+            366.6,
+            281.0,
+            411.8,
+            290.4
+          ]
+        },
+        {
+          "r": 6,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "102 (29%) ",
+          "header": false,
+          "bbox": [
+            431.1,
+            281.0,
+            475.7,
+            290.4
+          ]
+        },
+        {
+          "r": 6,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "205 (37%)",
+          "header": false,
+          "bbox": [
+            492.3,
+            281.0,
+            537.6,
+            290.4
+          ]
+        },
+        {
+          "r": 7,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "PGA of marked or  severe ",
+          "header": false,
+          "bbox": [
+            78.0,
+            254.0,
+            157.7,
+            272.9
+          ]
+        },
+        {
+          "r": 7,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "112 (44%) ",
+          "header": false,
+          "bbox": [
+            187.5,
+            252.0,
+            232.1,
+            261.3
+          ]
+        },
+        {
+          "r": 7,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "223 (44%) ",
+          "header": false,
+          "bbox": [
+            245.1,
+            252.0,
+            290.5,
+            261.3
+          ]
+        },
+        {
+          "r": 7,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "160 (39%) ",
+          "header": false,
+          "bbox": [
+            308.7,
+            252.0,
+            353.3,
+            261.3
+          ]
+        },
+        {
+          "r": 7,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "328 (40%) ",
+          "header": false,
+          "bbox": [
+            366.6,
+            252.0,
+            411.8,
+            261.3
+          ]
+        },
+        {
+          "r": 7,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "148 (43%) ",
+          "header": false,
+          "bbox": [
+            431.1,
+            252.0,
+            475.7,
+            261.3
+          ]
+        },
+        {
+          "r": 7,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "242 (44%)",
+          "header": false,
+          "bbox": [
+            492.3,
+            252.0,
+            537.6,
+            261.3
+          ]
+        },
+        {
+          "r": 8,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "History of psoriatic  arthritis ",
+          "header": false,
+          "bbox": [
+            78.0,
+            224.9,
+            159.7,
+            243.8
+          ]
+        },
+        {
+          "r": 8,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "90 (35%) ",
+          "header": false,
+          "bbox": [
+            189.6,
+            223.0,
+            229.2,
+            232.3
+          ]
+        },
+        {
+          "r": 8,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "168 (33%) ",
+          "header": false,
+          "bbox": [
+            245.9,
+            223.0,
+            290.5,
+            232.3
+          ]
+        },
+        {
+          "r": 8,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "105 (26%) ",
+          "header": false,
+          "bbox": [
+            308.7,
+            223.0,
+            353.3,
+            232.3
+          ]
+        },
+        {
+          "r": 8,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "200 (24%) ",
+          "header": false,
+          "bbox": [
+            366.5,
+            223.0,
+            411.8,
+            232.3
+          ]
+        },
+        {
+          "r": 8,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "95 (27%) ",
+          "header": false,
+          "bbox": [
+            433.4,
+            223.0,
+            472.9,
+            232.3
+          ]
+        },
+        {
+          "r": 8,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "157 (28%)",
+          "header": false,
+          "bbox": [
+            493.1,
+            223.0,
+            537.6,
+            232.3
+          ]
+        },
+        {
+          "r": 9,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Prior phototherapy ",
+          "header": false,
+          "bbox": [
+            78.4,
+            205.6,
+            159.7,
+            214.8
+          ]
+        },
+        {
+          "r": 9,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "150 (59%) ",
+          "header": false,
+          "bbox": [
+            187.5,
+            205.6,
+            232.1,
+            214.9
+          ]
+        },
+        {
+          "r": 9,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "342 (67%) ",
+          "header": false,
+          "bbox": [
+            245.3,
+            205.6,
+            290.5,
+            214.9
+          ]
+        },
+        {
+          "r": 9,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "276 (67%) ",
+          "header": false,
+          "bbox": [
+            307.9,
+            205.6,
+            353.3,
+            214.9
+          ]
+        },
+        {
+          "r": 9,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "553 (67%) ",
+          "header": false,
+          "bbox": [
+            366.6,
+            205.6,
+            411.8,
+            214.9
+          ]
+        },
+        {
+          "r": 9,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "224 (65%) ",
+          "header": false,
+          "bbox": [
+            430.3,
+            205.6,
+            475.7,
+            214.9
+          ]
+        },
+        {
+          "r": 9,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "368 (66%)",
+          "header": false,
+          "bbox": [
+            492.4,
+            205.6,
+            537.6,
+            214.9
+          ]
+        },
+        {
+          "r": 10,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Prior conventional  systemic therapy  excluding biologics a ",
+          "header": false,
+          "bbox": [
+            78.0,
+            165.0,
+            164.9,
+            197.2
+          ]
+        },
+        {
+          "r": 10,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "142 (56%) ",
+          "header": false,
+          "bbox": [
+            187.5,
+            165.0,
+            232.1,
+            174.3
+          ]
+        },
+        {
+          "r": 10,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "282 (55%) ",
+          "header": false,
+          "bbox": [
+            245.1,
+            165.0,
+            290.5,
+            174.3
+          ]
+        },
+        {
+          "r": 10,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "241 (59%) ",
+          "header": false,
+          "bbox": [
+            307.9,
+            165.0,
+            353.3,
+            174.3
+          ]
+        },
+        {
+          "r": 10,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "447 (55%) ",
+          "header": false,
+          "bbox": [
+            366.3,
+            165.0,
+            411.8,
+            174.3
+          ]
+        },
+        {
+          "r": 10,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "199 (57%) ",
+          "header": false,
+          "bbox": [
+            431.1,
+            165.0,
+            475.7,
+            174.3
+          ]
+        },
+        {
+          "r": 10,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "311 (56%)",
+          "header": false,
+          "bbox": [
+            492.4,
+            165.0,
+            537.6,
+            174.3
+          ]
+        },
+        {
+          "r": 11,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Prior conventional  systemic or biologic  therapy a ",
+          "header": false,
+          "bbox": [
+            77.8,
+            124.5,
+            164.6,
+            156.7
+          ]
+        },
+        {
+          "r": 11,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "189 (74%) ",
+          "header": false,
+          "bbox": [
+            187.5,
+            124.5,
+            232.1,
+            133.9
+          ]
+        },
+        {
+          "r": 11,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "364 (71%) ",
+          "header": false,
+          "bbox": [
+            245.3,
+            124.5,
+            290.5,
+            133.9
+          ]
+        },
+        {
+          "r": 11,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "287 (70%) ",
+          "header": false,
+          "bbox": [
+            307.9,
+            124.5,
+            353.3,
+            133.9
+          ]
+        },
+        {
+          "r": 11,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "536 (65%) ",
+          "header": false,
+          "bbox": [
+            366.6,
+            124.5,
+            411.8,
+            133.9
+          ]
+        },
+        {
+          "r": 11,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "218 (63%) ",
+          "header": false,
+          "bbox": [
+            430.3,
+            124.5,
+            475.7,
+            133.9
+          ]
+        },
+        {
+          "r": 11,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "337 (61%)",
+          "header": false,
+          "bbox": [
+            492.4,
+            124.5,
+            537.6,
+            133.9
+          ]
+        }
+      ],
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/1",
+      "parent": "#/tables/1",
+      "page": 1,
+      "bbox": [
+        92.7,
+        420.0,
+        525.1,
+        429.8
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "caption",
+      "text": "Table 16. Baseline Disease Characteristics in PHOENIX 1, PHOENIX 2 and ACCEPT",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/2",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.1,
+        60.5,
+        183.8,
+        69.0
+      ],
+      "layer": "furniture",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "WEZLANA™ (ustekinumab)",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/3",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        479.4,
+        60.6,
+        540.3,
+        69.0
+      ],
+      "layer": "furniture",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "Page 34 of 116",
+      "status": "kept"
+    },
+    {
+      "type": "table",
+      "ref": "#/tables/2",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        71.1,
+        566.6,
+        548.3,
+        721.0
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "caption": "",
+      "n_rows": 4,
+      "n_cols": 7,
+      "cells": [
+        {
+          "r": 0,
+          "c": 1,
+          "rs": 1,
+          "cs": 2,
+          "text": "PHOENIX 1 ",
+          "header": true,
+          "bbox": [
+            213.5,
+            707.0,
+            264.5,
+            714.4
+          ]
+        },
+        {
+          "r": 0,
+          "c": 3,
+          "rs": 1,
+          "cs": 2,
+          "text": "PHOENIX 2 ",
+          "header": true,
+          "bbox": [
+            336.0,
+            707.0,
+            388.0,
+            714.4
+          ]
+        },
+        {
+          "r": 0,
+          "c": 5,
+          "rs": 1,
+          "cs": 2,
+          "text": "ACCEPT",
+          "header": true,
+          "bbox": [
+            464.5,
+            707.0,
+            505.3,
+            714.4
+          ]
+        },
+        {
+          "r": 1,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Placebo ",
+          "header": true,
+          "bbox": [
+            188.2,
+            689.0,
+            225.4,
+            696.3
+          ]
+        },
+        {
+          "r": 1,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Ustekinumab ",
+          "header": true,
+          "bbox": [
+            239.8,
+            689.0,
+            301.3,
+            696.3
+          ]
+        },
+        {
+          "r": 1,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "Placebo ",
+          "header": true,
+          "bbox": [
+            309.7,
+            689.0,
+            346.8,
+            696.3
+          ]
+        },
+        {
+          "r": 1,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "Ustekinumab Etanercept ",
+          "header": true,
+          "bbox": [
+            356.6,
+            687.2,
+            475.5,
+            696.3
+          ]
+        },
+        {
+          "r": 1,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "Ustekinumab",
+          "header": true,
+          "bbox": [
+            484.5,
+            689.0,
+            546.0,
+            696.3
+          ]
+        },
+        {
+          "r": 2,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Failed to respond to,  had contraindication  for, or intolerant to ≥ 1  conventional therapy a ",
+          "header": false,
+          "bbox": [
+            77.8,
+            634.5,
+            173.6,
+            678.3
+          ]
+        },
+        {
+          "r": 2,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "139 (55%) ",
+          "header": false,
+          "bbox": [
+            187.5,
+            634.5,
+            232.1,
+            643.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "270 (53%) ",
+          "header": false,
+          "bbox": [
+            245.1,
+            634.5,
+            290.5,
+            643.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "254 (62%) ",
+          "header": false,
+          "bbox": [
+            307.9,
+            634.5,
+            353.3,
+            643.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "490 (60%) ",
+          "header": false,
+          "bbox": [
+            366.3,
+            634.5,
+            411.8,
+            643.8
+          ]
+        },
+        {
+          "r": 2,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "347 (100%) 555 (100%)",
+          "header": false,
+          "bbox": [
+            430.5,
+            634.5,
+            540.4,
+            643.8
+          ]
+        },
+        {
+          "r": 3,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Failed to respond to,  had contraindication  for, or intolerant to ≥ 3  conventional  therapies a ",
+          "header": false,
+          "bbox": [
+            77.8,
+            571.1,
+            174.9,
+            626.3
+          ]
+        },
+        {
+          "r": 3,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "30 (12%) ",
+          "header": false,
+          "bbox": [
+            189.6,
+            571.0,
+            229.2,
+            580.4
+          ]
+        },
+        {
+          "r": 3,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "54 (11%) ",
+          "header": false,
+          "bbox": [
+            248.0,
+            571.0,
+            287.6,
+            580.4
+          ]
+        },
+        {
+          "r": 3,
+          "c": 3,
+          "rs": 1,
+          "cs": 1,
+          "text": "66 (16%) ",
+          "header": false,
+          "bbox": [
+            310.9,
+            571.0,
+            350.5,
+            580.4
+          ]
+        },
+        {
+          "r": 3,
+          "c": 4,
+          "rs": 1,
+          "cs": 1,
+          "text": "134 (16%) ",
+          "header": false,
+          "bbox": [
+            367.3,
+            571.0,
+            411.8,
+            580.4
+          ]
+        },
+        {
+          "r": 3,
+          "c": 5,
+          "rs": 1,
+          "cs": 1,
+          "text": "52 (15%) ",
+          "header": false,
+          "bbox": [
+            433.4,
+            571.0,
+            472.9,
+            580.4
+          ]
+        },
+        {
+          "r": 3,
+          "c": 6,
+          "rs": 1,
+          "cs": 1,
+          "text": "78 (14%)",
+          "header": false,
+          "bbox": [
+            495.3,
+            571.0,
+            534.8,
+            580.4
+          ]
+        }
+      ],
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/4",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        77.9,
+        523.3,
+        539.9,
+        562.6
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "a. In PHOENIX 1 and 2, conventional systemic agents include acitretin, PUVA, methotrexate, and cyclosporine. In ACCEPT, conventional systemic agents included PUVA, methotrexate, and cyclosporine. All patients were required to be etanercept naïve at baseline in ACCEPT, but in PHOENIX 1 and 2 patients may have previously received etanercept.",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/5",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        72.1,
+        377.1,
+        548.0,
+        511.8
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "PHOENIX 1 evaluated the safety and efficacy of ustekinumab versus placebo in 766 patients with plaque psoriasis. Patients were randomized in equal proportion to placebo, 45 mg or 90 mg of ustekinumab. Patients randomized to ustekinumab received 45 mg or 90 mg doses at Weeks 0 and 4 followed by the same dose every 12 weeks. Patients randomized to receive placebo at Weeks 0 and 4 crossed over to receive ustekinumab (either 45 mg or 90 mg) at Weeks 12 and 16 followed by the same dose every 12 weeks. To evaluate the efficacy of every 12-week dosing, patients who were PASI 75 responders at both Weeks 28 and 40 were re-randomized to either continue dosing of ustekinumab every 12 weeks or to placebo (ie, withdrawal of therapy). Patients withdrawn from ustekinumab at Week 40 reinitiated ustekinumab at their original dosing regimen when they experienced at least a 50% loss of their PASI improvement obtained at Week 40. Patients were followed for at least 76 weeks.",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/6",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        72.1,
+        343.6,
+        532.5,
+        366.7
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "PHOENIX 2 evaluated the safety and efficacy of ustekinumab versus placebo in 1230 patients with plaque psoriasis. This study design was identical to PHOENIX 1 through Week 28.",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/7",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        72.5,
+        319.0,
+        236.0,
+        329.3
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "section_header",
+      "text": "Dose Adjustment (every 8 weeks)",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/8",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        72.0,
+        262.3,
+        541.0,
+        310.7
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "At Week 28, PHOENIX 1 patients who were nonresponders (< PASI 50 response) discontinued treatment and patients who were partial responders (≥ PASI 50 response and < PASI 75 response) were adjusted to every-8-week dosing. PASI 75 responders at Week 28 who became partial responders or nonresponders at Week 40 were adjusted to every-8-week dosing.",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/9",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        72.5,
+        231.1,
+        534.4,
+        254.1
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "In PHOENIX 2, patients who were partial responders at Week 28 were re-randomized to either continue every 12 weeks dosing of ustekinumab or to switch to every 8 weeks dosing.",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/10",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        72.0,
+        199.8,
+        537.2,
+        222.8
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "All patients were followed for up to 76 weeks in PHOENIX 1 and up to 52 weeks in PHOENIX 2 following first administration of study treatment.",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/11",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        72.0,
+        105.2,
+        547.3,
+        191.4
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "In both studies, the primary endpoint was the proportion of patients who achieved a reduction in score of at least 75% from baseline at Week 12 by the PASI (PASI 75). Patients achieving ≥ 90% improvement in PASI from baseline (PASI 90) were considered PASI 90 responders and patients with ≥ 50% improvement in PASI from baseline (PASI 50) were considered PASI 50 responders. Another key efficacy assessment was the Physician's Global Assessment (PGA), a 6-category scale ranging from 0 (cleared) to 5 (severe) that indicates the physician's overall assessment of psoriasis focusing on plaque thickness/induration, erythema, and scaling.",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/12",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        72.1,
+        60.5,
+        183.8,
+        69.0
+      ],
+      "layer": "furniture",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "WEZLANA™ (ustekinumab)",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/13",
+      "parent": "#/body",
+      "page": 2,
+      "bbox": [
+        479.4,
+        60.6,
+        540.3,
+        69.0
+      ],
+      "layer": "furniture",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "Page 35 of 116",
+      "status": "kept"
+    }
+  ],
+  "events": []
+}

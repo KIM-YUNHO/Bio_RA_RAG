@@ -1,0 +1,29 @@
+{
+  "_comment": "Template for pipelines/pipeline_h/config.local.json. Replace <PROJECT_ROOT> with this folder's absolute path (run.py launches the runtimes by absolute path). Environments: .venv = uv sync at the root; .venv-paddle and vendor .venv-docling = pipelines/pipeline_h/vendor/compare_study_standalone/setup.ps1. Models: vendor download_models.py (docling + Paddle) into the folders below.",
+  "runtimes": {
+    "controller": "<PROJECT_ROOT>\\.venv\\Scripts\\python.exe",
+    "paddle": "<PROJECT_ROOT>\\pipelines\\pipeline_h\\vendor\\compare_study_standalone\\.venv-paddle\\Scripts\\python.exe",
+    "docling": "<PROJECT_ROOT>\\pipelines\\pipeline_h\\vendor\\compare_study_standalone\\.venv-docling\\Scripts\\python.exe"
+  },
+  "paddle": {
+    "layout_model_dir": "<PROJECT_ROOT>\\models\\paddle\\PP-DocLayoutV3_safetensors",
+    "vl_model_dir": "<PROJECT_ROOT>\\models\\paddle\\PaddleOCR-VL-1.6",
+    "device": "gpu:0",
+    "dpi": 150,
+    "max_new_tokens": 4096,
+    "chart_recognition": false,
+    "image_ocr": false,
+    "vl_rec_batch_size": 4
+  },
+  "docling": {
+    "artifacts_path": "<PROJECT_ROOT>\\models\\docling",
+    "det_model_path": "<PROJECT_ROOT>\\models\\docling\\RapidOcr\\PP-OCRv6_det_small.onnx",
+    "cls_model_path": "<PROJECT_ROOT>\\models\\docling\\RapidOcr\\ch_ppocr_mobile_v2.0_cls_mobile.onnx",
+    "rec_model_path": "<PROJECT_ROOT>\\models\\docling\\RapidOcr\\PP-OCRv6_rec_small.onnx",
+    "trigram_path": "<PROJECT_ROOT>\\pipelines\\pipeline_h\\vendor\\compare_study_standalone\\resources\\trigram_en.json"
+  },
+  "rules": {
+    "figure_policy": "printed_labels_caption_context_only",
+    "selection": "production-h-3-footnote-glyph-context"
+  }
+}

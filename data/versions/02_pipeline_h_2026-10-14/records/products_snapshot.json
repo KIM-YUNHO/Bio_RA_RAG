@@ -1,0 +1,672 @@
+[
+  {
+    "product_id": "SB17",
+    "ema_name": "Pyzchiva",
+    "us_brand": "Pyzchiva",
+    "aliases": [
+      "SB17",
+      "SB-17",
+      "Pyzchiva"
+    ],
+    "study_ids": [
+      "NCT04772274",
+      "NCT04967508"
+    ],
+    "ema_product_number": "EMEA/H/C/006183",
+    "ema_metadata": {
+      "category": "Human",
+      "name_of_medicine": "Pyzchiva",
+      "ema_product_number": "EMEA/H/C/006183",
+      "medicine_status": "Authorised",
+      "opinion_status": "",
+      "latest_procedure_affecting_product_information": "VR/0000347767",
+      "international_non_proprietary_name_common_name": "ustekinumab",
+      "active_substance": "ustekinumab",
+      "therapeutic_area_mesh": "Crohn Disease;Colitis, Ulcerative;Arthritis, Psoriatic",
+      "species_veterinary": "",
+      "patient_safety": "No",
+      "atc_code_human": "L04AC05",
+      "atcvet_code_veterinary": "",
+      "pharmacotherapeutic_group_human": "Immunosuppressants",
+      "pharmacotherapeutic_group_veterinary": "",
+      "therapeutic_indication": "Crohn’s DiseasePyzchiva is indicated for the treatment of adult patients with moderately to severely active Crohn’s disease who have had an inadequate response with, lost response to, or were intolerant to either conventional therapy or a TNFα antagonist or have medical contraindications to such therapies.Plaque psoriasisPyzchiva is indicated for the treatment of moderate to severe plaque psoriasis in adults who failed to respond to, or who have a contraindication to, or are intolerant to other systemic therapies including ciclosporin, methotrexate (MTX) or PUVA (psoralen and ultraviolet A) (see section 5.1).Paediatric plaque psoriasisPyzchiva is indicated for the treatment of moderate to severe plaque psoriasis in children and adolescent patients from the age of 6 years and older, who are inadequately controlled by, or are intolerant to, other systemic therapies or phototherapies (see section 5.1). Psoriatic arthritis (PsA)Pyzchiva, alone or in combination with MTX, is indicated for the treatment of active psoriatic arthritis in adult patients when the response to previous non-biological disease-modifying anti-rheumatic drug (DMARD) therapy has been inadequate (see section 5.1).",
+      "accelerated_assessment": "No",
+      "additional_monitoring": "Yes",
+      "advanced_therapy": "No",
+      "biosimilar": "Yes",
+      "conditional_approval": "No",
+      "exceptional_circumstances": "No",
+      "generic": "No",
+      "orphan_medicine": "No",
+      "prime_priority_medicine": "No",
+      "marketing_authorisation_developer_applicant_holder": "Samsung Bioepis NL B.V.",
+      "european_commission_decision_date": "30/06/2026",
+      "start_of_rolling_review_date": "",
+      "start_of_evaluation_date": "",
+      "opinion_adopted_date": "22/02/2024",
+      "withdrawal_of_application_date": "",
+      "marketing_authorisation_date": "19/04/2024",
+      "refusal_of_marketing_authorisation_date": "",
+      "withdrawal_expiry_revocation_lapse_of_marketing_authorisation_date": "",
+      "suspension_of_marketing_authorisation_date": "",
+      "revision_number": "15",
+      "first_published_date": "23/02/2024",
+      "last_updated_date": "03/07/2026",
+      "medicine_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/pyzchiva"
+    },
+    "ca_brand": "Pyzchiva",
+    "pmda_general_list_ids": [
+      "3999476"
+    ],
+    "company": "Samsung Bioepis",
+    "added": "2026-10-02",
+    "ingredient": "ustekinumab",
+    "us_licensure": {
+      "source": "Purple Book",
+      "source_month": "2026-09",
+      "interchangeable": true,
+      "events": [
+        {
+          "BLA Number": "761373",
+          "License Type": "351(k) Interchangeable",
+          "Submission Type": "Original",
+          "Supplement Number": "",
+          "Approval Date": "June 28, 2024",
+          "Inter. Approval Date": "April 30, 2025",
+          "First Interchangeable Exclusivity Exp. Date": "",
+          "Ref. Product Proprietary Name": "Stelara",
+          "Marketing Status": "Rx"
+        },
+        {
+          "BLA Number": "761373",
+          "License Type": "351(k) Interchangeable",
+          "Submission Type": "Supplement",
+          "Supplement Number": "2",
+          "Approval Date": "December 20, 2024",
+          "Inter. Approval Date": "April 30, 2025",
+          "First Interchangeable Exclusivity Exp. Date": "",
+          "Ref. Product Proprietary Name": "Stelara",
+          "Marketing Status": "Rx"
+        },
+        {
+          "BLA Number": "761373",
+          "License Type": "351(k) Interchangeable",
+          "Submission Type": "Supplement",
+          "Supplement Number": "1",
+          "Approval Date": "June 27, 2025",
+          "Inter. Approval Date": "April 30, 2025",
+          "First Interchangeable Exclusivity Exp. Date": "",
+          "Ref. Product Proprietary Name": "Stelara",
+          "Marketing Status": "Rx"
+        },
+        {
+          "BLA Number": "761425",
+          "License Type": "351(k) Interchangeable",
+          "Submission Type": "Original",
+          "Supplement Number": "",
+          "Approval Date": "June 28, 2024",
+          "Inter. Approval Date": "April 30, 2025",
+          "First Interchangeable Exclusivity Exp. Date": "",
+          "Ref. Product Proprietary Name": "Stelara",
+          "Marketing Status": "Rx"
+        }
+      ]
+    },
+    "us_proper_name": "ustekinumab-ttwe",
+    "reference_product": {
+      "name": "Stelara",
+      "proper_name": "ustekinumab",
+      "source": "Purple Book",
+      "product_id": "CNTO1275"
+    },
+    "development_code": "SB17",
+    "licences": [
+      {
+        "jurisdiction": "EU",
+        "licence_id": "EMEA/H/C/006183",
+        "name": "Pyzchiva",
+        "holder": "Samsung Bioepis NL B.V.",
+        "authorised": "2024-04-19",
+        "primary": true,
+        "collected": true
+      },
+      {
+        "jurisdiction": "US",
+        "licence_id": "BLA 761373/761425",
+        "name": "Pyzchiva",
+        "holder": "Samsung Bioepis Co., Ltd.",
+        "primary": true,
+        "collected": true
+      },
+      {
+        "jurisdiction": "CA",
+        "licence_id": null,
+        "name": "Pyzchiva",
+        "holder": null,
+        "primary": true,
+        "collected": true
+      }
+    ],
+    "kind": "biosimilar",
+    "reference_product_id": "CNTO1275"
+  },
+  {
+    "product_id": "ABP654",
+    "ema_name": "Wezenla",
+    "us_brand": "Wezlana",
+    "aliases": [
+      "ABP 654",
+      "ABP654",
+      "Wezenla",
+      "Wezlana"
+    ],
+    "study_ids": [
+      "NCT04607980",
+      "NCT04761627"
+    ],
+    "ema_product_number": "EMEA/H/C/006132",
+    "ema_metadata": {
+      "category": "Human",
+      "name_of_medicine": "Wezenla",
+      "ema_product_number": "EMEA/H/C/006132",
+      "medicine_status": "Authorised",
+      "opinion_status": "",
+      "latest_procedure_affecting_product_information": "VR/0000357811",
+      "international_non_proprietary_name_common_name": "ustekinumab",
+      "active_substance": "ustekinumab",
+      "therapeutic_area_mesh": "Psoriasis;Arthritis, Psoriatic;Crohn Disease",
+      "species_veterinary": "",
+      "patient_safety": "No",
+      "atc_code_human": "L04AC05",
+      "atcvet_code_veterinary": "",
+      "pharmacotherapeutic_group_human": "Immunosuppressants",
+      "pharmacotherapeutic_group_veterinary": "",
+      "therapeutic_indication": "Crohn’s diseaseWezenla is indicated for the treatment of adult patients with moderately to severely active Crohn’s disease who have had an inadequate response with, lost response to, or were intolerant to either conventional therapy or a TNFα antagonist or have medical contraindications to such therapies. Pediatric Crohn's diseaseWezenla is indicated for the treatment of moderately to severely active Crohn’s disease in paediatric patients from the age of 2 years and older, who have had an inadequate response to, or were intolerant to either conventional or biologic therapy.Plaque psoriasisWezenla is indicated for the treatment of moderate to severe plaque psoriasis in adults who failed to respond to, or who have a contraindication to, or are intolerant to other systemic therapies including ciclosporin, methotrexate (MTX) or PUVA (psoralen and ultraviolet A) (see section 5.1).Paediatric plaque psoriasisWezenla is indicated for the treatment of moderate to severe plaque psoriasis in children and adolescent patients from the age of 6 years and older, who are inadequately controlled by, or are intolerant to, other systemic therapies or phototherapies (see section 5.1).Psoriatic arthritis (PsA)Wezenla, alone or in combination with MTX, is indicated for the treatment of active psoriatic arthritis in adult patients when the response to previous non-biological disease-modifying anti rheumatic drug (DMARD) therapy has been inadequate (see section 5.1).",
+      "accelerated_assessment": "No",
+      "additional_monitoring": "Yes",
+      "advanced_therapy": "No",
+      "biosimilar": "Yes",
+      "conditional_approval": "No",
+      "exceptional_circumstances": "No",
+      "generic": "No",
+      "orphan_medicine": "No",
+      "prime_priority_medicine": "No",
+      "marketing_authorisation_developer_applicant_holder": "Amgen Technology (Ireland) UC",
+      "european_commission_decision_date": "11/09/2026",
+      "start_of_rolling_review_date": "",
+      "start_of_evaluation_date": "",
+      "opinion_adopted_date": "25/04/2024",
+      "withdrawal_of_application_date": "",
+      "marketing_authorisation_date": "20/06/2024",
+      "refusal_of_marketing_authorisation_date": "",
+      "withdrawal_expiry_revocation_lapse_of_marketing_authorisation_date": "",
+      "suspension_of_marketing_authorisation_date": "",
+      "revision_number": "10",
+      "first_published_date": "26/04/2024",
+      "last_updated_date": "16/09/2026",
+      "medicine_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/wezenla"
+    },
+    "ca_brand": "Wezlana",
+    "pmda_general_list_ids": [],
+    "company": "Amgen",
+    "added": "2026-10-02",
+    "ingredient": "ustekinumab",
+    "us_licensure": {
+      "source": "Purple Book",
+      "source_month": "2026-09",
+      "interchangeable": true,
+      "events": [
+        {
+          "BLA Number": "761285",
+          "License Type": "351(k) Interchangeable",
+          "Submission Type": "Original",
+          "Supplement Number": "",
+          "Approval Date": "October 31, 2023",
+          "Inter. Approval Date": "October 31, 2023",
+          "First Interchangeable Exclusivity Exp. Date": "April 30, 2025",
+          "Ref. Product Proprietary Name": "Stelara",
+          "Marketing Status": "Rx"
+        },
+        {
+          "BLA Number": "761331",
+          "License Type": "351(k) Interchangeable",
+          "Submission Type": "Original",
+          "Supplement Number": "",
+          "Approval Date": "October 31, 2023",
+          "Inter. Approval Date": "October 31, 2023",
+          "First Interchangeable Exclusivity Exp. Date": "April 30, 2025",
+          "Ref. Product Proprietary Name": "Stelara",
+          "Marketing Status": "Rx"
+        },
+        {
+          "BLA Number": "761285",
+          "License Type": "351(k) Biosimilar",
+          "Submission Type": "Supplement",
+          "Supplement Number": "1",
+          "Approval Date": "December 26, 2024",
+          "Inter. Approval Date": "",
+          "First Interchangeable Exclusivity Exp. Date": "",
+          "Ref. Product Proprietary Name": "Stelara",
+          "Marketing Status": "Rx"
+        }
+      ]
+    },
+    "us_proper_name": "ustekinumab-auub",
+    "reference_product": {
+      "name": "Stelara",
+      "proper_name": "ustekinumab",
+      "source": "Purple Book",
+      "product_id": "CNTO1275"
+    },
+    "development_code": "ABP 654",
+    "licences": [
+      {
+        "jurisdiction": "EU",
+        "licence_id": "EMEA/H/C/006132",
+        "name": "Wezenla",
+        "holder": "Amgen Technology (Ireland) UC",
+        "authorised": "2024-06-20",
+        "primary": true,
+        "collected": true
+      },
+      {
+        "jurisdiction": "US",
+        "licence_id": "BLA 761285/761331",
+        "name": "Wezlana",
+        "holder": "Amgen Inc.",
+        "primary": true,
+        "collected": true
+      },
+      {
+        "jurisdiction": "CA",
+        "licence_id": null,
+        "name": "Wezlana",
+        "holder": null,
+        "primary": true,
+        "collected": true
+      }
+    ],
+    "kind": "biosimilar",
+    "reference_product_id": "CNTO1275"
+  },
+  {
+    "product_id": "CTP43",
+    "ema_name": "Steqeyma",
+    "us_brand": "Steqeyma",
+    "aliases": [
+      "CT-P43",
+      "CTP43",
+      "Steqeyma"
+    ],
+    "study_ids": [
+      "NCT04428814",
+      "NCT04673786",
+      "NCT06951828"
+    ],
+    "ema_product_number": "EMEA/H/C/005918",
+    "ema_metadata": {
+      "category": "Human",
+      "name_of_medicine": "Steqeyma",
+      "ema_product_number": "EMEA/H/C/005918",
+      "medicine_status": "Authorised",
+      "opinion_status": "",
+      "latest_procedure_affecting_product_information": "VR/0000362091",
+      "international_non_proprietary_name_common_name": "ustekinumab",
+      "active_substance": "ustekinumab",
+      "therapeutic_area_mesh": "Psoriasis;Arthritis, Psoriatic;Crohn Disease",
+      "species_veterinary": "",
+      "patient_safety": "No",
+      "atc_code_human": "L04AC05",
+      "atcvet_code_veterinary": "",
+      "pharmacotherapeutic_group_human": "Immunosuppressants",
+      "pharmacotherapeutic_group_veterinary": "",
+      "therapeutic_indication": "Plaque psoriasis&nbsp;&nbsp;Steqeyma is indicated for the treatment of moderate to severe plaque psoriasis in adults who failed to respond to, or who have a contraindication to, or are intolerant to other systemic therapies including ciclosporin, methotrexate (MTX) or PUVA (psoralen and ultraviolet A).&nbsp; Paediatric plaque psoriasis&nbsp;&nbsp;Steqeyma is indicated for the treatment of moderate to severe plaque psoriasis in children and adolescent patients from the age of 6 years and older, who are inadequately controlled by, or are intolerant to, other systemic therapies or phototherapies.&nbsp; Psoriatic arthritis (PsA)&nbsp;&nbsp;Steqeyma alone or in combination with MTX, is indicated for the treatment of active psoriatic arthritis in adult patients when the response to previous non-biological disease-modifying anti-rheumatic drug (DMARD) therapy has been inadequate.&nbsp; Adult Crohn’s Disease&nbsp;&nbsp;Steqeyma is indicated for the treatment of adult patients with moderately to severely active Crohn’s disease who have had an inadequate response with, lost response to, or were intolerant to either conventional therapy or a TNFα antagonist.&nbsp; Paediatric Crohn's Disease&nbsp;&nbsp;Steqeyma is indicated for the treatment of moderately to severely active Crohn’s disease in paediatric patients weighing at least 40 kg, who have had an inadequate response to, or were intolerant to either conventional or biologic therapy. Ulcerative colitis&nbsp;&nbsp;Steqeyma is indicated for the treatment of adult patients with moderately to severely active ulcerative colitis who have had an inadequate response with, lost response to, or were intolerant to either conventional therapy or a biologic.",
+      "accelerated_assessment": "No",
+      "additional_monitoring": "Yes",
+      "advanced_therapy": "No",
+      "biosimilar": "Yes",
+      "conditional_approval": "No",
+      "exceptional_circumstances": "No",
+      "generic": "No",
+      "orphan_medicine": "No",
+      "prime_priority_medicine": "No",
+      "marketing_authorisation_developer_applicant_holder": "Celltrion Healthcare Hungary Kft.",
+      "european_commission_decision_date": "14/09/2026",
+      "start_of_rolling_review_date": "",
+      "start_of_evaluation_date": "",
+      "opinion_adopted_date": "27/06/2024",
+      "withdrawal_of_application_date": "",
+      "marketing_authorisation_date": "22/08/2024",
+      "refusal_of_marketing_authorisation_date": "",
+      "withdrawal_expiry_revocation_lapse_of_marketing_authorisation_date": "",
+      "suspension_of_marketing_authorisation_date": "",
+      "revision_number": "10",
+      "first_published_date": "18/06/2024",
+      "last_updated_date": "06/10/2026",
+      "medicine_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/steqeyma"
+    },
+    "ca_brand": "Steqeyma",
+    "pmda_general_list_ids": [
+      "3999475"
+    ],
+    "company": "Celltrion",
+    "added": "2026-10-02",
+    "notes": "NCT06951828 (auto-injector vs pre-filled syringe, Phase 1) added 2026-10-08.",
+    "ingredient": "ustekinumab",
+    "us_licensure": {
+      "source": "Purple Book",
+      "source_month": "2026-09",
+      "interchangeable": true,
+      "events": [
+        {
+          "BLA Number": "761338",
+          "License Type": "351(k) Interchangeable",
+          "Submission Type": "Original",
+          "Supplement Number": "",
+          "Approval Date": "December 17, 2024",
+          "Inter. Approval Date": "April 30, 2025",
+          "First Interchangeable Exclusivity Exp. Date": "",
+          "Ref. Product Proprietary Name": "Stelara",
+          "Marketing Status": "Rx"
+        },
+        {
+          "BLA Number": "761338",
+          "License Type": "351(k) Interchangeable",
+          "Submission Type": "Supplement",
+          "Supplement Number": "3",
+          "Approval Date": "June 12, 2025",
+          "Inter. Approval Date": "April 30, 2025",
+          "First Interchangeable Exclusivity Exp. Date": "",
+          "Ref. Product Proprietary Name": "Stelara",
+          "Marketing Status": "Rx"
+        }
+      ]
+    },
+    "us_proper_name": "ustekinumab-stba",
+    "reference_product": {
+      "name": "Stelara",
+      "proper_name": "ustekinumab",
+      "source": "Purple Book",
+      "product_id": "CNTO1275"
+    },
+    "development_code": "CT-P43",
+    "licences": [
+      {
+        "jurisdiction": "EU",
+        "licence_id": "EMEA/H/C/005918",
+        "name": "Steqeyma",
+        "holder": "Celltrion Healthcare Hungary Kft.",
+        "authorised": "2024-08-22",
+        "primary": true,
+        "collected": true
+      },
+      {
+        "jurisdiction": "US",
+        "licence_id": "BLA 761338",
+        "name": "Steqeyma",
+        "holder": "CELLTRION, Inc.",
+        "primary": true,
+        "collected": true
+      },
+      {
+        "jurisdiction": "CA",
+        "licence_id": null,
+        "name": "Steqeyma",
+        "holder": null,
+        "primary": true,
+        "collected": true
+      }
+    ],
+    "kind": "biosimilar",
+    "reference_product_id": "CNTO1275"
+  },
+  {
+    "product_id": "BMAB1200",
+    "ema_name": "Yesintek",
+    "us_brand": "Yesintek",
+    "aliases": [
+      "Bmab1200",
+      "Bmab 1200",
+      "BMAB-1200",
+      "Yesintek"
+    ],
+    "study_ids": [
+      "NCT05335356",
+      "NCT06738277"
+    ],
+    "ca_brand": "Yesintek",
+    "pmda_general_list_ids": [],
+    "company": "Biocon Biologics",
+    "added": "2026-10-08",
+    "notes": "Usrenty (EMEA/H/C/006794, same applicant) is a second EU licence of the same product and is not collected separately. PMDA 「YD」 (GeneralList 3999474, Yoshindo) is a candidate, but its review report is a scan and its interview form does not name Biocon or Bmab1200, so it is not linked. The EPAR's pivotal PK study is BM12H-NHV-01-G-01 (EudraCT, not on ClinicalTrials.gov); NCT06738277 (BIO-USTEKI-104) names Bmab1200 but is a later Phase 1 study the EPAR does not cite (checked 2026-10-08).",
+    "ema_product_number": "EMEA/H/C/006444",
+    "ema_metadata": {
+      "category": "Human",
+      "name_of_medicine": "Yesintek",
+      "ema_product_number": "EMEA/H/C/006444",
+      "medicine_status": "Authorised",
+      "opinion_status": "",
+      "latest_procedure_affecting_product_information": "VR/0000321399",
+      "international_non_proprietary_name_common_name": "ustekinumab",
+      "active_substance": "ustekinumab",
+      "therapeutic_area_mesh": "Psoriasis;Arthritis, Psoriatic;Crohn Disease",
+      "species_veterinary": "",
+      "patient_safety": "No",
+      "atc_code_human": "L04AC05",
+      "atcvet_code_veterinary": "",
+      "pharmacotherapeutic_group_human": "Immunosuppressants",
+      "pharmacotherapeutic_group_veterinary": "",
+      "therapeutic_indication": "Plaque psoriasis  Yesintek is indicated for the treatment of moderate to severe plaque psoriasis in adults who failed to respond to, or who have a contraindication to, or are intolerant to other systemic therapies including ciclosporin, methotrexate (MTX) or PUVA (psoralen and ultraviolet A).  Paediatric plaque psoriasis  Yesintek is indicated for the treatment of moderate to severe plaque psoriasis in children and adolescent patients from the age of 6 years and older, who are inadequately controlled by, or are intolerant to, other systemic therapies or phototherapies.  Psoriatic arthritis (PsA)  Yesintek, alone or in combination with MTX, is indicated for the treatment of active psoriatic arthritis in adult patients when the response to previous non-biological disease-modifying anti-rheumatic drug (DMARD) therapy has been inadequate.  Adult Crohn’s Disease  Yesintek is indicated for the treatment of adult patients with moderately to severely active Crohn’s disease who have had an inadequate response with lost response to, or were intolerant to either conventional therapy or a TNFα (tumor necrosis factor alpha) antagonist or have medical contraindications to such therapies  Paediatric Crohn's Disease (applicable only for vial and PFS presentations)  Yesintek is indicated for the treatment of moderately to severely active Crohn’s disease in paediatric patients weighing at least 40 kg, who have had an inadequate response to, or were intolerant to either conventional or biologic therapy.",
+      "accelerated_assessment": "No",
+      "additional_monitoring": "Yes",
+      "advanced_therapy": "No",
+      "biosimilar": "Yes",
+      "conditional_approval": "No",
+      "exceptional_circumstances": "No",
+      "generic": "No",
+      "orphan_medicine": "No",
+      "prime_priority_medicine": "No",
+      "marketing_authorisation_developer_applicant_holder": "Biosimilar Collaborations Ireland Limited",
+      "european_commission_decision_date": "21/05/2026",
+      "start_of_rolling_review_date": "",
+      "start_of_evaluation_date": "",
+      "opinion_adopted_date": "12/12/2024",
+      "withdrawal_of_application_date": "",
+      "marketing_authorisation_date": "14/02/2025",
+      "refusal_of_marketing_authorisation_date": "",
+      "withdrawal_expiry_revocation_lapse_of_marketing_authorisation_date": "",
+      "suspension_of_marketing_authorisation_date": "",
+      "revision_number": "4",
+      "first_published_date": "13/12/2024",
+      "last_updated_date": "11/08/2026",
+      "medicine_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/yesintek"
+    },
+    "ingredient": "ustekinumab",
+    "us_licensure": {
+      "source": "Purple Book",
+      "source_month": "2026-09",
+      "interchangeable": true,
+      "events": [
+        {
+          "BLA Number": "761406",
+          "License Type": "351(k) Interchangeable",
+          "Submission Type": "Original",
+          "Supplement Number": "",
+          "Approval Date": "November 29, 2024",
+          "Inter. Approval Date": "April 30, 2025",
+          "First Interchangeable Exclusivity Exp. Date": "",
+          "Ref. Product Proprietary Name": "Stelara",
+          "Marketing Status": "Rx"
+        },
+        {
+          "BLA Number": "761406",
+          "License Type": "351(k) Biosimilar",
+          "Submission Type": "Supplement",
+          "Supplement Number": "2",
+          "Approval Date": "August 14, 2026",
+          "Inter. Approval Date": "",
+          "First Interchangeable Exclusivity Exp. Date": "",
+          "Ref. Product Proprietary Name": "Stelara",
+          "Marketing Status": "Rx"
+        }
+      ]
+    },
+    "us_proper_name": "ustekinumab-kfce",
+    "reference_product": {
+      "name": "Stelara",
+      "proper_name": "ustekinumab",
+      "source": "Purple Book",
+      "product_id": "CNTO1275"
+    },
+    "development_code": "Bmab1200",
+    "licences": [
+      {
+        "jurisdiction": "EU",
+        "licence_id": "EMEA/H/C/006794",
+        "name": "Usrenty",
+        "holder": "Biosimilar Collaborations Ireland Limited",
+        "authorised": "2025-09-17",
+        "primary": false,
+        "collected": false
+      },
+      {
+        "jurisdiction": "EU",
+        "licence_id": "EMEA/H/C/006444",
+        "name": "Yesintek",
+        "holder": "Biosimilar Collaborations Ireland Limited",
+        "authorised": "2025-02-14",
+        "primary": true,
+        "collected": true
+      },
+      {
+        "jurisdiction": "US",
+        "licence_id": "BLA 761406",
+        "name": "Yesintek",
+        "holder": "Biocon Biologics Inc.",
+        "primary": true,
+        "collected": true
+      },
+      {
+        "jurisdiction": "CA",
+        "licence_id": null,
+        "name": "Yesintek",
+        "holder": null,
+        "primary": true,
+        "collected": true
+      }
+    ],
+    "kind": "biosimilar",
+    "reference_product_id": "CNTO1275"
+  },
+  {
+    "product_id": "BAT2206",
+    "ema_name": "Usymro",
+    "us_brand": "Starjemza",
+    "aliases": [
+      "BAT2206",
+      "BAT 2206",
+      "BAT-2206",
+      "Usymro",
+      "Starjemza"
+    ],
+    "study_ids": [
+      "NCT04371185",
+      "NCT04728360"
+    ],
+    "ca_brand": null,
+    "pmda_general_list_ids": [],
+    "company": "Bio-Thera Solutions (EU: Gedeon Richter)",
+    "added": "2026-10-08",
+    "notes": "Not authorised in Canada (Health Canada DPD and review-document list, 2026-10-07). No PMDA product found. NCT04371185 is the EPAR's PK study BAT-2206-001-CR. The FDA review package for Starjemza is not published yet (letter and label only).",
+    "ema_product_number": "EMEA/H/C/006467",
+    "ema_metadata": {
+      "category": "Human",
+      "name_of_medicine": "Usymro",
+      "ema_product_number": "EMEA/H/C/006467",
+      "medicine_status": "Authorised",
+      "opinion_status": "",
+      "latest_procedure_affecting_product_information": "VR/0000350996",
+      "international_non_proprietary_name_common_name": "ustekinumab",
+      "active_substance": "ustekinumab",
+      "therapeutic_area_mesh": "Crohn Disease;Psoriasis;Arthritis, Psoriatic",
+      "species_veterinary": "",
+      "patient_safety": "No",
+      "atc_code_human": "L04AC05",
+      "atcvet_code_veterinary": "",
+      "pharmacotherapeutic_group_human": "Immunosuppressants",
+      "pharmacotherapeutic_group_veterinary": "",
+      "therapeutic_indication": "Plaque psoriasis Usymro is indicated for the treatment of moderate to severe plaque psoriasis in adults who failed to respond to, or who have a contraindication to, or are intolerant to other systemic therapies including ciclosporin, methotrexate (MTX) or PUVA (psoralen and ultraviolet A).  Paediatric plaque psoriasis Usymro is indicated for the treatment of moderate to severe plaque psoriasis in children and adolescent patients from the age of 6 years and older, who are inadequately controlled by, or are intolerant to, other systemic therapies or phototherapies. Psoriatic arthritis (PsA) Usymro, alone or in combination with MTX, is indicated for the treatment of active psoriatic arthritis in adult patients when the response to previous non-biological disease-modifying anti-rheumatic drug (DMARD) therapy has been inadequate. Adult&nbsp;Crohn’s disease Usymro is indicated for the treatment of adult patients with moderately to severely active Crohn’s disease who have had an inadequate response with, lost response to, or were intolerant to either conventional therapy or a TNFα antagonist. Paediatric&nbsp;Crohn’s disease Usymro is indicated for the treatment of moderately to severely active Crohn’s disease in paediatric patients from the age of 2 years and older, who have had an inadequate response to, or were intolerant to either conventional or biologic therapy.&nbsp; Ulcerative Colitis&nbsp; Usymro is indicated for the treatment of adult patients with moderately to severely active ulcerative colitis who have had an inadequate response with, lost response to, or were intolerant to either conventional therapy or a biologic.",
+      "accelerated_assessment": "No",
+      "additional_monitoring": "Yes",
+      "advanced_therapy": "No",
+      "biosimilar": "Yes",
+      "conditional_approval": "No",
+      "exceptional_circumstances": "No",
+      "generic": "No",
+      "orphan_medicine": "No",
+      "prime_priority_medicine": "No",
+      "marketing_authorisation_developer_applicant_holder": "Gedeon Richter Plc.",
+      "european_commission_decision_date": "25/09/2026",
+      "start_of_rolling_review_date": "",
+      "start_of_evaluation_date": "",
+      "opinion_adopted_date": "19/06/2025",
+      "withdrawal_of_application_date": "",
+      "marketing_authorisation_date": "14/08/2025",
+      "refusal_of_marketing_authorisation_date": "",
+      "withdrawal_expiry_revocation_lapse_of_marketing_authorisation_date": "",
+      "suspension_of_marketing_authorisation_date": "",
+      "revision_number": "4",
+      "first_published_date": "20/06/2025",
+      "last_updated_date": "06/10/2026",
+      "medicine_url": "https://www.ema.europa.eu/en/medicines/human/EPAR/usymro"
+    },
+    "ingredient": "ustekinumab",
+    "us_licensure": {
+      "source": "Purple Book",
+      "source_month": "2026-09",
+      "interchangeable": true,
+      "events": [
+        {
+          "BLA Number": "761419",
+          "License Type": "351(k) Interchangeable",
+          "Submission Type": "Original",
+          "Supplement Number": "",
+          "Approval Date": "May 22, 2025",
+          "Inter. Approval Date": "May 22, 2025",
+          "First Interchangeable Exclusivity Exp. Date": "",
+          "Ref. Product Proprietary Name": "Stelara",
+          "Marketing Status": "Rx"
+        }
+      ]
+    },
+    "us_proper_name": "ustekinumab-hmny",
+    "reference_product": {
+      "name": "Stelara",
+      "proper_name": "ustekinumab",
+      "source": "Purple Book",
+      "product_id": "CNTO1275"
+    },
+    "development_code": "BAT2206",
+    "licences": [
+      {
+        "jurisdiction": "EU",
+        "licence_id": "EMEA/H/C/006467",
+        "name": "Usymro",
+        "holder": "Gedeon Richter Plc.",
+        "authorised": "2025-08-14",
+        "primary": true,
+        "collected": true
+      },
+      {
+        "jurisdiction": "US",
+        "licence_id": "BLA 761419",
+        "name": "Starjemza",
+        "holder": "Bio-Thera Solutions, Ltd.",
+        "primary": true,
+        "collected": true
+      }
+    ],
+    "kind": "biosimilar",
+    "reference_product_id": "CNTO1275"
+  }
+]

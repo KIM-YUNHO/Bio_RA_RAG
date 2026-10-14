@@ -1,0 +1,31 @@
+{
+  "schema_version": "ra-extraction-1",
+  "paddle": {
+    "python": ".venv-paddle/Scripts/python.exe",
+    "layout_model_dir": "models/paddle/PP-DocLayoutV3_safetensors",
+    "vl_model_dir": "models/paddle/PaddleOCR-VL-1.6",
+    "device": "gpu:0",
+    "dpi": 150,
+    "max_new_tokens": 4096,
+    "timeout_s": 600,
+    "chart_recognition": false,
+    "image_ocr": true,
+    "release_qwen_before_parser": true,
+    "native_text": true,
+    "vl_rec_batch_size": 1,
+    "parser_backend": "cascade",
+    "light_det_model_dir": "models/paddle/PP-OCRv5_mobile_det_safetensors",
+    "light_rec_model_dir": "models/paddle/latin_PP-OCRv5_mobile_rec_safetensors"
+  },
+  "qwen": {
+    "endpoint": "http://127.0.0.1:11434",
+    "model": "qwen3.5:9b",
+    "timeout_s": 600,
+    "num_ctx": 8192,
+    "num_predict": 3000,
+    "crop_dpi": 300,
+    "crop_padding_px": 12,
+    "max_image_edge": 1800,
+    "keep_alive": "5m"
+  }
+}

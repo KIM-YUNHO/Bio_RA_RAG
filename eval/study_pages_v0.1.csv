@@ -1,0 +1,265 @@
+document_id,page_from,page_to,scope,studies,note
+EMA:64792,1,9,none,,표지·행정·목차·약어
+EMA:64792,10,10,overview,ST_CTP43_1_1;ST_CTP43_1_2;ST_CTP43_3_1,제출 자료 목록
+EMA:64792,11,11,overview,ST_CTP43_1_1;ST_CTP43_3_1,과학자문: 1상(2파트)·3상 설계
+EMA:64792,12,28,none,,절차·품질·비임상
+EMA:64792,29,30,overview,ST_CTP43_1_1;ST_CTP43_1_2;ST_CTP43_3_1,임상시험 개요표; p30 끝은 분석법(전 시험 공통)
+EMA:64792,31,31,study,ST_CTP43_1_1,1.1 방법(두 파트 설계)
+EMA:64792,32,38,study,ST_CTP43_1_1_P2,1.1 Part 2 결과·post hoc; p36 1.2는 지나가는 언급
+EMA:64792,39,39,study,ST_CTP43_1_1_P2;ST_CTP43_1_2,1.1 ADA 영향 끝 → 1.2 방법 시작
+EMA:64792,40,45,study,ST_CTP43_1_2,1.2 방법·결과
+EMA:64792,46,46,study,ST_CTP43_1_2;ST_CTP43_1_1,1.2 ADA 상태별 PK → 두 1상 공통 집단 PK 모델
+EMA:64792,47,47,study,ST_CTP43_1_1_P2,1.1 Part 2 ADA 영향
+EMA:64792,48,48,study,ST_CTP43_1_1_P2;ST_CTP43_1_2,1.1 ADA 역가 표 → 1.2 표 18
+EMA:64792,49,49,study,ST_CTP43_1_2;ST_CTP43_1_1_P2,1.2 ADA 역가 표 → 두 시험 ADA 비교
+EMA:64792,50,50,study,ST_CTP43_1_1_P2;ST_CTP43_1_2;ST_CTP43_3_1,두 1상 ADA 비교(표 21) → 3.1 ADA별 농도
+EMA:64792,51,51,study,ST_CTP43_3_1;ST_CTP43_POOLED,3.1 표 23 → pooled 분석
+EMA:64792,52,52,study,ST_CTP43_1_1,임상약리 논의: 분석법·1.1 설계
+EMA:64792,53,53,study,ST_CTP43_1_1;ST_CTP43_1_2,1.1 목적·평가변수 논의 → 1.2 설계 논의
+EMA:64792,54,54,study,ST_CTP43_1_2;ST_CTP43_POOLED,1.2 논의 → pooled 분석 논의
+EMA:64792,55,55,study,ST_CTP43_1_1_P2;ST_CTP43_POOLED;ST_CTP43_1_2,MWP 자문: 1.1 AUC 실패·pooled tipping point·두 시험 부분 AUC
+EMA:64792,56,86,study,ST_CTP43_3_1,3상 방법·결과·유효성 논의; p56 첫 문장은 임상약리 결론
+EMA:64792,87,88,overview,ST_CTP43_1_1;ST_CTP43_1_2;ST_CTP43_3_1,유효성 결론 → 안전성 서론·노출 표(전 시험)
+EMA:64792,89,89,study,ST_CTP43_3_1,3.1 노출
+EMA:64792,90,90,study,ST_CTP43_3_1;ST_CTP43_1_1_P1,3.1 처치기간 II 표 → 1.1 Part 1 이상사례
+EMA:64792,91,91,study,ST_CTP43_1_1,1.1 Part 1 이상사례 → Part 2
+EMA:64792,92,93,study,ST_CTP43_1_1_P2,1.1 Part 2 이상사례
+EMA:64792,94,94,study,ST_CTP43_1_1_P2;ST_CTP43_1_2,1.1 Part 2 → 1.2 이상사례
+EMA:64792,95,96,study,ST_CTP43_1_2,1.2 이상사례
+EMA:64792,97,103,study,ST_CTP43_3_1,3.1 이상사례
+EMA:64792,104,110,study,ST_CTP43_1_1;ST_CTP43_1_2;ST_CTP43_3_1,중대 이상사례·특별 관심 사례·검사·결핵을 시험별로 차례로 서술
+EMA:64792,111,111,study,ST_CTP43_1_1;ST_CTP43_1_2,1.1 면역원성 → 1.2 면역원성
+EMA:64792,112,112,study,ST_CTP43_1_2;ST_CTP43_3_1,1.2 면역원성(이어짐) → 3.1 면역원성
+EMA:64792,113,113,study,ST_CTP43_3_1,3.1 ADA 영향; 끝에 전 시험 중단 한 문장
+EMA:64792,114,119,overview,ST_CTP43_1_1;ST_CTP43_1_2;ST_CTP43_3_1,안전성 논의(시험별)
+EMA:64792,120,120,study,ST_CTP43_3_1,3.1 교체 후 면역원성; 끝에 전체 요약·RMP
+EMA:64792,121,126,none,,RMP·약물감시·제품정보·비교 개요 서론
+EMA:64792,127,129,overview,ST_CTP43_1_1;ST_CTP43_1_2;ST_CTP43_3_1;ST_CTP43_POOLED,생물학적 동등성 근거·불확실성 요약
+EMA:64792,130,133,none,,적응증 외삽·권고
+EMA:64196,1,12,none,,표지·행정·목차·약어·법적 근거
+EMA:64196,13,13,overview,ST_ABP_20190230;ST_ABP_20190232,과학자문: 1상·3상 설계
+EMA:64196,14,14,none,,절차
+EMA:64196,15,15,overview,ST_ABP_20190230;ST_ABP_20190232,제품 소개·개발 프로그램
+EMA:64196,16,40,none,,품질·비임상(p28·p36의 시험 번호는 지나가는 언급)
+EMA:64196,41,41,overview,ST_ABP_20190230;ST_ABP_20190232,임상시험 개요표
+EMA:64196,42,44,study,ST_ABP_20190230,1상 설계·분석법·PK 결과
+EMA:64196,45,45,study,ST_ABP_20190230;ST_ABP_20190232,1상 부분 AUC → 3상 PK(곡저 농도)
+EMA:64196,46,46,study,ST_ABP_20190232,3상 PK(28주 이후)
+EMA:64196,47,48,study,ST_ABP_20190230,임상약리 논의: 분석법·1상
+EMA:64196,49,49,study,ST_ABP_20190230;ST_ABP_20190232,1상 결론 → 3상 PK 논의
+EMA:64196,50,75,study,ST_ABP_20190232,3상 방법·결과·유효성 논의; p73 앞부분은 사용성(인적 요인) 시험
+EMA:64196,76,77,overview,ST_ABP_20190230;ST_ABP_20190232,유효성 결론 → 안전성 서론·노출(두 시험)
+EMA:64196,78,82,study,ST_ABP_20190232,3상 노출·처치
+EMA:64196,83,84,study,ST_ABP_20190232;ST_ABP_20190230,3상 처치 끝 → 1상 이상사례 → 3상 이상사례
+EMA:64196,85,87,study,ST_ABP_20190232,3상 이상사례
+EMA:64196,88,88,study,ST_ABP_20190232;ST_ABP_20190230,3상 용량 강화군 → 사망·중대 이상사례(두 시험)
+EMA:64196,89,89,study,ST_ABP_20190232,3상 중대 이상사례
+EMA:64196,90,90,study,ST_ABP_20190230;ST_ABP_20190232,특별 관심 사례(1상 → 3상)
+EMA:64196,91,92,study,ST_ABP_20190232,3상 특별 관심 사례
+EMA:64196,93,93,study,ST_ABP_20190232;ST_ABP_20190230,검사 → 1상 면역원성 시작
+EMA:64196,94,94,study,ST_ABP_20190230,1상 ADA 표 42
+EMA:64196,95,99,study,ST_ABP_20190232,3상 ADA
+EMA:64196,100,100,study,ST_ABP_20190232;ST_ABP_20190230,3상 ADA 표 끝·글리칸 논의 → 1상 ADA의 PK 영향
+EMA:64196,101,101,study,ST_ABP_20190230,1상 ADA의 PK 영향
+EMA:64196,102,102,study,ST_ABP_20190230;ST_ABP_20190232,1상 반감기 분석 → 3상 ADA별 곡저 농도
+EMA:64196,103,103,study,ST_ABP_20190232,3상 ADA별 농도·유효성
+EMA:64196,104,104,study,ST_ABP_20190232;ST_ABP_20190230,3상 ADA별 유효성 → 1상 ADA의 안전성 영향
+EMA:64196,105,107,overview,ST_ABP_20190230;ST_ABP_20190232,ADA 안전성 영향·중단·안전성 논의(두 시험)
+EMA:64196,108,109,none,,RMP·제품정보
+EMA:64196,110,116,overview,ST_ABP_20190230;ST_ABP_20190232,생물학적 동등성 근거 요약·논의
+EMA:64196,117,117,none,,적응증·권고
+EMA:63563,1,11,none,,표지·목차·약어·절차·과학자문
+EMA:63563,12,12,overview,ST_SB17_1001;ST_SB17_3001,제품 소개·임상 개발 개요
+EMA:63563,13,36,none,,품질·비임상
+EMA:63563,37,37,overview,ST_SB17_1001;ST_SB17_3001,임상시험 개요표 → 1상 방법 시작
+EMA:63563,38,41,study,ST_SB17_1001,1상 설계·대상·평가변수·통계
+EMA:63563,42,42,study,ST_SB17_1001;ST_SB17_3001,ADA 분석법(1상·3상 공통) → 1상 결과
+EMA:63563,43,51,study,ST_SB17_1001,1상 결과·ADA별 분석
+EMA:63563,52,52,study,ST_SB17_1001;ST_SB17_3001,1상 ADA 하위군 결론 → 3상 PK
+EMA:63563,53,58,study,ST_SB17_3001,3상 PK
+EMA:63563,59,62,study,ST_SB17_1001,임상약리 논의: 1상
+EMA:63563,63,64,study,ST_SB17_1001;ST_SB17_3001,1상 사후 ANCOVA·ADA 음성 논의 → 3상 노출·부분 AUC 논의
+EMA:63563,65,99,study,ST_SB17_3001,3상 방법·결과
+EMA:63563,100,100,study,ST_SB17_3001;ST_SB17_1001,3상 전쟁 영향 → 면역원성 분석법(1상·3상 공통)
+EMA:63563,101,124,study,ST_SB17_3001,3상 ADA별 유효성·요약표·유효성 논의
+EMA:63563,125,127,overview,ST_SB17_1001;ST_SB17_3001,유효성 결론 → 안전성 서론·노출(두 시험)
+EMA:63563,128,130,study,ST_SB17_1001,1상 이상사례
+EMA:63563,131,137,study,ST_SB17_3001,3상 이상사례; p137 끝 1상은 지나가는 언급
+EMA:63563,138,138,study,ST_SB17_1001;ST_SB17_3001,중대 이상사례(1상 → 3상)
+EMA:63563,139,140,study,ST_SB17_3001,3상 중대·특별 관심 이상사례
+EMA:63563,141,142,study,ST_SB17_3001;ST_SB17_1001,3상 특별 관심 사례 → 검사(두 시험) → 1상 면역원성
+EMA:63563,143,143,study,ST_SB17_1001,1상 ADA·NAb 표 49
+EMA:63563,144,144,study,ST_SB17_1001;ST_SB17_3001,1상 ADA와 안전성 → 3상 ADA
+EMA:63563,145,146,study,ST_SB17_3001,3상 ADA
+EMA:63563,147,147,study,ST_SB17_1001;ST_SB17_3001,중단(1상 → 3상)
+EMA:63563,148,154,overview,ST_SB17_1001;ST_SB17_3001,안전성 논의·결론(두 시험)
+EMA:63563,155,158,none,,RMP·약물감시·사용자 자문
+EMA:63563,159,167,overview,ST_SB17_1001;ST_SB17_3001,생물학적 동등성 근거·논의·결론
+EMA:63563,168,168,none,,적응증
+FDA:761338Orig1Orig2s000:MultidisciplineR,1,18,none,,표지·목차·검토자·요약 서두·품질
+FDA:761338Orig1Orig2s000:MultidisciplineR,19,20,overview,ST_CTP43_1_2;ST_CTP43_3_1,근거 요약표: 임상약리(1.2)·3상
+FDA:761338Orig1Orig2s000:MultidisciplineR,21,22,none,,요약 결론·규제 이력 시작
+FDA:761338Orig1Orig2s000:MultidisciplineR,23,25,study,ST_CTP43_3_1,규제 이력: 3상 설계 권고(동등성 한계·면역원성 검사)
+FDA:761338Orig1Orig2s000:MultidisciplineR,26,26,study,ST_CTP43_1_1;ST_CTP43_1_2,규제 이력: 1.1 실패와 새 PK 시험 논의
+FDA:761338Orig1Orig2s000:MultidisciplineR,27,27,none,,규제 이력 끝·비임상 시험 표
+FDA:761338Orig1Orig2s000:MultidisciplineR,28,29,overview,ST_CTP43_1_1;ST_CTP43_1_2;ST_CTP43_3_1,표 3 임상시험 목록
+FDA:761338Orig1Orig2s000:MultidisciplineR,30,30,none,,품질·DMEPA
+FDA:761338Orig1Orig2s000:MultidisciplineR,31,31,study,ST_CTP43_1_2,OSIS 실사(1.2 기관)
+FDA:761338Orig1Orig2s000:MultidisciplineR,32,32,study,ST_CTP43_1_2;ST_CTP43_3_1,실사(1.2 분석기관 → 3.1 임상기관)
+FDA:761338Orig1Orig2s000:MultidisciplineR,33,34,none,,비임상·제품 정보
+FDA:761338Orig1Orig2s000:MultidisciplineR,35,35,study,ST_CTP43_1_2;ST_CTP43_3_1,임상약리 요약: 1.2 ADA·3.1 면역원성
+FDA:761338Orig1Orig2s000:MultidisciplineR,36,36,study,ST_CTP43_3_1;ST_CTP43_1_1,3.1 ADA → 임상시험 목록(1.1)
+FDA:761338Orig1Orig2s000:MultidisciplineR,37,37,overview,ST_CTP43_1_1;ST_CTP43_1_2;ST_CTP43_3_1,시험 목록·1.1 요약·1.2 PK 결과
+FDA:761338Orig1Orig2s000:MultidisciplineR,38,38,study,ST_CTP43_1_2,1.2 표 6·과학적 연결
+FDA:761338Orig1Orig2s000:MultidisciplineR,39,41,overview,ST_CTP43_1_1;ST_CTP43_1_2;ST_CTP43_3_1,ADA 요약·시험 설계·모식도·평가변수(세 시험)
+FDA:761338Orig1Orig2s000:MultidisciplineR,42,43,study,ST_CTP43_1_2,PK 분석법 → 1.2 PK 동등성
+FDA:761338Orig1Orig2s000:MultidisciplineR,44,46,study,ST_CTP43_3_1,3.1 PK
+FDA:761338Orig1Orig2s000:MultidisciplineR,47,48,study,ST_CTP43_1_2;ST_CTP43_3_1,면역원성 설계·채혈·1.2 ADA 표 10 → 3.1 ADA
+FDA:761338Orig1Orig2s000:MultidisciplineR,49,49,study,ST_CTP43_3_1,3.1 ADA 표 11
+FDA:761338Orig1Orig2s000:MultidisciplineR,50,50,study,ST_CTP43_3_1;ST_CTP43_1_2,3.1 ADA 표 12 → 1.2 ADA의 PK 영향
+FDA:761338Orig1Orig2s000:MultidisciplineR,51,52,study,ST_CTP43_1_2,1.2 ADA의 PK 영향
+FDA:761338Orig1Orig2s000:MultidisciplineR,53,53,study,ST_CTP43_3_1,3.1 ADA별 곡저 농도
+FDA:761338Orig1Orig2s000:MultidisciplineR,54,56,study,ST_CTP43_1_2;ST_CTP43_3_1,ADA와 안전성·유효성(1.2·3.1)·임상약리 결론 → 통계 요약(3.1)
+FDA:761338Orig1Orig2s000:MultidisciplineR,57,79,study,ST_CTP43_3_1,3상 통계 검토; p79 끝은 안전성 방법 서두
+FDA:761338Orig1Orig2s000:MultidisciplineR,80,80,overview,ST_CTP43_1_1;ST_CTP43_1_2;ST_CTP43_3_1,안전성 평가에 쓴 세 시험 설명
+FDA:761338Orig1Orig2s000:MultidisciplineR,81,81,study,ST_CTP43_3_1,3.1 노출
+FDA:761338Orig1Orig2s000:MultidisciplineR,82,82,overview,ST_CTP43_1_1;ST_CTP43_1_2;ST_CTP43_3_1,노출 검토·이상사례 분류(세 시험)
+FDA:761338Orig1Orig2s000:MultidisciplineR,83,88,study,ST_CTP43_3_1,3.1 사망·중대 이상사례 서술
+FDA:761338Orig1Orig2s000:MultidisciplineR,89,89,study,ST_CTP43_3_1;ST_CTP43_1_1;ST_CTP43_1_2,3.1 서술 끝 → 1상 두 시험 인구학
+FDA:761338Orig1Orig2s000:MultidisciplineR,90,90,study,ST_CTP43_3_1,3.1 인구학
+FDA:761338Orig1Orig2s000:MultidisciplineR,91,92,study,ST_CTP43_3_1;ST_CTP43_1_1;ST_CTP43_1_2,안전성 분석 서두(1상 사망 없음)·3.1 중대 이상사례
+FDA:761338Orig1Orig2s000:MultidisciplineR,93,96,study,ST_CTP43_3_1,3.1 중대 이상사례
+FDA:761338Orig1Orig2s000:MultidisciplineR,97,97,study,ST_CTP43_1_1;ST_CTP43_1_2;ST_CTP43_3_1,건강인 시험 중대 이상사례 → 3.1
+FDA:761338Orig1Orig2s000:MultidisciplineR,98,113,study,ST_CTP43_3_1,3.1 이상사례·불균형 검토
+FDA:761338Orig1Orig2s000:MultidisciplineR,114,114,study,ST_CTP43_1_1;ST_CTP43_1_2;ST_CTP43_3_1,중단: 건강인 시험 → 3.1
+FDA:761338Orig1Orig2s000:MultidisciplineR,115,115,study,ST_CTP43_3_1,3.1 중단
+FDA:761338Orig1Orig2s000:MultidisciplineR,116,116,study,ST_CTP43_3_1;ST_CTP43_1_2,특별 관심 이상사례(3.1)·주사부위 반응(1.2)
+FDA:761338Orig1Orig2s000:MultidisciplineR,117,120,study,ST_CTP43_3_1,3.1 특별 관심 이상사례·CDTL 검토
+FDA:761338Orig1Orig2s000:MultidisciplineR,121,122,overview,ST_CTP43_1_2;ST_CTP43_3_1,CDTL 근거 요약(1.2 PK·3.1)
+FDA:761338Orig1Orig2s000:MultidisciplineR,123,125,study,ST_CTP43_3_1,CDTL: 3.1 안전성 쟁점
+FDA:761338Orig1Orig2s000:MultidisciplineR,126,127,overview,ST_CTP43_1_2;ST_CTP43_3_1,면역원성 결론·교체투여 근거
+FDA:761338Orig1Orig2s000:MultidisciplineR,128,128,none,,교체투여·적응증
+FDA:761338Orig1Orig2s000:MultidisciplineR,129,133,overview,ST_CTP43_1_2;ST_CTP43_3_1,적응증 외삽(분과별)
+FDA:761338Orig1Orig2s000:MultidisciplineR,134,145,none,,라벨·소아·시판 후 요구·참고문헌·재정 공개
+FDA:761338Orig1Orig2s000:MultidisciplineR,146,151,study,ST_CTP43_1_1,부록 14.4.1: 1.1 PK·단백질 함량·ADA
+FDA:761338Orig1Orig2s000:MultidisciplineR,152,155,overview,ST_CTP43_1_1;ST_CTP43_1_2;ST_CTP43_3_1,PK 분석법 밸리데이션(세 시험 공통)
+FDA:761338Orig1Orig2s000:MultidisciplineR,156,156,study,ST_CTP43_1_1,부록: 1.1 인구학
+FDA:761338Orig1Orig2s000:MultidisciplineR,157,157,study,ST_CTP43_1_1;ST_CTP43_1_2,부록: 1.1 → 1.2 표
+FDA:761338Orig1Orig2s000:MultidisciplineR,158,158,study,ST_CTP43_1_1,부록: 1.1 이상사례 표
+FDA:761338Orig1Orig2s000:MultidisciplineR,159,159,study,ST_CTP43_1_1;ST_CTP43_1_2,부록: 1.1 표 끝 → 1.2 이상사례 표
+FDA:761338Orig1Orig2s000:MultidisciplineR,160,160,none,,서명
+FDA:761338Orig1Orig2s000:CrossR,1,22,none,,재제출 메모·라벨·시판 후 요구(시험 내용 없음)
+"FDA:761373Orig1Orig2s001,761425Orig1Orig2s001CrossR",1,13,none,,자동주사기 보완 신청 요약(시험 내용 없음)
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",1,17,none,,표지·목차·검토자·요약 서두·품질 근거
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",18,19,overview,ST_ABP_20190230;ST_ABP_20190232,근거 요약표: 임상약리·면역원성·유효성
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",20,21,none,,결론·규제 이력 시작
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",22,22,overview,ST_ABP_20190230;ST_ABP_20190232,규제 이력: 두 시험 프로토콜
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",23,23,none,,규제 이력
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",24,24,overview,ST_ABP_20190230;ST_ABP_20190232,표 2 임상시험 목록
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",25,25,none,,품질·DMEPA
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",26,27,study,ST_ABP_20190230,OSIS 실사(1상 기관)
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",28,28,study,ST_ABP_20190232,OSI 실사(3상 기관)
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",29,30,none,,비임상·제품 정보
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",31,31,overview,ST_ABP_20190230;ST_ABP_20190232,임상약리 요약표(1상 PK·두 시험 ADA)
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",32,32,study,ST_ABP_20190230,임상 개발 목록 → 1상 PK 표 7
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",33,34,overview,ST_ABP_20190230;ST_ABP_20190232,연결 근거·시험 설계·모식도·평가변수·분석법(두 시험)
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",35,35,study,ST_ABP_20190230,1상 PK 동등성·표 8
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",36,36,study,ST_ABP_20190230;ST_ABP_20190232,1상 반감기 → 3상 PK
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",37,37,study,ST_ABP_20190232,3상 PK
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",38,39,study,ST_ABP_20190230;ST_ABP_20190232,면역원성 설계 → 1상 ADA 표 12 → 3상 ADA 요약
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",40,42,study,ST_ABP_20190232,3상 ADA 표 13~15
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",43,45,study,ST_ABP_20190232;ST_ABP_20190230,3상 ADA 표 16 → 1상 ADA의 PK 영향 → 3상 ADA별 농도·안전성
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",46,78,study,ST_ABP_20190232,3상 ADA별 유효성 → 통계·유효성 검토
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",79,79,overview,ST_ABP_20190230;ST_ABP_20190232,안전성 검토 방법(두 시험)
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",80,80,study,ST_ABP_20190232,3상 안전성
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",81,81,study,ST_ABP_20190232;ST_ABP_20190230,특별 관심 사례 정의(두 시험)
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",82,90,study,ST_ABP_20190232,3상 안전성 결과
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",91,91,study,ST_ABP_20190232;ST_ABP_20190230,3상 특별 관심 사례 끝 → 검사·활력징후(두 시험)
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",92,93,study,ST_ABP_20190232,3상 ECG·면역원성 결론·교체투여(단일 전환)
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",94,94,none,,외삽 서두
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",95,96,overview,ST_ABP_20190230;ST_ABP_20190232,적응증 외삽(류마티스 분과)
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",97,97,none,,외삽(소화기 분과) 서두
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",98,99,overview,ST_ABP_20190230;ST_ABP_20190232,적응증 외삽(소화기 분과)
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",100,102,none,,GCP·라벨·소아·시판 후 요구·재정 공개
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",103,106,overview,ST_ABP_20190230;ST_ABP_20190232,재정 공개 끝 → PK 분석법 밸리데이션(두 시험 공통)
+"FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",107,107,none,,서명
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",1,28,none,,표지·목차·검토자·약어·서명·제품 소개
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",29,29,overview,ST_SB17_1001;ST_SB17_3001,비미국 비교약 사용 근거(1상 연결·3상 비교약)
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",30,30,none,,근거 요약표: 품질
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",31,32,overview,ST_SB17_1001;ST_SB17_3001,근거 요약표: 임상약리·면역원성·임상
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",33,36,none,,요약표 끝·결론·규제 이력 서두
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",37,37,overview,ST_SB17_1001;ST_SB17_3001,규제 이력: PK 시험·비교 임상시험 권고
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",38,38,none,,규제 이력
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",39,40,overview,ST_SB17_1001;ST_SB17_3001,표 2 임상시험 목록
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",41,41,study,ST_SB17_1001,OSIS 실사(1상)
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",42,42,study,ST_SB17_3001,실사(3상)·비임상 요약
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",43,44,none,,제품 정보·비임상
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",45,47,overview,ST_SB17_1001;ST_SB17_3001,임상약리 요약(1상 PK·두 시험 면역원성·3상 연결)
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",48,50,study,ST_SB17_1001,1상 설계·PK 결과
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",51,51,study,ST_SB17_3001,3상 PK 설계
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",52,53,study,ST_SB17_3001;ST_SB17_1001,PK 분석법(두 시험) → 3상 농도 → 용량 언급
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",54,55,study,ST_SB17_1001;ST_SB17_3001,면역원성 설계·분석법(두 시험)
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",56,56,study,ST_SB17_1001,1상 ADA·NAb 표 6
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",57,58,study,ST_SB17_3001,3상 ADA
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",59,61,study,ST_SB17_1001,1상 ADA의 PK 영향
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",62,64,study,ST_SB17_3001,3상 ADA의 PK·유효성 영향
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",65,65,study,ST_SB17_1001;ST_SB17_3001,ADA의 안전성 영향(1상 → 3상)
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",66,93,study,ST_SB17_3001,3상 통계·유효성 검토
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",94,94,overview,ST_SB17_1001;ST_SB17_3001,안전성 검토 방법(두 시험)
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",95,97,study,ST_SB17_3001,3상 인구학
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",98,98,study,ST_SB17_3001;ST_SB17_1001,3상 인구학 끝 → 사망·중대 이상사례 서두
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",99,127,study,ST_SB17_3001,3상 이상사례
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",128,129,study,ST_SB17_3001;ST_SB17_1001,3상 전환기 → 임신(두 시험)
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",130,137,overview,ST_SB17_1001;ST_SB17_3001,면역원성 결론·적응증 외삽
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",138,145,none,,라벨·GCP·소아·시판 후 요구·재정 공개
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",146,149,overview,ST_SB17_1001;ST_SB17_3001,부록: PK 분석법 밸리데이션(두 시험 공통)
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",150,151,study,ST_SB17_3001,부록: 3상 프로토콜 위반·PPS 제외
+"FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",152,152,none,,서명
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",1,11,none,,표지·Orig2 CDTL 메모(시험 내용 없음)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",12,38,none,,표지·목차·검토자·약어·서명·제품 소개 (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",39,39,overview,ST_SB17_1001;ST_SB17_3001,비미국 비교약 사용 근거(1상 연결·3상 비교약) (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",40,40,none,,근거 요약표: 품질 (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",41,42,overview,ST_SB17_1001;ST_SB17_3001,근거 요약표: 임상약리·면역원성·임상 (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",43,46,none,,요약표 끝·결론·규제 이력 서두 (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",47,47,overview,ST_SB17_1001;ST_SB17_3001,규제 이력: PK 시험·비교 임상시험 권고 (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",48,48,none,,규제 이력 (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",49,50,overview,ST_SB17_1001;ST_SB17_3001,표 2 임상시험 목록 (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",51,51,study,ST_SB17_1001,OSIS 실사(1상) (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",52,52,study,ST_SB17_3001,실사(3상)·비임상 요약 (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",53,54,none,,제품 정보·비임상 (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",55,57,overview,ST_SB17_1001;ST_SB17_3001,임상약리 요약(1상 PK·두 시험 면역원성·3상 연결) (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",58,60,study,ST_SB17_1001,1상 설계·PK 결과 (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",61,61,study,ST_SB17_3001,3상 PK 설계 (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",62,63,study,ST_SB17_3001;ST_SB17_1001,PK 분석법(두 시험) → 3상 농도 → 용량 언급 (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",64,65,study,ST_SB17_1001;ST_SB17_3001,면역원성 설계·분석법(두 시험) (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",66,66,study,ST_SB17_1001,1상 ADA·NAb 표 6 (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",67,68,study,ST_SB17_3001,3상 ADA (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",69,71,study,ST_SB17_1001,1상 ADA의 PK 영향 (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",72,74,study,ST_SB17_3001,3상 ADA의 PK·유효성 영향 (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",75,75,study,ST_SB17_1001;ST_SB17_3001,ADA의 안전성 영향(1상 → 3상) (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",76,103,study,ST_SB17_3001,3상 통계·유효성 검토 (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",104,104,overview,ST_SB17_1001;ST_SB17_3001,안전성 검토 방법(두 시험) (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",105,107,study,ST_SB17_3001,3상 인구학 (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",108,108,study,ST_SB17_3001;ST_SB17_1001,3상 인구학 끝 → 사망·중대 이상사례 서두 (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",109,137,study,ST_SB17_3001,3상 이상사례 (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",138,139,study,ST_SB17_3001;ST_SB17_1001,3상 전환기 → 임신(두 시험) (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",140,147,overview,ST_SB17_1001;ST_SB17_3001,면역원성 결론·적응증 외삽 (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",148,155,none,,라벨·GCP·소아·시판 후 요구·재정 공개 (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",156,159,overview,ST_SB17_1001;ST_SB17_3001,부록: PK 분석법 밸리데이션(두 시험 공통) (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",160,161,study,ST_SB17_3001,부록: 3상 프로토콜 위반·PPS 제외 (Orig1 +10쪽)
+"FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",162,162,none,,서명 (Orig1 +10쪽)
+HC:SBD1721675750511,1,5,none,,안내·승인 내용
+HC:SBD1721675750511,6,6,overview,ST_ABP_20190230;ST_ABP_20190232,승인 이유 요약
+HC:SBD1721675750511,7,12,none,,절차·시판 후·품질·비임상
+HC:SBD1721675750511,13,13,overview,ST_ABP_20190230;ST_ABP_20190232,임상 근거 절(두 시험을 한 절에 차례로 서술)
+HC:SBD1721675750511,14,18,none,,관련 제품
+HC:SBD1739202346124,1,5,none,,안내·승인 내용
+HC:SBD1739202346124,6,6,overview,ST_CTP43_1_1;ST_CTP43_1_2;ST_CTP43_3_1,승인 이유 요약
+HC:SBD1739202346124,7,13,none,,절차·시판 후·품질·비임상
+HC:SBD1739202346124,14,14,overview,ST_CTP43_1_1;ST_CTP43_1_2;ST_CTP43_3_1;ST_CTP43_POOLED,임상 근거 절(세 시험과 pooled 분석을 한 절에 차례로 서술)
+HC:SBD1739202346124,15,18,none,,관련 제품
+HC:SBD1739909145014,1,5,none,,안내·승인 내용
+HC:SBD1739909145014,6,6,overview,ST_SB17_1001;ST_SB17_3001,승인 이유 요약(시험 번호 없이 서술)
+HC:SBD1739909145014,7,13,none,,절차·시판 후·품질·비임상
+HC:SBD1739909145014,14,14,overview,ST_SB17_1001;ST_SB17_3001,임상 근거 절(두 시험을 한 절에 차례로 서술)
+HC:SBD1739909145014,15,18,none,,관련 제품

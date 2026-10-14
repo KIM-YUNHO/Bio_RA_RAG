@@ -1,0 +1,116 @@
+{
+  "status": "passed",
+  "documents": 92,
+  "chunks": 11536,
+  "vector_shape": [
+    11536,
+    1024
+  ],
+  "source_contract": {
+    "status": "passed",
+    "scope": "original DOM units and representation accounting, not full-corpus semantic accuracy",
+    "html_documents": 10,
+    "dom_source_units": 1022,
+    "original_metadata_unchanged": true,
+    "checks": [
+      {
+        "document_id": "HC:RDS1705591073125",
+        "source_units": 45,
+        "tables": 0,
+        "explicit_non_content_exclusions": 0,
+        "content_source": "original HTML DOM",
+        "metadata_unchanged": true,
+        "independent_raw_text_nodes": 51
+      },
+      {
+        "document_id": "HC:SBD1721675750511",
+        "source_units": 176,
+        "tables": 3,
+        "explicit_non_content_exclusions": 4,
+        "content_source": "original HTML DOM",
+        "metadata_unchanged": true,
+        "independent_raw_text_nodes": 349
+      },
+      {
+        "document_id": "HC:RDS1722628438095",
+        "source_units": 60,
+        "tables": 1,
+        "explicit_non_content_exclusions": 3,
+        "content_source": "original HTML DOM",
+        "metadata_unchanged": true,
+        "independent_raw_text_nodes": 86
+      },
+      {
+        "document_id": "HC:RDS1770824778122",
+        "source_units": 47,
+        "tables": 1,
+        "explicit_non_content_exclusions": 4,
+        "content_source": "original HTML DOM",
+        "metadata_unchanged": true,
+        "independent_raw_text_nodes": 74
+      },
+      {
+        "document_id": "HC:SBD1739202346124",
+        "source_units": 174,
+        "tables": 3,
+        "explicit_non_content_exclusions": 3,
+        "content_source": "original HTML DOM",
+        "metadata_unchanged": true,
+        "independent_raw_text_nodes": 354
+      },
+      {
+        "document_id": "HC:SBD1769005259208",
+        "source_units": 185,
+        "tables": 2,
+        "explicit_non_content_exclusions": 3,
+        "content_source": "original HTML DOM",
+        "metadata_unchanged": true,
+        "independent_raw_text_nodes": 337
+      },
+      {
+        "document_id": "HC:RDS1724776566772",
+        "source_units": 45,
+        "tables": 0,
+        "explicit_non_content_exclusions": 0,
+        "content_source": "original HTML DOM",
+        "metadata_unchanged": true,
+        "independent_raw_text_nodes": 53
+      },
+      {
+        "document_id": "HC:RDS1724778020977",
+        "source_units": 52,
+        "tables": 1,
+        "explicit_non_content_exclusions": 3,
+        "content_source": "original HTML DOM",
+        "metadata_unchanged": true,
+        "independent_raw_text_nodes": 78
+      },
+      {
+        "document_id": "HC:RDS1766500484485",
+        "source_units": 53,
+        "tables": 1,
+        "explicit_non_content_exclusions": 6,
+        "content_source": "original HTML DOM",
+        "metadata_unchanged": true,
+        "independent_raw_text_nodes": 90
+      },
+      {
+        "document_id": "HC:SBD1739909145014",
+        "source_units": 185,
+        "tables": 3,
+        "explicit_non_content_exclusions": 3,
+        "content_source": "original HTML DOM",
+        "metadata_unchanged": true,
+        "independent_raw_text_nodes": 363
+      }
+    ],
+    "representation_accounting": {
+      "indexed": 68092,
+      "explicit_chunk_exclusion": 2172
+    },
+    "geometry_warning_blocks": 16
+  },
+  "previous_embedding_unchanged": true,
+  "old_operation_unchanged": true,
+  "parser_dom_mismatches": 0
+}

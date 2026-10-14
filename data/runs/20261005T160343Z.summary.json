@@ -1,0 +1,30 @@
+{
+  "schema_version": "pilot-1",
+  "run_id": "20261005T160343Z",
+  "started_at": "2026-10-05T16:03:43.426824+00:00",
+  "offline": false,
+  "mode": "reparse",
+  "finished_at": "2026-10-05T16:05:43.150662+00:00",
+  "pdf_documents": 68,
+  "total_pdf_pages": 4090,
+  "repaired_documents": [
+    "FDA:761285Orig1s000,761331Orig1s000:Approv",
+    "FDA:761285Orig1s000,761331Orig1s000:Lbl",
+    "FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",
+    "FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",
+    "FDA:761373Orig2s000,761425Orig2s000:Lbl",
+    "FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",
+    "PMDA:3999475:review_report:381103000_30700AMX00072_A100_1"
+  ],
+  "pages_needing_ocr": 3,
+  "private_use_replaced": 2090,
+  "sample_table_candidates": 13,
+  "error_count": 0,
+  "database_counts": {
+    "products": 3,
+    "studies": 6,
+    "document_versions": 77,
+    "pages": 4182,
+    "page_search": 4182
+  }
+}

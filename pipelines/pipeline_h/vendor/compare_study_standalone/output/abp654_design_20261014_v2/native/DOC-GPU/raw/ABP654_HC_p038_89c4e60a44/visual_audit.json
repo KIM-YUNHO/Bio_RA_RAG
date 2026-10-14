@@ -1,0 +1,758 @@
+{
+  "before_blocks": [
+    {
+      "type": "text",
+      "ref": "#/texts/0",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.5,
+        694.8,
+        545.2,
+        717.7
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "text",
+      "text": "patients treated with 90 mg ustekinumab and 10% of patients treated with placebo reached PASI 50 in PHOENIX 2 (Table 17).",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/1",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.5,
+        676.2,
+        169.7,
+        686.2
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "section_header",
+      "text": "Response over time",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/2",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.4,
+        530.9,
+        547.9,
+        667.8
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "text",
+      "text": "In PHOENIX 1, significantly greater proportions of ustekinumab -treated patients had PASI 50 responses (9% and 10% for the 45 mg and 90 mg groups, respectively) compared with placebo (2%) by Week 2 (p<0.001). Significantly greater proportions of patients treated with ustekinumab achieved PASI 75 responses (9% and 12% for the 45 mg and 90 mg ustekinumab groups, respectively) compared with placebo (0.4%) by Week 4 (p<0.001). Maximum response was generally achieved by Week 24 in the 45 mg and 90 mg ustekinumab treatment groups, and response rates were generally sustained through Week 36 (Figure 1). In PHOENIX 1, PASI 75 rates at Week 24 were 76% for the 45 mg group, and 85% for the 90 mg group . Higher response rates were observed in patients receiving ustekinumab 90 mg than in those receiving ustekinumab 45 mg by Week 16 and these higher response rates were sustained through Week 36 (Figure 1). Similar results were observed in the PHOENIX 2 study through Week 28.",
+      "status": "kept"
+    },
+    {
+      "type": "picture",
+      "ref": "#/pictures/0",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        120.6,
+        222.5,
+        496.5,
+        518.5
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "caption": "",
+      "text": "",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/3",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        159.6,
+        489.3,
+        458.5,
+        516.5
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "caption",
+      "text": "Figure 1. PASI 75 response over time in PHOENIX 1 and 2 PHOENIX 1 PHOENIX 2",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/4",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        138.3,
+        477.0,
+        160.3,
+        490.7
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "100",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/5",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        144.0,
+        441.3,
+        161.0,
+        454.7
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "80",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/6",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        121.0,
+        346.7,
+        134.3,
+        441.7
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Percent of Patients",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/7",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        144.0,
+        406.0,
+        160.7,
+        419.3
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "60",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/8",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        144.3,
+        369.3,
+        160.0,
+        384.3
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "40",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/9",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        143.3,
+        334.0,
+        160.7,
+        347.3
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "20",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/10",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        335.3,
+        304.0,
+        345.3,
+        341.3
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "151278_v5",
+      "status": "reread"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/11",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        486.7,
+        304.0,
+        495.3,
+        337.7
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "15336_v6",
+      "status": "needs_review"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/12",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        151.3,
+        300.3,
+        159.7,
+        310.7
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "0",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/13",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        160.7,
+        286.3,
+        335.0,
+        299.0
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "0 2 4 8 12 16 20 24 28 32 36",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/14",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        347.7,
+        286.3,
+        484.3,
+        298.3
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "0 2 4 8 12 16 20 24 28",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/15",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        231.0,
+        264.3,
+        265.0,
+        279.3
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Week",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/16",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        402.7,
+        264.3,
+        436.0,
+        279.3
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "Week",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/17",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        221.3,
+        227.7,
+        315.3,
+        242.7
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "CNTO 1275 45 mg",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/18",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        360.0,
+        227.7,
+        454.7,
+        242.0
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "CNTO 1275 90 mg",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/19",
+      "parent": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        330.3,
+        232.3,
+        339.0,
+        237.0
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "label": "text",
+      "text": "w",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/20",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.4,
+        154.7,
+        544.6,
+        215.6
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "text",
+      "text": "In prespecified analyses of efficacy by body weight in PHOENIX 1 and PHOENIX 2, no consistent pattern of dose response was seen in patients ≤ 100 kg. In patients who weighed > 100 kg, higher PASI 75 response rates were seen with 90 mg dosing compared with 45 mg dosing, and a higher proportion of patients receiving 90 mg dosing had PGA scores of cleared or minimal compared with patients receiving 45 mg dosing (Table 18).",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/21",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.1,
+        60.5,
+        183.8,
+        69.0
+      ],
+      "layer": "furniture",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "WEZLANA™ (ustekinumab)",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/22",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        479.4,
+        60.6,
+        540.3,
+        69.0
+      ],
+      "layer": "furniture",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "Page 38 of 116",
+      "status": "kept"
+    }
+  ],
+  "original_rule_blocks": [
+    {
+      "type": "text",
+      "ref": "#/texts/0",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.5,
+        694.8,
+        545.2,
+        717.7
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "text",
+      "text": "patients treated with 90 mg ustekinumab and 10% of patients treated with placebo reached PASI 50 in PHOENIX 2 (Table 17).",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/1",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.5,
+        676.2,
+        169.7,
+        686.2
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "section_header",
+      "text": "Response over time",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/2",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.4,
+        530.9,
+        547.9,
+        667.8
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "text",
+      "text": "In PHOENIX 1, significantly greater proportions of ustekinumab -treated patients had PASI 50 responses (9% and 10% for the 45 mg and 90 mg groups, respectively) compared with placebo (2%) by Week 2 (p<0.001). Significantly greater proportions of patients treated with ustekinumab achieved PASI 75 responses (9% and 12% for the 45 mg and 90 mg ustekinumab groups, respectively) compared with placebo (0.4%) by Week 4 (p<0.001). Maximum response was generally achieved by Week 24 in the 45 mg and 90 mg ustekinumab treatment groups, and response rates were generally sustained through Week 36 (Figure 1). In PHOENIX 1, PASI 75 rates at Week 24 were 76% for the 45 mg group, and 85% for the 90 mg group . Higher response rates were observed in patients receiving ustekinumab 90 mg than in those receiving ustekinumab 45 mg by Week 16 and these higher response rates were sustained through Week 36 (Figure 1). Similar results were observed in the PHOENIX 2 study through Week 28.",
+      "status": "kept"
+    },
+    {
+      "type": "table",
+      "ref": "#/pictures/0",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        120.6,
+        222.5,
+        496.5,
+        518.5
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "caption": "",
+      "text": "",
+      "status": "kept",
+      "structure": "ocr_grid",
+      "cells": [
+        {
+          "r": 0,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "PHOENIX 1",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 0,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "PHOENIX 2",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 1,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "100",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 2,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "80",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 3,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "60",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 4,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Percent of Patients",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 5,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "40",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 6,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "20",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 7,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "151278_v5",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 7,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "15335_v6",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 8,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "0",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 9,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "0 24 8 12 16 20 24 28 32 36",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 9,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "024812 16 2024 28",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 10,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Week",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 10,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Week",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 11,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "CNTO 1275 45 mg",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 11,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "CNTO 1275 90 mg",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        }
+      ],
+      "n_rows": 12,
+      "n_cols": 3
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/20",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.4,
+        154.7,
+        544.6,
+        215.6
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "text",
+      "text": "In prespecified analyses of efficacy by body weight in PHOENIX 1 and PHOENIX 2, no consistent pattern of dose response was seen in patients ≤ 100 kg. In patients who weighed > 100 kg, higher PASI 75 response rates were seen with 90 mg dosing compared with 45 mg dosing, and a higher proportion of patients receiving 90 mg dosing had PGA scores of cleared or minimal compared with patients receiving 45 mg dosing (Table 18).",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/21",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.1,
+        60.5,
+        183.8,
+        69.0
+      ],
+      "layer": "furniture",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "WEZLANA™ (ustekinumab)",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/22",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        479.4,
+        60.6,
+        540.3,
+        69.0
+      ],
+      "layer": "furniture",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "Page 38 of 116",
+      "status": "kept"
+    }
+  ],
+  "events": [
+    {
+      "ref": "#/pictures/0",
+      "page": 1,
+      "bbox": [
+        120.6,
+        222.5,
+        496.5,
+        518.5
+      ],
+      "kind_history": [
+        "picture",
+        "table"
+      ],
+      "numeric_grid_proposal": true,
+      "chart_cues": false,
+      "ocr_text": "PHOENIX 1\nPHOENIX 2\n100\n80\nPercent of Patients\n60\n40\n20\n151278_v5\n15335_v6\n0\n0 24 8 12 16 20 24 28 32 36\n024812 16 2024 28\nWeek\nWeek\nCNTO 1275 45 mg\nCNTO 1275 90 mg"
+    }
+  ]
+}

@@ -1,0 +1,1109 @@
+{
+  "document": "ABP654_FDA_ChemR_p033_f69da8cc31",
+  "page": 1,
+  "text": [
+    "Comment/Recommendation: For 130 mg vial, revise Product Strength to read as: \"130mg/26mL (5mg/mL)\" so that the strength per total volume (total drug content supplied in container) followed in close proximity by a parenthetical that includes the strength/mL for single-dose containers that supply a volume of drug greater than 1mL.",
+    "The applicant has revised as requested.",
+    "Storage temperature/requirements (package labeling)",
+    "Acceptable",
+    "Regulation: 21 CFR 610.61(h)",
+    "√ Yes",
+    "Recommended labeling practices reference: USP General Chapters: <7> Labeling, USP General Chapters <659> Packaging and Storage Requirements",
+    "□ No",
+    "□ N/A",
+    "Comment/Recommendation: For the vials, recommend revise to read as: \"Store unopened vial upright and refrigerated at 2°C to 8°C (36F to 46ºF) in the original carton to protect from light. Do not freeze.'",
+    "The applicant responded that the 45 mg and 130 mg vial carton are designed such that the vial is horizontal when storing the carton. Horizontal vial orientation is supported by vial stability studies conducted in both the upright and inverted orientations for which stability data meet stability acceptance criteria at the recommended storage condition through the latest stability time point tested. Therefore, the applicant did not include the recommend language \"Store the vial upright\", which is acceptable from an OBP labeling perspective.",
+    "Handling: \"Do Not Shake\", \"Do not Freeze\" or eguivalent (package",
+    "labeling)",
+    "Regulation: 21 CFR 610.61(i)",
+    "Acceptable",
+    "√ Yes",
+    "□ No",
+    "□ N/A",
+    "Comment/Recommendation: For the 45 mg and 130mg vial carton labeling, add back the statement of \"Do not shake.\" to be consistent with the language in the prescribing information.",
+    "The applicant has revised as requested.",
+    "Multiple dose containers (recommended individual dose) (package labeling)",
+    "Regulation: 21 CFR 610.61(j)",
+    "Acceptable",
+    "□ Yes",
+    "□ No",
+    "N/A"
+  ],
+  "tables": [
+    [
+      [
+        "Comment/Recommendation: For 130 mg vial, revise Product Strength to read as: \"130mg/26mL (5mg/mL)\" so that the strength per total volume (total drug content supplied in container) followed in close proximity by a parenthetical that includes the strength/mL for single-dose containers that supply a volume of drug greater than 1mL. The applicant has revised as requested."
+      ]
+    ],
+    [
+      [
+        "Storage temperature/requirements (package labeling)",
+        "Acceptable"
+      ],
+      [
+        "Regulation: 21 CFR 610.61(h)",
+        "✓ Yes ☐ No ☐ N/A"
+      ],
+      [
+        "Recommended labeling practices reference: USP General Chapters: <7> Labeling, USP General Chapters <659> Packaging and Storage Requirements",
+        ""
+      ]
+    ],
+    [
+      [
+        "Handling: “Do Not Shake”, “Do not Freeze” or equivalent (package labeling)",
+        "Acceptable"
+      ],
+      [
+        "Regulation: 21 CFR 610.61(i)",
+        "✓ Yes ☐ No ☐ N/A"
+      ]
+    ],
+    [
+      [
+        "Multiple dose containers (recommended individual dose) (package labeling)",
+        "Acceptable"
+      ],
+      [
+        "Regulation: 21 CFR 610.61(j)",
+        "☐ Yes ☐ No ☒ N/A"
+      ]
+    ]
+  ],
+  "table_bboxes": [
+    [
+      73.92,
+      84.96,
+      538.0799999999999,
+      167.51999999999998
+    ],
+    [
+      71.52,
+      191.51999999999998,
+      540.0,
+      275.52
+    ],
+    [
+      71.03999999999999,
+      446.88,
+      540.0,
+      518.88
+    ],
+    [
+      71.03999999999999,
+      624.9599999999999,
+      540.0,
+      697.4399999999999
+    ]
+  ],
+  "seconds": 9.245677099999739,
+  "flags": {
+    "time_basis": "document_wall_amortized",
+    "route": "IMAGE",
+    "ra_timing": {
+      "auto": 1.0421953201293945,
+      "second_reader": 0.7763288021087646,
+      "total": 1.8185241222381592
+    },
+    "qa": {
+      "pages": 1,
+      "routes": {
+        "IMAGE": 1
+      },
+      "text_blocks": 26,
+      "text_chars": 1823,
+      "ocr_char_share": 1.0,
+      "tables": 0,
+      "tables_ocr_grid": 0,
+      "numeric_cells": 0,
+      "numeric_cell_parse_rate": null,
+      "needs_review_blocks": 0,
+      "reread_blocks": 0,
+      "garbled_residual": 0,
+      "furniture_blocks": 1,
+      "redacted_blocks": 0,
+      "sections": 0
+    },
+    "agency": "FDA",
+    "doc_type": "chemistry_review",
+    "document_structure_summary": {
+      "section_paths": [
+        []
+      ],
+      "speakers": [
+        "unknown"
+      ],
+      "furniture_blocks": 1,
+      "redacted_blocks": 0,
+      "study_ids": [],
+      "review_blocks": 0
+    },
+    "figure_count_policy": "physical regions and caption groups separate; no parent/child double count; scan image objects separate",
+    "selected_paddle_calls": 4,
+    "added_tables": 4,
+    "replaced_tables": 0,
+    "design_policy": "missing-only-G",
+    "gold_consulted_for_selection": false
+  },
+  "figures": [],
+  "document_structure": [
+    {
+      "type": "text",
+      "ref": "#/texts/0",
+      "parent": "#/groups/0",
+      "page": 1,
+      "bbox": [
+        75.0,
+        86.0,
+        527.3,
+        139.70000000000005
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Comment/Recommendation: For 130 mg vial, revise Product Strength to read as: \"130mg/26mL (5mg/mL)\" so that the strength per total volume (total drug content supplied in container) followed in close proximity by a parenthetical that includes the strength/mL for single-dose containers that supply a volume of drug greater than 1mL.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        75.0,
+        652.3,
+        527.3,
+        706.0
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/1",
+      "parent": "#/groups/0",
+      "page": 1,
+      "bbox": [
+        78.3,
+        152.70000000000005,
+        271.7,
+        165.70000000000005
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "The applicant has revised as requested.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        78.3,
+        626.3,
+        271.7,
+        639.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/2",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        75.7,
+        193.29999999999995,
+        381.3,
+        206.70000000000005
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Storage temperature/requirements (package labeling)",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        75.7,
+        585.3,
+        381.3,
+        598.7
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/3",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.7,
+        193.29999999999995,
+        535.3,
+        206.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Acceptable",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        471.7,
+        586.0,
+        535.3,
+        598.7
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/4",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        76.0,
+        207.29999999999995,
+        223.3,
+        221.70000000000005
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Regulation: 21 CFR 610.61(h)",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        76.0,
+        570.3,
+        223.3,
+        584.7
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/5",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.0,
+        206.29999999999995,
+        506.0,
+        222.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "checkbox_selected",
+      "text": "√ Yes",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        471.0,
+        570.0,
+        506.0,
+        585.7
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/6",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        76.7,
+        247.29999999999995,
+        457.0,
+        274.70000000000005
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Recommended labeling practices reference: USP General Chapters: <7> Labeling, USP General Chapters <659> Packaging and Storage Requirements",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        76.7,
+        517.3,
+        457.0,
+        544.7
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/7",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.0,
+        220.29999999999995,
+        503.7,
+        236.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "checkbox_unselected",
+      "text": "□ No",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        471.0,
+        556.0,
+        503.7,
+        571.7
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/8",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.3,
+        234.70000000000005,
+        507.0,
+        250.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "checkbox_unselected",
+      "text": "□ N/A",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        471.3,
+        542.0,
+        507.0,
+        557.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/9",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        75.7,
+        288.0,
+        525.0,
+        328.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Comment/Recommendation: For the vials, recommend revise to read as: \"Store unopened vial upright and refrigerated at 2°C to 8°C (36F to 46ºF) in the original carton to protect from light. Do not freeze.'",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        75.7,
+        464.0,
+        525.0,
+        504.0
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/10",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        76.7,
+        341.3,
+        524.3,
+        421.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "The applicant responded that the 45 mg and 130 mg vial carton are designed such that the vial is horizontal when storing the carton. Horizontal vial orientation is supported by vial stability studies conducted in both the upright and inverted orientations for which stability data meet stability acceptance criteria at the recommended storage condition through the latest stability time point tested. Therefore, the applicant did not include the recommend language \"Store the vial upright\", which is acceptable from an OBP labeling perspective.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        76.7,
+        370.3,
+        524.3,
+        450.7
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/11",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        74.7,
+        446.3,
+        447.3,
+        463.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Handling: \"Do Not Shake\", \"Do not Freeze\" or eguivalent (package",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        74.7,
+        328.7,
+        447.3,
+        345.7
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/12",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        76.0,
+        461.7,
+        128.3,
+        475.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "labeling)",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        76.0,
+        316.7,
+        128.3,
+        330.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/13",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        76.3,
+        476.3,
+        219.7,
+        489.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Regulation: 21 CFR 610.61(i)",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        76.3,
+        302.3,
+        219.7,
+        315.7
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/14",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        472.3,
+        449.7,
+        535.7,
+        462.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Acceptable",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        472.3,
+        330.0,
+        535.7,
+        342.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/15",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.0,
+        474.7,
+        506.0,
+        490.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "checkbox_selected",
+      "text": "√ Yes",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        471.0,
+        301.7,
+        506.0,
+        317.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/16",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.0,
+        488.7,
+        503.7,
+        504.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "checkbox_unselected",
+      "text": "□ No",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        471.0,
+        288.0,
+        503.7,
+        303.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/17",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.0,
+        503.0,
+        507.0,
+        518.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "checkbox_unselected",
+      "text": "□ N/A",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        471.0,
+        273.3,
+        507.0,
+        289.0
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/18",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        75.0,
+        533.3,
+        534.7,
+        572.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Comment/Recommendation: For the 45 mg and 130mg vial carton labeling, add back the statement of \"Do not shake.\" to be consistent with the language in the prescribing information.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        75.0,
+        219.7,
+        534.7,
+        258.7
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/19",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        78.3,
+        586.0,
+        271.7,
+        599.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "The applicant has revised as requested.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        78.3,
+        193.0,
+        271.7,
+        206.0
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/20",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        76.0,
+        626.7,
+        447.0,
+        652.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Multiple dose containers (recommended individual dose) (package labeling)",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        76.0,
+        139.3,
+        447.0,
+        165.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/21",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        76.3,
+        654.3,
+        219.7,
+        667.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Regulation: 21 CFR 610.61(j)",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        76.3,
+        124.7,
+        219.7,
+        137.7
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/22",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        472.3,
+        627.0,
+        535.7,
+        639.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Acceptable",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        472.3,
+        152.7,
+        535.7,
+        165.0
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/23",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.3,
+        654.0,
+        506.0,
+        668.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "checkbox_unselected",
+      "text": "□ Yes",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        471.3,
+        123.7,
+        506.0,
+        138.0
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/24",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.7,
+        668.0,
+        503.3,
+        682.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "checkbox_unselected",
+      "text": "□ No",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        471.7,
+        109.3,
+        503.3,
+        124.0
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/25",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.3,
+        681.7,
+        508.3,
+        697.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "checkbox_selected",
+      "text": "N/A",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        471.3,
+        94.7,
+        508.3,
+        110.3
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/26",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        70.3,
+        716.0,
+        133.7,
+        728.0
+      ],
+      "layer": "furniture",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "page_footer",
+      "text": "Page 20 of 40",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "unknown",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        70.3,
+        64.0,
+        133.7,
+        76.0
+      ],
+      "coordinate_space": "PDF top-left points"
+    }
+  ],
+  "embedded_image_objects": 1,
+  "figure_counts": {
+    "figure_regions": 0,
+    "figure_groups": 0,
+    "logical_figures": 0,
+    "decorative_images": 0,
+    "interpretation_attempted": 0,
+    "interpretation_completed": 0,
+    "interpretation_needs_review": 0
+  },
+  "table_provenance": [
+    {
+      "origin": "new PaddleOCR-VL table crop",
+      "crop_id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_000",
+      "gate": {
+        "accepted": true,
+        "semantic_status": "unverified source extraction candidate"
+      }
+    },
+    {
+      "origin": "new PaddleOCR-VL table crop",
+      "crop_id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_001",
+      "gate": {
+        "accepted": true,
+        "semantic_status": "unverified source extraction candidate"
+      }
+    },
+    {
+      "origin": "new PaddleOCR-VL table crop",
+      "crop_id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_002",
+      "gate": {
+        "accepted": true,
+        "semantic_status": "unverified source extraction candidate"
+      }
+    },
+    {
+      "origin": "new PaddleOCR-VL table crop",
+      "crop_id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_003",
+      "gate": {
+        "accepted": true,
+        "semantic_status": "unverified source extraction candidate"
+      }
+    }
+  ],
+  "vlm_candidates": [
+    {
+      "crop_id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_000",
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "action": "add",
+      "gate": {
+        "accepted": true,
+        "semantic_status": "unverified source extraction candidate"
+      },
+      "candidate_table": [
+        [
+          "Comment/Recommendation: For 130 mg vial, revise Product Strength to read as: \"130mg/26mL (5mg/mL)\" so that the strength per total volume (total drug content supplied in container) followed in close proximity by a parenthetical that includes the strength/mL for single-dose containers that supply a volume of drug greater than 1mL. The applicant has revised as requested."
+        ]
+      ],
+      "bbox": [
+        73.92,
+        84.96,
+        538.0799999999999,
+        167.51999999999998
+      ]
+    },
+    {
+      "crop_id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_001",
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "action": "add",
+      "gate": {
+        "accepted": true,
+        "semantic_status": "unverified source extraction candidate"
+      },
+      "candidate_table": [
+        [
+          "Storage temperature/requirements (package labeling)",
+          "Acceptable"
+        ],
+        [
+          "Regulation: 21 CFR 610.61(h)",
+          "✓ Yes ☐ No ☐ N/A"
+        ],
+        [
+          "Recommended labeling practices reference: USP General Chapters: <7> Labeling, USP General Chapters <659> Packaging and Storage Requirements",
+          ""
+        ]
+      ],
+      "bbox": [
+        71.52,
+        191.51999999999998,
+        540.0,
+        275.52
+      ]
+    },
+    {
+      "crop_id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_002",
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "action": "add",
+      "gate": {
+        "accepted": true,
+        "semantic_status": "unverified source extraction candidate"
+      },
+      "candidate_table": [
+        [
+          "Handling: “Do Not Shake”, “Do not Freeze” or equivalent (package labeling)",
+          "Acceptable"
+        ],
+        [
+          "Regulation: 21 CFR 610.61(i)",
+          "✓ Yes ☐ No ☐ N/A"
+        ]
+      ],
+      "bbox": [
+        71.03999999999999,
+        446.88,
+        540.0,
+        518.88
+      ]
+    },
+    {
+      "crop_id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_003",
+      "document": "ABP654_FDA_ChemR_p033.pdf",
+      "page": 1,
+      "action": "add",
+      "gate": {
+        "accepted": true,
+        "semantic_status": "unverified source extraction candidate"
+      },
+      "candidate_table": [
+        [
+          "Multiple dose containers (recommended individual dose) (package labeling)",
+          "Acceptable"
+        ],
+        [
+          "Regulation: 21 CFR 610.61(j)",
+          "☐ Yes ☐ No ☒ N/A"
+        ]
+      ],
+      "bbox": [
+        71.03999999999999,
+        624.9599999999999,
+        540.0,
+        697.4399999999999
+      ]
+    }
+  ]
+}

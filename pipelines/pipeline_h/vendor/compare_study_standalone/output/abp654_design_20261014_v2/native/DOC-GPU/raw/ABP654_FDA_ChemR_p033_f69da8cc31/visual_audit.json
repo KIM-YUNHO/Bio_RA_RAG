@@ -1,0 +1,979 @@
+{
+  "before_blocks": [
+    {
+      "type": "text",
+      "ref": "#/texts/0",
+      "parent": "#/groups/0",
+      "page": 1,
+      "bbox": [
+        75.0,
+        652.3,
+        527.3,
+        706.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Comment/Recommendation: For 130 mg vial, revise Product Strength to read as: \"130mg/26mL (5mg/mL)\" so that the strength per total volume (total drug content supplied in container) followed in close proximity by a parenthetical that includes the strength/mL for single-dose containers that supply a volume of drug greater than 1mL.",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/1",
+      "parent": "#/groups/0",
+      "page": 1,
+      "bbox": [
+        78.3,
+        626.3,
+        271.7,
+        639.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "The applicant has revised as requested.",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/2",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        75.7,
+        585.3,
+        381.3,
+        598.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Storage temperature/requirements (package labeling)",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/3",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.7,
+        586.0,
+        535.3,
+        598.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Acceptable",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/4",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        76.0,
+        570.3,
+        223.3,
+        584.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Regulation: 21 CFR 610.61(h)",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/5",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.0,
+        570.0,
+        506.0,
+        585.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "checkbox_selected",
+      "text": "√ Yes",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/6",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        76.7,
+        517.3,
+        457.0,
+        544.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Recommended labeling practices reference: USP General Chapters: <7> Labeling, USP General Chapters <659> Packaging and Storage Requirements",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/7",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.0,
+        556.0,
+        503.7,
+        571.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "checkbox_unselected",
+      "text": "□ No",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/8",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.3,
+        542.0,
+        507.0,
+        557.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "checkbox_unselected",
+      "text": "□ N/A",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/9",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        75.7,
+        464.0,
+        525.0,
+        504.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Comment/Recommendation: For the vials, recommend revise to read as: \"Store unopened vial upright and refrigerated at 2°C to 8°C (36F to 46ºF) in the original carton to protect from light. Do not freeze.'",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/10",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        76.7,
+        370.3,
+        524.3,
+        450.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "The applicant responded that the 45 mg and 130 mg vial carton are designed such that the vial is horizontal when storing the carton. Horizontal vial orientation is supported by vial stability studies conducted in both the upright and inverted orientations for which stability data meet stability acceptance criteria at the recommended storage condition through the latest stability time point tested. Therefore, the applicant did not include the recommend language \"Store the vial upright\", which is acceptable from an OBP labeling perspective.",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/11",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        74.7,
+        328.7,
+        447.3,
+        345.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Handling: \"Do Not Shake\", \"Do not Freeze\" or eguivalent (package",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/12",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        76.0,
+        316.7,
+        128.3,
+        330.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "labeling)",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/13",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        76.3,
+        302.3,
+        219.7,
+        315.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Regulation: 21 CFR 610.61(i)",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/14",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        472.3,
+        330.0,
+        535.7,
+        342.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Acceptable",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/15",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.0,
+        301.7,
+        506.0,
+        317.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "checkbox_selected",
+      "text": "√ Yes",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/16",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.0,
+        288.0,
+        503.7,
+        303.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "checkbox_unselected",
+      "text": "□ No",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/17",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.0,
+        273.3,
+        507.0,
+        289.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "checkbox_unselected",
+      "text": "□ N/A",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/18",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        75.0,
+        219.7,
+        534.7,
+        258.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Comment/Recommendation: For the 45 mg and 130mg vial carton labeling, add back the statement of \"Do not shake.\" to be consistent with the language in the prescribing information.",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/19",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        78.3,
+        193.0,
+        271.7,
+        206.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "The applicant has revised as requested.",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/20",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        76.0,
+        139.3,
+        447.0,
+        165.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Multiple dose containers (recommended individual dose) (package labeling)",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/21",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        76.3,
+        124.7,
+        219.7,
+        137.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Regulation: 21 CFR 610.61(j)",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/22",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        472.3,
+        152.7,
+        535.7,
+        165.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Acceptable",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/23",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.3,
+        123.7,
+        506.0,
+        138.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "checkbox_unselected",
+      "text": "□ Yes",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/24",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.7,
+        109.3,
+        503.3,
+        124.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "checkbox_unselected",
+      "text": "□ No",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/25",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.3,
+        94.7,
+        508.3,
+        110.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "checkbox_selected",
+      "text": "N/A",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/26",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        70.3,
+        64.0,
+        133.7,
+        76.0
+      ],
+      "layer": "furniture",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "page_footer",
+      "text": "Page 20 of 40",
+      "status": "kept"
+    }
+  ],
+  "original_rule_blocks": [
+    {
+      "type": "text",
+      "ref": "#/texts/0",
+      "parent": "#/groups/0",
+      "page": 1,
+      "bbox": [
+        75.0,
+        652.3,
+        527.3,
+        706.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Comment/Recommendation: For 130 mg vial, revise Product Strength to read as: \"130mg/26mL (5mg/mL)\" so that the strength per total volume (total drug content supplied in container) followed in close proximity by a parenthetical that includes the strength/mL for single-dose containers that supply a volume of drug greater than 1mL.",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/1",
+      "parent": "#/groups/0",
+      "page": 1,
+      "bbox": [
+        78.3,
+        626.3,
+        271.7,
+        639.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "The applicant has revised as requested.",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/2",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        75.7,
+        585.3,
+        381.3,
+        598.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Storage temperature/requirements (package labeling)",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/3",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.7,
+        586.0,
+        535.3,
+        598.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Acceptable",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/4",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        76.0,
+        570.3,
+        223.3,
+        584.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Regulation: 21 CFR 610.61(h)",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/5",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.0,
+        570.0,
+        506.0,
+        585.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "checkbox_selected",
+      "text": "√ Yes",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/6",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        76.7,
+        517.3,
+        457.0,
+        544.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Recommended labeling practices reference: USP General Chapters: <7> Labeling, USP General Chapters <659> Packaging and Storage Requirements",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/7",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.0,
+        556.0,
+        503.7,
+        571.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "checkbox_unselected",
+      "text": "□ No",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/8",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.3,
+        542.0,
+        507.0,
+        557.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "checkbox_unselected",
+      "text": "□ N/A",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/9",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        75.7,
+        464.0,
+        525.0,
+        504.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Comment/Recommendation: For the vials, recommend revise to read as: \"Store unopened vial upright and refrigerated at 2°C to 8°C (36F to 46ºF) in the original carton to protect from light. Do not freeze.'",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/10",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        76.7,
+        370.3,
+        524.3,
+        450.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "The applicant responded that the 45 mg and 130 mg vial carton are designed such that the vial is horizontal when storing the carton. Horizontal vial orientation is supported by vial stability studies conducted in both the upright and inverted orientations for which stability data meet stability acceptance criteria at the recommended storage condition through the latest stability time point tested. Therefore, the applicant did not include the recommend language \"Store the vial upright\", which is acceptable from an OBP labeling perspective.",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/11",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        74.7,
+        328.7,
+        447.3,
+        345.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Handling: \"Do Not Shake\", \"Do not Freeze\" or eguivalent (package",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/12",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        76.0,
+        316.7,
+        128.3,
+        330.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "labeling)",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/13",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        76.3,
+        302.3,
+        219.7,
+        315.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Regulation: 21 CFR 610.61(i)",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/14",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        472.3,
+        330.0,
+        535.7,
+        342.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Acceptable",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/15",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.0,
+        301.7,
+        506.0,
+        317.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "checkbox_selected",
+      "text": "√ Yes",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/16",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.0,
+        288.0,
+        503.7,
+        303.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "checkbox_unselected",
+      "text": "□ No",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/17",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.0,
+        273.3,
+        507.0,
+        289.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "checkbox_unselected",
+      "text": "□ N/A",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/18",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        75.0,
+        219.7,
+        534.7,
+        258.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Comment/Recommendation: For the 45 mg and 130mg vial carton labeling, add back the statement of \"Do not shake.\" to be consistent with the language in the prescribing information.",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/19",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        78.3,
+        193.0,
+        271.7,
+        206.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "The applicant has revised as requested.",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/20",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        76.0,
+        139.3,
+        447.0,
+        165.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Multiple dose containers (recommended individual dose) (package labeling)",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/21",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        76.3,
+        124.7,
+        219.7,
+        137.7
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Regulation: 21 CFR 610.61(j)",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/22",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        472.3,
+        152.7,
+        535.7,
+        165.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "text",
+      "text": "Acceptable",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/23",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.3,
+        123.7,
+        506.0,
+        138.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "checkbox_unselected",
+      "text": "□ Yes",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/24",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.7,
+        109.3,
+        503.3,
+        124.0
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "checkbox_unselected",
+      "text": "□ No",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/25",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        471.3,
+        94.7,
+        508.3,
+        110.3
+      ],
+      "layer": "body",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "checkbox_selected",
+      "text": "N/A",
+      "status": "kept"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/26",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        70.3,
+        64.0,
+        133.7,
+        76.0
+      ],
+      "layer": "furniture",
+      "route": "IMAGE",
+      "source": "ocr",
+      "label": "page_footer",
+      "text": "Page 20 of 40",
+      "status": "kept"
+    }
+  ],
+  "events": []
+}

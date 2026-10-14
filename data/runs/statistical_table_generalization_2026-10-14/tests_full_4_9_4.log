@@ -1,0 +1,37 @@
+...............................................................................................................................................................................................................................................................EE................................................................Consider using the pymupdf_layout package for a greatly improved page layout analysis.
+Paddle: local:a29d00d286245d05baa13375 p1/1
+....................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+======================================================================
+ERROR: test_guideline_document_has_no_product (test_ingestion_db.CatalogMirror.test_guideline_document_has_no_product)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\project_shared\tests\test_ingestion_db.py", line 66, in test_guideline_document_has_no_product
+    load_catalog.load(self.conn)
+  File "C:\Users\Admin\Documents\project_shared\ingestion\load_catalog.py", line 99, in load
+    conn.execute("TRUNCATE " + ", ".join(MIRRORED))
+  File "C:\Users\Admin\Documents\biosimilar_collection\.venv\Lib\site-packages\psycopg\connection.py", line 304, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.FeatureNotSupported: cannot truncate a table referenced in a foreign key constraint
+DETAIL:  Table "chunks" references "document_versions".
+HINT:  Truncate table "chunks" at the same time, or use TRUNCATE ... CASCADE.
+
+======================================================================
+ERROR: test_load_twice_matches_catalog (test_ingestion_db.CatalogMirror.test_load_twice_matches_catalog)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\project_shared\tests\test_ingestion_db.py", line 46, in test_load_twice_matches_catalog
+    first = load_catalog.load(self.conn)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\project_shared\ingestion\load_catalog.py", line 99, in load
+    conn.execute("TRUNCATE " + ", ".join(MIRRORED))
+  File "C:\Users\Admin\Documents\biosimilar_collection\.venv\Lib\site-packages\psycopg\connection.py", line 304, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.FeatureNotSupported: cannot truncate a table referenced in a foreign key constraint
+DETAIL:  Table "chunks" references "document_versions".
+HINT:  Truncate table "chunks" at the same time, or use TRUNCATE ... CASCADE.
+
+----------------------------------------------------------------------
+Ran 1157 tests in 101.545s
+
+FAILED (errors=2)
+exit=1

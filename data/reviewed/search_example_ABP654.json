@@ -1,0 +1,34 @@
+{
+  "query": "AUC* AND Cmax AND ratio",
+  "role": "reference_assessment",
+  "result_status": "unreviewed_page_search",
+  "results": [
+    {
+      "product_id": "ABP654",
+      "document_id": "EMA:64196",
+      "version_id": "123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c",
+      "pdf_page": 48,
+      "source_url": "https://www.ema.europa.eu/en/documents/assessment-report/wezenla-epar-public-assessment-report_en.pdf",
+      "title": "Wezenla : EPAR - Public assessment report",
+      "excerpt": " ... That is why CHMP recommended in its scientific advice to compare\nthe late (after [Cmax]) partial [AUCs] between ABP 654 and the reference product. The MAH was asked to\ncompute the partial [AUC] [ratio] and corresponding 90% CIs.\n\nIn the response, the applicant provided the partial [AUC] GMRs with 90% CIs and the 90% CIs of the\n[AUC] GMRs were ... "
+    },
+    {
+      "product_id": "ABP654",
+      "document_id": "EMA:64196",
+      "version_id": "123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c",
+      "pdf_page": 111,
+      "source_url": "https://www.ema.europa.eu/en/documents/assessment-report/wezenla-epar-public-assessment-report_en.pdf",
+      "title": "Wezenla : EPAR - Public assessment report",
+      "excerpt": " ... [ratio] of\nLS geometric means (90% CI) of ABP 654 vs ustekinumab EU was 0.9391 (0.8620, 1.0232) for [AUCinf]\nand 0.9452 (0.8779, 1.0175) for [Cmax].\n\nAlso, the secondary PK endpoints (i.e., tmax, t½, CL/F and MRT) were shown to be similar between\nABP654, ustekinumab (EU) and ustekinumab (US).\n\nThe PK results of ... "
+    },
+    {
+      "product_id": "ABP654",
+      "document_id": "EMA:64196",
+      "version_id": "123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c",
+      "pdf_page": 114,
+      "source_url": "https://www.ema.europa.eu/en/documents/assessment-report/wezenla-epar-public-assessment-report_en.pdf",
+      "title": "Wezenla : EPAR - Public assessment report",
+      "excerpt": " ... Clinical\n\nPharmacokinetics\n\nThe PK biosimilarity in the pivotal PK study 20190230 using healthy adult subjects has been formally\ndemonstrated between ABP 654 and ustekinumab (EU) and ustekinumab (US) as for the primary PK\nparameters [AUCinf], [Cmax] and [AUClast], the 90% CI for the [ratio] of test-to reference/comparator fell within\nthe acceptance range of 80.00-125.00% (including ... "
+    }
+  ]
+}

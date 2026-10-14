@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "protected_files": 119,
+  "changed_files": [],
+  "changes": "interpretation/navigation only; no re-score or model calls",
+  "actual_browser_visual_verification": false
+}

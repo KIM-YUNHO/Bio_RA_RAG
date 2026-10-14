@@ -1,0 +1,14 @@
+{
+  "created_utc": "2026-10-14T04:40:51.819891+00:00",
+  "reason": "User explicitly selected gpt-5.6-luna; stopped gpt-4o-mini processes immediately.",
+  "provider_attempts": 27,
+  "statuses": {
+    "completed": 26,
+    "reserved": 1
+  },
+  "recorded_input_tokens": 120160,
+  "recorded_output_tokens": 10057,
+  "in_flight_usage_unknown": true,
+  "original_ledger_preserved": true,
+  "excluded_from_luna_comparison": true
+}

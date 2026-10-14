@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Source-bound visual page annotation, visual-evaluation-1",
+  "type": "object",
+  "required": ["schema_version", "document_id", "version_id", "family_id", "pdf_page", "bounds", "rotation", "annotation_status", "objects", "negative_page", "reviewer", "reviewer_type", "reviewed_at", "clinical_semantics_reviewed"],
+  "properties": {
+    "schema_version": {"const": "visual-evaluation-1"},
+    "document_id": {"type": "string", "minLength": 1},
+    "version_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "family_id": {"type": "string", "minLength": 1},
+    "pdf_page": {"type": "integer", "minimum": 1},
+    "bounds": {"$ref": "#/$defs/bbox"},
+    "rotation": {"enum": [0, 90, 180, 270]},
+    "annotation_status": {"enum": ["not_annotated", "agent_draft", "human_reviewed", "adjudicated"]},
+    "objects": {"type": ["array", "null"], "items": {"$ref": "#/$defs/object"}},
+    "negative_page": {"type": ["boolean", "null"]},
+    "reviewer": {"type": ["string", "null"]},
+    "reviewer_type": {"enum": ["agent", "human", null]},
+    "reviewed_at": {"type": ["string", "null"], "format": "date-time"},
+    "clinical_semantics_reviewed": {"const": false},
+    "memberships": {"type": "array", "items": {"enum": ["random_anchor", "stress_anchor", "context_page", "whole_document"]}, "uniqueItems": true},
+    "selection_details": {"type": "array"},
+    "notes": {"type": "string"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"annotation_status": {"const": "not_annotated"}}},
+      "then": {"properties": {"objects": {"type": "null"}, "negative_page": {"type": "null"}, "reviewer": {"type": "null"}, "reviewer_type": {"type": "null"}, "reviewed_at": {"type": "null"}, "clinical_semantics_reviewed": {"const": false}}},
+      "else": {"properties": {"objects": {"type": "array"}, "negative_page": {"type": "boolean"}, "reviewer": {"type": "string", "minLength": 1}, "reviewer_type": {"enum": ["agent", "human"]}, "reviewed_at": {"type": "string", "format": "date-time"}}}
+    },
+    {
+      "if": {"properties": {"annotation_status": {"enum": ["human_reviewed", "adjudicated"]}}},
+      "then": {"properties": {"reviewer_type": {"const": "human"}}}
+    }
+  ],
+  "$defs": {
+    "bbox": {"type": "array", "items": {"type": "number"}, "minItems": 4, "maxItems": 4},
+    "ids": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "object": {
+      "type": "object",
+      "required": ["object_id", "kind", "bbox_pdf", "parent_ids", "certainty", "legibility"],
+      "properties": {
+        "object_id": {"type": "string", "minLength": 1},
+        "kind": {"enum": ["figure", "panel", "inset", "table", "caption", "legend_block", "legend_title", "legend_item", "axis_label", "printed_label", "table_cell", "footnote"]},
+        "bbox_pdf": {"$ref": "#/$defs/bbox"},
+        "parent_ids": {"$ref": "#/$defs/ids"},
+        "associated_panel_ids": {"$ref": "#/$defs/ids"},
+        "header_ids": {"$ref": "#/$defs/ids"},
+        "footnote_ids": {"$ref": "#/$defs/ids"},
+        "literal_text": {"type": ["string", "null"]},
+        "certainty": {"enum": ["certain", "ambiguous", "unresolved"]},
+        "legibility": {"enum": ["readable", "partially_readable", "unreadable", "redacted", "not_applicable"]},
+        "axis_kind": {"enum": ["x", "y", "secondary_x", "secondary_y", "unknown"]},
+        "row_index": {"type": "integer", "minimum": 0},
+        "column_index": {"type": "integer", "minimum": 0},
+        "row_span": {"type": "integer", "minimum": 1},
+        "column_span": {"type": "integer", "minimum": 1},
+        "cell_role": {"enum": ["column_header", "row_header", "data", "unit", "stub", "unknown"]},
+        "printed_number": {"type": ["string", "null"]},
+        "notes": {"type": "string"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"kind": {"enum": ["legend_title", "legend_item", "axis_label", "printed_label", "table_cell", "caption", "footnote"]}}},
+          "then": {"required": ["literal_text"]}
+        },
+        {
+          "if": {"properties": {"kind": {"enum": ["panel", "inset", "legend_title", "legend_item", "axis_label", "table_cell"]}}},
+          "then": {"properties": {"parent_ids": {"minItems": 1}}}
+        },
+        {
+          "if": {"properties": {"kind": {"const": "table_cell"}}},
+          "then": {"required": ["row_index", "column_index", "row_span", "column_span", "cell_role"]}
+        },
+        {
+          "if": {"properties": {"kind": {"const": "axis_label"}}},
+          "then": {"required": ["axis_kind"]}
+        }
+      ]
+    }
+  }
+}

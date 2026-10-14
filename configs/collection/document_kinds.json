@@ -1,0 +1,260 @@
+{
+  "_note": "(source, document_type) -> what the document is. family: the job it does across agencies; author: who wrote the content (not who hosts the file); tier: search layer. Collected documents keep their role and document_type; these fields are added next to them. See docs/collection/INGESTION_PIPELINE.md section 4.6.",
+  "tiers": {
+    "core": {
+      "default_search": true,
+      "meaning": "regulator's own assessment of the application"
+    },
+    "supporting": {
+      "default_search": true,
+      "meaning": "other review or decision text of the same regulator"
+    },
+    "guideline": {
+      "default_search": true,
+      "meaning": "regulator's current or past requirements, with status and date"
+    },
+    "label": {
+      "default_search": false,
+      "meaning": "approved product information; search when the question is about labelled use or wording"
+    },
+    "plan": {
+      "default_search": false,
+      "meaning": "sponsor's trial plan, not a result or a regulator's judgement"
+    },
+    "risk": {
+      "default_search": false,
+      "meaning": "risk management plan"
+    },
+    "record": {
+      "default_search": false,
+      "meaning": "letters, correspondence and lists used to check a fact, date or scope"
+    }
+  },
+  "kinds": {
+    "EMA": {
+      "assessment-report": [
+        "assessment_report",
+        "regulator",
+        "core"
+      ],
+      "overview": [
+        "plain_summary",
+        "regulator",
+        "supporting"
+      ],
+      "procedural-steps-after": [
+        "post_authorisation_history",
+        "regulator",
+        "supporting"
+      ],
+      "product-information": [
+        "product_information",
+        "applicant_approved",
+        "label"
+      ],
+      "all-authorised-presentations": [
+        "presentation_list",
+        "regulator",
+        "record"
+      ],
+      "rmp": [
+        "risk_management_plan",
+        "applicant",
+        "risk"
+      ],
+      "rmp-summary": [
+        "risk_management_plan",
+        "applicant",
+        "risk"
+      ],
+      "guideline": [
+        "guideline",
+        "regulator",
+        "guideline"
+      ],
+      "reflection paper": [
+        "guideline",
+        "regulator",
+        "guideline"
+      ],
+      "public statement": [
+        "guideline",
+        "regulator",
+        "guideline"
+      ],
+      "variation-report": [
+        "variation_assessment",
+        "regulator",
+        "supporting"
+      ],
+      "scientific-conclusion": [
+        "safety_conclusion",
+        "regulator",
+        "supporting"
+      ]
+    },
+    "FDA": {
+      "Multi-Discipline Review": [
+        "assessment_report",
+        "regulator",
+        "core"
+      ],
+      "Cross Discipline Team Leader Review": [
+        "assessment_report",
+        "regulator",
+        "core"
+      ],
+      "Review document": [
+        "assessment_report",
+        "regulator",
+        "supporting"
+      ],
+      "Product Quality Review(s)": [
+        "quality_review",
+        "regulator",
+        "supporting"
+      ],
+      "Other Review(s)": [
+        "other_review",
+        "regulator",
+        "record"
+      ],
+      "Printed Labeling": [
+        "product_information",
+        "applicant_approved",
+        "label"
+      ],
+      "Labeling (latest listed)": [
+        "product_information",
+        "applicant_approved",
+        "label"
+      ],
+      "Approval Letter(s)": [
+        "decision_letter",
+        "regulator",
+        "record"
+      ],
+      "Approval Letter": [
+        "decision_letter",
+        "regulator",
+        "record"
+      ],
+      "Other Action Letters": [
+        "decision_letter",
+        "regulator",
+        "record"
+      ],
+      "Administrative and Correspondence Documents": [
+        "correspondence",
+        "mixed",
+        "record"
+      ],
+      "guidance": [
+        "guideline",
+        "regulator",
+        "guideline"
+      ],
+      "Summary Review": [
+        "assessment_report",
+        "regulator",
+        "core"
+      ],
+      "Clinical Review(s)": [
+        "clinical_review",
+        "regulator",
+        "supporting"
+      ],
+      "Clinical Pharmacology and Biopharmaceutics Review(s)": [
+        "clinical_pharmacology_review",
+        "regulator",
+        "supporting"
+      ],
+      "Statistical Review(s)": [
+        "statistical_review",
+        "regulator",
+        "supporting"
+      ],
+      "Non-Clinical Review(s)": [
+        "nonclinical_review",
+        "regulator",
+        "supporting"
+      ],
+      "Clinical Microbiology/Virology Review(s)": [
+        "microbiology_review",
+        "regulator",
+        "record"
+      ],
+      "Office Director Memo": [
+        "decision_memo",
+        "regulator",
+        "supporting"
+      ],
+      "Risk Assessment and Risk Mitigation Review(s)": [
+        "risk_review",
+        "regulator",
+        "record"
+      ],
+      "REMS": [
+        "risk_management_plan",
+        "applicant",
+        "risk"
+      ]
+    },
+    "Health Canada": {
+      "Summary Basis of Decision": [
+        "assessment_report",
+        "regulator",
+        "core"
+      ],
+      "Regulatory Decision Summary": [
+        "decision_summary",
+        "regulator",
+        "supporting"
+      ],
+      "Summary Safety Review": [
+        "safety_review",
+        "regulator",
+        "supporting"
+      ],
+      "Product Monograph": [
+        "product_information",
+        "applicant_approved",
+        "label"
+      ],
+      "guidance": [
+        "guideline",
+        "regulator",
+        "guideline"
+      ]
+    },
+    "PMDA": {
+      "審査報告書": [
+        "assessment_report",
+        "regulator",
+        "core"
+      ],
+      "添付文書": [
+        "product_information",
+        "applicant_approved",
+        "label"
+      ],
+      "インタビューフォーム": [
+        "company_supplement",
+        "applicant",
+        "label"
+      ]
+    },
+    "ClinicalTrials.gov": {
+      "Study Protocol": [
+        "trial_plan",
+        "sponsor",
+        "plan"
+      ],
+      "Statistical Analysis Plan": [
+        "trial_plan",
+        "sponsor",
+        "plan"
+      ]
+    }
+  }
+}

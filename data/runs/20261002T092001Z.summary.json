@@ -1,0 +1,24 @@
+{
+  "schema_version": "pilot-1",
+  "run_id": "20261002T092001Z",
+  "started_at": "2026-10-02T09:20:01.914458+00:00",
+  "offline": false,
+  "health_canada": {
+    "ingredient_documents_listed": 20
+  },
+  "finished_at": "2026-10-02T09:22:48.219788+00:00",
+  "download_count": 77,
+  "unique_raw_objects_in_run": 76,
+  "pdf_documents": 47,
+  "total_pdf_pages": 2226,
+  "ema_assessment_pages": 0,
+  "sample_table_candidates": 0,
+  "error_count": 0,
+  "database_counts": {
+    "products": 3,
+    "studies": 6,
+    "document_versions": 58,
+    "pages": 3299,
+    "page_search": 3299
+  }
+}

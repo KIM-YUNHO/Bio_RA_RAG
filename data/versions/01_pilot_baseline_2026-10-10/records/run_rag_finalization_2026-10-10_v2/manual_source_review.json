@@ -1,0 +1,25 @@
+{
+  "review_scope": "Source-based development review of core facts, not complete clinical certification or independent holdout accuracy. Original API generation and later validation-only replay are separate.",
+  "development": {
+    "Q002": {"core_source_supported": true, "review_note": "18–55 years, 60–90 kg, BMI 19–29.9 kg/m2; original source eligibility conditions."},
+    "Q005": {"core_source_supported": true, "review_note": "Printed equivalence margin 0.8–1.25; valid alternative source page reviewed separately from strict page-hit score."},
+    "Q008": {"core_source_supported": true, "review_note": "SB17/EU/US PK analysis sets 67 each, with supplied printed trial heading."},
+    "Q012": {"core_source_supported": true, "review_note": "Eight requested GMR/CI cells were source supported; this does not certify all clinical interpretation."},
+    "D02": {"core_source_supported": true, "review_note": "Figure 3 units, linear/semilog panels and 45 mg legends supported by source image."},
+    "D03": {"core_source_supported": false, "safe_abstention": true, "review_note": "Requested 90 mg trial premise conflicts with printed 45 mg source; no unsupported numeric answer, but correction explanation incomplete."},
+    "D07": {"core_source_supported": true, "review_note": "45 mg median/mean Cmax 2.4/2.7, 90 mg 5.3/6.1 source supported."},
+    "M_ABP654": {"core_source_supported": true, "review_note": "FDA label dose/route/weight core facts supported. Early run condition display confused initial and maintenance intervals; subsequently fixed without full-suite API repeat."},
+    "M_BAT2206": {"core_source_supported": true, "review_note": "FDA label dose/route/weight core facts supported, including default search access. Interval display limitation in this historical run."},
+    "M_BMAB1200": {"core_source_supported": true, "review_note": "FDA label dose/route/weight core facts supported; interval display limitation in this historical run."},
+    "M_CTP43": {"core_source_supported": true, "review_note": "FDA label dose/route/weight core facts supported; interval display limitation in this historical run."},
+    "M_SB17": {"core_source_supported": true, "review_note": "FDA label dose/route/weight core facts supported; interval display limitation in this historical run."}
+  },
+  "transfer": {
+    "T01": {"core_source_supported": true, "review_note": "EMA ABP654 시험 20190230의 단회 90 mg·SC 확인. 제품 식별자 654를 용량으로 선택하던 오류 수정."},
+    "T02": {"core_source_supported": true, "review_note": "EMA CT-P43 3.1의 PASI 기준선 대비 평균 변화율·Week 12·FAS 확인. 조건 표시가 장황한 문제는 남음."},
+    "T03": {"core_source_supported": false, "partially_supported": true, "review_note": "FDA 첫 상업적 시판 후 30일은 맞으나 통지 내용 답이 submit a에서 끊겨 불완전. 현재 검증은 해당 항목을 제외하며 새 API 생성은 미검증."},
+    "T04": {"core_source_supported": false, "review_note": "FDA 허가 서신 대신 사전 행정 서신의 대조약 적응증을 사용했고 질환 답도 불완전. 현재 검증은 잘못된 출처를 제외하며 새 API 생성은 미검증."},
+    "T05": {"core_source_supported": true, "review_note": "HC ABP654 tmax의 45 mg 중앙값/평균 13.5/15.3일, 90 mg 7.0/9.9일과 범위·SD 확인. 프로그램 partial 상태는 유지."},
+    "T06": {"core_source_supported": true, "review_note": "HC CT-P43 pen의 25°C·31일·냉장 1회 복귀·원래 유효기간 확인. 복귀는 31일 기간 종료 전이라는 원문 조건을 답변에 더 명확히 표시해야 함; 완전한 조건 커버리지 인증은 아님."}
+  }
+}

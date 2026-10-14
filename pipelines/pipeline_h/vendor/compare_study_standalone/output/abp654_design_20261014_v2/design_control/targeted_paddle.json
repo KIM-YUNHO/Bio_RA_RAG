@@ -1,0 +1,402 @@
+{
+  "startup_seconds": 11.464873400000215,
+  "startup": {
+    "model_load_seconds": 11.45604650000314,
+    "development_warmup_seconds": 0,
+    "settings": {
+      "paddle": {
+        "python": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\.venv-paddle\\Scripts\\python.exe",
+        "layout_model_dir": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\models\\paddle\\PP-DocLayoutV3_safetensors",
+        "vl_model_dir": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\models\\paddle\\PaddleOCR-VL-1.6",
+        "device": "gpu:0",
+        "dpi": 150,
+        "max_new_tokens": 4096,
+        "timeout_s": 600,
+        "chart_recognition": false,
+        "image_ocr": true,
+        "release_qwen_before_parser": false,
+        "native_text": true,
+        "vl_rec_batch_size": 1,
+        "parser_backend": "paddle_vl",
+        "light_det_model_dir": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\models\\paddle\\PP-OCRv5_mobile_det_safetensors",
+        "light_rec_model_dir": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\models\\paddle\\latin_PP-OCRv5_mobile_rec_safetensors"
+      },
+      "qwen": {
+        "endpoint": "http://127.0.0.1:11434",
+        "model": "qwen3.5:9b",
+        "timeout_s": 1800,
+        "num_ctx": 16384,
+        "num_predict": -1,
+        "crop_padding_px": 12,
+        "crop_dpi": 300,
+        "max_image_edge": 1800,
+        "keep_alive": "5m"
+      },
+      "schema_version": "ra-extraction-1"
+    },
+    "gpu_verification": "benchmark worker verifies all torch model parameters are CUDA",
+    "ocr_recognition_batch_size": null,
+    "ocr_batch_note": "benchmark runtime compatibility fix; production config unchanged",
+    "load_note": "layout lazy-load occurs during the first input page; no fixed development PDF is used"
+  },
+  "processing_seconds": 7.427480300000752,
+  "calls": 4,
+  "accepted": 4,
+  "results": [
+    {
+      "job": {
+        "document": "ABP654_FDA_ChemR_p033.pdf",
+        "page": 1,
+        "key": "ABP654_FDA_ChemR_p033_f69da8cc31",
+        "agency": "FDA",
+        "bbox": [
+          73.92,
+          84.96,
+          538.0799999999999,
+          167.51999999999998
+        ],
+        "origin": "PP-DocLayoutV3 table",
+        "detector_score": 0.7304331660270691,
+        "action": "add",
+        "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p033.pdf",
+        "id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_000",
+        "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_control\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_000.png",
+        "image_sha256": "e8d14d1485f61fd3a64b354f807be3164d6a2158d64ac06bdf2605ca115c1308",
+        "pixels": [
+          1800,
+          338
+        ],
+        "context_bbox": [
+          71.04000091552734,
+          82.08000183105469,
+          540.9600219726562,
+          170.39999389648438
+        ]
+      },
+      "seconds": 3.0843246999938856,
+      "raw": {
+        "res": {
+          "input_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_control\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_000.png",
+          "page_index": null,
+          "page_count": null,
+          "width": 1800,
+          "height": 338,
+          "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_layout_detection": false,
+            "use_chart_recognition": false,
+            "use_seal_recognition": false,
+            "use_ocr_for_image_block": true,
+            "format_block_content": false,
+            "merge_layout_blocks": true,
+            "markdown_ignore_labels": [],
+            "return_layout_polygon_points": true
+          },
+          "parsing_res_list": [
+            {
+              "block_label": "table",
+              "block_content": "<table><tr><td>Comment/Recommendation: For 130 mg vial, revise Product Strength to read as: &quot;130mg/26mL (5mg/mL)&quot; so that the strength per total volume (total drug content supplied in container) followed in close proximity by a parenthetical that includes the strength/mL for single-dose containers that supply a volume of drug greater than 1mL. The applicant has revised as requested.</td></tr></table>",
+              "block_bbox": [
+                0,
+                0,
+                1800,
+                338
+              ],
+              "block_id": 0,
+              "block_order": null,
+              "group_id": 0
+            }
+          ]
+        },
+        "ra_runtime": {
+          "inference_seconds": 3.083,
+          "vl_rec_batch_size": 1,
+          "native_blocks": 0,
+          "vlm_blocks": null,
+          "cuda_peak_allocated_bytes": 2105559552,
+          "cuda_peak_reserved_bytes": 2181038080
+        }
+      },
+      "content": "<table><tr><td>Comment/Recommendation: For 130 mg vial, revise Product Strength to read as: &quot;130mg/26mL (5mg/mL)&quot; so that the strength per total volume (total drug content supplied in container) followed in close proximity by a parenthetical that includes the strength/mL for single-dose containers that supply a volume of drug greater than 1mL. The applicant has revised as requested.</td></tr></table>",
+      "table": [
+        [
+          "Comment/Recommendation: For 130 mg vial, revise Product Strength to read as: \"130mg/26mL (5mg/mL)\" so that the strength per total volume (total drug content supplied in container) followed in close proximity by a parenthetical that includes the strength/mL for single-dose containers that supply a volume of drug greater than 1mL. The applicant has revised as requested."
+        ]
+      ],
+      "accepted": true,
+      "error": null,
+      "semantic_status": "source extraction candidate; independent human review pending"
+    },
+    {
+      "job": {
+        "document": "ABP654_FDA_ChemR_p033.pdf",
+        "page": 1,
+        "key": "ABP654_FDA_ChemR_p033_f69da8cc31",
+        "agency": "FDA",
+        "bbox": [
+          71.52,
+          191.51999999999998,
+          540.0,
+          275.52
+        ],
+        "origin": "PP-DocLayoutV3 table",
+        "detector_score": 0.9575733542442322,
+        "action": "add",
+        "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p033.pdf",
+        "id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_001",
+        "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_control\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_001.png",
+        "image_sha256": "ad90f1c8ca70f9d973675634e606fc8ec8af7f2207f64760ec58f02e8b6443b1",
+        "pixels": [
+          1800,
+          341
+        ],
+        "context_bbox": [
+          68.63999938964844,
+          188.63999938964844,
+          542.8800048828125,
+          278.3999938964844
+        ]
+      },
+      "seconds": 1.794798200004152,
+      "raw": {
+        "res": {
+          "input_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_control\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_001.png",
+          "page_index": null,
+          "page_count": null,
+          "width": 1800,
+          "height": 341,
+          "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_layout_detection": false,
+            "use_chart_recognition": false,
+            "use_seal_recognition": false,
+            "use_ocr_for_image_block": true,
+            "format_block_content": false,
+            "merge_layout_blocks": true,
+            "markdown_ignore_labels": [],
+            "return_layout_polygon_points": true
+          },
+          "parsing_res_list": [
+            {
+              "block_label": "table",
+              "block_content": "<table><tr><td>Storage temperature/requirements (package labeling)</td><td>Acceptable</td></tr><tr><td>Regulation: 21 CFR 610.61(h)</td><td rowspan=\"2\">✓ Yes ☐ No ☐ N/A</td></tr><tr><td>Recommended labeling practices reference: USP General Chapters: &lt;7&gt; Labeling, USP General Chapters &lt;659&gt; Packaging and Storage Requirements</td></tr></table>",
+              "block_bbox": [
+                0,
+                0,
+                1800,
+                341
+              ],
+              "block_id": 0,
+              "block_order": null,
+              "group_id": 0
+            }
+          ]
+        },
+        "ra_runtime": {
+          "inference_seconds": 1.794,
+          "vl_rec_batch_size": 1,
+          "native_blocks": 0,
+          "vlm_blocks": null,
+          "cuda_peak_allocated_bytes": 2104510976,
+          "cuda_peak_reserved_bytes": 2237661184
+        }
+      },
+      "content": "<table><tr><td>Storage temperature/requirements (package labeling)</td><td>Acceptable</td></tr><tr><td>Regulation: 21 CFR 610.61(h)</td><td rowspan=\"2\">✓ Yes ☐ No ☐ N/A</td></tr><tr><td>Recommended labeling practices reference: USP General Chapters: &lt;7&gt; Labeling, USP General Chapters &lt;659&gt; Packaging and Storage Requirements</td></tr></table>",
+      "table": [
+        [
+          "Storage temperature/requirements (package labeling)",
+          "Acceptable"
+        ],
+        [
+          "Regulation: 21 CFR 610.61(h)",
+          "✓ Yes ☐ No ☐ N/A"
+        ],
+        [
+          "Recommended labeling practices reference: USP General Chapters: <7> Labeling, USP General Chapters <659> Packaging and Storage Requirements",
+          ""
+        ]
+      ],
+      "accepted": true,
+      "error": null,
+      "semantic_status": "source extraction candidate; independent human review pending"
+    },
+    {
+      "job": {
+        "document": "ABP654_FDA_ChemR_p033.pdf",
+        "page": 1,
+        "key": "ABP654_FDA_ChemR_p033_f69da8cc31",
+        "agency": "FDA",
+        "bbox": [
+          71.03999999999999,
+          446.88,
+          540.0,
+          518.88
+        ],
+        "origin": "PP-DocLayoutV3 table",
+        "detector_score": 0.9440029859542847,
+        "action": "add",
+        "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p033.pdf",
+        "id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_002",
+        "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_control\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_002.png",
+        "image_sha256": "bad7db50fb52aa750050bd29575df97525dd5779767e493869e2c5e0ae45f9d4",
+        "pixels": [
+          1800,
+          295
+        ],
+        "context_bbox": [
+          68.16000366210938,
+          444.0,
+          542.8800048828125,
+          521.760009765625
+        ]
+      },
+      "seconds": 1.3404735000003711,
+      "raw": {
+        "res": {
+          "input_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_control\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_002.png",
+          "page_index": null,
+          "page_count": null,
+          "width": 1800,
+          "height": 295,
+          "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_layout_detection": false,
+            "use_chart_recognition": false,
+            "use_seal_recognition": false,
+            "use_ocr_for_image_block": true,
+            "format_block_content": false,
+            "merge_layout_blocks": true,
+            "markdown_ignore_labels": [],
+            "return_layout_polygon_points": true
+          },
+          "parsing_res_list": [
+            {
+              "block_label": "table",
+              "block_content": "<table><tr><td>Handling: “Do Not Shake”, “Do not Freeze” or equivalent (package labeling)</td><td>Acceptable</td></tr><tr><td>Regulation: 21 CFR 610.61(i)</td><td>✓ Yes ☐ No ☐ N/A</td></tr></table>",
+              "block_bbox": [
+                0,
+                0,
+                1800,
+                295
+              ],
+              "block_id": 0,
+              "block_order": null,
+              "group_id": 0
+            }
+          ]
+        },
+        "ra_runtime": {
+          "inference_seconds": 1.34,
+          "vl_rec_batch_size": 1,
+          "native_blocks": 0,
+          "vlm_blocks": null,
+          "cuda_peak_allocated_bytes": 2092397056,
+          "cuda_peak_reserved_bytes": 2237661184
+        }
+      },
+      "content": "<table><tr><td>Handling: “Do Not Shake”, “Do not Freeze” or equivalent (package labeling)</td><td>Acceptable</td></tr><tr><td>Regulation: 21 CFR 610.61(i)</td><td>✓ Yes ☐ No ☐ N/A</td></tr></table>",
+      "table": [
+        [
+          "Handling: “Do Not Shake”, “Do not Freeze” or equivalent (package labeling)",
+          "Acceptable"
+        ],
+        [
+          "Regulation: 21 CFR 610.61(i)",
+          "✓ Yes ☐ No ☐ N/A"
+        ]
+      ],
+      "accepted": true,
+      "error": null,
+      "semantic_status": "source extraction candidate; independent human review pending"
+    },
+    {
+      "job": {
+        "document": "ABP654_FDA_ChemR_p033.pdf",
+        "page": 1,
+        "key": "ABP654_FDA_ChemR_p033_f69da8cc31",
+        "agency": "FDA",
+        "bbox": [
+          71.03999999999999,
+          624.9599999999999,
+          540.0,
+          697.4399999999999
+        ],
+        "origin": "PP-DocLayoutV3 table",
+        "detector_score": 0.9436938762664795,
+        "action": "add",
+        "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p033.pdf",
+        "id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_003",
+        "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_control\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_003.png",
+        "image_sha256": "b60d004798853b393f05cd28e708a7d7c42b337d76dc70b9ae5cdfee0061571a",
+        "pixels": [
+          1800,
+          297
+        ],
+        "context_bbox": [
+          68.16000366210938,
+          622.0800170898438,
+          542.8800048828125,
+          700.3200073242188
+        ]
+      },
+      "seconds": 1.2078839000023436,
+      "raw": {
+        "res": {
+          "input_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_control\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_003.png",
+          "page_index": null,
+          "page_count": null,
+          "width": 1800,
+          "height": 297,
+          "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_layout_detection": false,
+            "use_chart_recognition": false,
+            "use_seal_recognition": false,
+            "use_ocr_for_image_block": true,
+            "format_block_content": false,
+            "merge_layout_blocks": true,
+            "markdown_ignore_labels": [],
+            "return_layout_polygon_points": true
+          },
+          "parsing_res_list": [
+            {
+              "block_label": "table",
+              "block_content": "<table><tr><td>Multiple dose containers (recommended individual dose) (package labeling)</td><td>Acceptable</td></tr><tr><td>Regulation: 21 CFR 610.61(j)</td><td>☐ Yes ☐ No ☒ N/A</td></tr></table>",
+              "block_bbox": [
+                0,
+                0,
+                1800,
+                297
+              ],
+              "block_id": 0,
+              "block_order": null,
+              "group_id": 0
+            }
+          ]
+        },
+        "ra_runtime": {
+          "inference_seconds": 1.207,
+          "vl_rec_batch_size": 1,
+          "native_blocks": 0,
+          "vlm_blocks": null,
+          "cuda_peak_allocated_bytes": 2092397056,
+          "cuda_peak_reserved_bytes": 2237661184
+        }
+      },
+      "content": "<table><tr><td>Multiple dose containers (recommended individual dose) (package labeling)</td><td>Acceptable</td></tr><tr><td>Regulation: 21 CFR 610.61(j)</td><td>☐ Yes ☐ No ☒ N/A</td></tr></table>",
+      "table": [
+        [
+          "Multiple dose containers (recommended individual dose) (package labeling)",
+          "Acceptable"
+        ],
+        [
+          "Regulation: 21 CFR 610.61(j)",
+          "☐ Yes ☐ No ☒ N/A"
+        ]
+      ],
+      "accepted": true,
+      "error": null,
+      "semantic_status": "source extraction candidate; independent human review pending"
+    }
+  ]
+}

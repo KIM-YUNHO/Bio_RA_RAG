@@ -1,0 +1,272 @@
+[
+  {
+    "document": "ABP654_EMA_p036_037.pdf",
+    "key": "ABP654_EMA_p036_037_482c552f08",
+    "page": 1,
+    "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\layout_inputs\\ABP654_EMA_p036_037_482c552f08\\001.png",
+    "image_sha256": "3a0ce81d9d706c3cf15bf2d9e25737d501f0b852e7f97dfdbe86a0722a753296",
+    "pixels": [
+      1241,
+      1754
+    ],
+    "size": [
+      595.3200073242188,
+      841.9199829101562
+    ],
+    "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_EMA_p036_037.pdf",
+    "agency": "EMA",
+    "source_pdf_page": 36
+  },
+  {
+    "document": "ABP654_EMA_p036_037.pdf",
+    "key": "ABP654_EMA_p036_037_482c552f08",
+    "page": 2,
+    "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\layout_inputs\\ABP654_EMA_p036_037_482c552f08\\002.png",
+    "image_sha256": "617c099e7698bcb1e3a4d401aa5662fcf10852d9a1f460ccda13962852bf58e2",
+    "pixels": [
+      1241,
+      1754
+    ],
+    "size": [
+      595.3200073242188,
+      841.9199829101562
+    ],
+    "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_EMA_p036_037.pdf",
+    "agency": "EMA",
+    "source_pdf_page": 37
+  },
+  {
+    "document": "ABP654_EMA_p044.pdf",
+    "key": "ABP654_EMA_p044_fe50ff21bf",
+    "page": 1,
+    "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\layout_inputs\\ABP654_EMA_p044_fe50ff21bf\\001.png",
+    "image_sha256": "4ccf0cbf2c41c9c517068e3592d36f50a1a8bf20289281a7238d3092b2ad274a",
+    "pixels": [
+      1241,
+      1754
+    ],
+    "size": [
+      595.3200073242188,
+      841.9199829101562
+    ],
+    "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_EMA_p044.pdf",
+    "agency": "EMA",
+    "source_pdf_page": 44
+  },
+  {
+    "document": "ABP654_EMA_p050.pdf",
+    "key": "ABP654_EMA_p050_8097f397b0",
+    "page": 1,
+    "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\layout_inputs\\ABP654_EMA_p050_8097f397b0\\001.png",
+    "image_sha256": "666dd69e12de2cc277e12a1a06278cfdd818674569cc43b129f8312a2e3be2e4",
+    "pixels": [
+      1754,
+      1241
+    ],
+    "size": [
+      841.9199829101562,
+      595.3200073242188
+    ],
+    "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_EMA_p050.pdf",
+    "agency": "EMA",
+    "source_pdf_page": 50
+  },
+  {
+    "document": "ABP654_EMA_p053.pdf",
+    "key": "ABP654_EMA_p053_4ec9da31e6",
+    "page": 1,
+    "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\layout_inputs\\ABP654_EMA_p053_4ec9da31e6\\001.png",
+    "image_sha256": "028b78cac8379e32d19b2a3377128c64078f76368eca568cccc0ab3025798b06",
+    "pixels": [
+      1241,
+      1754
+    ],
+    "size": [
+      595.3200073242188,
+      841.9199829101562
+    ],
+    "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_EMA_p053.pdf",
+    "agency": "EMA",
+    "source_pdf_page": 53
+  },
+  {
+    "document": "ABP654_FDA_ChemR_p006.pdf",
+    "key": "ABP654_FDA_ChemR_p006_c5f95fd27f",
+    "page": 1,
+    "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\layout_inputs\\ABP654_FDA_ChemR_p006_c5f95fd27f\\001.png",
+    "image_sha256": "de7012608992f03fc3e235992a3c3c413941eb24462b41659a12cf9b269fb846",
+    "pixels": [
+      1275,
+      1650
+    ],
+    "size": [
+      612.0,
+      792.0
+    ],
+    "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p006.pdf",
+    "agency": "FDA",
+    "source_pdf_page": 6
+  },
+  {
+    "document": "ABP654_FDA_ChemR_p012_013.pdf",
+    "key": "ABP654_FDA_ChemR_p012_013_656e857081",
+    "page": 1,
+    "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\layout_inputs\\ABP654_FDA_ChemR_p012_013_656e857081\\001.png",
+    "image_sha256": "2b292bde975181cd1fba47671f498a13a9d314cbcf82fabd386c4e643daba738",
+    "pixels": [
+      1275,
+      1650
+    ],
+    "size": [
+      612.0,
+      792.0
+    ],
+    "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p012_013.pdf",
+    "agency": "FDA",
+    "source_pdf_page": 12
+  },
+  {
+    "document": "ABP654_FDA_ChemR_p012_013.pdf",
+    "key": "ABP654_FDA_ChemR_p012_013_656e857081",
+    "page": 2,
+    "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\layout_inputs\\ABP654_FDA_ChemR_p012_013_656e857081\\002.png",
+    "image_sha256": "b44bcdabe8650708ed431e1c7cfac6da09f586b649a0e6543fbd6862869409df",
+    "pixels": [
+      1275,
+      1650
+    ],
+    "size": [
+      612.0,
+      792.0
+    ],
+    "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p012_013.pdf",
+    "agency": "FDA",
+    "source_pdf_page": 13
+  },
+  {
+    "document": "ABP654_FDA_ChemR_p033.pdf",
+    "key": "ABP654_FDA_ChemR_p033_f69da8cc31",
+    "page": 1,
+    "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\layout_inputs\\ABP654_FDA_ChemR_p033_f69da8cc31\\001.png",
+    "image_sha256": "5e4dc96aa22b7e4d8833e486cf80b7246a5e096b362626f83ea51b19c9d0ede6",
+    "pixels": [
+      1275,
+      1650
+    ],
+    "size": [
+      612.0,
+      792.0
+    ],
+    "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p033.pdf",
+    "agency": "FDA",
+    "source_pdf_page": 33
+  },
+  {
+    "document": "ABP654_FDA_Multi_p035.pdf",
+    "key": "ABP654_FDA_Multi_p035_165ac97194",
+    "page": 1,
+    "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\layout_inputs\\ABP654_FDA_Multi_p035_165ac97194\\001.png",
+    "image_sha256": "b8b5b57093f09af235475a7193c40bb4e09bf44b544fcb81093d746d7ab153ff",
+    "pixels": [
+      1275,
+      1650
+    ],
+    "size": [
+      612.0,
+      792.0
+    ],
+    "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_Multi_p035.pdf",
+    "agency": "FDA",
+    "source_pdf_page": 35
+  },
+  {
+    "document": "ABP654_HC_p028.pdf",
+    "key": "ABP654_HC_p028_c68021cb9c",
+    "page": 1,
+    "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\layout_inputs\\ABP654_HC_p028_c68021cb9c\\001.png",
+    "image_sha256": "3c7466ea250abab5365dd251e51e77255cacde16f1ace0175c4d69291a435a92",
+    "pixels": [
+      1275,
+      1650
+    ],
+    "size": [
+      612.0,
+      792.0
+    ],
+    "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_HC_p028.pdf",
+    "agency": "HC",
+    "source_pdf_page": 28
+  },
+  {
+    "document": "ABP654_HC_p030.pdf",
+    "key": "ABP654_HC_p030_7bc86aef67",
+    "page": 1,
+    "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\layout_inputs\\ABP654_HC_p030_7bc86aef67\\001.png",
+    "image_sha256": "efbf1ca03ff89d6c837f43dc644e9ea06fd28ce08c64446a4ba5173b001f62ce",
+    "pixels": [
+      1275,
+      1650
+    ],
+    "size": [
+      612.0,
+      792.0
+    ],
+    "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_HC_p030.pdf",
+    "agency": "HC",
+    "source_pdf_page": 30
+  },
+  {
+    "document": "ABP654_HC_p034_035.pdf",
+    "key": "ABP654_HC_p034_035_557af5cb1e",
+    "page": 1,
+    "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\layout_inputs\\ABP654_HC_p034_035_557af5cb1e\\001.png",
+    "image_sha256": "88338152dfcba9277090f869ac5ff4f2050120fc9d272720837a3c0302aef64b",
+    "pixels": [
+      1275,
+      1650
+    ],
+    "size": [
+      612.0,
+      792.0
+    ],
+    "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_HC_p034_035.pdf",
+    "agency": "HC",
+    "source_pdf_page": 34
+  },
+  {
+    "document": "ABP654_HC_p034_035.pdf",
+    "key": "ABP654_HC_p034_035_557af5cb1e",
+    "page": 2,
+    "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\layout_inputs\\ABP654_HC_p034_035_557af5cb1e\\002.png",
+    "image_sha256": "339e3d036bdfaba4d06b192dbb2f7e4da87a6ccf87154e6a5c94db326cd8fcba",
+    "pixels": [
+      1275,
+      1650
+    ],
+    "size": [
+      612.0,
+      792.0
+    ],
+    "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_HC_p034_035.pdf",
+    "agency": "HC",
+    "source_pdf_page": 35
+  },
+  {
+    "document": "ABP654_HC_p038.pdf",
+    "key": "ABP654_HC_p038_89c4e60a44",
+    "page": 1,
+    "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\layout_inputs\\ABP654_HC_p038_89c4e60a44\\001.png",
+    "image_sha256": "7518d9e6f40c4bd9a352292527fc52b9e89e86534830d8faa1ff81f02fda9562",
+    "pixels": [
+      1275,
+      1650
+    ],
+    "size": [
+      612.0,
+      792.0
+    ],
+    "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_HC_p038.pdf",
+    "agency": "HC",
+    "source_pdf_page": 38
+  }
+]

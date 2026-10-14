@@ -1,0 +1,122 @@
+{
+  "jobs": [
+    {
+      "id": "glyph_000",
+      "task": "ocr",
+      "action": "glyph",
+      "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p012_013.pdf",
+      "pdf_page": 2,
+      "bbox": [
+        166.3,
+        645.7,
+        250.7,
+        661.6
+      ],
+      "original_text": "FcyRla binding",
+      "block_ref": "#/tables/1",
+      "cell_index": 51,
+      "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\pipeline_h\\runs\\glyph_source_regression\\crops\\glyph_000.png",
+      "image_sha256": "ef7150f1bdc88cb57536fede781557d3a933204cea2f684cffa5c3274ee9fb01",
+      "pixels": [
+        552,
+        124
+      ],
+      "context_bbox": [
+        164.3800048828125,
+        643.780029296875,
+        252.6199951171875,
+        663.52001953125
+      ],
+      "dpi": 450
+    },
+    {
+      "id": "glyph_001",
+      "task": "ocr",
+      "action": "glyph",
+      "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p012_013.pdf",
+      "pdf_page": 2,
+      "bbox": [
+        166.3,
+        660.2,
+        293.7,
+        676.0
+      ],
+      "original_text": "FcyRIla (R131) binding",
+      "block_ref": "#/tables/1",
+      "cell_index": 54,
+      "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\pipeline_h\\runs\\glyph_source_regression\\crops\\glyph_001.png",
+      "image_sha256": "9e0f0d3c0c283605d5413698a3e9d5e07ca1e915cde3c0571cc2d7db8e7a15ae",
+      "pixels": [
+        821,
+        123
+      ],
+      "context_bbox": [
+        164.3800048828125,
+        658.280029296875,
+        295.6199951171875,
+        677.9199829101562
+      ],
+      "dpi": 450
+    },
+    {
+      "id": "glyph_002",
+      "task": "ocr",
+      "action": "glyph",
+      "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p012_013.pdf",
+      "pdf_page": 2,
+      "bbox": [
+        166.7,
+        674.9,
+        253.8,
+        690.1
+      ],
+      "original_text": "FcyRIlb binding",
+      "block_ref": "#/tables/1",
+      "cell_index": 57,
+      "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\pipeline_h\\runs\\glyph_source_regression\\crops\\glyph_002.png",
+      "image_sha256": "163a2a6ddb5e2e1e3e01c22060563d0bd53284b565fea3b04a228a3ddd4c30d6",
+      "pixels": [
+        570,
+        120
+      ],
+      "context_bbox": [
+        164.77999877929688,
+        672.97998046875,
+        255.72000122070312,
+        692.02001953125
+      ],
+      "dpi": 450
+    },
+    {
+      "id": "glyph_003",
+      "task": "ocr",
+      "action": "glyph",
+      "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p012_013.pdf",
+      "pdf_page": 2,
+      "bbox": [
+        166.3,
+        688.7,
+        296.5,
+        704.9
+      ],
+      "original_text": "FcyRIlla (V158) binding",
+      "block_ref": "#/tables/1",
+      "cell_index": 60,
+      "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\pipeline_h\\runs\\glyph_source_regression\\crops\\glyph_003.png",
+      "image_sha256": "b170e660c6cfdcb950f12603cbbe3915d6b3e14b57d8de1329dca1c0860524c6",
+      "pixels": [
+        839,
+        126
+      ],
+      "context_bbox": [
+        164.3800048828125,
+        686.780029296875,
+        298.4200134277344,
+        706.8200073242188
+      ],
+      "dpi": 450
+    }
+  ],
+  "source_selection": "generic suspicious receptor glyph regex on saved Docling source cells",
+  "gold_consulted": false
+}

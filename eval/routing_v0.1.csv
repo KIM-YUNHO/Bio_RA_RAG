@@ -1,0 +1,15 @@
+id,question,intent_ok,products,jurisdictions_ok,doc_group_any,note
+R01,피즈치바와 스테키마의 1상 시험 대상자 기준을 비교해줘,compare_products,SB17;CTP43,,assessment,두 제품 비교
+R02,웨즐라나는 미국에서 언제 승인됐나?,document_info;fact_lookup,ABP654,US,correspondence;decision_summary,미국 상품명으로 제품 식별
+R03,SB17 미국 라벨에 적힌 크론병 용법은?,fact_lookup,SB17,US,label,라벨
+R04,CT-P43 3상 시험의 1차 유효성 평가변수와 통계 분석 방법은 SAP에 어떻게 되어 있나?,fact_lookup,CTP43,,sap;protocol,SAP
+R05,EMA와 FDA가 SB17의 PK 유사성을 평가한 방식이 어떻게 다른가?,compare_jurisdictions,SB17,EU;US,assessment,관할 비교
+R06,왜 EMA는 CT-P43 1.1 시험만으로 PK 동등성을 인정하지 않았나?,regulatory_reasoning,CTP43,EU,assessment,규제 판단 이유
+R07,ABP 654 유럽 RMP의 중요한 잠재적 위험은 무엇인가?,fact_lookup,ABP654,EU,rmp,RMP
+R08,SB17 SAP에서 가려진 intercurrent event 처리 전략 내용을 알려줘,out_of_scope,SB17,,sap,가림 처리된 내용 요구
+R09,우리 회사 신규 바이오시밀러의 허가 가능성을 예측해줘,out_of_scope,,,,예측 요구
+R10,휴미라 바이오시밀러의 PK 시험 설계는?,out_of_scope,,,,대상 밖 제품
+R11,스테키마 품질 심사에서 지적된 제조 관련 사항은?,fact_lookup;regulatory_reasoning,CTP43,|US,quality,품질 심사
+R12,세 제품 중 ADA 발생률이 가장 낮은 건?,compare_products,SB17;ABP654;CTP43,,assessment,세 제품 비교
+R13,Health Canada는 Pyzchiva를 어떤 근거로 승인했나?,regulatory_reasoning;fact_lookup,SB17,CA,assessment;decision_summary,캐나다
+R14,웨젠라 1상 PK 시험의 AUCinf 비율과 90% 신뢰구간은?,fact_lookup,ABP654,,assessment,유럽 상품명 한글 표기

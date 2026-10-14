@@ -1,0 +1,21 @@
+{
+ "review_status": "assistant_authored_regression_cases_not_independent_expert_labels",
+ "cases": [
+  {"id":"G01","question":"스테키마의 일본인이 아닌 건강인 시험에서 투여량은?","products":["CTP43"],"studies":["ST_CTP43_1_1"],"jurisdictions":[]},
+  {"id":"G02","question":"스테키마의 일본 사람을 모집한 연구의 투여량은?","products":["CTP43"],"studies":["ST_CTP43_1_2"],"jurisdictions":[]},
+  {"id":"G03","question":"스테키마에서 두 건강인 연구의 자료를 결합한 결과는?","products":["CTP43"],"studies":["ST_CTP43_POOLED"],"jurisdictions":[]},
+  {"id":"G04","question":"스테키마의 두 번째 약동학 연구 결과는?","products":["CTP43"],"studies":["ST_CTP43_1_2"],"jurisdictions":[]},
+  {"id":"G05","question":"CT-P43 1.1 Part 2와 1.2 통합 분석에서 사후 통합 분석의 EU Stelara 대비 AUCinf, Cmax의 기하평균비(GMR)와 90% CI는?","products":["CTP43"],"studies":["ST_CTP43_POOLED"],"jurisdictions":[]},
+  {"id":"G06","question":"CT-P43 1.1 Part 2의 투여량은?","products":["CTP43"],"studies":["ST_CTP43_1_1_P2"],"jurisdictions":[]},
+  {"id":"G07","question":"SB17-1001에서 EU-Stelara 대비 Cmax의 90% CI는?","products":["SB17"],"studies":["ST_SB17_1001"],"jurisdictions":[]},
+  {"id":"G08","question":"EMA는 SB17-1001의 US-Stelara 비교 결과를 어떻게 평가했나?","products":["SB17"],"studies":["ST_SB17_1001"],"jurisdictions":["EU"]},
+  {"id":"G09","question":"피즈치바의 3상 시험에서 연구 설계는?","products":["SB17"],"studies":["ST_SB17_3001"],"jurisdictions":[]},
+  {"id":"G10","question":"피즈치바의 각 임상시험에서 모집한 대상자는?","products":["SB17"],"studies":[],"jurisdictions":[]},
+  {"id":"G11","question":"스테키마의 계획된 교환가능성 연구 설계는?","products":["CTP43"],"studies":["ST_CTP43_3_2"],"jurisdictions":[]},
+  {"id":"G12","question":"ABP 654 교환가능성 시험의 설계는?","products":["ABP654"],"studies":["ST_ABP_20200417"],"jurisdictions":[]},
+  {"id":"G13","question":"피즈치바와 스테키마의 각 1상 시험 설계를 비교해줘.","products":["SB17","CTP43"],"studies":["ST_SB17_1001","ST_CTP43_1_1","ST_CTP43_1_2"],"jurisdictions":[]},
+  {"id":"G14","question":"CT-P43 1.2 말고 CT-P43 1.1 Part 2의 투여량을 알려줘.","products":["CTP43"],"studies":["ST_CTP43_1_1_P2"],"jurisdictions":[]},
+  {"id":"G15","question":"피즈치바와 스테키마에 대한 EMA와 FDA의 평가를 비교해줘.","products":["SB17","CTP43"],"studies":[],"jurisdictions":["EU","US"]},
+  {"id":"G16","question":"SB17-3001이 아니라 SB17-1001의 투여량은?","products":["SB17"],"studies":["ST_SB17_1001"],"jurisdictions":[]}
+ ]
+}

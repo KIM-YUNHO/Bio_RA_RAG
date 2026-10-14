@@ -1,0 +1,544 @@
+{
+  "document": "ABP654_HC_p038_89c4e60a44",
+  "page": 1,
+  "text": [
+    "patients treated with 90 mg ustekinumab and 10% of patients treated with placebo reached PASI 50 in PHOENIX 2 (Table 17).",
+    "Response over time",
+    "In PHOENIX 1, significantly greater proportions of ustekinumab -treated patients had PASI 50 responses (9% and 10% for the 45 mg and 90 mg groups, respectively) compared with placebo (2%) by Week 2 (p<0.001). Significantly greater proportions of patients treated with ustekinumab achieved PASI 75 responses (9% and 12% for the 45 mg and 90 mg ustekinumab groups, respectively) compared with placebo (0.4%) by Week 4 (p<0.001). Maximum response was generally achieved by Week 24 in the 45 mg and 90 mg ustekinumab treatment groups, and response rates were generally sustained through Week 36 (Figure 1). In PHOENIX 1, PASI 75 rates at Week 24 were 76% for the 45 mg group, and 85% for the 90 mg group . Higher response rates were observed in patients receiving ustekinumab 90 mg than in those receiving ustekinumab 45 mg by Week 16 and these higher response rates were sustained through Week 36 (Figure 1). Similar results were observed in the PHOENIX 2 study through Week 28.",
+    "In prespecified analyses of efficacy by body weight in PHOENIX 1 and PHOENIX 2, no consistent pattern of dose response was seen in patients ≤ 100 kg. In patients who weighed > 100 kg, higher PASI 75 response rates were seen with 90 mg dosing compared with 45 mg dosing, and a higher proportion of patients receiving 90 mg dosing had PGA scores of cleared or minimal compared with patients receiving 45 mg dosing (Table 18)."
+  ],
+  "tables": [
+    [
+      [
+        "",
+        "PHOENIX 1",
+        "PHOENIX 2"
+      ],
+      [
+        "100",
+        "",
+        ""
+      ],
+      [
+        "",
+        "80",
+        ""
+      ],
+      [
+        "",
+        "60",
+        ""
+      ],
+      [
+        "Percent of Patients",
+        "",
+        ""
+      ],
+      [
+        "",
+        "40",
+        ""
+      ],
+      [
+        "",
+        "20",
+        ""
+      ],
+      [
+        "",
+        "151278_v5",
+        "15335_v6"
+      ],
+      [
+        "0",
+        "",
+        ""
+      ],
+      [
+        "",
+        "0 24 8 12 16 20 24 28 32 36",
+        "024812 16 2024 28"
+      ],
+      [
+        "",
+        "Week",
+        "Week"
+      ],
+      [
+        "",
+        "CNTO 1275 45 mg",
+        "CNTO 1275 90 mg"
+      ]
+    ]
+  ],
+  "table_bboxes": [
+    [
+      120.6,
+      273.5,
+      496.5,
+      569.5
+    ]
+  ],
+  "seconds": 0.8189726999989944,
+  "flags": {
+    "time_basis": "document_wall_amortized",
+    "route": "MIXED",
+    "ra_timing": {
+      "auto": 0.4983978271484375,
+      "second_reader": 0.30811071395874023,
+      "total": 0.8179316520690918
+    },
+    "qa": {
+      "pages": 1,
+      "routes": {
+        "MIXED": 1
+      },
+      "text_blocks": 4,
+      "text_chars": 1537,
+      "ocr_char_share": 0.0,
+      "tables": 1,
+      "tables_ocr_grid": 1,
+      "numeric_cells": 14,
+      "numeric_cell_parse_rate": 0.429,
+      "needs_review_blocks": 0,
+      "reread_blocks": 0,
+      "garbled_residual": 0,
+      "furniture_blocks": 2,
+      "redacted_blocks": 0,
+      "sections": 1
+    },
+    "agency": "HC",
+    "doc_type": "product_monograph",
+    "document_structure_summary": {
+      "section_paths": [
+        [],
+        [
+          "Response over time"
+        ]
+      ],
+      "speakers": [
+        "label"
+      ],
+      "furniture_blocks": 2,
+      "redacted_blocks": 0,
+      "study_ids": [
+        "CNTO 1275 45",
+        "CNTO 1275 90"
+      ],
+      "review_blocks": 0
+    },
+    "figure_count_policy": "physical regions and caption groups separate; no parent/child double count; scan image objects separate"
+  },
+  "figures": [],
+  "document_structure": [
+    {
+      "type": "text",
+      "ref": "#/texts/0",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.5,
+        74.29999999999995,
+        545.2,
+        97.20000000000005
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "text",
+      "text": "patients treated with 90 mg ustekinumab and 10% of patients treated with placebo reached PASI 50 in PHOENIX 2 (Table 17).",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        72.5,
+        694.8,
+        545.2,
+        717.7
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/1",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.5,
+        105.79999999999995,
+        169.7,
+        115.79999999999995
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "section_header",
+      "text": "Response over time",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Response over time"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        72.5,
+        676.2,
+        169.7,
+        686.2
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/2",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.4,
+        124.20000000000005,
+        547.9,
+        261.1
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "text",
+      "text": "In PHOENIX 1, significantly greater proportions of ustekinumab -treated patients had PASI 50 responses (9% and 10% for the 45 mg and 90 mg groups, respectively) compared with placebo (2%) by Week 2 (p<0.001). Significantly greater proportions of patients treated with ustekinumab achieved PASI 75 responses (9% and 12% for the 45 mg and 90 mg ustekinumab groups, respectively) compared with placebo (0.4%) by Week 4 (p<0.001). Maximum response was generally achieved by Week 24 in the 45 mg and 90 mg ustekinumab treatment groups, and response rates were generally sustained through Week 36 (Figure 1). In PHOENIX 1, PASI 75 rates at Week 24 were 76% for the 45 mg group, and 85% for the 90 mg group . Higher response rates were observed in patients receiving ustekinumab 90 mg than in those receiving ustekinumab 45 mg by Week 16 and these higher response rates were sustained through Week 36 (Figure 1). Similar results were observed in the PHOENIX 2 study through Week 28.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Response over time"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        72.4,
+        530.9,
+        547.9,
+        667.8
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "table",
+      "ref": "#/pictures/0",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        120.6,
+        273.5,
+        496.5,
+        569.5
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "ocr",
+      "caption": "",
+      "text": "",
+      "status": "kept",
+      "ocr_text": "PHOENIX 1\nPHOENIX 2\n100\n80\nPercent of Patients\n60\n40\n20\n151278_v5\n15335_v6\n0\n0 24 8 12 16 20 24 28 32 36\n024812 16 2024 28\nWeek\nWeek\nCNTO 1275 45 mg\nCNTO 1275 90 mg",
+      "kind_history": [
+        "picture",
+        "table"
+      ],
+      "structure": "ocr_grid",
+      "cells": [
+        {
+          "r": 0,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "PHOENIX 1",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 0,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "PHOENIX 2",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 1,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "100",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 2,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "80",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 3,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "60",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 4,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "Percent of Patients",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 5,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "40",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 6,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "20",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 7,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "151278_v5",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 7,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "15335_v6",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 8,
+          "c": 0,
+          "rs": 1,
+          "cs": 1,
+          "text": "0",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 9,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "0 24 8 12 16 20 24 28 32 36",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 9,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "024812 16 2024 28",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 10,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "Week",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 10,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "Week",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 11,
+          "c": 1,
+          "rs": 1,
+          "cs": 1,
+          "text": "CNTO 1275 45 mg",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        },
+        {
+          "r": 11,
+          "c": 2,
+          "rs": 1,
+          "cs": 1,
+          "text": "CNTO 1275 90 mg",
+          "header": false,
+          "bbox": null,
+          "structure": "ocr_grid"
+        }
+      ],
+      "n_rows": 12,
+      "n_cols": 3,
+      "section_path": [
+        "Response over time"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": [
+        "CNTO 1275 45",
+        "CNTO 1275 90"
+      ],
+      "source_bbox_bottom_left": [
+        120.6,
+        222.5,
+        496.5,
+        518.5
+      ],
+      "coordinate_space": "PDF top-left points",
+      "cell_coordinate_space": "PDF bottom-left points (original ra_prep)"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/20",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.4,
+        576.4,
+        544.6,
+        637.3
+      ],
+      "layer": "body",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "text",
+      "text": "In prespecified analyses of efficacy by body weight in PHOENIX 1 and PHOENIX 2, no consistent pattern of dose response was seen in patients ≤ 100 kg. In patients who weighed > 100 kg, higher PASI 75 response rates were seen with 90 mg dosing compared with 45 mg dosing, and a higher proportion of patients receiving 90 mg dosing had PGA scores of cleared or minimal compared with patients receiving 45 mg dosing (Table 18).",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Response over time"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        72.4,
+        154.7,
+        544.6,
+        215.6
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/21",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.1,
+        723.0,
+        183.8,
+        731.5
+      ],
+      "layer": "furniture",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "WEZLANA™ (ustekinumab)",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        72.1,
+        60.5,
+        183.8,
+        69.0
+      ],
+      "coordinate_space": "PDF top-left points"
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/22",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        479.4,
+        723.0,
+        540.3,
+        731.4
+      ],
+      "layer": "furniture",
+      "route": "MIXED",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "Page 38 of 116",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": [],
+      "source_bbox_bottom_left": [
+        479.4,
+        60.6,
+        540.3,
+        69.0
+      ],
+      "coordinate_space": "PDF top-left points"
+    }
+  ],
+  "embedded_image_objects": 1,
+  "figure_counts": {
+    "figure_regions": 0,
+    "figure_groups": 0,
+    "logical_figures": 0,
+    "decorative_images": 0,
+    "interpretation_attempted": 0,
+    "interpretation_completed": 0,
+    "interpretation_needs_review": 0
+  }
+}

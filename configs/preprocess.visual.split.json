@@ -1,0 +1,2675 @@
+{
+  "version": "visual-evaluation-1",
+  "created_at_utc": "2026-10-07T17:16:10.172981+00:00",
+  "seed": 20261008,
+  "development_family_ids": [
+    "vf2a6eacfd5042a38727fb",
+    "vf7fd028480185dfef449e",
+    "vfb46a056f555b68274f37",
+    "vfc04d01dfbfd0a5b2a6d5",
+    "vfc1c2761bee9cc39bbe44",
+    "vfc46388651a134fadcfe4",
+    "vff54c16986cdcedaabb77"
+  ],
+  "development_document_ids": [
+    "CTG:NCT04967508:Prot_000.pdf",
+    "CTG:NCT04967508:SAP_001.pdf",
+    "EMA:63561",
+    "EMA:63563",
+    "EMA:64196",
+    "EMA:64792",
+    "FDA:761373Orig1Orig2s001,761425Orig1Orig2s001CrossR",
+    "FDA:761373Orig1s000,761425Orig1s000:AdminCorres",
+    "FDA:761373Orig1s000,761425Orig1s000:Approv",
+    "FDA:761373Orig1s000,761425Orig1s000:ChemR",
+    "FDA:761373Orig1s000,761425Orig1s000:Lbl",
+    "FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",
+    "FDA:761373Orig1s000,761425Orig1s000:OtherR",
+    "FDA:761373Orig2s000,761425Orig2s000:Approv",
+    "FDA:761373Orig2s000,761425Orig2s000:ChemR",
+    "FDA:761373Orig2s000,761425Orig2s000:Lbl",
+    "FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",
+    "FDA:761373Orig2s000,761425Orig2s000:OtherActionLtrs",
+    "FDA:761373Orig2s000,761425Orig2s000:OtherR",
+    "HC:PM:00082519",
+    "PMDA:3999476:interview_form:530100_3999476G1022_1_03C_1F",
+    "PMDA:3999476:package_insert:530100_3999476G1022_1_02",
+    "PMDA:3999476:review_report:530100000_30700AMX00272_A100_1"
+  ],
+  "cohorts": {
+    "record_clean_reserve": {
+      "family_ids": [
+        "vf753ba6178cfe2e27c32c"
+      ],
+      "document_ids": [
+        "PMDA:3999475:interview_form:381103_3999475A1025_1_004_1F",
+        "PMDA:3999475:package_insert:381103_3999475A1025_1_01",
+        "PMDA:3999475:package_insert:381103_3999475G1028_1_03"
+      ],
+      "pages": [
+        {
+          "document_id": "PMDA:3999475:interview_form:381103_3999475A1025_1_004_1F",
+          "version_id": "d8089f575847552ee98cce95e23b83ff6474d3f3c4cfaa364747c1edff41ede1",
+          "family_id": "vf753ba6178cfe2e27c32c",
+          "pdf_page": 7,
+          "bounds": [
+            0,
+            0,
+            595.3200073242188,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 92,
+              "sample_size": 20,
+              "inclusion_probability": 0.21739130434782608,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "PMDA:3999475:interview_form:381103_3999475A1025_1_004_1F",
+          "version_id": "d8089f575847552ee98cce95e23b83ff6474d3f3c4cfaa364747c1edff41ede1",
+          "family_id": "vf753ba6178cfe2e27c32c",
+          "pdf_page": 11,
+          "bounds": [
+            0,
+            0,
+            595.3200073242188,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 92,
+              "sample_size": 20,
+              "inclusion_probability": 0.21739130434782608,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "PMDA:3999475:interview_form:381103_3999475A1025_1_004_1F",
+          "version_id": "d8089f575847552ee98cce95e23b83ff6474d3f3c4cfaa364747c1edff41ede1",
+          "family_id": "vf753ba6178cfe2e27c32c",
+          "pdf_page": 18,
+          "bounds": [
+            0,
+            0,
+            595.3200073242188,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 92,
+              "sample_size": 20,
+              "inclusion_probability": 0.21739130434782608,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "PMDA:3999475:interview_form:381103_3999475A1025_1_004_1F",
+          "version_id": "d8089f575847552ee98cce95e23b83ff6474d3f3c4cfaa364747c1edff41ede1",
+          "family_id": "vf753ba6178cfe2e27c32c",
+          "pdf_page": 22,
+          "bounds": [
+            0,
+            0,
+            595.3200073242188,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 92,
+              "sample_size": 20,
+              "inclusion_probability": 0.21739130434782608,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "PMDA:3999475:interview_form:381103_3999475A1025_1_004_1F",
+          "version_id": "d8089f575847552ee98cce95e23b83ff6474d3f3c4cfaa364747c1edff41ede1",
+          "family_id": "vf753ba6178cfe2e27c32c",
+          "pdf_page": 24,
+          "bounds": [
+            0,
+            0,
+            595.3200073242188,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 92,
+              "sample_size": 20,
+              "inclusion_probability": 0.21739130434782608,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "PMDA:3999475:interview_form:381103_3999475A1025_1_004_1F",
+          "version_id": "d8089f575847552ee98cce95e23b83ff6474d3f3c4cfaa364747c1edff41ede1",
+          "family_id": "vf753ba6178cfe2e27c32c",
+          "pdf_page": 25,
+          "bounds": [
+            0,
+            0,
+            595.3200073242188,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 92,
+              "sample_size": 20,
+              "inclusion_probability": 0.21739130434782608,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "PMDA:3999475:interview_form:381103_3999475A1025_1_004_1F",
+          "version_id": "d8089f575847552ee98cce95e23b83ff6474d3f3c4cfaa364747c1edff41ede1",
+          "family_id": "vf753ba6178cfe2e27c32c",
+          "pdf_page": 30,
+          "bounds": [
+            0,
+            0,
+            595.3200073242188,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 92,
+              "sample_size": 20,
+              "inclusion_probability": 0.21739130434782608,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "PMDA:3999475:interview_form:381103_3999475A1025_1_004_1F",
+          "version_id": "d8089f575847552ee98cce95e23b83ff6474d3f3c4cfaa364747c1edff41ede1",
+          "family_id": "vf753ba6178cfe2e27c32c",
+          "pdf_page": 32,
+          "bounds": [
+            0,
+            0,
+            595.3200073242188,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 92,
+              "sample_size": 20,
+              "inclusion_probability": 0.21739130434782608,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "PMDA:3999475:interview_form:381103_3999475A1025_1_004_1F",
+          "version_id": "d8089f575847552ee98cce95e23b83ff6474d3f3c4cfaa364747c1edff41ede1",
+          "family_id": "vf753ba6178cfe2e27c32c",
+          "pdf_page": 33,
+          "bounds": [
+            0,
+            0,
+            595.3200073242188,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 92,
+              "sample_size": 20,
+              "inclusion_probability": 0.21739130434782608,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "PMDA:3999475:interview_form:381103_3999475A1025_1_004_1F",
+          "version_id": "d8089f575847552ee98cce95e23b83ff6474d3f3c4cfaa364747c1edff41ede1",
+          "family_id": "vf753ba6178cfe2e27c32c",
+          "pdf_page": 38,
+          "bounds": [
+            0,
+            0,
+            595.3200073242188,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 92,
+              "sample_size": 20,
+              "inclusion_probability": 0.21739130434782608,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "PMDA:3999475:interview_form:381103_3999475A1025_1_004_1F",
+          "version_id": "d8089f575847552ee98cce95e23b83ff6474d3f3c4cfaa364747c1edff41ede1",
+          "family_id": "vf753ba6178cfe2e27c32c",
+          "pdf_page": 44,
+          "bounds": [
+            0,
+            0,
+            595.3200073242188,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 92,
+              "sample_size": 20,
+              "inclusion_probability": 0.21739130434782608,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "PMDA:3999475:interview_form:381103_3999475A1025_1_004_1F",
+          "version_id": "d8089f575847552ee98cce95e23b83ff6474d3f3c4cfaa364747c1edff41ede1",
+          "family_id": "vf753ba6178cfe2e27c32c",
+          "pdf_page": 48,
+          "bounds": [
+            0,
+            0,
+            595.3200073242188,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 92,
+              "sample_size": 20,
+              "inclusion_probability": 0.21739130434782608,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "PMDA:3999475:interview_form:381103_3999475A1025_1_004_1F",
+          "version_id": "d8089f575847552ee98cce95e23b83ff6474d3f3c4cfaa364747c1edff41ede1",
+          "family_id": "vf753ba6178cfe2e27c32c",
+          "pdf_page": 55,
+          "bounds": [
+            0,
+            0,
+            595.3200073242188,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 92,
+              "sample_size": 20,
+              "inclusion_probability": 0.21739130434782608,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "PMDA:3999475:interview_form:381103_3999475A1025_1_004_1F",
+          "version_id": "d8089f575847552ee98cce95e23b83ff6474d3f3c4cfaa364747c1edff41ede1",
+          "family_id": "vf753ba6178cfe2e27c32c",
+          "pdf_page": 56,
+          "bounds": [
+            0,
+            0,
+            595.3200073242188,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 92,
+              "sample_size": 20,
+              "inclusion_probability": 0.21739130434782608,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "PMDA:3999475:interview_form:381103_3999475A1025_1_004_1F",
+          "version_id": "d8089f575847552ee98cce95e23b83ff6474d3f3c4cfaa364747c1edff41ede1",
+          "family_id": "vf753ba6178cfe2e27c32c",
+          "pdf_page": 68,
+          "bounds": [
+            0,
+            0,
+            595.3200073242188,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 92,
+              "sample_size": 20,
+              "inclusion_probability": 0.21739130434782608,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "PMDA:3999475:interview_form:381103_3999475A1025_1_004_1F",
+          "version_id": "d8089f575847552ee98cce95e23b83ff6474d3f3c4cfaa364747c1edff41ede1",
+          "family_id": "vf753ba6178cfe2e27c32c",
+          "pdf_page": 71,
+          "bounds": [
+            0,
+            0,
+            595.3200073242188,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 92,
+              "sample_size": 20,
+              "inclusion_probability": 0.21739130434782608,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "PMDA:3999475:interview_form:381103_3999475A1025_1_004_1F",
+          "version_id": "d8089f575847552ee98cce95e23b83ff6474d3f3c4cfaa364747c1edff41ede1",
+          "family_id": "vf753ba6178cfe2e27c32c",
+          "pdf_page": 73,
+          "bounds": [
+            0,
+            0,
+            595.3200073242188,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 92,
+              "sample_size": 20,
+              "inclusion_probability": 0.21739130434782608,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "PMDA:3999475:interview_form:381103_3999475A1025_1_004_1F",
+          "version_id": "d8089f575847552ee98cce95e23b83ff6474d3f3c4cfaa364747c1edff41ede1",
+          "family_id": "vf753ba6178cfe2e27c32c",
+          "pdf_page": 76,
+          "bounds": [
+            0,
+            0,
+            595.3200073242188,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 92,
+              "sample_size": 20,
+              "inclusion_probability": 0.21739130434782608,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "PMDA:3999475:interview_form:381103_3999475A1025_1_004_1F",
+          "version_id": "d8089f575847552ee98cce95e23b83ff6474d3f3c4cfaa364747c1edff41ede1",
+          "family_id": "vf753ba6178cfe2e27c32c",
+          "pdf_page": 77,
+          "bounds": [
+            0,
+            0,
+            595.3200073242188,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 92,
+              "sample_size": 20,
+              "inclusion_probability": 0.21739130434782608,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "PMDA:3999475:interview_form:381103_3999475A1025_1_004_1F",
+          "version_id": "d8089f575847552ee98cce95e23b83ff6474d3f3c4cfaa364747c1edff41ede1",
+          "family_id": "vf753ba6178cfe2e27c32c",
+          "pdf_page": 83,
+          "bounds": [
+            0,
+            0,
+            595.3200073242188,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 92,
+              "sample_size": 20,
+              "inclusion_probability": 0.21739130434782608,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "PMDA:3999475:package_insert:381103_3999475A1025_1_01",
+          "version_id": "9c9fd1246a3ffb479b894338f70e1ac93e9f4f786d74d317b5052cc6746a2880",
+          "family_id": "vf753ba6178cfe2e27c32c",
+          "pdf_page": 1,
+          "bounds": [
+            0,
+            0,
+            595.2760009765625,
+            841.8900146484375
+          ],
+          "rotation": 0,
+          "memberships": [
+            "whole_document"
+          ],
+          "selection_details": [
+            {
+              "membership": "whole_document"
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "PMDA:3999475:package_insert:381103_3999475A1025_1_01",
+          "version_id": "9c9fd1246a3ffb479b894338f70e1ac93e9f4f786d74d317b5052cc6746a2880",
+          "family_id": "vf753ba6178cfe2e27c32c",
+          "pdf_page": 2,
+          "bounds": [
+            0,
+            0,
+            595.2760009765625,
+            841.8900146484375
+          ],
+          "rotation": 0,
+          "memberships": [
+            "whole_document"
+          ],
+          "selection_details": [
+            {
+              "membership": "whole_document"
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "PMDA:3999475:package_insert:381103_3999475A1025_1_01",
+          "version_id": "9c9fd1246a3ffb479b894338f70e1ac93e9f4f786d74d317b5052cc6746a2880",
+          "family_id": "vf753ba6178cfe2e27c32c",
+          "pdf_page": 3,
+          "bounds": [
+            0,
+            0,
+            595.2760009765625,
+            841.8900146484375
+          ],
+          "rotation": 0,
+          "memberships": [
+            "whole_document"
+          ],
+          "selection_details": [
+            {
+              "membership": "whole_document"
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "PMDA:3999475:package_insert:381103_3999475A1025_1_01",
+          "version_id": "9c9fd1246a3ffb479b894338f70e1ac93e9f4f786d74d317b5052cc6746a2880",
+          "family_id": "vf753ba6178cfe2e27c32c",
+          "pdf_page": 4,
+          "bounds": [
+            0,
+            0,
+            595.2760009765625,
+            841.8900146484375
+          ],
+          "rotation": 0,
+          "memberships": [
+            "whole_document"
+          ],
+          "selection_details": [
+            {
+              "membership": "whole_document"
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "PMDA:3999475:package_insert:381103_3999475G1028_1_03",
+          "version_id": "d7e1c828d26c01fdae63b6f31806b48f27d7756337b81338c4a2e3bedd766e71",
+          "family_id": "vf753ba6178cfe2e27c32c",
+          "pdf_page": 1,
+          "bounds": [
+            0,
+            0,
+            595.2760009765625,
+            841.8900146484375
+          ],
+          "rotation": 0,
+          "memberships": [
+            "whole_document"
+          ],
+          "selection_details": [
+            {
+              "membership": "whole_document"
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "PMDA:3999475:package_insert:381103_3999475G1028_1_03",
+          "version_id": "d7e1c828d26c01fdae63b6f31806b48f27d7756337b81338c4a2e3bedd766e71",
+          "family_id": "vf753ba6178cfe2e27c32c",
+          "pdf_page": 2,
+          "bounds": [
+            0,
+            0,
+            595.2760009765625,
+            841.8900146484375
+          ],
+          "rotation": 0,
+          "memberships": [
+            "context_page",
+            "whole_document"
+          ],
+          "selection_details": [
+            {
+              "membership": "context_page",
+              "anchor": [
+                "PMDA:3999475:package_insert:381103_3999475G1028_1_03",
+                3
+              ]
+            },
+            {
+              "membership": "whole_document"
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "PMDA:3999475:package_insert:381103_3999475G1028_1_03",
+          "version_id": "d7e1c828d26c01fdae63b6f31806b48f27d7756337b81338c4a2e3bedd766e71",
+          "family_id": "vf753ba6178cfe2e27c32c",
+          "pdf_page": 3,
+          "bounds": [
+            0,
+            0,
+            595.2760009765625,
+            841.8900146484375
+          ],
+          "rotation": 0,
+          "memberships": [
+            "stress_anchor",
+            "whole_document"
+          ],
+          "selection_details": [
+            {
+              "membership": "stress_anchor",
+              "heuristic_proxy": {
+                "modality": "mixed",
+                "needs_ocr": false,
+                "candidate_count": 11,
+                "raster_placements": 3,
+                "vector_paths": 243,
+                "native_table_candidates": {
+                  "lines": 4,
+                  "text": 1
+                },
+                "caption_candidates": 0,
+                "full_page_raster": false
+              },
+              "actual_visual_type": "unknown_until_annotated"
+            },
+            {
+              "membership": "whole_document"
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "PMDA:3999475:package_insert:381103_3999475G1028_1_03",
+          "version_id": "d7e1c828d26c01fdae63b6f31806b48f27d7756337b81338c4a2e3bedd766e71",
+          "family_id": "vf753ba6178cfe2e27c32c",
+          "pdf_page": 4,
+          "bounds": [
+            0,
+            0,
+            595.2760009765625,
+            841.8900146484375
+          ],
+          "rotation": 0,
+          "memberships": [
+            "context_page",
+            "whole_document"
+          ],
+          "selection_details": [
+            {
+              "membership": "context_page",
+              "anchor": [
+                "PMDA:3999475:package_insert:381103_3999475G1028_1_03",
+                3
+              ]
+            },
+            {
+              "membership": "whole_document"
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        }
+      ],
+      "random_frame_size": 92,
+      "random_anchor_count": 20,
+      "whole_document_ids": [
+        "PMDA:3999475:package_insert:381103_3999475A1025_1_01",
+        "PMDA:3999475:package_insert:381103_3999475G1028_1_03"
+      ],
+      "eligible_family_count": 1,
+      "evaluation_claim": "Recorded-history reserve only; human history incomplete."
+    },
+    "retrospective_locked": {
+      "family_ids": [
+        "vf431b2e447630bfb22d8a",
+        "vf59fa83abc8fbccfeda7c",
+        "vf49cc9fca701f3dd42919",
+        "vf75ce8a820905f0ab351d",
+        "vf159f0edcbb743c1e0dea",
+        "vf83ff037dfd3f14f4e040",
+        "vf0ae73f25e1df31002630",
+        "vfdfcb7098c2b20e5a086b",
+        "vf2147fce0b7c1c01301f3",
+        "vf0beb66b0e77188d0cd1c"
+      ],
+      "document_ids": [
+        "CTG:NCT04761627:Prot_002.pdf",
+        "EMA:63559",
+        "EMA:63562",
+        "EMA:64194",
+        "EMA:64788",
+        "EMA:64789",
+        "EMA:68524",
+        "FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",
+        "FDA:761338Orig1Orig2s000:ChemR",
+        "HC:PM:00085585"
+      ],
+      "pages": [
+        {
+          "document_id": "CTG:NCT04761627:Prot_002.pdf",
+          "version_id": "c74096dc01e990edc7e7c2fc47e908c0b7378c93e04d3c9e088306b50074f9c5",
+          "family_id": "vf75ce8a820905f0ab351d",
+          "pdf_page": 1,
+          "bounds": [
+            0,
+            0,
+            612.0,
+            792.0
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 644,
+              "sample_size": 20,
+              "inclusion_probability": 0.031055900621118012,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "CTG:NCT04761627:Prot_002.pdf",
+          "version_id": "c74096dc01e990edc7e7c2fc47e908c0b7378c93e04d3c9e088306b50074f9c5",
+          "family_id": "vf75ce8a820905f0ab351d",
+          "pdf_page": 5,
+          "bounds": [
+            0,
+            0,
+            612.0,
+            792.0
+          ],
+          "rotation": 0,
+          "memberships": [
+            "context_page"
+          ],
+          "selection_details": [
+            {
+              "membership": "context_page",
+              "anchor": [
+                "CTG:NCT04761627:Prot_002.pdf",
+                6
+              ]
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "CTG:NCT04761627:Prot_002.pdf",
+          "version_id": "c74096dc01e990edc7e7c2fc47e908c0b7378c93e04d3c9e088306b50074f9c5",
+          "family_id": "vf75ce8a820905f0ab351d",
+          "pdf_page": 6,
+          "bounds": [
+            0,
+            0,
+            612.0,
+            792.0
+          ],
+          "rotation": 0,
+          "memberships": [
+            "stress_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "stress_anchor",
+              "heuristic_proxy": {
+                "modality": "mixed",
+                "needs_ocr": false,
+                "candidate_count": 6,
+                "raster_placements": 1,
+                "vector_paths": 160,
+                "native_table_candidates": {
+                  "lines": 2,
+                  "text": 1
+                },
+                "caption_candidates": 0,
+                "full_page_raster": false
+              },
+              "actual_visual_type": "unknown_until_annotated"
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "CTG:NCT04761627:Prot_002.pdf",
+          "version_id": "c74096dc01e990edc7e7c2fc47e908c0b7378c93e04d3c9e088306b50074f9c5",
+          "family_id": "vf75ce8a820905f0ab351d",
+          "pdf_page": 7,
+          "bounds": [
+            0,
+            0,
+            612.0,
+            792.0
+          ],
+          "rotation": 0,
+          "memberships": [
+            "context_page"
+          ],
+          "selection_details": [
+            {
+              "membership": "context_page",
+              "anchor": [
+                "CTG:NCT04761627:Prot_002.pdf",
+                6
+              ]
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "EMA:63559",
+          "version_id": "60d0ddbe9d6a525343456bade2dc9200eb27372c700ca1e5d15e39d5249ccd7d",
+          "family_id": "vf159f0edcbb743c1e0dea",
+          "pdf_page": 1,
+          "bounds": [
+            0,
+            0,
+            595.3200073242188,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "stress_anchor",
+            "whole_document"
+          ],
+          "selection_details": [
+            {
+              "membership": "stress_anchor",
+              "heuristic_proxy": {
+                "modality": "mixed",
+                "needs_ocr": false,
+                "candidate_count": 3,
+                "raster_placements": 2,
+                "vector_paths": 2,
+                "native_table_candidates": {
+                  "lines": 0,
+                  "text": 1
+                },
+                "caption_candidates": 0,
+                "full_page_raster": false
+              },
+              "actual_visual_type": "unknown_until_annotated"
+            },
+            {
+              "membership": "whole_document"
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "EMA:63559",
+          "version_id": "60d0ddbe9d6a525343456bade2dc9200eb27372c700ca1e5d15e39d5249ccd7d",
+          "family_id": "vf159f0edcbb743c1e0dea",
+          "pdf_page": 2,
+          "bounds": [
+            0,
+            0,
+            595.3200073242188,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "context_page",
+            "whole_document"
+          ],
+          "selection_details": [
+            {
+              "membership": "context_page",
+              "anchor": [
+                "EMA:63559",
+                1
+              ]
+            },
+            {
+              "membership": "whole_document"
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "EMA:63559",
+          "version_id": "60d0ddbe9d6a525343456bade2dc9200eb27372c700ca1e5d15e39d5249ccd7d",
+          "family_id": "vf159f0edcbb743c1e0dea",
+          "pdf_page": 3,
+          "bounds": [
+            0,
+            0,
+            595.3200073242188,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "whole_document"
+          ],
+          "selection_details": [
+            {
+              "membership": "whole_document"
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "EMA:63562",
+          "version_id": "cf05fa35da65f7965df616b257c9d9a242a07eb27bc177083fb0d5d39118e054",
+          "family_id": "vf2147fce0b7c1c01301f3",
+          "pdf_page": 1,
+          "bounds": [
+            0,
+            0,
+            840.9600219726562,
+            594.9600219726562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "stress_anchor",
+            "whole_document"
+          ],
+          "selection_details": [
+            {
+              "membership": "stress_anchor",
+              "heuristic_proxy": {
+                "modality": "native",
+                "needs_ocr": false,
+                "candidate_count": 1,
+                "raster_placements": 0,
+                "vector_paths": 190,
+                "native_table_candidates": {
+                  "lines": 1,
+                  "text": 1
+                },
+                "caption_candidates": 0,
+                "full_page_raster": false
+              },
+              "actual_visual_type": "unknown_until_annotated"
+            },
+            {
+              "membership": "whole_document"
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "EMA:64194",
+          "version_id": "ee8a4a8f48f02ce6abe6b0d6d8b9c74092ca858a6dbb9266fd0c8cbbf48dea12",
+          "family_id": "vf83ff037dfd3f14f4e040",
+          "pdf_page": 37,
+          "bounds": [
+            0,
+            0,
+            595.5,
+            841.97998046875
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 644,
+              "sample_size": 20,
+              "inclusion_probability": 0.031055900621118012,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "EMA:64194",
+          "version_id": "ee8a4a8f48f02ce6abe6b0d6d8b9c74092ca858a6dbb9266fd0c8cbbf48dea12",
+          "family_id": "vf83ff037dfd3f14f4e040",
+          "pdf_page": 146,
+          "bounds": [
+            0,
+            0,
+            595.5,
+            841.97998046875
+          ],
+          "rotation": 0,
+          "memberships": [
+            "context_page"
+          ],
+          "selection_details": [
+            {
+              "membership": "context_page",
+              "anchor": [
+                "EMA:64194",
+                147
+              ]
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "EMA:64194",
+          "version_id": "ee8a4a8f48f02ce6abe6b0d6d8b9c74092ca858a6dbb9266fd0c8cbbf48dea12",
+          "family_id": "vf83ff037dfd3f14f4e040",
+          "pdf_page": 147,
+          "bounds": [
+            0,
+            0,
+            595.5,
+            841.97998046875
+          ],
+          "rotation": 0,
+          "memberships": [
+            "stress_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "stress_anchor",
+              "heuristic_proxy": {
+                "modality": "mixed",
+                "needs_ocr": false,
+                "candidate_count": 11,
+                "raster_placements": 2,
+                "vector_paths": 23,
+                "native_table_candidates": {
+                  "lines": 4,
+                  "text": 1
+                },
+                "caption_candidates": 0,
+                "full_page_raster": false
+              },
+              "actual_visual_type": "unknown_until_annotated"
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "EMA:64194",
+          "version_id": "ee8a4a8f48f02ce6abe6b0d6d8b9c74092ca858a6dbb9266fd0c8cbbf48dea12",
+          "family_id": "vf83ff037dfd3f14f4e040",
+          "pdf_page": 148,
+          "bounds": [
+            0,
+            0,
+            595.5,
+            841.97998046875
+          ],
+          "rotation": 0,
+          "memberships": [
+            "context_page"
+          ],
+          "selection_details": [
+            {
+              "membership": "context_page",
+              "anchor": [
+                "EMA:64194",
+                147
+              ]
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "EMA:64788",
+          "version_id": "e0301eaaed4333c8dc518122d287549fd4696640b5879ed44f7af06a52e8edac",
+          "family_id": "vf431b2e447630bfb22d8a",
+          "pdf_page": 1,
+          "bounds": [
+            0,
+            0,
+            595.3200073242188,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "stress_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "stress_anchor",
+              "heuristic_proxy": {
+                "modality": "mixed",
+                "needs_ocr": false,
+                "candidate_count": 3,
+                "raster_placements": 2,
+                "vector_paths": 2,
+                "native_table_candidates": {
+                  "lines": 0,
+                  "text": 1
+                },
+                "caption_candidates": 0,
+                "full_page_raster": false
+              },
+              "actual_visual_type": "unknown_until_annotated"
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "EMA:64788",
+          "version_id": "e0301eaaed4333c8dc518122d287549fd4696640b5879ed44f7af06a52e8edac",
+          "family_id": "vf431b2e447630bfb22d8a",
+          "pdf_page": 2,
+          "bounds": [
+            0,
+            0,
+            595.3200073242188,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "context_page"
+          ],
+          "selection_details": [
+            {
+              "membership": "context_page",
+              "anchor": [
+                "EMA:64788",
+                1
+              ]
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "EMA:64789",
+          "version_id": "58cc4e84fc11e96849da2db6552653b531d5bb75783455e56edd254f4dfe1e7f",
+          "family_id": "vf0ae73f25e1df31002630",
+          "pdf_page": 18,
+          "bounds": [
+            0,
+            0,
+            595.3800048828125,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 644,
+              "sample_size": 20,
+              "inclusion_probability": 0.031055900621118012,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "EMA:64789",
+          "version_id": "58cc4e84fc11e96849da2db6552653b531d5bb75783455e56edd254f4dfe1e7f",
+          "family_id": "vf0ae73f25e1df31002630",
+          "pdf_page": 36,
+          "bounds": [
+            0,
+            0,
+            595.3800048828125,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "context_page"
+          ],
+          "selection_details": [
+            {
+              "membership": "context_page",
+              "anchor": [
+                "EMA:64789",
+                37
+              ]
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "EMA:64789",
+          "version_id": "58cc4e84fc11e96849da2db6552653b531d5bb75783455e56edd254f4dfe1e7f",
+          "family_id": "vf0ae73f25e1df31002630",
+          "pdf_page": 37,
+          "bounds": [
+            0,
+            0,
+            595.3800048828125,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "stress_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "stress_anchor",
+              "heuristic_proxy": {
+                "modality": "mixed",
+                "needs_ocr": false,
+                "candidate_count": 6,
+                "raster_placements": 1,
+                "vector_paths": 418,
+                "native_table_candidates": {
+                  "lines": 2,
+                  "text": 1
+                },
+                "caption_candidates": 0,
+                "full_page_raster": false
+              },
+              "actual_visual_type": "unknown_until_annotated"
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "EMA:64789",
+          "version_id": "58cc4e84fc11e96849da2db6552653b531d5bb75783455e56edd254f4dfe1e7f",
+          "family_id": "vf0ae73f25e1df31002630",
+          "pdf_page": 38,
+          "bounds": [
+            0,
+            0,
+            595.3800048828125,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "context_page"
+          ],
+          "selection_details": [
+            {
+              "membership": "context_page",
+              "anchor": [
+                "EMA:64789",
+                37
+              ]
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "EMA:64789",
+          "version_id": "58cc4e84fc11e96849da2db6552653b531d5bb75783455e56edd254f4dfe1e7f",
+          "family_id": "vf0ae73f25e1df31002630",
+          "pdf_page": 40,
+          "bounds": [
+            0,
+            0,
+            595.3800048828125,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 644,
+              "sample_size": 20,
+              "inclusion_probability": 0.031055900621118012,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "EMA:64789",
+          "version_id": "58cc4e84fc11e96849da2db6552653b531d5bb75783455e56edd254f4dfe1e7f",
+          "family_id": "vf0ae73f25e1df31002630",
+          "pdf_page": 52,
+          "bounds": [
+            0,
+            0,
+            595.3800048828125,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 644,
+              "sample_size": 20,
+              "inclusion_probability": 0.031055900621118012,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "EMA:64789",
+          "version_id": "58cc4e84fc11e96849da2db6552653b531d5bb75783455e56edd254f4dfe1e7f",
+          "family_id": "vf0ae73f25e1df31002630",
+          "pdf_page": 60,
+          "bounds": [
+            0,
+            0,
+            595.3800048828125,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 644,
+              "sample_size": 20,
+              "inclusion_probability": 0.031055900621118012,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "EMA:64789",
+          "version_id": "58cc4e84fc11e96849da2db6552653b531d5bb75783455e56edd254f4dfe1e7f",
+          "family_id": "vf0ae73f25e1df31002630",
+          "pdf_page": 70,
+          "bounds": [
+            0,
+            0,
+            595.3800048828125,
+            841.9199829101562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 644,
+              "sample_size": 20,
+              "inclusion_probability": 0.031055900621118012,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "EMA:68524",
+          "version_id": "5ffc63058beac584b7438b4bbf76f8c40e6b107dc83134ac5d6727a70c0b0ea7",
+          "family_id": "vf0beb66b0e77188d0cd1c",
+          "pdf_page": 1,
+          "bounds": [
+            0,
+            0,
+            840.9600219726562,
+            594.9600219726562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "stress_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "stress_anchor",
+              "heuristic_proxy": {
+                "modality": "mixed",
+                "needs_ocr": false,
+                "candidate_count": 7,
+                "raster_placements": 2,
+                "vector_paths": 106,
+                "native_table_candidates": {
+                  "lines": 2,
+                  "text": 1
+                },
+                "caption_candidates": 0,
+                "full_page_raster": false
+              },
+              "actual_visual_type": "unknown_until_annotated"
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "EMA:68524",
+          "version_id": "5ffc63058beac584b7438b4bbf76f8c40e6b107dc83134ac5d6727a70c0b0ea7",
+          "family_id": "vf0beb66b0e77188d0cd1c",
+          "pdf_page": 2,
+          "bounds": [
+            0,
+            0,
+            840.9600219726562,
+            594.9600219726562
+          ],
+          "rotation": 0,
+          "memberships": [
+            "context_page"
+          ],
+          "selection_details": [
+            {
+              "membership": "context_page",
+              "anchor": [
+                "EMA:68524",
+                1
+              ]
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",
+          "version_id": "2bc7f2e93c191783a960144f66d6a45cabfc3738ce986bcff95ee715ea25a145",
+          "family_id": "vf59fa83abc8fbccfeda7c",
+          "pdf_page": 35,
+          "bounds": [
+            0,
+            0,
+            612.0,
+            792.0
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 644,
+              "sample_size": 20,
+              "inclusion_probability": 0.031055900621118012,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",
+          "version_id": "2bc7f2e93c191783a960144f66d6a45cabfc3738ce986bcff95ee715ea25a145",
+          "family_id": "vf59fa83abc8fbccfeda7c",
+          "pdf_page": 52,
+          "bounds": [
+            0,
+            0,
+            612.0,
+            792.0
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 644,
+              "sample_size": 20,
+              "inclusion_probability": 0.031055900621118012,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",
+          "version_id": "2bc7f2e93c191783a960144f66d6a45cabfc3738ce986bcff95ee715ea25a145",
+          "family_id": "vf59fa83abc8fbccfeda7c",
+          "pdf_page": 75,
+          "bounds": [
+            0,
+            0,
+            612.0,
+            792.0
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 644,
+              "sample_size": 20,
+              "inclusion_probability": 0.031055900621118012,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",
+          "version_id": "2bc7f2e93c191783a960144f66d6a45cabfc3738ce986bcff95ee715ea25a145",
+          "family_id": "vf59fa83abc8fbccfeda7c",
+          "pdf_page": 98,
+          "bounds": [
+            0,
+            0,
+            612.0,
+            792.0
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 644,
+              "sample_size": 20,
+              "inclusion_probability": 0.031055900621118012,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",
+          "version_id": "2bc7f2e93c191783a960144f66d6a45cabfc3738ce986bcff95ee715ea25a145",
+          "family_id": "vf59fa83abc8fbccfeda7c",
+          "pdf_page": 103,
+          "bounds": [
+            0,
+            0,
+            612.0,
+            792.0
+          ],
+          "rotation": 0,
+          "memberships": [
+            "context_page"
+          ],
+          "selection_details": [
+            {
+              "membership": "context_page",
+              "anchor": [
+                "FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",
+                104
+              ]
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",
+          "version_id": "2bc7f2e93c191783a960144f66d6a45cabfc3738ce986bcff95ee715ea25a145",
+          "family_id": "vf59fa83abc8fbccfeda7c",
+          "pdf_page": 104,
+          "bounds": [
+            0,
+            0,
+            612.0,
+            792.0
+          ],
+          "rotation": 0,
+          "memberships": [
+            "stress_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "stress_anchor",
+              "heuristic_proxy": {
+                "modality": "mixed",
+                "needs_ocr": false,
+                "candidate_count": 7,
+                "raster_placements": 1,
+                "vector_paths": 53,
+                "native_table_candidates": {
+                  "lines": 2,
+                  "text": 1
+                },
+                "caption_candidates": 1,
+                "full_page_raster": false
+              },
+              "actual_visual_type": "unknown_until_annotated"
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",
+          "version_id": "2bc7f2e93c191783a960144f66d6a45cabfc3738ce986bcff95ee715ea25a145",
+          "family_id": "vf59fa83abc8fbccfeda7c",
+          "pdf_page": 105,
+          "bounds": [
+            0,
+            0,
+            612.0,
+            792.0
+          ],
+          "rotation": 0,
+          "memberships": [
+            "context_page"
+          ],
+          "selection_details": [
+            {
+              "membership": "context_page",
+              "anchor": [
+                "FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",
+                104
+              ]
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "FDA:761338Orig1Orig2s000:ChemR",
+          "version_id": "4995ff3f746decbdfc67d70063c586d8bdcd7876ec3bd641bb501f33e8ef0981",
+          "family_id": "vfdfcb7098c2b20e5a086b",
+          "pdf_page": 9,
+          "bounds": [
+            0,
+            0,
+            612.0,
+            792.0
+          ],
+          "rotation": 0,
+          "memberships": [
+            "context_page"
+          ],
+          "selection_details": [
+            {
+              "membership": "context_page",
+              "anchor": [
+                "FDA:761338Orig1Orig2s000:ChemR",
+                10
+              ]
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "FDA:761338Orig1Orig2s000:ChemR",
+          "version_id": "4995ff3f746decbdfc67d70063c586d8bdcd7876ec3bd641bb501f33e8ef0981",
+          "family_id": "vfdfcb7098c2b20e5a086b",
+          "pdf_page": 10,
+          "bounds": [
+            0,
+            0,
+            612.0,
+            792.0
+          ],
+          "rotation": 0,
+          "memberships": [
+            "stress_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "stress_anchor",
+              "heuristic_proxy": {
+                "modality": "mixed",
+                "needs_ocr": false,
+                "candidate_count": 10,
+                "raster_placements": 3,
+                "vector_paths": 211,
+                "native_table_candidates": {
+                  "lines": 3,
+                  "text": 1
+                },
+                "caption_candidates": 0,
+                "full_page_raster": false
+              },
+              "actual_visual_type": "unknown_until_annotated"
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "FDA:761338Orig1Orig2s000:ChemR",
+          "version_id": "4995ff3f746decbdfc67d70063c586d8bdcd7876ec3bd641bb501f33e8ef0981",
+          "family_id": "vfdfcb7098c2b20e5a086b",
+          "pdf_page": 11,
+          "bounds": [
+            0,
+            0,
+            612.0,
+            792.0
+          ],
+          "rotation": 0,
+          "memberships": [
+            "context_page"
+          ],
+          "selection_details": [
+            {
+              "membership": "context_page",
+              "anchor": [
+                "FDA:761338Orig1Orig2s000:ChemR",
+                10
+              ]
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "FDA:761338Orig1Orig2s000:ChemR",
+          "version_id": "4995ff3f746decbdfc67d70063c586d8bdcd7876ec3bd641bb501f33e8ef0981",
+          "family_id": "vfdfcb7098c2b20e5a086b",
+          "pdf_page": 24,
+          "bounds": [
+            0,
+            0,
+            612.0,
+            792.0
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 644,
+              "sample_size": 20,
+              "inclusion_probability": 0.031055900621118012,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "FDA:761338Orig1Orig2s000:ChemR",
+          "version_id": "4995ff3f746decbdfc67d70063c586d8bdcd7876ec3bd641bb501f33e8ef0981",
+          "family_id": "vfdfcb7098c2b20e5a086b",
+          "pdf_page": 43,
+          "bounds": [
+            0,
+            0,
+            612.0,
+            792.0
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 644,
+              "sample_size": 20,
+              "inclusion_probability": 0.031055900621118012,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "FDA:761338Orig1Orig2s000:ChemR",
+          "version_id": "4995ff3f746decbdfc67d70063c586d8bdcd7876ec3bd641bb501f33e8ef0981",
+          "family_id": "vfdfcb7098c2b20e5a086b",
+          "pdf_page": 67,
+          "bounds": [
+            0,
+            0,
+            612.0,
+            792.0
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 644,
+              "sample_size": 20,
+              "inclusion_probability": 0.031055900621118012,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "HC:PM:00085585",
+          "version_id": "3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd",
+          "family_id": "vf49cc9fca701f3dd42919",
+          "pdf_page": 8,
+          "bounds": [
+            0,
+            0,
+            612.0,
+            792.0
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 644,
+              "sample_size": 20,
+              "inclusion_probability": 0.031055900621118012,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "HC:PM:00085585",
+          "version_id": "3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd",
+          "family_id": "vf49cc9fca701f3dd42919",
+          "pdf_page": 20,
+          "bounds": [
+            0,
+            0,
+            612.0,
+            792.0
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 644,
+              "sample_size": 20,
+              "inclusion_probability": 0.031055900621118012,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "HC:PM:00085585",
+          "version_id": "3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd",
+          "family_id": "vf49cc9fca701f3dd42919",
+          "pdf_page": 45,
+          "bounds": [
+            0,
+            0,
+            612.0,
+            792.0
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 644,
+              "sample_size": 20,
+              "inclusion_probability": 0.031055900621118012,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "HC:PM:00085585",
+          "version_id": "3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd",
+          "family_id": "vf49cc9fca701f3dd42919",
+          "pdf_page": 48,
+          "bounds": [
+            0,
+            0,
+            612.0,
+            792.0
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 644,
+              "sample_size": 20,
+              "inclusion_probability": 0.031055900621118012,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "HC:PM:00085585",
+          "version_id": "3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd",
+          "family_id": "vf49cc9fca701f3dd42919",
+          "pdf_page": 75,
+          "bounds": [
+            0,
+            0,
+            612.0,
+            792.0
+          ],
+          "rotation": 0,
+          "memberships": [
+            "context_page"
+          ],
+          "selection_details": [
+            {
+              "membership": "context_page",
+              "anchor": [
+                "HC:PM:00085585",
+                76
+              ]
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "HC:PM:00085585",
+          "version_id": "3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd",
+          "family_id": "vf49cc9fca701f3dd42919",
+          "pdf_page": 76,
+          "bounds": [
+            0,
+            0,
+            612.0,
+            792.0
+          ],
+          "rotation": 0,
+          "memberships": [
+            "stress_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "stress_anchor",
+              "heuristic_proxy": {
+                "modality": "mixed",
+                "needs_ocr": false,
+                "candidate_count": 15,
+                "raster_placements": 13,
+                "vector_paths": 86,
+                "native_table_candidates": {
+                  "lines": 0,
+                  "text": 1
+                },
+                "caption_candidates": 0,
+                "full_page_raster": false
+              },
+              "actual_visual_type": "unknown_until_annotated"
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "HC:PM:00085585",
+          "version_id": "3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd",
+          "family_id": "vf49cc9fca701f3dd42919",
+          "pdf_page": 77,
+          "bounds": [
+            0,
+            0,
+            612.0,
+            792.0
+          ],
+          "rotation": 0,
+          "memberships": [
+            "context_page"
+          ],
+          "selection_details": [
+            {
+              "membership": "context_page",
+              "anchor": [
+                "HC:PM:00085585",
+                76
+              ]
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "HC:PM:00085585",
+          "version_id": "3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd",
+          "family_id": "vf49cc9fca701f3dd42919",
+          "pdf_page": 114,
+          "bounds": [
+            0,
+            0,
+            612.0,
+            792.0
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 644,
+              "sample_size": 20,
+              "inclusion_probability": 0.031055900621118012,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        },
+        {
+          "document_id": "HC:PM:00085585",
+          "version_id": "3aa51d9eafd097ee72e841a3d5776190bb0e5631b53d456f4db8d6d5bdb5c7cd",
+          "family_id": "vf49cc9fca701f3dd42919",
+          "pdf_page": 120,
+          "bounds": [
+            0,
+            0,
+            612.0,
+            792.0
+          ],
+          "rotation": 0,
+          "memberships": [
+            "random_anchor"
+          ],
+          "selection_details": [
+            {
+              "membership": "random_anchor",
+              "frame_size": 644,
+              "sample_size": 20,
+              "inclusion_probability": 0.031055900621118012,
+              "probability_scope": "Conditional on purposively selected documents and duplicate-page exclusions; not corpus-wide."
+            }
+          ],
+          "schema_version": "visual-evaluation-1",
+          "annotation_status": "not_annotated",
+          "reviewer": null,
+          "reviewer_type": null,
+          "reviewed_at": null,
+          "clinical_semantics_reviewed": false,
+          "objects": null,
+          "negative_page": null
+        }
+      ],
+      "random_frame_size": 644,
+      "random_anchor_count": 20,
+      "whole_document_ids": [
+        "EMA:63562",
+        "EMA:63559"
+      ],
+      "eligible_family_count": 21,
+      "evaluation_claim": "Retrospective diagnostic transfer; prior processing/exposure exists, not independent holdout."
+    }
+  },
+  "excluded_duplicate_page_keys": [],
+  "excluded_reserve_duplicate_page_keys": [],
+  "stage_1_status": "selection_and_annotation_contract_frozen_labels_pending",
+  "strict_holdout_ready": false,
+  "gold_release_ready": false,
+  "strict_holdout_reason": "Prior model history, incomplete inspection history, and unverified visual annotation. Do not claim independent generalization.",
+  "target": {
+    "families_min": 8,
+    "families_max": 12,
+    "pages_min": 40,
+    "pages_max": 60,
+    "random_pages_min": 20
+  },
+  "known_product_scope": [
+    "ABP654",
+    "CTP43",
+    "SB17"
+  ],
+  "unseen_product_or_active_substance_test": false,
+  "annotation_schema": "annotation_schema.json",
+  "model_calls": {
+    "ocr": 0,
+    "vlm": 0,
+    "layout": 0
+  },
+  "no_test_content_in_development": true
+}

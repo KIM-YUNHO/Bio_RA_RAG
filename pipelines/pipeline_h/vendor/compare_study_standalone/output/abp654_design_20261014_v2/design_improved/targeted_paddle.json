@@ -1,0 +1,1129 @@
+{
+  "startup_seconds": 11.07749600000534,
+  "startup": {
+    "model_load_seconds": 11.074443199999223,
+    "development_warmup_seconds": 0,
+    "settings": {
+      "paddle": {
+        "python": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\.venv-paddle\\Scripts\\python.exe",
+        "layout_model_dir": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\models\\paddle\\PP-DocLayoutV3_safetensors",
+        "vl_model_dir": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\models\\paddle\\PaddleOCR-VL-1.6",
+        "device": "gpu:0",
+        "dpi": 150,
+        "max_new_tokens": 4096,
+        "timeout_s": 600,
+        "chart_recognition": false,
+        "image_ocr": true,
+        "release_qwen_before_parser": false,
+        "native_text": true,
+        "vl_rec_batch_size": 1,
+        "parser_backend": "paddle_vl",
+        "light_det_model_dir": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\models\\paddle\\PP-OCRv5_mobile_det_safetensors",
+        "light_rec_model_dir": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\models\\paddle\\latin_PP-OCRv5_mobile_rec_safetensors"
+      },
+      "qwen": {
+        "endpoint": "http://127.0.0.1:11434",
+        "model": "qwen3.5:9b",
+        "timeout_s": 1800,
+        "num_ctx": 16384,
+        "num_predict": -1,
+        "crop_padding_px": 12,
+        "crop_dpi": 300,
+        "max_image_edge": 1800,
+        "keep_alive": "5m"
+      },
+      "schema_version": "ra-extraction-1"
+    },
+    "gpu_verification": "benchmark worker verifies all torch model parameters are CUDA",
+    "ocr_recognition_batch_size": null,
+    "ocr_batch_note": "benchmark runtime compatibility fix; production config unchanged",
+    "load_note": "layout lazy-load occurs during the first input page; no fixed development PDF is used"
+  },
+  "processing_seconds": 29.86347659999592,
+  "calls": 9,
+  "accepted": 9,
+  "results": [
+    {
+      "job": {
+        "document": "ABP654_EMA_p044.pdf",
+        "page": 1,
+        "key": "ABP654_EMA_p044_fe50ff21bf",
+        "agency": "EMA",
+        "bbox": [
+          63.5,
+          342.5199829101563,
+          474.4,
+          506.0199829101563
+        ],
+        "origin": "existing_table_structure_alarm",
+        "action": "replace",
+        "table_index": 1,
+        "original_table": [
+          [
+            "Treatment and Comparison",
+            "AUCinf (hr*ng/mL) Cmax (ng/mL) LS Geometric Mean [n] LS Geometric Mean [n]",
+            "Cmax (ng/mL)",
+            "AUClast (hr*ng/mL) LS Geometric Mean [n]"
+          ],
+          [
+            "ABP 654",
+            "10783692.1 [76]",
+            "11419.0 [78]",
+            "10137829.7 [78]"
+          ],
+          [
+            "Ustekinumab (US)",
+            "10651782.5 [76]",
+            "11384.9 [79]",
+            "9975870.4 [79]"
+          ],
+          [
+            "Ustekinumab (EU)",
+            "11482547.0 [77]",
+            "12081.5 [80]",
+            "10752507.0 [80]"
+          ],
+          [
+            "",
+            "Ratio of LS Geometric Means (90% Cl)",
+            "",
+            ""
+          ],
+          [
+            "ABP 654 vs ustekinumab (US) 1.0124 (0.9289, 1.1034)1.0030 (0.9314, 1.0801) 1.0162 (0.9358, 1.1035)",
+            "",
+            "",
+            ""
+          ],
+          [
+            "ABP 654 vs ustekinumab (EU) 0.9391 (0.8620, 1.0232) 0.9452 (0.8779, 1.0175) 0.9428 (0.8685, 1.0235)",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Ustekinumab (US) vs ustekinumab (EU)",
+            "",
+            "0.9276 (0.8514, 1.0107) 0.9423 (0.8755, 1.0143) 0.9278 (0.8549, 1.0069)",
+            ""
+          ]
+        ],
+        "quality_alarm": {
+          "issues": [
+            "multiple_value_groups_in_one_cell"
+          ],
+          "cells": [
+            {
+              "r": 5,
+              "c": 0,
+              "value_groups": 3,
+              "text": "ABP 654 vs ustekinumab (US) 1.0124 (0.9289, 1.1034)1.0030 (0.9314, 1.0801) 1.0162 (0.9358, 1.1035)"
+            },
+            {
+              "r": 6,
+              "c": 0,
+              "value_groups": 3,
+              "text": "ABP 654 vs ustekinumab (EU) 0.9391 (0.8620, 1.0232) 0.9452 (0.8779, 1.0175) 0.9428 (0.8685, 1.0235)"
+            },
+            {
+              "r": 7,
+              "c": 2,
+              "value_groups": 3,
+              "text": "0.9276 (0.8514, 1.0107) 0.9423 (0.8755, 1.0143) 0.9278 (0.8549, 1.0069)"
+            }
+          ]
+        },
+        "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_EMA_p044.pdf",
+        "id": "ABP654_EMA_p044_fe50ff21bf_p001_replace_000",
+        "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_EMA_p044_fe50ff21bf_p001_replace_000.png",
+        "image_sha256": "c89a907d2e779779750e65b0615fb236e030e6e9c5731cf93289873f38229cd8",
+        "pixels": [
+          1737,
+          706
+        ],
+        "context_bbox": [
+          60.619998931884766,
+          339.6399841308594,
+          477.2799987792969,
+          508.8999938964844
+        ]
+      },
+      "seconds": 9.620390199997928,
+      "raw": {
+        "res": {
+          "input_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_EMA_p044_fe50ff21bf_p001_replace_000.png",
+          "page_index": null,
+          "page_count": null,
+          "width": 1737,
+          "height": 706,
+          "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_layout_detection": false,
+            "use_chart_recognition": false,
+            "use_seal_recognition": false,
+            "use_ocr_for_image_block": true,
+            "format_block_content": false,
+            "merge_layout_blocks": true,
+            "markdown_ignore_labels": [],
+            "return_layout_polygon_points": true
+          },
+          "parsing_res_list": [
+            {
+              "block_label": "table",
+              "block_content": "<table><tr><td>Treatment and Comparison</td><td>AUC $ _{inf} $ (hr*ng/mL) LS Geometric Mean [n]</td><td>C $ _{max} $ (ng/mL) LS Geometric Mean [n]</td><td>AUC $ _{last} $ (hr*ng/mL) LS Geometric Mean [n]</td></tr><tr><td>ABP 654</td><td>10783692.1 [76]</td><td>11419.0 [78]</td><td>10137829.7 [78]</td></tr><tr><td>Ustekinumab (US)</td><td>10651782.5 [76]</td><td>11384.9 [79]</td><td>9975870.4 [79]</td></tr><tr><td>Ustekinumab (EU)</td><td>11482547.0 [77]</td><td>12081.5 [80]</td><td>10752507.0 [80]</td></tr><tr><td colspan=\"4\">Ratio of LS Geometric Means (90% CI)</td></tr><tr><td>ABP 654 vs ustekinumab (US)</td><td>1.0124 (0.9289, 1.1034)</td><td>1.0030 (0.9314, 1.0801)</td><td>1.0162 (0.9358, 1.1035)</td></tr><tr><td>ABP 654 vs ustekinumab (EU)</td><td>0.9391 (0.8620, 1.0232)</td><td>0.9452 (0.8779, 1.0175)</td><td>0.9428 (0.8685, 1.0235)</td></tr><tr><td>Ustekinumab (US) vs ustekinumab (EU)</td><td>0.9276 (0.8514, 1.0107)</td><td>0.9423 (0.8755, 1.0143)</td><td>0.9278 (0.8549, 1.0069)</td></tr></table>",
+              "block_bbox": [
+                0,
+                0,
+                1737,
+                706
+              ],
+              "block_id": 0,
+              "block_order": null,
+              "group_id": 0
+            }
+          ]
+        },
+        "ra_runtime": {
+          "inference_seconds": 9.619,
+          "vl_rec_batch_size": 1,
+          "native_blocks": 0,
+          "vlm_blocks": null,
+          "cuda_peak_allocated_bytes": 2186890752,
+          "cuda_peak_reserved_bytes": 2294284288
+        }
+      },
+      "content": "<table><tr><td>Treatment and Comparison</td><td>AUC $ _{inf} $ (hr*ng/mL) LS Geometric Mean [n]</td><td>C $ _{max} $ (ng/mL) LS Geometric Mean [n]</td><td>AUC $ _{last} $ (hr*ng/mL) LS Geometric Mean [n]</td></tr><tr><td>ABP 654</td><td>10783692.1 [76]</td><td>11419.0 [78]</td><td>10137829.7 [78]</td></tr><tr><td>Ustekinumab (US)</td><td>10651782.5 [76]</td><td>11384.9 [79]</td><td>9975870.4 [79]</td></tr><tr><td>Ustekinumab (EU)</td><td>11482547.0 [77]</td><td>12081.5 [80]</td><td>10752507.0 [80]</td></tr><tr><td colspan=\"4\">Ratio of LS Geometric Means (90% CI)</td></tr><tr><td>ABP 654 vs ustekinumab (US)</td><td>1.0124 (0.9289, 1.1034)</td><td>1.0030 (0.9314, 1.0801)</td><td>1.0162 (0.9358, 1.1035)</td></tr><tr><td>ABP 654 vs ustekinumab (EU)</td><td>0.9391 (0.8620, 1.0232)</td><td>0.9452 (0.8779, 1.0175)</td><td>0.9428 (0.8685, 1.0235)</td></tr><tr><td>Ustekinumab (US) vs ustekinumab (EU)</td><td>0.9276 (0.8514, 1.0107)</td><td>0.9423 (0.8755, 1.0143)</td><td>0.9278 (0.8549, 1.0069)</td></tr></table>",
+      "table": [
+        [
+          "Treatment and Comparison",
+          "AUC $ _{inf} $ (hr*ng/mL) LS Geometric Mean [n]",
+          "C $ _{max} $ (ng/mL) LS Geometric Mean [n]",
+          "AUC $ _{last} $ (hr*ng/mL) LS Geometric Mean [n]"
+        ],
+        [
+          "ABP 654",
+          "10783692.1 [76]",
+          "11419.0 [78]",
+          "10137829.7 [78]"
+        ],
+        [
+          "Ustekinumab (US)",
+          "10651782.5 [76]",
+          "11384.9 [79]",
+          "9975870.4 [79]"
+        ],
+        [
+          "Ustekinumab (EU)",
+          "11482547.0 [77]",
+          "12081.5 [80]",
+          "10752507.0 [80]"
+        ],
+        [
+          "Ratio of LS Geometric Means (90% CI)",
+          "",
+          "",
+          ""
+        ],
+        [
+          "ABP 654 vs ustekinumab (US)",
+          "1.0124 (0.9289, 1.1034)",
+          "1.0030 (0.9314, 1.0801)",
+          "1.0162 (0.9358, 1.1035)"
+        ],
+        [
+          "ABP 654 vs ustekinumab (EU)",
+          "0.9391 (0.8620, 1.0232)",
+          "0.9452 (0.8779, 1.0175)",
+          "0.9428 (0.8685, 1.0235)"
+        ],
+        [
+          "Ustekinumab (US) vs ustekinumab (EU)",
+          "0.9276 (0.8514, 1.0107)",
+          "0.9423 (0.8755, 1.0143)",
+          "0.9278 (0.8549, 1.0069)"
+        ]
+      ],
+      "accepted": true,
+      "error": null,
+      "semantic_status": "source extraction candidate; independent human review pending"
+    },
+    {
+      "job": {
+        "document": "ABP654_FDA_ChemR_p033.pdf",
+        "page": 1,
+        "key": "ABP654_FDA_ChemR_p033_f69da8cc31",
+        "agency": "FDA",
+        "bbox": [
+          73.92,
+          84.96,
+          538.0799999999999,
+          167.51999999999998
+        ],
+        "origin": "PP-DocLayoutV3 table",
+        "detector_score": 0.7304331660270691,
+        "action": "add",
+        "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p033.pdf",
+        "id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_001",
+        "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_001.png",
+        "image_sha256": "e8d14d1485f61fd3a64b354f807be3164d6a2158d64ac06bdf2605ca115c1308",
+        "pixels": [
+          1800,
+          338
+        ],
+        "context_bbox": [
+          71.04000091552734,
+          82.08000183105469,
+          540.9600219726562,
+          170.39999389648438
+        ]
+      },
+      "seconds": 1.933930799998052,
+      "raw": {
+        "res": {
+          "input_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_001.png",
+          "page_index": null,
+          "page_count": null,
+          "width": 1800,
+          "height": 338,
+          "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_layout_detection": false,
+            "use_chart_recognition": false,
+            "use_seal_recognition": false,
+            "use_ocr_for_image_block": true,
+            "format_block_content": false,
+            "merge_layout_blocks": true,
+            "markdown_ignore_labels": [],
+            "return_layout_polygon_points": true
+          },
+          "parsing_res_list": [
+            {
+              "block_label": "table",
+              "block_content": "<table><tr><td>Comment/Recommendation: For 130 mg vial, revise Product Strength to read as: &quot;130mg/26mL (5mg/mL)&quot; so that the strength per total volume (total drug content supplied in container) followed in close proximity by a parenthetical that includes the strength/mL for single-dose containers that supply a volume of drug greater than 1mL. The applicant has revised as requested.</td></tr></table>",
+              "block_bbox": [
+                0,
+                0,
+                1800,
+                338
+              ],
+              "block_id": 0,
+              "block_order": null,
+              "group_id": 0
+            }
+          ]
+        },
+        "ra_runtime": {
+          "inference_seconds": 1.933,
+          "vl_rec_batch_size": 1,
+          "native_blocks": 0,
+          "vlm_blocks": null,
+          "cuda_peak_allocated_bytes": 2103282176,
+          "cuda_peak_reserved_bytes": 2294284288
+        }
+      },
+      "content": "<table><tr><td>Comment/Recommendation: For 130 mg vial, revise Product Strength to read as: &quot;130mg/26mL (5mg/mL)&quot; so that the strength per total volume (total drug content supplied in container) followed in close proximity by a parenthetical that includes the strength/mL for single-dose containers that supply a volume of drug greater than 1mL. The applicant has revised as requested.</td></tr></table>",
+      "table": [
+        [
+          "Comment/Recommendation: For 130 mg vial, revise Product Strength to read as: \"130mg/26mL (5mg/mL)\" so that the strength per total volume (total drug content supplied in container) followed in close proximity by a parenthetical that includes the strength/mL for single-dose containers that supply a volume of drug greater than 1mL. The applicant has revised as requested."
+        ]
+      ],
+      "accepted": true,
+      "error": null,
+      "semantic_status": "source extraction candidate; independent human review pending"
+    },
+    {
+      "job": {
+        "document": "ABP654_FDA_ChemR_p033.pdf",
+        "page": 1,
+        "key": "ABP654_FDA_ChemR_p033_f69da8cc31",
+        "agency": "FDA",
+        "bbox": [
+          71.52,
+          191.51999999999998,
+          540.0,
+          275.52
+        ],
+        "origin": "PP-DocLayoutV3 table",
+        "detector_score": 0.9575733542442322,
+        "action": "add",
+        "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p033.pdf",
+        "id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_002",
+        "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_002.png",
+        "image_sha256": "ad90f1c8ca70f9d973675634e606fc8ec8af7f2207f64760ec58f02e8b6443b1",
+        "pixels": [
+          1800,
+          341
+        ],
+        "context_bbox": [
+          68.63999938964844,
+          188.63999938964844,
+          542.8800048828125,
+          278.3999938964844
+        ]
+      },
+      "seconds": 1.697180399998615,
+      "raw": {
+        "res": {
+          "input_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_002.png",
+          "page_index": null,
+          "page_count": null,
+          "width": 1800,
+          "height": 341,
+          "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_layout_detection": false,
+            "use_chart_recognition": false,
+            "use_seal_recognition": false,
+            "use_ocr_for_image_block": true,
+            "format_block_content": false,
+            "merge_layout_blocks": true,
+            "markdown_ignore_labels": [],
+            "return_layout_polygon_points": true
+          },
+          "parsing_res_list": [
+            {
+              "block_label": "table",
+              "block_content": "<table><tr><td>Storage temperature/requirements (package labeling)</td><td>Acceptable</td></tr><tr><td>Regulation: 21 CFR 610.61(h)</td><td rowspan=\"2\">✓ Yes ☐ No ☐ N/A</td></tr><tr><td>Recommended labeling practices reference: USP General Chapters: &lt;7&gt; Labeling, USP General Chapters &lt;659&gt; Packaging and Storage Requirements</td></tr></table>",
+              "block_bbox": [
+                0,
+                0,
+                1800,
+                341
+              ],
+              "block_id": 0,
+              "block_order": null,
+              "group_id": 0
+            }
+          ]
+        },
+        "ra_runtime": {
+          "inference_seconds": 1.696,
+          "vl_rec_batch_size": 1,
+          "native_blocks": 0,
+          "vlm_blocks": null,
+          "cuda_peak_allocated_bytes": 2103282176,
+          "cuda_peak_reserved_bytes": 2294284288
+        }
+      },
+      "content": "<table><tr><td>Storage temperature/requirements (package labeling)</td><td>Acceptable</td></tr><tr><td>Regulation: 21 CFR 610.61(h)</td><td rowspan=\"2\">✓ Yes ☐ No ☐ N/A</td></tr><tr><td>Recommended labeling practices reference: USP General Chapters: &lt;7&gt; Labeling, USP General Chapters &lt;659&gt; Packaging and Storage Requirements</td></tr></table>",
+      "table": [
+        [
+          "Storage temperature/requirements (package labeling)",
+          "Acceptable"
+        ],
+        [
+          "Regulation: 21 CFR 610.61(h)",
+          "✓ Yes ☐ No ☐ N/A"
+        ],
+        [
+          "Recommended labeling practices reference: USP General Chapters: <7> Labeling, USP General Chapters <659> Packaging and Storage Requirements",
+          ""
+        ]
+      ],
+      "accepted": true,
+      "error": null,
+      "semantic_status": "source extraction candidate; independent human review pending"
+    },
+    {
+      "job": {
+        "document": "ABP654_FDA_ChemR_p033.pdf",
+        "page": 1,
+        "key": "ABP654_FDA_ChemR_p033_f69da8cc31",
+        "agency": "FDA",
+        "bbox": [
+          71.03999999999999,
+          446.88,
+          540.0,
+          518.88
+        ],
+        "origin": "PP-DocLayoutV3 table",
+        "detector_score": 0.9440029859542847,
+        "action": "add",
+        "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p033.pdf",
+        "id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_003",
+        "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_003.png",
+        "image_sha256": "bad7db50fb52aa750050bd29575df97525dd5779767e493869e2c5e0ae45f9d4",
+        "pixels": [
+          1800,
+          295
+        ],
+        "context_bbox": [
+          68.16000366210938,
+          444.0,
+          542.8800048828125,
+          521.760009765625
+        ]
+      },
+      "seconds": 1.2711211999994703,
+      "raw": {
+        "res": {
+          "input_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_003.png",
+          "page_index": null,
+          "page_count": null,
+          "width": 1800,
+          "height": 295,
+          "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_layout_detection": false,
+            "use_chart_recognition": false,
+            "use_seal_recognition": false,
+            "use_ocr_for_image_block": true,
+            "format_block_content": false,
+            "merge_layout_blocks": true,
+            "markdown_ignore_labels": [],
+            "return_layout_polygon_points": true
+          },
+          "parsing_res_list": [
+            {
+              "block_label": "table",
+              "block_content": "<table><tr><td>Handling: “Do Not Shake”, “Do not Freeze” or equivalent (package labeling)</td><td>Acceptable</td></tr><tr><td>Regulation: 21 CFR 610.61(i)</td><td>✓ Yes ☐ No ☐ N/A</td></tr></table>",
+              "block_bbox": [
+                0,
+                0,
+                1800,
+                295
+              ],
+              "block_id": 0,
+              "block_order": null,
+              "group_id": 0
+            }
+          ]
+        },
+        "ra_runtime": {
+          "inference_seconds": 1.27,
+          "vl_rec_batch_size": 1,
+          "native_blocks": 0,
+          "vlm_blocks": null,
+          "cuda_peak_allocated_bytes": 2091467264,
+          "cuda_peak_reserved_bytes": 2294284288
+        }
+      },
+      "content": "<table><tr><td>Handling: “Do Not Shake”, “Do not Freeze” or equivalent (package labeling)</td><td>Acceptable</td></tr><tr><td>Regulation: 21 CFR 610.61(i)</td><td>✓ Yes ☐ No ☐ N/A</td></tr></table>",
+      "table": [
+        [
+          "Handling: “Do Not Shake”, “Do not Freeze” or equivalent (package labeling)",
+          "Acceptable"
+        ],
+        [
+          "Regulation: 21 CFR 610.61(i)",
+          "✓ Yes ☐ No ☐ N/A"
+        ]
+      ],
+      "accepted": true,
+      "error": null,
+      "semantic_status": "source extraction candidate; independent human review pending"
+    },
+    {
+      "job": {
+        "document": "ABP654_FDA_ChemR_p033.pdf",
+        "page": 1,
+        "key": "ABP654_FDA_ChemR_p033_f69da8cc31",
+        "agency": "FDA",
+        "bbox": [
+          71.03999999999999,
+          624.9599999999999,
+          540.0,
+          697.4399999999999
+        ],
+        "origin": "PP-DocLayoutV3 table",
+        "detector_score": 0.9436938762664795,
+        "action": "add",
+        "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p033.pdf",
+        "id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_004",
+        "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_004.png",
+        "image_sha256": "b60d004798853b393f05cd28e708a7d7c42b337d76dc70b9ae5cdfee0061571a",
+        "pixels": [
+          1800,
+          297
+        ],
+        "context_bbox": [
+          68.16000366210938,
+          622.0800170898438,
+          542.8800048828125,
+          700.3200073242188
+        ]
+      },
+      "seconds": 1.1734938000008697,
+      "raw": {
+        "res": {
+          "input_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_004.png",
+          "page_index": null,
+          "page_count": null,
+          "width": 1800,
+          "height": 297,
+          "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_layout_detection": false,
+            "use_chart_recognition": false,
+            "use_seal_recognition": false,
+            "use_ocr_for_image_block": true,
+            "format_block_content": false,
+            "merge_layout_blocks": true,
+            "markdown_ignore_labels": [],
+            "return_layout_polygon_points": true
+          },
+          "parsing_res_list": [
+            {
+              "block_label": "table",
+              "block_content": "<table><tr><td>Multiple dose containers (recommended individual dose) (package labeling)</td><td>Acceptable</td></tr><tr><td>Regulation: 21 CFR 610.61(j)</td><td>☐ Yes ☐ No ☒ N/A</td></tr></table>",
+              "block_bbox": [
+                0,
+                0,
+                1800,
+                297
+              ],
+              "block_id": 0,
+              "block_order": null,
+              "group_id": 0
+            }
+          ]
+        },
+        "ra_runtime": {
+          "inference_seconds": 1.173,
+          "vl_rec_batch_size": 1,
+          "native_blocks": 0,
+          "vlm_blocks": null,
+          "cuda_peak_allocated_bytes": 2091467264,
+          "cuda_peak_reserved_bytes": 2294284288
+        }
+      },
+      "content": "<table><tr><td>Multiple dose containers (recommended individual dose) (package labeling)</td><td>Acceptable</td></tr><tr><td>Regulation: 21 CFR 610.61(j)</td><td>☐ Yes ☐ No ☒ N/A</td></tr></table>",
+      "table": [
+        [
+          "Multiple dose containers (recommended individual dose) (package labeling)",
+          "Acceptable"
+        ],
+        [
+          "Regulation: 21 CFR 610.61(j)",
+          "☐ Yes ☐ No ☒ N/A"
+        ]
+      ],
+      "accepted": true,
+      "error": null,
+      "semantic_status": "source extraction candidate; independent human review pending"
+    },
+    {
+      "job": {
+        "document": "ABP654_FDA_ChemR_p033.pdf",
+        "page": 1,
+        "key": "ABP654_FDA_ChemR_p033_f69da8cc31",
+        "agency": "FDA",
+        "bbox": [
+          71.52,
+          286.56,
+          541.44,
+          422.88
+        ],
+        "edge_coverage": [
+          0.9969356486210419,
+          0.9969356486210419,
+          0.9894366197183099,
+          0.9894366197183099
+        ],
+        "origin": "source_closed_border",
+        "action": "add",
+        "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p033.pdf",
+        "id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_005",
+        "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_005.png",
+        "image_sha256": "8771784f94864a666cc64ba0ba121db69841ee8e97b93e84490750707b37c553",
+        "pixels": [
+          1800,
+          538
+        ],
+        "context_bbox": [
+          68.63999938964844,
+          283.67999267578125,
+          544.3200073242188,
+          425.760009765625
+        ]
+      },
+      "seconds": 3.4138646999999764,
+      "raw": {
+        "res": {
+          "input_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_005.png",
+          "page_index": null,
+          "page_count": null,
+          "width": 1800,
+          "height": 538,
+          "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_layout_detection": false,
+            "use_chart_recognition": false,
+            "use_seal_recognition": false,
+            "use_ocr_for_image_block": true,
+            "format_block_content": false,
+            "merge_layout_blocks": true,
+            "markdown_ignore_labels": [],
+            "return_layout_polygon_points": true
+          },
+          "parsing_res_list": [
+            {
+              "block_label": "table",
+              "block_content": "<table><tr><td>Comment/Recommendation: For the vials, recommend revise to read as: &quot;Store unopened vial upright and refrigerated at 2°C to 8°C (36°F to 46°F) in the original carton to protect from light. Do not freeze.&quot;</td></tr><tr><td>The applicant responded that the 45 mg and 130 mg vial carton are designed such that the vial is horizontal when storing the carton. Horizontal vial orientation is supported by vial stability studies conducted in both the upright and inverted orientations for which stability data meet stability acceptance criteria at the recommended storage condition through the latest stability time point tested. Therefore, the applicant did not include the recommend language &quot;Store the vial upright&quot;, which is acceptable from an OBP labeling perspective.</td></tr></table>",
+              "block_bbox": [
+                0,
+                0,
+                1800,
+                538
+              ],
+              "block_id": 0,
+              "block_order": null,
+              "group_id": 0
+            }
+          ]
+        },
+        "ra_runtime": {
+          "inference_seconds": 3.413,
+          "vl_rec_batch_size": 1,
+          "native_blocks": 0,
+          "vlm_blocks": null,
+          "cuda_peak_allocated_bytes": 2184946176,
+          "cuda_peak_reserved_bytes": 2384461824
+        }
+      },
+      "content": "<table><tr><td>Comment/Recommendation: For the vials, recommend revise to read as: &quot;Store unopened vial upright and refrigerated at 2°C to 8°C (36°F to 46°F) in the original carton to protect from light. Do not freeze.&quot;</td></tr><tr><td>The applicant responded that the 45 mg and 130 mg vial carton are designed such that the vial is horizontal when storing the carton. Horizontal vial orientation is supported by vial stability studies conducted in both the upright and inverted orientations for which stability data meet stability acceptance criteria at the recommended storage condition through the latest stability time point tested. Therefore, the applicant did not include the recommend language &quot;Store the vial upright&quot;, which is acceptable from an OBP labeling perspective.</td></tr></table>",
+      "table": [
+        [
+          "Comment/Recommendation: For the vials, recommend revise to read as: \"Store unopened vial upright and refrigerated at 2°C to 8°C (36°F to 46°F) in the original carton to protect from light. Do not freeze.\""
+        ],
+        [
+          "The applicant responded that the 45 mg and 130 mg vial carton are designed such that the vial is horizontal when storing the carton. Horizontal vial orientation is supported by vial stability studies conducted in both the upright and inverted orientations for which stability data meet stability acceptance criteria at the recommended storage condition through the latest stability time point tested. Therefore, the applicant did not include the recommend language \"Store the vial upright\", which is acceptable from an OBP labeling perspective."
+        ]
+      ],
+      "accepted": true,
+      "error": null,
+      "semantic_status": "source extraction candidate; independent human review pending"
+    },
+    {
+      "job": {
+        "document": "ABP654_FDA_ChemR_p033.pdf",
+        "page": 1,
+        "key": "ABP654_FDA_ChemR_p033_f69da8cc31",
+        "agency": "FDA",
+        "bbox": [
+          71.52,
+          530.88,
+          541.44,
+          600.48
+        ],
+        "edge_coverage": [
+          0.9969356486210419,
+          0.9969356486210419,
+          0.9793103448275862,
+          0.9793103448275862
+        ],
+        "origin": "source_closed_border",
+        "action": "add",
+        "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p033.pdf",
+        "id": "ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_006",
+        "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_006.png",
+        "image_sha256": "ac2e1889074cdc1e0440fd1ed83273cbfa405c6e987137a16d05e19ee44977cf",
+        "pixels": [
+          1800,
+          285
+        ],
+        "context_bbox": [
+          68.63999938964844,
+          528.0,
+          544.3200073242188,
+          603.3599853515625
+        ]
+      },
+      "seconds": 1.1596210999996401,
+      "raw": {
+        "res": {
+          "input_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_FDA_ChemR_p033_f69da8cc31_p001_add_006.png",
+          "page_index": null,
+          "page_count": null,
+          "width": 1800,
+          "height": 285,
+          "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_layout_detection": false,
+            "use_chart_recognition": false,
+            "use_seal_recognition": false,
+            "use_ocr_for_image_block": true,
+            "format_block_content": false,
+            "merge_layout_blocks": true,
+            "markdown_ignore_labels": [],
+            "return_layout_polygon_points": true
+          },
+          "parsing_res_list": [
+            {
+              "block_label": "table",
+              "block_content": "<table><tr><td>Comment/Recommendation: For the 45 mg and 130mg vial carton labeling, add back the statement of “Do not shake.” to be consistent with the language in the prescribing information. The applicant has revised as requested.</td></tr></table>",
+              "block_bbox": [
+                0,
+                0,
+                1800,
+                285
+              ],
+              "block_id": 0,
+              "block_order": null,
+              "group_id": 0
+            }
+          ]
+        },
+        "ra_runtime": {
+          "inference_seconds": 1.159,
+          "vl_rec_batch_size": 1,
+          "native_blocks": 0,
+          "vlm_blocks": null,
+          "cuda_peak_allocated_bytes": 2080815616,
+          "cuda_peak_reserved_bytes": 2384461824
+        }
+      },
+      "content": "<table><tr><td>Comment/Recommendation: For the 45 mg and 130mg vial carton labeling, add back the statement of “Do not shake.” to be consistent with the language in the prescribing information. The applicant has revised as requested.</td></tr></table>",
+      "table": [
+        [
+          "Comment/Recommendation: For the 45 mg and 130mg vial carton labeling, add back the statement of “Do not shake.” to be consistent with the language in the prescribing information. The applicant has revised as requested."
+        ]
+      ],
+      "accepted": true,
+      "error": null,
+      "semantic_status": "source extraction candidate; independent human review pending"
+    },
+    {
+      "job": {
+        "document": "ABP654_FDA_Multi_p035.pdf",
+        "page": 1,
+        "key": "ABP654_FDA_Multi_p035_165ac97194",
+        "agency": "FDA",
+        "bbox": [
+          71.5,
+          628.7,
+          540.5,
+          708.6
+        ],
+        "origin": "existing_table_structure_alarm",
+        "action": "replace",
+        "table_index": 0,
+        "original_table": [
+          [
+            "",
+            "PK Parameters Geometric Mean (Geometric CV%) "
+          ],
+          [
+            "",
+            "ABP 654 (n=78) US-Stelara (n=79) EU-Stelara (n=80) "
+          ],
+          [
+            "C max   (ng/mL) ",
+            "11546 (36.1) 11258 (33.8) 12085 (32.8) "
+          ],
+          [
+            "AUClast (h*ng/mL) 10175553 (39.6) 9784499 (38.5) 10684286 (33.5) ",
+            ""
+          ],
+          [
+            "AUC0-inf (h*ng/mL) 10859684 (40.9) 10592020 (38.5) 11310320 (35.3) ",
+            ""
+          ],
+          [
+            "T max   (h) a ",
+            "144 (24, 288) 192 (48, 648) 192 (48, 648) "
+          ]
+        ],
+        "quality_alarm": {
+          "issues": [
+            "multiple_value_groups_in_one_cell"
+          ],
+          "cells": [
+            {
+              "r": 2,
+              "c": 1,
+              "value_groups": 3,
+              "text": "11546 (36.1) 11258 (33.8) 12085 (32.8) "
+            },
+            {
+              "r": 3,
+              "c": 0,
+              "value_groups": 3,
+              "text": "AUClast (h*ng/mL) 10175553 (39.6) 9784499 (38.5) 10684286 (33.5) "
+            },
+            {
+              "r": 4,
+              "c": 0,
+              "value_groups": 3,
+              "text": "AUC0-inf (h*ng/mL) 10859684 (40.9) 10592020 (38.5) 11310320 (35.3) "
+            },
+            {
+              "r": 5,
+              "c": 1,
+              "value_groups": 3,
+              "text": "144 (24, 288) 192 (48, 648) 192 (48, 648) "
+            }
+          ]
+        },
+        "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_Multi_p035.pdf",
+        "id": "ABP654_FDA_Multi_p035_165ac97194_p001_replace_007",
+        "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_FDA_Multi_p035_165ac97194_p001_replace_007.png",
+        "image_sha256": "34f3579cc1bd90d218eb4246683462b338e0fd4dc4821343cbc962be5fe5551e",
+        "pixels": [
+          1800,
+          325
+        ],
+        "context_bbox": [
+          68.62000274658203,
+          625.8200073242188,
+          543.3800048828125,
+          711.47998046875
+        ]
+      },
+      "seconds": 5.2200382000009995,
+      "raw": {
+        "res": {
+          "input_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_FDA_Multi_p035_165ac97194_p001_replace_007.png",
+          "page_index": null,
+          "page_count": null,
+          "width": 1800,
+          "height": 325,
+          "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_layout_detection": false,
+            "use_chart_recognition": false,
+            "use_seal_recognition": false,
+            "use_ocr_for_image_block": true,
+            "format_block_content": false,
+            "merge_layout_blocks": true,
+            "markdown_ignore_labels": [],
+            "return_layout_polygon_points": true
+          },
+          "parsing_res_list": [
+            {
+              "block_label": "table",
+              "block_content": "<table><tr><td rowspan=\"2\">PK Parameters</td><td colspan=\"3\">Geometric Mean (Geometric CV%)</td></tr><tr><td>ABP 654 (n=78)</td><td>US-Stelara (n=79)</td><td>EU-Stelara (n=80)</td></tr><tr><td>$ C_{max} $ (ng/mL)</td><td>11546 (36.1)</td><td>11258 (33.8)</td><td>12085 (32.8)</td></tr><tr><td>$ AUC_{last} $ (h*ng/mL)</td><td>10175553 (39.6)</td><td>9784499 (38.5)</td><td>10684286 (33.5)</td></tr><tr><td>$ AUC_{0-inf} $ (h*ng/mL)</td><td>10859684 (40.9)</td><td>10592020 (38.5)</td><td>11310320 (35.3)</td></tr><tr><td>$ T_{max} $ (h) $ ^{a} $</td><td>144 (24, 288)</td><td>192 (48, 648)</td><td>192 (48, 648)</td></tr></table>",
+              "block_bbox": [
+                0,
+                0,
+                1800,
+                325
+              ],
+              "block_id": 0,
+              "block_order": null,
+              "group_id": 0
+            }
+          ]
+        },
+        "ra_runtime": {
+          "inference_seconds": 5.219,
+          "vl_rec_batch_size": 1,
+          "native_blocks": 0,
+          "vlm_blocks": null,
+          "cuda_peak_allocated_bytes": 2103282176,
+          "cuda_peak_reserved_bytes": 2384461824
+        }
+      },
+      "content": "<table><tr><td rowspan=\"2\">PK Parameters</td><td colspan=\"3\">Geometric Mean (Geometric CV%)</td></tr><tr><td>ABP 654 (n=78)</td><td>US-Stelara (n=79)</td><td>EU-Stelara (n=80)</td></tr><tr><td>$ C_{max} $ (ng/mL)</td><td>11546 (36.1)</td><td>11258 (33.8)</td><td>12085 (32.8)</td></tr><tr><td>$ AUC_{last} $ (h*ng/mL)</td><td>10175553 (39.6)</td><td>9784499 (38.5)</td><td>10684286 (33.5)</td></tr><tr><td>$ AUC_{0-inf} $ (h*ng/mL)</td><td>10859684 (40.9)</td><td>10592020 (38.5)</td><td>11310320 (35.3)</td></tr><tr><td>$ T_{max} $ (h) $ ^{a} $</td><td>144 (24, 288)</td><td>192 (48, 648)</td><td>192 (48, 648)</td></tr></table>",
+      "table": [
+        [
+          "PK Parameters",
+          "Geometric Mean (Geometric CV%)",
+          "",
+          ""
+        ],
+        [
+          "",
+          "ABP 654 (n=78)",
+          "US-Stelara (n=79)",
+          "EU-Stelara (n=80)"
+        ],
+        [
+          "$ C_{max} $ (ng/mL)",
+          "11546 (36.1)",
+          "11258 (33.8)",
+          "12085 (32.8)"
+        ],
+        [
+          "$ AUC_{last} $ (h*ng/mL)",
+          "10175553 (39.6)",
+          "9784499 (38.5)",
+          "10684286 (33.5)"
+        ],
+        [
+          "$ AUC_{0-inf} $ (h*ng/mL)",
+          "10859684 (40.9)",
+          "10592020 (38.5)",
+          "11310320 (35.3)"
+        ],
+        [
+          "$ T_{max} $ (h) $ ^{a} $",
+          "144 (24, 288)",
+          "192 (48, 648)",
+          "192 (48, 648)"
+        ]
+      ],
+      "accepted": true,
+      "error": null,
+      "semantic_status": "source extraction candidate; independent human review pending"
+    },
+    {
+      "job": {
+        "document": "ABP654_HC_p034_035.pdf",
+        "page": 2,
+        "key": "ABP654_HC_p034_035_557af5cb1e",
+        "agency": "HC",
+        "bbox": [
+          71.1,
+          71.0,
+          548.3,
+          225.39999999999998
+        ],
+        "origin": "existing_table_structure_alarm",
+        "action": "replace",
+        "table_index": 0,
+        "original_table": [
+          [
+            "",
+            "PHOENIX 1 ",
+            "",
+            "PHOENIX 2 ",
+            "",
+            "ACCEPT",
+            ""
+          ],
+          [
+            "",
+            "Placebo ",
+            "Ustekinumab ",
+            "Placebo ",
+            "Ustekinumab Etanercept ",
+            "",
+            "Ustekinumab"
+          ],
+          [
+            "Failed to respond to,  had contraindication  for, or intolerant to ≥ 1  conventional therapy a ",
+            "139 (55%) ",
+            "270 (53%) ",
+            "254 (62%) ",
+            "490 (60%) ",
+            "",
+            "347 (100%) 555 (100%)"
+          ],
+          [
+            "Failed to respond to,  had contraindication  for, or intolerant to ≥ 3  conventional  therapies a ",
+            "30 (12%) ",
+            "54 (11%) ",
+            "66 (16%) ",
+            "134 (16%) ",
+            "52 (15%) ",
+            "78 (14%)"
+          ]
+        ],
+        "quality_alarm": {
+          "issues": [
+            "multiple_value_groups_in_one_cell"
+          ],
+          "cells": [
+            {
+              "r": 2,
+              "c": 6,
+              "value_groups": 2,
+              "text": "347 (100%) 555 (100%)"
+            }
+          ]
+        },
+        "source_pdf": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_HC_p034_035.pdf",
+        "id": "ABP654_HC_p034_035_557af5cb1e_p002_replace_008",
+        "image": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_HC_p034_035_557af5cb1e_p002_replace_008.png",
+        "image_sha256": "c7f6d4e0f195e46251c8b277f40ca0a8c4533cfc504a59d61ad668f629c91fd0",
+        "pixels": [
+          1800,
+          598
+        ],
+        "context_bbox": [
+          68.22000122070312,
+          68.12000274658203,
+          551.1799926757812,
+          228.27999877929688
+        ]
+      },
+      "seconds": 4.373836200000369,
+      "raw": {
+        "res": {
+          "input_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\crops\\ABP654_HC_p034_035_557af5cb1e_p002_replace_008.png",
+          "page_index": null,
+          "page_count": null,
+          "width": 1800,
+          "height": 598,
+          "model_settings": {
+            "use_doc_preprocessor": false,
+            "use_layout_detection": false,
+            "use_chart_recognition": false,
+            "use_seal_recognition": false,
+            "use_ocr_for_image_block": true,
+            "format_block_content": false,
+            "merge_layout_blocks": true,
+            "markdown_ignore_labels": [],
+            "return_layout_polygon_points": true
+          },
+          "parsing_res_list": [
+            {
+              "block_label": "table",
+              "block_content": "<table><tr><td rowspan=\"2\"></td><td colspan=\"2\">PHOENIX 1</td><td colspan=\"2\">PHOENIX 2</td><td colspan=\"2\">ACCEPT</td></tr><tr><td>Placebo</td><td>Ustekinumab</td><td>Placebo</td><td>Ustekinumab</td><td>Etanercept</td><td>Ustekinumab</td></tr><tr><td>Failed to respond to, had contraindication for, or intolerant to  $ \\ge 1 $ conventional therapy $ ^{a} $</td><td>139 (55%)</td><td>270 (53%)</td><td>254 (62%)</td><td>490 (60%)</td><td>347 (100%)</td><td>555 (100%)</td></tr><tr><td>Failed to respond to, had contraindication for, or intolerant to  $ \\ge 3 $ conventional therapies $ ^{a} $</td><td>30 (12%)</td><td>54 (11%)</td><td>66 (16%)</td><td>134 (16%)</td><td>52 (15%)</td><td>78 (14%)</td></tr></table>",
+              "block_bbox": [
+                0,
+                0,
+                1800,
+                598
+              ],
+              "block_id": 0,
+              "block_order": null,
+              "group_id": 0
+            }
+          ]
+        },
+        "ra_runtime": {
+          "inference_seconds": 4.373,
+          "vl_rec_batch_size": 1,
+          "native_blocks": 0,
+          "vlm_blocks": null,
+          "cuda_peak_allocated_bytes": 2187052544,
+          "cuda_peak_reserved_bytes": 2384461824
+        }
+      },
+      "content": "<table><tr><td rowspan=\"2\"></td><td colspan=\"2\">PHOENIX 1</td><td colspan=\"2\">PHOENIX 2</td><td colspan=\"2\">ACCEPT</td></tr><tr><td>Placebo</td><td>Ustekinumab</td><td>Placebo</td><td>Ustekinumab</td><td>Etanercept</td><td>Ustekinumab</td></tr><tr><td>Failed to respond to, had contraindication for, or intolerant to  $ \\ge 1 $ conventional therapy $ ^{a} $</td><td>139 (55%)</td><td>270 (53%)</td><td>254 (62%)</td><td>490 (60%)</td><td>347 (100%)</td><td>555 (100%)</td></tr><tr><td>Failed to respond to, had contraindication for, or intolerant to  $ \\ge 3 $ conventional therapies $ ^{a} $</td><td>30 (12%)</td><td>54 (11%)</td><td>66 (16%)</td><td>134 (16%)</td><td>52 (15%)</td><td>78 (14%)</td></tr></table>",
+      "table": [
+        [
+          "",
+          "PHOENIX 1",
+          "",
+          "PHOENIX 2",
+          "",
+          "ACCEPT",
+          ""
+        ],
+        [
+          "",
+          "Placebo",
+          "Ustekinumab",
+          "Placebo",
+          "Ustekinumab",
+          "Etanercept",
+          "Ustekinumab"
+        ],
+        [
+          "Failed to respond to, had contraindication for, or intolerant to  $ \\ge 1 $ conventional therapy $ ^{a} $",
+          "139 (55%)",
+          "270 (53%)",
+          "254 (62%)",
+          "490 (60%)",
+          "347 (100%)",
+          "555 (100%)"
+        ],
+        [
+          "Failed to respond to, had contraindication for, or intolerant to  $ \\ge 3 $ conventional therapies $ ^{a} $",
+          "30 (12%)",
+          "54 (11%)",
+          "66 (16%)",
+          "134 (16%)",
+          "52 (15%)",
+          "78 (14%)"
+        ]
+      ],
+      "accepted": true,
+      "error": null,
+      "semantic_status": "source extraction candidate; independent human review pending"
+    }
+  ]
+}

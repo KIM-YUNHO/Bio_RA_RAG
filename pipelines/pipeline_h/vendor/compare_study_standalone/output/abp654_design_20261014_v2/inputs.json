@@ -1,0 +1,640 @@
+{
+  "native": [
+    {
+      "document": {
+        "key": "ABP654_EMA_p036_037_482c552f08",
+        "document_id": "EMA:ABP654_EMA_p036_037_482c552f08",
+        "agency": "EMA",
+        "doc_type": "assessment_report",
+        "source_id": "EMA",
+        "source_title": "EMA Public Assessment Report",
+        "source_pdf_pages": [
+          36,
+          37
+        ],
+        "source_sha256": "123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c"
+      },
+      "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_EMA_p036_037.pdf",
+      "sha256": "9593e505a051ab6c22229b6c9903c29160fd9557f6c6a4a3481b06552ed49e68",
+      "original_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_EMA_p036_037.pdf",
+      "original_sha256": "9593e505a051ab6c22229b6c9903c29160fd9557f6c6a4a3481b06552ed49e68",
+      "page_map": [
+        1,
+        2
+      ],
+      "common_preprocessing": {
+        "watermarks_removed": 0,
+        "before_sha256": "9593e505a051ab6c22229b6c9903c29160fd9557f6c6a4a3481b06552ed49e68",
+        "after_sha256": "9593e505a051ab6c22229b6c9903c29160fd9557f6c6a4a3481b06552ed49e68",
+        "geometry": [
+          {
+            "page": 1,
+            "rotation": 0,
+            "media_box": [
+              0.0,
+              0.0,
+              595.3200073242188,
+              841.9199829101562
+            ],
+            "crop_box": [
+              0.0,
+              0.0,
+              595.3200073242188,
+              841.9199829101562
+            ],
+            "width": 595.3200073242188,
+            "height": 841.9199829101562
+          },
+          {
+            "page": 2,
+            "rotation": 0,
+            "media_box": [
+              0.0,
+              0.0,
+              595.3200073242188,
+              841.9199829101562
+            ],
+            "crop_box": [
+              0.0,
+              0.0,
+              595.3200073242188,
+              841.9199829101562
+            ],
+            "width": 595.3200073242188,
+            "height": 841.9199829101562
+          }
+        ],
+        "coordinate_space": "unrotated PDF top-left points; review renders original at 180 dpi",
+        "policy": "original ra_prep diagonal text sanitizer; no resampling of scan input"
+      }
+    },
+    {
+      "document": {
+        "key": "ABP654_EMA_p044_fe50ff21bf",
+        "document_id": "EMA:ABP654_EMA_p044_fe50ff21bf",
+        "agency": "EMA",
+        "doc_type": "assessment_report",
+        "source_id": "EMA",
+        "source_title": "EMA Public Assessment Report",
+        "source_pdf_pages": [
+          44
+        ],
+        "source_sha256": "123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c"
+      },
+      "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_EMA_p044.pdf",
+      "sha256": "f3322021986f84e14666a1fda6733de99e46fac41a1d80adf40815551030e600",
+      "original_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_EMA_p044.pdf",
+      "original_sha256": "f3322021986f84e14666a1fda6733de99e46fac41a1d80adf40815551030e600",
+      "page_map": [
+        1
+      ],
+      "common_preprocessing": {
+        "watermarks_removed": 0,
+        "before_sha256": "f3322021986f84e14666a1fda6733de99e46fac41a1d80adf40815551030e600",
+        "after_sha256": "f3322021986f84e14666a1fda6733de99e46fac41a1d80adf40815551030e600",
+        "geometry": [
+          {
+            "page": 1,
+            "rotation": 0,
+            "media_box": [
+              0.0,
+              0.0,
+              595.3200073242188,
+              841.9199829101562
+            ],
+            "crop_box": [
+              0.0,
+              0.0,
+              595.3200073242188,
+              841.9199829101562
+            ],
+            "width": 595.3200073242188,
+            "height": 841.9199829101562
+          }
+        ],
+        "coordinate_space": "unrotated PDF top-left points; review renders original at 180 dpi",
+        "policy": "original ra_prep diagonal text sanitizer; no resampling of scan input"
+      }
+    },
+    {
+      "document": {
+        "key": "ABP654_EMA_p050_8097f397b0",
+        "document_id": "EMA:ABP654_EMA_p050_8097f397b0",
+        "agency": "EMA",
+        "doc_type": "assessment_report",
+        "source_id": "EMA",
+        "source_title": "EMA Public Assessment Report",
+        "source_pdf_pages": [
+          50
+        ],
+        "source_sha256": "123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c"
+      },
+      "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_EMA_p050.pdf",
+      "sha256": "360906d10677675645be948a5fbc8b60eae5ecc71c5b25e82bc671e676640995",
+      "original_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_EMA_p050.pdf",
+      "original_sha256": "360906d10677675645be948a5fbc8b60eae5ecc71c5b25e82bc671e676640995",
+      "page_map": [
+        1
+      ],
+      "common_preprocessing": {
+        "watermarks_removed": 0,
+        "before_sha256": "360906d10677675645be948a5fbc8b60eae5ecc71c5b25e82bc671e676640995",
+        "after_sha256": "360906d10677675645be948a5fbc8b60eae5ecc71c5b25e82bc671e676640995",
+        "geometry": [
+          {
+            "page": 1,
+            "rotation": 0,
+            "media_box": [
+              0.0,
+              0.0,
+              841.9199829101562,
+              595.3200073242188
+            ],
+            "crop_box": [
+              0.0,
+              0.0,
+              841.9199829101562,
+              595.3200073242188
+            ],
+            "width": 841.9199829101562,
+            "height": 595.3200073242188
+          }
+        ],
+        "coordinate_space": "unrotated PDF top-left points; review renders original at 180 dpi",
+        "policy": "original ra_prep diagonal text sanitizer; no resampling of scan input"
+      }
+    },
+    {
+      "document": {
+        "key": "ABP654_EMA_p053_4ec9da31e6",
+        "document_id": "EMA:ABP654_EMA_p053_4ec9da31e6",
+        "agency": "EMA",
+        "doc_type": "assessment_report",
+        "source_id": "EMA",
+        "source_title": "EMA Public Assessment Report",
+        "source_pdf_pages": [
+          53
+        ],
+        "source_sha256": "123ca94880a07a1e9affd6f894d7c6dd95ac38714657ed338683b8ed2016e03c"
+      },
+      "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_EMA_p053.pdf",
+      "sha256": "ece30edf9cb5cf7d4543946b5ffe02a67e9127dd302056781dc24cde3d6c52ad",
+      "original_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_EMA_p053.pdf",
+      "original_sha256": "ece30edf9cb5cf7d4543946b5ffe02a67e9127dd302056781dc24cde3d6c52ad",
+      "page_map": [
+        1
+      ],
+      "common_preprocessing": {
+        "watermarks_removed": 0,
+        "before_sha256": "ece30edf9cb5cf7d4543946b5ffe02a67e9127dd302056781dc24cde3d6c52ad",
+        "after_sha256": "ece30edf9cb5cf7d4543946b5ffe02a67e9127dd302056781dc24cde3d6c52ad",
+        "geometry": [
+          {
+            "page": 1,
+            "rotation": 0,
+            "media_box": [
+              0.0,
+              0.0,
+              595.3200073242188,
+              841.9199829101562
+            ],
+            "crop_box": [
+              0.0,
+              0.0,
+              595.3200073242188,
+              841.9199829101562
+            ],
+            "width": 595.3200073242188,
+            "height": 841.9199829101562
+          }
+        ],
+        "coordinate_space": "unrotated PDF top-left points; review renders original at 180 dpi",
+        "policy": "original ra_prep diagonal text sanitizer; no resampling of scan input"
+      }
+    },
+    {
+      "document": {
+        "key": "ABP654_FDA_ChemR_p006_c5f95fd27f",
+        "document_id": "FDA:ABP654_FDA_ChemR_p006_c5f95fd27f",
+        "agency": "FDA",
+        "doc_type": "chemistry_review",
+        "source_id": "FDA_ChemR",
+        "source_title": "FDA Product Quality Review",
+        "source_pdf_pages": [
+          6
+        ],
+        "source_sha256": "09ec859d146b09203f4132ef7528b37b48cba76711e893a5a9f7270d24c089e3"
+      },
+      "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p006.pdf",
+      "sha256": "8d6e5198361c99261edbce5d54d06dd4ab5aee7150fd65cfa0c5f1e16e5f41c3",
+      "original_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p006.pdf",
+      "original_sha256": "8d6e5198361c99261edbce5d54d06dd4ab5aee7150fd65cfa0c5f1e16e5f41c3",
+      "page_map": [
+        1
+      ],
+      "common_preprocessing": {
+        "watermarks_removed": 0,
+        "before_sha256": "8d6e5198361c99261edbce5d54d06dd4ab5aee7150fd65cfa0c5f1e16e5f41c3",
+        "after_sha256": "8d6e5198361c99261edbce5d54d06dd4ab5aee7150fd65cfa0c5f1e16e5f41c3",
+        "geometry": [
+          {
+            "page": 1,
+            "rotation": 0,
+            "media_box": [
+              0.0,
+              0.0,
+              612.0,
+              792.0
+            ],
+            "crop_box": [
+              0.0,
+              0.0,
+              612.0,
+              792.0
+            ],
+            "width": 612.0,
+            "height": 792.0
+          }
+        ],
+        "coordinate_space": "unrotated PDF top-left points; review renders original at 180 dpi",
+        "policy": "original ra_prep diagonal text sanitizer; no resampling of scan input"
+      }
+    },
+    {
+      "document": {
+        "key": "ABP654_FDA_ChemR_p012_013_656e857081",
+        "document_id": "FDA:ABP654_FDA_ChemR_p012_013_656e857081",
+        "agency": "FDA",
+        "doc_type": "chemistry_review",
+        "source_id": "FDA_ChemR",
+        "source_title": "FDA Product Quality Review",
+        "source_pdf_pages": [
+          12,
+          13
+        ],
+        "source_sha256": "09ec859d146b09203f4132ef7528b37b48cba76711e893a5a9f7270d24c089e3"
+      },
+      "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p012_013.pdf",
+      "sha256": "c8e872d7124400a9d81dd74010a5453b67c1e8eb77da6bb7b3da4d8e42a11998",
+      "original_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p012_013.pdf",
+      "original_sha256": "c8e872d7124400a9d81dd74010a5453b67c1e8eb77da6bb7b3da4d8e42a11998",
+      "page_map": [
+        1,
+        2
+      ],
+      "common_preprocessing": {
+        "watermarks_removed": 0,
+        "before_sha256": "c8e872d7124400a9d81dd74010a5453b67c1e8eb77da6bb7b3da4d8e42a11998",
+        "after_sha256": "c8e872d7124400a9d81dd74010a5453b67c1e8eb77da6bb7b3da4d8e42a11998",
+        "geometry": [
+          {
+            "page": 1,
+            "rotation": 0,
+            "media_box": [
+              0.0,
+              0.0,
+              612.0,
+              792.0
+            ],
+            "crop_box": [
+              0.0,
+              0.0,
+              612.0,
+              792.0
+            ],
+            "width": 612.0,
+            "height": 792.0
+          },
+          {
+            "page": 2,
+            "rotation": 0,
+            "media_box": [
+              0.0,
+              0.0,
+              612.0,
+              792.0
+            ],
+            "crop_box": [
+              0.0,
+              0.0,
+              612.0,
+              792.0
+            ],
+            "width": 612.0,
+            "height": 792.0
+          }
+        ],
+        "coordinate_space": "unrotated PDF top-left points; review renders original at 180 dpi",
+        "policy": "original ra_prep diagonal text sanitizer; no resampling of scan input"
+      }
+    },
+    {
+      "document": {
+        "key": "ABP654_FDA_ChemR_p033_f69da8cc31",
+        "document_id": "FDA:ABP654_FDA_ChemR_p033_f69da8cc31",
+        "agency": "FDA",
+        "doc_type": "chemistry_review",
+        "source_id": "FDA_ChemR",
+        "source_title": "FDA Product Quality Review",
+        "source_pdf_pages": [
+          33
+        ],
+        "source_sha256": "09ec859d146b09203f4132ef7528b37b48cba76711e893a5a9f7270d24c089e3"
+      },
+      "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p033.pdf",
+      "sha256": "2d884dbcfefb8079f34a0e95f20addacf7ea95fee30299db3b64c866db8d185e",
+      "original_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_ChemR_p033.pdf",
+      "original_sha256": "2d884dbcfefb8079f34a0e95f20addacf7ea95fee30299db3b64c866db8d185e",
+      "page_map": [
+        1
+      ],
+      "common_preprocessing": {
+        "watermarks_removed": 0,
+        "before_sha256": "2d884dbcfefb8079f34a0e95f20addacf7ea95fee30299db3b64c866db8d185e",
+        "after_sha256": "2d884dbcfefb8079f34a0e95f20addacf7ea95fee30299db3b64c866db8d185e",
+        "geometry": [
+          {
+            "page": 1,
+            "rotation": 0,
+            "media_box": [
+              0.0,
+              0.0,
+              612.0,
+              792.0
+            ],
+            "crop_box": [
+              0.0,
+              0.0,
+              612.0,
+              792.0
+            ],
+            "width": 612.0,
+            "height": 792.0
+          }
+        ],
+        "coordinate_space": "unrotated PDF top-left points; review renders original at 180 dpi",
+        "policy": "original ra_prep diagonal text sanitizer; no resampling of scan input"
+      }
+    },
+    {
+      "document": {
+        "key": "ABP654_FDA_Multi_p035_165ac97194",
+        "document_id": "FDA:ABP654_FDA_Multi_p035_165ac97194",
+        "agency": "FDA",
+        "doc_type": "multidisciplinary_review",
+        "source_id": "FDA_Multi",
+        "source_title": "FDA Biosimilar Multidisciplinary Evaluation and Review",
+        "source_pdf_pages": [
+          35
+        ],
+        "source_sha256": "2bc7f2e93c191783a960144f66d6a45cabfc3738ce986bcff95ee715ea25a145"
+      },
+      "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_Multi_p035.pdf",
+      "sha256": "fd84c3f495858adea7d5bb095a096701c3c042da2dd5d69b908f87569dd31ad6",
+      "original_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_FDA_Multi_p035.pdf",
+      "original_sha256": "fd84c3f495858adea7d5bb095a096701c3c042da2dd5d69b908f87569dd31ad6",
+      "page_map": [
+        1
+      ],
+      "common_preprocessing": {
+        "watermarks_removed": 0,
+        "before_sha256": "fd84c3f495858adea7d5bb095a096701c3c042da2dd5d69b908f87569dd31ad6",
+        "after_sha256": "fd84c3f495858adea7d5bb095a096701c3c042da2dd5d69b908f87569dd31ad6",
+        "geometry": [
+          {
+            "page": 1,
+            "rotation": 0,
+            "media_box": [
+              0.0,
+              0.0,
+              612.0,
+              792.0
+            ],
+            "crop_box": [
+              0.0,
+              0.0,
+              612.0,
+              792.0
+            ],
+            "width": 612.0,
+            "height": 792.0
+          }
+        ],
+        "coordinate_space": "unrotated PDF top-left points; review renders original at 180 dpi",
+        "policy": "original ra_prep diagonal text sanitizer; no resampling of scan input"
+      }
+    },
+    {
+      "document": {
+        "key": "ABP654_HC_p028_c68021cb9c",
+        "document_id": "HC:ABP654_HC_p028_c68021cb9c",
+        "agency": "HC",
+        "doc_type": "product_monograph",
+        "source_id": "HC",
+        "source_title": "Health Canada WEZLANA Product Monograph",
+        "source_pdf_pages": [
+          28
+        ],
+        "source_sha256": "83a4e0fdd8a24e0f670d11268893e21babd4bed528c6d8def40635002d330287"
+      },
+      "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_HC_p028.pdf",
+      "sha256": "1fe6519556ed3796271e5cd69a1c35eb315eac44932808257153ca83f04c9ee6",
+      "original_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_HC_p028.pdf",
+      "original_sha256": "1fe6519556ed3796271e5cd69a1c35eb315eac44932808257153ca83f04c9ee6",
+      "page_map": [
+        1
+      ],
+      "common_preprocessing": {
+        "watermarks_removed": 0,
+        "before_sha256": "1fe6519556ed3796271e5cd69a1c35eb315eac44932808257153ca83f04c9ee6",
+        "after_sha256": "1fe6519556ed3796271e5cd69a1c35eb315eac44932808257153ca83f04c9ee6",
+        "geometry": [
+          {
+            "page": 1,
+            "rotation": 0,
+            "media_box": [
+              0.0,
+              0.0,
+              612.0,
+              792.0
+            ],
+            "crop_box": [
+              0.0,
+              0.0,
+              612.0,
+              792.0
+            ],
+            "width": 612.0,
+            "height": 792.0
+          }
+        ],
+        "coordinate_space": "unrotated PDF top-left points; review renders original at 180 dpi",
+        "policy": "original ra_prep diagonal text sanitizer; no resampling of scan input"
+      }
+    },
+    {
+      "document": {
+        "key": "ABP654_HC_p030_7bc86aef67",
+        "document_id": "HC:ABP654_HC_p030_7bc86aef67",
+        "agency": "HC",
+        "doc_type": "product_monograph",
+        "source_id": "HC",
+        "source_title": "Health Canada WEZLANA Product Monograph",
+        "source_pdf_pages": [
+          30
+        ],
+        "source_sha256": "83a4e0fdd8a24e0f670d11268893e21babd4bed528c6d8def40635002d330287"
+      },
+      "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_HC_p030.pdf",
+      "sha256": "616722258462133dd33186f080edc496bcab6391a4725c058cf53f93d2253b9c",
+      "original_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_HC_p030.pdf",
+      "original_sha256": "616722258462133dd33186f080edc496bcab6391a4725c058cf53f93d2253b9c",
+      "page_map": [
+        1
+      ],
+      "common_preprocessing": {
+        "watermarks_removed": 0,
+        "before_sha256": "616722258462133dd33186f080edc496bcab6391a4725c058cf53f93d2253b9c",
+        "after_sha256": "616722258462133dd33186f080edc496bcab6391a4725c058cf53f93d2253b9c",
+        "geometry": [
+          {
+            "page": 1,
+            "rotation": 0,
+            "media_box": [
+              0.0,
+              0.0,
+              612.0,
+              792.0
+            ],
+            "crop_box": [
+              0.0,
+              0.0,
+              612.0,
+              792.0
+            ],
+            "width": 612.0,
+            "height": 792.0
+          }
+        ],
+        "coordinate_space": "unrotated PDF top-left points; review renders original at 180 dpi",
+        "policy": "original ra_prep diagonal text sanitizer; no resampling of scan input"
+      }
+    },
+    {
+      "document": {
+        "key": "ABP654_HC_p034_035_557af5cb1e",
+        "document_id": "HC:ABP654_HC_p034_035_557af5cb1e",
+        "agency": "HC",
+        "doc_type": "product_monograph",
+        "source_id": "HC",
+        "source_title": "Health Canada WEZLANA Product Monograph",
+        "source_pdf_pages": [
+          34,
+          35
+        ],
+        "source_sha256": "83a4e0fdd8a24e0f670d11268893e21babd4bed528c6d8def40635002d330287"
+      },
+      "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_HC_p034_035.pdf",
+      "sha256": "34178303daf60bd8bfd044051b6994ced2e83a8c759d8f7c33e3450bc0ab5e97",
+      "original_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_HC_p034_035.pdf",
+      "original_sha256": "34178303daf60bd8bfd044051b6994ced2e83a8c759d8f7c33e3450bc0ab5e97",
+      "page_map": [
+        1,
+        2
+      ],
+      "common_preprocessing": {
+        "watermarks_removed": 0,
+        "before_sha256": "34178303daf60bd8bfd044051b6994ced2e83a8c759d8f7c33e3450bc0ab5e97",
+        "after_sha256": "34178303daf60bd8bfd044051b6994ced2e83a8c759d8f7c33e3450bc0ab5e97",
+        "geometry": [
+          {
+            "page": 1,
+            "rotation": 0,
+            "media_box": [
+              0.0,
+              0.0,
+              612.0,
+              792.0
+            ],
+            "crop_box": [
+              0.0,
+              0.0,
+              612.0,
+              792.0
+            ],
+            "width": 612.0,
+            "height": 792.0
+          },
+          {
+            "page": 2,
+            "rotation": 0,
+            "media_box": [
+              0.0,
+              0.0,
+              612.0,
+              792.0
+            ],
+            "crop_box": [
+              0.0,
+              0.0,
+              612.0,
+              792.0
+            ],
+            "width": 612.0,
+            "height": 792.0
+          }
+        ],
+        "coordinate_space": "unrotated PDF top-left points; review renders original at 180 dpi",
+        "policy": "original ra_prep diagonal text sanitizer; no resampling of scan input"
+      }
+    },
+    {
+      "document": {
+        "key": "ABP654_HC_p038_89c4e60a44",
+        "document_id": "HC:ABP654_HC_p038_89c4e60a44",
+        "agency": "HC",
+        "doc_type": "product_monograph",
+        "source_id": "HC",
+        "source_title": "Health Canada WEZLANA Product Monograph",
+        "source_pdf_pages": [
+          38
+        ],
+        "source_sha256": "83a4e0fdd8a24e0f670d11268893e21babd4bed528c6d8def40635002d330287"
+      },
+      "path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_HC_p038.pdf",
+      "sha256": "e677ded1a83640da7a6ca8c9f068191ea766bb780f65b22a764a4b849268d659",
+      "original_path": "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\datasets\\abp654_15p_v1\\pdfs\\ABP654_HC_p038.pdf",
+      "original_sha256": "e677ded1a83640da7a6ca8c9f068191ea766bb780f65b22a764a4b849268d659",
+      "page_map": [
+        1
+      ],
+      "common_preprocessing": {
+        "watermarks_removed": 0,
+        "before_sha256": "e677ded1a83640da7a6ca8c9f068191ea766bb780f65b22a764a4b849268d659",
+        "after_sha256": "e677ded1a83640da7a6ca8c9f068191ea766bb780f65b22a764a4b849268d659",
+        "geometry": [
+          {
+            "page": 1,
+            "rotation": 0,
+            "media_box": [
+              0.0,
+              0.0,
+              612.0,
+              792.0
+            ],
+            "crop_box": [
+              0.0,
+              0.0,
+              612.0,
+              792.0
+            ],
+            "width": 612.0,
+            "height": 792.0
+          }
+        ],
+        "coordinate_space": "unrotated PDF top-left points; review renders original at 180 dpi",
+        "policy": "original ra_prep diagonal text sanitizer; no resampling of scan input"
+      }
+    }
+  ]
+}

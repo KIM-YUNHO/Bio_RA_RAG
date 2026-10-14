@@ -1,0 +1,476 @@
+{
+  "summary": {
+    "n": 17,
+    "answerable_n": 16,
+    "page_hit@5": 0.8125,
+    "mrr@5": 0.6927083333333334,
+    "gold_in_answer_context_n": 13,
+    "accepted_items": 29,
+    "literal_valid_items": 29,
+    "literal_precision": 1.0,
+    "items_with_review_links": 29,
+    "status_counts": {
+      "completed_with_errors": 13,
+      "completed": 4
+    },
+    "latency_seconds": {
+      "p50": 6.594,
+      "p95": 9.11,
+      "mean": 7.236294117647058
+    },
+    "input_tokens": 78936,
+    "output_tokens": 4959,
+    "repair_attempts": 0,
+    "semantic_scoring": "Separate source-based agent adjudication required; no LLM judge or expert certification"
+  },
+  "rows": [
+    {
+      "id": "Q002",
+      "suite": "historical_dev",
+      "topic": "population",
+      "expected": "answerable",
+      "status": "completed_with_errors",
+      "unit_statuses": [
+        "error"
+      ],
+      "first_gold_page_rank": 1,
+      "gold_page_hit@5": true,
+      "gold_in_answer_context": true,
+      "items": 0,
+      "literal_valid_items": 0,
+      "items_with_review_links": 0,
+      "items_with_expected_source_version": 0,
+      "rejected_items": 0,
+      "repair_attempts": 0,
+      "repair_accepted": 0,
+      "seconds": 17.36,
+      "usage": {
+        "input_tokens": 2786,
+        "output_tokens": 136
+      },
+      "semantic_verdict": "pending_evaluator_review; literal validity is not semantic correctness"
+    },
+    {
+      "id": "Q005",
+      "suite": "historical_dev",
+      "topic": "margin",
+      "expected": "answerable",
+      "status": "completed_with_errors",
+      "unit_statuses": [
+        "error"
+      ],
+      "first_gold_page_rank": null,
+      "gold_page_hit@5": false,
+      "gold_in_answer_context": false,
+      "items": 0,
+      "literal_valid_items": 0,
+      "items_with_review_links": 0,
+      "items_with_expected_source_version": 0,
+      "rejected_items": 0,
+      "repair_attempts": 0,
+      "repair_accepted": 0,
+      "seconds": 6.579,
+      "usage": {
+        "input_tokens": 5761,
+        "output_tokens": 253
+      },
+      "semantic_verdict": "pending_evaluator_review; literal validity is not semantic correctness"
+    },
+    {
+      "id": "Q008",
+      "suite": "historical_dev",
+      "topic": "n_pk_set",
+      "expected": "answerable",
+      "status": "completed",
+      "unit_statuses": [
+        "answered"
+      ],
+      "first_gold_page_rank": 1,
+      "gold_page_hit@5": true,
+      "gold_in_answer_context": true,
+      "items": 3,
+      "literal_valid_items": 3,
+      "items_with_review_links": 3,
+      "items_with_expected_source_version": 3,
+      "rejected_items": 0,
+      "repair_attempts": 0,
+      "repair_accepted": 0,
+      "seconds": 6.594,
+      "usage": {
+        "input_tokens": 7538,
+        "output_tokens": 347
+      },
+      "semantic_verdict": "pending_evaluator_review; literal validity is not semantic correctness"
+    },
+    {
+      "id": "Q012",
+      "suite": "historical_dev",
+      "topic": "gmr",
+      "expected": "answerable",
+      "status": "completed_with_errors",
+      "unit_statuses": [
+        "error"
+      ],
+      "first_gold_page_rank": 4,
+      "gold_page_hit@5": true,
+      "gold_in_answer_context": false,
+      "items": 0,
+      "literal_valid_items": 0,
+      "items_with_review_links": 0,
+      "items_with_expected_source_version": 0,
+      "rejected_items": 0,
+      "repair_attempts": 0,
+      "repair_accepted": 0,
+      "seconds": 6.328,
+      "usage": {
+        "input_tokens": 2864,
+        "output_tokens": 250
+      },
+      "semantic_verdict": "pending_evaluator_review; literal validity is not semantic correctness"
+    },
+    {
+      "id": "D02",
+      "suite": "diagnostic",
+      "topic": "figure_scope",
+      "expected": "answerable",
+      "status": "completed_with_errors",
+      "unit_statuses": [
+        "error"
+      ],
+      "first_gold_page_rank": 1,
+      "gold_page_hit@5": true,
+      "gold_in_answer_context": true,
+      "items": 0,
+      "literal_valid_items": 0,
+      "items_with_review_links": 0,
+      "items_with_expected_source_version": 0,
+      "rejected_items": 0,
+      "repair_attempts": 0,
+      "repair_accepted": 0,
+      "seconds": 6.297,
+      "usage": {
+        "input_tokens": 2801,
+        "output_tokens": 179
+      },
+      "semantic_verdict": "pending_evaluator_review; literal validity is not semantic correctness"
+    },
+    {
+      "id": "D03",
+      "suite": "diagnostic",
+      "topic": "false_premise",
+      "expected": "abstain_or_correct_premise",
+      "status": "completed_with_errors",
+      "unit_statuses": [
+        "error"
+      ],
+      "first_gold_page_rank": 2,
+      "gold_page_hit@5": true,
+      "gold_in_answer_context": true,
+      "items": 0,
+      "literal_valid_items": 0,
+      "items_with_review_links": 0,
+      "items_with_expected_source_version": 0,
+      "rejected_items": 0,
+      "repair_attempts": 0,
+      "repair_accepted": 0,
+      "seconds": 6.594,
+      "usage": {
+        "input_tokens": 2869,
+        "output_tokens": 194
+      },
+      "semantic_verdict": "pending_evaluator_review; literal validity is not semantic correctness"
+    },
+    {
+      "id": "D07",
+      "suite": "diagnostic",
+      "topic": "label_table",
+      "expected": "answerable",
+      "status": "completed_with_errors",
+      "unit_statuses": [
+        "error"
+      ],
+      "first_gold_page_rank": 1,
+      "gold_page_hit@5": true,
+      "gold_in_answer_context": true,
+      "items": 0,
+      "literal_valid_items": 0,
+      "items_with_review_links": 0,
+      "items_with_expected_source_version": 0,
+      "rejected_items": 0,
+      "repair_attempts": 0,
+      "repair_accepted": 0,
+      "seconds": 6.422,
+      "usage": {
+        "input_tokens": 2819,
+        "output_tokens": 126
+      },
+      "semantic_verdict": "pending_evaluator_review; literal validity is not semantic correctness"
+    },
+    {
+      "id": "M_SB17",
+      "suite": "five_product_label_development",
+      "topic": "adult_label_dosing",
+      "expected": "answerable",
+      "status": "completed",
+      "unit_statuses": [
+        "answered"
+      ],
+      "first_gold_page_rank": null,
+      "gold_page_hit@5": false,
+      "gold_in_answer_context": false,
+      "items": 8,
+      "literal_valid_items": 8,
+      "items_with_review_links": 8,
+      "items_with_expected_source_version": 0,
+      "rejected_items": 0,
+      "repair_attempts": 0,
+      "repair_accepted": 0,
+      "seconds": 7.032,
+      "usage": {
+        "input_tokens": 7454,
+        "output_tokens": 600
+      },
+      "semantic_verdict": "pending_evaluator_review; literal validity is not semantic correctness"
+    },
+    {
+      "id": "M_ABP654",
+      "suite": "five_product_label_development",
+      "topic": "adult_label_dosing",
+      "expected": "answerable",
+      "status": "completed",
+      "unit_statuses": [
+        "answered"
+      ],
+      "first_gold_page_rank": 2,
+      "gold_page_hit@5": true,
+      "gold_in_answer_context": true,
+      "items": 9,
+      "literal_valid_items": 9,
+      "items_with_review_links": 9,
+      "items_with_expected_source_version": 9,
+      "rejected_items": 0,
+      "repair_attempts": 0,
+      "repair_accepted": 0,
+      "seconds": 6.734,
+      "usage": {
+        "input_tokens": 7587,
+        "output_tokens": 666
+      },
+      "semantic_verdict": "pending_evaluator_review; literal validity is not semantic correctness"
+    },
+    {
+      "id": "M_CTP43",
+      "suite": "five_product_label_development",
+      "topic": "adult_label_dosing",
+      "expected": "answerable",
+      "status": "completed_with_errors",
+      "unit_statuses": [
+        "error"
+      ],
+      "first_gold_page_rank": null,
+      "gold_page_hit@5": false,
+      "gold_in_answer_context": true,
+      "items": 0,
+      "literal_valid_items": 0,
+      "items_with_review_links": 0,
+      "items_with_expected_source_version": 0,
+      "rejected_items": 0,
+      "repair_attempts": 0,
+      "repair_accepted": 0,
+      "seconds": 7.047,
+      "usage": {
+        "input_tokens": 2819,
+        "output_tokens": 141
+      },
+      "semantic_verdict": "pending_evaluator_review; literal validity is not semantic correctness"
+    },
+    {
+      "id": "M_BMAB1200",
+      "suite": "five_product_label_development",
+      "topic": "adult_label_dosing",
+      "expected": "answerable",
+      "status": "completed_with_errors",
+      "unit_statuses": [
+        "error"
+      ],
+      "first_gold_page_rank": 1,
+      "gold_page_hit@5": true,
+      "gold_in_answer_context": true,
+      "items": 0,
+      "literal_valid_items": 0,
+      "items_with_review_links": 0,
+      "items_with_expected_source_version": 0,
+      "rejected_items": 0,
+      "repair_attempts": 0,
+      "repair_accepted": 0,
+      "seconds": 6.937,
+      "usage": {
+        "input_tokens": 2821,
+        "output_tokens": 144
+      },
+      "semantic_verdict": "pending_evaluator_review; literal validity is not semantic correctness"
+    },
+    {
+      "id": "M_BAT2206",
+      "suite": "five_product_label_development",
+      "topic": "adult_label_dosing",
+      "expected": "answerable",
+      "status": "completed",
+      "unit_statuses": [
+        "answered"
+      ],
+      "first_gold_page_rank": 1,
+      "gold_page_hit@5": true,
+      "gold_in_answer_context": true,
+      "items": 9,
+      "literal_valid_items": 9,
+      "items_with_review_links": 9,
+      "items_with_expected_source_version": 9,
+      "rejected_items": 0,
+      "repair_attempts": 0,
+      "repair_accepted": 0,
+      "seconds": 6.781,
+      "usage": {
+        "input_tokens": 7590,
+        "output_tokens": 666
+      },
+      "semantic_verdict": "pending_evaluator_review; literal validity is not semantic correctness"
+    },
+    {
+      "id": "T01",
+      "suite": "newly_tested_approved_RA3_sources",
+      "topic": "source_transfer",
+      "expected": "answerable",
+      "status": "completed_with_errors",
+      "unit_statuses": [
+        "error"
+      ],
+      "first_gold_page_rank": 3,
+      "gold_page_hit@5": true,
+      "gold_in_answer_context": true,
+      "items": 0,
+      "literal_valid_items": 0,
+      "items_with_review_links": 0,
+      "items_with_expected_source_version": 0,
+      "rejected_items": 0,
+      "repair_attempts": 0,
+      "repair_accepted": 0,
+      "seconds": 6.578,
+      "usage": {
+        "input_tokens": 5913,
+        "output_tokens": 352
+      },
+      "semantic_verdict": "pending_evaluator_review; literal validity is not semantic correctness"
+    },
+    {
+      "id": "T02",
+      "suite": "newly_tested_approved_RA3_sources",
+      "topic": "source_transfer",
+      "expected": "answerable",
+      "status": "completed_with_errors",
+      "unit_statuses": [
+        "error"
+      ],
+      "first_gold_page_rank": 1,
+      "gold_page_hit@5": true,
+      "gold_in_answer_context": true,
+      "items": 0,
+      "literal_valid_items": 0,
+      "items_with_review_links": 0,
+      "items_with_expected_source_version": 0,
+      "rejected_items": 0,
+      "repair_attempts": 0,
+      "repair_accepted": 0,
+      "seconds": 6.734,
+      "usage": {
+        "input_tokens": 5940,
+        "output_tokens": 422
+      },
+      "semantic_verdict": "pending_evaluator_review; literal validity is not semantic correctness"
+    },
+    {
+      "id": "T03",
+      "suite": "newly_tested_approved_RA3_sources",
+      "topic": "source_transfer",
+      "expected": "answerable",
+      "status": "completed_with_errors",
+      "unit_statuses": [
+        "error"
+      ],
+      "first_gold_page_rank": 1,
+      "gold_page_hit@5": true,
+      "gold_in_answer_context": true,
+      "items": 0,
+      "literal_valid_items": 0,
+      "items_with_review_links": 0,
+      "items_with_expected_source_version": 0,
+      "rejected_items": 0,
+      "repair_attempts": 0,
+      "repair_accepted": 0,
+      "seconds": 6.344,
+      "usage": {
+        "input_tokens": 2792,
+        "output_tokens": 120
+      },
+      "semantic_verdict": "pending_evaluator_review; literal validity is not semantic correctness"
+    },
+    {
+      "id": "T04",
+      "suite": "newly_tested_approved_RA3_sources",
+      "topic": "source_transfer",
+      "expected": "answerable",
+      "status": "completed_with_errors",
+      "unit_statuses": [
+        "error"
+      ],
+      "first_gold_page_rank": 1,
+      "gold_page_hit@5": true,
+      "gold_in_answer_context": true,
+      "items": 0,
+      "literal_valid_items": 0,
+      "items_with_review_links": 0,
+      "items_with_expected_source_version": 0,
+      "rejected_items": 0,
+      "repair_attempts": 0,
+      "repair_accepted": 0,
+      "seconds": 6.281,
+      "usage": {
+        "input_tokens": 2792,
+        "output_tokens": 112
+      },
+      "semantic_verdict": "pending_evaluator_review; literal validity is not semantic correctness"
+    },
+    {
+      "id": "T05",
+      "suite": "newly_tested_approved_RA3_sources",
+      "topic": "source_transfer",
+      "expected": "answerable",
+      "status": "completed_with_errors",
+      "unit_statuses": [
+        "error"
+      ],
+      "first_gold_page_rank": 1,
+      "gold_page_hit@5": true,
+      "gold_in_answer_context": true,
+      "items": 0,
+      "literal_valid_items": 0,
+      "items_with_review_links": 0,
+      "items_with_expected_source_version": 0,
+      "rejected_items": 0,
+      "repair_attempts": 0,
+      "repair_accepted": 0,
+      "seconds": 6.375,
+      "usage": {
+        "input_tokens": 5790,
+        "output_tokens": 251
+      },
+      "semantic_verdict": "pending_evaluator_review; literal validity is not semantic correctness"
+    }
+  ],
+  "api_usage": {
+    "attempts": 0,
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "max_new_attempts": 0
+  }
+}

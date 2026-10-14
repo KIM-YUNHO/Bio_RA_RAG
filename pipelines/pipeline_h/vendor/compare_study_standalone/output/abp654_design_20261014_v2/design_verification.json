@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "protected_files": 723,
+  "changed_files": [],
+  "frozen_manifests": {
+    "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_control\\selection_manifest.json": "c293ab9f5be12823482c946709bde99bf2d567703b862931159742779d13feea",
+    "C:\\Users\\Admin\\Documents\\biosimilar_collection\\compare_study_standalone\\output\\abp654_design_20261014_v2\\design_improved\\selection_manifest.json": "1b1f7c72540dab65f8e7cabd15dae07e864dad88eeeb266fe3ca65acda5a0f61"
+  },
+  "fresh_docling_pages": 15,
+  "fresh_layout_pages": 15,
+  "fresh_vlm_calls": 13,
+  "gold_used_for_routing": false,
+  "production_service_config_index_changed": false
+}

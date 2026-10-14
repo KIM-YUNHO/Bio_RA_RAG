@@ -1,0 +1,71 @@
+{
+  "schema_version": "pilot-1",
+  "run_id": "20261007T174738Z",
+  "started_at": "2026-10-07T17:47:38.256103+00:00",
+  "offline": false,
+  "ema_metadata": {
+    "products": {
+      "total_records": 2746,
+      "timestamp": "2026-10-07T18:02:20Z"
+    },
+    "documents": {
+      "total_records": 20255,
+      "timestamp": "2026-10-07T17:50:16Z"
+    }
+  },
+  "ema_authorised_biosimilar_products": 151,
+  "purple_book": {
+    "source_month": "2026-09",
+    "url": "https://www.accessdata.fda.gov/drugsatfda_docs/PurpleBook/2026/purplebook-search-September-data-download.csv",
+    "sha256": "b9d04a8b1ea9c6605fdeff01127f0de32cb092534a40441b036e39c9665974e6",
+    "header_rows_1based": [
+      4,
+      26
+    ],
+    "full_rows": 2251,
+    "change_rows": 20,
+    "selected_full_rows": 26,
+    "selected_change_rows": 0
+  },
+  "drugs_at_fda": {
+    "zip_url": "https://www.fda.gov/media/89850/download?attachment",
+    "sha256": "9eb50ecc586e608e79175fc2f446ac9117161e80de364f254a1f995a276fd88c",
+    "selected_product_rows": 14,
+    "application_numbers": [
+      "761285",
+      "761331",
+      "761338",
+      "761373",
+      "761406",
+      "761419",
+      "761425"
+    ],
+    "document_link_rows": 81,
+    "body_downloaded": false
+  },
+  "health_canada": {
+    "ingredient_documents_listed": 20
+  },
+  "finished_at": "2026-10-07T17:52:07.126422+00:00",
+  "download_count": 206,
+  "unique_raw_objects_in_run": 205,
+  "reused_documents": 77,
+  "fetched_documents": 63,
+  "catalog_documents": 140,
+  "carried_documents": 0,
+  "pdf_documents": 140,
+  "total_pdf_pages": 6252,
+  "ema_assessment_pages": 643,
+  "study_result_rows": 46,
+  "sample_table_candidates": 10,
+  "error_count": 0,
+  "stale_versions_removed": 0,
+  "database_counts": {
+    "products": 5,
+    "studies": 11,
+    "study_results": 46,
+    "document_versions": 140,
+    "pages": 6252,
+    "page_search": 6252
+  }
+}

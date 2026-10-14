@@ -1,0 +1,160 @@
+{
+  "status": "confirmed",
+  "confirmed_date": "2026-10-14",
+  "selected_case": "H",
+  "decision_scope": "preprocessing architecture and initially tested policy; production rollout is separate",
+  "policy_maturity": "initial tested policy; future corrections must be versioned within H",
+  "selected_models_and_tools": {
+    "pdf_and_route": "PDF backend, PyMuPDF/pypdfium2, document/page routing rules",
+    "primary_layout": "Docling Heron",
+    "ordinary_ocr": {
+      "tool": "RapidOCR",
+      "engine": "ONNX Runtime",
+      "detection": "PP-OCRv6_det_small.onnx",
+      "recognition": "PP-OCRv6_rec_small.onnx",
+      "orientation": "ch_ppocr_mobile_v2.0_cls_mobile.onnx"
+    },
+    "primary_table_structure": "TableFormer accurate with cell matching",
+    "project_corrections": "ra_prep: additional RapidOCR checks/rereads, textfix, picture-grid candidates, document structure",
+    "independent_layout_inventory": "PP-DocLayoutV3; does not replace primary Heron",
+    "closed_border_inventory": "OpenCV morphology and closed-edge geometry",
+    "targeted_table_vlm": {
+      "model": "PaddleOCR-VL-1.6-0.9B",
+      "engine": "Transformers",
+      "task": "table",
+      "max_new_tokens": 4096,
+      "temperature": 0
+    },
+    "selection": "source-only structure alarms and structural/numeric/label preservation gates"
+  },
+  "policy": {
+    "version": "visual-preservation-boxes-multi-value-gate-2",
+    "control": "live missing-only G, unchanged primary tables and figures",
+    "improved": "H: preserve original chart evidence, missing closed-border regions, multi-value table repair",
+    "primary": "fresh Heron + RapidOCR/PP-OCRv6 + TableFormer accurate + existing ra_prep corrections",
+    "shared": "same new primary and same new independent PP-DocLayoutV3 inventory",
+    "vlm": "PaddleOCR-VL-1.6-0.9B table; independent process and new calls for each branch",
+    "crop_dpi": 300,
+    "crop_padding_px": 12,
+    "max_image_edge": 1800,
+    "box_policy": "closed source border: width>=40%, height 2.5%-45%, each edge coverage>=70%; adjacent visual notes preserved as figure context",
+    "table_alarm": "two or more value(parenthesized-statistic) groups in one non-first-row cell",
+    "replacement_gate": "valid nonempty structure, all original numeric literal types, >=90% label word coverage, fewer multi-value cells",
+    "label_normalization": "existing comparable_text math-subscript normalization before label words and value groups",
+    "chart_gate": "independent chart and original picture: preserve figure and archive conflicting table",
+    "gold_used_for_routing": false,
+    "retries": 0,
+    "limit": "same exposed development pages; gates do not prove clinical semantics"
+  },
+  "default_exclusions": [
+    "Qwen full-table regeneration",
+    "generated figure meaning descriptions",
+    "curve coordinate digitization",
+    "unconditional native-table overwrite"
+  ],
+  "metrics": {
+    "design_control": {
+      "total_measured_shared_plus_branch_seconds": 84.77541609999025,
+      "processing_stage_sum_seconds": 48.54570329998387,
+      "vlm_calls": 4,
+      "accepted_vlm_candidates": 4,
+      "cell_correct": 79,
+      "cell_total": 90,
+      "number_unit_symbol_correct": 31,
+      "number_unit_symbol_total": 34,
+      "table_true_positive": 16,
+      "table_predicted": 17,
+      "table_gold": 18,
+      "figure_true_positive": 3,
+      "figure_predicted": 3,
+      "figure_gold": 4
+    },
+    "design_improved": {
+      "total_measured_shared_plus_branch_seconds": 107.68763269999181,
+      "processing_stage_sum_seconds": 71.7127050999843,
+      "vlm_calls": 9,
+      "accepted_vlm_candidates": 8,
+      "cell_correct": 88,
+      "cell_total": 90,
+      "number_unit_symbol_correct": 32,
+      "number_unit_symbol_total": 34,
+      "table_true_positive": 18,
+      "table_predicted": 18,
+      "table_gold": 18,
+      "figure_true_positive": 4,
+      "figure_predicted": 4,
+      "figure_gold": 4
+    }
+  },
+  "cell_gains_vs_control": 9,
+  "previous_correct_cell_losses": 0,
+  "remaining_sample_errors": [
+    {
+      "document": "ABP654_FDA_ChemR_p012_013.pdf",
+      "page": 2,
+      "agency": "FDA",
+      "source_pdf_page": 13,
+      "table_id": "FDA_TableA_2",
+      "r": 19,
+      "c": 1,
+      "text": "FcγRIIIa (V158) binding",
+      "actual": "FcyRIlla (V158) binding",
+      "match": false,
+      "content_match": false,
+      "scientific_match": false
+    },
+    {
+      "document": "ABP654_HC_p034_035.pdf",
+      "page": 2,
+      "agency": "HC",
+      "source_pdf_page": 35,
+      "table_id": "HC_T16_2",
+      "r": 2,
+      "c": 6,
+      "text": "555 (100%)",
+      "actual": "347 (100%) 555 (100%)",
+      "match": false,
+      "content_match": false,
+      "scientific_match": false
+    }
+  ],
+  "evaluation_scope": {
+    "pages": 15,
+    "agencies": {
+      "EMA": 5,
+      "FDA": 5,
+      "HC": 5
+    },
+    "body_excerpts": 9,
+    "cell_positions": 90,
+    "number_unit_symbol_phrases": 34,
+    "table_regions": 18,
+    "logical_figures": 4,
+    "figure_panels": 6,
+    "exposed_development_set": true,
+    "human_independent_review_completed": false
+  },
+  "timing_scope": "shared measured common stages + each separately measured branch including VLM load/exit",
+  "reproducible_entrypoint": "compare_study_standalone/compare_selected_design.py",
+  "evidence_run": "compare_study_standalone/output/abp654_design_20261014_v2",
+  "evidence_files_sha256": {
+    "design_accuracy.json": "80426a7d331b7bcfc22808d7bab1d2c54df719c1b364d09db375baa484ea15e4",
+    "design_performance.json": "67748c5371bf6db0a2f6e9af57b3392d371ab3fc06e36db0f1839d991744f0e6",
+    "policy.json": "3abf72b83faf92f5ce28890c48197768416a7d9d63fdfdd544350c5a5a139df9",
+    "design_comparison.json": "b36b5e029288ca0c7c332dc4898d0c3a6b30c6a67a32ddd42ac2dff09e960d2e",
+    "candidate_decisions.json": "b3bd2ba6e23bb6dc5d50d661eba48c2b338dfafe287bf0708e1056706936dc72",
+    "visual_decisions.json": "0697e8a13d6b0797841c55ba34cc12846d7059d7f4dd264fe963139d48a7f260",
+    "design_verification.json": "9c06aaaad5e10097d73d6d451131780ec2f48125574af485fc21b1e342111c62",
+    "design_ui_verification.json": "372cd19d7a05daa6957fb5e56f1149811b6f8742d6e7a7f550b76ed4034dd4e4"
+  },
+  "implementation_location": "comparison workspace",
+  "production_service_config_index_changed": false,
+  "follow_up_scope": [
+    "remaining symbol and joined-cell errors",
+    "source/caption/header/footnote/continuation links",
+    "form checkbox-item-regulation-comment relations",
+    "candidate selection and regression checks",
+    "quality-preserving runtime optimization"
+  ],
+  "no_additional_model_ranking_required_before_adoption": true
+}

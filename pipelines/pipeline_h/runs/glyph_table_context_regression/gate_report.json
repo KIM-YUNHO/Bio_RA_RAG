@@ -1,0 +1,53 @@
+{
+  "accepted": true,
+  "issues": [],
+  "semantic_status": "unverified source extraction candidate",
+  "numeric_evidence_eligible": false,
+  "gate_version": "production-h-3-footnote-glyph-context",
+  "missing_original_numbers": [],
+  "existing_label_word_recall": 0.9454545454545454,
+  "structural_alarm_reduction": 0,
+  "ambiguous_glyph_reduction": 4,
+  "missing_alphanumeric_variants": [],
+  "raw_label_word_recall": 0.8813559322033898,
+  "label_comparison_excludes_flagged_receptor_glyph_tokens": true,
+  "glyph_cell_checks": [
+    {
+      "r": 16,
+      "c": 1,
+      "accepted": true,
+      "content": "FcγRIa binding",
+      "issues": [],
+      "numeric_evidence_eligible": false,
+      "semantic_status": "source-supported OCR candidate; not human verified"
+    },
+    {
+      "r": 17,
+      "c": 1,
+      "accepted": true,
+      "content": "FcγRIIa (R131) binding",
+      "issues": [],
+      "numeric_evidence_eligible": false,
+      "semantic_status": "source-supported OCR candidate; not human verified"
+    },
+    {
+      "r": 18,
+      "c": 1,
+      "accepted": true,
+      "content": "FcγRIIb binding",
+      "issues": [],
+      "numeric_evidence_eligible": false,
+      "semantic_status": "source-supported OCR candidate; not human verified"
+    },
+    {
+      "r": 19,
+      "c": 1,
+      "accepted": true,
+      "content": "FcγRIIIa (V158) binding",
+      "issues": [],
+      "numeric_evidence_eligible": false,
+      "semantic_status": "source-supported OCR candidate; not human verified"
+    }
+  ],
+  "protection_scope": "literal and label coverage, not semantic certification"
+}

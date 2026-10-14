@@ -1,0 +1,551 @@
+{
+  "document_id": 1,
+  "sha256": "616722258462133dd33186f080edc496bcab6391a4725c058cf53f93d2253b9c",
+  "agency": "HC",
+  "doc_type": "product_monograph",
+  "program_id": null,
+  "engine": "prep-1.4+docling2.137.0+tables-accurate+repair1+pictables1",
+  "watermarks_removed": 0,
+  "routes": [
+    {
+      "page": 1,
+      "route": "DIGITAL",
+      "reason": "chars=2575"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "ref": "#/texts/0",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.8,
+        709.6,
+        134.0,
+        717.6
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "section_header",
+      "text": "Elimination:",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Elimination:"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/1",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.1,
+        636.1,
+        548.3,
+        699.1
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "The median apparent clearance (CL/F) following a single subcutaneous administration to patients with psoriasis ranged from 2.7 to 5.3 mL/day/kg. The median half-life (t1/2) of ustekinumab was approximately 3 weeks in patients with psoriasis and/or psoriatic arthritis, Crohn's disease and ulcerative colitis ranging from 15 to 32 days across all psoriasis and psoriatic arthritis studies (n = 4 to 55).",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Elimination:"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/2",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.1,
+        579.7,
+        546.0,
+        627.8
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "In a population pharmacokinetic analysis, the clearance of ustekinumab was 0.19 L/day (95% CI: 0.185, 0.197) in patients with Crohn's disease and 0.19 L/day (95% CI: 0.179, 0.192) in patients with ulcerative colitis with an estimated median terminal half - life of approximately 19 days in patients with Crohn's disease and ulcerative colitis.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Elimination:"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/3",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.4,
+        555.0,
+        259.2,
+        565.2
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "section_header",
+      "text": "Special Populations and Conditions",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Special Populations and Conditions"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/4",
+      "parent": "#/groups/0",
+      "page": 1,
+      "bbox": [
+        72.6,
+        497.4,
+        531.5,
+        545.7
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "list_item",
+      "text": "Pediatrics (< 18 years of age): Studies of ustekinumab in pediatric patients with plaque psoriasis below 6 years of age have not been conducted. No pharmacokinetic data are available in pediatric patients with Crohn's disease or ulcerative colitis. Pediatric studies of ustekinumab for injection have not been conducted.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Special Populations and Conditions"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/5",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        90.1,
+        453.6,
+        542.0,
+        489.2
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "Serum ustekinumab concentrations in plaque psoriasis patients 6 to 17 years of age, treated with the recommended weight-based dose were generally comparable to those in the adult psoriasis population treated with the adult dose.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Special Populations and Conditions"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/6",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        72.6,
+        408.9,
+        548.8,
+        444.4
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "list_item",
+      "text": "Geriatrics (> 65 years of age): No specific studies have been conducted in elderly patients. A population pharmacokinetic analysis indicated there were no apparent changes in CL/F and V/F estimates in patients ≥ 65 years.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Special Populations and Conditions"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/7",
+      "parent": "#/groups/1",
+      "page": 1,
+      "bbox": [
+        72.6,
+        391.5,
+        112.7,
+        399.7
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "list_item",
+      "text": "Sex",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Special Populations and Conditions"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/8",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        90.3,
+        370.8,
+        409.7,
+        381.2
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "The apparent clearance of ustekinumab was not impacted by sex.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Special Populations and Conditions"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/9",
+      "parent": "#/groups/2",
+      "page": 1,
+      "bbox": [
+        72.6,
+        351.3,
+        158.5,
+        361.6
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "list_item",
+      "text": "Ethnic Origin",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Special Populations and Conditions"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/10",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        90.3,
+        332.8,
+        413.9,
+        343.1
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "The apparent clearance of ustekinumab was not impacted by race.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Special Populations and Conditions"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/11",
+      "parent": "#/groups/3",
+      "page": 1,
+      "bbox": [
+        72.6,
+        313.2,
+        200.0,
+        323.6
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "list_item",
+      "text": "Hepatic Insufficiency",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Special Populations and Conditions"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/12",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        90.9,
+        294.9,
+        480.5,
+        305.1
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "No pharmacokinetic data are available in patients with impaired hepatic function.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Special Populations and Conditions"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/13",
+      "parent": "#/groups/4",
+      "page": 1,
+      "bbox": [
+        72.6,
+        275.2,
+        190.1,
+        285.5
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "list_item",
+      "text": "Renal Insufficiency",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Special Populations and Conditions"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/14",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        90.9,
+        256.7,
+        445.5,
+        267.0
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "No pharmacokinetic data are available in patients with renal insufficiency.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Special Populations and Conditions"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/15",
+      "parent": "#/groups/5",
+      "page": 1,
+      "bbox": [
+        72.6,
+        237.1,
+        137.1,
+        247.5
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "list_item",
+      "text": "Obesity:",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Special Populations and Conditions"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/16",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        90.4,
+        218.7,
+        295.1,
+        229.0
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "section_header",
+      "text": "Impact of Weight on Pharmacokinetics:",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Impact of Weight on Pharmacokinetics:"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/17",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        90.5,
+        136.7,
+        547.0,
+        210.3
+      ],
+      "layer": "body",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "text",
+      "text": "Serum ustekinumab concentrations were affected by weight in patients with psoriasis and/or psoriatic arthritis. When given the same dose, patients of higher weight (> 100 kg) had lower median serum ustekinumab concentrations compared with those in patients of lower weight (≤ 100 kg). However, across doses, the median trough serum concentrations of ustekinumab in patients with higher weight (> 100 kg) in the 90 mg group were comparable to those in patients with lower weight (≤ 100 kg) in the 45 mg group.",
+      "status": "kept",
+      "furniture": false,
+      "section_path": [
+        "Impact of Weight on Pharmacokinetics:"
+      ],
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/18",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        72.1,
+        60.5,
+        183.8,
+        69.0
+      ],
+      "layer": "furniture",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "WEZLANA™ (ustekinumab)",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    },
+    {
+      "type": "text",
+      "ref": "#/texts/19",
+      "parent": "#/body",
+      "page": 1,
+      "bbox": [
+        479.4,
+        60.6,
+        540.3,
+        69.0
+      ],
+      "layer": "furniture",
+      "route": "DIGITAL",
+      "source": "text_layer",
+      "label": "page_footer",
+      "text": "Page 30 of 116",
+      "status": "kept",
+      "furniture": true,
+      "speaker": "label",
+      "redacted": false,
+      "study_ids": []
+    }
+  ],
+  "qa": {
+    "pages": 1,
+    "routes": {
+      "DIGITAL": 1
+    },
+    "text_blocks": 18,
+    "text_chars": 2450,
+    "ocr_char_share": 0.0,
+    "tables": 0,
+    "tables_ocr_grid": 0,
+    "numeric_cells": 0,
+    "numeric_cell_parse_rate": null,
+    "needs_review_blocks": 0,
+    "reread_blocks": 0,
+    "garbled_residual": 0,
+    "furniture_blocks": 2,
+    "redacted_blocks": 0,
+    "sections": 3
+  },
+  "timing": {
+    "None": 0.11089420318603516,
+    "second_reader": 0.0,
+    "total": 0.1284644603729248
+  },
+  "_signals": {
+    "1": {
+      "page": 1,
+      "width": 612.0,
+      "height": 792.0,
+      "chars": 2575,
+      "img_cov": 0.0,
+      "bare_img_cov": 0.0,
+      "invisible_text": 0.0,
+      "n_text_objs": 89,
+      "n_paths": 1,
+      "garble": 0.0,
+      "bare_boxes": []
+    }
+  }
+}
