@@ -101,6 +101,9 @@ class EvaluationAPIChat:
             payload={'model':self.model,'messages':messages,'max_completion_tokens':output,
                 'reasoning_effort':self.reasoning_effort}
             telemetry['reasoning_effort']=self.reasoning_effort
+            # Opt-in only: Luna requests have been sent without sampling controls.
+            if getattr(self,'sampling',None):
+                payload.update(self.sampling);telemetry['sampling']=dict(self.sampling)
         if json_schema:payload['response_format']={'type':'json_schema','json_schema':{**json_schema,'strict':True}}
         key=stable_hash(payload);folder=self.out/'api_calls';folder.mkdir(exist_ok=True)
         request=folder/(key+'.request.json');response=folder/(key+'.response.json')
@@ -146,13 +149,18 @@ class OpenAIPipelineChat:
     local_only = False
     source_selection = True
 
-    def __init__(self, out_root=None, session_factory=None, tokenizer=None, model='gpt-4o-mini'):
+    def __init__(self, out_root=None, session_factory=None, tokenizer=None, model='gpt-4o-mini',
+                 context_tokens=16384, sampling=None):
         if model not in ('gpt-4o-mini', 'gpt-5.6-luna'):
             raise ValueError('Unsupported RA framework model')
+        if type(context_tokens) is not int or not 8192 <= context_tokens <= 131072:
+            raise ValueError('RA context tokens must be 8192..131072')
         self.model = model
         self.reasoning_effort = 'none' if model == 'gpt-5.6-luna' else None
         self.out_root = Path(out_root or ROOT / 'data/runs/ra_pipeline_requests')
-        self.config = SimpleNamespace(model=self.model, num_ctx=16384, num_predict=3000)
+        # Project reading budget (prompt + output), not the provider's model limit.
+        self.config = SimpleNamespace(model=self.model, num_ctx=context_tokens, num_predict=3000)
+        self.sampling = dict(sampling) if sampling else None
         self.tokenizer = tokenizer or ApiTokenizer(self.model)
         self.calls = []
         self.session = None
@@ -174,6 +182,7 @@ class OpenAIPipelineChat:
             session.close()
             raise ValueError(f'RA pipeline requires {self.model} at OpenAI')
         session.config = self.config
+        session.sampling = self.sampling
         session.case = 'ra_pipeline_request'
         self.session = session
         self.calls = session.calls

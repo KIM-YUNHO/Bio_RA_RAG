@@ -23,10 +23,19 @@ def docling_complete(run):
     paths=[run/'docling'/f"{i:03d}_{d['version_id']}.json" for i,d in enumerate(docs)]
     return all(p.exists() and read(p).get('status')=='complete' for p in paths)
 
-def execute(run,config,wait_docling=False):
+def execute(run,config,wait_docling=False,supplement=None):
     run=Path(run).resolve();config=Path(config).resolve();run.mkdir(parents=True,exist_ok=True)
-    if not (run/'intake_manifest.json').exists():prepare(run)
-    if len(read(run/'intake_manifest.json')['documents'])!=92 or (run/'validation_page_plan.json').exists():raise ValueError('Operational run must contain the full approved 92 documents without a test page filter')
+    if not (run/'intake_manifest.json').exists():
+        if supplement:
+            from pipelines.pipeline_h.prepare import prepare_supplement
+            prepare_supplement(run,supplement)
+        else:prepare(run)
+    intake=read(run/'intake_manifest.json')
+    if (run/'validation_page_plan.json').exists():raise ValueError('Operational run cannot use a test page filter')
+    if intake['version']=='production-h-supplement-intake-1':
+        if not supplement:raise ValueError('Supplement run must be resumed with --supplement')
+    elif len(intake['documents'])!=92:raise ValueError('Operational run must contain the full approved 92 documents')
+    total=len(intake['documents'])
     c=read(config);runtime=c['runtimes'];controller=runtime['controller']
     from pipelines.pipeline_h.source_router import ensure
     ensure(run)
@@ -35,7 +44,7 @@ def execute(run,config,wait_docling=False):
             state(run,'docling_wait',note='Waiting for the already-running isolated Docling worker')
             while not docling_complete(run):
                 progress=read(run/'docling_progress.json') if (run/'docling_progress.json').exists() else {}
-                if progress.get('completed',0)+progress.get('failed',0)==92:break
+                if progress.get('completed',0)+progress.get('failed',0)==total:break
                 time.sleep(5)
         if not docling_complete(run):launch(run,'docling',[runtime['docling'],'-X','utf8','-m','pipelines.pipeline_h.docling_worker','--run',str(run),'--config',str(config)])
         if not docling_complete(run):raise RuntimeError('Unresolved failed Docling documents; retry retained checkpoints')
@@ -53,7 +62,9 @@ def execute(run,config,wait_docling=False):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--run',required=True);p.add_argument('--config',default=str(ROOT/'pipelines/pipeline_h/config.local.json'))
-    p.add_argument('--wait-docling',action='store_true');a=p.parse_args()
+    p.add_argument('--wait-docling',action='store_true')
+    p.add_argument('--supplement',help='Supplement spec JSON: documents outside the 92-document build and the decision admitting them')
+    a=p.parse_args()
     import msvcrt
     folder=Path(a.run).resolve();folder.mkdir(parents=True,exist_ok=True)
     with (folder/'controller.lock').open('a+b') as lock:
@@ -62,5 +73,5 @@ if __name__=='__main__':
         lock.seek(0)
         try:msvcrt.locking(lock.fileno(),msvcrt.LK_NBLCK,1)
         except OSError:raise SystemExit('This run already has an active controller; inspect pipeline_status.json')
-        try:execute(a.run,a.config,a.wait_docling)
+        try:execute(a.run,a.config,a.wait_docling,a.supplement)
         finally:lock.seek(0);msvcrt.locking(lock.fileno(),msvcrt.LK_UNLCK,1)

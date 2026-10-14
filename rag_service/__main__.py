@@ -247,7 +247,8 @@ def main():
     parser.add_argument('--config',type=Path,default=Path('configs/preprocess.local.json'))
     parser.add_argument('--review-url',default='http://127.0.0.1:8766')
     parser.add_argument('--port',type=int,default=8765)
-    parser.add_argument('--retrieval-pages',type=int,default=5,choices=range(1,11))
+    parser.add_argument('--retrieval-pages',type=int,default=8,choices=range(1,11),
+        help='Hits per product x agency slot (2026-10-14 benchmark: 8 + fixed topic queries)')
     parser.add_argument('--mode',choices=('legacy','ra'),default='legacy')
     parser.add_argument('--llm-model',choices=('gpt-4o-mini','gpt-5.6-luna'),default='gpt-4o-mini',
         help='Framework model for RA planning, synthesis and internal review')
@@ -258,6 +259,8 @@ def main():
     parser.add_argument('--review-dir',type=Path,help='Separate append-only review history')
     parser.add_argument('--conversation-dir',type=Path,help='Conversation turn records (default data/runs/ra_conversations in RA mode)')
     parser.add_argument('--warmup',action='store_true',help='Warm local retrieval before accepting questions; no provider calls')
+    parser.add_argument('--context-tokens',type=int,default=65536,
+        help='RA reading budget per model call (prompt + output); a project limit, not the model limit')
     args=parser.parse_args()
     if not 1<=args.port<=65535:parser.error('Invalid port')
     if args.guidelines and args.mode!='ra':parser.error('--guidelines requires --mode ra')
@@ -268,7 +271,7 @@ def main():
         pipeline=RAPipeline(args.run,args.candidate,load_config(args.config),args.review_url,
             retrieval_pages=args.retrieval_pages,guideline_snapshot=args.guidelines,
             research_rounds=args.research_rounds,
-            chat_client=OpenAIPipelineChat(model=args.llm_model))
+            chat_client=OpenAIPipelineChat(model=args.llm_model,context_tokens=args.context_tokens))
     else:
         pipeline=RAGPipeline(args.run,args.candidate,load_config(args.config),args.review_url,retrieval_pages=args.retrieval_pages)
     archive_dir=args.archive_dir or (Path('data/runs/ra_service_reports') if args.mode=='ra' else None)

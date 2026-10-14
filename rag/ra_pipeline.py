@@ -15,7 +15,7 @@ from rag.pipeline import RAGPipeline
 from rag import answer, ra_tasks, ra_retrieval, ra_answer
 from rag.ra_sources import GuidelineIndex, permitted
 
-VERSION = 'ra-research-rag-4.9.4'
+VERSION = 'ra-research-rag-4.10.1'
 
 
 class RAPipeline(RAGPipeline):
@@ -145,6 +145,13 @@ class RAPipeline(RAGPipeline):
                 result = ra_answer.generate(question, understanding, evidence, self.client, self.citation_mode)
                 for gap in dict.fromkeys(g.get('scope_gap') for g in groups if g.get('scope_gap')):
                     text = '공통 지침 검색 자료가 연결되지 않아 해당 조사 항목을 확인하지 못했습니다.'
+                    result['gaps'].append(text)
+                    result['answer_ko'] += '\n\n' + text
+                    if result['status'] == 'answered': result['status'] = 'partial'
+                for task in understanding.get('out_of_scope_tasks', []):
+                    # Reported, never searched: the registry and its documents cannot answer it.
+                    part = task['intent_check']['quote'] if task['intent_check']['quote_verified'] else task['request']
+                    text = f'질문 중 "{part}" 부분은 등록 제품·규제 문서 범위 밖이라 검색하거나 답하지 않았습니다.'
                     result['gaps'].append(text)
                     result['answer_ko'] += '\n\n' + text
                     if result['status'] == 'answered': result['status'] = 'partial'

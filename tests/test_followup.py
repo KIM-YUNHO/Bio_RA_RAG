@@ -52,11 +52,12 @@ class Client:
 
 
 def plan_reply(**extra):
-    return {**extra, 'intent': 'regulatory_reasoning', 'products': ['CTP43'], 'jurisdictions': ['EU'],
+    return {**extra, 'in_scope': True, 'products': ['CTP43'], 'jurisdictions': ['EU'],
             'jurisdiction_mentions': [{'jurisdiction': 'EU', 'role': 'regulator', 'quote': 'EMA 문서에서'}],
             'english_query': 'CT-P43 EMA assessment issues important identified risks',
             'tasks': [{'request': 'EMA 문서에서 CTP43 평가 이슈가 전혀 없었는지 확인해 달라.', 'queries': ['CT-P43 EMA major objections'],
-                       'source_roles': ['assessment'], 'guideline_request_quote': ''}]}
+                       'source_roles': ['assessment'], 'guideline_request_quote': '',
+                       'intent': {'intent': 'regulatory_reasoning', 'request_quote': ''}}]}
 
 
 class PlannerTests(unittest.TestCase):

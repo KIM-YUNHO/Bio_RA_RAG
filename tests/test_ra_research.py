@@ -152,11 +152,12 @@ class SupportTests(unittest.TestCase):
     def test_guideline_role_requires_a_quote_from_the_original_request(self):
         class Client:
             def __call__(self, *args, **kwargs):
-                return {'text': json.dumps({'intent': 'compare_products', 'products': ['SB17'],
+                return {'text': json.dumps({'in_scope': True, 'products': ['SB17'],
                     'jurisdictions': [], 'jurisdiction_mentions': [], 'english_query': 'dose route',
                     'tasks': [{'request': '시험 조건 비교', 'queries': ['dose route'],
                                'source_roles': ['assessment', 'guideline'],
-                               'guideline_request_quote': ''}]})}
+                               'guideline_request_quote': '',
+                               'intent': {'intent': 'compare_products', 'request_quote': ''}}]})}
         u, _ = ra_tasks.interpret('SB17 시험 조건을 비교해줘', Client(), ['SB17'], ['EU'])
         self.assertEqual(u['tasks'][0]['source_roles'], ['assessment'])
         self.assertIn('routing_adjustment', u['tasks'][0])
@@ -226,9 +227,10 @@ class PipelineTests(unittest.TestCase):
                 name = json_schema['name']; self.schemas.append(name)
                 self.calls.append({'prompt_tokens': 10, 'completion_tokens': 5})
                 if name == 'query_understanding':
-                    value = {'intent': 'regulatory_reasoning', 'products': [], 'jurisdictions': [],
+                    value = {'in_scope': True, 'products': [], 'jurisdictions': [],
                         'jurisdiction_mentions': [], 'english_query': 'Group',
-                        'tasks': [{'request': '군 제목을 설명해줘', 'queries': ['Group'], 'source_roles': ['assessment']}]}
+                        'tasks': [{'request': '군 제목을 설명해줘', 'queries': ['Group'], 'source_roles': ['assessment'],
+                                   'intent': {'intent': 'fact_lookup', 'request_quote': ''}}]}
                 elif name == 'ra_grounded_answer':
                     payload = json.loads(messages[1]['content'])
                     source = next(s for s in payload['sources'] if 'Group' in s['source_text'])
@@ -307,10 +309,11 @@ class PipelineTests(unittest.TestCase):
     def test_missing_guideline_connection_remains_an_explicit_scope_gap(self):
         class Plan:
             def __call__(self, messages, json_schema=None, provider=None):
-                return {'text': json.dumps({'intent': 'regulatory_reasoning', 'products': [], 'jurisdictions': [],
+                return {'text': json.dumps({'in_scope': True, 'products': [], 'jurisdictions': [],
                     'jurisdiction_mentions': [], 'english_query': 'reference bridging',
                     'tasks': [{'request': '브리징 지침 설명', 'queries': ['bridging'], 'source_roles': ['guideline'],
-                               'guideline_request_quote': '지침'}]})}
+                               'guideline_request_quote': '지침',
+                               'intent': {'intent': 'regulatory_reasoning', 'request_quote': ''}}]})}
         self.pipeline.client = Plan()
         # No product evidence may answer a guideline-only request.
         with patch('rag.answer.Corpus.encode', side_effect=AssertionError('No product embedding')):

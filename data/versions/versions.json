@@ -1,10 +1,10 @@
 {
-  "updated_kst": "2026-10-14 14:45",
+  "updated_kst": "2026-10-14 22:35",
   "roles": {
     "pilot": "01_pilot_baseline_2026-10-10",
-    "latest": "03_pipeline_h_v2_table_recovery_2026-10-14",
+    "latest": "04_pipeline_h_supplement_2026-10-14",
     "latest_full_pipeline_run": "02_pipeline_h_2026-10-14",
-    "served_by_ra_service": "01_pilot_baseline_2026-10-10"
+    "served_by_ra_service": "04_pipeline_h_supplement_2026-10-14"
   },
   "stage_folders": {
     "preprocessed": "extraction bundles: source_units, extracted_assets, extraction_pages, visual_* (before chunking)",
@@ -65,6 +65,27 @@
       "preprocessed_path": "data/versions/03_pipeline_h_v2_table_recovery_2026-10-14/preprocessed/extraction",
       "evaluation": "docs/rag/H_V2_RAG_DEVELOPMENT_EVAL_2026-10-14.md; records in data/runs/h_v2_rag_development_2026-10-14_luna_v1/",
       "origin": "data/runs/h_v2_rag_development_2026-10-14_luna_v1/native_candidate_v2/{extraction, candidate_final, release_final}"
+    },
+    {
+      "id": "04_pipeline_h_supplement_2026-10-14",
+      "release": "release (03 release_final + pipeline H supplement of 19 documents)",
+      "pipeline": "pipelines/pipeline_h supplement run (prepare_supplement + run --supplement) for 9 formerly protected EMA/FDA/HC documents and 10 ClinicalTrials.gov protocol/SAP documents; merged with 03 by pipelines/pipeline_h/merge_release.py (rag.release.compose).",
+      "pipeline_code": "pipelines/pipeline_h (supplement mode), pipelines/pipeline_h/merge_release.py",
+      "documents": 111,
+      "chunks": 15682,
+      "vectors": [
+        15682,
+        1024
+      ],
+      "added_documents": 19,
+      "added_chunks": 4146,
+      "chunks_sha256": "2b5684a27f444cfc08a4fe50c1a5047cbf53ee9c9577dd69807b220f25a7d905",
+      "status": "served by project_shared RA service on 8885 (ra-research-rag-4.10.0) since 2026-10-14 22:28 KST. CTG documents searchable only for protocol/SAP requests (sponsor source).",
+      "decision": "2026-10-14 사용자 결정: (1) 2026-10-08 시각 전처리 회고 평가용으로 보호(retrospective_evaluation_only)되어 서비스 색인에서 빠진 9문서의 보호를 해제하고 서비스 색인에 포함한다. 이후 이 9문서는 시각 전처리의 독립 평가 자료로 쓰지 않는다. (2) ClinicalTrials.gov에 게시된 프로토콜·SAP 10문서(5개 시험)를 색인에 포함한다. 서비스 검색 노출은 출처 범위(service_scope) 결정 후 별도로 연다. PMDA는 제외, 대조약(Stelara)은 이번 범위에서 제외.",
+      "embedded_path": "data/versions/04_pipeline_h_supplement_2026-10-14/embedded/release",
+      "supplement_run": "pipelines/pipeline_h/runs/supplement_20261014",
+      "supplement_spec": "data/runs/corpus_supplement_2026-10-14/spec.json",
+      "origin": "merge of 03 (preprocessed/extraction + embedded/candidate_final) and supplement_20261014 (extraction + candidate)"
     }
   ],
   "identified_not_copied": [
