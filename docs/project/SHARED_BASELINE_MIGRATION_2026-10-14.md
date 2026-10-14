@@ -99,7 +99,7 @@
 
 ## 7. 알려진 제약
 
-1. **데이터 속 절대 경로** — 릴리스 매니페스트와 청크·전처리 행의 출처 필드가 원본 프로젝트 경로를 가리킨다. 이 PC에서는 원본이 있으므로 서비스·검토 화면이 동작하고, 다른 PC에서는 `ReleaseBundle` 로드가 실패한다. 벡터 적재에는 영향 없음. [통합 지도](PGVECTOR_INTEGRATION_MAP_2026-10-14.md) 3절.
+1. **데이터 속 절대 경로** (2026-10-14 16:50 해결: 열 때 이 프로젝트의 사본으로 바꾼다. [통합 지도](PGVECTOR_INTEGRATION_MAP_2026-10-14.md) 4-1절. 아래는 해결 전 기록) — 릴리스 매니페스트와 청크·전처리 행의 출처 필드가 원본 프로젝트 경로를 가리킨다. 이 PC에서는 원본이 있으므로 서비스·검토 화면이 동작하고, 다른 PC에서는 `ReleaseBundle` 로드가 실패한다. 벡터 적재에는 영향 없음. [통합 지도](PGVECTOR_INTEGRATION_MAP_2026-10-14.md) 3절.
 2. **`pipelines/pipeline_h/prepare.py`의 새 run 준비**도 파일럿 구성요소의 `extraction_manifest.json`을 그 절대 경로로 연다. 같은 제약이다.
 3. **모델·가상환경 미포함** — `config.local.json`은 이 PC의 원본 위치 환경·모델을 가리킨다. 다른 PC는 `config.example.json`으로 새로 만든다.
 4. **같은 PC의 공유 자원** — 원본 RA 서비스가 8875에서 실행 중이다. project_shared 서비스는 다른 포트로 띄운다(`-Port`). 두 프로젝트의 `compose.yaml`은 같은 프로젝트 이름(`biosim`)이라 **같은 Postgres 컨테이너·볼륨을 쓴다**.

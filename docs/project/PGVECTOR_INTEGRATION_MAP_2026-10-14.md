@@ -65,7 +65,9 @@ DB에 적재할 때는 **프로젝트 루트 기준 상대 경로**(또는 객�
 - **4번** `verify` 통과: 청크 행 전체가 `chunks.jsonl`과 같고, 벡터는 `doc.npy`와 비트 단위로 같다. 정확 검색은 numpy와 300/300 질의 동일.
 - **계획과 달라진 점**: 계획 4.2절 4번은 HNSW(코사인)였으나 **내적**으로 했다. 벡터 노름이 0.9998~1.0005라 코사인은 앱(`rag/search.py`의 `vec @ query`)과 top-10이 6~8% 질의에서 달랐다. 내적에서는 같다.
 - **벡터 공유 안 함**: 02·03이 11,534벡터를 공유하지만 릴리스마다 행을 따로 둔다(파티션 단위 HNSW를 단순하게 유지).
-- **남은 일**: 5번(검색 전환)과 6번(세션·검토·장부), 3절의 경로 정리. 인수는 [storage/HANDOFF.md](../../storage/HANDOFF.md).
+- **5번 일부 완료 (16:50 KST)**: `rag/search.py`의 `load_index`가 `BIOSIM_SEARCH_BACKEND=postgres`에서 `rag.chunks`·`rag.embeddings_bge_m3`를 읽는다(`storage/rag_index.py`). 반환값이 파일 경로와 같다(청크 키 순서까지, 벡터 비트 단위). `RAPipeline`이 두 릴리스에서 그대로 구성된다. **질의를 pgvector로 직접 보내는 `dense_hits`는 아직 아니다**(지금은 DB에서 읽어 메모리 행렬로 계산). 추가한 마이그레이션: `006`(청크 키 순서), `007`(`metadata`를 `json`으로).
+- **3절(절대 경로) 해결 (16:50 KST)**: 데이터는 고치지 않고 열 때 바꾼다. `rag/portable_paths.py`의 `resolve()`를 `review_viewer/data.py`(Bundle), `rag/release.py`(ReleaseBundle), `rag/ra_sources.py`(GuidelineIndex), `rag_service/pages.py`에 적용했다. 원본 프로젝트가 없어도 번들 로드·지침 색인·쪽 이미지 렌더링이 동작한다(빈 폴더에서 확인). `provenance` 필드의 문자열은 그대로이며, 그것을 직접 여는 새 코드는 `resolve()`를 거친다. 파일럿 릴리스의 구성요소 후보 89개(360MB)와 렌더 PDF 6개, 지침 파일 2개는 원본에서 읽기만 해서 복사했다(`storage/copy_serving_files.py`).
+- **남은 일**: 질의의 pgvector 직접 검색, 6번(세션·검토·장부). 인수는 [storage/HANDOFF.md](../../storage/HANDOFF.md).
 
 ## 5. 환경 변수
 

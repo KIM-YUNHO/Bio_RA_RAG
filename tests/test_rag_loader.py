@@ -111,6 +111,32 @@ class RagLoader(unittest.TestCase):
             rag_loader.load_release(self.conn, self.entry)
         self.assertIsNone(self.conn.execute("SELECT 1 FROM rag.releases WHERE release_id = %s", (self.rel,)).fetchone())
 
+    def test_database_index_equals_file_index(self):
+        """rag.search.load_index with BIOSIM_SEARCH_BACKEND=postgres returns what the files give: rows, key order, vectors."""
+        from unittest import mock
+        from rag import search
+        rag_loader.load_release(self.conn, self.entry)
+        candidate = self.folder / "candidate"
+        from_files = search.load_index("bge-m3", candidate)
+        with mock.patch.dict(os.environ, {"BIOSIM_SEARCH_BACKEND": "postgres"}):
+            from_database = search.load_index("bge-m3", candidate)
+        chunks_f, vectors_f, meta_f = from_files
+        chunks_d, vectors_d, meta_d = from_database
+        self.assertEqual([json.dumps(c, ensure_ascii=False) for c in chunks_d], [json.dumps(c, ensure_ascii=False) for c in chunks_f])
+        self.assertEqual(vectors_d.dtype, vectors_f.dtype)
+        self.assertTrue(np.array_equal(vectors_d, vectors_f))
+        self.assertEqual(meta_d["chunks_sha256"], meta_f["chunks_sha256"])
+        self.assertEqual(search.dense_hits(vectors_f[2], vectors_d, np.arange(len(chunks_d)), 4),
+                         search.dense_hits(vectors_f[2], vectors_f, np.arange(len(chunks_f)), 4))
+
+    def test_unregistered_folder_reads_files(self):
+        from unittest import mock
+        from rag import search
+        other = make_release(Path(self.tmp.name) / uuid.uuid4().hex, self.document, n=4, seed=3)
+        with mock.patch.dict(os.environ, {"BIOSIM_SEARCH_BACKEND": "postgres"}):
+            chunks, vectors, _ = search.load_index("bge-m3", Path(other["embedded_path"]) / "candidate")
+        self.assertEqual((len(chunks), vectors.shape), (4, (4, 1024)))
+
     def test_catalog_reload_keeps_releases(self):
         """ingestion.load_catalog truncates and refills corpus.*; a loaded release must neither block nor lose it."""
         rag_loader.load_release(self.conn, self.entry)
