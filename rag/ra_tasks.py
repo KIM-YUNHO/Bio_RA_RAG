@@ -179,16 +179,14 @@ Registered product identities: """ + json.dumps(inventory, ensure_ascii=False)
             task['targets_restored'] = question_products
     # Source jurisdiction declarations must have an original-question regulator
     # mention. Comparator-only regions cannot narrow the source corpus.
-    from rag.request_scope import named
-    names = {'EU': ['EMA', '유럽의약품청', '유럽 규제기관'],
-             'US': ['FDA', '미국 식품의약국', '미국 규제기관'],
-             'CA': ['Health Canada', '캐나다 보건부', '캐나다 규제기관']}
+    from rag.request_scope import regulator_mention, AGENCY_NAMES
     mentions = value.get('jurisdiction_mentions')
     if not isinstance(mentions, list):
         raise ValueError('Invalid jurisdiction mentions')
-    verified = {m.get('jurisdiction') for m in mentions if isinstance(m, dict) and m.get('role') == 'regulator'
-                and contains_quote(question, m.get('quote')) and named(m.get('quote'), names.get(m.get('jurisdiction'), []))}
-    value['jurisdictions'] = [j for j in value['jurisdictions'] if j in verified or j not in names]
+    verified = {m.get('jurisdiction') for m in mentions if regulator_mention(question, m)}
+    # The planner's regulator reading stands; only a contradicting proper noun removes it.
+    value['jurisdictions'] = list(dict.fromkeys([*[j for j in value['jurisdictions'] if j in verified or j not in AGENCY_NAMES],
+                                                 *[j for j in verified if j in AGENCY_NAMES and j not in value['jurisdictions']]]))
     # Trial protocol/SAP sources are read only when the original question literally asks for them
     # (protocol, SAP, 계획서, NCT ID), mirroring the guideline-quote rule. Such a request also
     # reaches the sponsor source even when it names an agency to compare against.

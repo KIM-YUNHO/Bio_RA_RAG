@@ -3,10 +3,9 @@
 A question may carry several requests with different intents. The planner
 splits them into tasks (1-4) and gives EACH task one intent plus a verbatim
 quote of the original-question span that the task answers. Deterministic checks
-then (1) require the quote to occur in the original question, (2) fix the
-comparison intent when that quote literally names two products together with a
-comparison marker, and (3) report original request segments that no task quote
-covers (a request the plan dropped). Intent decides how a task's answer is
+then (1) record whether the quote occurs in the original question and (2) report
+original request segments that no task quote covers (a request the plan dropped).
+The intent itself is the planner's semantic reading; no keyword rule overrides it. Intent decides how a task's answer is
 organized; it never adds sources, values, products or agencies, and it does not
 tune retrieval.
 """
@@ -14,7 +13,7 @@ import re
 
 from rag.request_scope import named
 
-VERSION = 'ra-intent-4-task-scope'
+VERSION = 'ra-intent-5-planner-intent'
 INTENTS = ['fact_lookup', 'compare_products', 'compare_sources', 'regulatory_reasoning', 'document_info', 'out_of_scope']
 
 PLANNER_PROMPT = """
@@ -58,10 +57,6 @@ Example: "SB17과 ABP654의 PK 시험 설계를 비교하고, FDA가 면역원�
 비교하고"; T2 regulatory_reasoning quote "FDA가 면역원성을 어떻게 평가했는지".
 """
 
-COMPARE = re.compile(r'차이|비교|다른\s*점|공통점|대비|구별|(?<![A-Za-z])(?:vs\.?|versus|compar(?:e|ed|ison)|differ(?:ence|ent|s)?)(?![A-Za-z])', re.I)
-# Regulator names only: "미국 Stelara" names a comparator's origin, not a source agency.
-AGENCIES = {'EU': ['EMA', '유럽의약품청'], 'US': ['FDA', '미국 식품의약국'],
-            'CA': ['Health Canada', '캐나다 보건부']}
 # ASCII-only boundaries: Korean particles (SAP에, NCT…의) are word characters for \b.
 PROTOCOL = re.compile(r'프로토콜|임상\s*시험\s*계획서|시험\s*계획|통계\s*분석\s*계획|(?<![A-Za-z])SAP(?![A-Za-z])|protocol|'
                       r'ClinicalTrials\.gov|(?<![A-Za-z0-9])NCT\d{8}(?![0-9])', re.I)
@@ -92,28 +87,21 @@ def segments(question):
 def check_task(question, task):
     """Check one task's intent; returns (final intent, record)."""
     from rag.evidence import contains_quote
-    from rag.ra_requirements import named_products as registry_products
     chosen = task.get('intent') or {}
     intent, quote = chosen.get('intent'), chosen.get('request_quote', '')
     record = {'model': intent, 'final': intent, 'quote': quote, 'quote_verified': False, 'rule': None}
     grounded = bool(quote.strip()) and contains_quote(question, quote)
     record['quote_verified'] = grounded
-    # An unverified quote cannot narrow the rule to a span: fall back to the task request.
+    # An unverified quote cannot narrow the check to a span: fall back to the task request.
     span = quote if grounded else task.get('request', '')
-    if record['final'] == 'out_of_scope':
-        return record['final'], record
-    if record['final'] == 'compare_products' and len(registry_products(span)) < 2:
-        # Arms of one product's study (e.g. US- vs EU-sourced comparator) are not two products.
-        sources = [a for a, names in AGENCIES.items() if named(span, names)]
-        record.update(final='compare_sources' if len(sources) >= 2 or (sources and PROTOCOL.search(span)) else 'fact_lookup',
-                      rule='compare_products_needs_two_named_products')
-    if COMPARE.search(span):
-        if len(registry_products(span)) >= 2:
-            record.update(final='compare_products', rule='two_named_products_with_comparison_marker')
-        elif len(registry_products(span)) <= 1 and (
-                len([a for a, names in AGENCIES.items() if named(span, names)]) >= 2
-                or ([a for a, names in AGENCIES.items() if named(span, names)] and PROTOCOL.search(span))):
-            record.update(final='compare_sources', rule='two_named_sources_with_comparison_marker')
+    # The planner's intent is its semantic reading of the request; no keyword rule overrides it.
+    # Proper-noun fact only: two different names of ONE registry product are not a product comparison.
+    if record['final'] == 'compare_products':
+        from rag import study_registry
+        hits = {(pid, name.lower()) for pid, meta in study_registry.products().items()
+                for name in [pid, *meta.get('names', []), *meta.get('ko_names', [])] if named(span, [name])}
+        if len({pid for pid, _ in hits}) == 1 and len(hits) >= 2:
+            record.update(final='fact_lookup', rule='same_product_aliases_are_not_a_comparison')
     return record['final'], record
 
 

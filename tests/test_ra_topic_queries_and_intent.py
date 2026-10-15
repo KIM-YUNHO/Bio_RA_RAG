@@ -41,9 +41,10 @@ class TaskIntentCheck(unittest.TestCase):
         q = 'SB17과 ABP654의 PK 시험 설계를 비교하고, FDA가 면역원성을 어떻게 평가했는지 알려줘'
         v = ra_intent.check(q, plan(q, ('PK 시험 설계 비교', 'fact_lookup', 'SB17과 ABP654의 PK 시험 설계를 비교하고'),
                                        ('FDA 면역원성 평가', 'regulatory_reasoning', 'FDA가 면역원성을 어떻게 평가했는지')))
-        self.assertEqual(v['intents'], ['compare_products', 'regulatory_reasoning'])
+        # The planner's intents stand; no keyword rule rewrites them.
+        self.assertEqual(v['intents'], ['fact_lookup', 'regulatory_reasoning'])
         self.assertEqual(v['intent'], 'multi_intent')
-        self.assertEqual(v['intent_check']['tasks'][0]['rule'], 'two_named_products_with_comparison_marker')
+        self.assertIsNone(v['intent_check']['tasks'][0]['rule'])
         self.assertEqual(v['intent_check']['uncovered_request_segments'], [])
 
     def test_comparison_rule_reads_only_the_task_own_quote(self):
@@ -58,21 +59,23 @@ class TaskIntentCheck(unittest.TestCase):
         self.assertFalse(v['intent_check']['tasks'][0]['quote_verified'])
         self.assertIn('그리고 EMA가 어떤 우려를 제기했는지 알려줘.', v['intent_check']['uncovered_request_segments'])
 
-    def test_agency_versus_protocol_is_compare_sources(self):
+    def test_planner_intent_is_not_rewritten_by_keywords(self):
         q = 'SB17의 프로토콜 계획과 EMA 평가에서 1차 평가변수가 어떻게 다른지 비교해줘'
-        v = ra_intent.check(q, plan(q, ('비교', 'fact_lookup', q)))
+        v = ra_intent.check(q, plan(q, ('비교', 'compare_sources', q)))
         self.assertEqual(v['intents'], ['compare_sources'])
+        v = ra_intent.check(q, plan(q, ('비교', 'fact_lookup', q)))
+        self.assertEqual(v['intents'], ['fact_lookup'])
 
     def test_comparator_origin_is_not_a_regulator(self):
         q = 'SB17 시험에서 미국 Stelara와 유럽 Stelara 군을 비교해줘'
         v = ra_intent.check(q, plan(q, ('비교', 'fact_lookup', q)))
         self.assertEqual(v['intents'], ['fact_lookup'])
 
-    def test_compare_products_without_two_named_products_is_downgraded(self):
+    def test_study_arm_comparison_keeps_the_planner_intent(self):
         q = 'SB17 시험에서 미국 Stelara와 유럽 Stelara 군의 PK 결과를 비교해줘.'
         v = ra_intent.check(q, plan(q, ('군 비교', 'compare_products', '미국 Stelara와 유럽 Stelara 군의 PK 결과를 비교해줘')))
-        self.assertEqual(v['intents'], ['fact_lookup'])
-        self.assertEqual(v['intent_check']['tasks'][0]['rule'], 'compare_products_needs_two_named_products')
+        self.assertEqual(v['intents'], ['compare_products'])
+        self.assertIsNone(v['intent_check']['tasks'][0]['rule'])
 
     def test_empty_english_query_is_not_an_error(self):
         from rag.ra_models import ResearchPlan

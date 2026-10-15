@@ -74,8 +74,34 @@ def score_pair(report, units, products):
     return {'score': correct, 'of': 2 * len(products)}
 
 
+from datetime import date as _date
+
+# Guard questions (data/runs/guard_2026-10-15/cases.json): expected facets from the cited
+# FDA/EMA passages, checked on 2026-10-15. A facet is a token tuple (any) or a date.
+GUARD = {
+    'G1': [('교체', '상호교환', 'interchangeab'), _date(2024, 11, 29), _date(2025, 4, 30), ('잠정', 'provisional'),
+           ('Original 2', '오리지널 2', 'Orig2', '원신청 2', 'Original2')],
+    'G2': [('필요하지 않', '필요 없', '불필요', 'not necessary'), ('위험', 'risk'), ('교대', '전환', 'switch', 'alternat')],
+    'G3': [('분석', 'analytical'), ('PK', '약동학'), ('가교', '브리지', '브리징', 'bridge'), ('20190232', '비교 임상', '비교임상'),
+           ('EU-Stelara', 'EU Stelara', '유럽 Stelara', 'EU 스텔라라')],
+    'G4': [_date(2024, 6, 28), _date(2024, 4, 19), ('교체', '상호교환', 'interchangeab'), (_date(2024, 12, 20), _date(2025, 4, 30))],
+}
+
+
+def score_guard(case, report):
+    claims = report['results'][0].get('claims', [])
+    text = ' '.join(c['text'] for c in claims)
+    found = set().union(*(dates(c['text']) for c in claims)) if claims else set()
+    def hit(facet):
+        options = facet if isinstance(facet, tuple) else (facet,)
+        return any((o in found) if isinstance(o, _date) else (o.lower() in text.lower()) for o in options)
+    return {'score': sum(hit(f) for f in GUARD[case]), 'of': len(GUARD[case])}
+
+
 def score_question(case, report, units):
-    """{'score', 'of', ...} for an enumeration/comparison question ID."""
+    """{'score', 'of', ...} for an enumeration/comparison/guard question ID."""
+    if case in GUARD:
+        return score_guard(case, report)
     if case == 'Q1':
         return score_timeline(report, units, ('EU', 'US', 'CA'), True)
     if case == 'Q2':

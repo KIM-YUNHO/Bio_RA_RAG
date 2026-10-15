@@ -1,0 +1,34 @@
+[
+ {
+  "id": "G1",
+  "question": "FDA가 Yesintek(BMAB1200)을 US-Stelara와 교체 가능한(interchangeable) 바이오시밀러로 승인한 시점과 그 경위를 정리해줘.",
+  "products": null,
+  "jurisdictions": null,
+  "type": "guard",
+  "tests": "interchangeability topic; Original 2 vs Original 1"
+ },
+ {
+  "id": "G2",
+  "question": "FDA는 Wezlana(ABP654)의 교체가능성 입증을 위해 switching 연구가 필요하다고 판단했나? 근거도 알려줘.",
+  "products": null,
+  "jurisdictions": null,
+  "type": "guard",
+  "tests": "regulatory judgement outside keyword lists"
+ },
+ {
+  "id": "G3",
+  "question": "FDA 심사에서 Wezlana(ABP654)의 비교 임상에 미국 외 대조약(EU-Stelara)을 사용한 것을 어떻게 정당화했는지 설명해줘.",
+  "products": null,
+  "jurisdictions": null,
+  "type": "guard",
+  "tests": "EU named as comparator origin, not as regulator"
+ },
+ {
+  "id": "G4",
+  "question": "Pyzchiva(SB17)의 FDA 승인일과 EU 최초 판매허가일, 그리고 미국에서의 교체가능성(interchangeable) 지위를 비교해줘.",
+  "products": null,
+  "jurisdictions": null,
+  "type": "guard",
+  "tests": "two agencies in one question"
+ }
+]
