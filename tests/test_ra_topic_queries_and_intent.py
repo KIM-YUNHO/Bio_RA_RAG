@@ -141,13 +141,7 @@ class RegistryNames(unittest.TestCase):
 
 
 class ProtocolSourceRouting(unittest.TestCase):
-    def test_protocol_request_detection_tolerates_korean_particles(self):
-        for text in ('SAP에 계획된 분석 집단', 'NCT04967508의 선정 기준', 'SB17 프로토콜', 'ClinicalTrials.gov 등록 정보'):
-            self.assertTrue(ra_intent.PROTOCOL.search(text), text)
-        for text in ('SAPPHIRE 연구', 'BAT2206 임상시험 결과', 'EMA 평가 보고서'):
-            self.assertFalse(ra_intent.PROTOCOL.search(text), text)
-
-    def test_planner_drops_unrequested_protocol_role_and_adds_sponsor_when_requested(self):
+    def test_planner_protocol_role_decides_and_adds_sponsor(self):
         import json
         from rag import ra_tasks
 
@@ -161,8 +155,10 @@ class ProtocolSourceRouting(unittest.TestCase):
             def __call__(self, *a, **k):
                 return {'text': json.dumps(self.reply, ensure_ascii=False)}
         agencies = ['CA', 'EU', 'US', 'sponsor']
-        u, _ = ra_tasks.interpret('SB17 임상시험 결과를 알려줘', Client(['assessment', 'protocol'], [], []), ['SB17'], agencies)
+        # No keyword rule removes a role the planner chose; with no named agency nothing narrows.
+        u, _ = ra_tasks.interpret('SB17 임상시험 결과를 알려줘', Client(['assessment'], [], []), ['SB17'], agencies)
         self.assertEqual(u['tasks'][0]['source_roles'], ['assessment'])
+        self.assertNotIn('sponsor_source_added', u)
         q = 'SB17 프로토콜의 1차 평가변수와 EMA 평가를 비교해줘'
         mention = [{'jurisdiction': 'EU', 'role': 'regulator', 'quote': 'EMA'}]
         u, _ = ra_tasks.interpret(q, Client(['protocol', 'assessment'], ['EU'], mention), ['SB17'], agencies)

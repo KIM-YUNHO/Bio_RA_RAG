@@ -23,6 +23,18 @@ class TaskIntent(Contract):
     request_quote: Annotated[str, Field(max_length=1600)]
 
 
+ANSWER_FACETS = ('dose_route', 'comparator', 'reference_selection', 'design', 'population', 'follow_up',
+                 'eligibility', 'dosing_schedule', 'table_statistics', 'statistic_identity', 'stratification',
+                 'purpose', 'analytical_bridge', 'clinical_bridge', 'assay_targets', 'document_status_scope',
+                 'calculation')
+TOPICS = ('clinical_program', 'pk_study', 'efficacy', 'safety', 'immunogenicity', 'design')
+
+
+class AnswerFacet(Contract):
+    facet: Literal[ANSWER_FACETS]
+    detail: Annotated[str, Field(max_length=100)]
+
+
 class ResearchTask(Contract):
     request: Annotated[str, Field(min_length=1, max_length=1600)]
     queries: Annotated[list[str], Field(min_length=1, max_length=2)]
@@ -30,6 +42,10 @@ class ResearchTask(Contract):
         'quality', 'rmp', 'decision_summary', 'other_review', 'protocol', 'sap']], Field(min_length=1, max_length=2)]
     guideline_request_quote: str = ''
     intent: TaskIntent
+    # The planner's semantic reading of what the task asks for (closed sets). Plans saved
+    # before these fields existed lack the keys and use the legacy literal patterns.
+    answer_facets: Annotated[list[AnswerFacet], Field(max_length=12)] = []
+    topics: Annotated[list[Literal[TOPICS]], Field(max_length=6)] = []
 
     @field_validator('request')
     @classmethod
