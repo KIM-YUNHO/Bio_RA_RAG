@@ -29,7 +29,7 @@ class BoilerplateTests(unittest.TestCase):
 
     def test_retrieval_options_default_to_previous_behaviour(self):
         self.assertFalse(ra_retrieval.DEFAULT_PROFILE['suppress_boilerplate'])
-        self.assertEqual((), ra_retrieval.DEFAULT_PROFILE['extra_default_groups'])
+        self.assertEqual(('correspondence',), ra_retrieval.DEFAULT_PROFILE['extra_default_groups'])  # since 2026-10-16
         self.assertFalse(ra_retrieval.DEFAULT_PROFILE['collapse_duplicates'])
         self.assertTrue(ra_retrieval.DEFAULT_PROFILE['role_boost'])
 

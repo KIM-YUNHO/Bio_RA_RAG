@@ -62,7 +62,10 @@ def oracle_groups(corpus, understanding, guideline_index, source_ids, documents)
 # original-question ranking lost recall or stability (data/runs/retrieval_stability_2026-10-14).
 DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': None, 'strip_slot_terms': True,
                    'suppress_boilerplate': False, 'collapse_duplicates': False, 'role_boost': True,
-                   'extra_default_groups': (), 'rerank': None, 'rerank_pool': 40}
+                   'extra_default_groups': ('correspondence',), 'rerank': None, 'rerank_pool': 40}
+# correspondence (FDA approval letters/packages) is searched by default since 2026-10-16: with the
+# planner's document inventory, Q4 (FDA approval dates) 10/20 -> 15/20 and the 29-question total
+# 269 -> 278 (data/runs/planner_facets_2026-10-15/e2e_final).
 # Options measured 2026-10-15 on release 04 with frozen plans (data/runs/retrieval_scope_2026-10-15),
 # all off by default: boilerplate suppression (no gain once short single facts are protected; it also
 # shifts role-boosted fusion), near-duplicate collapsing (no gain), role_boost 0.25-0.5 (same as 1.0),
