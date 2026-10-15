@@ -63,7 +63,8 @@ class RAGPipeline:
             if not own:continue
             self.documents.append({**doc,'chunks':len(own),'eligible_chunks':counts[(doc['document_id'],doc['version_id'])],
                 'eligible_with_nondefault':research_counts[(doc['document_id'],doc['version_id'])],
-                'jurisdiction':own[0]['jurisdiction'] if own else None,'product_id':own[0]['product_id'] if own else None})
+                'jurisdiction':own[0]['jurisdiction'] if own else None,'product_id':own[0]['product_id'] if own else None,
+                'doc_group':own[0].get('doc_group'),'doc_date':own[0].get('doc_date')})
         self.indexed_products=sorted({c['product_id'] for c in service_chunks},key=str)
         self.product_readiness=readiness(service_chunks)
         self.products=sorted(set(self.indexed_products)|{r['product_id'] for r in self.product_readiness},key=str)
