@@ -85,6 +85,27 @@ class ChecklistMode(unittest.TestCase):
         self.assertNotIn(ra_prompt.REQUIREMENT, prompt)
 
 
+class ThirdRoleForMultiAgencyTasks(unittest.TestCase):
+    def plan(self, question, task_agencies, agencies):
+        import json
+        from rag import ra_tasks
+        reply = {'in_scope': True, 'products': ['SB17'], 'jurisdictions': [], 'jurisdiction_mentions': [],
+                 'english_query': 'approval date', 'tasks': [{'request': question, 'queries': ['approval date'],
+                 'source_roles': ['label', 'correspondence', 'decision_summary'], 'guideline_request_quote': '',
+                 'intent': {'intent': 'fact_lookup', 'request_quote': question}, 'answer_facets': [], 'topics': [],
+                 'jurisdictions': task_agencies}]}
+        client = lambda *a, **k: {'text': json.dumps(reply, ensure_ascii=False)}
+        u, _ = ra_tasks.interpret(question, client, ['SB17'], agencies)
+        return u['tasks'][0]
+
+    def test_third_role_needs_several_agencies(self):
+        q = 'SB17의 허가 날짜를 알려줘'
+        self.assertEqual(len(self.plan(q, [], ['CA', 'EU', 'US'])['source_roles']), 3)
+        single = self.plan(q, ['US'], ['CA', 'EU', 'US'])
+        self.assertEqual(single['source_roles'], ['label', 'correspondence'])
+        self.assertEqual(single['roles_trimmed'], ['decision_summary'])
+
+
 class PlannerTopics(unittest.TestCase):
     def test_fixed_queries_follow_planner_topics(self):
         q = 'SB17의 안전성 결과를 알려줘'

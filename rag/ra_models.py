@@ -43,7 +43,7 @@ class ResearchTask(Contract):
     request: Annotated[str, Field(min_length=1, max_length=1600)]
     queries: Annotated[list[str], Field(min_length=1, max_length=2)]
     source_roles: Annotated[list[Literal['assessment', 'label', 'guideline', 'correspondence',
-        'quality', 'rmp', 'decision_summary', 'other_review', 'protocol', 'sap']], Field(min_length=1, max_length=2)]
+        'quality', 'rmp', 'decision_summary', 'other_review', 'protocol', 'sap']], Field(min_length=1, max_length=3)]
     guideline_request_quote: str = ''
     intent: TaskIntent
     # The planner's semantic reading of what the task asks for (closed sets). Plans saved

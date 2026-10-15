@@ -48,7 +48,7 @@ SCHEMA = {'name': 'query_understanding', 'schema': obj({
     'english_query': STRING,
     'tasks': {'type': 'array', 'minItems': 1, 'maxItems': 4, 'items': obj({'request': STRING,
         'queries': {'type': 'array', 'minItems': 1, 'maxItems': 2, 'items': STRING},
-        'source_roles': {'type': 'array', 'minItems': 1, 'maxItems': 2, 'items': {'type': 'string', 'enum': ROLES}},
+        'source_roles': {'type': 'array', 'minItems': 1, 'maxItems': 3, 'items': {'type': 'string', 'enum': ROLES}},
         'guideline_request_quote': STRING,
         'intent': obj({'intent': {'type': 'string', 'enum': ra_intent.INTENTS}, 'request_quote': STRING}),
         'answer_facets': {'type': 'array', 'maxItems': 12, 'items': obj({
@@ -156,7 +156,9 @@ Keep task.request in Korean. task.request restates only what the user asked: nev
 add notes about missing or unspecified products, agencies or scope limits (the
 application reports scope separately). Keep related requested facets together instead of
 duplicating the same search for each facet. Each gets 1-2 concise English queries
-and only the 1-2 document roles actually needed. Do not list every available role.
+and only the 1-2 document roles actually needed (a task reading several agencies'
+documents may use 3 when those agencies keep the answer in different document kinds).
+Do not list every available role.
 Do not turn questions into a fixed
 numeric-field ontology. Do not add expected answer numbers or conditions.
 Use guideline for questions about guidance/recommendations, assessment for actual
@@ -235,6 +237,12 @@ Registered product identities: """ + json.dumps(inventory, ensure_ascii=False)
         if 'guideline' in task['source_roles']:
             task['guideline_quote_verbatim'] = contains_quote(question, task.get('guideline_request_quote', ''))
         from rag.ra_requirements import route_task
+        # A third role is for a task that reads several agencies; otherwise keep the first two.
+        reads = task.get('jurisdictions') or [j for j in value['jurisdictions'] if j in ('EU', 'US', 'CA')] \
+            or [j for j in agencies if j in ('EU', 'US', 'CA')]
+        if len(task['source_roles']) > 2 and len(set(reads)) < 2:
+            task['roles_trimmed'] = task['source_roles'][2:]
+            task['source_roles'] = task['source_roles'][:2]
         tasks[i - 1] = route_task(question, task)
     # Per-task intent checks; sets intents, the derived question-level intent and uncovered segments.
     ra_intent.check(question, value)
