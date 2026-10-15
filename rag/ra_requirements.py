@@ -26,6 +26,9 @@ FACETS = {
 
 
 def verified_study_key(block):
+    from rag.source_study_scope import heading_conflict
+    if heading_conflict(block):
+        return None
     for anchor in reversed(block.get('structure', {}).get('heading_anchors', [])):
         if anchor.get('kind') != 'study' or not anchor.get('heading_location', {}).get('block_id'):
             continue
@@ -107,6 +110,9 @@ def route_task(question, task):
 
 
 def study_identity(block):
+    from rag.source_study_scope import heading_conflict
+    if heading_conflict(block):
+        return None
     anchors = [h for h in block.get('structure', {}).get('heading_anchors', []) if h.get('kind') == 'study']
     if not anchors:
         return None

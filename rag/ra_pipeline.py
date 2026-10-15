@@ -17,7 +17,7 @@ from rag.ra_sources import GuidelineIndex, permitted
 from rag.search import filter_idx
 from rag.service_scope import allowed
 
-VERSION = 'ra-research-rag-4.10.1'
+VERSION = 'ra-research-rag-4.10.2'
 
 
 class RAPipeline(RAGPipeline):

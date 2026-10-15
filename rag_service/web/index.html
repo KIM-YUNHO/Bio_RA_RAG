@@ -1,10 +1,11 @@
 <!doctype html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>바이오시밀러 RA 근거 검색</title>
-<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/style.css?v=20261015-ra-refined">
+<link rel="stylesheet" href="/data-manager.css?v=20261015-collection-live">
 <script defer src="/common.js"></script><script defer src="/review-notes.js"></script><script defer src="/evidence-view.js"></script>
-<script defer src="/inventory.js"></script><script defer src="/viewer.js"></script><script defer src="/app.js"></script></head>
+<script defer src="/inventory.js"></script><script defer src="/viewer.js"></script><script defer src="/pipeline-notes.js?v=20261015-ra-refined"></script><script defer src="/data-manager.js?v=20261015-collection-live"></script><script defer src="/app.js?v=20261015-main-ra-v2"></script></head>
 <body>
-<header><a class="brand" href="/" aria-label="처음 화면"><span class="brand-bar" aria-hidden="true"></span><div class="brand-text"><strong>바이오시밀러 RA 근거 검색</strong><small>EMA · FDA · Health Canada 공개 규제 문서</small></div></a><div class="header-right"><a id="review-link" target="_blank" rel="noopener">원본 검토 페이지 ↗</a></div></header>
+<header><a class="brand" href="/" aria-label="처음 화면"><span class="brand-bar" aria-hidden="true"></span><div class="brand-text"><strong>바이오시밀러 RA 근거 검색</strong><small>EMA · FDA · Health Canada 공개 규제 문서</small></div></a><div class="header-right"><button id="data-manager-open" type="button" class="download">자료 수집·적재</button><a id="review-link" target="_blank" rel="noopener">원본 검토 페이지 ↗</a></div></header>
 <main id="layout" class="layout">
   <aside id="scope-pane" class="pane scope-pane" aria-label="자료와 검색 범위">
     <div class="pane-head"><div class="pane-title"><div class="eyebrow">LOADED DATA · SCOPE</div><h2>자료·검색 범위</h2></div><button id="scope-toggle" class="icon-button" type="button" aria-label="자료 패널 접기">‹</button></div>
@@ -17,6 +18,22 @@
   </aside>
   <div id="split-left" class="splitter" role="separator" aria-orientation="vertical" aria-label="자료 패널 폭 조절"></div>
   <section id="chat-pane" class="pane chat-pane" aria-label="채팅">
+    <div class="workspace-toolbar">
+      <div class="workspace-project"><label for="workspace-project" class="sr-only">개발 제품 파이프라인</label><select id="workspace-project"><option value="">파이프라인 불러오는 중</option></select><button id="workspace-create" type="button" class="download">+ 파이프라인</button></div>
+      <nav class="workspace-modes" aria-label="작업 보기"><button type="button" data-workspace-mode="split" aria-pressed="true">통합 뷰</button><button type="button" data-workspace-mode="pipeline" aria-pressed="false">파이프라인 전체</button><button type="button" data-workspace-mode="chat" aria-pressed="false">근거 채팅</button></nav>
+    </div>
+    <div class="ra-workspace-body">
+    <section id="pipeline-dock" class="pipeline-dock" aria-label="RA 파이프라인과 단계별 메모">
+      <div class="pipeline-dock-bar"><strong>바이오시밀러 RA 파이프라인</strong><button id="pipeline-all" type="button" class="download">전 단계 메모</button></div>
+      <div id="pipeline-board" class="pipeline-board">
+      <div id="pipeline-steps" class="pipeline-steps"></div>
+      <div class="pipeline-memo-toolbar"><strong id="pipeline-memo-title">단계별 메모</strong><div class="pipeline-filters"><label for="memo-tag-filter" class="sr-only">메모 태그 필터</label><select id="memo-tag-filter"><option value="">전체 태그</option></select><label class="small"><input id="memo-archived" type="checkbox">보관함</label><button id="memo-refresh" type="button" class="link-button">새로고침</button></div></div>
+      <div id="pipeline-memos" class="pipeline-memos"><p class="muted small">개발 중인 제품의 파이프라인을 추가하고 단계별로 메모와 근거를 저장하세요.</p></div>
+      </div>
+      <div class="pipeline-bottom"><span class="muted small">협력사·쟁점은 메모 태그로 정리하세요.</span><button id="memo-add" type="button" class="download">+ 단계 메모</button></div>
+      <div id="pipeline-message" class="pipeline-message" role="status"></div>
+    </section>
+    <section class="ra-conversation" aria-label="문서 근거 채팅">
     <div class="chat-toolbar">
       <div><div class="eyebrow">REGULATORY AFFAIRS</div><h1>문서 근거 채팅</h1></div>
       <div class="toolbar-actions">
@@ -26,7 +43,7 @@
       </div>
     </div>
     <div id="chat-log" class="chat-log" aria-live="polite">
-      <div class="empty" id="empty"><span>↳</span><h2>질문으로 시작하세요.</h2><p>왼쪽에서 고른 범위 안에서 기관·제품별로 근거를 찾습니다.<br>답변의 [E1] 같은 인용 번호나 ‘원문 보기’를 누르면 오른쪽에 원문 페이지가 열립니다.</p></div>
+      <div class="empty" id="empty"><span aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M10 5H7v22h18V11l-6-6h-5v7h11M11 17h7M11 21h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h2>질문으로 시작하세요.</h2><p>왼쪽에서 고른 범위 안에서 기관·제품별로 근거를 찾습니다.<br>답변의 [E1] 같은 인용 번호나 ‘원문 보기’를 누르면 오른쪽에 원문 페이지가 열립니다.</p></div>
     </div>
     <div id="error" class="error" hidden role="alert"></div>
     <div id="conversation-state" class="conversation-state" hidden role="status"></div>
@@ -34,6 +51,8 @@
       <textarea id="question" maxlength="2000" rows="2" required placeholder="예: EMA 문서에서 SB17-1001 시험의 대상자는 어떻게 설명되어 있는가?  (Enter 전송 · Shift+Enter 줄바꿈)"></textarea>
       <div class="form-bottom"><span>자동 추출 결과를 사용합니다. 표·그림의 수치와 의미는 원문에서 확인하세요.</span><button id="submit" type="submit">질문하기 <span>↗</span></button></div>
     </form>
+    </section>
+    </div>
   </section>
   <div id="split-right" class="splitter" role="separator" aria-orientation="vertical" aria-label="원문 패널 폭 조절" hidden></div>
   <aside id="viewer-pane" class="pane viewer-pane" aria-label="근거 원문" hidden>

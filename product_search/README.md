@@ -1,5 +1,6 @@
 # Biosimilar Discovery & Collection (`product_search/`)
 
+- 수정: 2026-10-15. 바이오시밀러가 없는 성분도 EMA 허가 의약품·Purple Book의 성분/허가명으로 탐색한다. 예: `Ocrevus`, `ocrelizumab`. 적재 계획은 선택한 EMA 제품번호 또는 FDA BLA 번호와 성분을 다시 대조한다. 오리지널은 이미 등록된 개발코드를 유지하며, 확인된 코드가 없으면 허가명 기반 ID를 사용한다(`OCREVUS`). EPAR의 시험번호를 개발코드로 추측하지 않는다. 사전 제품 등록은 필요하지 않으며 스테이징 수집·확인표 승인 절차는 같다.
 - 수정: 2026-10-08 02:58 KST. 아래 보완 단계는 모두 프로젝트 `collect.py`로 옮겼다. 이 폴더는 같은 코드를 `product_search/data/`에 대해 실행하는 입구다. 규칙 파일 `document_kinds.json`·`guidelines.json`은 프로젝트 루트로 옮겼고 `--annotate`는 없앴다(성분·대조약은 수집할 때 기록한다). 규칙은 [수집 기준](../docs/collection/temp/COLLECTION_STANDARD.md). Yesintek·Usymro는 프로젝트 `data/`에 정식으로 추가했으며 여기 데이터는 2026-10-07 시험 수집본이다.
 - 수정: 2026-10-07 17:47 KST. 적재 점검을 반영해 다음을 추가했다. FDA 보충신청 서한·최신 라벨, Purple Book 허가 상태, 게시된 시험 결과, 문서 층 분류, 지침 수집(`guidelines.py`), 공백 점검(`coverage.py`), SQLite 이전 버전 정리. 근거는 [적재 문서 점검과 보완](../docs/collection/temp/COLLECTION_GAP_REVIEW_2026-10-07.md).
 
@@ -20,7 +21,7 @@ uv run python -m product_search.promote AVT04                 # 확인표: 허�
 uv run python -m product_search.promote AVT04 --apply         # 프로젝트로 옮김 (재다운로드 없음) → targets.json, SQLite, build_indexes, verify
 ```
 
-- **제품 = 개발코드 하나.** EMA 목록은 허가마다 한 줄이다. 그래서 같은 제품의 EU 허가 두 개(Yesintek·Usrenty, Uzpruvo·Usgena, Otulfi·Fymskina)를 한 제품으로 묶고 `licences`에 적는다. 문서는 대표 허가(EU 허가일이 가장 이른 것; 같은 날이면 미국·캐나다 이름과 같은 것)만 받는다. `product_id`는 검색 순서와 무관하게 개발코드다. ustekinumab 검색 결과는 11개 행에서 8개 제품이 되었다.
+- **확인된 개발코드가 있으면 같은 코드의 허가를 한 제품으로 묶는다.** EMA 목록은 허가마다 한 줄이다. 그래서 같은 제품의 EU 허가 두 개(Yesintek·Usrenty, Uzpruvo·Usgena, Otulfi·Fymskina)를 한 제품으로 묶고 `licences`에 적는다. 문서는 대표 허가(EU 허가일이 가장 이른 것; 같은 날이면 미국·캐나다 이름과 같은 것)만 받는다. `product_id`는 확인된 개발코드를 사용하며, 코드가 없으면 허가명 기반 ID를 사용한다. ustekinumab 검색 결과는 11개 행에서 8개 제품이 되었다.
 - **대조약(원 의약품)도 찾는다**(2026-10-08 03:50). 성분명 검색 결과 맨 앞에 `kind: reference` 제품이 나오고(EMA 비바이오시밀러 허가 + Purple Book 351(a)), 바이오시밀러는 `reference_product_id`로 그것을 가리킨다. `stelara`로 검색하면 대조약만 나온다. 대조약은 시험을 찾지 않는다.
 - **한계:** 캐나다 제품명이 EU·미국과 다르면 찾지 못한다(AVT04의 Jamteki). PMDA는 검색하지 않는다. 확인표에 "not found"로 나온다.
 - 지금 스테이징에 있는 것: AVT04(Uzpruvo/Selarsdi), DMB3115(Imuldosa), CNTO1275(Stelara, 프로젝트로 옮김). 둘 다 2026-10-08 시험 수집이며 프로젝트로 옮기지 않았다. 이전 ID 규칙으로 받은 `BMAB1200_YESINTEK`와 BAT2206 시험본은 지웠다(두 제품은 프로젝트에 정식으로 있음).

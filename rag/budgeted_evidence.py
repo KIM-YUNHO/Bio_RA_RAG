@@ -54,10 +54,13 @@ class BudgetedEvidence(PreprocessedEvidence):
         from preprocess.visual_context import verify_chunk_links
         verify_chunk_links(chunk,self.visual_bundle)
         result=[]
+        from rag.source_study_scope import link_conflict
+        from preprocess.visual_context import link_text
         for lid in chunk['structure'].get('related_visual_link_ids',[]):
             link=self.visual_links[lid]
             for target in self.by_visual[(chunk['document_id'],chunk['version_id'],link['visual_id'])]:
-                if target['chunk_id'] in allowed_ids and target['structure']['kind'] in ('table_candidate','figure_candidate'):
+                if (target['chunk_id'] in allowed_ids and target['structure']['kind'] in ('table_candidate','figure_candidate')
+                        and not link_conflict(chunk,target,link_text(link,self.visual_bundle))):
                     result.append(target)
         return result
 

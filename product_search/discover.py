@@ -179,7 +179,8 @@ def discover(ingredient):
         if r.get("Proper Name", "").strip().lower().startswith(ingredient.lower() + "-") and "351(k)" in r.get("License Type", ""):
             u = us.setdefault(r["Proprietary Name"].strip(), {"brand": r["Proprietary Name"].strip(), "proper": r["Proper Name"].strip().lower(), "company": r["Applicant"].strip(), "bla": set()})
             u["bla"].add(r["BLA Number"].strip())
-    names = gsrs_names(ingredient)
+    # Originator-only ingredients need no US biosimilar alias lookup.
+    names = gsrs_names(ingredient) if us else {}
     gsrs = {u["brand"]: names.get(u["proper"], []) for u in us.values()}
     gsrs_code = {b: next((n for n in ns if CODE.fullmatch(n) and re.search(r"\d", n)), None) for b, ns in gsrs.items()}
 
@@ -220,7 +221,8 @@ def discover(ingredient):
 
 def reference_products(ingredient, documents):
     """The originator of the ingredient: authorised in the EU without the biosimilar flag, or licensed in the US under 351(a) with the
-    bare proper name (no four-letter suffix). Its product_id is the development code read from its EPAR, like a biosimilar's.
+    bare proper name (no four-letter suffix). Preserve a registered development code when available; otherwise use the brand
+    as product_id. A frequent code in an originator EPAR may be a trial number, not a product development code.
     Its own trials are not searched: the evidence the biosimilar pathway relies on is in its review documents."""
     eu = [p for p in get_json(SOURCES["ema_products"], "EMA")["data"] if p.get("category") == "Human" and p.get("biosimilar") != "Yes"
           and p.get("medicine_status") == "Authorised" and norm(p.get("active_substance")) == norm(ingredient)]
@@ -232,7 +234,10 @@ def reference_products(ingredient, documents):
     entries, used = [], set()
     for p in eu:
         report = epar(p["ema_product_number"], documents)
-        code = epar_code(report) if report else None
+        registered = next((t for t in PROJECT_CFG["products"] if t.get("kind") == "reference"
+                           and norm(t.get("ingredient") or PROJECT_CFG["ingredient"]) == norm(ingredient)
+                           and norm(t.get("ema_name")) == norm(p["name_of_medicine"])), None)
+        code = registered.get("development_code") if registered else None
         us_brand = next((b for b in us if norm(b) == norm(p["name_of_medicine"])), None)
         e = entry(ingredient, code, p["name_of_medicine"], us_brand, p["marketing_authorisation_developer_applicant_holder"], p["ema_product_number"], bool(report), [])
         e["ema_authorised"] = iso_date(p.get("marketing_authorisation_date"))
@@ -304,28 +309,40 @@ def entry(ingredient, code, ema_name, us_brand, company, ema_number, has_epar, s
 
 
 def search(query):
-    """Ingredient name -> every product of it; product name or code -> that product only."""
+    """Official ingredient -> its products; official brand -> that product only.
+
+    Ingredient discovery also accepts originators without authorised biosimilars.
+    Unknown names do not expand to other products of an inferred ingredient.
+    """
     q = norm(query)
-    eu = ema_biosimilars()
-    ingredient = next((p["active_substance"].lower() for p in eu if norm(p["active_substance"]) == q), None)
+    if not q:
+        return {"query": query, "kind": None, "ingredient": None, "products": [], "message": "제품명 또는 성분명을 입력해 주세요."}
+    everything = [p for p in get_json(SOURCES["ema_products"], "EMA")["data"]
+                  if p.get("category") == "Human" and p.get("medicine_status") == "Authorised"]
+    ingredient = next((p["active_substance"].strip().lower() for p in everything if norm(p.get("active_substance")) == q), None)
+    # US-only ingredients are discoverable too; remove only a 351(k) suffix.
+    def us_ingredient(row):
+        proper = row.get("Proper Name", "").strip().lower()
+        return re.sub(r"-[a-z]{4}$", "", proper) if "351(k)" in row.get("License Type", "") else proper
+
+    us = None
+    if not ingredient:
+        us = purple_rows()
+        ingredient = next((us_ingredient(r) for r in us if norm(us_ingredient(r)) == q
+                           and any(t in r.get("License Type", "") for t in ("351(a)", "351(k)"))), None)
     kind = "ingredient"
     if not ingredient:
         kind = "product"
-        # A biosimilar name, or the originator's name (Stelara): either leads to the ingredient, then to that product only.
-        everything = [p for p in get_json(SOURCES["ema_products"], "EMA")["data"] if p.get("category") == "Human" and p.get("medicine_status") == "Authorised"]
-        ingredient = next((p["active_substance"].lower() for p in everything if norm(p["name_of_medicine"]) == q), None) \
-            or next((r["Proper Name"].strip().lower().rsplit("-", 1)[0] for r in purple_rows() if norm(r.get("Proprietary Name", "")) == q and "351(k)" in r.get("License Type", "")), None) \
-            or next((r["Proper Name"].strip().lower() for r in purple_rows() if norm(r.get("Proprietary Name", "")) == q and "351(a)" in r.get("License Type", "")), None)
+        ingredient = next((p["active_substance"].strip().lower() for p in everything if norm(p["name_of_medicine"]) == q), None) \
+            or next((us_ingredient(r) for r in us if norm(r.get("Proprietary Name", "")) == q
+                     and any(t in r.get("License Type", "") for t in ("351(a)", "351(k)"))), None)
     if not ingredient:
-        return {"query": query, "kind": None, "ingredient": None, "products": [], "message": "EMA 허가 바이오시밀러나 Purple Book 351(k) 목록에서 찾지 못했습니다."}
+        return {"query": query, "kind": None, "ingredient": None, "products": [], "message": "EMA 허가 의약품 또는 Purple Book 목록에서 제품·성분을 찾지 못했습니다."}
     products = discover(ingredient)
     if kind == "product":
-        # Any licence name (a second EU licence such as Usrenty finds its product, Yesintek), then the code.
-        for values in (lambda p: [l["name"] for l in p["licences"]], lambda p: p["aliases"]):
-            hits = [p for p in products if q in {norm(v or "") for v in values(p)}]
-            if hits:
-                products = hits
-                break
+        # Never return unrelated products when a recognised brand could not be grouped.
+        products = [p for p in products if q in {norm(v or "") for v in
+                    [l["name"] for l in p["licences"]] + p["aliases"]}]
     collected = {p["product_id"] for p in read_jsonl(HERE / "data/catalog/products.jsonl")}
     for p in products:
         p["collected"] = p["product_id"] in collected

@@ -5,6 +5,7 @@ is the tool result the request is checked against: every identifier in the reque
 """
 import datetime as dt
 import json
+import re
 
 from ingestion.contracts import ROOT, Evidence, IngestionRequest, ProductTarget, load_targets
 from ingestion.sources import norm
@@ -23,17 +24,28 @@ def staged_products():
 
 
 def find_entry(candidate):
-    """The discover entry for the candidate: a licence name, alias or development code in common."""
+    """Keep a resolved official licence identity; use names only for code/brand-only candidates."""
     from product_search import discover  # heavy import; sets collect.ROOT to product_search/ for this process
     wanted = {norm(n) for n in candidate.names.values()} | {norm(e.matched_text) for e in candidate.evidence}
     if candidate.key.startswith("CODE:"):
         wanted.add(norm(candidate.key[5:]))
     result = discover.search(candidate.ingredient)
-    entries = [p for p in result["products"] if wanted & ({norm(l["name"]) for l in p.get("licences", [])} | {norm(a) for a in p.get("aliases", [])})]
+    def matches(product):
+        if norm(product.get("ingredient")) != norm(candidate.ingredient):
+            return False
+        licences = product.get("licences", [])
+        if candidate.key.startswith("EU:"):
+            return any(l["jurisdiction"] == "EU" and l.get("licence_id") == candidate.key[3:] for l in licences)
+        if candidate.key.startswith("US:BLA"):
+            bla = candidate.key[len("US:BLA"):]
+            return any(l["jurisdiction"] == "US" and bla in re.findall(r"\d+", l.get("licence_id") or "") for l in licences)
+        return bool(wanted & ({norm(l["name"]) for l in licences} | {norm(a) for a in product.get("aliases", [])}))
+
+    entries = [p for p in result["products"] if matches(p)]
     if len(entries) != 1:
         found = ", ".join(sorted(p["product_id"] for p in entries)) or "none"
         raise PlanError(f"discover found {len(entries)} matching products for {candidate.key} ({found}); "
-                        "a Canadian-only name or a code without an EU/US licence cannot be grouped automatically")
+                        "the selected product's ingredient and licence identity must match exactly")
     return entries[0]
 
 

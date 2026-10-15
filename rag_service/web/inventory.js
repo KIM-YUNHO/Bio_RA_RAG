@@ -4,6 +4,7 @@ const Inventory=(()=>{
   const sel={products:new Set(),agencies:new Set(),documents:new Set(),guidelines:true};
   let data=null,onChange=()=>{},disabled=false;
   const inputs={ingredients:[],products:new Map(),agencies:new Map(),documents:new Map(),guidelines:null};
+  const summaries=[];
   const allDocs=()=>data.ingredients.flatMap(i=>i.products.flatMap(p=>p.documents.map(d=>({...d,product_id:p.product_id}))));
   const guidelineDocs=()=>data.guidelines.documents;
   const searchable=()=>data.ingredients.flatMap(i=>i.products.filter(p=>p.searchable));
@@ -59,21 +60,25 @@ const Inventory=(()=>{
     const wrap=node("div","scope-group");wrap.append(node("h3","","제품 × 기관 (검색/수집 문서)"),table,node("p","inv-reason","칸을 누르면 그 조합만 선택합니다. 빈칸은 마우스를 올리면 사유가 보입니다."));return wrap;
   }
   function render(target,inventory,change){
-    data=inventory;onChange=change;target.replaceChildren();
+    data=inventory;onChange=change;target.replaceChildren();inputs.ingredients=[];inputs.products.clear();inputs.agencies.clear();inputs.documents.clear();inputs.guidelines=null;summaries.length=0;
+    const saved=Prefs.get("scopeSelection",{}),knownProducts=new Set(searchable().map(p=>p.product_id)),knownDocs=new Set([...allDocs(),...guidelineDocs()].map(d=>d.key)),knownAgencies=new Set(data.jurisdictions.map(j=>j.id));
+    sel.products=new Set((Array.isArray(saved.products)?saved.products:[]).filter(v=>knownProducts.has(v)));sel.agencies=new Set((Array.isArray(saved.agencies)?saved.agencies:[]).filter(v=>knownAgencies.has(v)));sel.documents=new Set((Array.isArray(saved.documents)?saved.documents:[]).filter(v=>knownDocs.has(v)));sel.guidelines=saved.guidelines!==false;
     for(const ingredient of data.ingredients){
       const box=node("div","scope-group inv-ingredient"),products=ingredient.products.filter(p=>p.searchable);
       const {row,input}=check(ingredient.name,ingredient.name,"ingredient",{extra:node("span","count",`바이오시밀러 ${ingredient.products.length}`)});
       row.classList.add("strong");inputs.ingredients.push({input,products});
       input.onchange=()=>{for(const p of products)input.checked?sel.products.add(p.product_id):sel.products.delete(p.product_id);sync();};
       box.append(node("h3","","성분"),row,node("div","inv-group-title","바이오시밀러"));
-      for(const p of ingredient.products)box.append(productBlock(p));
+      const collapsed=node("details","inventory-picker"),summary=node("summary");collapsed.append(summary);summaries.push({element:summary,kind:"products",products});
+      for(const p of ingredient.products)collapsed.append(productBlock(p));box.append(collapsed);
       if(ingredient.reference.length){box.append(node("div","inv-group-title","대조약 자료"));for(const p of ingredient.reference)box.append(productBlock(p));}
       target.append(box);
     }
-    const agencies=node("div","scope-group");agencies.append(node("h3","","규제기관"));
+    const agencies=node("div","scope-group");agencies.append(node("h3","","규제기관"));const agencyPicker=node("details","inventory-picker"),agencySummary=node("summary");agencyPicker.append(agencySummary);summaries.push({element:agencySummary,kind:"agencies"});
     for(const j of data.jurisdictions){const count=allDocs().filter(d=>d.jurisdiction===j.id).length;
       const {row,input}=check(j.label,j.id,"agency",{extra:node("span","count",`${count}문서`)});
-      input.onchange=()=>{input.checked?sel.agencies.add(j.id):sel.agencies.delete(j.id);sync();};inputs.agencies.set(j.id,input);agencies.append(row);}
+      input.onchange=()=>{input.checked?sel.agencies.add(j.id):sel.agencies.delete(j.id);sync();};inputs.agencies.set(j.id,input);agencyPicker.append(row);}
+    agencies.append(agencyPicker);
     target.append(agencies);
     if(guidelineDocs().length){
       const box=node("div","scope-group"),counts=data.jurisdictions.map(j=>`${j.label.replace("Health Canada","HC")} ${data.guidelines.by_jurisdiction[j.id]||0}`).join(" · ");
@@ -124,9 +129,10 @@ const Inventory=(()=>{
     for(const input of inputs.documents.values())input.disabled=disabled;
     if(inputs.guidelines)inputs.guidelines.disabled=disabled;
     for(const b of document.querySelectorAll(".grid-cell"))b.disabled=disabled;
+    for(const entry of summaries){if(entry.kind==="products"){const selected=entry.products.filter(p=>sel.products.has(p.product_id));entry.element.textContent=selected.length?selected.map(p=>p.product_id).join(" · "):`전체 제품 · ${entry.products.length}개`;}else entry.element.textContent=sel.agencies.size?[...sel.agencies].map(j=>AGENCIES[j]).join(" · "):"전체 기관 · "+data.jurisdictions.length+"개";}
     const d=describe();$("scope-summary").replaceChildren(node("strong","",d.text));if(d.note)$("scope-summary").append(node("span","",d.note));
     if(docsMode)$("scope-summary").append(button("문서 선택 해제","link-button",()=>{sel.documents.clear();sync();}));
-    if(notify)onChange();
+    if(notify){Prefs.set("scopeSelection",{products:[...sel.products],agencies:[...sel.agencies],documents:[...sel.documents],guidelines:sel.guidelines});onChange();}
   }
   function refreshCounts(){for(const meta of document.querySelectorAll(".doc-meta[data-doc]")){const doc=[...allDocs(),...guidelineDocs()].find(d=>d.key===meta.dataset.doc);if(doc)meta.textContent=docMeta(doc);}}
   function setDisabled(value){disabled=value;sync(false);}

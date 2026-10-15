@@ -262,6 +262,8 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
 def packet(corpus, chunk, role):
     if chunk.get('role') == 'guideline':
         return [(deepcopy(chunk), role)]
+    from rag.source_study_scope import without_conflicting_heading
+    chunk = without_conflicting_heading(chunk)
     adapter = corpus.evidence_adapter
     result = []
     # Retain actual section/study headings as independently quotable source
@@ -415,6 +417,14 @@ def context(corpus, groups, question, understanding, client, citation_mode='quot
                     expansions.append({'seed_chunk_id': seed['chunk_id'], 'chunk_id': neighbour['chunk_id'],
                                        'task_id': group['task_id'], 'study_context_id': identity[-1],
                                        'source_tokens': size, 'context_kind': 'guideline' if is_guideline else 'study'})
+    # One bounded pass also follows references in newly supplied study prose.
+    # Targets added here are not recursively expanded; add() retains the exact
+    # input budget, authorization and duplicate checks.
+    for chunk, role in list(selected):
+        if role != 'same_study_context':
+            continue
+        for neighbour in corpus.evidence_adapter.linked_candidates(chunk, product_allowed):
+            add(neighbour, 'linked_visual_candidate', {'task_id': 'expanded_link'})
     evidence = blocks(corpus, selected)
     tokens = ra_answer.cost(client, ra_answer.messages(question, understanding, evidence, citation_mode),
                             ra_answer.schema(evidence, understanding['tasks'], citation_mode, question=question,

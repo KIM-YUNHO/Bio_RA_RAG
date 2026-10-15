@@ -7,7 +7,7 @@ import unicodedata
 NUMBER = re.compile(r'(?<![A-Za-z\d])[-+−]?\d+(?:[.,]\d+)*(?!\d)')
 UNIT_PATTERN = r'ng/mL|ng·h/mL|h\*ng/mL|kg/m2|mg|mcg|μg|ug|g|mL|ml|kg|%|weeks?|days?|hours?|h|주|일|시간'
 QUANTITY = re.compile(r'(?<![\w.])([+−-]?\d+(?:,\d{3})*(?:\.\d+)?)\s*[-‐‑]?\s*('
-    + UNIT_PATTERN + r')(?![A-Za-z])')
+    + UNIT_PATTERN + r')(?![A-Za-z0-9])')
 WORDS = dict(zip('one two three four five six seven eight nine ten'.split(), range(1, 11)))
 MONTHS = dict(zip('jan feb mar apr may jun jul aug sep oct nov dec'.split(), range(1, 13)))
 
@@ -17,6 +17,10 @@ def normalized(text):
     text = unescape(re.sub(r'<[^>]*>', ' ', text))
     text = unicodedata.normalize('NFKC', text).replace(r'\n', '\n').replace(r'\r', '\r')
     text = re.sub(r'kg/m\s*\$\s*\^\{?2\}?\s*\$', 'kg/m2', text)
+    # PDF text can separate the squared exponent or concatenate the following
+    # "for". Canonicalize this explicit unit only, preserving kg versus BMI.
+    text = re.sub(r'\bkg\s*/\s*m\s*(?:\^\s*\{?2\}?|2)(?!\d)', 'kg/m2', text)
+    text = re.sub(r'\bkg/m2(?=for\b)', 'kg/m2 ', text)
     return re.sub(r'\b(' + '|'.join(WORDS) + r')\b', lambda m: str(WORDS[m[0].lower()]), text, flags=re.I)
 
 

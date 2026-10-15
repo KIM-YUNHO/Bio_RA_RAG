@@ -14,7 +14,8 @@ try:
 except ImportError:  # CLI modules retain their historical import path.
     import study_registry as sr
 
-VERSION = "sections-8"
+VERSION = "sections-10"
+SECTIONS_8 = "sections-8"
 # Opt-in: one-level numbered layout titles. Evaluated on release 05 (2026-10-15) and not
 # adopted as the default: no retrieval gain, silver recall fell (step titles over-split).
 SECTIONS_9 = "sections-9"
@@ -80,9 +81,17 @@ def identify(text, product=None, *, version=COMPAT_VERSION, layout_title=False):
             after = text[end:].strip()
             phase_title = re.fullmatch(r"(?:clinical )?(?:phase (?:[1-3]|i{1,3}) )?study\s*\(?", before)
             topic_title = re.fullmatch(r"(?:bioequivalence|pharmacokinetics)\s*\(\s*study", before)
-            clinical_title = version in (VERSION, SECTIONS_9) and re.fullmatch(
+            clinical_prefix = before
+            if version == VERSION:
+                # Short standalone condition descriptors still require a literal
+                # registered study ID and no prose after it. This is not a body
+                # mention becoming a title (e.g. "Clinical Ps study 20190232").
+                if (re.fullmatch(r"clinical (?:[a-z][a-z'-]* ){1,4}study", before)
+                        and not re.search(r'\b(?:from|of|in|the|was|were|is|are|reported|received|included)\b', before)):
+                    clinical_prefix = 'clinical study'
+            clinical_title = version in (SECTIONS_8, VERSION, SECTIONS_9) and re.fullmatch(
                 r'(?:(?:single|multiple)[ -]dose )?(?:(?:pk|pharmacokinetic|clinical|similarity|comparative|pivotal|supportive|efficacy|safety|bioequivalence) )*'
-                r'study(?: in [a-z -]{3,55})?\s*\(?', before) and not re.search(
+                r'study(?: in [a-z -]{3,55})?\s*\(?', clinical_prefix) and not re.search(
                     r'\b(?:was|were|is|are|showed|reported|received|included)\b', before)
             wrapped = before.endswith("(") or topic_title
             if after not in ((")", "):" ) if wrapped else ("", ":")):
@@ -102,15 +111,15 @@ def identify(text, product=None, *, version=COMPAT_VERSION, layout_title=False):
     # A source's explicit part qualifier belongs to the structural heading;
     # it supplies evidence, never an automatic semantic assignment.
     bare = re.sub(r"\s*\(part\s+\d+\)$", "", normalized)
-    if version not in (COMPAT_VERSION, 'sections-5', 'sections-6', 'sections-7', VERSION, SECTIONS_9):
+    if version not in (COMPAT_VERSION, 'sections-5', 'sections-6', 'sections-7', SECTIONS_8, VERSION, SECTIONS_9):
         raise ValueError('Unknown section rules version')
-    if version in ('sections-7', VERSION, SECTIONS_9) and re.fullmatch(
+    if version in ('sections-7', SECTIONS_8, VERSION, SECTIONS_9) and re.fullmatch(
             r'(?:(?:clinical|pivotal|supportive) )?phase (?:[1-4](?:/[1-4])?|[ivx]+(?:/[ivx]+)?) '
             r'(?:clinical )?(?:study|trial)(?:\s*\([^()]{1,60}\))?', normalized):
         return {'title':text,'kind':'study_boundary','study_keys':[],
                 'basis':'standalone_unidentified_study_heading'}
     headings = SUBHEADINGS | CLINICAL_SUBHEADINGS if version != COMPAT_VERSION else SUBHEADINGS
-    if version in ('sections-6', 'sections-7', VERSION, SECTIONS_9) and re.fullmatch(
+    if version in ('sections-6', 'sections-7', SECTIONS_8, VERSION, SECTIONS_9) and re.fullmatch(
             r'(?:(?:subcutaneous|intravenous|oral) )?(?:adult|pediatric|paediatric)(?: patients?)? '
             r'(?:dosage|dose)(?: regimen| and administration)?', bare):
         return {'title': text, 'kind': 'subsection', 'study_keys': [], 'basis': 'standalone_population_dosage_heading'}
@@ -118,7 +127,7 @@ def identify(text, product=None, *, version=COMPAT_VERSION, layout_title=False):
     return {"title": text, "kind": kind, "study_keys": [], "basis": "standalone_heading_text"} if kind else None
 
 
-def source_segments(text, product=None):
+def source_segments(text, product=None, *, version=VERSION):
     """Split standalone source headings, retaining every original character.
 
     This is a view over a source unit, not a new transcription. Inline prose,
@@ -127,7 +136,7 @@ def source_segments(text, product=None):
     boundaries = {0, len(text)}
     offset = 0
     for line in text.splitlines(keepends=True):
-        if identify(line.strip(), product, version=VERSION):
+        if identify(line.strip(), product, version=version):
             boundaries.update((offset, offset + len(line)))
         offset += len(line)
     positions = sorted(boundaries)
