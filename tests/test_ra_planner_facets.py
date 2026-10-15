@@ -106,6 +106,15 @@ class ThirdRoleForMultiAgencyTasks(unittest.TestCase):
         self.assertEqual(single['roles_trimmed'], ['decision_summary'])
 
 
+class ClaimFormatSlips(unittest.TestCase):
+    def test_repeated_task_or_product_id_is_merged_not_fatal(self):
+        from rag.ra_models import SpanClaim
+        claim = SpanClaim.model_validate({'text': 'x', 'kind': 'source_fact', 'products': ['SB17', 'SB17'],
+                                          'claim_basis': 'source_statement', 'task_ids': ['T1', 'T1'],
+                                          'citation_span_ids': ['S1']}, context={'task_ids': ['T1']})
+        self.assertEqual((claim.task_ids, claim.products), (['T1'], ['SB17']))
+
+
 class PlannerTopics(unittest.TestCase):
     def test_fixed_queries_follow_planner_topics(self):
         q = 'SB17의 안전성 결과를 알려줘'

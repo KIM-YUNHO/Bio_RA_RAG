@@ -118,8 +118,10 @@ class Claim(Contract):
     @model_validator(mode='after')
     def scope_references(self, info: ValidationInfo):
         if not self.text.strip(): raise ValueError('Blank claim')
-        if len(set(self.task_ids)) != len(self.task_ids): raise ValueError('Duplicate task reference')
-        if len(set(self.products)) != len(self.products): raise ValueError('Duplicate product reference')
+        # A repeated task or product ID is a formatting slip, not a different claim: keep one of each
+        # instead of rejecting the whole reply (2026-10-16: one duplicate task ID voided an answer).
+        self.task_ids = list(dict.fromkeys(self.task_ids))
+        self.products = list(dict.fromkeys(self.products))
         context = info.context or {}
         if 'task_ids' in context and not set(self.task_ids) <= set(context['task_ids']):
             raise ValueError('Unknown task reference')
