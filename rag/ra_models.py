@@ -49,6 +49,8 @@ class ResearchTask(Contract):
     # The planner's semantic reading of what the task asks for (closed sets). Plans saved
     # before these fields existed lack the keys and use the legacy literal patterns.
     answer_facets: Annotated[list[AnswerFacet], Field(max_length=12)] = []
+    # Source agencies this task reads (subset of the plan's jurisdictions); empty = all of them.
+    jurisdictions: Annotated[list[Literal['EU', 'US', 'CA', 'sponsor']], Field(max_length=4)] = []
     topics: Annotated[list[Literal[TOPICS]], Field(max_length=6)] = []
 
     @field_validator('request')

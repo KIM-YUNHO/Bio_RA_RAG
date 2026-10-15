@@ -54,7 +54,8 @@ SCHEMA = {'name': 'query_understanding', 'schema': obj({
         'answer_facets': {'type': 'array', 'maxItems': 12, 'items': obj({
             'facet': {'type': 'string', 'enum': list(ANSWER_FACETS)}, 'detail': STRING, 'ask': STRING,
             'items': {'type': 'array', 'maxItems': 8, 'items': STRING}})},
-        'topics': {'type': 'array', 'maxItems': 6, 'items': {'type': 'string', 'enum': list(TOPICS)}}})}
+        'topics': {'type': 'array', 'maxItems': 6, 'items': {'type': 'string', 'enum': list(TOPICS)}},
+        'jurisdictions': {'type': 'array', 'maxItems': 4, 'items': {'type': 'string', 'enum': ['EU', 'US', 'CA', 'sponsor']}}})}
 })}
 
 
@@ -91,6 +92,10 @@ items: when the question asks a facet's values SEPARATELY for several named grou
 arms, categories, ranges or time points, copy each one verbatim from the question
 (e.g. "US ustekinumab군", "EU ustekinumab군"; "55 kg 이하", "85 kg 초과"); otherwise [].
 Products are not items (they are handled separately).
+task.jurisdictions: the source agencies this task reads (empty = every agency of the plan).
+When one request spans several agencies whose answers sit in different kinds of documents
+(e.g. FDA approval letters, Health Canada decision summaries, EU product information), make
+one task per agency, each with that agency's own document roles and jurisdictions.
 topics: the clinical-study CONTENT a task asks about (empty otherwise; approvals,
 interchangeability decisions, labels' dosing and guidance are not topics):
 clinical_program (overview of the clinical studies), pk_study (PK study design or

@@ -183,9 +183,12 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
     groups = []
     for task in tasks:
         roles = set(task['source_roles'])
+        # A task bound to some agencies reads only those (planner's task.jurisdictions).
+        agencies = [j for j in understanding['jurisdictions'] if j in (task.get('jurisdictions') or [])] \
+            or understanding['jurisdictions']
         if roles - {'guideline'}:
             for product in understanding['products']:
-                for agency in understanding['jurisdictions']:
+                for agency in agencies:
                     idx = [i for i in eligible if corpus.chunks[i]['product_id'] == product
                            and corpus.chunks[i]['jurisdiction'] == agency
                            and (documents is None or (corpus.chunks[i]['document_id'], corpus.chunks[i]['version_id']) in documents)
@@ -244,7 +247,7 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
                 literal='comparative clinical efficacy studies'
                 if literal not in guideline_queries:
                     guideline_queries.append(literal);expansion.append({'query':literal,'basis':'explicit_requested_topic_translation'})
-            for agency in understanding['jurisdictions']:
+            for agency in agencies:
                 hits = guideline_index.search(guideline_queries, [agency], documents, k) if guideline_index else []
                 groups.append({'task_id': task['id'], 'product': None, 'jurisdiction': agency,
                     'doc_groups': ['guideline'], 'studies': [], 'queries': guideline_queries,'query_expansion':expansion,
