@@ -6,7 +6,8 @@ one planner call, saved). For every item the hybrid retriever builds a candidate
 Each variant then orders every group's pool:
 
   none                    the hybrid order (production)
-  <model>:<mode>          a local cross-encoder; mode = request | queries | both | ask
+  <model>:<mode>          a local cross-encoder; mode = request | queries | both | ask, or
+                          request_unit | ask_unit (prefixed with the group's product names and agency)
 
 and the top k of every group are the selected pages. Metrics per gold group (a group is
 satisfied by ANY of its pages): recall@k for k in --ks, MRR (best rank of a gold page over
@@ -16,7 +17,7 @@ saved plans and pools: no model API calls after the first run.
 
   python eval/retrieval_gold.py --variants none,bge-reranker-v2-m3:ask --output data/runs/retrieval_gold_2026-10-16/results.json
 """
-import argparse, json, os, statistics, sys, time
+import argparse, json, os, re, statistics, sys, time
 from collections import defaultdict
 from copy import deepcopy
 from pathlib import Path
@@ -48,7 +49,22 @@ def plan_for(item, pipe, folder):
     return json.loads(path.read_text(encoding='utf-8'))
 
 
-def queries_for(task, mode):
+AGENCY_LABEL = {'EU': 'EMA', 'US': 'FDA', 'CA': 'Health Canada'}
+
+
+def unit_prefix(product, agency):
+    """The group's own product names and agency, so the reranker scores that unit's passages."""
+    from rag import study_registry
+    meta = study_registry.products().get(product, {}) if product else {}
+    key = lambda n: re.sub(r'[^a-z0-9]', '', n.lower())
+    brands = [n.split('(')[0].strip() for n in meta.get('names', []) if key(n.split('(')[0]) != key(product or '')]
+    names = [product, *list(dict.fromkeys(brands))[:2]] if product else []
+    return ' '.join(dict.fromkeys(n for n in [*names, AGENCY_LABEL.get(agency, '')] if n)) + ': '
+
+
+def queries_for(task, mode, product=None, agency=None):
+    if mode.endswith('_unit'):
+        return [unit_prefix(product, agency) + q for q in queries_for(task, mode[:-5])]
     asks = list(dict.fromkeys(f['ask'] + (' ' + item if item else '')
                               for f in task.get('answer_facets', []) if f.get('ask')
                               for item in (f.get('items') or [None])))
@@ -87,14 +103,15 @@ def main():
             u = plans[it['id']]
             tasks = {t['id']: t for t in u['tasks']}
             groups = ra_retrieval.retrieve(corpus, deepcopy(u), pipe.guidelines, documents=corpus.allowed_documents, k=a.pool)
-            pools = [(g['task_id'], [index[h['chunk']['chunk_id']] for h in g['hits'] if h['chunk']['chunk_id'] in index])
+            pools = [(g['task_id'], g.get('product'), g.get('jurisdiction'),
+                      [index[h['chunk']['chunk_id']] for h in g['hits'] if h['chunk']['chunk_id'] in index])
                      for g in groups if g.get('product') is not None or g['hits']]
             gold = [({tuple(x) for x in g['pages']}, g['weak'], g['label']) for g in it['groups']]
             row = {'id': it['id'], 'source': it['source'], 'type': it['question_type'], 'variants': {}}
             for variant in variants:
                 started = time.perf_counter()
                 ordered = []
-                for task_id, pool in pools:
+                for task_id, product, agency, pool in pools:
                     if variant == 'none' or not pool or task_id not in tasks:
                         ordered.append(pool); continue
                     name, mode = variant.split(':')
@@ -103,7 +120,7 @@ def main():
                         model, revision = MODELS.get(name, (name, None))
                         rerankers[name] = LocalReranker(model=model, revision=revision, batch_size=8, max_length=1024)
                     best = {}
-                    for q in queries_for(tasks[task_id], mode):
+                    for q in queries_for(tasks[task_id], mode, product, agency):
                         for score, i in rerankers[name].rank(q, [(0, i) for i in pool], corpus.chunks, limit=len(pool)):
                             best[i] = max(best.get(i, score), score)
                     ordered.append([i for i, _ in sorted(best.items(), key=lambda x: -x[1])])
