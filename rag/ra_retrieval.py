@@ -316,6 +316,42 @@ def blocks(corpus, selected):
     return result
 
 
+def checklist_first(corpus, groups, question, understanding):
+    """For each checklist entry (or open task request) x product x agency, the closest retrieved candidate.
+
+    The entry text is the planner's restatement (ask) plus its item; closeness is the dense
+    embedding similarity already used for retrieval. Only retrieved hits are candidates, so
+    this changes the admission order, never the corpus.
+    """
+    import os
+    from rag.ra_obligations import checklist
+    if os.environ.get('RA_CHECKLIST_PACKING', '1') != '1' or not hasattr(corpus, 'encode'):
+        return []
+    entries = [e for e in checklist(question, understanding['tasks']) if e.get('product')]
+    if not entries:
+        # An open request (no facets, e.g. approval dates): the task request is the entry.
+        entries = [{'product': p, 'need': t['request']} for t in understanding['tasks']
+                   if set(t['source_roles']) - {'guideline'} for p in understanding.get('products') or []]
+    if not entries:
+        return []
+    texts = list(dict.fromkeys(e['need'] + (' ' + e['item'] if e.get('item') else '') for e in entries))
+    vectors = dict(zip(texts, corpus.encode(texts)))
+    index = getattr(corpus, '_chunk_index', None)
+    if index is None:
+        index = corpus._chunk_index = {c['chunk_id']: i for i, c in enumerate(corpus.chunks)}
+    picks = []
+    for entry in entries:
+        vector = vectors[entry['need'] + (' ' + entry['item'] if entry.get('item') else '')]
+        for group in groups:
+            if group.get('product') != entry['product'] or not group['hits']:
+                continue
+            scored = [(float(corpus.vec[index[h['chunk']['chunk_id']]] @ vector), n, h)
+                      for n, h in enumerate(group['hits']) if h['chunk']['chunk_id'] in index]
+            if scored:
+                picks.append((max(scored, key=lambda x: (x[0], -x[1]))[2]['chunk'], group))
+    return picks
+
+
 def context(corpus, groups, question, understanding, client, citation_mode='quote', *, guideline_index=None):
     selected, omitted, seen = [], [], set()
     task_map = {t['id']: t for t in understanding['tasks']}
@@ -336,8 +372,8 @@ def context(corpus, groups, question, understanding, client, citation_mode='quot
     # smaller cushion for that stage; both calls still have exact preflight.
     # Avoid spending the former question/coverage cushion on a larger answer
     # contract at the expense of previously admitted whole source packets.
-    from rag.ra_obligations import build as question_obligations
-    focused = citation_mode == 'spans' and bool(question_obligations(question))
+    from rag.ra_obligations import slot_rows
+    focused = citation_mode == 'spans' and bool(slot_rows(question, understanding['tasks']))
     reserve = min((128 if focused else 600) if citation_mode == 'spans' else 1200,
                   max(256, client.input_limit // 4))
     # A larger generation output (many enumerated claims) comes out of the input budget.
@@ -367,6 +403,9 @@ def context(corpus, groups, question, understanding, client, citation_mode='quot
                 'product_id': chunk.get('product_id'), 'jurisdiction': chunk['jurisdiction'],
                 'reason': 'whole_source_and_heading_package_exceeds_input_budget'})
 
+    # Checklist coverage first: each requested entry gets its closest candidate per product x agency.
+    for chunk, group in checklist_first(corpus, reading_groups, question, understanding):
+        add(chunk, 'retrieved', group)
     # Fairness across tasks/products/agencies precedes more hits from one group.
     for row in itertools.zip_longest(*(g['hits'] for g in reading_groups)):
         for group, hit in zip(reading_groups, row):
