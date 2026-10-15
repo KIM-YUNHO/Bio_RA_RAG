@@ -62,7 +62,10 @@ def oracle_groups(corpus, understanding, guideline_index, source_ids, documents)
 # original-question ranking lost recall or stability (data/runs/retrieval_stability_2026-10-14).
 DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': None, 'strip_slot_terms': True,
                    'suppress_boilerplate': False, 'collapse_duplicates': False, 'role_boost': True,
-                   'extra_default_groups': ('correspondence',), 'rerank': None, 'rerank_pool': 40, 'rerank_fuse': False}
+                   'extra_default_groups': ('correspondence',), 'rerank': 'ask_unit', 'rerank_pool': 40, 'rerank_fuse': True}
+# Reranker on by default since 2026-10-16: queries are the slot's product + agency + the planner's
+# per-fact ask, fused with the hybrid order (RRF). Retrieval gold (100 items) recall@8 0.715 -> 0.804
+# with no bucket below baseline; 29-question answers 278 -> 311 (docs/RA_QUERY_HANDLING_LOG.md).
 # correspondence (FDA approval letters/packages) is searched by default since 2026-10-16: with the
 # planner's document inventory, Q4 (FDA approval dates) 10/20 -> 15/20 and the 29-question total
 # 269 -> 278 (data/runs/planner_facets_2026-10-15/e2e_final).
@@ -356,7 +359,8 @@ def checklist_first(corpus, groups, question, understanding):
     """
     import os
     from rag.ra_obligations import checklist
-    if os.environ.get('RA_CHECKLIST_PACKING', '1') != '1' or not hasattr(corpus, 'encode'):
+    # Measured without effect (2026-10-16, input budget does not bind); off unless RA_CHECKLIST_PACKING=1.
+    if os.environ.get('RA_CHECKLIST_PACKING', '0') != '1' or not hasattr(corpus, 'encode'):
         return []
     entries = [e for e in checklist(question, understanding['tasks']) if e.get('product')]
     if not entries:

@@ -94,6 +94,11 @@ class RAPipeline(RAGPipeline):
                 self._shared_encoder = (self.encoder_factory or (lambda:answer.Embedder('bge-m3',local_only=True)))()
             corpus._emb = self._shared_encoder
             corpus.encode(['regulatory document evidence'])
+            # Load the local reranker at startup so the first question does not pay for it.
+            profile = {**ra_retrieval.DEFAULT_PROFILE, **(self.retrieval_profile or {})}
+            if profile.get('rerank') and getattr(corpus, '_ra_reranker', None) is None:
+                from rag.rerank import LocalReranker
+                corpus._ra_reranker = LocalReranker(batch_size=8, max_length=1024)
             self.warmup_info = {'ready':True,'seconds':round(time.monotonic()-started,3),'provider_calls':0}
             return deepcopy(self.warmup_info)
 
