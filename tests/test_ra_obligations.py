@@ -192,10 +192,11 @@ class ObligationTests(unittest.TestCase):
         self.assertTrue(next(r for r in result['question_requirement_coverage']['requirements']
             if r['facet']=='document_status_scope')['has_verified_claim'])
 
-    def test_population_slot_cannot_be_filled_with_stratification_and_background(self):
+    def test_slot_checks_products_not_keywords(self):
         row={'facet':'population','product':'CTP43'}
-        self.assertFalse(ra_obligations.matches(row,{'text':'체중에 따라 층화하였다.','products':['CTP43']}))
-        self.assertTrue(ra_obligations.matches(row,{'text':'건강한 일본인 남성을 대상으로 했다.','products':['CTP43']}))
+        # Wording is the reviewer's judgement; a concise answer without the facet noun stays.
+        self.assertTrue(ra_obligations.matches(row,{'text':'일본인 남성 24명이 참여했다.','products':['CTP43']}))
+        self.assertFalse(ra_obligations.matches(row,{'text':'건강한 성인을 대상으로 했다.','products':['SB17']}))
         row['facet']='comparison';row['product']=None
         self.assertFalse(ra_obligations.matches(row,{'text':'SB17의 조건이 달랐다.','products':['SB17']}))
 

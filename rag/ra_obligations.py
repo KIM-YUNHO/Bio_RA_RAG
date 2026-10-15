@@ -244,29 +244,10 @@ def pointers(question,evidence,rows):
 
 
 def matches(row,claim):
-    """Reject obvious off-topic slot contents, not certify full request coverage."""
+    """Slot facts only, never keywords: the claim is about the slot's product, a comparison
+    names two products, and a table-statistics slot states its endpoint with a value.
+    Whether the content answers the requirement is the reviewer's semantic judgement."""
     text=claim['text']
-    patterns={
-        'dose_route':r'\d\s*(?:mg|ug|g)|피하|정맥|\bSC\b|\bIV\b',
-        'comparator':r'대조약|대조군|참조약|comparator|reference|Stelara|ustekinumab',
-        'design':r'무작위|눈가림|평행|단회|단일\s*용량|시험\s*설계|randomi|blind|parallel|single.dose|study design',
-        'population':r'건강|남성|여성|환자|성인|소아|healthy|male|female|patients|adults|children',
-        'follow_up':r'추적|채혈|관찰|평가.{0,15}(?:기간|일|주)|follow|sampling|\bDay\s*\d+|\d\s*(?:일|주|days?|weeks?)',
-        'eligibility':r'선정\s*기준|허용\s*범위|포함\s*기준|실제\s*(?:분포|측정)|eligib|inclusion criteria|observed',
-        'table_statistics':r'평균|표준편차|중앙값|mean|median|\bSD\b',
-        'dosing_schedule':r'\d\s*(?:주|일|weeks?|days?)|every\s+(?:eight|twelve)\s+weeks',
-        'statistic_identity':r'평균|표준편차|중앙값|mean|median|\bSD\b',
-        'stratification':r'층화|stratif',
-        'purpose':r'목적|목표|위해|입증|initial safety|pilot|to compare|to demonstrate',
-        'reference_selection':r'대조약|참조약|비교약|comparator|reference',
-        'analytical_bridge':r'분석|analytical',
-        'clinical_bridge':r'임상|clinical|\bPK\b|\bPD\b',
-        'assay_targets':r'측정|검출|분석\s*대상|농도|analyte|concentration|assay|\bADA\b|\bNAb\b',
-        'document_status_scope':r'지침|가이던스|guideline|reflection paper|statement',
-        'comparison':r'차이|다르|비교|difference|whereas|while|compared',
-    }
-    pattern=patterns.get(row['facet'])
-    if pattern and not re.search(pattern,text,re.I):return False
     if row['product'] and claim['products']!=[row['product']]:return False
     if row['facet']=='comparison' and len(claim['products'])<2:return False
     if row['facet']=='table_statistics':
