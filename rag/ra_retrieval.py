@@ -61,32 +61,40 @@ def oracle_groups(corpus, understanding, guideline_index, source_ids, documents)
 DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': None, 'strip_slot_terms': True,
                    # Experimental cross-encoder selection of a slot's k hits from its fused candidate pool; off by
                    # default (BIOSIM_RERANK=on enables it in the service). Same model as rag/rerank.py.
-                   'rerank': os.environ.get('BIOSIM_RERANK', '').lower() == 'on', 'rerank_pool': 40, 'rerank_max_per_doc': None}
+                   'rerank': os.environ.get('BIOSIM_RERANK', '').lower() == 'on', 'rerank_pool': 40, 'rerank_max_per_doc': None,
+                   'rerank_keep_first_slots': False, 'rerank_max_length': 512}
 # Words every chunk of a product x agency slot shares; in a slot they only add BM25 noise.
 SLOT_TERMS = re.compile(r'(?<![A-Za-z0-9])(?:EMA|FDA|Health\s+Canada|EPAR|European\s+Medicines\s+Agency|assessment\s+reports?|'
                         r'product\s+monographs?|summary\s+basis\s+of\s+decision|multi-?discipline\s+reviews?|labell?ing|label)(?![A-Za-z0-9])', re.I)
 
 
-_RERANKER = None
+_RERANKERS = {}
 
 
 def reranked_hits(rankings, k, consensus, chunks, queries, P, keep_first=False):
     """Choose k hits from the fused pool by cross-encoder score (max over the task's queries).
 
     The pool is the same first-slot + consensus order diverse_hits builds, only longer.
-    keep_first keeps the first statistical-table candidate ahead of reranking. Optional
-    rerank_max_per_doc caps hits per document. Relevance ordering only; no source text changes.
+    keep_first keeps the first statistical-table candidate ahead of reranking; rerank_keep_first_slots
+    keeps every query's first hit (diverse_hits' first slots) and reranks only the rest. Optional
+    rerank_max_per_doc caps hits per document; rerank_max_length is the cross-encoder input length.
+    Relevance ordering only; no source text changes.
     """
-    global _RERANKER
-    if _RERANKER is None:
+    length = P['rerank_max_length']
+    if length not in _RERANKERS:
         from rag.rerank import LocalReranker
-        _RERANKER = LocalReranker()
+        _RERANKERS[length] = LocalReranker(max_length=length)
+    reranker = _RERANKERS[length]
     pool = diverse_hits(rankings, max(k, P['rerank_pool']), consensus_only=consensus)
     scores = {}
     for query in queries:
-        for score, i in _RERANKER.rank(query, pool, chunks, limit=len(pool)):
+        for score, i in reranker.rank(query, pool, chunks, limit=len(pool)):
             scores[i] = max(scores.get(i, float('-inf')), score)
-    ordered = ([pool[0]] if keep_first and pool else []) + sorted(((scores[i], i) for _, i in pool), key=lambda x: -x[0])
+    if P['rerank_keep_first_slots']:
+        first = [r[0] for n, r in enumerate(rankings) if r and n not in consensus]
+    else:
+        first = [pool[0]] if keep_first and pool else []
+    ordered = first + sorted(((scores[i], i) for _, i in pool), key=lambda x: -x[0])
     out, seen, per_doc = [], set(), {}
     for score, i in ordered:
         doc = chunks[i]['document_id']
