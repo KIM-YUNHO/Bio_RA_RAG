@@ -57,13 +57,16 @@ SCHEMA = {'name': 'query_understanding', 'schema': obj({
 
 
 FACETS_PROMPT = """
-answer_facets: the kinds of facts each task explicitly asks for, from this closed set.
-Leave it empty when none fits (approval dates, agency reasoning, document lists and
-other open requests need no facet). List only what the task's own request asks for.
+answer_facets: the kinds of facts each task explicitly asks for, from this closed set,
+for product questions AND general guidance questions alike. Leave it empty when none
+fits: approval/submission dates, approval history, agency reasoning, shelf life,
+storage, marketing authorisation holder, document lists and other open requests need
+no facet. List only what the task's own request asks for.
 - dose_route: administered dose and/or route. dosing_schedule: timing/intervals of
   repeated (e.g. maintenance) dosing.
-- comparator: a named product's study comparator arms; reference_selection: general
-  requirements for choosing a reference/comparator product.
+- comparator: a named product's study comparator arms; reference_selection:
+  requirements or conditions for choosing or accepting a reference/comparator product
+  (e.g. a non-EEA or non-US comparator).
 - design: study design or trial conditions; population: who was studied; eligibility:
   inclusion criteria such as age, weight or BMI; stratification: randomisation strata;
   follow_up: follow-up or sampling period/time points.
@@ -72,14 +75,18 @@ other open requests need no facet). List only what the task's own request asks f
   one entry per endpoint, detail = the endpoint exactly as written in the question
   (Cmax, AUCinf, t1/2) or "" if none is named. statistic_identity: what a statistic
   means or how two statistics differ, without asking for values.
-- analytical_bridge / clinical_bridge: analytical vs clinical PK/PD bridging data
-  (a bridging question usually needs both).
+- analytical_bridge / clinical_bridge: analytical vs clinical PK/PD bridging data for
+  a comparator from another region (a bridging question usually needs both).
 - assay_targets: what an assay measured or detected (analytes, ADA, NAb).
-- document_status_scope: a guideline's adoption/effective status, dates or scope.
+- document_status_scope: a GUIDELINE document's adoption/draft/effective status, dates
+  or scope (never product information or approvals).
 - calculation: an elapsed time, difference, ratio or percent change to compute.
 detail is "" except for table_statistics and purpose.
-topics: clinical areas the task asks about (empty if none): clinical_program (the
-clinical studies overall), pk_study, efficacy, safety, immunogenicity, design.
+topics: the clinical-study CONTENT a task asks about (empty otherwise; approvals,
+interchangeability decisions, labels' dosing and guidance are not topics):
+clinical_program (overview of the clinical studies), pk_study (PK study design or
+results), efficacy (efficacy results), safety (safety results), immunogenicity
+(ADA/NAb results), design (study design).
 """
 
 

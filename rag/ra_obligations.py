@@ -96,6 +96,14 @@ def request_of(task, items):
     return None
 
 
+def covers(task, text):
+    """A task covers an original sentence its quote or self-contained request restates."""
+    from rag.ra_intent import _overlap
+    quote=(task.get('intent') or {}).get('request_quote','')
+    return any(part.strip() and (text in part or part in text or _overlap(part,text))
+               for part in (quote, task.get('request','')))
+
+
 def literal_detail(question, facet, detail):
     """An endpoint or Part named by the planner counts only when the question prints it."""
     detail=(detail or '').strip()
@@ -128,12 +136,16 @@ def from_plan(question, tasks):
         for product in products or [None]:
             for facet,part in facets:
                 row(rows,rid,product,facet,part,question)
-        if len(products)>1 and (task.get('intent') or {}).get('intent')=='compare_products':
+        # A comparison row accompanies requested content facets; alone it is an open request.
+        if (len(products)>1 and (task.get('intent') or {}).get('intent')=='compare_products'
+                and any(f!='request' for f,_ in facets)):
             rows.append({'id':f'{rid}_F{len(rows)+1}','request_id':rid,'product':None,
                 'facet':'comparison','part':None,'label':LABELS['comparison']})
-    # An original request no task quotes stays a requirement of its own.
+    # An original sentence no task quotes or restates stays a requirement of its own
+    # (a single-task plan answers every sentence of the question).
     for rid,text in items.items():
-        if rid not in covered and not answer_constraint_only(text):
+        if (len(tasks)>1 and rid not in covered and not any(covers(t,text) for t in tasks)
+                and not answer_constraint_only(text)):
             row(rows,rid,None,'request',None,question)
     return rows
 

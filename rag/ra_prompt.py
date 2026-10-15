@@ -147,7 +147,7 @@ def modules(question, understanding, evidence, budget):
         table = wants(question, r'평균|표준편차|중앙값|mean|SD|median|Cmax|AUC|Tmax|t1/2|반감기|통계|요약표|분석표')
     else:
         guideline = bool(facets & GUIDELINE_FACETS) or any('guideline' in t.get('source_roles', []) for t in tasks)
-        study = bool(facets & STUDY_FACETS) or bool(facets & {'topic:pk_study', 'topic:design', 'topic:clinical_program'})
+        study = bool(facets & STUDY_FACETS) or bool(facets & {'topic:pk_study', 'topic:design'})
         table = bool(facets & TABLE_FACETS)
     if guideline_evidence or guideline:
         parts.append(GUIDELINE)
