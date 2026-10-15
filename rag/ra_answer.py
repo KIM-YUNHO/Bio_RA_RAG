@@ -731,11 +731,19 @@ def generate(question, understanding, evidence, client, citation_mode='quote'):
     original_checks = None
     original_complete = False
     if citation_mode == 'spans':
-        from rag.ra_models import request_items
-        from rag.ra_obligations import answer_constraint_only
-        original_tasks = [{'id': key, 'request': text} for key, text in request_items(question).items()
-                          if not answer_constraint_only(text)]
-        original_checks = request_coverage(question, {'tasks': original_tasks}, evidence, claims)
+        from rag.ra_obligations import planned
+        if planned(tasks):
+            # The planner's tasks carry the request reading; a sentence no task quotes is uncovered.
+            uncovered = (understanding.get('intent_check') or {}).get('uncovered_request_segments', [])
+            original_checks = {**request_checks, 'tasks': [*request_checks['tasks'], *[
+                {'task_id': None, 'request': s, 'requested_conditions': {}, 'checks': [],
+                 'completion_checkable': False, 'minimum_requirements_met': False} for s in uncovered]]}
+        else:
+            from rag.ra_models import request_items
+            from rag.ra_obligations import answer_constraint_only
+            original_tasks = [{'id': key, 'request': text} for key, text in request_items(question).items()
+                              if not answer_constraint_only(text)]
+            original_checks = request_coverage(question, {'tasks': original_tasks}, evidence, claims)
         original_complete = bool(claims) and all(
             row['completion_checkable'] and row['minimum_requirements_met'] for row in original_checks['tasks']) and all(
             row['observable_values_preserved'] for row in obligation_checks)

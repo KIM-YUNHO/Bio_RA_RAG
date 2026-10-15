@@ -99,6 +99,27 @@ class RequestTests(unittest.TestCase):
         self.assertFalse(result['tasks'][0]['minimum_requirements_met'])
         self.assertFalse(any(row['satisfied'] for row in result['tasks'][0]['checks'] if row['kind'] in ('quantity', 'route')))
 
+    def test_planned_facets_decide_what_completion_checks(self):
+        def planned(question, facets):
+            t = {**task(question), 'answer_facets': [{'facet': f, 'detail': '', 'items': []} for f in facets]}
+            return req.route_task(question, t)
+        question = 'SB17 건강인 PK 시험의 투여 용량과 경로를 알려줘.'
+        t = planned(question, ['dose_route'])
+        self.assertEqual(t['requested_conditions']['facets'], ['dose_route'])
+        row = req.coverage(question, {'tasks': [t]}, {'E1': chunk('a')}, [claim('SB17는 45 mg을 피하 투여했다.')])['tasks'][0]
+        self.assertTrue(row['completion_checkable'])
+        self.assertTrue(next(c for c in row['checks'] if c['kind'] == 'facet')['satisfied'])
+        # A printed dose in the question stays a literal requirement.
+        question = 'SB17 건강인 PK 시험의 135mg 정맥 투여군 결과를 보여줘.'
+        row = req.coverage(question, {'tasks': [planned(question, ['dose_route'])]}, {'E1': chunk('a')},
+                           [claim('SB17는 45mg 피하 투여를 사용했다.')])['tasks'][0]
+        self.assertFalse(row['minimum_requirements_met'])
+        # A facet without a code-checkable value never closes completion by itself.
+        question = 'SB17 PK 시험 설계를 알려줘.'
+        row = req.coverage(question, {'tasks': [planned(question, ['design'])]}, {'E1': chunk('a')},
+                           [claim('SB17-1001은 무작위 배정 시험이었다.')])['tasks'][0]
+        self.assertFalse(row['completion_checkable'])
+
     def test_one_products_conditions_cannot_complete_other_product(self):
         question = 'SB17과 ABP654의 용량·경로와 대조약을 비교해줘.'
         t = req.route_task(question, task(question))

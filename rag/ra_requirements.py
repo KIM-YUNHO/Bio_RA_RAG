@@ -83,12 +83,22 @@ def route_task(question, task):
         out['required_source_roles'] = ['guideline']
         if out['source_roles'] == ['guideline']:
             out['reading_source_roles'] = ['guideline']
-    out['requested_conditions'] = conditions(question if not named_products(text) else text)
-    # Keep explicit trailing requests even if the planner omits that sentence.
-    original = conditions(question)
-    for facet in ('document_status', 'applicability'):
-        if facet in original['facets'] and facet not in out['requested_conditions']['facets']:
-            out['requested_conditions']['facets'].append(facet)
+    printed = conditions(question if not named_products(text) else text)
+    if 'answer_facets' in task:
+        # Printed doses and routes stay literal requirements; what kinds of facts were
+        # asked is the planner's reading (answer_facets), not keyword patterns.
+        out['requested_conditions'] = {'source': 'planner', 'quantities': printed['quantities'],
+            'routes': printed['routes'], 'facets': list(dict.fromkeys(
+                f['facet'] for f in task['answer_facets'] if f['facet'] != 'calculation')),
+            'endpoints': list(dict.fromkeys(f['detail'] for f in task['answer_facets']
+                                            if f['facet'] == 'table_statistics' and f.get('detail')))}
+    else:
+        out['requested_conditions'] = printed
+        # Keep explicit trailing requests even if the planner omits that sentence.
+        original = conditions(question)
+        for facet in ('document_status', 'applicability'):
+            if facet in original['facets'] and facet not in out['requested_conditions']['facets']:
+                out['requested_conditions']['facets'].append(facet)
     from rag.ra_tasks import SCOPE_NOTE
     # A pasted scope note is not a request; keep it out of unresolved-request lists.
     out['original_request_segments'] = [s.strip() for s in re.split(r'(?<=[?!。])\s*|(?<=\.)\s+', question)
@@ -126,6 +136,26 @@ def study_conflict(claim, evidence):
     return None
 
 
+# Planner facets whose answer is a printed value code can compare with the cited source.
+VALUE_FACETS = {'dose_route', 'dosing_schedule', 'table_statistics'}
+TIME_VALUE = r'\d+\s*(?:주|일|개월|weeks?|days?|months?)\b|every\s+(?:\d+|eight|twelve)\s+weeks'
+
+
+def planner_facet_found(wanted, view, endpoints):
+    """A printed value for a value facet in both the claim and its cited quote; other facets need a claim."""
+    from rag.ra_quantities import numbers
+    both = (view['text'], view['quoted'])
+    if wanted == 'dose_route':
+        return all(any(q['unit'] in ('mg', 'ug', 'g') for q in conditions(t)['quantities']) or conditions(t)['routes']
+                   for t in both)
+    if wanted == 'dosing_schedule':
+        return all(re.search(TIME_VALUE, t, re.I) for t in both)
+    if wanted == 'table_statistics':
+        return all(numbers(t) for t in both) and all(
+            any(e.casefold() in t.casefold() for e in endpoints) for t in both if endpoints)
+    return True
+
+
 def coverage(question, understanding, evidence, claims):
     """Minimum observable coverage checks; a pass is not semantic approval.
 
@@ -137,12 +167,14 @@ def coverage(question, understanding, evidence, claims):
     for task in understanding['tasks']:
         own = [c for c in claims if task['id'] in c['task_ids']]
         request = task.get('requested_conditions') or conditions(task['request'])
+        planned = request.get('source') == 'planner'
         targets = named_products(task['request']) or named_products(question)
         # Planning labels are not proof boundaries. An independently checked
         # dose assigned to a comparison task can answer a dose task too, while
         # retaining THAT claim's own product/study/agency/source quotations.
         if any(request.get(k) for k in ('quantities','routes','facets')):
-            agencies = [agency for agency, pattern in {'EU':r'\bEMA\b|유럽의약품청',
+            # Planned tasks: the source agencies already bound retrieval (understanding scope).
+            agencies = [] if planned else [agency for agency, pattern in {'EU':r'\bEMA\b|유럽의약품청',
                 'US':r'\bFDA\b|미국\s*식품의약국', 'CA':r'Health Canada|캐나다\s*보건부'}.items()
                 if re.search(pattern, task['request'], re.I)]
             def scoped(claim):
@@ -186,6 +218,8 @@ def coverage(question, understanding, evidence, claims):
                         found = wanted in observed['quantities'] and wanted in printed['quantities']
                     elif kind == 'route':
                         found = wanted in observed['routes'] and wanted in printed['routes']
+                    elif planned:
+                        found = planner_facet_found(wanted, view, request.get('endpoints', []))
                     else:
                         # Dose/route values answer a facet even when its noun is
                         # omitted in concise Korean. Other facts cannot count.
@@ -196,7 +230,10 @@ def coverage(question, understanding, evidence, claims):
                         matching.append(claim['id'])
                 checks.append({'kind': kind, 'requested': wanted, 'product_id': product,
                                'claim_ids': matching, 'satisfied': bool(matching)})
-        checkable = fully_checkable_request(task['request']) and targets != [None]
+        # Completion is closed only when every requested facet has a code-checkable value.
+        checkable = targets != [None] and (
+            bool(request['facets']) and set(request['facets']) <= VALUE_FACETS if planned
+            else fully_checkable_request(task['request']))
         if checkable:
             by_id = {c['id']: c for c in own}
             for product in targets:
