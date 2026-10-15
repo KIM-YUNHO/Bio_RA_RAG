@@ -134,6 +134,26 @@ class AtomicNeeds(unittest.TestCase):
         self.assertEqual({x['need_of'] for x in tasks}, {'T1', 'T2'})
 
 
+class UnitFusedRerank(unittest.TestCase):
+    def test_unit_query_and_fusion_protect_strong_hybrid_hits(self):
+        from types import SimpleNamespace
+        from rag import ra_retrieval
+        seen = []
+
+        class Reverse:  # scores the hybrid order backwards
+            def rank(self, query, hits, chunks, limit):
+                seen.append(query)
+                return [(float(n), i) for n, (_, i) in enumerate(hits)][:limit]
+        corpus = SimpleNamespace(_ra_reranker=Reverse(), chunks={})
+        hits = [(0, i) for i in range(10)]  # hybrid order 0..9
+        task = {'request': 'r', 'queries': ['q'], 'answer_facets': [{'facet': 'fact', 'ask': 'EU 최초 허가일', 'items': []}]}
+        replaced = [i for _, i in ra_retrieval.rerank(corpus, task, hits, 3, 'ask_unit', 'SB17', 'EU')]
+        fused = [i for _, i in ra_retrieval.rerank(corpus, task, hits, 3, 'ask_unit', 'SB17', 'EU', fuse=True)]
+        self.assertEqual(replaced, [9, 8, 7])
+        self.assertIn(0, fused)  # the hybrid top hit survives fusion
+        self.assertTrue(seen[0].startswith('SB17 Pyzchiva EMA: ') and seen[0].endswith('EU 최초 허가일'))
+
+
 class PlannerTopics(unittest.TestCase):
     def test_fixed_queries_follow_planner_topics(self):
         q = 'SB17의 안전성 결과를 알려줘'

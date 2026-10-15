@@ -21,7 +21,9 @@ def main():
     p.add_argument('--extra-default', default='', help='comma-separated doc groups searched by default')
     p.add_argument('--planner-inventory', action='store_true', help='show the planner the document list')
     p.add_argument('--retrieval-pages', type=int, default=8, help='candidates kept per task x product x agency')
-    p.add_argument('--rerank', choices=['request', 'queries', 'both', 'ask'], help='local reranker query')
+    p.add_argument('--rerank', choices=['request', 'queries', 'both', 'ask', 'request_unit', 'ask_unit'],
+                   help='local reranker query')
+    p.add_argument('--rerank-fuse', action='store_true', help='combine hybrid and reranker ranks (RRF)')
     p.add_argument('--rerank-pool', type=int, default=40)
     a = p.parse_args()
     if a.planner_inventory:
@@ -29,7 +31,7 @@ def main():
         os.environ['RA_PLANNER_INVENTORY'] = '1'
     profile = {'extra_default_groups': tuple(g for g in a.extra_default.split(',') if g)} if a.extra_default else {}
     if a.rerank:
-        profile.update(rerank=a.rerank, rerank_pool=a.rerank_pool)
+        profile.update(rerank=a.rerank, rerank_pool=a.rerank_pool, rerank_fuse=a.rerank_fuse)
     profile = profile or None
     code = a.code_root.resolve()
     sys.path.insert(0, str(code))

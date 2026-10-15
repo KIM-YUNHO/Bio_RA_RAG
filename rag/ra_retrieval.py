@@ -62,7 +62,7 @@ def oracle_groups(corpus, understanding, guideline_index, source_ids, documents)
 # original-question ranking lost recall or stability (data/runs/retrieval_stability_2026-10-14).
 DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': None, 'strip_slot_terms': True,
                    'suppress_boilerplate': False, 'collapse_duplicates': False, 'role_boost': True,
-                   'extra_default_groups': ('correspondence',), 'rerank': None, 'rerank_pool': 40}
+                   'extra_default_groups': ('correspondence',), 'rerank': None, 'rerank_pool': 40, 'rerank_fuse': False}
 # correspondence (FDA approval letters/packages) is searched by default since 2026-10-16: with the
 # planner's document inventory, Q4 (FDA approval dates) 10/20 -> 15/20 and the 29-question total
 # 269 -> 278 (data/runs/planner_facets_2026-10-15/e2e_final).
@@ -116,11 +116,27 @@ def near_duplicate(corpus, threshold=.8):
     return same
 
 
-def rerank(corpus, task, hits, k, mode):
+AGENCY_LABEL = {'EU': 'EMA', 'US': 'FDA', 'CA': 'Health Canada'}
+
+
+def unit_prefix(product, agency):
+    """The slot's own product names and agency (the group is already one product x agency)."""
+    from rag import study_registry
+    key = lambda n: re.sub(r'[^a-z0-9]', '', n.lower())
+    meta = study_registry.products().get(product, {}) if product else {}
+    brands = [n.split('(')[0].strip() for n in meta.get('names', []) if key(n.split('(')[0]) != key(product or '')]
+    names = [product, *list(dict.fromkeys(brands))[:2]] if product else []
+    return ' '.join(dict.fromkeys(n for n in [*names, AGENCY_LABEL.get(agency, '')] if n)) + ': '
+
+
+def rerank(corpus, task, hits, k, mode, product=None, agency=None, fuse=False):
     """Reorder a broad candidate pool with the local cross-encoder; keep the top k.
 
     mode: 'request' (the task's Korean request), 'queries' (planner queries), 'both' or
-    'ask' (the planner's per-facet restatements); a passage scores the best of its queries. Scores order sources only.
+    'ask' (the planner's per-fact restatements); '<mode>_unit' prefixes each query with the
+    slot's product names and agency. A passage scores the best of its queries. With fuse the
+    hybrid and reranker ranks are combined (RRF, k=60): the reranker can promote a passage but
+    cannot bury a strong hybrid hit. Scores order sources only.
     """
     model = getattr(corpus, '_ra_reranker', None)
     if model is None:
@@ -130,13 +146,23 @@ def rerank(corpus, task, hits, k, mode):
     asks = list(dict.fromkeys(f['ask'] + (' ' + item if item else '')
                               for f in task.get('answer_facets', []) if f.get('ask')
                               for item in (f.get('items') or [None])))
+    unit = mode.endswith('_unit')
+    base = mode[:-5] if unit else mode
     queries = {'request': [task['request']], 'queries': list(task['queries']),
-               'both': [task['request'], *task['queries']], 'ask': asks or [task['request']]}[mode]
+               'both': [task['request'], *task['queries']], 'ask': asks or [task['request']]}[base]
+    if unit:
+        queries = [unit_prefix(product, agency) + q for q in queries]
     best = {}
     for query in queries:
         for score, i in model.rank(query, hits, corpus.chunks, limit=len(hits)):
             best[i] = max(best.get(i, score), score)
-    return sorted(((s, i) for i, s in best.items()), key=lambda x: -x[0])[:k]
+    reranked = sorted(((s, i) for i, s in best.items()), key=lambda x: -x[0])
+    if not fuse:
+        return reranked[:k]
+    hybrid = {i: n for n, (_, i) in enumerate(hits, 1)}
+    model_rank = {i: n for n, (_, i) in enumerate(reranked, 1)}
+    fused = [(1 / (60 + n) + 1 / (60 + model_rank.get(i, len(hits) + 1)), i) for i, n in hybrid.items()]
+    return sorted(fused, key=lambda x: -x[0])[:k]
 
 
 def strip_slot_terms(query):
@@ -238,7 +264,8 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
                     consensus = ((topic_pos,) if topic_queries == 'fuse' else ()) + ((question_pos,) if P['question_query'] == 'fuse' else ())
                     if P['rerank']:
                         pool = diverse_hits(rankings, P['rerank_pool'], consensus_only=consensus, same=same)
-                        hits = rerank(corpus, task, pool, k, P['rerank']) if pool else pool
+                        hits = rerank(corpus, task, pool, k, P['rerank'], product=product, agency=agency,
+                                      fuse=P['rerank_fuse']) if pool else pool
                     else:
                         hits = diverse_hits(rankings, k, consensus_only=consensus, same=same)
                     groups.append({'task_id': task['id'], 'product': product, 'jurisdiction': agency,
