@@ -45,6 +45,15 @@ def gold17():
                'units': [{'unit': f'{d}:p{p}', 'pages': [[d, p]], 'basis': b} for d, p, b in c['pages']]}
 
 
+def condition():
+    """eval/condition_cases_v1.json: questions restricted to a route, indication or population."""
+    data = json.loads((ROOT / 'eval/condition_cases_v1.json').read_text(encoding='utf-8'))
+    for c in data['cases']:
+        yield {'set': 'condition', 'split': c['split'], 'id': c['id'], 'question': c['question'],
+               'expected': 'answer' if c['kind'] == 'present' else 'not_found',
+               'products': c['products'], 'jurisdictions': c['jurisdictions'], 'units': []}
+
+
 def queries(include_absent=False):
     with (ROOT / 'eval/queries_v0.1.csv').open(encoding='utf-8-sig') as stream:
         for r in csv.DictReader(stream):
@@ -94,7 +103,7 @@ def main():
     parser.add_argument('--run', type=Path, default=ROOT / 'data/versions/04_pipeline_h_supplement_2026-10-14/embedded/release')
     parser.add_argument('--guidelines', type=Path, default=ROOT / 'data/guidelines/ra_guidelines_native_2026-10-12_v2')
     parser.add_argument('--qa-gold', type=Path, help='qa_gold.zip (read only, never copied)')
-    parser.add_argument('--set', action='append', choices=['gold17', 'queries', 'qagold'], required=True)
+    parser.add_argument('--set', action='append', choices=['gold17', 'queries', 'qagold', 'condition'], required=True)
     parser.add_argument('--only', action='append', help='Question IDs to run (smoke test)')
     parser.add_argument('--include-absent', action='store_true', help='also load absent (not_found) rows of the queries set')
     parser.add_argument('--pool', type=int, default=40)
@@ -130,6 +139,7 @@ def main():
         if name == 'qagold' and not args.qa_gold:
             parser.error('--qa-gold is required for the qagold set')
         items += (list(queries(args.include_absent)) if name == 'queries' else list(gold17()) if name == 'gold17'
+                  else list(condition()) if name == 'condition'
                   else list(qagold(args.qa_gold, version_to_document)))
     if args.only:
         items = [i for i in items if i['id'] in args.only]
