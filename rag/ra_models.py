@@ -96,12 +96,12 @@ class QuoteClaim(Claim):
 
 
 class SpanDraft(Contract):
-    claims: Annotated[list[SpanClaim], Field(max_length=8)]
+    claims: Annotated[list[SpanClaim], Field(max_length=MAX_PROPOSED_CLAIMS)]
     gaps: list[Annotated[str, Field(max_length=2000)]]
 
 
 class QuoteDraft(Contract):
-    claims: Annotated[list[QuoteClaim], Field(max_length=8)]
+    claims: Annotated[list[QuoteClaim], Field(max_length=MAX_PROPOSED_CLAIMS)]
     gaps: list[Annotated[str, Field(max_length=2000)]]
 
 
@@ -114,24 +114,31 @@ def request_items(question):
 
 
 class RequestDraft(Contract):
-    claims: Annotated[list[SpanClaim], Field(max_length=8)]
+    claims: Annotated[list[SpanClaim], Field(max_length=MAX_PROPOSED_CLAIMS)]
     gaps: list[Annotated[str, Field(max_length=2000)]]
+
+
+class Derived(Contract):
+    label: Annotated[str, Field(min_length=1, max_length=200)]
+    operation: Literal['date_difference', 'difference', 'ratio', 'percent_change']
+    operand_span_ids: Annotated[list[str], Field(min_length=2, max_length=2)]
+    operand_values: Annotated[list[Annotated[str, Field(max_length=100)]], Field(min_length=2, max_length=2)] | None = None
 
 
 class RequestedDraft(Contract):
     request_results: dict[str, RequestDraft]
+    derived: Annotated[list[Derived], Field(max_length=16)] = []
 
     @model_validator(mode='after')
     def requested_keys(self, info: ValidationInfo):
         if set(self.request_results) != set((info.context or {}).get('request_ids', self.request_results)):
             raise ValueError('Every original request item must be present exactly once')
-        if sum(len(r.claims) for r in self.request_results.values()) > 8:
-            raise ValueError('At most eight proposed claims')
         return self
 
 
 class ObligationDraft(Contract):
     requirement_results: dict[str, RequestDraft]
+    derived: Annotated[list[Derived], Field(max_length=16)] = []
 
     @model_validator(mode='after')
     def exact_requirements(self, info: ValidationInfo):

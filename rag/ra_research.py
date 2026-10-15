@@ -138,7 +138,8 @@ def extend(corpus, groups, evidence, budget, question, understanding, client, gu
                 for block in additions.values():
                     trial[f'E{len(trial)+1}'] = block
                 cost = ra_answer.cost(client, ra_answer.messages(question, understanding, trial, citation_mode),
-                    ra_answer.schema(trial, understanding['tasks'], citation_mode, question=question))
+                    ra_answer.schema(trial, understanding['tasks'], citation_mode, question=question,
+                               claim_budget=ra_answer.claim_budget(understanding)))
                 if cost > client.input_limit - budget.get('review_reserved_tokens', 600):
                     continue
                 result = trial
@@ -153,5 +154,6 @@ def extend(corpus, groups, evidence, budget, question, understanding, client, gu
     if result:
         info['estimated_prompt_and_schema_tokens'] = ra_answer.cost(client,
             ra_answer.messages(question, understanding, result, citation_mode),
-            ra_answer.schema(result, understanding['tasks'], citation_mode, question=question))
+            ra_answer.schema(result, understanding['tasks'], citation_mode, question=question,
+                               claim_budget=ra_answer.claim_budget(understanding)))
     return result, info, trace

@@ -125,8 +125,18 @@ def _check(text, own):
     return None
 
 
+def product_name_without_presentation(text, products):
+    """'Wezlana I.V.' / 'Steqeyma I.V.' name a product presentation, not a route assertion."""
+    from rag import study_registry
+    for product in products:
+        for name in [product, *study_registry.products().get(product, {}).get('names', [])]:
+            base = re.sub(r'\s*\(.*\)$', '', name).strip()
+            text = re.sub(r'(?<![A-Za-z0-9])(' + re.escape(base) + r')\s+I\.\s?V\.', r'\1', text, flags=re.I)
+    return text
+
+
 def check(claim, evidence):
-    text = claim['text']
+    text = product_name_without_presentation(claim['text'], claim.get('products', []))
     own='\n'.join(s['quote'] for s in claim['sources'])
     if (re.search(r'독성\s*평가',text) and re.search(r'약동학|\bPK\b',text,re.I) and re.search(r'면역원성',text)
             and re.search(r'In April 2015.*?guidance.*?recommended',own,re.I|re.S)

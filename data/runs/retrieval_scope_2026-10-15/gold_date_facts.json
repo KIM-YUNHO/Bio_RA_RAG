@@ -1,0 +1,835 @@
+{
+ "note": "Approval/submission date field pages (ra_timeline extractor, hand-checked 2026-10-15). Stored first-turn plans only. Fact-level: a fact is found if any page printing the same field value is hit.",
+ "cases": [
+  {
+   "id": "DATE1",
+   "question": "우스테키누맙의 모든 바이오시밀러들의 ra 허가 날짜를 정리해줄래?\n제출 날짜 부터 최종 허가까지 걸린 기간이 궁금하다.",
+   "pages": null,
+   "facts": [
+    {
+     "key": [
+      "ABP654",
+      "EU",
+      "submission"
+     ],
+     "pages": [
+      [
+       "EMA:64196",
+       11
+      ]
+     ]
+    },
+    {
+     "key": [
+      "ABP654",
+      "CA",
+      "submission"
+     ],
+     "pages": [
+      [
+       "HC:SBD1721675750511",
+       3
+      ]
+     ]
+    },
+    {
+     "key": [
+      "ABP654",
+      "CA",
+      "approval"
+     ],
+     "pages": [
+      [
+       "HC:SBD1721675750511",
+       3
+      ]
+     ]
+    },
+    {
+     "key": [
+      "ABP654",
+      "US",
+      "submission"
+     ],
+     "pages": [
+      [
+       "FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",
+       2
+      ]
+     ]
+    },
+    {
+     "key": [
+      "CTP43",
+      "EU",
+      "submission"
+     ],
+     "pages": [
+      [
+       "EMA:64792",
+       9
+      ]
+     ]
+    },
+    {
+     "key": [
+      "CTP43",
+      "CA",
+      "submission"
+     ],
+     "pages": [
+      [
+       "HC:SBD1739202346124",
+       3
+      ]
+     ]
+    },
+    {
+     "key": [
+      "CTP43",
+      "CA",
+      "approval"
+     ],
+     "pages": [
+      [
+       "HC:SBD1739202346124",
+       3
+      ]
+     ]
+    },
+    {
+     "key": [
+      "CTP43",
+      "US",
+      "submission"
+     ],
+     "pages": [
+      [
+       "FDA:761338Orig1Orig2s000:MultidisciplineR",
+       2
+      ]
+     ]
+    },
+    {
+     "key": [
+      "BMAB1200",
+      "CA",
+      "submission"
+     ],
+     "pages": [
+      [
+       "HC:SBD1769005259208",
+       2
+      ]
+     ]
+    },
+    {
+     "key": [
+      "BMAB1200",
+      "CA",
+      "approval"
+     ],
+     "pages": [
+      [
+       "HC:SBD1769005259208",
+       2
+      ]
+     ]
+    },
+    {
+     "key": [
+      "BMAB1200",
+      "US",
+      "submission"
+     ],
+     "pages": [
+      [
+       "FDA:761406Orig1Orig2s000:MultidisciplineR",
+       11
+      ]
+     ]
+    },
+    {
+     "key": [
+      "SB17",
+      "EU",
+      "submission"
+     ],
+     "pages": [
+      [
+       "EMA:63563",
+       8
+      ]
+     ]
+    },
+    {
+     "key": [
+      "SB17",
+      "CA",
+      "submission"
+     ],
+     "pages": [
+      [
+       "HC:SBD1739909145014",
+       3
+      ]
+     ]
+    },
+    {
+     "key": [
+      "SB17",
+      "CA",
+      "approval"
+     ],
+     "pages": [
+      [
+       "HC:SBD1739909145014",
+       3
+      ]
+     ]
+    },
+    {
+     "key": [
+      "SB17",
+      "US",
+      "submission"
+     ],
+     "pages": [
+      [
+       "FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",
+       2
+      ],
+      [
+       "FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",
+       12
+      ]
+     ]
+    },
+    {
+     "key": [
+      "ABP654",
+      "EU",
+      "approval"
+     ],
+     "pages": [
+      [
+       "EMA:64194",
+       19
+      ],
+      [
+       "EMA:64194",
+       49
+      ],
+      [
+       "EMA:64194",
+       71
+      ]
+     ]
+    },
+    {
+     "key": [
+      "ABP654",
+      "US",
+      "approval"
+     ],
+     "pages": [
+      [
+       "FDA:761285Orig1s000,761331Orig1s000:Approv",
+       1
+      ],
+      [
+       "FDA:761285Orig1s000,761331Orig1s000:Approv",
+       12
+      ]
+     ]
+    },
+    {
+     "key": [
+      "CTP43",
+      "EU",
+      "approval"
+     ],
+     "pages": [
+      [
+       "EMA:64790",
+       22
+      ],
+      [
+       "EMA:64790",
+       54
+      ],
+      [
+       "EMA:64790",
+       80
+      ]
+     ]
+    },
+    {
+     "key": [
+      "CTP43",
+      "US",
+      "approval"
+     ],
+     "pages": [
+      [
+       "FDA:761338Orig1Orig2s000:Approv",
+       1
+      ]
+     ]
+    },
+    {
+     "key": [
+      "BMAB1200",
+      "US",
+      "approval"
+     ],
+     "pages": [
+      [
+       "FDA:761406Orig1Orig2s000:Approv",
+       1
+      ]
+     ]
+    },
+    {
+     "key": [
+      "BAT2206",
+      "EU",
+      "approval"
+     ],
+     "pages": [
+      [
+       "EMA:69778",
+       22
+      ],
+      [
+       "EMA:69778",
+       53
+      ]
+     ]
+    },
+    {
+     "key": [
+      "BAT2206",
+      "US",
+      "submission"
+     ],
+     "pages": [
+      [
+       "FDA:letter:761419Orig1s000ltr",
+       1
+      ]
+     ]
+    },
+    {
+     "key": [
+      "BAT2206",
+      "US",
+      "approval"
+     ],
+     "pages": [
+      [
+       "FDA:letter:761419Orig1s000ltr",
+       7
+      ]
+     ]
+    },
+    {
+     "key": [
+      "SB17",
+      "EU",
+      "approval"
+     ],
+     "pages": [
+      [
+       "EMA:63561",
+       17
+      ],
+      [
+       "EMA:63561",
+       43
+      ],
+      [
+       "EMA:63561",
+       64
+      ]
+     ]
+    },
+    {
+     "key": [
+      "SB17",
+      "US",
+      "approval"
+     ],
+     "pages": [
+      [
+       "FDA:761373Orig1s000,761425Orig1s000:Approv",
+       1
+      ]
+     ]
+    },
+    {
+     "key": [
+      "BMAB1200",
+      "EU",
+      "submission"
+     ],
+     "pages": [
+      [
+       "EMA:66901",
+       6
+      ]
+     ]
+    },
+    {
+     "key": [
+      "BAT2206",
+      "EU",
+      "submission"
+     ],
+     "pages": [
+      [
+       "EMA:69779",
+       8
+      ]
+     ]
+    },
+    {
+     "key": [
+      "BMAB1200",
+      "EU",
+      "approval"
+     ],
+     "pages": [
+      [
+       "EMA:66899",
+       17
+      ],
+      [
+       "EMA:66899",
+       44
+      ],
+      [
+       "EMA:66899",
+       65
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "DATE2",
+   "question": "우스테키누맙의 바이오시밀러들의 각 ra 허가 날짜를 정리해줄래?\n제출 날짜 부터 최종 허가까지 걸린 기간이 궁금하다.",
+   "pages": null,
+   "facts": [
+    {
+     "key": [
+      "ABP654",
+      "EU",
+      "submission"
+     ],
+     "pages": [
+      [
+       "EMA:64196",
+       11
+      ]
+     ]
+    },
+    {
+     "key": [
+      "ABP654",
+      "CA",
+      "submission"
+     ],
+     "pages": [
+      [
+       "HC:SBD1721675750511",
+       3
+      ]
+     ]
+    },
+    {
+     "key": [
+      "ABP654",
+      "CA",
+      "approval"
+     ],
+     "pages": [
+      [
+       "HC:SBD1721675750511",
+       3
+      ]
+     ]
+    },
+    {
+     "key": [
+      "ABP654",
+      "US",
+      "submission"
+     ],
+     "pages": [
+      [
+       "FDA:761285Orig1s000,761331Orig1s000:MultidisciplineR",
+       2
+      ]
+     ]
+    },
+    {
+     "key": [
+      "CTP43",
+      "EU",
+      "submission"
+     ],
+     "pages": [
+      [
+       "EMA:64792",
+       9
+      ]
+     ]
+    },
+    {
+     "key": [
+      "CTP43",
+      "CA",
+      "submission"
+     ],
+     "pages": [
+      [
+       "HC:SBD1739202346124",
+       3
+      ]
+     ]
+    },
+    {
+     "key": [
+      "CTP43",
+      "CA",
+      "approval"
+     ],
+     "pages": [
+      [
+       "HC:SBD1739202346124",
+       3
+      ]
+     ]
+    },
+    {
+     "key": [
+      "CTP43",
+      "US",
+      "submission"
+     ],
+     "pages": [
+      [
+       "FDA:761338Orig1Orig2s000:MultidisciplineR",
+       2
+      ]
+     ]
+    },
+    {
+     "key": [
+      "BMAB1200",
+      "CA",
+      "submission"
+     ],
+     "pages": [
+      [
+       "HC:SBD1769005259208",
+       2
+      ]
+     ]
+    },
+    {
+     "key": [
+      "BMAB1200",
+      "CA",
+      "approval"
+     ],
+     "pages": [
+      [
+       "HC:SBD1769005259208",
+       2
+      ]
+     ]
+    },
+    {
+     "key": [
+      "BMAB1200",
+      "US",
+      "submission"
+     ],
+     "pages": [
+      [
+       "FDA:761406Orig1Orig2s000:MultidisciplineR",
+       11
+      ]
+     ]
+    },
+    {
+     "key": [
+      "SB17",
+      "EU",
+      "submission"
+     ],
+     "pages": [
+      [
+       "EMA:63563",
+       8
+      ]
+     ]
+    },
+    {
+     "key": [
+      "SB17",
+      "CA",
+      "submission"
+     ],
+     "pages": [
+      [
+       "HC:SBD1739909145014",
+       3
+      ]
+     ]
+    },
+    {
+     "key": [
+      "SB17",
+      "CA",
+      "approval"
+     ],
+     "pages": [
+      [
+       "HC:SBD1739909145014",
+       3
+      ]
+     ]
+    },
+    {
+     "key": [
+      "SB17",
+      "US",
+      "submission"
+     ],
+     "pages": [
+      [
+       "FDA:761373Orig1s000,761425Orig1s000:MultidisciplineR",
+       2
+      ],
+      [
+       "FDA:761373Orig2s000,761425Orig2s000:MultidisciplineR",
+       12
+      ]
+     ]
+    },
+    {
+     "key": [
+      "ABP654",
+      "EU",
+      "approval"
+     ],
+     "pages": [
+      [
+       "EMA:64194",
+       19
+      ],
+      [
+       "EMA:64194",
+       49
+      ],
+      [
+       "EMA:64194",
+       71
+      ]
+     ]
+    },
+    {
+     "key": [
+      "ABP654",
+      "US",
+      "approval"
+     ],
+     "pages": [
+      [
+       "FDA:761285Orig1s000,761331Orig1s000:Approv",
+       1
+      ],
+      [
+       "FDA:761285Orig1s000,761331Orig1s000:Approv",
+       12
+      ]
+     ]
+    },
+    {
+     "key": [
+      "CTP43",
+      "EU",
+      "approval"
+     ],
+     "pages": [
+      [
+       "EMA:64790",
+       22
+      ],
+      [
+       "EMA:64790",
+       54
+      ],
+      [
+       "EMA:64790",
+       80
+      ]
+     ]
+    },
+    {
+     "key": [
+      "CTP43",
+      "US",
+      "approval"
+     ],
+     "pages": [
+      [
+       "FDA:761338Orig1Orig2s000:Approv",
+       1
+      ]
+     ]
+    },
+    {
+     "key": [
+      "BMAB1200",
+      "US",
+      "approval"
+     ],
+     "pages": [
+      [
+       "FDA:761406Orig1Orig2s000:Approv",
+       1
+      ]
+     ]
+    },
+    {
+     "key": [
+      "BAT2206",
+      "EU",
+      "approval"
+     ],
+     "pages": [
+      [
+       "EMA:69778",
+       22
+      ],
+      [
+       "EMA:69778",
+       53
+      ]
+     ]
+    },
+    {
+     "key": [
+      "BAT2206",
+      "US",
+      "submission"
+     ],
+     "pages": [
+      [
+       "FDA:letter:761419Orig1s000ltr",
+       1
+      ]
+     ]
+    },
+    {
+     "key": [
+      "BAT2206",
+      "US",
+      "approval"
+     ],
+     "pages": [
+      [
+       "FDA:letter:761419Orig1s000ltr",
+       7
+      ]
+     ]
+    },
+    {
+     "key": [
+      "SB17",
+      "EU",
+      "approval"
+     ],
+     "pages": [
+      [
+       "EMA:63561",
+       17
+      ],
+      [
+       "EMA:63561",
+       43
+      ],
+      [
+       "EMA:63561",
+       64
+      ]
+     ]
+    },
+    {
+     "key": [
+      "SB17",
+      "US",
+      "approval"
+     ],
+     "pages": [
+      [
+       "FDA:761373Orig1s000,761425Orig1s000:Approv",
+       1
+      ]
+     ]
+    },
+    {
+     "key": [
+      "BMAB1200",
+      "EU",
+      "submission"
+     ],
+     "pages": [
+      [
+       "EMA:66901",
+       6
+      ]
+     ]
+    },
+    {
+     "key": [
+      "BAT2206",
+      "EU",
+      "submission"
+     ],
+     "pages": [
+      [
+       "EMA:69779",
+       8
+      ]
+     ]
+    },
+    {
+     "key": [
+      "BMAB1200",
+      "EU",
+      "approval"
+     ],
+     "pages": [
+      [
+       "EMA:66899",
+       17
+      ],
+      [
+       "EMA:66899",
+       44
+      ],
+      [
+       "EMA:66899",
+       65
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}

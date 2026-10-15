@@ -1,0 +1,133 @@
+{
+ "mode": "ra",
+ "question": "FDA가 Pyzchiva(SB17) 승인 시 요구한 시판 후 요구사항(PMR)이나 시판 후 약속(PMC)은 무엇인가?",
+ "understanding": {
+  "in_scope": true,
+  "products": [
+   "SB17"
+  ],
+  "jurisdictions": [
+   "US"
+  ],
+  "jurisdiction_mentions": [
+   {
+    "jurisdiction": "US",
+    "role": "regulator",
+    "quote": "FDA"
+   }
+  ],
+  "english_query": "FDA postmarketing requirements (PMRs) and postmarketing commitments (PMCs) for Pyzchiva (SB17) approval",
+  "tasks": [
+   {
+    "request": "FDA가 Pyzchiva(SB17) 승인 시 요구한 시판 후 요구사항(PMR)이나 시판 후 약속(PMC)은 무엇인가?",
+    "queries": [
+     "FDA Pyzchiva SB17 approval postmarketing requirements PMR postmarketing commitments PMC",
+     "Pyzchiva SB17 FDA approval letter postmarketing requirements commitments"
+    ],
+    "source_roles": [
+     "assessment",
+     "decision_summary"
+    ],
+    "guideline_request_quote": "",
+    "intent": {
+     "intent": "fact_lookup",
+     "request_quote": "FDA가 Pyzchiva(SB17) 승인 시 요구한 시판 후 요구사항(PMR)이나 시판 후 약속(PMC)은 무엇인가?"
+    },
+    "id": "T1",
+    "requested_conditions": {
+     "quantities": [],
+     "routes": [],
+     "facets": []
+    },
+    "original_request_segments": [
+     "FDA가 Pyzchiva(SB17) 승인 시 요구한 시판 후 요구사항(PMR)이나 시판 후 약속(PMC)은 무엇인가?"
+    ],
+    "intent_check": {
+     "model": "fact_lookup",
+     "final": "fact_lookup",
+     "quote": "FDA가 Pyzchiva(SB17) 승인 시 요구한 시판 후 요구사항(PMR)이나 시판 후 약속(PMC)은 무엇인가?",
+     "quote_verified": true,
+     "rule": null
+    }
+   }
+  ],
+  "intents": [
+   "fact_lookup"
+  ],
+  "intent": "fact_lookup",
+  "intent_check": {
+   "version": "ra-intent-4-task-scope",
+   "tasks": [
+    {
+     "model": "fact_lookup",
+     "final": "fact_lookup",
+     "quote": "FDA가 Pyzchiva(SB17) 승인 시 요구한 시판 후 요구사항(PMR)이나 시판 후 약속(PMC)은 무엇인가?",
+     "quote_verified": true,
+     "rule": null
+    }
+   ],
+   "uncovered_request_segments": []
+  },
+  "studies": [],
+  "study_scope": "unspecified",
+  "topic": "other",
+  "doc_groups": [
+   "assessment",
+   "decision_summary"
+  ],
+  "source_question": "FDA가 Pyzchiva(SB17) 승인 시 요구한 시판 후 요구사항(PMR)이나 시판 후 약속(PMC)은 무엇인가?",
+  "planner_version": "ra-research-tasks-6-task-intents",
+  "conversation": {
+   "version": "ra-followup-1-named-scope",
+   "turn_kind": "first",
+   "own": {
+    "products": [
+     "SB17"
+    ],
+    "jurisdictions": [
+     "US"
+    ]
+   },
+   "inherited": {},
+   "rules": [
+    "first_turn"
+   ],
+   "user_question": "FDA가 Pyzchiva(SB17) 승인 시 요구한 시판 후 요구사항(PMR)이나 시판 후 약속(PMC)은 무엇인가?",
+   "standalone_question": "FDA가 Pyzchiva(SB17) 승인 시 요구한 시판 후 요구사항(PMR)이나 시판 후 약속(PMC)은 무엇인가?",
+   "standalone_check": "single_turn"
+  },
+  "request_scope": {
+   "model": {
+    "products": [
+     "SB17"
+    ],
+    "jurisdictions": [
+     "US"
+    ]
+   },
+   "allowed": {
+    "products": [
+     "ABP654",
+     "BAT2206",
+     "BMAB1200",
+     "CTP43",
+     "SB17"
+    ],
+    "jurisdictions": [
+     "CA",
+     "EU",
+     "US",
+     "sponsor"
+    ]
+   },
+   "pinned": {
+    "products": false,
+    "jurisdictions": false
+   },
+   "adjustments": [],
+   "conflicts": [],
+   "narrowed_by_question": {},
+   "status": "applied"
+  }
+ }
+}

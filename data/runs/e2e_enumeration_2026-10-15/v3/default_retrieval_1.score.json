@@ -1,0 +1,90 @@
+{
+ "units": 14,
+ "submission_dates": 5,
+ "approval_dates": 3,
+ "durations_computed_correctly": 3,
+ "claims_kept": 8,
+ "rejected_reasons": {
+  "uncertain": 1
+ },
+ "derived_withheld": [
+  "derived_operand_not_in_verified_claims"
+ ],
+ "status": "partial",
+ "llm_calls": 3,
+ "input_tokens": 51994,
+ "seconds": 29.609,
+ "non_gold_dates_for_review": [],
+ "by_unit": {
+  "ABP654/CA": {
+   "submission": true,
+   "approval": true,
+   "duration": true
+  },
+  "ABP654/EU": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "ABP654/US": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "BAT2206/EU": {
+   "submission": true,
+   "approval": false,
+   "duration": false
+  },
+  "BAT2206/US": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "BMAB1200/CA": {
+   "submission": true,
+   "approval": true,
+   "duration": true
+  },
+  "BMAB1200/EU": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "BMAB1200/US": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "CTP43/CA": {
+   "submission": true,
+   "approval": false,
+   "duration": false
+  },
+  "CTP43/EU": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "CTP43/US": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "SB17/CA": {
+   "submission": true,
+   "approval": true,
+   "duration": true
+  },
+  "SB17/EU": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "SB17/US": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  }
+ }
+}

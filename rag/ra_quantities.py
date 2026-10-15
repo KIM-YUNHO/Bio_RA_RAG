@@ -51,6 +51,9 @@ def numbers(text):
     month_names='January February March April May June July August September October November December'.split()
     for match in re.finditer(r'\b('+'|'.join(month_names+list(MONTHS))+r')\s+\d{4}\b',text,re.I):
         result.add(str(MONTHS[match[1][:3].lower()]))
+    # US order, "March 30, 2023" / "Nov. 29, 2023": the same explicit full date.
+    for match in re.finditer(r'\b('+'|'.join(month_names+list(MONTHS))+r')\.?\s+\d{1,2},\s*\d{4}\b',text,re.I):
+        result.add(str(MONTHS[match[1][:3].lower()]))
     return result
 
 

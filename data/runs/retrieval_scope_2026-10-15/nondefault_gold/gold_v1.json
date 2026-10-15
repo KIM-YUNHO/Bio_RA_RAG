@@ -1,0 +1,2230 @@
+{
+ "note": "Silver recall only contains pages cited by past answers, so it cannot reward\nretrieving documents that were never searched (labels, approval letters). This\nset defines each fact by a field pattern over source units — independent of\nchunking — and records every (document, page) that prints it. A fact is found\nif any of its pages is retrieved. Default-document facts are included as a\ncontrol. Plans come from one real planner call per question and are frozen,\nso two releases are compared on identical plans.",
+ "cases": [
+  {
+   "id": "storage:ABP654",
+   "template": "storage",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Wezenla(ABP654)의 보관 조건(보관 온도)은 무엇인가?",
+   "facts": [
+    {
+     "key": [
+      "ABP654",
+      "EU",
+      "storage"
+     ],
+     "pages": [
+      [
+       "EMA:64194",
+       18
+      ],
+      [
+       "EMA:64194",
+       48
+      ],
+      [
+       "EMA:64194",
+       70
+      ],
+      [
+       "EMA:64194",
+       77
+      ],
+      [
+       "EMA:64194",
+       80
+      ],
+      [
+       "EMA:64194",
+       83
+      ],
+      [
+       "EMA:64194",
+       87
+      ],
+      [
+       "EMA:64194",
+       92
+      ],
+      [
+       "EMA:64194",
+       94
+      ],
+      [
+       "EMA:64194",
+       103
+      ],
+      [
+       "EMA:64194",
+       114
+      ],
+      [
+       "EMA:64194",
+       126
+      ],
+      [
+       "EMA:64194",
+       141
+      ]
+     ]
+    },
+    {
+     "key": [
+      "ABP654",
+      "US",
+      "storage"
+     ],
+     "pages": [
+      [
+       "FDA:761285Orig1s000,761331Orig1s000:Lbl",
+       35
+      ],
+      [
+       "FDA:761285Orig1s000,761331Orig1s000:Lbl",
+       39
+      ],
+      [
+       "FDA:761285Orig1s000,761331Orig1s000:Lbl",
+       42
+      ],
+      [
+       "FDA:761285Orig1s000,761331Orig1s000:Lbl",
+       51
+      ],
+      [
+       "FDA:761285Orig1s000,761331Orig1s000:Lbl",
+       52
+      ],
+      [
+       "FDA:label:761285s006lbl761331s006lbl",
+       36
+      ],
+      [
+       "FDA:label:761285s006lbl761331s006lbl",
+       40
+      ],
+      [
+       "FDA:label:761285s006lbl761331s006lbl",
+       42
+      ],
+      [
+       "FDA:label:761285s006lbl761331s006lbl",
+       51
+      ]
+     ]
+    },
+    {
+     "key": [
+      "ABP654",
+      "CA",
+      "storage"
+     ],
+     "pages": [
+      [
+       "HC:PM:00078625",
+       76
+      ],
+      [
+       "HC:PM:00078625",
+       91
+      ],
+      [
+       "HC:PM:00078625",
+       100
+      ],
+      [
+       "HC:PM:00078625",
+       110
+      ],
+      [
+       "HC:PM:00078625",
+       116
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "storage:BAT2206",
+   "template": "storage",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Usymro(BAT2206)의 보관 조건(보관 온도)은 무엇인가?",
+   "facts": [
+    {
+     "key": [
+      "BAT2206",
+      "EU",
+      "storage"
+     ],
+     "pages": [
+      [
+       "EMA:69778",
+       21
+      ],
+      [
+       "EMA:69778",
+       52
+      ],
+      [
+       "EMA:69778",
+       58
+      ],
+      [
+       "EMA:69778",
+       61
+      ],
+      [
+       "EMA:69778",
+       64
+      ],
+      [
+       "EMA:69778",
+       67
+      ],
+      [
+       "EMA:69778",
+       79
+      ],
+      [
+       "EMA:69778",
+       87
+      ],
+      [
+       "EMA:69778",
+       99
+      ],
+      [
+       "EMA:69778",
+       112
+      ]
+     ]
+    },
+    {
+     "key": [
+      "BAT2206",
+      "US",
+      "storage"
+     ],
+     "pages": [
+      [
+       "FDA:label:761419s000lbl",
+       34
+      ],
+      [
+       "FDA:label:761419s000lbl",
+       38
+      ],
+      [
+       "FDA:label:761419s000lbl",
+       39
+      ],
+      [
+       "FDA:label:761419s000lbl",
+       46
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "storage:BMAB1200",
+   "template": "storage",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Yesintek(BMAB1200)의 보관 조건(보관 온도)은 무엇인가?",
+   "facts": [
+    {
+     "key": [
+      "BMAB1200",
+      "US",
+      "storage"
+     ],
+     "pages": [
+      [
+       "FDA:761406Orig1Orig2s000:Lbl",
+       36
+      ],
+      [
+       "FDA:761406Orig1Orig2s000:Lbl",
+       40
+      ],
+      [
+       "FDA:761406Orig1Orig2s000:Lbl",
+       42
+      ],
+      [
+       "FDA:761406Orig1Orig2s000:Lbl",
+       48
+      ],
+      [
+       "FDA:761406Orig1Orig2s000:Lbl",
+       53
+      ],
+      [
+       "FDA:761406Orig1Orig2s000:Lbl",
+       56
+      ],
+      [
+       "FDA:761406Orig1Orig2s000:Lbl",
+       58
+      ],
+      [
+       "FDA:761406Orig1Orig2s000:Lbl",
+       61
+      ],
+      [
+       "FDA:label:761406s002lbl",
+       39
+      ],
+      [
+       "FDA:label:761406s002lbl",
+       40
+      ]
+     ]
+    },
+    {
+     "key": [
+      "BMAB1200",
+      "CA",
+      "storage"
+     ],
+     "pages": [
+      [
+       "HC:PM:00084796",
+       68
+      ],
+      [
+       "HC:PM:00084796",
+       80
+      ],
+      [
+       "HC:PM:00085332",
+       69
+      ],
+      [
+       "HC:PM:00085332",
+       76
+      ],
+      [
+       "HC:PM:00085332",
+       93
+      ]
+     ]
+    },
+    {
+     "key": [
+      "BMAB1200",
+      "EU",
+      "storage"
+     ],
+     "pages": [
+      [
+       "EMA:66899",
+       16
+      ],
+      [
+       "EMA:66899",
+       43
+      ],
+      [
+       "EMA:66899",
+       64
+      ],
+      [
+       "EMA:66899",
+       70
+      ],
+      [
+       "EMA:66899",
+       73
+      ],
+      [
+       "EMA:66899",
+       76
+      ],
+      [
+       "EMA:66899",
+       80
+      ],
+      [
+       "EMA:66899",
+       84
+      ],
+      [
+       "EMA:66899",
+       87
+      ],
+      [
+       "EMA:66899",
+       96
+      ],
+      [
+       "EMA:66899",
+       106
+      ],
+      [
+       "EMA:66899",
+       118
+      ],
+      [
+       "EMA:66899",
+       122
+      ],
+      [
+       "EMA:66899",
+       132
+      ],
+      [
+       "EMA:66899",
+       136
+      ],
+      [
+       "EMA:66899",
+       145
+      ],
+      [
+       "EMA:66899",
+       148
+      ],
+      [
+       "EMA:66899",
+       163
+      ],
+      [
+       "EMA:66899",
+       166
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "storage:CTP43",
+   "template": "storage",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Steqeyma(CTP43)의 보관 조건(보관 온도)은 무엇인가?",
+   "facts": [
+    {
+     "key": [
+      "CTP43",
+      "EU",
+      "storage"
+     ],
+     "pages": [
+      [
+       "EMA:64790",
+       21
+      ],
+      [
+       "EMA:64790",
+       52
+      ],
+      [
+       "EMA:64790",
+       79
+      ],
+      [
+       "EMA:64790",
+       87
+      ],
+      [
+       "EMA:64790",
+       90
+      ],
+      [
+       "EMA:64790",
+       93
+      ],
+      [
+       "EMA:64790",
+       96
+      ],
+      [
+       "EMA:64790",
+       99
+      ],
+      [
+       "EMA:64790",
+       102
+      ],
+      [
+       "EMA:64790",
+       110
+      ],
+      [
+       "EMA:64790",
+       121
+      ],
+      [
+       "EMA:64790",
+       125
+      ],
+      [
+       "EMA:64790",
+       141
+      ],
+      [
+       "EMA:64790",
+       145
+      ],
+      [
+       "EMA:64790",
+       157
+      ],
+      [
+       "EMA:64790",
+       160
+      ],
+      [
+       "EMA:64790",
+       171
+      ],
+      [
+       "EMA:64790",
+       175
+      ],
+      [
+       "EMA:64790",
+       188
+      ],
+      [
+       "EMA:64790",
+       192
+      ]
+     ]
+    },
+    {
+     "key": [
+      "CTP43",
+      "US",
+      "storage"
+     ],
+     "pages": [
+      [
+       "FDA:761338Orig1Orig2s000:Lbl",
+       35
+      ],
+      [
+       "FDA:761338Orig1Orig2s000:Lbl",
+       39
+      ],
+      [
+       "FDA:761338Orig1Orig2s000:Lbl",
+       40
+      ],
+      [
+       "FDA:761338Orig1Orig2s000:Lbl",
+       80
+      ],
+      [
+       "FDA:761338Orig1Orig2s000:Lbl",
+       84
+      ],
+      [
+       "FDA:761338Orig1Orig2s000:Lbl",
+       85
+      ],
+      [
+       "FDA:761338Orig1Orig2s000:Lbl",
+       92
+      ],
+      [
+       "FDA:761338Orig1Orig2s000:Lbl",
+       93
+      ],
+      [
+       "FDA:761338Orig1Orig2s000:Lbl",
+       95
+      ],
+      [
+       "FDA:label:761338s007lbl",
+       33
+      ],
+      [
+       "FDA:label:761338s007lbl",
+       38
+      ],
+      [
+       "FDA:label:761338s007lbl",
+       40
+      ],
+      [
+       "FDA:label:761338s007lbl",
+       49
+      ],
+      [
+       "FDA:label:761338s007lbl",
+       87
+      ],
+      [
+       "FDA:label:761338s007lbl",
+       91
+      ],
+      [
+       "FDA:label:761338s007lbl",
+       93
+      ],
+      [
+       "FDA:label:761338s007lbl",
+       99
+      ]
+     ]
+    },
+    {
+     "key": [
+      "CTP43",
+      "CA",
+      "storage"
+     ],
+     "pages": [
+      [
+       "HC:PM:00085585",
+       83
+      ],
+      [
+       "HC:PM:00085585",
+       103
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "storage:SB17",
+   "template": "storage",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Pyzchiva(SB17)의 보관 조건(보관 온도)은 무엇인가?",
+   "facts": [
+    {
+     "key": [
+      "SB17",
+      "EU",
+      "storage"
+     ],
+     "pages": [
+      [
+       "EMA:63561",
+       16
+      ],
+      [
+       "EMA:63561",
+       42
+      ],
+      [
+       "EMA:63561",
+       63
+      ],
+      [
+       "EMA:63561",
+       69
+      ],
+      [
+       "EMA:63561",
+       72
+      ],
+      [
+       "EMA:63561",
+       74
+      ],
+      [
+       "EMA:63561",
+       76
+      ],
+      [
+       "EMA:63561",
+       79
+      ],
+      [
+       "EMA:63561",
+       82
+      ],
+      [
+       "EMA:63561",
+       85
+      ],
+      [
+       "EMA:63561",
+       88
+      ],
+      [
+       "EMA:63561",
+       97
+      ],
+      [
+       "EMA:63561",
+       107
+      ],
+      [
+       "EMA:63561",
+       119
+      ],
+      [
+       "EMA:63561",
+       132
+      ],
+      [
+       "EMA:63561",
+       144
+      ],
+      [
+       "EMA:63561",
+       147
+      ],
+      [
+       "EMA:63561",
+       158
+      ],
+      [
+       "EMA:63561",
+       161
+      ]
+     ]
+    },
+    {
+     "key": [
+      "SB17",
+      "US",
+      "storage"
+     ],
+     "pages": [
+      [
+       "FDA:761373Orig1s000,761425Orig1s000:Lbl",
+       37
+      ],
+      [
+       "FDA:761373Orig1s000,761425Orig1s000:Lbl",
+       41
+      ],
+      [
+       "FDA:761373Orig1s000,761425Orig1s000:Lbl",
+       42
+      ],
+      [
+       "FDA:761373Orig1s000,761425Orig1s000:Lbl",
+       49
+      ],
+      [
+       "FDA:761373Orig1s000,761425Orig1s000:Lbl",
+       51
+      ],
+      [
+       "FDA:761373Orig1s000,761425Orig1s000:Lbl",
+       52
+      ],
+      [
+       "FDA:761373Orig1s000,761425Orig1s000:Lbl",
+       53
+      ],
+      [
+       "FDA:761373Orig2s000,761425Orig2s000:Lbl",
+       38
+      ],
+      [
+       "FDA:761373Orig2s000,761425Orig2s000:Lbl",
+       42
+      ],
+      [
+       "FDA:761373Orig2s000,761425Orig2s000:Lbl",
+       43
+      ],
+      [
+       "FDA:761373Orig2s000,761425Orig2s000:Lbl",
+       49
+      ],
+      [
+       "FDA:label:761373s006,761425s005lbl",
+       34
+      ],
+      [
+       "FDA:label:761373s006,761425s005lbl",
+       38
+      ],
+      [
+       "FDA:label:761373s006,761425s005lbl",
+       39
+      ],
+      [
+       "FDA:label:761373s006,761425s005lbl",
+       46
+      ],
+      [
+       "FDA:label:761373s006,761425s005lbl",
+       53
+      ],
+      [
+       "FDA:label:761373s006,761425s005lbl",
+       60
+      ]
+     ]
+    },
+    {
+     "key": [
+      "SB17",
+      "CA",
+      "storage"
+     ],
+     "pages": [
+      [
+       "HC:PM:00082519",
+       73
+      ],
+      [
+       "HC:PM:00082519",
+       79
+      ],
+      [
+       "HC:PM:00082519",
+       93
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "shelf_life:ABP654",
+   "template": "shelf_life",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Wezenla(ABP654)의 유효기간(shelf life)은 얼마인가?",
+   "facts": [
+    {
+     "key": [
+      "ABP654",
+      "EU",
+      "shelf_life"
+     ],
+     "pages": [
+      [
+       "EMA:64194",
+       18
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "shelf_life:BAT2206",
+   "template": "shelf_life",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Usymro(BAT2206)의 유효기간(shelf life)은 얼마인가?",
+   "facts": [
+    {
+     "key": [
+      "BAT2206",
+      "EU",
+      "shelf_life"
+     ],
+     "pages": [
+      [
+       "EMA:69778",
+       20
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "shelf_life:BMAB1200",
+   "template": "shelf_life",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Yesintek(BMAB1200)의 유효기간(shelf life)은 얼마인가?",
+   "facts": [
+    {
+     "key": [
+      "BMAB1200",
+      "US",
+      "shelf_life"
+     ],
+     "pages": [
+      [
+       "FDA:761406Orig1Orig2s000:Approv",
+       5
+      ],
+      [
+       "FDA:761406Orig1Orig2s000:Approv",
+       11
+      ]
+     ]
+    },
+    {
+     "key": [
+      "BMAB1200",
+      "EU",
+      "shelf_life"
+     ],
+     "pages": [
+      [
+       "EMA:66899",
+       16
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "shelf_life:CTP43",
+   "template": "shelf_life",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Steqeyma(CTP43)의 유효기간(shelf life)은 얼마인가?",
+   "facts": [
+    {
+     "key": [
+      "CTP43",
+      "EU",
+      "shelf_life"
+     ],
+     "pages": [
+      [
+       "EMA:64790",
+       21
+      ]
+     ]
+    },
+    {
+     "key": [
+      "CTP43",
+      "US",
+      "shelf_life"
+     ],
+     "pages": [
+      [
+       "FDA:761338Orig1Orig2s000:Approv",
+       5
+      ],
+      [
+       "FDA:761338Orig1Orig2s000:Approv",
+       11
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "shelf_life:SB17",
+   "template": "shelf_life",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Pyzchiva(SB17)의 유효기간(shelf life)은 얼마인가?",
+   "facts": [
+    {
+     "key": [
+      "SB17",
+      "US",
+      "shelf_life"
+     ],
+     "pages": [
+      [
+       "FDA:761373Orig1s000,761425Orig1s000:Approv",
+       6
+      ],
+      [
+       "FDA:761373Orig2s000,761425Orig2s000:Approv",
+       5
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mah:ABP654",
+   "template": "mah",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Wezenla(ABP654)의 EU 판매허가 보유자(MAH)는 누구인가?",
+   "facts": [
+    {
+     "key": [
+      "ABP654",
+      "EU",
+      "mah"
+     ],
+     "pages": [
+      [
+       "EMA:64194",
+       19
+      ],
+      [
+       "EMA:64194",
+       49
+      ],
+      [
+       "EMA:64194",
+       71
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mah:BAT2206",
+   "template": "mah",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Usymro(BAT2206)의 EU 판매허가 보유자(MAH)는 누구인가?",
+   "facts": [
+    {
+     "key": [
+      "BAT2206",
+      "EU",
+      "mah"
+     ],
+     "pages": [
+      [
+       "EMA:69778",
+       21
+      ],
+      [
+       "EMA:69778",
+       53
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mah:BMAB1200",
+   "template": "mah",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Yesintek(BMAB1200)의 EU 판매허가 보유자(MAH)는 누구인가?",
+   "facts": [
+    {
+     "key": [
+      "BMAB1200",
+      "EU",
+      "mah"
+     ],
+     "pages": [
+      [
+       "EMA:66899",
+       17
+      ],
+      [
+       "EMA:66899",
+       44
+      ],
+      [
+       "EMA:66899",
+       64
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mah:CTP43",
+   "template": "mah",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Steqeyma(CTP43)의 EU 판매허가 보유자(MAH)는 누구인가?",
+   "facts": [
+    {
+     "key": [
+      "CTP43",
+      "EU",
+      "mah"
+     ],
+     "pages": [
+      [
+       "EMA:64790",
+       22
+      ],
+      [
+       "EMA:64790",
+       53
+      ],
+      [
+       "EMA:64790",
+       80
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mah:SB17",
+   "template": "mah",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Pyzchiva(SB17)의 EU 판매허가 보유자(MAH)는 누구인가?",
+   "facts": [
+    {
+     "key": [
+      "SB17",
+      "EU",
+      "mah"
+     ],
+     "pages": [
+      [
+       "EMA:63561",
+       17
+      ],
+      [
+       "EMA:63561",
+       43
+      ],
+      [
+       "EMA:63561",
+       63
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "eu_first_authorisation:ABP654",
+   "template": "eu_first_authorisation",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Wezenla(ABP654)의 EU 최초 판매허가일은 언제인가?",
+   "facts": [
+    {
+     "key": [
+      "ABP654",
+      "EU",
+      "eu_first_authorisation"
+     ],
+     "pages": [
+      [
+       "EMA:64194",
+       19
+      ],
+      [
+       "EMA:64194",
+       49
+      ],
+      [
+       "EMA:64194",
+       71
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "eu_first_authorisation:BAT2206",
+   "template": "eu_first_authorisation",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Usymro(BAT2206)의 EU 최초 판매허가일은 언제인가?",
+   "facts": [
+    {
+     "key": [
+      "BAT2206",
+      "EU",
+      "eu_first_authorisation"
+     ],
+     "pages": [
+      [
+       "EMA:69778",
+       22
+      ],
+      [
+       "EMA:69778",
+       53
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "eu_first_authorisation:BMAB1200",
+   "template": "eu_first_authorisation",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Yesintek(BMAB1200)의 EU 최초 판매허가일은 언제인가?",
+   "facts": [
+    {
+     "key": [
+      "BMAB1200",
+      "EU",
+      "eu_first_authorisation"
+     ],
+     "pages": [
+      [
+       "EMA:66899",
+       17
+      ],
+      [
+       "EMA:66899",
+       44
+      ],
+      [
+       "EMA:66899",
+       65
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "eu_first_authorisation:CTP43",
+   "template": "eu_first_authorisation",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Steqeyma(CTP43)의 EU 최초 판매허가일은 언제인가?",
+   "facts": [
+    {
+     "key": [
+      "CTP43",
+      "EU",
+      "eu_first_authorisation"
+     ],
+     "pages": [
+      [
+       "EMA:64790",
+       22
+      ],
+      [
+       "EMA:64790",
+       54
+      ],
+      [
+       "EMA:64790",
+       80
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "eu_first_authorisation:SB17",
+   "template": "eu_first_authorisation",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Pyzchiva(SB17)의 EU 최초 판매허가일은 언제인가?",
+   "facts": [
+    {
+     "key": [
+      "SB17",
+      "EU",
+      "eu_first_authorisation"
+     ],
+     "pages": [
+      [
+       "EMA:63561",
+       17
+      ],
+      [
+       "EMA:63561",
+       43
+      ],
+      [
+       "EMA:63561",
+       64
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fda_approval_date:ABP654",
+   "template": "fda_approval_date",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Wezenla(ABP654)의 FDA 최초 승인일은 언제인가?",
+   "facts": [
+    {
+     "key": [
+      "ABP654",
+      "US",
+      "fda_approval_date"
+     ],
+     "pages": [
+      [
+       "FDA:761285Orig1s000,761331Orig1s000:Approv",
+       1
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fda_approval_date:BAT2206",
+   "template": "fda_approval_date",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Usymro(BAT2206)의 FDA 최초 승인일은 언제인가?",
+   "facts": [
+    {
+     "key": [
+      "BAT2206",
+      "US",
+      "fda_approval_date"
+     ],
+     "pages": [
+      [
+       "FDA:letter:761419Orig1s000ltr",
+       7
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fda_approval_date:BMAB1200",
+   "template": "fda_approval_date",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Yesintek(BMAB1200)의 FDA 최초 승인일은 언제인가?",
+   "facts": [
+    {
+     "key": [
+      "BMAB1200",
+      "US",
+      "fda_approval_date"
+     ],
+     "pages": [
+      [
+       "FDA:761406Orig1Orig2s000:Approv",
+       1
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fda_approval_date:CTP43",
+   "template": "fda_approval_date",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Steqeyma(CTP43)의 FDA 최초 승인일은 언제인가?",
+   "facts": [
+    {
+     "key": [
+      "CTP43",
+      "US",
+      "fda_approval_date"
+     ],
+     "pages": [
+      [
+       "FDA:761338Orig1Orig2s000:Approv",
+       1
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fda_approval_date:SB17",
+   "template": "fda_approval_date",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Pyzchiva(SB17)의 FDA 최초 승인일은 언제인가?",
+   "facts": [
+    {
+     "key": [
+      "SB17",
+      "US",
+      "fda_approval_date"
+     ],
+     "pages": [
+      [
+       "FDA:761373Orig1s000,761425Orig1s000:Approv",
+       1
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fda_postmarketing:ABP654",
+   "template": "fda_postmarketing",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "FDA가 Wezenla(ABP654) 승인 시 요구한 시판 후 요구사항(PMR)이나 시판 후 약속(PMC)은 무엇인가?",
+   "facts": [
+    {
+     "key": [
+      "ABP654",
+      "US",
+      "fda_postmarketing"
+     ],
+     "pages": [
+      [
+       "FDA:761285Orig1s000,761331Orig1s000:Approv",
+       9
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fda_postmarketing:BAT2206",
+   "template": "fda_postmarketing",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "FDA가 Usymro(BAT2206) 승인 시 요구한 시판 후 요구사항(PMR)이나 시판 후 약속(PMC)은 무엇인가?",
+   "facts": [
+    {
+     "key": [
+      "BAT2206",
+      "US",
+      "fda_postmarketing"
+     ],
+     "pages": [
+      [
+       "FDA:letter:761419Orig1s000ltr",
+       4
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fda_postmarketing:CTP43",
+   "template": "fda_postmarketing",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "FDA가 Steqeyma(CTP43) 승인 시 요구한 시판 후 요구사항(PMR)이나 시판 후 약속(PMC)은 무엇인가?",
+   "facts": [
+    {
+     "key": [
+      "CTP43",
+      "US",
+      "fda_postmarketing"
+     ],
+     "pages": [
+      [
+       "FDA:761338Orig1Orig2s000:Approv",
+       6
+      ],
+      [
+       "FDA:761338Orig1Orig2s000:Approv",
+       14
+      ],
+      [
+       "FDA:letter:761338Orig1s003ltr",
+       3
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fda_postmarketing:SB17",
+   "template": "fda_postmarketing",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "FDA가 Pyzchiva(SB17) 승인 시 요구한 시판 후 요구사항(PMR)이나 시판 후 약속(PMC)은 무엇인가?",
+   "facts": [
+    {
+     "key": [
+      "SB17",
+      "US",
+      "fda_postmarketing"
+     ],
+     "pages": [
+      [
+       "FDA:761373Orig1s000,761425Orig1s000:Approv",
+       9
+      ],
+      [
+       "FDA:761373Orig2s000,761425Orig2s000:Approv",
+       7
+      ],
+      [
+       "FDA:letter:761373Orig1s001;761425Orig1s001ltr",
+       3
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "excipients:ABP654",
+   "template": "excipients",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Wezenla(ABP654)의 첨가제(부형제) 구성은 무엇인가?",
+   "facts": [
+    {
+     "key": [
+      "ABP654",
+      "EU",
+      "excipients"
+     ],
+     "pages": [
+      [
+       "EMA:64194",
+       17
+      ],
+      [
+       "EMA:64194",
+       47
+      ],
+      [
+       "EMA:64194",
+       70
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "excipients:BAT2206",
+   "template": "excipients",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Usymro(BAT2206)의 첨가제(부형제) 구성은 무엇인가?",
+   "facts": [
+    {
+     "key": [
+      "BAT2206",
+      "EU",
+      "excipients"
+     ],
+     "pages": [
+      [
+       "EMA:69778",
+       20
+      ],
+      [
+       "EMA:69778",
+       51
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "excipients:BMAB1200",
+   "template": "excipients",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Yesintek(BMAB1200)의 첨가제(부형제) 구성은 무엇인가?",
+   "facts": [
+    {
+     "key": [
+      "BMAB1200",
+      "EU",
+      "excipients"
+     ],
+     "pages": [
+      [
+       "EMA:66899",
+       16
+      ],
+      [
+       "EMA:66899",
+       42
+      ],
+      [
+       "EMA:66899",
+       63
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "excipients:CTP43",
+   "template": "excipients",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Steqeyma(CTP43)의 첨가제(부형제) 구성은 무엇인가?",
+   "facts": [
+    {
+     "key": [
+      "CTP43",
+      "EU",
+      "excipients"
+     ],
+     "pages": [
+      [
+       "EMA:64790",
+       21
+      ],
+      [
+       "EMA:64790",
+       52
+      ],
+      [
+       "EMA:64790",
+       78
+      ]
+     ]
+    },
+    {
+     "key": [
+      "CTP43",
+      "CA",
+      "excipients"
+     ],
+     "pages": [
+      [
+       "HC:PM:00085585",
+       10
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "excipients:SB17",
+   "template": "excipients",
+   "location": "non_default",
+   "scope": "fixed",
+   "question": "Pyzchiva(SB17)의 첨가제(부형제) 구성은 무엇인가?",
+   "facts": [
+    {
+     "key": [
+      "SB17",
+      "EU",
+      "excipients"
+     ],
+     "pages": [
+      [
+       "EMA:63561",
+       15
+      ],
+      [
+       "EMA:63561",
+       41
+      ],
+      [
+       "EMA:63561",
+       62
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ema_submission:ABP654",
+   "template": "ema_submission",
+   "location": "default",
+   "scope": "fixed",
+   "question": "Wezenla(ABP654)의 EMA 판매허가 신청 제출일은 언제인가?",
+   "facts": [
+    {
+     "key": [
+      "ABP654",
+      "EU",
+      "ema_submission"
+     ],
+     "pages": [
+      [
+       "EMA:64196",
+       11
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ema_submission:BAT2206",
+   "template": "ema_submission",
+   "location": "default",
+   "scope": "fixed",
+   "question": "Usymro(BAT2206)의 EMA 판매허가 신청 제출일은 언제인가?",
+   "facts": [
+    {
+     "key": [
+      "BAT2206",
+      "EU",
+      "ema_submission"
+     ],
+     "pages": [
+      [
+       "EMA:69779",
+       8
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ema_submission:BMAB1200",
+   "template": "ema_submission",
+   "location": "default",
+   "scope": "fixed",
+   "question": "Yesintek(BMAB1200)의 EMA 판매허가 신청 제출일은 언제인가?",
+   "facts": [
+    {
+     "key": [
+      "BMAB1200",
+      "EU",
+      "ema_submission"
+     ],
+     "pages": [
+      [
+       "EMA:66901",
+       6
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ema_submission:CTP43",
+   "template": "ema_submission",
+   "location": "default",
+   "scope": "fixed",
+   "question": "Steqeyma(CTP43)의 EMA 판매허가 신청 제출일은 언제인가?",
+   "facts": [
+    {
+     "key": [
+      "CTP43",
+      "EU",
+      "ema_submission"
+     ],
+     "pages": [
+      [
+       "EMA:64792",
+       9
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ema_submission:SB17",
+   "template": "ema_submission",
+   "location": "default",
+   "scope": "fixed",
+   "question": "Pyzchiva(SB17)의 EMA 판매허가 신청 제출일은 언제인가?",
+   "facts": [
+    {
+     "key": [
+      "SB17",
+      "EU",
+      "ema_submission"
+     ],
+     "pages": [
+      [
+       "EMA:63563",
+       8
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hc_noc_date:ABP654",
+   "template": "hc_noc_date",
+   "location": "default",
+   "scope": "fixed",
+   "question": "Wezenla(ABP654)의 캐나다 Health Canada NOC 허가일은 언제인가?",
+   "facts": [
+    {
+     "key": [
+      "ABP654",
+      "CA",
+      "hc_noc_date"
+     ],
+     "pages": [
+      [
+       "HC:SBD1721675750511",
+       3
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hc_noc_date:BMAB1200",
+   "template": "hc_noc_date",
+   "location": "default",
+   "scope": "fixed",
+   "question": "Yesintek(BMAB1200)의 캐나다 Health Canada NOC 허가일은 언제인가?",
+   "facts": [
+    {
+     "key": [
+      "BMAB1200",
+      "CA",
+      "hc_noc_date"
+     ],
+     "pages": [
+      [
+       "HC:SBD1769005259208",
+       2
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hc_noc_date:CTP43",
+   "template": "hc_noc_date",
+   "location": "default",
+   "scope": "fixed",
+   "question": "Steqeyma(CTP43)의 캐나다 Health Canada NOC 허가일은 언제인가?",
+   "facts": [
+    {
+     "key": [
+      "CTP43",
+      "CA",
+      "hc_noc_date"
+     ],
+     "pages": [
+      [
+       "HC:SBD1739202346124",
+       3
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hc_noc_date:SB17",
+   "template": "hc_noc_date",
+   "location": "default",
+   "scope": "fixed",
+   "question": "Pyzchiva(SB17)의 캐나다 Health Canada NOC 허가일은 언제인가?",
+   "facts": [
+    {
+     "key": [
+      "SB17",
+      "CA",
+      "hc_noc_date"
+     ],
+     "pages": [
+      [
+       "HC:SBD1739909145014",
+       3
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "crohn_iv_induction:ABP654",
+   "template": "crohn_iv_induction",
+   "location": "default",
+   "scope": "fixed",
+   "question": "Wezenla(ABP654)의 크론병 정맥 유도요법 체중별 용량은?",
+   "facts": [
+    {
+     "key": [
+      "ABP654",
+      "EU",
+      "crohn_iv_induction"
+     ],
+     "pages": [
+      [
+       "EMA:64194",
+       3
+      ],
+      [
+       "EMA:64194",
+       4
+      ],
+      [
+       "EMA:64194",
+       101
+      ],
+      [
+       "EMA:69692",
+       16
+      ],
+      [
+       "EMA:69692",
+       18
+      ]
+     ]
+    },
+    {
+     "key": [
+      "ABP654",
+      "US",
+      "crohn_iv_induction"
+     ],
+     "pages": [
+      [
+       "FDA:761285Orig1s000,761331Orig1s000:Lbl",
+       2
+      ],
+      [
+       "FDA:761285Orig1s000,761331Orig1s000:Lbl",
+       8
+      ],
+      [
+       "FDA:761285Orig1s000,761331Orig1s000:OtherR",
+       27
+      ],
+      [
+       "FDA:label:761285s006lbl761331s006lbl",
+       1
+      ],
+      [
+       "FDA:label:761285s006lbl761331s006lbl",
+       7
+      ]
+     ]
+    },
+    {
+     "key": [
+      "ABP654",
+      "CA",
+      "crohn_iv_induction"
+     ],
+     "pages": [
+      [
+       "HC:PM:00078625",
+       8
+      ],
+      [
+       "HC:PM:00078625",
+       74
+      ],
+      [
+       "HC:PM:00078625",
+       97
+      ],
+      [
+       "HC:PM:00078625",
+       113
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "crohn_iv_induction:BAT2206",
+   "template": "crohn_iv_induction",
+   "location": "default",
+   "scope": "fixed",
+   "question": "Usymro(BAT2206)의 크론병 정맥 유도요법 체중별 용량은?",
+   "facts": [
+    {
+     "key": [
+      "BAT2206",
+      "EU",
+      "crohn_iv_induction"
+     ],
+     "pages": [
+      [
+       "EMA:69775",
+       11
+      ],
+      [
+       "EMA:69778",
+       3
+      ],
+      [
+       "EMA:69778",
+       4
+      ],
+      [
+       "EMA:69778",
+       76
+      ]
+     ]
+    },
+    {
+     "key": [
+      "BAT2206",
+      "US",
+      "crohn_iv_induction"
+     ],
+     "pages": [
+      [
+       "FDA:label:761419s000lbl",
+       1
+      ],
+      [
+       "FDA:label:761419s000lbl",
+       5
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "crohn_iv_induction:BMAB1200",
+   "template": "crohn_iv_induction",
+   "location": "default",
+   "scope": "fixed",
+   "question": "Yesintek(BMAB1200)의 크론병 정맥 유도요법 체중별 용량은?",
+   "facts": [
+    {
+     "key": [
+      "BMAB1200",
+      "US",
+      "crohn_iv_induction"
+     ],
+     "pages": [
+      [
+       "FDA:761406Orig1Orig2s000:Lbl",
+       2
+      ],
+      [
+       "FDA:761406Orig1Orig2s000:Lbl",
+       6
+      ],
+      [
+       "FDA:761406Orig1Orig2s000:OtherR",
+       34
+      ],
+      [
+       "FDA:761406Orig1Orig2s000:OtherR",
+       50
+      ],
+      [
+       "FDA:label:761406s002lbl",
+       1
+      ],
+      [
+       "FDA:label:761406s002lbl",
+       5
+      ],
+      [
+       "FDA:label:761406s002lbl",
+       6
+      ]
+     ]
+    },
+    {
+     "key": [
+      "BMAB1200",
+      "CA",
+      "crohn_iv_induction"
+     ],
+     "pages": [
+      [
+       "HC:PM:00084796",
+       7
+      ],
+      [
+       "HC:PM:00084796",
+       78
+      ],
+      [
+       "HC:PM:00084796",
+       84
+      ],
+      [
+       "HC:PM:00085332",
+       7
+      ],
+      [
+       "HC:PM:00085332",
+       90
+      ],
+      [
+       "HC:PM:00085332",
+       96
+      ]
+     ]
+    },
+    {
+     "key": [
+      "BMAB1200",
+      "EU",
+      "crohn_iv_induction"
+     ],
+     "pages": [
+      [
+       "EMA:66899",
+       3
+      ],
+      [
+       "EMA:66899",
+       93
+      ],
+      [
+       "EMA:66899",
+       94
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "crohn_iv_induction:CTP43",
+   "template": "crohn_iv_induction",
+   "location": "default",
+   "scope": "fixed",
+   "question": "Steqeyma(CTP43)의 크론병 정맥 유도요법 체중별 용량은?",
+   "facts": [
+    {
+     "key": [
+      "CTP43",
+      "EU",
+      "crohn_iv_induction"
+     ],
+     "pages": [
+      [
+       "EMA:64790",
+       3
+      ],
+      [
+       "EMA:64790",
+       108
+      ]
+     ]
+    },
+    {
+     "key": [
+      "CTP43",
+      "US",
+      "crohn_iv_induction"
+     ],
+     "pages": [
+      [
+       "FDA:761338Orig1Orig2s000:Lbl",
+       2
+      ],
+      [
+       "FDA:761338Orig1Orig2s000:Lbl",
+       5
+      ],
+      [
+       "FDA:761338Orig1Orig2s000:Lbl",
+       47
+      ],
+      [
+       "FDA:761338Orig1Orig2s000:Lbl",
+       50
+      ],
+      [
+       "FDA:761338Orig1Orig2s000:OtherR",
+       46
+      ],
+      [
+       "FDA:label:761338s007lbl",
+       1
+      ],
+      [
+       "FDA:label:761338s007lbl",
+       5
+      ],
+      [
+       "FDA:label:761338s007lbl",
+       55
+      ],
+      [
+       "FDA:label:761338s007lbl",
+       59
+      ]
+     ]
+    },
+    {
+     "key": [
+      "CTP43",
+      "CA",
+      "crohn_iv_induction"
+     ],
+     "pages": [
+      [
+       "HC:PM:00085585",
+       8
+      ],
+      [
+       "HC:PM:00085585",
+       95
+      ],
+      [
+       "HC:PM:00085585",
+       113
+      ],
+      [
+       "HC:PM:00085585",
+       119
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "crohn_iv_induction:SB17",
+   "template": "crohn_iv_induction",
+   "location": "default",
+   "scope": "fixed",
+   "question": "Pyzchiva(SB17)의 크론병 정맥 유도요법 체중별 용량은?",
+   "facts": [
+    {
+     "key": [
+      "SB17",
+      "EU",
+      "crohn_iv_induction"
+     ],
+     "pages": [
+      [
+       "EMA:63560",
+       9
+      ],
+      [
+       "EMA:63560",
+       11
+      ],
+      [
+       "EMA:63561",
+       3
+      ],
+      [
+       "EMA:63561",
+       95
+      ]
+     ]
+    },
+    {
+     "key": [
+      "SB17",
+      "US",
+      "crohn_iv_induction"
+     ],
+     "pages": [
+      [
+       "FDA:761373Orig1s000,761425Orig1s000:Lbl",
+       2
+      ],
+      [
+       "FDA:761373Orig1s000,761425Orig1s000:Lbl",
+       6
+      ],
+      [
+       "FDA:761373Orig1s000,761425Orig1s000:OtherR",
+       29
+      ],
+      [
+       "FDA:761373Orig2s000,761425Orig2s000:Lbl",
+       2
+      ],
+      [
+       "FDA:761373Orig2s000,761425Orig2s000:Lbl",
+       7
+      ],
+      [
+       "FDA:761373Orig2s000,761425Orig2s000:OtherR",
+       26
+      ],
+      [
+       "FDA:label:761373s006,761425s005lbl",
+       1
+      ],
+      [
+       "FDA:label:761373s006,761425s005lbl",
+       7
+      ]
+     ]
+    },
+    {
+     "key": [
+      "SB17",
+      "CA",
+      "crohn_iv_induction"
+     ],
+     "pages": [
+      [
+       "HC:PM:00082519",
+       90
+      ],
+      [
+       "HC:PM:00082519",
+       96
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}

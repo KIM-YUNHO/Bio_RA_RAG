@@ -246,10 +246,10 @@ def build(run, counter, cfg=None, *, _loaded=None):
             base['document_metadata'] = intake_meta
         own = sorted([u for u in units if (u['document_id'], u['version_id']) == (doc['document_id'], doc['version_id'])],
             key=reading_order)
-        tracker, last_page = ds.Tracker(doc['document_id'], doc['version_id'], meta.get('product_id'), version=ds.VERSION), None
+        tracker, last_page = ds.Tracker(doc['document_id'], doc['version_id'], meta.get('product_id'), version=cfg['section_rules_version']), None
         for number in sorted({assets[u['unit_id']]['pdf_page'] for u in own}):
             if last_page is not None and number != last_page + 1:
-                tracker = ds.Tracker(doc['document_id'], doc['version_id'], meta.get('product_id'), version=ds.VERSION)
+                tracker = ds.Tracker(doc['document_id'], doc['version_id'], meta.get('product_id'), version=cfg['section_rules_version'])
             last_page = number
             page = pages[(doc['document_id'], doc['version_id'], number)]
             eligible = []
@@ -273,7 +273,9 @@ def build(run, counter, cfg=None, *, _loaded=None):
                 'representation_start':u.get('source_offset',0),
                 'representation_end':u.get('source_offset',0)+len(u['text']), 'joiner': '\n'} for u in prose]
             page_start = tracker.state()
-            _, _, _, states = tracker.scan([u['text'] for u in prose], refs, number, 'preprocessed')
+            # The parser's layout label is independent evidence for one-level numbered titles.
+            layout_titles = {i for i, u in enumerate(prose) if assets[u['unit_id']].get('block_label') == 'paragraph_title'}
+            _, _, _, states = tracker.scan([u['text'] for u in prose], refs, number, 'preprocessed', layout_titles=layout_titles)
             state_by_id = dict(zip([(u['unit_id'],u.get('source_offset',0)) for u in prose], states))
             active, batches, batch = page_start, [], []
             for u in eligible:
@@ -286,7 +288,8 @@ def build(run, counter, cfg=None, *, _loaded=None):
                 # Sibling sections and distinct study headings still split.
                 heading_prefix = (boundary and not visual
                     and batch[-1][1]['section_id'] in active['ancestor_section_ids']
-                    and all(item['kind'] == 'text' and ds.identify(item['text'], product, version=ds.VERSION)
+                    and all(item['kind'] == 'text' and ds.identify(item['text'], product, version=cfg['section_rules_version'],
+                            layout_title=assets[item['unit_id']].get('block_label') == 'paragraph_title')
                             and not item.get('structure', {}).get('table_id') for item, _ in batch))
                 if heading_prefix:
                     batch = [(item, active) for item, _ in batch]

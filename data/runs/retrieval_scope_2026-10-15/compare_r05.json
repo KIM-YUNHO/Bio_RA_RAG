@@ -1,0 +1,1445 @@
+{
+ "index": "data\\versions\\05_section_titles_2026-10-15\\embedded\\release",
+ "k": 8,
+ "summary": {
+  "r05_roles": {
+   "bm25_weight": 1.0,
+   "question_query": null,
+   "strip_slot_terms": true,
+   "scope": "roles",
+   "recall": 0.748,
+   "recall_cases": 71,
+   "recall_by_set": {
+    "silver": {
+     "recall": 0.905,
+     "cases": 21
+    },
+    "gold": {
+     "recall": 0.683,
+     "cases": 50
+    },
+    "gold_non_default": {
+     "recall": 0.618,
+     "cases": 34
+    },
+    "template:storage": {
+     "recall": 1.0,
+     "cases": 5
+    },
+    "template:shelf_life": {
+     "recall": 0.5,
+     "cases": 5
+    },
+    "template:mah": {
+     "recall": 1.0,
+     "cases": 5
+    },
+    "template:eu_first_authorisation": {
+     "recall": 0.4,
+     "cases": 5
+    },
+    "template:fda_approval_date": {
+     "recall": 0.0,
+     "cases": 5
+    },
+    "template:fda_postmarketing": {
+     "recall": 0.5,
+     "cases": 4
+    },
+    "template:excipients": {
+     "recall": 0.9,
+     "cases": 5
+    },
+    "gold_default": {
+     "recall": 0.857,
+     "cases": 14
+    },
+    "template:ema_submission": {
+     "recall": 1.0,
+     "cases": 5
+    },
+    "template:hc_noc_date": {
+     "recall": 0.5,
+     "cases": 4
+    },
+    "template:crohn_iv_induction": {
+     "recall": 1.0,
+     "cases": 5
+    }
+   },
+   "stability_stored_plans": null,
+   "stability_fresh_plans": 0.405,
+   "stability_fresh_by_question": [
+    0.405
+   ]
+  },
+  "r05_all": {
+   "bm25_weight": 1.0,
+   "question_query": null,
+   "strip_slot_terms": true,
+   "scope": "all",
+   "recall": 0.756,
+   "recall_cases": 71,
+   "recall_by_set": {
+    "silver": {
+     "recall": 0.889,
+     "cases": 21
+    },
+    "gold": {
+     "recall": 0.7,
+     "cases": 50
+    },
+    "gold_non_default": {
+     "recall": 0.647,
+     "cases": 34
+    },
+    "template:storage": {
+     "recall": 1.0,
+     "cases": 5
+    },
+    "template:shelf_life": {
+     "recall": 0.5,
+     "cases": 5
+    },
+    "template:mah": {
+     "recall": 1.0,
+     "cases": 5
+    },
+    "template:eu_first_authorisation": {
+     "recall": 0.6,
+     "cases": 5
+    },
+    "template:fda_approval_date": {
+     "recall": 0.0,
+     "cases": 5
+    },
+    "template:fda_postmarketing": {
+     "recall": 0.5,
+     "cases": 4
+    },
+    "template:excipients": {
+     "recall": 0.9,
+     "cases": 5
+    },
+    "gold_default": {
+     "recall": 0.857,
+     "cases": 14
+    },
+    "template:ema_submission": {
+     "recall": 1.0,
+     "cases": 5
+    },
+    "template:hc_noc_date": {
+     "recall": 0.5,
+     "cases": 4
+    },
+    "template:crohn_iv_induction": {
+     "recall": 1.0,
+     "cases": 5
+    }
+   },
+   "stability_stored_plans": null,
+   "stability_fresh_plans": 0.403,
+   "stability_fresh_by_question": [
+    0.403
+   ]
+  }
+ },
+ "rows": [
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "T03",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "C01",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "E03",
+   "plans": 1,
+   "recall": 0.667,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "E01",
+   "plans": 1,
+   "recall": 0.75,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "T02",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "C03",
+   "plans": 1,
+   "recall": 0.75,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "U03",
+   "plans": 1,
+   "recall": 0.5,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "E02",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "U01",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "U02",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "C02",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "T04",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "T05",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "T01",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "G01",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "G02",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "G03",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "G04",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "S02",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "S04",
+   "plans": 1,
+   "recall": 0.333,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "S09",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "DATE1",
+   "plans": 1,
+   "recall": 0.643,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "DATE2",
+   "plans": 1,
+   "recall": 0.5,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "storage:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "storage:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "storage:BMAB1200",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "storage:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "storage:SB17",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "shelf_life:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "shelf_life:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "shelf_life:BMAB1200",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "shelf_life:CTP43",
+   "plans": 1,
+   "recall": 0.5,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "shelf_life:SB17",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "mah:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "mah:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "mah:BMAB1200",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "mah:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "mah:SB17",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "eu_first_authorisation:ABP654",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "eu_first_authorisation:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "eu_first_authorisation:BMAB1200",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "eu_first_authorisation:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "eu_first_authorisation:SB17",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_approval_date:ABP654",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_approval_date:BAT2206",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_approval_date:BMAB1200",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_approval_date:CTP43",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_approval_date:SB17",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_postmarketing:ABP654",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_postmarketing:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_postmarketing:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_postmarketing:SB17",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "excipients:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "excipients:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "excipients:BMAB1200",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "excipients:CTP43",
+   "plans": 1,
+   "recall": 0.5,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "excipients:SB17",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "ema_submission:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "ema_submission:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "ema_submission:BMAB1200",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "ema_submission:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "ema_submission:SB17",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "hc_noc_date:ABP654",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "hc_noc_date:BMAB1200",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "hc_noc_date:CTP43",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "hc_noc_date:SB17",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "crohn_iv_induction:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "crohn_iv_induction:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "crohn_iv_induction:BMAB1200",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "crohn_iv_induction:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "crohn_iv_induction:SB17",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_roles",
+   "set": "stability",
+   "question": "BAT2206과 BMAB1200의 차이점을 혹시 정리해줄 수 있을까? 임상실험 관련해서 전",
+   "plans": 5,
+   "stability": 0.405
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "T03",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "C01",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "E03",
+   "plans": 1,
+   "recall": 0.667,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "E01",
+   "plans": 1,
+   "recall": 0.75,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "T02",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "C03",
+   "plans": 1,
+   "recall": 0.75,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "U03",
+   "plans": 1,
+   "recall": 0.5,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "E02",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "U01",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "U02",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "C02",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "T04",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "T05",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "T01",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "G01",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "G02",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "G03",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "G04",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "S02",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "S04",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "S09",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "DATE1",
+   "plans": 1,
+   "recall": 0.536,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "DATE2",
+   "plans": 1,
+   "recall": 0.464,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "storage:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "storage:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "storage:BMAB1200",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "storage:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "storage:SB17",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "shelf_life:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "shelf_life:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "shelf_life:BMAB1200",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "shelf_life:CTP43",
+   "plans": 1,
+   "recall": 0.5,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "shelf_life:SB17",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "mah:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "mah:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "mah:BMAB1200",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "mah:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "mah:SB17",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "eu_first_authorisation:ABP654",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "eu_first_authorisation:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "eu_first_authorisation:BMAB1200",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "eu_first_authorisation:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "eu_first_authorisation:SB17",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_approval_date:ABP654",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_approval_date:BAT2206",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_approval_date:BMAB1200",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_approval_date:CTP43",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_approval_date:SB17",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_postmarketing:ABP654",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_postmarketing:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_postmarketing:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_postmarketing:SB17",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "excipients:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "excipients:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "excipients:BMAB1200",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "excipients:CTP43",
+   "plans": 1,
+   "recall": 0.5,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "excipients:SB17",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "ema_submission:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "ema_submission:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "ema_submission:BMAB1200",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "ema_submission:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "ema_submission:SB17",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "hc_noc_date:ABP654",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "hc_noc_date:BMAB1200",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "hc_noc_date:CTP43",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "hc_noc_date:SB17",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "crohn_iv_induction:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "crohn_iv_induction:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "crohn_iv_induction:BMAB1200",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "crohn_iv_induction:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "crohn_iv_induction:SB17",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "r05_all",
+   "set": "stability",
+   "question": "BAT2206과 BMAB1200의 차이점을 혹시 정리해줄 수 있을까? 임상실험 관련해서 전",
+   "plans": 5,
+   "stability": 0.403
+  }
+ ],
+ "stability_questions": [
+  "BAT2206과 BMAB1200의 차이점을 혹시 정리해줄 수 있을까? 임상실험 관련해서 전체적으로 알려줘"
+ ]
+}

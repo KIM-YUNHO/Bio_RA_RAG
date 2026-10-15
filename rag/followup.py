@@ -33,7 +33,7 @@ def named_agencies(text):
 
 
 def answer_summary(answer_ko):
-    text = (answer_ko or '').split('\n\n추가 확인이 필요한 요청')[0]
+    text = re.split(r'\n\n(?:추가 확인이 필요한 요청|인용으로 완전히 확인하지 못한 요청|확인하지 못한 항목)', answer_ko or '')[0]
     text = re.sub(r'\s*\[(?:E\d+)(?:\s*[,·]\s*E\d+)*\]', '', text)
     text = re.sub(r'\s+', ' ', text).strip()
     return text[:SUMMARY_LIMIT] + ('…' if len(text) > SUMMARY_LIMIT else '')

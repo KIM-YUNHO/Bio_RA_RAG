@@ -1,0 +1,123 @@
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights:  67%|██████▋   | 261/391 [00:00<00:00, 2605.67it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 2362.47it/s]
+default_retrieval_1.json FAILED GenerationFailure APIConnectionError: Connection error.
+default_retrieval_2.json {"units": 14, "submission_dates": 5, "approval_dates": 8, "durations_computed_correctly": 0, "claims_kept": 15, "rejected_reasons": {"uncertain": 3, "unsupported": 1}, "derived_withheld": ["derived_label_contains_number", "derived_label_contains_number", "derived_label_contains_number", "derived_label_contains_number"], "status": "partial", "llm_calls": 3, "input_tokens": 58316, "seconds": 36.281}
+Wezlana/Wezlana I.V.(ABP654)는 캐나다에서 2023-12-27에 NOC(최종 허가)를 받았다. [E23]
+
+Pyzchiva/Pyzchiva I.V.(SB17)는 캐나다에서 2024-08-07에 NOC(최종 허가)를 받았다. [E19]
+
+Steqeyma/Steqeyma I.V.(CTP43)는 캐나다에서 2024-07-30에 NOC(최종 허가)를 받았다. [E93]
+
+Yesintek/Yesintek I.V.(BMAB1200)는 캐나다에서 2025-10-17에 NOC(최종 허가)를 받았다. [E12, E81]
+
+미국 FDA 자료에서 Pyzchiva(SB17)는 2024-06-28에 바이오시밀러로 승인되었다. [E3]
+
+미국 FDA 자료에서 Wezlana(ABP654)의 BLA 761285 접수일은 2022-10-31이다. [E92]
+
+미국 FDA 자료에서 Steqeyma(CTP43)는 2024-12-17에 바이오시밀러로 승인되었다. [E11, E64]
+
+미국 FDA 자료에서 Yesintek(BMAB1200)는 2024-11-29에 바이오시밀러로 승인되었다. [E14]
+
+EMA 자료에서 Yesintek(BMAB1200)의 최초 허가일은 14 February 2025이다. [E98]
+
+BAT2206의 EMA 제출일은 2024년 6월 28일이다. [E85]
+
+ABP654의 캐나다 NDS 제출일은 2022-11-15, 최종 NOC일은 2023-12-27이다. [E23]
+
+SB17의 캐나다 NDS 제출일은 선택된 표 자료상 2023-09-08이다. [E19]
+
+SB17의 캐나다 NOC 발급일은 2024-08-07이다. [E19]
+
+CTP43의 캐나다 NDS 제출일은 2023-06-30, 최종 NOC일은 2024-07-30이다. [E93]
+
+BMAB1200의 캐나다 NDS 제출일은 2024-03-12, 최종 NOC일은 2025-10-17이다. [E30, E12]
+
+
+인용으로 완전히 확인하지 못한 요청:
+- 우스테키누맙의 모든 바이오시밀러들의 ra 허가 날짜를 정리해줄래?
+- 제출 날짜 부터 최종 허가까지 걸린 기간이 궁금하다.
+- 등록된 모든 우스테키누맙 바이오시밀러의 RA 최종 허가 날짜와 제출 날짜부터 최종 허가까지 걸린 기간을 정리해줘.
+
+모델이 밝힌 미확인 사유 (원문 인용 검증 아님):
+- 제공된 자료만으로는 각 제품의 모든 관할권(CA·EU·US·sponsor)에 대한 완전한 RA 허가 목록을 확정할 수 없다. 특히 BAT2206의 최종 EMA 허가일과 ABP654의 FDA 최종 승인일은 확인되지 않는다.
+- 제공된 자료에는 BAT2206의 FDA 또는 캐나다 허가를 입증하는 최종 결정 자료가 없다.
+- 요청한 기간은 날짜 차이 계산이므로, 각 제품·관할권별 제출일과 최종 허가일이 모두 확인된 경우에만 산출할 수 있다. 제공된 자료에는 계산 결과 자체가 없으며, 계산 가능한 항목은 별도 derived 항목으로 제시한다.
+- FDA ABP654, EMA BAT2206 등은 제출일 또는 최종 허가일의 완전한 쌍이 제공되지 않아 기간을 산출할 수 없다.
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights:  72%|███████▏  | 283/391 [00:00<00:00, 2802.04it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 2879.18it/s]
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights:   0%|          | 1/393 [00:01<08:48,  1.35s/it]Loading weights:   2%|▏         | 9/393 [00:01<00:52,  7.33it/s]Loading weights:  12%|█▏        | 49/393 [00:01<00:07, 49.05it/s]Loading weights:  20%|██        | 79/393 [00:01<00:03, 81.58it/s]Loading weights:  28%|██▊       | 110/393 [00:01<00:02, 117.09it/s]Loading weights:  36%|███▌      | 141/393 [00:02<00:01, 151.70it/s]Loading weights:  46%|████▌     | 180/393 [00:02<00:01, 195.79it/s]Loading weights:  54%|█████▎    | 211/393 [00:02<00:00, 220.76it/s]Loading weights:  61%|██████▏   | 241/393 [00:02<00:00, 228.16it/s]Loading weights:  69%|██████▉   | 272/393 [00:02<00:00, 233.65it/s]Loading weights:  77%|███████▋  | 304/393 [00:02<00:00, 247.09it/s]Loading weights:  84%|████████▍ | 332/393 [00:02<00:00, 251.55it/s]Loading weights:  92%|█████████▏| 360/393 [00:02<00:00, 248.12it/s]Loading weights:  99%|█████████▉| 389/393 [00:02<00:00, 246.30it/s]Loading weights: 100%|██████████| 393/393 [00:02<00:00, 134.17it/s]
+rerank_corr_1.json {"units": 14, "submission_dates": 6, "approval_dates": 7, "durations_computed_correctly": 0, "claims_kept": 14, "rejected_reasons": {"uncertain": 1}, "derived_withheld": [], "status": "partial", "llm_calls": 3, "input_tokens": 68546, "seconds": 74.125}
+SB17(Pyzchiva): Health Canada의 최종 허가(Notice of Compliance) 날짜는 2024-08-07이다. [E18, E54]
+
+ABP654(Wezlana): Health Canada의 최종 허가(Authorization/NOC) 날짜는 2023-12-27이다. [E5]
+
+CTP43(Steqeyma): Health Canada의 최종 허가(Authorization/NOC) 날짜는 2024-07-30이다. [E9]
+
+BMAB1200(Yesintek): Health Canada의 최종 허가(Authorization/NOC) 날짜는 2025-10-17이다. [E67]
+
+BMAB1200(Yesintek): FDA 자료에는 2024-11-29 원허가(바이오시밀러 승인)가 기재되어 있다. [E30]
+
+BAT2206(Starjemza): FDA 승인서의 표지에는 ‘Initial U.S. Approval to 2025’ 및 승인일 05/2025가 기재되어 있다. [E34]
+
+ABP654(Wezlana, Health Canada): 제출일 2022-11-15, 허가일 2023-12-27이다. [E5]
+
+BMAB1200(Yesintek, Health Canada): 제출일 2024-03-12, 허가일 2025-10-17이다. [E28, E67]
+
+BMAB1200(Yesintek, FDA): BLA 접수일은 2023-11-29이며, 바이오시밀러 원허가는 2024-11-29로 기재되어 있다. [E15, E51, E30]
+
+SB17(Pyzchiva, FDA): BLA 접수일은 2023-03-30이며, 바이오시밀러 원허가는 2024-06-28로 기재되어 있다. [E39, E20]
+
+SB17(Pyzchiva)의 PAS-001은 2024-07-29에 제출되었다. [E74]
+
+해당 PAS-001은 45 mg/0.5 mL 및 90 mg/mL 단회용 오토인젝터 추가 승인을 요청했다. [E74]
+
+CTP43(Steqeyma, FDA): BLA 제출일은 2023-06-30으로 기재되어 있으며, 자료상 바이오시밀러 허가는 2024-12-17이다. [E27, E11]
+
+BAT2206(Usymro, EMA): EMA 신청 제출일은 2024-06-28이다. [E52]
+
+
+인용으로 완전히 확인하지 못한 요청:
+- 우스테키누맙의 모든 바이오시밀러들의 ra 허가 날짜를 정리해줄래?
+- 제출 날짜 부터 최종 허가까지 걸린 기간이 궁금하다.
+- 등록된 모든 우스테키누맙 바이오시밀러의 RA 최종 허가 날짜와 제출 날짜부터 최종 허가까지 걸린 기간을 정리해줘.
+
+모델이 밝힌 미확인 사유 (원문 인용 검증 아님):
+- 제공된 자료에는 SB17, ABP654, CTP43, BMAB1200, BAT2206 각각의 모든 관할권(CA/EU/US)의 최종 허가 날짜가 완전하게 제시되어 있지 않다. 특히 EU의 경우 제출·허가일 원문이 제공되지 않은 제품이 있다.
+- BAT2206의 FDA 자료에는 05/2025 승인 표시가 있으나, 일(day) 단위의 정확한 승인일은 제공된 본문에서 확인되지 않는다.
+- EU Usymro(BAT2206)의 제출일은 2024-06-28로 확인되지만, 제공된 자료에는 최종 허가일이 없다.
+- 요청한 ‘제출일부터 최종 허가까지의 기간’의 계산 결과는 원문 숫자를 바탕으로 시스템 계산이 필요하며, 제공된 자료만으로는 모든 제품·관할권에 대해 제출일과 정확한 최종 허가일이 함께 확인되지 않는다.
+- SB17의 Health Canada 제출일, CTP43의 Health Canada 제출일, BAT2206의 FDA 정확한 제출일·일(day) 단위 최종 허가일, BAT2206 EMA 최종 허가일은 제공된 본문에서 확인되지 않는다.
+- CTP43 FDA의 2024-12-17은 바이오시밀러 원허가이고, 이후 2025-01-23 신청은 상호대체성(interchangeability) 승인 요청이다. 두 절차를 혼합한 기간은 산출하지 않았다.
+rerank_corr_2.json {"units": 14, "submission_dates": 1, "approval_dates": 10, "durations_computed_correctly": 0, "claims_kept": 11, "rejected_reasons": {"claim_budget_exceeded": 7, "uncertain": 4}, "derived_withheld": ["derived_label_contains_number", "derived_label_contains_number", "derived_label_contains_number", "derived_label_contains_number", "derived_label_contains_number", "derived_label_contains_number", "derived_label_contains_number"], "status": "partial", "llm_calls": 3, "input_tokens": 64993, "seconds": 63.266}
+SB17(Pyzchiva)의 캐나다 최종 허가일은 2024-08-07이다. [E1, E37]
+
+ABP654(Wezlana/Wezlana I.V.)의 캐나다 최종 허가일은 2023-12-27이다. [E5]
+
+CTP43(Steqeyma/Steqeyma I.V.)의 캐나다 최종 허가일은 2024-07-30이다. [E9]
+
+BMAB1200(Yesintek/Yesintek I.V.)의 캐나다 최종 허가일은 2025-10-17이다. [E49, E30]
+
+SB17(Pyzchiva)의 미국 최초 바이오시밀러 허가일은 2024-06-28이다. [E40]
+
+CTP43(Steqeyma)의 미국 최초 바이오시밀러 허가일은 2024-12-17이다. [E11]
+
+BMAB1200(Yesintek)의 미국 최초 바이오시밀러 허가일은 2024-11-29이다. [E33, E51]
+
+CTP43(Steqeyma)의 EU 최초 허가일은 2024-08-22이다. [E81]
+
+BMAB1200(Yesintek)의 EU 최초 허가일은 2025-02-14이다. [E66]
+
+BAT2206(Usymro)의 EU 최초 허가일은 2025-08-14이다. [E35]
+
+ABP654의 캐나다 제출일은 2022-11-15이고 최종 허가일은 2023-12-27이다. [E5]
+
+
+인용으로 완전히 확인하지 못한 요청:
+- 우스테키누맙의 모든 바이오시밀러들의 ra 허가 날짜를 정리해줄래?
+- 제출 날짜 부터 최종 허가까지 걸린 기간이 궁금하다.
+- 등록된 우스테키누맙 바이오시밀러 모두의 RA 최종 허가 날짜와 제출 날짜부터 최종 허가까지 걸린 기간을 정리해줘.
+
+모델이 밝힌 미확인 사유 (원문 인용 검증 아님):
+- 제공 자료에는 일부 제품·관할권에 대해 최초 제출일과 최종 허가일이 함께 확인되지 않습니다.
+- EU의 SB17, ABP654, BAT2206은 제출일 또는 허가일을 직접 뒷받침하는 완전한 원문이 부족합니다.
+- SB17의 캐나다 제출일, BAT2206의 미국 제출일, 그리고 EU 각 제품의 제출일은 제공 자료에서 최종 허가일과 함께 산출 가능한 완전한 근거가 없습니다.
+- 요청한 ‘제출일부터 최종 허가까지의 기간’은 날짜 차이 계산이 필요하지만, 이 응답에서는 계산값을 직접 기재하지 않습니다.

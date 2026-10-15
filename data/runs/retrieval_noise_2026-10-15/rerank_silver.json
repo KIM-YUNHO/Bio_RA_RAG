@@ -1,0 +1,2162 @@
+{
+ "index": "C:\\Users\\Admin\\Documents\\project_shared\\data\\versions\\04_pipeline_h_supplement_2026-10-14\\embedded\\release",
+ "k": 8,
+ "summary": {
+  "base": {
+   "bm25_weight": 1.0,
+   "question_query": null,
+   "strip_slot_terms": true,
+   "suppress_boilerplate": false,
+   "collapse_duplicates": false,
+   "role_boost": 1.0,
+   "extra_default_groups": [],
+   "rerank": null,
+   "scope": "roles",
+   "recall": 0.804,
+   "recall_cases": 71,
+   "recall_by_set": {
+    "silver": {
+     "recall": 0.956,
+     "cases": 21
+    },
+    "gold": {
+     "recall": 0.74,
+     "cases": 50
+    },
+    "gold_non_default": {
+     "recall": 0.784,
+     "cases": 29
+    },
+    "template:storage": {
+     "recall": 1.0,
+     "cases": 5
+    },
+    "template:shelf_life": {
+     "recall": 0.6,
+     "cases": 5
+    },
+    "template:mah": {
+     "recall": 0.8,
+     "cases": 5
+    },
+    "template:eu_first_authorisation": {
+     "recall": 0.75,
+     "cases": 5
+    },
+    "gold_mixed": {
+     "recall": 0.2,
+     "cases": 5
+    },
+    "template:fda_approval_date": {
+     "recall": 0.2,
+     "cases": 5
+    },
+    "template:fda_postmarketing": {
+     "recall": 0.625,
+     "cases": 4
+    },
+    "template:excipients": {
+     "recall": 0.9,
+     "cases": 5
+    },
+    "gold_default": {
+     "recall": 0.875,
+     "cases": 14
+    },
+    "template:ema_submission": {
+     "recall": 1.0,
+     "cases": 5
+    },
+    "template:hc_noc_date": {
+     "recall": 0.562,
+     "cases": 4
+    },
+    "template:crohn_iv_induction": {
+     "recall": 1.0,
+     "cases": 5
+    }
+   },
+   "stability_stored_plans": 0.469,
+   "stability_fresh_plans": null,
+   "stability_fresh_by_question": []
+  },
+  "rerank": {
+   "bm25_weight": 1.0,
+   "question_query": null,
+   "strip_slot_terms": true,
+   "suppress_boilerplate": false,
+   "collapse_duplicates": false,
+   "role_boost": 1.0,
+   "extra_default_groups": [],
+   "rerank": "both",
+   "scope": "roles",
+   "recall": 0.848,
+   "recall_cases": 71,
+   "recall_by_set": {
+    "silver": {
+     "recall": 0.858,
+     "cases": 21
+    },
+    "gold": {
+     "recall": 0.844,
+     "cases": 50
+    },
+    "gold_non_default": {
+     "recall": 0.845,
+     "cases": 29
+    },
+    "template:storage": {
+     "recall": 1.0,
+     "cases": 5
+    },
+    "template:shelf_life": {
+     "recall": 0.6,
+     "cases": 5
+    },
+    "template:mah": {
+     "recall": 1.0,
+     "cases": 5
+    },
+    "template:eu_first_authorisation": {
+     "recall": 1.0,
+     "cases": 5
+    },
+    "gold_mixed": {
+     "recall": 0.5,
+     "cases": 5
+    },
+    "template:fda_approval_date": {
+     "recall": 0.5,
+     "cases": 5
+    },
+    "template:fda_postmarketing": {
+     "recall": 0.938,
+     "cases": 4
+    },
+    "template:excipients": {
+     "recall": 0.55,
+     "cases": 5
+    },
+    "gold_default": {
+     "recall": 1.0,
+     "cases": 14
+    },
+    "template:ema_submission": {
+     "recall": 1.0,
+     "cases": 5
+    },
+    "template:hc_noc_date": {
+     "recall": 1.0,
+     "cases": 4
+    },
+    "template:crohn_iv_induction": {
+     "recall": 1.0,
+     "cases": 5
+    }
+   },
+   "stability_stored_plans": 0.627,
+   "stability_fresh_plans": null,
+   "stability_fresh_by_question": []
+  },
+  "rerank_corr": {
+   "bm25_weight": 1.0,
+   "question_query": null,
+   "strip_slot_terms": true,
+   "suppress_boilerplate": false,
+   "collapse_duplicates": false,
+   "role_boost": 1.0,
+   "extra_default_groups": [
+    "correspondence"
+   ],
+   "rerank": "both",
+   "scope": "roles",
+   "recall": 0.884,
+   "recall_cases": 71,
+   "recall_by_set": {
+    "silver": {
+     "recall": 0.858,
+     "cases": 21
+    },
+    "gold": {
+     "recall": 0.895,
+     "cases": 50
+    },
+    "gold_non_default": {
+     "recall": 0.879,
+     "cases": 29
+    },
+    "template:storage": {
+     "recall": 1.0,
+     "cases": 5
+    },
+    "template:shelf_life": {
+     "recall": 0.75,
+     "cases": 5
+    },
+    "template:mah": {
+     "recall": 1.0,
+     "cases": 5
+    },
+    "template:eu_first_authorisation": {
+     "recall": 1.0,
+     "cases": 5
+    },
+    "gold_mixed": {
+     "recall": 0.8,
+     "cases": 5
+    },
+    "template:fda_approval_date": {
+     "recall": 0.8,
+     "cases": 5
+    },
+    "template:fda_postmarketing": {
+     "recall": 1.0,
+     "cases": 4
+    },
+    "template:excipients": {
+     "recall": 0.55,
+     "cases": 5
+    },
+    "gold_default": {
+     "recall": 1.0,
+     "cases": 14
+    },
+    "template:ema_submission": {
+     "recall": 1.0,
+     "cases": 5
+    },
+    "template:hc_noc_date": {
+     "recall": 1.0,
+     "cases": 4
+    },
+    "template:crohn_iv_induction": {
+     "recall": 1.0,
+     "cases": 5
+    }
+   },
+   "stability_stored_plans": 0.636,
+   "stability_fresh_plans": null,
+   "stability_fresh_by_question": []
+  }
+ },
+ "rows": [
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "T03",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "C01",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "E03",
+   "plans": 1,
+   "recall": 0.667,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "E01",
+   "plans": 1,
+   "recall": 0.75,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "T02",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "C03",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "U03",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "E02",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "U01",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "U02",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "C02",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "T04",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "T05",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "T01",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "G01",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "G02",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "G03",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "G04",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "S02",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "S04",
+   "plans": 1,
+   "recall": 0.667,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "S09",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "DATE1",
+   "plans": 2,
+   "recall": 0.536,
+   "stability": 0.635
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "DATE2",
+   "plans": 1,
+   "recall": 0.464,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "storage:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "storage:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "storage:BMAB1200",
+   "plans": 3,
+   "recall": 1.0,
+   "stability": 0.81
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "storage:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "storage:SB17",
+   "plans": 2,
+   "recall": 1.0,
+   "stability": 0.714
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "shelf_life:ABP654",
+   "plans": 4,
+   "recall": 1.0,
+   "stability": 0.329
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "shelf_life:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "shelf_life:BMAB1200",
+   "plans": 1,
+   "recall": 0.5,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "shelf_life:CTP43",
+   "plans": 2,
+   "recall": 0.5,
+   "stability": 0.412
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "shelf_life:SB17",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "mah:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "mah:BAT2206",
+   "plans": 4,
+   "recall": 0.0,
+   "stability": 0.575
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "mah:BMAB1200",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "mah:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "mah:SB17",
+   "plans": 3,
+   "recall": 1.0,
+   "stability": 0.352
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "eu_first_authorisation:ABP654",
+   "plans": 4,
+   "recall": 0.75,
+   "stability": 0.287
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "eu_first_authorisation:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "eu_first_authorisation:BMAB1200",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "eu_first_authorisation:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "eu_first_authorisation:SB17",
+   "plans": 4,
+   "recall": 1.0,
+   "stability": 0.463
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_approval_date:ABP654",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_approval_date:BAT2206",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_approval_date:BMAB1200",
+   "plans": 4,
+   "recall": 1.0,
+   "stability": 0.554
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_approval_date:CTP43",
+   "plans": 4,
+   "recall": 0.0,
+   "stability": 0.136
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_approval_date:SB17",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_postmarketing:ABP654",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_postmarketing:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_postmarketing:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_postmarketing:SB17",
+   "plans": 4,
+   "recall": 0.5,
+   "stability": 0.27
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "excipients:ABP654",
+   "plans": 4,
+   "recall": 0.5,
+   "stability": 0.434
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "excipients:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "excipients:BMAB1200",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "excipients:CTP43",
+   "plans": 4,
+   "recall": 1.0,
+   "stability": 0.392
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "excipients:SB17",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "ema_submission:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "ema_submission:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "ema_submission:BMAB1200",
+   "plans": 4,
+   "recall": 1.0,
+   "stability": 0.36
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "ema_submission:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "ema_submission:SB17",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "hc_noc_date:ABP654",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "hc_noc_date:BMAB1200",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "hc_noc_date:CTP43",
+   "plans": 4,
+   "recall": 0.25,
+   "stability": 0.508
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "hc_noc_date:SB17",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "crohn_iv_induction:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "crohn_iv_induction:BAT2206",
+   "plans": 4,
+   "recall": 1.0,
+   "stability": 0.75
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "crohn_iv_induction:BMAB1200",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "crohn_iv_induction:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "base",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "crohn_iv_induction:SB17",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "T03",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "C01",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "E03",
+   "plans": 1,
+   "recall": 0.778,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "E01",
+   "plans": 1,
+   "recall": 0.25,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "T02",
+   "plans": 1,
+   "recall": 0.667,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "C03",
+   "plans": 1,
+   "recall": 0.5,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "U03",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "E02",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "U01",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "U02",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "C02",
+   "plans": 1,
+   "recall": 0.5,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "T04",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "T05",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "T01",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "G01",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "G02",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "G03",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "G04",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "S02",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "S04",
+   "plans": 1,
+   "recall": 0.333,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "S09",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "DATE1",
+   "plans": 2,
+   "recall": 0.643,
+   "stability": 0.836
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "DATE2",
+   "plans": 1,
+   "recall": 0.571,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "storage:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "storage:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "storage:BMAB1200",
+   "plans": 3,
+   "recall": 1.0,
+   "stability": 0.947
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "storage:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "storage:SB17",
+   "plans": 2,
+   "recall": 1.0,
+   "stability": 1.0
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "shelf_life:ABP654",
+   "plans": 4,
+   "recall": 1.0,
+   "stability": 0.703
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "shelf_life:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "shelf_life:BMAB1200",
+   "plans": 1,
+   "recall": 0.5,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "shelf_life:CTP43",
+   "plans": 2,
+   "recall": 0.5,
+   "stability": 0.655
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "shelf_life:SB17",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "mah:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "mah:BAT2206",
+   "plans": 4,
+   "recall": 1.0,
+   "stability": 0.66
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "mah:BMAB1200",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "mah:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "mah:SB17",
+   "plans": 3,
+   "recall": 1.0,
+   "stability": 0.292
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "eu_first_authorisation:ABP654",
+   "plans": 4,
+   "recall": 1.0,
+   "stability": 0.596
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "eu_first_authorisation:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "eu_first_authorisation:BMAB1200",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "eu_first_authorisation:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "eu_first_authorisation:SB17",
+   "plans": 4,
+   "recall": 1.0,
+   "stability": 0.716
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_approval_date:ABP654",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_approval_date:BAT2206",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_approval_date:BMAB1200",
+   "plans": 4,
+   "recall": 1.0,
+   "stability": 0.696
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_approval_date:CTP43",
+   "plans": 4,
+   "recall": 0.5,
+   "stability": 0.268
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_approval_date:SB17",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_postmarketing:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_postmarketing:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_postmarketing:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_postmarketing:SB17",
+   "plans": 4,
+   "recall": 0.75,
+   "stability": 0.519
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "excipients:ABP654",
+   "plans": 4,
+   "recall": 0.0,
+   "stability": 0.543
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "excipients:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "excipients:BMAB1200",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "excipients:CTP43",
+   "plans": 4,
+   "recall": 0.75,
+   "stability": 0.601
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "excipients:SB17",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "ema_submission:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "ema_submission:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "ema_submission:BMAB1200",
+   "plans": 4,
+   "recall": 1.0,
+   "stability": 0.384
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "ema_submission:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "ema_submission:SB17",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "hc_noc_date:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "hc_noc_date:BMAB1200",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "hc_noc_date:CTP43",
+   "plans": 4,
+   "recall": 1.0,
+   "stability": 0.618
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "hc_noc_date:SB17",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "crohn_iv_induction:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "crohn_iv_induction:BAT2206",
+   "plans": 4,
+   "recall": 1.0,
+   "stability": 0.617
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "crohn_iv_induction:BMAB1200",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "crohn_iv_induction:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "crohn_iv_induction:SB17",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "T03",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "C01",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "E03",
+   "plans": 1,
+   "recall": 0.778,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "E01",
+   "plans": 1,
+   "recall": 0.25,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "T02",
+   "plans": 1,
+   "recall": 0.667,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "C03",
+   "plans": 1,
+   "recall": 0.5,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "U03",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "E02",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "U01",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "U02",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "C02",
+   "plans": 1,
+   "recall": 0.5,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "T04",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "T05",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "T01",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "G01",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "G02",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "G03",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "G04",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "S02",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "S04",
+   "plans": 1,
+   "recall": 0.333,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "silver",
+   "case": "S09",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "DATE1",
+   "plans": 2,
+   "recall": 0.643,
+   "stability": 0.821
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "DATE2",
+   "plans": 1,
+   "recall": 0.607,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "storage:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "storage:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "storage:BMAB1200",
+   "plans": 3,
+   "recall": 1.0,
+   "stability": 0.895
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "storage:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "storage:SB17",
+   "plans": 2,
+   "recall": 1.0,
+   "stability": 1.0
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "shelf_life:ABP654",
+   "plans": 4,
+   "recall": 1.0,
+   "stability": 0.662
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "shelf_life:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "shelf_life:BMAB1200",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "shelf_life:CTP43",
+   "plans": 2,
+   "recall": 0.75,
+   "stability": 0.714
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "shelf_life:SB17",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "mah:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "mah:BAT2206",
+   "plans": 4,
+   "recall": 1.0,
+   "stability": 0.601
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "mah:BMAB1200",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "mah:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "mah:SB17",
+   "plans": 3,
+   "recall": 1.0,
+   "stability": 0.275
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "eu_first_authorisation:ABP654",
+   "plans": 4,
+   "recall": 1.0,
+   "stability": 0.643
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "eu_first_authorisation:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "eu_first_authorisation:BMAB1200",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "eu_first_authorisation:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "eu_first_authorisation:SB17",
+   "plans": 4,
+   "recall": 1.0,
+   "stability": 0.662
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_approval_date:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_approval_date:BAT2206",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_approval_date:BMAB1200",
+   "plans": 4,
+   "recall": 1.0,
+   "stability": 0.611
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_approval_date:CTP43",
+   "plans": 4,
+   "recall": 1.0,
+   "stability": 0.298
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_approval_date:SB17",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_postmarketing:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_postmarketing:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_postmarketing:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "fda_postmarketing:SB17",
+   "plans": 4,
+   "recall": 1.0,
+   "stability": 0.8
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "excipients:ABP654",
+   "plans": 4,
+   "recall": 0.0,
+   "stability": 0.551
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "excipients:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "excipients:BMAB1200",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "excipients:CTP43",
+   "plans": 4,
+   "recall": 0.75,
+   "stability": 0.589
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "excipients:SB17",
+   "plans": 1,
+   "recall": 0.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "ema_submission:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "ema_submission:BAT2206",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "ema_submission:BMAB1200",
+   "plans": 4,
+   "recall": 1.0,
+   "stability": 0.45
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "ema_submission:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "ema_submission:SB17",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "hc_noc_date:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "hc_noc_date:BMAB1200",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "hc_noc_date:CTP43",
+   "plans": 4,
+   "recall": 1.0,
+   "stability": 0.618
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "hc_noc_date:SB17",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "crohn_iv_induction:ABP654",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "crohn_iv_induction:BAT2206",
+   "plans": 4,
+   "recall": 1.0,
+   "stability": 0.617
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "crohn_iv_induction:BMAB1200",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "crohn_iv_induction:CTP43",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  },
+  {
+   "profile": "rerank_corr",
+   "set": "recall",
+   "recall_set": "gold",
+   "case": "crohn_iv_induction:SB17",
+   "plans": 1,
+   "recall": 1.0,
+   "stability": null
+  }
+ ],
+ "stability_questions": []
+}
