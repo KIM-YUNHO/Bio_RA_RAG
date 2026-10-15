@@ -44,7 +44,10 @@ def main():
     p.add_argument('--run', type=Path, default=ROOT / 'data/versions/04_pipeline_h_supplement_2026-10-14/embedded/release')
     p.add_argument('--plans', type=int, default=3)
     p.add_argument('--output', type=Path, required=True)
+    p.add_argument('--plans-dir', type=Path, help='reuse plans from this folder (default: next to --output)')
+    p.add_argument('--extra-default', default='', help='comma-separated doc groups searched by default (profile)')
     a = p.parse_args()
+    profile = {'extra_default_groups': tuple(g for g in a.extra_default.split(',') if g)} if a.extra_default else None
     cases = {c['id']: c for c in json.loads((GOLD / 'gold.json').read_text(encoding='utf-8'))['cases']}
     from rag import ra_retrieval
     from rag.openai_chat import OpenAIPipelineChat
@@ -52,7 +55,7 @@ def main():
     from preprocess.hybrid_config import load_config
     pipe = RAPipeline(a.run, None, load_config(ROOT / 'configs/preprocess.local.json'), 'http://127.0.0.1:1',
                       research_rounds=0, chat_client=OpenAIPipelineChat(model='gpt-5.6-luna', context_tokens=65536))
-    folder = a.output.parent / 'plans'
+    folder = a.plans_dir or a.output.parent / 'plans'
     scores, roles = {}, {}
     try:
         plans = {(cid, v): [plan(cases[cid], v, n, pipe, folder) for n in range(1, a.plans + 1)]
@@ -69,7 +72,7 @@ def main():
                     row = scores.setdefault(f'{v}@{k}', {}).setdefault(cid, [])
                     for u in plans[(cid, v)]:
                         groups = ra_retrieval.retrieve(corpus, deepcopy(u), pipe.guidelines, documents=docs,
-                                                       include_nondefault=False, k=k)
+                                                       include_nondefault=False, k=k, profile=profile)
                         pages = {(h['chunk']['document_id'], h['chunk']['pdf_page']) for g in groups for h in g['hits']}
                         row.append(sum(bool(f & pages) for f in facts) / len(facts))
             print(cid, {key: val[cid] for key, val in scores.items()}, roles[f'{cid}|plain'], roles[f'{cid}|inventory'], flush=True)
