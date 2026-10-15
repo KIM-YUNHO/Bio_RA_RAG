@@ -8,6 +8,13 @@ from test_ra_citation_completion import block
 
 
 class ObligationTests(unittest.TestCase):
+    def setUp(self):
+        # Requirement slots are the rollback mode (RA_REQUIREMENT_MODE=slots).
+        from unittest.mock import patch
+        import os
+        patcher = patch.dict(os.environ, {'RA_REQUIREMENT_MODE': 'slots'})
+        patcher.start(); self.addCleanup(patcher.stop)
+
     def test_product_fields_and_comparison_are_explicit_and_bounded(self):
         q='SB17과 ABP654 건강인 PK 시험 용량·경로, 대조약 구성과 시험 조건의 차이를 설명해줘.'
         rows=ra_obligations.build(q)

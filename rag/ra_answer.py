@@ -156,8 +156,8 @@ def schema(evidence, tasks, citation_mode='quote', *, question=None, claim_budge
             span_id = item['properties']['citation_span_ids']['items']
             item['properties']['citation_span_ids']['items'] = {'$ref': '#/$defs/span_id'}
             result['schema']['$defs'] = {'claim': item, 'span_id': span_id}
-            from rag.ra_obligations import build
-            requirements=build(question, tasks)
+            from rag.ra_obligations import slot_rows
+            requirements=slot_rows(question, tasks)
             if requirements:
                 # IDs appear before the assertion in the serialized reply.
                 item['properties']={'citation_span_ids':item['properties']['citation_span_ids'],
@@ -284,8 +284,11 @@ names what is computed (e.g. product and agency) and contains no numbers.'''
     if citation_mode == 'spans':
         from rag.ra_models import request_items
         data['original_request_items'] = request_items(question)
-        from rag.ra_obligations import build,pointers
-        requirements=build(question, understanding.get('tasks'))
+        from rag.ra_obligations import slot_rows,pointers,checklist
+        requirements=slot_rows(question, understanding.get('tasks'))
+        reminders=[] if requirements else checklist(question, understanding.get('tasks') or [])
+        if reminders:
+            data['answer_checklist']=reminders
         if requirements:
             system='''Write concise KOREAN claims from supplied sources only; never copy English
 Eligibility age/weight/BMI must be labelled 선정 기준 or 허용 범위, not observed
@@ -588,8 +591,8 @@ def generate(question, understanding, evidence, client, citation_mode='quote'):
     model_gaps = []
     if citation_mode == 'spans':
         from rag.ra_models import RequestedDraft, ObligationDraft, request_items
-        from rag.ra_obligations import build
-        obligations=build(question, tasks)
+        from rag.ra_obligations import slot_rows
+        obligations=slot_rows(question, tasks)
         items_by_request = request_items(question)
         if obligations:
             by_obligation={r['id']:r for r in obligations}

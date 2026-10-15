@@ -73,6 +73,18 @@ class PlannerFacetModules(unittest.TestCase):
         self.assertIn(ra_prompt.TABLE, ra_prompt.system(q, u, {'E1': {'text': '<table></table>'}}, 8))
 
 
+class ChecklistMode(unittest.TestCase):
+    def test_planner_reading_is_a_checklist_not_answer_slots(self):
+        q = 'ABP 654의 PK 요약표에서 US ustekinumab군과 EU ustekinumab군의 Tmax 중앙값을 확인해줘.'
+        tasks = [task(q, facets=[('table_statistics', 'Tmax', ['US ustekinumab군', 'EU ustekinumab군'])])]
+        self.assertEqual(ra_obligations.slot_rows(q, tasks), [])
+        items = ra_obligations.checklist(q, tasks)
+        self.assertEqual([i['item'] for i in items], ['US ustekinumab군', 'EU ustekinumab군'])
+        prompt = ra_prompt.system(q, {'tasks': tasks, 'products': ['ABP654']}, {}, 8)
+        self.assertIn(ra_prompt.CHECKLIST, prompt)
+        self.assertNotIn(ra_prompt.REQUIREMENT, prompt)
+
+
 class PlannerTopics(unittest.TestCase):
     def test_fixed_queries_follow_planner_topics(self):
         q = 'SB17의 안전성 결과를 알려줘'

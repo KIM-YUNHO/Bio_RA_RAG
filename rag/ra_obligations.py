@@ -59,6 +59,29 @@ def planned(tasks):
     return bool(tasks) and all('answer_facets' in t for t in tasks)
 
 
+def slots_enabled():
+    """Requirement slots (one claim per slot) are the rollback mode; the default is a checklist."""
+    import os
+    return os.environ.get('RA_REQUIREMENT_MODE', 'checklist') == 'slots'
+
+
+def slot_rows(question, tasks=None):
+    """Rows that become answer slots; empty unless RA_REQUIREMENT_MODE=slots."""
+    return build(question, tasks) if slots_enabled() else []
+
+
+def checklist(question, tasks):
+    """What the planner read the question as asking, per product and item.
+
+    Given to generation as a reminder and never as answer slots: the claim count stays
+    free and the original question still governs, so a facet the planner missed can
+    still be answered.
+    """
+    rows=from_plan(question,tasks) if planned(tasks) else legacy(question)
+    return [{'product':r['product'],'need':r['label'],**({'item':r['item']} if r.get('item') else {})}
+            for r in rows if r['facet']!='request']
+
+
 def build(question, tasks=None):
     """Requirement rows: from the planner's answer facets, or legacy literal patterns for old plans."""
     rows=from_plan(question,tasks) if planned(tasks) else legacy(question)

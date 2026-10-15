@@ -77,6 +77,11 @@ ENUMERATION = """This question enumerates products and agencies. Go through EVER
 enumeration_units in order: give that unit's requested facts as claims with its own proof,
 or name the unit and the missing fact in gaps. Do not stop after a few units."""
 
+CHECKLIST = """answer_checklist lists what the question asks as read by the planner, per product and
+item (group, range, time point). Before finishing, make sure every entry has its own
+claim(s) with proof or is named in gaps. It is a reminder, not a limit: answer the
+original question, including anything the list missed."""
+
 REQUESTS = """Reply format: request_results has one object for EVERY original_request_items key with its
 own claims and gaps. State each sourced fact once, under the first request it answers;
 never restate it for a later request. The claim limit is a maximum, not a target."""
@@ -98,6 +103,9 @@ def wants(question, pattern):
 def system(question, understanding, evidence, budget):
     """Core first, then modules; the most question-specific module last."""
     parts = [CORE, *modules(question, understanding, evidence, budget)]
+    from rag.ra_obligations import checklist, slots_enabled
+    if not slots_enabled() and checklist(question, understanding.get('tasks') or []):
+        parts.append(CHECKLIST)
     parts.append(REQUESTS)
     facets = planned_facets(understanding)
     if ('calculation' in facets if facets is not None else
