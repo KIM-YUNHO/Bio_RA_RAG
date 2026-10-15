@@ -75,13 +75,15 @@ def admitted(rows, all_products):
     return rows if (2<=len(rows)<=MAX_PROPOSED_CLAIMS or specialized) and any(r['facet']!='request' for r in rows) else []
 
 
-def row(rows, rid, product, facet, part, question):
+def row(rows, rid, product, facet, part, question, item=None):
     rows.append({'id':f'{rid}_F{len(rows)+1}','request_id':rid,'product':product,
         'facet':facet,'part':part if facet=='purpose' else None,
         **({'endpoint':part} if facet=='table_statistics' else {}),
+        **({'item':item} if item else {}),
         **({'context_pattern':r'Crohn|크론'} if facet=='dosing_schedule' and re.search(r'Crohn|크론',question,re.I) else {}),
         'label':LABELS[facet]+(f' (Part {part})' if facet=='purpose' and part else
-                               f' ({part})' if facet=='table_statistics' and part else '')})
+                               f' ({part})' if facet=='table_statistics' and part else '')+
+                (f' — {item}' if item else '')})
 
 
 def request_of(task, items):
@@ -115,6 +117,13 @@ def literal_detail(question, facet, detail):
     return None
 
 
+def literal_items(question, items):
+    """Planner items printed in the question; fewer than two need no separate rows."""
+    from rag.evidence import contains_quote
+    found=tuple(dict.fromkeys(i.strip() for i in items or [] if i.strip() and contains_quote(question,i.strip())))
+    return found if len(found)>=2 else ()
+
+
 def from_plan(question, tasks):
     """Rows from each task's answer facets; product names are checked against the registry."""
     rows=[]
@@ -131,14 +140,16 @@ def from_plan(question, tasks):
             facet=f['facet']
             if facet=='calculation':continue
             if facet=='comparator' and not products:facet='reference_selection'
-            facets.append((facet,literal_detail(question,facet,f.get('detail'))))
-        facets=list(dict.fromkeys(facets)) or [('request',None)]
+            facets.append((facet,literal_detail(question,facet,f.get('detail')),literal_items(question,f.get('items'))))
+        facets=list(dict.fromkeys(facets)) or [('request',None,())]
         for product in products or [None]:
-            for facet,part in facets:
-                row(rows,rid,product,facet,part,question)
+            for facet,part,separate in facets:
+                # One requirement (one claim) per item the question asks to answer separately.
+                for item in separate or [None]:
+                    row(rows,rid,product,facet,part,question,item)
         # A comparison row accompanies requested content facets; alone it is an open request.
         if (len(products)>1 and (task.get('intent') or {}).get('intent')=='compare_products'
-                and any(f!='request' for f,_ in facets)):
+                and any(f!='request' for f,_,_ in facets)):
             rows.append({'id':f'{rid}_F{len(rows)+1}','request_id':rid,'product':None,
                 'facet':'comparison','part':None,'label':LABELS['comparison']})
     # An original sentence no task quotes or restates stays a requirement of its own

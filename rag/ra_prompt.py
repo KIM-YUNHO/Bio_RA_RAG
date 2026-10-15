@@ -55,7 +55,8 @@ requirement_reading_cues_not_proof only locate possible proof: inspect and cite 
 original segments. Answer each requirement label directly: population means who participated
 (no unrequested sample counts); comparators means ALL arms, not objectives; design means design
 and population. A Part purpose needs its literal title AND objective body. Keep each product's
-own document/version, verified trial and Part. Assay targets need actual measurement or
+own document/version, verified trial and Part. A requirement with an item (group, arm, range or
+time point) answers that item only. Assay targets need actual measurement or
 detection text. PK similarity means 약동학적 유사성, not 약리학적 동등성. Do not fill a requirement
 with background."""
 

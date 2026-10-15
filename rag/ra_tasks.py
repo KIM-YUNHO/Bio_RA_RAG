@@ -51,7 +51,8 @@ SCHEMA = {'name': 'query_understanding', 'schema': obj({
         'guideline_request_quote': STRING,
         'intent': obj({'intent': {'type': 'string', 'enum': ra_intent.INTENTS}, 'request_quote': STRING}),
         'answer_facets': {'type': 'array', 'maxItems': 12, 'items': obj({
-            'facet': {'type': 'string', 'enum': list(ANSWER_FACETS)}, 'detail': STRING})},
+            'facet': {'type': 'string', 'enum': list(ANSWER_FACETS)}, 'detail': STRING,
+            'items': {'type': 'array', 'maxItems': 8, 'items': STRING}})},
         'topics': {'type': 'array', 'maxItems': 6, 'items': {'type': 'string', 'enum': list(TOPICS)}}})}
 })}
 
@@ -82,6 +83,10 @@ no facet. List only what the task's own request asks for.
   or scope (never product information or approvals).
 - calculation: an elapsed time, difference, ratio or percent change to compute.
 detail is "" except for table_statistics and purpose.
+items: when the question asks a facet's values SEPARATELY for several named groups,
+arms, categories, ranges or time points, copy each one verbatim from the question
+(e.g. "US ustekinumab군", "EU ustekinumab군"; "55 kg 이하", "85 kg 초과"); otherwise [].
+Products are not items (they are handled separately).
 topics: the clinical-study CONTENT a task asks about (empty otherwise; approvals,
 interchangeability decisions, labels' dosing and guidance are not topics):
 clinical_program (overview of the clinical studies), pk_study (PK study design or

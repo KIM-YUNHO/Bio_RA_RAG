@@ -7,7 +7,8 @@ from rag import ra_obligations, ra_prompt, ra_topic_queries
 def task(quote, intent='fact_lookup', facets=(), topics=(), request=None):
     return {'id': 'T1', 'request': request or quote, 'queries': ['q'], 'source_roles': ['assessment'],
             'intent': {'intent': intent, 'request_quote': quote}, 'intent_check': {'quote_verified': True},
-            'answer_facets': [{'facet': f, 'detail': d} for f, d in facets], 'topics': list(topics)}
+            'answer_facets': [{'facet': f[0], 'detail': f[1], 'items': list(f[2]) if len(f) > 2 else []} for f in facets],
+            'topics': list(topics)}
 
 
 class PlannerFacetRequirements(unittest.TestCase):
@@ -24,6 +25,17 @@ class PlannerFacetRequirements(unittest.TestCase):
         self.assertIn(('purpose', '2'), {(r['facet'], r['part']) for r in rows})
         endpoints = [r.get('endpoint') for r in rows if r['facet'] == 'table_statistics']
         self.assertEqual(endpoints, ['Cmax', None])
+
+    def test_one_requirement_per_item_the_question_names(self):
+        q = 'ABP 654의 PK 요약표에서 US ustekinumab군과 EU ustekinumab군의 Tmax 중앙값을 확인해줘.'
+        rows = ra_obligations.build(q, [task(q, facets=[('table_statistics', 'Tmax',
+                                                         ['US ustekinumab군', 'EU ustekinumab군', 'JP ustekinumab군'])])])
+        self.assertEqual([(r['endpoint'], r.get('item')) for r in rows],
+                         [('Tmax', 'US ustekinumab군'), ('Tmax', 'EU ustekinumab군')])  # unprinted item dropped
+        self.assertTrue(all(r['item'] in r['label'] for r in rows))
+        one = ra_obligations.build(q, [task(q, facets=[('table_statistics', 'Tmax', ['US ustekinumab군']),
+                                                       ('statistic_identity', '')])])
+        self.assertNotIn('item', one[0])
 
     def test_comparison_row_comes_from_the_planner_intent_not_keywords(self):
         q = 'SB17과 ABP654의 투여 경로를 정리해줘.'
