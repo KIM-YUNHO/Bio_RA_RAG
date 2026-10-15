@@ -27,6 +27,7 @@ def main():
     parser.add_argument('--only', action='append')
     parser.add_argument('--set', action='append', choices=['gold17', 'queries', 'qagold'])
     parser.add_argument('--qa-gold', type=Path, help='qa_gold.zip (read only, never copied)')
+    parser.add_argument('--include-absent', action='store_true')
     parser.add_argument('--price-in', type=float, default=0.20)
     parser.add_argument('--price-out', type=float, default=1.20)
     parser.add_argument('--out', type=Path, required=True)
@@ -59,7 +60,7 @@ def main():
     items = []
     for name in args.set or ['gold17']:
         items += (list(qagold(args.qa_gold, version_to_document)) if name == 'qagold'
-                  else list({'gold17': gold17, 'queries': queries}[name]()))
+                  else list(queries(args.include_absent)) if name == 'queries' else list(gold17()))
     try:
         for item in items:
             if args.only and item['id'] not in args.only:

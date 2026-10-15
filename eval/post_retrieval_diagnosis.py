@@ -45,13 +45,14 @@ def gold17():
                'units': [{'unit': f'{d}:p{p}', 'pages': [[d, p]], 'basis': b} for d, p, b in c['pages']]}
 
 
-def queries():
+def queries(include_absent=False):
     with (ROOT / 'eval/queries_v0.1.csv').open(encoding='utf-8-sig') as stream:
         for r in csv.DictReader(stream):
-            if r['type'] != 'retrieval':
+            if r['type'] != 'retrieval' and not (include_absent and r['type'] == 'absent'):
                 continue
-            pages = json.loads(r['acceptable_pages'] or '[]') or json.loads(r['gold_pages'])
-            yield {'set': 'queries', 'id': r['query_id'], 'question': r['ko_a'], 'expected': 'answer',
+            pages = json.loads(r['acceptable_pages'] or '[]') or json.loads(r['gold_pages'] or '[]')
+            yield {'set': 'queries', 'id': r['query_id'], 'question': r['ko_a'],
+                   'expected': 'answer' if r['type'] == 'retrieval' else 'not_found',
                    'products': [r['product_id']], 'jurisdictions': ['EU'],
                    'units': [{'unit': r['query_id'], 'pages': [[r['document_id'], p] for p in pages], 'basis': 'acceptable_pages'}]}
 
@@ -95,6 +96,7 @@ def main():
     parser.add_argument('--qa-gold', type=Path, help='qa_gold.zip (read only, never copied)')
     parser.add_argument('--set', action='append', choices=['gold17', 'queries', 'qagold'], required=True)
     parser.add_argument('--only', action='append', help='Question IDs to run (smoke test)')
+    parser.add_argument('--include-absent', action='store_true', help='also load absent (not_found) rows of the queries set')
     parser.add_argument('--pool', type=int, default=40)
     parser.add_argument('--k', type=int, default=8)
     parser.add_argument('--context-tokens', type=int, default=65536)
@@ -127,7 +129,8 @@ def main():
     for name in args.set:
         if name == 'qagold' and not args.qa_gold:
             parser.error('--qa-gold is required for the qagold set')
-        items += list({'gold17': gold17, 'queries': queries}[name]()) if name != 'qagold' else list(qagold(args.qa_gold, version_to_document))
+        items += (list(queries(args.include_absent)) if name == 'queries' else list(gold17()) if name == 'gold17'
+                  else list(qagold(args.qa_gold, version_to_document)))
     if args.only:
         items = [i for i in items if i['id'] in args.only]
     missing_docs = sorted({p[0] for i in items for u in i['units'] for p in u['pages'] if p[0] not in known})
