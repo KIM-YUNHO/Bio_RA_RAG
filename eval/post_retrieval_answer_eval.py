@@ -1,4 +1,4 @@
-"""Answer-level check of a retrieval profile on the 17 H v2 cases (+2 controls).
+"""Answer-level check of a retrieval profile on diagnosis question sets (default: the 17 H v2 cases +2 controls).
 
 Runs the production RA ask() path end to end with two substitutions:
   planning   replayed from a post_retrieval_diagnosis run (no new planning call)
@@ -25,21 +25,25 @@ def main():
     parser.add_argument('--profile', default='{}')
     parser.add_argument('--context-tokens', type=int, default=65536)
     parser.add_argument('--only', action='append')
+    parser.add_argument('--set', action='append', choices=['gold17', 'queries', 'qagold'])
+    parser.add_argument('--qa-gold', type=Path, help='qa_gold.zip (read only, never copied)')
     parser.add_argument('--price-in', type=float, default=0.20)
     parser.add_argument('--price-out', type=float, default=1.20)
     parser.add_argument('--out', type=Path, required=True)
     args = parser.parse_args()
     profile = json.loads(args.profile)
 
-    from eval.post_retrieval_diagnosis import gold17, NoProvider
+    from eval.post_retrieval_diagnosis import gold17, queries, qagold, NoProvider
     from rag import ra_retrieval, ra_tasks
     from rag.openai_chat import EvaluationAPIChat
     from rag.ra_pipeline import RAPipeline
     from preprocess.hybrid_config import load_config
 
-    replay = EvaluationAPIChat(args.replay_plans / 'planner_gold17', max_new_calls=1, model='gpt-5.6-luna', client=NoProvider())
+    replays = {name: EvaluationAPIChat(args.replay_plans / f'planner_{name}', max_new_calls=1, model='gpt-5.6-luna',
+                                       client=NoProvider()) for name in ('gold17', 'queries', 'qagold')}
+    current = {}
     interpret = ra_tasks.interpret
-    ra_tasks.interpret = lambda question, client, *a, **kw: interpret(question, replay, *a, **kw)
+    ra_tasks.interpret = lambda question, client, *a, **kw: interpret(question, current['replay'], *a, **kw)
     retrieve = ra_retrieval.retrieve
     ra_retrieval.retrieve = functools.wraps(retrieve)(lambda *a, **kw: retrieve(*a, **{**kw, 'k': args.k, 'profile': profile}))
 
@@ -51,11 +55,17 @@ def main():
     reports = args.out / 'reports'
     reports.mkdir(parents=True, exist_ok=True)
     rows = []
+    version_to_document = {d['version_id']: d['document_id'] for d in pipe.documents}
+    items = []
+    for name in args.set or ['gold17']:
+        items += (list(qagold(args.qa_gold, version_to_document)) if name == 'qagold'
+                  else list({'gold17': gold17, 'queries': queries}[name]()))
     try:
-        for item in gold17():
+        for item in items:
             if args.only and item['id'] not in args.only:
                 continue
-            client.case = replay.case = item['id']
+            current['replay'] = replays[item['set']]
+            client.case = current['replay'].case = item['id']
             start = len(client.calls)
             try:
                 report = pipe.ask(item['question'], products=item['products'], jurisdictions=item['jurisdictions'])
@@ -72,7 +82,7 @@ def main():
             gold_docs = {d for d, _ in gold}
             calls = report.get('generation_telemetry') or []
             tin, tout = sum(c.get('prompt_tokens', 0) for c in calls), sum(c.get('completion_tokens', 0) for c in calls)
-            rows.append({'id': item['id'], 'expected': item['expected'], 'status': result['status'],
+            rows.append({'set': item['set'], 'id': item['id'], 'expected': item['expected'], 'status': result['status'],
                          'claims': len(result.get('claims', [])), 'gaps': len(result.get('gaps', [])),
                          'gold_pages_cited': len(gold & cited), 'gold_pages': len(gold),
                          'cited_outside_gold_docs': sorted({d for d, _ in cited if d not in gold_docs}),
