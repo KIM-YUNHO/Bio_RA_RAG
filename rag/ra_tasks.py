@@ -52,7 +52,7 @@ SCHEMA = {'name': 'query_understanding', 'schema': obj({
         'guideline_request_quote': STRING,
         'intent': obj({'intent': {'type': 'string', 'enum': ra_intent.INTENTS}, 'request_quote': STRING}),
         'answer_facets': {'type': 'array', 'maxItems': 12, 'items': obj({
-            'facet': {'type': 'string', 'enum': list(ANSWER_FACETS)}, 'detail': STRING, 'ask': STRING,
+            'facet': {'type': 'string', 'enum': list(ANSWER_FACETS)}, 'detail': STRING, 'ask': STRING, 'query': STRING,
             'items': {'type': 'array', 'maxItems': 8, 'items': STRING}})},
         'topics': {'type': 'array', 'maxItems': 6, 'items': {'type': 'string', 'enum': list(TOPICS)}},
         'jurisdictions': {'type': 'array', 'maxItems': 4, 'items': {'type': 'string', 'enum': ['EU', 'US', 'CA', 'sponsor']}}})}
@@ -60,11 +60,13 @@ SCHEMA = {'name': 'query_understanding', 'schema': obj({
 
 
 FACETS_PROMPT = """
-answer_facets: the kinds of facts each task explicitly asks for, from this closed set,
-for product questions AND general guidance questions alike. Leave it empty when none
-fits: approval/submission dates, approval history, agency reasoning, shelf life,
-storage, marketing authorisation holder, document lists and other open requests need
-no facet. List only what the task's own request asks for.
+answer_facets: one entry per distinct fact each task explicitly asks for, for product
+questions AND general guidance questions alike. Use the closed kinds below; any other
+specific fact (approval or submission date, marketing authorisation holder, shelf life,
+storage condition, approval history event, ...) is kind "fact". Leave it empty only for
+open reasoning requests (what an agency concluded or why). List only what the task's own
+request asks for; two requested facts are two entries (e.g. "EU 최초 허가일과 MAH" ->
+two "fact" entries).
 - dose_route: administered dose and/or route. dosing_schedule: timing/intervals of
   repeated (e.g. maintenance) dosing.
 - comparator: a named product's study comparator arms; reference_selection:
@@ -85,6 +87,9 @@ no facet. List only what the task's own request asks for.
   or scope (never product information or approvals).
 - calculation: an elapsed time, difference, ratio or percent change to compute.
 detail is "" except for table_statistics and purpose.
+query: a short English search phrase for that fact as regulatory documents word it
+(e.g. "date of first authorisation", "marketing authorisation holder", "shelf life",
+"intravenous induction dose body weight vials"), without product or agency names.
 ask: one short Korean line restating what this facet must answer for THIS question, in the
 question's own terms and with every requested part (e.g. "피하 유지 투여의 시작 시점과 반복
 간격", "체중별 1회 용량과 바이알 수"). Every part of the question belongs to some facet's ask.

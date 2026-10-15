@@ -30,6 +30,7 @@ LABELS = {
     'assay_targets':'질문에 요청한 PK·면역원성 측정·검출 대상',
     'document_status_scope':'설명에 사용한 지침의 이름·저장된 상태·날짜·적용 범위',
     'request':'해당 원질문 요청',
+    'fact':'요청한 사실',
 }
 PATTERNS = {
     'dose_route':r'\d\s*mg\b|subcutaneous|intravenous',

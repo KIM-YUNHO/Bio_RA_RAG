@@ -115,6 +115,25 @@ class ClaimFormatSlips(unittest.TestCase):
         self.assertEqual((claim.task_ids, claim.products), (['T1'], ['SB17']))
 
 
+class AtomicNeeds(unittest.TestCase):
+    def test_each_fact_and_item_becomes_a_need_with_its_own_query(self):
+        from rag.ra_needs import atomic_tasks
+        t = {'id': 'T1', 'request': 'EU 최초 허가일과 MAH', 'queries': ['EU authorisation'], 'source_roles': ['label'],
+             'intent': {'intent': 'fact_lookup', 'request_quote': 'x'}, 'topics': ['design'],
+             'answer_facets': [{'facet': 'fact', 'detail': '', 'ask': 'EU 최초 허가일', 'query': 'date of first authorisation', 'items': []},
+                               {'facet': 'dose_route', 'detail': '', 'ask': '용량', 'query': 'dose', 'items': ['55 kg 이하', '85 kg 초과']},
+                               {'facet': 'calculation', 'detail': '', 'ask': '기간', 'query': '', 'items': []}]}
+        open_task = {**t, 'id': 'T2', 'answer_facets': []}
+        tasks = atomic_tasks({'tasks': [t, open_task]})['tasks']
+        self.assertEqual([x['id'] for x in tasks], ['T1.1', 'T1.2', 'T1.3', 'T1.req', 'T2'])
+        self.assertEqual(tasks[0]['queries'], ['date of first authorisation'])
+        self.assertEqual(tasks[1]['queries'], ['dose 55 kg 이하'])
+        self.assertEqual(tasks[1]['request'], '용량 55 kg 이하')
+        self.assertEqual(tasks[0]['topics'], [])
+        self.assertEqual(tasks[3]['topics'], ['design'])  # the safety-net request keeps the task's topics
+        self.assertEqual({x['need_of'] for x in tasks}, {'T1', 'T2'})
+
+
 class PlannerTopics(unittest.TestCase):
     def test_fixed_queries_follow_planner_topics(self):
         q = 'SB17의 안전성 결과를 알려줘'

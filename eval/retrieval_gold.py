@@ -29,12 +29,18 @@ FACT_PLANS = ROOT / 'data/runs/retrieval_scope_2026-10-15/nondefault_gold/plans'
 MODELS = {'bge-reranker-v2-m3': ('BAAI/bge-reranker-v2-m3', '953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e')}
 
 
-def plan_for(item, pipe, folder):
+def plan_for(item, pipe, folder, fresh=False):
+    if fresh:
+        return fresh_plan(item, pipe, folder)
     if item['source'] == 'e2e29':
         return json.loads(Path(item['plan_report']).read_text(encoding='utf-8'))['understanding']
     if item['source'] == 'fact_gold':
         return json.loads((FACT_PLANS / f"{item['id'].replace(':', '_')}.json").read_text(encoding='utf-8'))['understanding']
-    path = folder / f"{item['id']}.json"
+    return fresh_plan(item, pipe, folder)
+
+
+def fresh_plan(item, pipe, folder):
+    path = folder / f"{item['id'].replace(':', '_')}.json"
     if not path.exists():
         from rag import ra_tasks
         products = sorted({d['product_id'] for d in pipe.documents if d['product_id']})
@@ -78,6 +84,9 @@ def main():
     p.add_argument('--pool', type=int, default=40)
     p.add_argument('--ks', default='4,8,16')
     p.add_argument('--output', type=Path, required=True)
+    p.add_argument('--fresh-plans', type=Path, help='plan every item with the current planner, saved in this folder')
+    p.add_argument('--retrieval', choices=['group', 'atomic'], default='group',
+                   help='group: task x product x agency (production); atomic: requested fact x product x agency')
     a = p.parse_args()
     ks = [int(x) for x in a.ks.split(',')]
     variants = a.variants.split(',')
@@ -92,7 +101,11 @@ def main():
                       research_rounds=0, chat_client=OpenAIPipelineChat(model='gpt-5.6-luna', context_tokens=65536))
     rerankers, rows = {}, []
     try:
-        plans = {it['id']: plan_for(it, pipe, a.output.parent / 'plans') for it in items}
+        plans = {it['id']: (plan_for(it, pipe, a.fresh_plans, fresh=True) if a.fresh_plans
+                            else plan_for(it, pipe, a.output.parent / 'plans')) for it in items}
+        if a.retrieval == 'atomic':
+            from rag.ra_needs import atomic_tasks
+            plans = {k: atomic_tasks(u) for k, u in plans.items()}
         pipe.warmup()
         corpus = pipe.retrieval_corpus()
         corpus._emb = pipe._shared_encoder or answer.Embedder('bge-m3', local_only=True)
@@ -125,7 +138,8 @@ def main():
                             best[i] = max(best.get(i, score), score)
                     ordered.append([i for i, _ in sorted(best.items(), key=lambda x: -x[1])])
                 seconds = time.perf_counter() - started
-                result = {'seconds': round(seconds, 3), 'groups': []}
+                result = {'seconds': round(seconds, 3), 'groups': [],
+                          'selected': {k: len({i for order in ordered for i in order[:k]}) for k in ks}}
                 for pages, weak, label in gold:
                     ranks = [n for order in ordered for n, i in enumerate(order, 1) if page(i) in pages]
                     best_rank = min(ranks) if ranks else None
@@ -146,7 +160,10 @@ def main():
             if not gs:
                 continue
             secs = [r['variants'][variant]['seconds'] for r in rows if scope == 'all' or scope.startswith(r['source'])]
+            sel = {k: round(statistics.mean(r['variants'][variant]['selected'][k] for r in rows
+                                            if scope == 'all' or scope.startswith(r['source'])), 1) for k in ks}
             summary[scope][variant] = {'groups': len(gs), **{f'recall@{k}': round(sum(g[f'r@{k}'] for g in gs) / len(gs), 3) for k in ks},
+                                       **{f'chunks@{k}': sel[k] for k in ks},
                                        'mrr': round(sum(1 / g['rank'] for g in gs if g['rank']) / len(gs), 3),
                                        'pool_ceiling': round(sum(g['rank'] is not None for g in gs) / len(gs), 3),
                                        'seconds_median': round(statistics.median(secs), 2), 'seconds_max': round(max(secs), 2)}

@@ -26,7 +26,7 @@ class TaskIntent(Contract):
 ANSWER_FACETS = ('dose_route', 'comparator', 'reference_selection', 'design', 'population', 'follow_up',
                  'eligibility', 'dosing_schedule', 'table_statistics', 'statistic_identity', 'stratification',
                  'purpose', 'analytical_bridge', 'clinical_bridge', 'assay_targets', 'document_status_scope',
-                 'calculation')
+                 'calculation', 'fact')
 TOPICS = ('clinical_program', 'pk_study', 'efficacy', 'safety', 'immunogenicity', 'design')
 
 
@@ -37,6 +37,8 @@ class AnswerFacet(Contract):
     ask: Annotated[str, Field(max_length=160)] = ''
     # Groups, arms, ranges or time points the question asks to answer separately (verbatim).
     items: Annotated[list[Annotated[str, Field(max_length=100)]], Field(max_length=8)] = []
+    # A short English search phrase for this fact as regulatory documents word it.
+    query: Annotated[str, Field(max_length=200)] = ''
 
 
 class ResearchTask(Contract):
