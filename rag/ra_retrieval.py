@@ -62,7 +62,9 @@ DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': None, 'strip_slot_terms
                    # Experimental cross-encoder selection of a slot's k hits from its fused candidate pool; off by
                    # default (BIOSIM_RERANK=on enables it in the service). Same model as rag/rerank.py.
                    'rerank': os.environ.get('BIOSIM_RERANK', '').lower() == 'on', 'rerank_pool': 40, 'rerank_max_per_doc': None,
-                   'rerank_keep_first_slots': False, 'rerank_max_length': 512}
+                   # The service setting keeps each query's first hit (2026-10-15: +12/-4 vs +12/-6 without).
+                   'rerank_keep_first_slots': os.environ.get('BIOSIM_RERANK', '').lower() == 'on',
+                   'rerank_max_length': 512}
 # Words every chunk of a product x agency slot shares; in a slot they only add BM25 noise.
 SLOT_TERMS = re.compile(r'(?<![A-Za-z0-9])(?:EMA|FDA|Health\s+Canada|EPAR|European\s+Medicines\s+Agency|assessment\s+reports?|'
                         r'product\s+monographs?|summary\s+basis\s+of\s+decision|multi-?discipline\s+reviews?|labell?ing|label)(?![A-Za-z0-9])', re.I)
