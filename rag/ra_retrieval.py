@@ -1,6 +1,7 @@
 """Task-wise hybrid retrieval and bounded, source-preserving reading context."""
 from copy import deepcopy
 import itertools
+import os
 import re
 
 from rag.search import filter_idx, dense_hits, rrf, Bm25
@@ -57,10 +58,46 @@ def oracle_groups(corpus, understanding, guideline_index, source_ids, documents)
 # Retrieval knobs; the default is production. 2026-10-14 grid on release 04: stripping slot-constant
 # words from BM25 queries raised silver recall 0.855->0.882; lower BM25 weight and an added
 # original-question ranking lost recall or stability (data/runs/retrieval_stability_2026-10-14).
-DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': None, 'strip_slot_terms': True}
+DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': None, 'strip_slot_terms': True,
+                   # Experimental cross-encoder selection of a slot's k hits from its fused candidate pool; off by
+                   # default (BIOSIM_RERANK=on enables it in the service). Same model as rag/rerank.py.
+                   'rerank': os.environ.get('BIOSIM_RERANK', '').lower() == 'on', 'rerank_pool': 40, 'rerank_max_per_doc': None}
 # Words every chunk of a product x agency slot shares; in a slot they only add BM25 noise.
 SLOT_TERMS = re.compile(r'(?<![A-Za-z0-9])(?:EMA|FDA|Health\s+Canada|EPAR|European\s+Medicines\s+Agency|assessment\s+reports?|'
                         r'product\s+monographs?|summary\s+basis\s+of\s+decision|multi-?discipline\s+reviews?|labell?ing|label)(?![A-Za-z0-9])', re.I)
+
+
+_RERANKER = None
+
+
+def reranked_hits(rankings, k, consensus, chunks, queries, P, keep_first=False):
+    """Choose k hits from the fused pool by cross-encoder score (max over the task's queries).
+
+    The pool is the same first-slot + consensus order diverse_hits builds, only longer.
+    keep_first keeps the first statistical-table candidate ahead of reranking. Optional
+    rerank_max_per_doc caps hits per document. Relevance ordering only; no source text changes.
+    """
+    global _RERANKER
+    if _RERANKER is None:
+        from rag.rerank import LocalReranker
+        _RERANKER = LocalReranker()
+    pool = diverse_hits(rankings, max(k, P['rerank_pool']), consensus_only=consensus)
+    scores = {}
+    for query in queries:
+        for score, i in _RERANKER.rank(query, pool, chunks, limit=len(pool)):
+            scores[i] = max(scores.get(i, float('-inf')), score)
+    ordered = ([pool[0]] if keep_first and pool else []) + sorted(((scores[i], i) for _, i in pool), key=lambda x: -x[0])
+    out, seen, per_doc = [], set(), {}
+    for score, i in ordered:
+        doc = chunks[i]['document_id']
+        if i in seen or (P['rerank_max_per_doc'] and per_doc.get(doc, 0) >= P['rerank_max_per_doc']):
+            continue
+        seen.add(i)
+        per_doc[doc] = per_doc.get(doc, 0) + 1
+        out.append((score, i))
+        if len(out) >= k:
+            break
+    return out
 
 
 def strip_slot_terms(query):
@@ -150,11 +187,15 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
                         question_pos = None if question_pos is None else question_pos + 1
                     # 'fuse': the ranking only adds consensus weight, never takes a first slot.
                     consensus = ((topic_pos,) if topic_queries == 'fuse' else ()) + ((question_pos,) if P['question_query'] == 'fuse' else ())
-                    hits = diverse_hits(rankings, k, consensus_only=consensus)
+                    hits = (reranked_hits(rankings, k, consensus, corpus.chunks, task['queries'], P,
+                                          keep_first=bool(table_candidates)) if P['rerank']
+                            else diverse_hits(rankings, k, consensus_only=consensus))
                     groups.append({'task_id': task['id'], 'product': product, 'jurisdiction': agency,
                         'doc_groups': list(roles), 'studies': [], 'queries': task['queries'],
                         'topic_queries': {'topics': topic_names, 'queries': topic_qs,
                                           'version': ra_topic_queries.VERSION},
+                        **({'selection': {'reranker': 'bge-reranker-v2-m3', 'pool': P['rerank_pool'],
+                                          'max_per_doc': P['rerank_max_per_doc']}} if P['rerank'] else {}),
                         'hits': [{'score': s, 'chunk': corpus.chunks[i]} for s, i in hits]})
         if 'guideline' in roles:
             guideline_queries=list(task['queries'])

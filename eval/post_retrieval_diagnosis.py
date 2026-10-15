@@ -11,6 +11,9 @@ it reached:
   dropped_context among the hits but not in the assembled evidence
   supplied       in the evidence handed to synthesis (after bounded research)
 
+The pool is always the production fusion (k=--pool); --profile changes only how the
+served k hits are chosen from it, so stages compare across profiles.
+
 Question sets
   gold17   eval/post_retrieval_gold_17.json (+ question text from the H v2 cases)
   queries  eval/queries_v0.1.csv retrieval rows (EMA EPAR, acceptable pages)
@@ -71,6 +74,12 @@ def qagold(path, version_to_document):
                    'units': list(units.values()) if q['answerable'] else []}
 
 
+class NoProvider:
+    """Replay guard: a planner call missing from the cache fails instead of reaching the provider."""
+    def __getattr__(self, name):
+        raise AttributeError('planner call not in the replay cache')
+
+
 def chunk_pages(chunk):
     pages = {(chunk['document_id'], chunk['pdf_page'])}
     for ref in (chunk.get('provenance') or {}).get('source_refs') or chunk.get('source_refs') or []:
@@ -90,7 +99,10 @@ def main():
     parser.add_argument('--k', type=int, default=8)
     parser.add_argument('--context-tokens', type=int, default=65536)
     parser.add_argument('--out', type=Path, required=True, help='Run folder; planner calls are cached here')
+    parser.add_argument('--replay-plans', type=Path, help='Earlier --out folder: reuse its cached planner calls, never call the provider')
+    parser.add_argument('--profile', default='{}', help='JSON retrieval profile for the served hits, e.g. {"rerank": true}')
     args = parser.parse_args()
+    profile = json.loads(args.profile)
 
     from rag import ra_retrieval, ra_tasks
     from rag.ra_research import extend
@@ -103,7 +115,7 @@ def main():
     OpenAIPipelineChat.__call__ = blocked
     budget_client = OpenAIPipelineChat(model='gpt-5.6-luna', context_tokens=args.context_tokens)
     pipe = RAPipeline(args.run, None, load_config(ROOT / 'configs/preprocess.local.json'), 'http://127.0.0.1:1',
-                      guideline_snapshot=args.guidelines, research_rounds=1, retrieval_pages=args.k, chat_client=budget_client)
+                      guideline_snapshot=args.guidelines, research_rounds=1, retrieval_pages=min(args.k, 10), chat_client=budget_client)
     pipe.warmup()
     corpus = pipe.retrieval_corpus()
     by_id = {c['chunk_id']: c for c in corpus.chunks}
@@ -129,8 +141,9 @@ def main():
         for item in items:
             planner = planners.get(item['set'])
             if planner is None:
-                planner = planners[item['set']] = EvaluationAPIChat(args.out / f'planner_{item["set"]}', max_new_calls=60,
-                                                                     model='gpt-5.6-luna')
+                folder = (args.replay_plans or args.out) / f'planner_{item["set"]}'
+                planner = planners[item['set']] = (EvaluationAPIChat(folder, max_new_calls=1, model='gpt-5.6-luna', client=NoProvider())
+                    if args.replay_plans else EvaluationAPIChat(folder, max_new_calls=60, model='gpt-5.6-luna'))
             planner.case = item['id']
             selected = [d for d in pipe.documents
                         if (not item['products'] or d['product_id'] in item['products'] or d.get('role') == 'guideline')
@@ -155,8 +168,8 @@ def main():
             if searched:
                 docs = {(d['document_id'], d['version_id']) for d in selected}
                 corpus.allowed_documents = docs
-                pool = ra_retrieval.retrieve(corpus, deepcopy(u), pipe.guidelines, documents=docs, k=args.pool)
-                served = ra_retrieval.retrieve(corpus, deepcopy(u), pipe.guidelines, documents=docs, k=args.k)
+                pool = ra_retrieval.retrieve(corpus, deepcopy(u), pipe.guidelines, documents=docs, k=args.pool, profile={'rerank': False})
+                served = ra_retrieval.retrieve(corpus, deepcopy(u), pipe.guidelines, documents=docs, k=args.k, profile=profile)
                 question = u['source_question']
                 evidence, budget = ra_retrieval.context(corpus, served, question, deepcopy(u), budget_client, 'spans',
                                                         guideline_index=pipe.guidelines)
@@ -206,6 +219,7 @@ def main():
         print(name, json.dumps(summary[name], ensure_ascii=False), flush=True)
     head = __import__('subprocess').run(['git', 'rev-parse', 'HEAD'], cwd=ROOT, capture_output=True, text=True).stdout.strip()
     (args.out / 'diagnosis.json').write_text(json.dumps({'code_commit': head, 'run': str(args.run), 'pool': args.pool, 'k': args.k,
+        'profile': profile, 'replay_plans': str(args.replay_plans) if args.replay_plans else None,
         'context_tokens': args.context_tokens, 'chunks_sha256': pipe.index_meta['chunks_sha256'],
         'summary': summary, 'rows': rows}, ensure_ascii=False, indent=1), encoding='utf-8')
 
