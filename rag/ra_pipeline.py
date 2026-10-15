@@ -7,6 +7,7 @@ call maximum, with no automatic retry.
 from copy import deepcopy
 from datetime import datetime, timezone
 import json
+import os
 from pathlib import Path
 import time
 from threading import RLock
@@ -143,6 +144,11 @@ class RAPipeline(RAGPipeline):
                 notify(stage='answering', message='원문을 읽고 요청한 사실·차이·심사 맥락을 종합하고 있습니다.')
                 stamp = time.monotonic()
                 result = ra_answer.generate(question, understanding, evidence, self.client, self.citation_mode)
+                if os.environ.get('BIOSIM_CONDITION_CHECK', '').lower() == 'on':
+                    # Experimental: flag question conditions (route, device, indication, population)
+                    # that the answer's cited scope never states. No provider call; claims unchanged.
+                    from rag.ra_condition_check import apply as check_conditions
+                    check_conditions(question, result)
                 for gap in dict.fromkeys(g.get('scope_gap') for g in groups if g.get('scope_gap')):
                     text = '공통 지침 검색 자료가 연결되지 않아 해당 조사 항목을 확인하지 못했습니다.'
                     result['gaps'].append(text)
