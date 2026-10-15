@@ -58,6 +58,41 @@ def score_q3(report, units):
     return {'items': len(rows), 'correct': sum(rows.values()), 'by_product': rows, 'non_gold_months_for_review': other}
 
 
+def score_timeline(report, units, jurisdictions, durations):
+    """Submission/approval dates (and code-computed durations) for the units of some agencies."""
+    own = {k: v for k, v in units.items() if k[1] in jurisdictions}
+    s = score_q1(report, own)
+    correct = s['submission_dates'] + s['approval_dates'] + (s['durations_computed_correctly'] if durations else 0)
+    return {'score': correct, 'of': (3 if durations else 2) * len(own), 'dates': s['submission_dates'] + s['approval_dates'],
+            'durations': s['durations_computed_correctly'] if durations else None}
+
+
+def score_pair(report, units, products):
+    """Q6: EU shelf life and MAH for a product pair."""
+    q2, q3 = score_q2(report, units), score_q3(report, units)
+    correct = sum(q2['by_product'][p]['mah'] for p in products) + sum(q3['by_product'][p] for p in products)
+    return {'score': correct, 'of': 2 * len(products)}
+
+
+def score_question(case, report, units):
+    """{'score', 'of', ...} for an enumeration/comparison question ID."""
+    if case == 'Q1':
+        return score_timeline(report, units, ('EU', 'US', 'CA'), True)
+    if case == 'Q2':
+        s = score_q2(report, units); return {'score': s['correct'], 'of': s['items']}
+    if case == 'Q3':
+        s = score_q3(report, units); return {'score': s['correct'], 'of': s['items']}
+    if case == 'Q4':
+        return score_timeline(report, units, ('US',), False)
+    if case == 'Q5':
+        return score_timeline(report, units, ('CA',), True)
+    if case == 'Q6':
+        return score_pair(report, units, ('SB17', 'ABP654'))
+    if case == 'Q7':
+        return score_timeline(report, units, ('EU',), True)
+    raise KeyError(case)
+
+
 def main():
     units = timeline_gold(ROOT / 'data/versions/04_pipeline_h_supplement_2026-10-14/embedded/release')
     for folder in sys.argv[1:]:

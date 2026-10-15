@@ -1,0 +1,29 @@
+{"case": "Q1", "variant": "modular", "run": 1, "claims": 26, "unknown_span_claims": 0, "derived_declared": 6, "derived_withheld": 0, "output_tokens": 2330, "requirement_path": false, "score": 19, "of": 42, "dates": 13, "durations": 6}
+{"case": "Q1", "variant": "modular", "run": 2, "claims": 28, "unknown_span_claims": 0, "derived_declared": 10, "derived_withheld": 1, "output_tokens": 2838, "requirement_path": false, "score": 26, "of": 42, "dates": 18, "durations": 8}
+{"case": "Q1", "variant": "facts", "run": 1, "claims": 13, "unknown_span_claims": 0, "derived_declared": 0, "derived_withheld": 0, "output_tokens": 1547, "requirement_path": false, "score": 16, "of": 42, "dates": 16, "durations": 0}
+{"case": "Q1", "variant": "facts", "run": 2, "claims": 17, "unknown_span_claims": 0, "derived_declared": 0, "derived_withheld": 0, "output_tokens": 1821, "requirement_path": false, "score": 17, "of": 42, "dates": 17, "durations": 0}
+{"case": "Q2", "variant": "modular", "run": 1, "claims": 5, "unknown_span_claims": 0, "derived_declared": 0, "derived_withheld": 0, "output_tokens": 428, "requirement_path": false, "score": 10, "of": 10}
+{"case": "Q2", "variant": "modular", "run": 2, "claims": 5, "unknown_span_claims": 0, "derived_declared": 0, "derived_withheld": 0, "output_tokens": 425, "requirement_path": false, "score": 10, "of": 10}
+{"case": "Q2", "variant": "facts", "run": 1, "claims": 5, "unknown_span_claims": 0, "derived_declared": 0, "derived_withheld": 0, "output_tokens": 1012, "requirement_path": false, "score": 10, "of": 10}
+{"case": "Q2", "variant": "facts", "run": 2, "claims": 5, "unknown_span_claims": 0, "derived_declared": 0, "derived_withheld": 0, "output_tokens": 1011, "requirement_path": false, "score": 10, "of": 10}
+{"case": "Q3", "variant": "modular", "run": 1, "claims": 5, "unknown_span_claims": 0, "derived_declared": 0, "derived_withheld": 0, "output_tokens": 518, "requirement_path": false, "score": 5, "of": 5}
+{"case": "Q3", "variant": "modular", "run": 2, "claims": 5, "unknown_span_claims": 0, "derived_declared": 0, "derived_withheld": 0, "output_tokens": 840, "requirement_path": false, "score": 5, "of": 5}
+{"case": "Q3", "variant": "facts", "run": 1, "claims": 5, "unknown_span_claims": 0, "derived_declared": 0, "derived_withheld": 0, "output_tokens": 1149, "requirement_path": false, "score": 5, "of": 5}
+{"case": "Q3", "variant": "facts", "run": 2, "claims": 5, "unknown_span_claims": 0, "derived_declared": 0, "derived_withheld": 0, "output_tokens": 875, "requirement_path": false, "score": 5, "of": 5}
+{"case": "C04", "variant": "modular", "run": 1, "claims": 5, "unknown_span_claims": 0, "derived_declared": 0, "derived_withheld": 0, "output_tokens": 511, "requirement_path": false, "score": 2, "of": 2}
+{"case": "C04", "variant": "modular", "run": 2, "claims": 5, "unknown_span_claims": 0, "derived_declared": 0, "derived_withheld": 0, "output_tokens": 473, "requirement_path": false, "score": 2, "of": 2}
+{"case": "C04", "variant": "facts", "run": 1, "claims": 4, "unknown_span_claims": 0, "derived_declared": 0, "derived_withheld": 0, "output_tokens": 434, "requirement_path": false, "score": 2, "of": 2}
+{"case": "C04", "variant": "facts", "run": 2, "claims": 4, "unknown_span_claims": 0, "derived_declared": 0, "derived_withheld": 0, "output_tokens": 447, "requirement_path": false, "score": 2, "of": 2}
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\project_shared\eval\prompt_variants.py", line 152, in <module>
+    main()
+  File "C:\Users\Admin\Documents\project_shared\eval\prompt_variants.py", line 116, in main
+    reply = client(msgs, json_schema=contract)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\project_shared\rag\openai_chat.py", line 199, in __call__
+    return self.session(messages, json_schema=json_schema, provider=self.provider)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\project_shared\rag\openai_chat.py", line 138, in __call__
+    if telemetry['status']!='completed':raise GenerationFailure(telemetry['error'],telemetry)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rag.local_chat.GenerationFailure: RateLimitError: Error code: 429 - {'error': {'message': 'Your project has reached its configured enforced spend limit. Update your limit at https://platform.openai.com/settings/proj_RdBM8OAdobECDw7mJNPWXtjU/limits.', 'type': 'insufficient_quota', 'param': None, 'code': 'project_spend_limit_exceeded'}}

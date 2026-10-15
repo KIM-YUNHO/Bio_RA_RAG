@@ -280,6 +280,7 @@ names what is computed (e.g. product and agency) and contains no numbers.'''
         system += ('\nThis question enumerates products and agencies. Go through EVERY entry of '
                    "enumeration_units: give that unit's requested facts as claims with its own proof, or "
                    'name the unit and the missing fact in gaps. Do not stop after a few units.')
+    requirements = []
     if citation_mode == 'spans':
         from rag.ra_models import request_items
         data['original_request_items'] = request_items(question)
@@ -344,6 +345,13 @@ eligibility fields explicitly, keeping criteria distinct from observed ranges.''
         system += '\nTask intents (organize each task\'s claims accordingly):' + ''.join(
             f'\n- {intent} ({", ".join(k for k, v in task_intents.items() if v == intent)}): {GUIDANCE[intent]}'
             for intent in dict.fromkeys(task_intents.values()))
+    if citation_mode == 'spans':
+        from rag import ra_prompt
+        kind = ra_prompt.variant()
+        if kind != 'current' and not requirements:
+            system = ra_prompt.system(question, understanding, evidence, budget)
+        elif kind == 'modular' and requirements:
+            system = ra_prompt.requirement_system(question, understanding, evidence)
     return [{'role': 'system', 'content': system}, {'role': 'user', 'content': json.dumps(data, ensure_ascii=False, separators=(',', ':'))}]
 
 
