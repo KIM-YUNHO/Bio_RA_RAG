@@ -40,16 +40,20 @@ def reference_names():
 def regulator_mention(question, mention):
     """The planner's regulator reading stands unless a proper noun contradicts it.
 
-    The quote must occur in the question. It is not a regulator mention when it
-    names a reference product ("EU Stelara" is a comparator's origin) or names only
-    another agency ("EMA ..." labelled US). A bare region ("EU", "캐나다") is accepted.
+    The quote should occur in the question; a stitched quote ("FDA 승인일과 ... 미국에서의")
+    still counts when the question itself prints that agency's name (FDA, EMA, Health
+    Canada). It is not a regulator mention when the quote names a reference product
+    ("EU Stelara" is a comparator's origin) or names only another agency ("EMA ..."
+    labelled US). A bare region ("EU", "캐나다") with a verbatim quote is accepted.
     """
     if not isinstance(mention, dict) or mention.get('role') != 'regulator':
         return False
     quote, jurisdiction = mention.get('quote') or '', mention.get('jurisdiction')
     if jurisdiction not in AGENCY_NAMES:
         return False  # 'sponsor' (trial registry) is a source type, added only for protocol/SAP requests
-    if not quote.strip() or not contains_quote(question, quote):
+    if not quote.strip():
+        return False
+    if not contains_quote(question, quote) and not named(question, AGENCY_NAMES[jurisdiction]):
         return False
     if named(quote, reference_names()):
         return False
