@@ -8,12 +8,23 @@ No model calls.
 
   python eval/packing_recall.py data/runs/planner_facets_2026-10-15/e2e_final --output data/runs/packing_2026-10-16/recall.json
 """
-import argparse, glob, json, os, sys
+import argparse, glob, json, os, sys, time
 from copy import deepcopy
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+
+
+# name -> (RA_CHECKLIST_PACKING, k per group, retrieval profile overrides)
+VARIANTS = {
+    'packing': [('off', '0', 8, None), ('on', '1', 8, None)],
+    'rerank': [('base_k8', '0', 8, None), ('k16', '0', 16, None),
+               ('rerank_request', '0', 8, {'rerank': 'request', 'rerank_pool': 40}),
+               ('rerank_ask', '0', 8, {'rerank': 'ask', 'rerank_pool': 40})],
+    'rerank16': [('base_k8', '0', 8, None), ('k16', '0', 16, None),
+                 ('k16_rerank_ask', '0', 16, {'rerank': 'ask', 'rerank_pool': 40})],
+}
 
 
 def pseudo_report(evidence):
@@ -35,6 +46,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument('reports', type=Path)
     p.add_argument('--output', type=Path, required=True)
+    p.add_argument('--variants', choices=sorted(VARIANTS), default='packing')
     a = p.parse_args()
     from rag import ra_retrieval
     from rag.openai_chat import OpenAIPipelineChat
@@ -47,7 +59,7 @@ def main():
                       guideline_snapshot=ROOT / 'data/guidelines/ra_guidelines_native_2026-10-12_v2',
                       research_rounds=0, retrieval_pages=8,
                       chat_client=OpenAIPipelineChat(model='gpt-5.6-luna', context_tokens=65536))
-    rows, totals = [], {'off': [0, 0], 'on': [0, 0]}
+    rows, totals = [], {}
     try:
         pipe.warmup()
         corpus = pipe.retrieval_corpus()
@@ -57,19 +69,23 @@ def main():
         for path in sorted(glob.glob(str(a.reports / '*_[12].json'))):
             report = json.loads(Path(path).read_text(encoding='utf-8'))
             case, question, u = Path(path).stem.split('_')[0], report['question'], report['understanding']
-            groups = ra_retrieval.retrieve(corpus, deepcopy(u), pipe.guidelines, documents=corpus.allowed_documents, k=8)
             row = {'report': Path(path).stem}
-            for variant, flag in (('off', '0'), ('on', '1')):
+            for variant, flag, k, profile in VARIANTS[a.variants]:
                 os.environ['RA_CHECKLIST_PACKING'] = flag
+                started = time.perf_counter()
+                groups = ra_retrieval.retrieve(corpus, deepcopy(u), pipe.guidelines, documents=corpus.allowed_documents,
+                                               k=k, profile=profile)
+                seconds = round(time.perf_counter() - started, 2)
                 evidence, budget = ra_retrieval.context(corpus, deepcopy(groups), question, deepcopy(u), pipe.client,
                                                         'spans', guideline_index=pipe.guidelines)
                 got, of = score(case, evidence, units)
-                totals[variant][0] += got; totals[variant][1] += of
-                row[variant] = {'score': got, 'of': of, 'blocks': len(evidence),
+                totals.setdefault(variant, [0, 0, 0.0])
+                totals[variant][0] += got; totals[variant][1] += of; totals[variant][2] += seconds
+                row[variant] = {'score': got, 'of': of, 'blocks': len(evidence), 'retrieve_seconds': seconds,
                                 'tokens': budget.get('estimated_prompt_and_schema_tokens')}
             rows.append(row)
-            print(row['report'], row['off']['score'], '->', row['on']['score'], '/', row['on']['of'],
-                  'blocks', row['off']['blocks'], row['on']['blocks'], flush=True)
+            print(row['report'], ' '.join(f"{v}={row[v]['score']}/{row[v]['of']}({row[v]['blocks']}b,{row[v]['retrieve_seconds']}s)"
+                                          for v in row if v != 'report'), flush=True)
     finally:
         os.environ.pop('RA_CHECKLIST_PACKING', None)
         pipe.close()

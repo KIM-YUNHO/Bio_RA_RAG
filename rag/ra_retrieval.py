@@ -119,15 +119,19 @@ def near_duplicate(corpus, threshold=.8):
 def rerank(corpus, task, hits, k, mode):
     """Reorder a broad candidate pool with the local cross-encoder; keep the top k.
 
-    mode: 'request' (the task's Korean request), 'queries' (planner queries) or
-    'both'; a passage scores the best of its queries. Scores order sources only.
+    mode: 'request' (the task's Korean request), 'queries' (planner queries), 'both' or
+    'ask' (the planner's per-facet restatements); a passage scores the best of its queries. Scores order sources only.
     """
     model = getattr(corpus, '_ra_reranker', None)
     if model is None:
         from rag.rerank import LocalReranker
         model = corpus._ra_reranker = LocalReranker(batch_size=8, max_length=1024)
+    # 'ask': the planner's restatement of each requested facet (+ separate item), or the request.
+    asks = list(dict.fromkeys(f['ask'] + (' ' + item if item else '')
+                              for f in task.get('answer_facets', []) if f.get('ask')
+                              for item in (f.get('items') or [None])))
     queries = {'request': [task['request']], 'queries': list(task['queries']),
-               'both': [task['request'], *task['queries']]}[mode]
+               'both': [task['request'], *task['queries']], 'ask': asks or [task['request']]}[mode]
     best = {}
     for query in queries:
         for score, i in model.rank(query, hits, corpus.chunks, limit=len(hits)):
