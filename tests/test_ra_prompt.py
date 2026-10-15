@@ -49,6 +49,13 @@ class PromptVariantTests(unittest.TestCase):
 
 
 class RequirementPathVariantTests(unittest.TestCase):
+    def setUp(self):
+        # Requirement slots are the rollback mode (RA_REQUIREMENT_MODE=slots).
+        from unittest.mock import patch
+        import os
+        patcher = patch.dict(os.environ, {'RA_REQUIREMENT_MODE': 'slots'})
+        patcher.start(); self.addCleanup(patcher.stop)
+
     def test_modular_replaces_requirement_prompt_with_core_modules_and_contract_last(self):
         from rag.ra_obligations import build
         q = 'EMA SB17-1001 건강인 PK 시험에서 실제 사용한 용량과 투여 경로, 대상군과 비교약을 정리해줘.'

@@ -10,7 +10,7 @@ from rag.ra_requirements import conditions, named_products, verified_study_key
 from rag import ra_spans
 from rag import study_registry
 
-VERSION = 'ra-question-obligations-2-requested-values'
+VERSION = 'ra-question-obligations-3-planner-facets'
 LABELS = {
     'dose_route':'실제 투여 용량·경로와 요청한 시험 조건',
     'comparator':'대조약 전체 구성과 출처; 승인 상태는 근거가 있을 때만',
@@ -50,8 +50,151 @@ PATTERNS = {
 }
 
 
-def build(question):
+CLINICAL={'dose_route','design','population','follow_up','eligibility','dosing_schedule','table_statistics',
+          'statistic_identity','stratification','purpose','assay_targets'}
+
+
+def planned(tasks):
+    """True when every task carries the planner's answer facets (plans saved before them do not)."""
+    return bool(tasks) and all('answer_facets' in t for t in tasks)
+
+
+def slots_enabled():
+    """Requirement slots (one claim per slot) are the rollback mode; the default is a checklist."""
+    import os
+    return os.environ.get('RA_REQUIREMENT_MODE', 'checklist') == 'slots'
+
+
+def slot_rows(question, tasks=None):
+    """Rows that become answer slots; empty unless RA_REQUIREMENT_MODE=slots."""
+    return build(question, tasks) if slots_enabled() else []
+
+
+def checklist(question, tasks):
+    """What the planner read the question as asking, per product and item.
+
+    Given to generation as a reminder and never as answer slots: the claim count stays
+    free and the original question still governs, so a facet the planner missed can
+    still be answered.
+    """
+    rows=from_plan(question,tasks) if planned(tasks) else legacy(question)
+    return [{'product':r['product'],'need':r['label'],**({'item':r['item']} if r.get('item') else {})}
+            for r in rows if r['facet']!='request']
+
+
+def build(question, tasks=None):
+    """Requirement rows: from the planner's answer facets, or legacy literal patterns for old plans."""
+    rows=from_plan(question,tasks) if planned(tasks) else legacy(question)
+    return admitted(rows,named_products(question))
+
+
+def admitted(rows, all_products):
     from rag.ra_models import MAX_PROPOSED_CLAIMS
+    # A clinical question using UI-selected products without a literal name
+    # keeps the original path, whose schema admits those source products.
+    if not all_products and any(r['facet'] in CLINICAL for r in rows):return []
+    # Never truncate requirements beyond the bounded structured envelope.
+    specialized=len(rows)==1 and rows[0]['facet'] in ('assay_targets','table_statistics')
+    return rows if (2<=len(rows)<=MAX_PROPOSED_CLAIMS or specialized) and any(r['facet']!='request' for r in rows) else []
+
+
+def row(rows, rid, product, facet, part, question, item=None):
+    rows.append({'id':f'{rid}_F{len(rows)+1}','request_id':rid,'product':product,
+        'facet':facet,'part':part if facet=='purpose' else None,
+        **({'endpoint':part} if facet=='table_statistics' else {}),
+        **({'item':item} if item else {}),
+        **({'context_pattern':r'Crohn|크론'} if facet=='dosing_schedule' and re.search(r'Crohn|크론',question,re.I) else {}),
+        'label':LABELS[facet]+(f' (Part {part})' if facet=='purpose' and part else
+                               f' ({part})' if facet=='table_statistics' and part else '')+
+                (f' — {item}' if item else '')})
+
+
+def request_of(task, items):
+    """The original request item a task answers: the item holding its verified quote."""
+    from rag.ra_intent import _overlap
+    quote=(task.get('intent') or {}).get('request_quote','')
+    if quote.strip() and (task.get('intent_check') or {}).get('quote_verified', True):
+        for rid,text in items.items():
+            if quote in text or text in quote:return rid
+        for rid,text in items.items():
+            if _overlap(quote,text):return rid
+    return None
+
+
+def covers(task, text):
+    """A task covers an original sentence its quote or self-contained request restates."""
+    from rag.ra_intent import _overlap
+    quote=(task.get('intent') or {}).get('request_quote','')
+    return any(part.strip() and (text in part or part in text or _overlap(part,text))
+               for part in (quote, task.get('request','')))
+
+
+def literal_detail(question, facet, detail):
+    """An endpoint or Part named by the planner counts only when the question prints it."""
+    detail=(detail or '').strip()
+    if facet=='purpose':
+        found=re.findall(r'(?<![A-Za-z0-9])Part\s*(\d+)(?![A-Za-z0-9])',question,re.I)
+        return detail if detail in found else None
+    if facet=='table_statistics' and detail:
+        return detail if re.search(r'(?<![A-Za-z0-9])'+re.escape(detail)+r'(?![A-Za-z0-9])',question,re.I) else None
+    return None
+
+
+def literal_items(question, items):
+    """Planner items printed in the question; fewer than two need no separate rows."""
+    from rag.ra_models import name_in_question
+    found=tuple(dict.fromkeys(i.strip() for i in items or [] if name_in_question(question,i)))
+    return found if len(found)>=2 else ()
+
+
+def uncovered_sentences(question, tasks):
+    """Original sentences no task quotes or restates (a single-task plan answers every sentence)."""
+    if len(tasks) <= 1:
+        return []
+    items=request_items(question)
+    covered={request_of(t,items) for t in tasks}
+    return [text for rid,text in items.items()
+            if rid not in covered and not any(covers(t,text) for t in tasks) and not answer_constraint_only(text)]
+
+
+def from_plan(question, tasks):
+    """Rows from each task's answer facets; product names are checked against the registry."""
+    rows=[]
+    items=request_items(question)
+    all_products=named_products(question)
+    covered=set()
+    for task in tasks:
+        rid=request_of(task,items) or next(iter(items))
+        covered.add(rid)
+        quote=(task.get('intent') or {}).get('request_quote','')
+        products=named_products(quote) or named_products(task.get('request','')) or all_products
+        facets=[]
+        for f in task['answer_facets']:
+            facet=f['facet']
+            if facet=='calculation':continue
+            if facet=='comparator' and not products:facet='reference_selection'
+            facets.append((facet,literal_detail(question,facet,f.get('detail')),literal_items(question,f.get('items'))))
+        facets=list(dict.fromkeys(facets)) or [('request',None,())]
+        for product in products or [None]:
+            for facet,part,separate in facets:
+                # One requirement (one claim) per item the question asks to answer separately.
+                for item in separate or [None]:
+                    row(rows,rid,product,facet,part,question,item)
+        # A comparison row accompanies requested content facets; alone it is an open request.
+        if (len(products)>1 and (task.get('intent') or {}).get('intent')=='compare_products'
+                and any(f!='request' for f,_,_ in facets)):
+            rows.append({'id':f'{rid}_F{len(rows)+1}','request_id':rid,'product':None,
+                'facet':'comparison','part':None,'label':LABELS['comparison']})
+    # An original sentence no task quotes or restates stays a requirement of its own
+    # (a single-task plan answers every sentence of the question).
+    for rid,text in items.items():
+        if (len(tasks)>1 and rid not in covered and not any(covers(t,text) for t in tasks)
+                and not answer_constraint_only(text)):
+            row(rows,rid,None,'request',None,question)
+    return rows
+
+
+def legacy(question):
     rows=[]
     all_products=named_products(question)
     for rid,text in request_items(question).items():
@@ -81,22 +224,11 @@ def build(question):
         facets=facets or [('request',None)]
         for product in products or [None]:
             for facet,part in facets:
-                rows.append({'id':f'{rid}_F{len(rows)+1}','request_id':rid,'product':product,
-                    'facet':facet,'part':part if facet=='purpose' else None,
-                    **({'endpoint':part} if facet=='table_statistics' else {}),
-                    **({'context_pattern':r'Crohn|크론'} if facet=='dosing_schedule' and re.search(r'Crohn|크론',question,re.I) else {}),
-                    'label':LABELS[facet]+(f' (Part {part})' if facet=='purpose' and part else
-                                           f' ({part})' if facet=='table_statistics' and part else '')})
+                row(rows,rid,product,facet,part,question)
         if len(products)>1 and re.search(r'차이|differences',text,re.I):
             rows.append({'id':f'{rid}_F{len(rows)+1}','request_id':rid,'product':None,
                 'facet':'comparison','part':None,'label':LABELS['comparison']})
-    # A clinical question using UI-selected products without a literal name
-    # keeps the original path, whose schema admits those source products.
-    clinical={'dose_route','design','population','follow_up','eligibility','dosing_schedule','table_statistics','statistic_identity','stratification','purpose','assay_targets'}
-    if not all_products and any(r['facet'] in clinical for r in rows):return []
-    # Never truncate requirements beyond the bounded structured envelope.
-    specialized=len(rows)==1 and rows[0]['facet'] in ('assay_targets','table_statistics')
-    return rows if (2<=len(rows)<=MAX_PROPOSED_CLAIMS or specialized) and any(r['facet']!='request' for r in rows) else []
+    return rows
 
 
 def pointers(question,evidence,rows):
@@ -145,29 +277,10 @@ def pointers(question,evidence,rows):
 
 
 def matches(row,claim):
-    """Reject obvious off-topic slot contents, not certify full request coverage."""
+    """Slot facts only, never keywords: the claim is about the slot's product, a comparison
+    names two products, and a table-statistics slot states its endpoint with a value.
+    Whether the content answers the requirement is the reviewer's semantic judgement."""
     text=claim['text']
-    patterns={
-        'dose_route':r'\d\s*(?:mg|ug|g)|피하|정맥|\bSC\b|\bIV\b',
-        'comparator':r'대조약|대조군|참조약|comparator|reference|Stelara|ustekinumab',
-        'design':r'무작위|눈가림|평행|단회|단일\s*용량|시험\s*설계|randomi|blind|parallel|single.dose|study design',
-        'population':r'건강|남성|여성|환자|성인|소아|healthy|male|female|patients|adults|children',
-        'follow_up':r'추적|채혈|관찰|평가.{0,15}(?:기간|일|주)|follow|sampling|\bDay\s*\d+|\d\s*(?:일|주|days?|weeks?)',
-        'eligibility':r'선정\s*기준|허용\s*범위|포함\s*기준|실제\s*(?:분포|측정)|eligib|inclusion criteria|observed',
-        'table_statistics':r'평균|표준편차|중앙값|mean|median|\bSD\b',
-        'dosing_schedule':r'\d\s*(?:주|일|weeks?|days?)|every\s+(?:eight|twelve)\s+weeks',
-        'statistic_identity':r'평균|표준편차|중앙값|mean|median|\bSD\b',
-        'stratification':r'층화|stratif',
-        'purpose':r'목적|목표|위해|입증|initial safety|pilot|to compare|to demonstrate',
-        'reference_selection':r'대조약|참조약|비교약|comparator|reference',
-        'analytical_bridge':r'분석|analytical',
-        'clinical_bridge':r'임상|clinical|\bPK\b|\bPD\b',
-        'assay_targets':r'측정|검출|분석\s*대상|농도|analyte|concentration|assay|\bADA\b|\bNAb\b',
-        'document_status_scope':r'지침|가이던스|guideline|reflection paper|statement',
-        'comparison':r'차이|다르|비교|difference|whereas|while|compared',
-    }
-    pattern=patterns.get(row['facet'])
-    if pattern and not re.search(pattern,text,re.I):return False
     if row['product'] and claim['products']!=[row['product']]:return False
     if row['facet']=='comparison' and len(claim['products'])<2:return False
     if row['facet']=='table_statistics':

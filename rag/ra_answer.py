@@ -156,8 +156,8 @@ def schema(evidence, tasks, citation_mode='quote', *, question=None, claim_budge
             span_id = item['properties']['citation_span_ids']['items']
             item['properties']['citation_span_ids']['items'] = {'$ref': '#/$defs/span_id'}
             result['schema']['$defs'] = {'claim': item, 'span_id': span_id}
-            from rag.ra_obligations import build
-            requirements=build(question)
+            from rag.ra_obligations import slot_rows
+            requirements=slot_rows(question, tasks)
             if requirements:
                 # IDs appear before the assertion in the serialized reply.
                 item['properties']={'citation_span_ids':item['properties']['citation_span_ids'],
@@ -284,8 +284,11 @@ names what is computed (e.g. product and agency) and contains no numbers.'''
     if citation_mode == 'spans':
         from rag.ra_models import request_items
         data['original_request_items'] = request_items(question)
-        from rag.ra_obligations import build,pointers
-        requirements=build(question)
+        from rag.ra_obligations import slot_rows,pointers,checklist
+        requirements=slot_rows(question, understanding.get('tasks'))
+        reminders=[] if requirements else checklist(question, understanding.get('tasks') or [])
+        if reminders:
+            data['answer_checklist']=reminders
         if requirements:
             system='''Write concise KOREAN claims from supplied sources only; never copy English
 Eligibility age/weight/BMI must be labelled 선정 기준 or 허용 범위, not observed
@@ -588,8 +591,8 @@ def generate(question, understanding, evidence, client, citation_mode='quote'):
     model_gaps = []
     if citation_mode == 'spans':
         from rag.ra_models import RequestedDraft, ObligationDraft, request_items
-        from rag.ra_obligations import build
-        obligations=build(question)
+        from rag.ra_obligations import slot_rows
+        obligations=slot_rows(question, tasks)
         items_by_request = request_items(question)
         if obligations:
             by_obligation={r['id']:r for r in obligations}
@@ -731,11 +734,20 @@ def generate(question, understanding, evidence, client, citation_mode='quote'):
     original_checks = None
     original_complete = False
     if citation_mode == 'spans':
-        from rag.ra_models import request_items
-        from rag.ra_obligations import answer_constraint_only
-        original_tasks = [{'id': key, 'request': text} for key, text in request_items(question).items()
-                          if not answer_constraint_only(text)]
-        original_checks = request_coverage(question, {'tasks': original_tasks}, evidence, claims)
+        from rag.ra_obligations import planned
+        if planned(tasks):
+            # The planner's tasks carry the request reading; a sentence no task quotes is uncovered.
+            from rag.ra_obligations import uncovered_sentences
+            uncovered = uncovered_sentences(question, tasks)
+            original_checks = {**request_checks, 'tasks': [*request_checks['tasks'], *[
+                {'task_id': None, 'request': s, 'requested_conditions': {}, 'checks': [],
+                 'completion_checkable': False, 'minimum_requirements_met': False} for s in uncovered]]}
+        else:
+            from rag.ra_models import request_items
+            from rag.ra_obligations import answer_constraint_only
+            original_tasks = [{'id': key, 'request': text} for key, text in request_items(question).items()
+                              if not answer_constraint_only(text)]
+            original_checks = request_coverage(question, {'tasks': original_tasks}, evidence, claims)
         original_complete = bool(claims) and all(
             row['completion_checkable'] and row['minimum_requirements_met'] for row in original_checks['tasks']) and all(
             row['observable_values_preserved'] for row in obligation_checks)

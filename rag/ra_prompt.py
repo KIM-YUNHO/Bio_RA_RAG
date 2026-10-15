@@ -1,4 +1,4 @@
-"""Generation system prompts: a short core plus modules chosen by code.
+"""Generation system prompts: a short core plus modules chosen from the plan.
 
 The module that fits the question comes last. Both prompt paths (request items and
 requirement-decomposed questions) share the core and the modules; only the reply
@@ -55,7 +55,8 @@ requirement_reading_cues_not_proof only locate possible proof: inspect and cite 
 original segments. Answer each requirement label directly: population means who participated
 (no unrequested sample counts); comparators means ALL arms, not objectives; design means design
 and population. A Part purpose needs its literal title AND objective body. Keep each product's
-own document/version, verified trial and Part. Assay targets need actual measurement or
+own document/version, verified trial and Part. A requirement with an item (group, arm, range or
+time point) answers that item only. Assay targets need actual measurement or
 detection text. PK similarity means 약동학적 유사성, not 약리학적 동등성. Do not fill a requirement
 with background."""
 
@@ -75,6 +76,11 @@ no numbers."""
 ENUMERATION = """This question enumerates products and agencies. Go through EVERY entry of
 enumeration_units in order: give that unit's requested facts as claims with its own proof,
 or name the unit and the missing fact in gaps. Do not stop after a few units."""
+
+CHECKLIST = """answer_checklist lists what the question asks as read by the planner, per product and
+item (group, range, time point). Before finishing, make sure every entry has its own
+claim(s) with proof or is named in gaps. It is a reminder, not a limit: answer the
+original question, including anything the list missed."""
 
 REQUESTS = """Reply format: request_results has one object for EVERY original_request_items key with its
 own claims and gaps. State each sourced fact once, under the first request it answers;
@@ -97,8 +103,13 @@ def wants(question, pattern):
 def system(question, understanding, evidence, budget):
     """Core first, then modules; the most question-specific module last."""
     parts = [CORE, *modules(question, understanding, evidence, budget)]
+    from rag.ra_obligations import checklist, slots_enabled
+    if not slots_enabled() and checklist(question, understanding.get('tasks') or []):
+        parts.append(CHECKLIST)
     parts.append(REQUESTS)
-    if wants(question, r'기간|걸린|소요|차이|비율|증감|몇\s*배|며칠|일수|개월\s*수|계산|elapsed|difference|ratio'):
+    facets = planned_facets(understanding)
+    if ('calculation' in facets if facets is not None else
+            wants(question, r'기간|걸린|소요|차이|비율|증감|몇\s*배|며칠|일수|개월\s*수|계산|elapsed|difference|ratio')):
         parts.append(DERIVED)
     if budget > 8:
         parts.append(ENUMERATION)
@@ -110,21 +121,50 @@ def requirement_system(question, understanding, evidence):
     return '\n\n'.join([CORE, *modules(question, understanding, evidence, 8), REQUIREMENT])
 
 
+STUDY_FACETS = {'dose_route', 'comparator', 'design', 'population', 'follow_up', 'eligibility', 'dosing_schedule',
+                'stratification', 'purpose', 'assay_targets'}
+GUIDELINE_FACETS = {'reference_selection', 'analytical_bridge', 'clinical_bridge', 'document_status_scope'}
+TABLE_FACETS = {'table_statistics', 'statistic_identity'}
+
+
+def planned_facets(understanding):
+    """The planner's answer facets and topics, or None for a plan saved before they existed."""
+    tasks = understanding.get('tasks') or []
+    if not tasks or not all('answer_facets' in t for t in tasks):
+        return None
+    return ({f['facet'] for t in tasks for f in t['answer_facets']}
+            | {f'topic:{x}' for t in tasks for x in t.get('topics', [])})
+
+
 def modules(question, understanding, evidence, budget):
-    """Modules chosen by code from the question, plan and evidence."""
-    intents = {(t.get('intent') or {}).get('intent') for t in understanding.get('tasks', [])}
+    """Modules chosen from the plan's semantic reading and evidence facts.
+
+    Plans with answer facets choose by those; older plans fall back to literal patterns.
+    """
+    tasks = understanding.get('tasks', [])
+    intents = {(t.get('intent') or {}).get('intent') for t in tasks}
     products = [p for p in understanding.get('products') or []]
+    facets = planned_facets(understanding)
+    has_table = any('<table' in b.get('text', '') for b in evidence.values())
     parts = []
     if any(b.get('doc_group') in ('protocol', 'sap') for b in evidence.values()):
         parts.append(PROTOCOL)
-    if any(b.get('role') == 'guideline' for b in evidence.values()) or wants(question, r'지침|guideline|가이드|QTPP|브리징|bridg|권고|채택|시행'):
+    guideline_evidence = any(b.get('role') == 'guideline' for b in evidence.values())
+    if facets is None:
+        guideline = wants(question, r'지침|guideline|가이드|QTPP|브리징|bridg|권고|채택|시행')
+        study = wants(question, r'용량|투여|경로|dose|dosing|route|regimen|요법|시험|study|대상|population|선정|BMI|체중')
+        table = wants(question, r'평균|표준편차|중앙값|mean|SD|median|Cmax|AUC|Tmax|t1/2|반감기|통계|요약표|분석표')
+    else:
+        guideline = bool(facets & GUIDELINE_FACETS) or any('guideline' in t.get('source_roles', []) for t in tasks)
+        study = bool(facets & STUDY_FACETS) or bool(facets & {'topic:pk_study', 'topic:design'})
+        table = bool(facets & TABLE_FACETS)
+    if guideline_evidence or guideline:
         parts.append(GUIDELINE)
-    if wants(question, r'용량|투여|경로|dose|dosing|route|regimen|요법|시험|study|대상|population|선정|BMI|체중'):
+    if study:
         parts.append(STUDY)
     if intents & {'compare_products', 'compare_sources'} or (len(products) > 1 and budget <= 8):
         parts.append(COMPARISON)
-    if (any('<table' in b.get('text', '') for b in evidence.values())
-            and wants(question, r'평균|표준편차|중앙값|mean|SD|median|Cmax|AUC|Tmax|t1/2|반감기|통계|요약표|분석표')):
+    if has_table and table:
         parts.append(TABLE)
     from rag.ra_intent import GUIDANCE
     guidance = [f'- {i}: {GUIDANCE[i]}' for i in dict.fromkeys((t.get('intent') or {}).get('intent')

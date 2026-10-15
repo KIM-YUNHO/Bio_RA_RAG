@@ -57,9 +57,6 @@ Example: "SB17과 ABP654의 PK 시험 설계를 비교하고, FDA가 면역원�
 비교하고"; T2 regulatory_reasoning quote "FDA가 면역원성을 어떻게 평가했는지".
 """
 
-# ASCII-only boundaries: Korean particles (SAP에, NCT…의) are word characters for \b.
-PROTOCOL = re.compile(r'프로토콜|임상\s*시험\s*계획서|시험\s*계획|통계\s*분석\s*계획|(?<![A-Za-z])SAP(?![A-Za-z])|protocol|'
-                      r'ClinicalTrials\.gov|(?<![A-Za-z0-9])NCT\d{8}(?![0-9])', re.I)
 
 GUIDANCE = {
     'compare_products': 'Organize this task by comparison axis. For each axis state each product\'s own '

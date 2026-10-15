@@ -47,7 +47,7 @@ def extend(corpus, groups, evidence, budget, question, understanding, client, gu
     if type(max_rounds) is not int or not 0 <= max_rounds <= 1:
         raise ValueError('Local research round cap must be 0 or 1')
     result, info = deepcopy(evidence), deepcopy(budget)
-    rows = ra_obligations.build(question)
+    rows = ra_obligations.build(question, understanding.get('tasks'))
     pointers = ra_obligations.pointers(question, evidence, rows)
     missing = [r for r in rows if r['facet'] in TERMS and
                not (facet_candidate(r,evidence) if r['facet'] in ('table_statistics','dosing_schedule')

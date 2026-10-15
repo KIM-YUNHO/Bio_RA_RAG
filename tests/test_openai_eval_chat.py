@@ -30,7 +30,7 @@ class APIEvaluationTests(unittest.TestCase):
             messages=[{'role':'user','content':'Question only'}];schema={'name':'query_understanding','schema':{'type':'object'}}
             first=c(messages,schema);second=c(messages,schema)
             self.assertEqual(api.n,1);self.assertEqual(first['text'],second['text'])
-            self.assertTrue(api.payload['response_format']['json_schema']['strict']);self.assertEqual(api.payload['max_tokens'],1000)
+            self.assertTrue(api.payload['response_format']['json_schema']['strict']);self.assertEqual(api.payload['max_tokens'],1600)
             ledger=json.loads(c.ledger_path.read_text());self.assertEqual(len(ledger['attempts']),1)
             self.assertEqual(ledger['attempts'][0]['prompt_tokens'],12);self.assertFalse(c.local_only)
     def test_hard_cap_is_reserved_before_request(self):
