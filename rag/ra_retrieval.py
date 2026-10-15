@@ -62,7 +62,10 @@ def oracle_groups(corpus, understanding, guideline_index, source_ids, documents)
 # original-question ranking lost recall or stability (data/runs/retrieval_stability_2026-10-14).
 DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': None, 'strip_slot_terms': True,
                    'suppress_boilerplate': False, 'collapse_duplicates': False, 'role_boost': True,
-                   'extra_default_groups': ('correspondence',), 'rerank': None, 'rerank_pool': 40}
+                   'extra_default_groups': ('correspondence',), 'rerank': 'ask_unit', 'rerank_pool': 40, 'rerank_fuse': True}
+# Reranker on by default since 2026-10-16: queries are the slot's product + agency + the planner's
+# per-fact ask, fused with the hybrid order (RRF). Retrieval gold (100 items) recall@8 0.715 -> 0.804
+# with no bucket below baseline; 29-question answers 278 -> 311 (docs/RA_QUERY_HANDLING_LOG.md).
 # correspondence (FDA approval letters/packages) is searched by default since 2026-10-16: with the
 # planner's document inventory, Q4 (FDA approval dates) 10/20 -> 15/20 and the 29-question total
 # 269 -> 278 (data/runs/planner_facets_2026-10-15/e2e_final).
@@ -116,23 +119,53 @@ def near_duplicate(corpus, threshold=.8):
     return same
 
 
-def rerank(corpus, task, hits, k, mode):
+AGENCY_LABEL = {'EU': 'EMA', 'US': 'FDA', 'CA': 'Health Canada'}
+
+
+def unit_prefix(product, agency):
+    """The slot's own product names and agency (the group is already one product x agency)."""
+    from rag import study_registry
+    key = lambda n: re.sub(r'[^a-z0-9]', '', n.lower())
+    meta = study_registry.products().get(product, {}) if product else {}
+    brands = [n.split('(')[0].strip() for n in meta.get('names', []) if key(n.split('(')[0]) != key(product or '')]
+    names = [product, *list(dict.fromkeys(brands))[:2]] if product else []
+    return ' '.join(dict.fromkeys(n for n in [*names, AGENCY_LABEL.get(agency, '')] if n)) + ': '
+
+
+def rerank(corpus, task, hits, k, mode, product=None, agency=None, fuse=False):
     """Reorder a broad candidate pool with the local cross-encoder; keep the top k.
 
-    mode: 'request' (the task's Korean request), 'queries' (planner queries) or
-    'both'; a passage scores the best of its queries. Scores order sources only.
+    mode: 'request' (the task's Korean request), 'queries' (planner queries), 'both' or
+    'ask' (the planner's per-fact restatements); '<mode>_unit' prefixes each query with the
+    slot's product names and agency. A passage scores the best of its queries. With fuse the
+    hybrid and reranker ranks are combined (RRF, k=60): the reranker can promote a passage but
+    cannot bury a strong hybrid hit. Scores order sources only.
     """
     model = getattr(corpus, '_ra_reranker', None)
     if model is None:
         from rag.rerank import LocalReranker
         model = corpus._ra_reranker = LocalReranker(batch_size=8, max_length=1024)
+    # 'ask': the planner's restatement of each requested facet (+ separate item), or the request.
+    asks = list(dict.fromkeys(f['ask'] + (' ' + item if item else '')
+                              for f in task.get('answer_facets', []) if f.get('ask')
+                              for item in (f.get('items') or [None])))
+    unit = mode.endswith('_unit')
+    base = mode[:-5] if unit else mode
     queries = {'request': [task['request']], 'queries': list(task['queries']),
-               'both': [task['request'], *task['queries']]}[mode]
+               'both': [task['request'], *task['queries']], 'ask': asks or [task['request']]}[base]
+    if unit:
+        queries = [unit_prefix(product, agency) + q for q in queries]
     best = {}
     for query in queries:
         for score, i in model.rank(query, hits, corpus.chunks, limit=len(hits)):
             best[i] = max(best.get(i, score), score)
-    return sorted(((s, i) for i, s in best.items()), key=lambda x: -x[0])[:k]
+    reranked = sorted(((s, i) for i, s in best.items()), key=lambda x: -x[0])
+    if not fuse:
+        return reranked[:k]
+    hybrid = {i: n for n, (_, i) in enumerate(hits, 1)}
+    model_rank = {i: n for n, (_, i) in enumerate(reranked, 1)}
+    fused = [(1 / (60 + n) + 1 / (60 + model_rank.get(i, len(hits) + 1)), i) for i, n in hybrid.items()]
+    return sorted(fused, key=lambda x: -x[0])[:k]
 
 
 def strip_slot_terms(query):
@@ -234,7 +267,8 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
                     consensus = ((topic_pos,) if topic_queries == 'fuse' else ()) + ((question_pos,) if P['question_query'] == 'fuse' else ())
                     if P['rerank']:
                         pool = diverse_hits(rankings, P['rerank_pool'], consensus_only=consensus, same=same)
-                        hits = rerank(corpus, task, pool, k, P['rerank']) if pool else pool
+                        hits = rerank(corpus, task, pool, k, P['rerank'], product=product, agency=agency,
+                                      fuse=P['rerank_fuse']) if pool else pool
                     else:
                         hits = diverse_hits(rankings, k, consensus_only=consensus, same=same)
                     groups.append({'task_id': task['id'], 'product': product, 'jurisdiction': agency,
@@ -318,6 +352,43 @@ def blocks(corpus, selected):
     return result
 
 
+def checklist_first(corpus, groups, question, understanding):
+    """For each checklist entry (or open task request) x product x agency, the closest retrieved candidate.
+
+    The entry text is the planner's restatement (ask) plus its item; closeness is the dense
+    embedding similarity already used for retrieval. Only retrieved hits are candidates, so
+    this changes the admission order, never the corpus.
+    """
+    import os
+    from rag.ra_obligations import checklist
+    # Measured without effect (2026-10-16, input budget does not bind); off unless RA_CHECKLIST_PACKING=1.
+    if os.environ.get('RA_CHECKLIST_PACKING', '0') != '1' or not hasattr(corpus, 'encode'):
+        return []
+    entries = [e for e in checklist(question, understanding['tasks']) if e.get('product')]
+    if not entries:
+        # An open request (no facets, e.g. approval dates): the task request is the entry.
+        entries = [{'product': p, 'need': t['request']} for t in understanding['tasks']
+                   if set(t['source_roles']) - {'guideline'} for p in understanding.get('products') or []]
+    if not entries:
+        return []
+    texts = list(dict.fromkeys(e['need'] + (' ' + e['item'] if e.get('item') else '') for e in entries))
+    vectors = dict(zip(texts, corpus.encode(texts)))
+    index = getattr(corpus, '_chunk_index', None)
+    if index is None:
+        index = corpus._chunk_index = {c['chunk_id']: i for i, c in enumerate(corpus.chunks)}
+    picks = []
+    for entry in entries:
+        vector = vectors[entry['need'] + (' ' + entry['item'] if entry.get('item') else '')]
+        for group in groups:
+            if group.get('product') != entry['product'] or not group['hits']:
+                continue
+            scored = [(float(corpus.vec[index[h['chunk']['chunk_id']]] @ vector), n, h)
+                      for n, h in enumerate(group['hits']) if h['chunk']['chunk_id'] in index]
+            if scored:
+                picks.append((max(scored, key=lambda x: (x[0], -x[1]))[2]['chunk'], group))
+    return picks
+
+
 def context(corpus, groups, question, understanding, client, citation_mode='quote', *, guideline_index=None):
     selected, omitted, seen = [], [], set()
     task_map = {t['id']: t for t in understanding['tasks']}
@@ -338,8 +409,8 @@ def context(corpus, groups, question, understanding, client, citation_mode='quot
     # smaller cushion for that stage; both calls still have exact preflight.
     # Avoid spending the former question/coverage cushion on a larger answer
     # contract at the expense of previously admitted whole source packets.
-    from rag.ra_obligations import build as question_obligations
-    focused = citation_mode == 'spans' and bool(question_obligations(question))
+    from rag.ra_obligations import slot_rows
+    focused = citation_mode == 'spans' and bool(slot_rows(question, understanding['tasks']))
     reserve = min((128 if focused else 600) if citation_mode == 'spans' else 1200,
                   max(256, client.input_limit // 4))
     # A larger generation output (many enumerated claims) comes out of the input budget.
@@ -369,6 +440,9 @@ def context(corpus, groups, question, understanding, client, citation_mode='quot
                 'product_id': chunk.get('product_id'), 'jurisdiction': chunk['jurisdiction'],
                 'reason': 'whole_source_and_heading_package_exceeds_input_budget'})
 
+    # Checklist coverage first: each requested entry gets its closest candidate per product x agency.
+    for chunk, group in checklist_first(corpus, reading_groups, question, understanding):
+        add(chunk, 'retrieved', group)
     # Fairness across tasks/products/agencies precedes more hits from one group.
     for row in itertools.zip_longest(*(g['hits'] for g in reading_groups)):
         for group, hit in zip(reading_groups, row):

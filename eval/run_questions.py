@@ -20,11 +20,19 @@ def main():
     p.add_argument('--only', help='comma-separated case IDs')
     p.add_argument('--extra-default', default='', help='comma-separated doc groups searched by default')
     p.add_argument('--planner-inventory', action='store_true', help='show the planner the document list')
+    p.add_argument('--retrieval-pages', type=int, default=8, help='candidates kept per task x product x agency')
+    p.add_argument('--rerank', choices=['request', 'queries', 'both', 'ask', 'request_unit', 'ask_unit'],
+                   help='local reranker query')
+    p.add_argument('--rerank-fuse', action='store_true', help='combine hybrid and reranker ranks (RRF)')
+    p.add_argument('--rerank-pool', type=int, default=40)
     a = p.parse_args()
     if a.planner_inventory:
         import os
         os.environ['RA_PLANNER_INVENTORY'] = '1'
-    profile = {'extra_default_groups': tuple(g for g in a.extra_default.split(',') if g)} if a.extra_default else None
+    profile = {'extra_default_groups': tuple(g for g in a.extra_default.split(',') if g)} if a.extra_default else {}
+    if a.rerank:
+        profile.update(rerank=a.rerank, rerank_pool=a.rerank_pool, rerank_fuse=a.rerank_fuse)
+    profile = profile or None
     code = a.code_root.resolve()
     sys.path.insert(0, str(code))
     from rag.openai_chat import OpenAIPipelineChat
@@ -37,7 +45,7 @@ def main():
     pipe = RAPipeline(data / 'data/versions/04_pipeline_h_supplement_2026-10-14/embedded/release', None,
                       load_config(code / 'configs/preprocess.local.json'), 'http://127.0.0.1:8886',
                       guideline_snapshot=data / 'data/guidelines/ra_guidelines_native_2026-10-12_v2',
-                      research_rounds=1, retrieval_pages=8, retrieval_profile=profile,
+                      research_rounds=1, retrieval_pages=a.retrieval_pages, retrieval_profile=profile,
                       chat_client=OpenAIPipelineChat(model='gpt-5.6-luna', context_tokens=65536))
     a.out.mkdir(parents=True, exist_ok=True)
     try:
