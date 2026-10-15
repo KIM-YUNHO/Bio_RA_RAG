@@ -227,9 +227,21 @@ Registered product identities: """ + json.dumps(inventory, ensure_ascii=False)
     if not isinstance(mentions, list):
         raise ValueError('Invalid jurisdiction mentions')
     verified = {m.get('jurisdiction') for m in mentions if regulator_mention(question, m)}
-    # The planner's regulator reading stands; only a contradicting proper noun removes it.
-    value['jurisdictions'] = list(dict.fromkeys([*[j for j in value['jurisdictions'] if j in verified or j not in AGENCY_NAMES],
+    # The planner's regulator reading stands; an agency is removed only when the question never
+    # names it or every regulator mention of it is contradicted by a proper noun in its quote
+    # (e.g. "EU Stelara").
+    from rag.request_scope import JURISDICTION_NAMES, named
+    mentioned = {m.get('jurisdiction') for m in mentions if isinstance(m, dict) and m.get('role') == 'regulator'}
+    contradicted = ((mentioned - verified) | {j for j in value['jurisdictions'] if j in JURISDICTION_NAMES
+                                               and not named(question, JURISDICTION_NAMES[j])}) & set(AGENCY_NAMES)
+    value['jurisdictions'] = list(dict.fromkeys([*[j for j in value['jurisdictions'] if j not in contradicted],
                                                  *[j for j in verified if j in AGENCY_NAMES and j not in value['jurisdictions']]]))
+    if contradicted:
+        value['jurisdictions_removed_by_contradiction'] = sorted(contradicted)
+    unverified = [m for m in mentions if isinstance(m, dict) and m.get('role') == 'regulator'
+                  and not contains_quote(question, m.get('quote') or '')]
+    if unverified:
+        value['jurisdiction_quotes_not_verbatim'] = unverified  # recorded, not a reason to remove
     # Trial protocol/SAP sources: the planner decides whether a task asks about the sponsor's
     # plan (its source_roles). Such a request also reaches the sponsor source even when it
     # names an agency to compare against.

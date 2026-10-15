@@ -50,13 +50,15 @@ class RequestScopeTests(unittest.TestCase):
 
     def test_regulator_mention_checks_proper_nouns_not_quote_formatting(self):
         from rag.request_scope import regulator_mention
-        q = 'Pyzchiva(SB17)의 FDA 승인일과 EU 최초 판매허가일, 그리고 미국에서의 교체가능성 지위를 비교해줘.'
-        stitched = {'jurisdiction': 'US', 'role': 'regulator', 'quote': 'FDA 승인일과 ... 미국에서의 교체가능성 지위'}
-        self.assertTrue(regulator_mention(q, stitched))
-        self.assertTrue(regulator_mention(q, {'jurisdiction': 'EU', 'role': 'regulator', 'quote': 'EU 최초 판매허가일'}))
+        q = 'Pyzchiva의 EU 최초 판매허가일과 미국 승인일을 정리해줘.'
+        # Stitched or paraphrased quotes are not contradictions: the planner's agency stands.
+        self.assertTrue(regulator_mention(q, {'jurisdiction': 'EU', 'role': 'regulator', 'quote': 'EU ... 판매허가일'}))
+        self.assertTrue(regulator_mention(q, {'jurisdiction': 'US', 'role': 'regulator', 'quote': '미국에서의 승인일'}))
+        # Proper-noun contradictions remove it.
         arms = 'SB17 시험에서 미국 Stelara와 유럽 Stelara 군의 PK 결과를 비교해줘.'
         self.assertFalse(regulator_mention(arms, {'jurisdiction': 'US', 'role': 'regulator', 'quote': '미국 Stelara'}))
-        self.assertFalse(regulator_mention(arms, {'jurisdiction': 'US', 'role': 'regulator', 'quote': 'US 문서'}))
+        self.assertFalse(regulator_mention('EMA 평가에서', {'jurisdiction': 'US', 'role': 'regulator', 'quote': 'EMA 평가'}))
+        self.assertFalse(regulator_mention(q, {'jurisdiction': 'US', 'role': 'comparator', 'quote': '미국'}))
 
     def test_unpinned_unavailable_product_is_not_silently_replaced(self):
         self.u['products']=['ABP654']
