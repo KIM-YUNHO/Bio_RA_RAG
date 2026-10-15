@@ -173,22 +173,32 @@ def run(args):
         'pipeline_version': summary.get('pipeline_version'), 'answer_model': summary.get('answer_model'),
         'run_name': summary.get('run_name'), 'product_index_chunks': summary.get('product_index_chunks'),
         'qa_file': str(args.qa), 'qa_sha256': digest(args.qa), 'dataset_version': questions[0].get('dataset_version'),
-        'question_ids': [q['qa_id'] for q in questions], 'scope': {'products': [args.product],
-        'jurisdictions': [args.jurisdiction]}, 'judge_model': args.judge_model or 'project default (.env)',
+        'question_ids': [q['qa_id'] for q in questions], 'scope': ('all products and agencies (screen default)' if args.all_scope else
+                  {'products': [args.product], 'jurisdictions': [args.jurisdiction]}), 'judge_model': args.judge_model or 'project default (.env)',
         'no_judge': args.no_judge})
     rows = []
+    spent_input = 0
     for number, q in enumerate(questions, 1):
         qid = q['qa_id']
-        payload = {'question': q['question'], 'products': [args.product], 'jurisdictions': [args.jurisdiction]}
+        if args.all_scope:
+            # What the screen sends with nothing narrowed: every product and agency of /api/summary.
+            payload = {'question': q['question'], 'products': summary['products'],
+                       'jurisdictions': summary['jurisdictions'], 'include_nondefault': False}
+        else:
+            payload = {'question': q['question'], 'products': [args.product], 'jurisdictions': [args.jurisdiction]}
         if args.document_key:
             payload['documents'] = args.document_key.split(',')
         response_path = out / 'responses' / f'{qid}.json'
+        if args.max_input_tokens and spent_input >= args.max_input_tokens and not response_path.exists():
+            print(f'Stopped before {qid}: {spent_input} input tokens reach --max-input-tokens', flush=True)
+            break
         if response_path.exists():
             job = read_json(response_path)
         else:
             print(f"[{number}/{len(questions)}] {qid} ({q['question_type']})", flush=True)
             job = ask(base, payload); write_json(response_path, job)
         report = job.get('report') or {}
+        spent_input += (report.get('usage') or {}).get('input_tokens', 0)
         text, refs, quotes = answer_view(report)
         row = {'qa_id': qid, 'question': q['question'], 'question_type': q['question_type'], 'split': q['split'],
                'qa_pattern': q.get('qa_pattern'), 'difficulty': q['difficulty'], 'job_state': job['state'],
@@ -232,6 +242,10 @@ if __name__ == '__main__':
     p.add_argument('--product', default='ABP654')
     p.add_argument('--jurisdiction', default='US')
     p.add_argument('--ids', help='comma-separated qa_id list')
+    p.add_argument('--all-scope', action='store_true',
+                   help='send every product and agency like the screen does when nothing is narrowed')
+    p.add_argument('--max-input-tokens', type=int, default=0,
+                   help='stop before the next new question once service input tokens reach this total')
     p.add_argument('--document-key', help='pin the request to these document keys of /api/summary (e.g. d34), '
                    'like selecting the document on the screen; comma-separated')
     p.add_argument('--sample', action='store_true', help='one question per type plus one complex table')
