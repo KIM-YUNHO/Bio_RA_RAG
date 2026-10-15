@@ -247,7 +247,7 @@ def main():
     parser.add_argument('--config',type=Path,default=Path('configs/preprocess.local.json'))
     parser.add_argument('--review-url',default='http://127.0.0.1:8766')
     parser.add_argument('--port',type=int,default=8765)
-    parser.add_argument('--retrieval-pages',type=int,default=8,choices=range(1,11),
+    parser.add_argument('--retrieval-pages',type=int,default=8,choices=range(1,21),
         help='Hits per product x agency slot (2026-10-14 benchmark: 8 + fixed topic queries)')
     parser.add_argument('--mode',choices=('legacy','ra'),default='legacy')
     parser.add_argument('--llm-model',choices=('gpt-4o-mini','gpt-5.6-luna'),default='gpt-4o-mini',

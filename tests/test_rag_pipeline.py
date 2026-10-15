@@ -112,7 +112,7 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(report['usage'],{'input_tokens':4010,'output_tokens':3005})
 
     def test_retrieval_budget_is_bounded_and_reported(self):
-        for value in (0, 11, True, 3.5):
+        for value in (0, 21, True, 3.5):
             with self.subTest(value=value), self.assertRaises(ValueError):
                 RAGPipeline(bundle=self.bundle, retrieval_pages=value)
         self.pipeline.retrieval_pages = 3

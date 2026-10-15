@@ -231,7 +231,7 @@ def main():
     parser.add_argument('--product', action='append')
     parser.add_argument('--jurisdiction', action='append')
     parser.add_argument('--document', action='append')
-    parser.add_argument('--retrieval-pages', type=int, default=5, choices=range(1, 11))
+    parser.add_argument('--retrieval-pages', type=int, default=5, choices=range(1, 21))
     parser.add_argument('--include-nondefault', action='store_true')
     parser.add_argument('--citation-mode', choices=('quote', 'spans'), default='spans')
     parser.add_argument('--research-rounds', type=int, choices=(0,1), default=1)
