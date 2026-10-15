@@ -93,9 +93,16 @@ arms, categories, ranges or time points, copy each one verbatim from the questio
 (e.g. "US ustekinumab군", "EU ustekinumab군"; "55 kg 이하", "85 kg 초과"); otherwise [].
 Products are not items (they are handled separately).
 task.jurisdictions: the source agencies this task reads (empty = every agency of the plan).
+It partitions the work and never narrows the user's scope, so set it even when the plan's
+jurisdictions stay empty because the question names no agency.
 When one request spans several agencies whose answers sit in different kinds of documents
 (e.g. FDA approval letters, Health Canada decision summaries, EU product information), make
-one task per agency, each with that agency's own document roles and jurisdictions.
+one task per agency, each with that agency's own document roles and jurisdictions. This
+holds also when the question names no agency but asks across all of them: one task per
+agency that the available documents cover. Such tasks may share the same request_quote.
+Example: "SB17의 각 기관 허가 조건을 정리해줘" -> T1 jurisdictions [EU] roles [label, assessment],
+T2 [US] [correspondence, label], T3 [CA] [decision_summary, correspondence], all quoting
+"SB17의 각 기관 허가 조건을 정리해줘".
 topics: the clinical-study CONTENT a task asks about (empty otherwise; approvals,
 interchangeability decisions, labels' dosing and guidance are not topics):
 clinical_program (overview of the clinical studies), pk_study (PK study design or

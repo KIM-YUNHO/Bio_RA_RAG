@@ -28,7 +28,8 @@ reported to the user, not searched.
 
 Intents are per TASK. Split the question into one task per distinct request;
 a question asking for a comparison AND an agency's reasoning gets two tasks.
-Requests with the same intent and the same targets stay in one task. Each task
+Requests with the same intent and the same targets stay in one task, unless they read
+different agencies' documents: then one task per agency (task.jurisdictions). Each task
 gets intent.request_quote: copy verbatim the shortest original-question span
 that this task answers (exact characters, no paraphrase). Write task.request as
 a self-contained request: restore the products, studies and sources that the
