@@ -138,7 +138,7 @@ def study_conflict(claim, evidence):
 
 # Planner facets whose answer is a printed value code can compare with the cited source.
 VALUE_FACETS = {'dose_route', 'dosing_schedule', 'table_statistics'}
-TIME_VALUE = r'\d+\s*(?:주|일|개월|weeks?|days?|months?)\b|every\s+(?:\d+|eight|twelve)\s+weeks'
+TIME_VALUE = r'\d+\s*(?:주|일|개월|weeks?|days?|months?)(?![A-Za-z])|every\s+(?:\d+|eight|twelve)\s+weeks'
 
 
 def planner_facet_found(wanted, view, endpoints):
@@ -234,7 +234,9 @@ def coverage(question, understanding, evidence, claims):
         checkable = targets != [None] and (
             bool(request['facets']) and set(request['facets']) <= VALUE_FACETS if planned
             else fully_checkable_request(task['request']))
-        if checkable:
+        # One-study coherence applies to study questions; a label's weight-band regimen has no study.
+        study_task = not planned or bool(set(task.get('topics', [])) & {'pk_study', 'design', 'clinical_program'})
+        if checkable and study_task:
             by_id = {c['id']: c for c in own}
             for product in targets:
                 relevant = [c for c in checks if c.get('product_id') == product and c['kind'] in ('facet', 'quantity', 'route')]

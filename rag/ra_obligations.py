@@ -124,6 +124,16 @@ def literal_items(question, items):
     return found if len(found)>=2 else ()
 
 
+def uncovered_sentences(question, tasks):
+    """Original sentences no task quotes or restates (a single-task plan answers every sentence)."""
+    if len(tasks) <= 1:
+        return []
+    items=request_items(question)
+    covered={request_of(t,items) for t in tasks}
+    return [text for rid,text in items.items()
+            if rid not in covered and not any(covers(t,text) for t in tasks) and not answer_constraint_only(text)]
+
+
 def from_plan(question, tasks):
     """Rows from each task's answer facets; product names are checked against the registry."""
     rows=[]

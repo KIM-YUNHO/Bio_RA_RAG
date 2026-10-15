@@ -734,7 +734,8 @@ def generate(question, understanding, evidence, client, citation_mode='quote'):
         from rag.ra_obligations import planned
         if planned(tasks):
             # The planner's tasks carry the request reading; a sentence no task quotes is uncovered.
-            uncovered = (understanding.get('intent_check') or {}).get('uncovered_request_segments', [])
+            from rag.ra_obligations import uncovered_sentences
+            uncovered = uncovered_sentences(question, tasks)
             original_checks = {**request_checks, 'tasks': [*request_checks['tasks'], *[
                 {'task_id': None, 'request': s, 'requested_conditions': {}, 'checks': [],
                  'completion_checkable': False, 'minimum_requirements_met': False} for s in uncovered]]}
