@@ -119,8 +119,8 @@ def literal_detail(question, facet, detail):
 
 def literal_items(question, items):
     """Planner items printed in the question; fewer than two need no separate rows."""
-    from rag.evidence import contains_quote
-    found=tuple(dict.fromkeys(i.strip() for i in items or [] if i.strip() and contains_quote(question,i.strip())))
+    from rag.ra_models import name_in_question
+    found=tuple(dict.fromkeys(i.strip() for i in items or [] if name_in_question(question,i)))
     return found if len(found)>=2 else ()
 
 

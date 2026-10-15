@@ -43,7 +43,8 @@ SCHEMA = {'name': 'query_understanding', 'schema': obj({
     'in_scope': {'type': 'boolean'},
     'products': STRINGS, 'jurisdictions': STRINGS,
     'jurisdiction_mentions': {'type': 'array', 'items': obj({
-        'jurisdiction': STRING, 'role': {'type': 'string', 'enum': ['regulator', 'comparator', 'context']}, 'quote': STRING})},
+        'jurisdiction': {'type': 'string', 'enum': ['EU', 'US', 'CA', 'sponsor']},
+        'role': {'type': 'string', 'enum': ['regulator', 'comparator', 'context']}, 'name': STRING, 'quote': STRING})},
     'english_query': STRING,
     'tasks': {'type': 'array', 'minItems': 1, 'maxItems': 4, 'items': obj({'request': STRING,
         'queries': {'type': 'array', 'minItems': 1, 'maxItems': 2, 'items': STRING},
@@ -145,7 +146,9 @@ Products are registry IDs; unmentioned products stay empty. Jurisdictions refer
 only to requested DOCUMENT SOURCES (EU=EMA, US=FDA, CA=Health Canada, sponsor=ClinicalTrials.gov
 protocol/SAP); EU/US sourced
 comparator medicines and recruitment countries are not source jurisdictions.
-Each jurisdiction requires a verbatim Korean quote with role=regulator. If no
+Each jurisdiction needs a mention with role=regulator: name = the agency or region word
+exactly as written in the question (e.g. "EU", "FDA", "미국", "캐나다"); quote = the phrase
+around it. If no
 source agency was specified leave jurisdictions and mentions empty. Keep explicit
 unavailable targets so the application can explain scope gaps. Do not invent a
 scope from the user's UI filters. Queries may use identity aliases, not results.
@@ -161,7 +164,8 @@ Registered product identities: """ + json.dumps(inventory, ensure_ascii=False)
     reply = client([{'role': 'system', 'content': system}, {'role': 'user', 'content': question}],
                    json_schema=SCHEMA_FOLLOW_UP if follow_up else SCHEMA, provider=getattr(client, 'provider', 'ollama'))
     from rag.ra_models import ResearchPlan, FollowUpResearchPlan
-    value = (FollowUpResearchPlan if follow_up else ResearchPlan).model_validate_json(reply['text']).model_dump()
+    value = (FollowUpResearchPlan if follow_up else ResearchPlan).model_validate_json(
+        reply['text'], context={'question': question}).model_dump()
     conversation = {**resolution, 'user_question': user_question, 'standalone_question': question,
                     'standalone_check': 'single_turn'}
     if follow_up:
@@ -192,20 +196,9 @@ Registered product identities: """ + json.dumps(inventory, ensure_ascii=False)
         task['id'] = f'T{i}'
         task['request'], notes = strip_scope_notes(task['request'])
         if notes: task['removed_scope_notes'] = notes
-        quote = task.get('guideline_request_quote', '')
-        if 'guideline' in task['source_roles'] and not contains_quote(question, quote):
-            from rag.ra_requirements import route_task
-            routed = route_task(question,task)
-            if routed.get('routing_checks') and contains_quote(question,routed['guideline_request_quote']):
-                task=routed
-                task['routing_adjustment']='explicit_original_guidance_request_witness_restored'
-                tasks[i-1]=task
-                quote=task['guideline_request_quote']
-        if 'guideline' in task['source_roles'] and not contains_quote(question, quote):
-            task['source_roles'] = [r for r in task['source_roles'] if r != 'guideline']
-            task['routing_adjustment'] = 'guideline_role_without_original_request_quote_removed'
-            if not task['source_roles']:
-                raise ValueError('Guideline routing needs an original request quote')
+        # The planner's guideline role stands; its quote is recorded, never a reason to drop the role.
+        if 'guideline' in task['source_roles']:
+            task['guideline_quote_verbatim'] = contains_quote(question, task.get('guideline_request_quote', ''))
         from rag.ra_requirements import route_task
         tasks[i - 1] = route_task(question, task)
     # Per-task intent checks; sets intents, the derived question-level intent and uncovered segments.
@@ -220,28 +213,19 @@ Registered product identities: """ + json.dumps(inventory, ensure_ascii=False)
         if question_products and set(task['source_roles']) - {'guideline'} and not named_products(task['request']):
             task['request'] = f"{', '.join(question_products)} 대상: {task['request']}"
             task['targets_restored'] = question_products
-    # Source jurisdiction declarations must have an original-question regulator
-    # mention. Comparator-only regions cannot narrow the source corpus.
-    from rag.request_scope import regulator_mention, AGENCY_NAMES
+    # A source agency is the planner's reading; it narrows the scope when its regulator mention
+    # copies a name printed in the question and names no reference product ("EU Stelara").
+    from rag.request_scope import regulator_mention
+    from rag.ra_models import REGULATORS
     mentions = value.get('jurisdiction_mentions')
     if not isinstance(mentions, list):
         raise ValueError('Invalid jurisdiction mentions')
     verified = {m.get('jurisdiction') for m in mentions if regulator_mention(question, m)}
-    # The planner's regulator reading stands; an agency is removed only when the question never
-    # names it or every regulator mention of it is contradicted by a proper noun in its quote
-    # (e.g. "EU Stelara").
-    from rag.request_scope import JURISDICTION_NAMES, named
-    mentioned = {m.get('jurisdiction') for m in mentions if isinstance(m, dict) and m.get('role') == 'regulator'}
-    contradicted = ((mentioned - verified) | {j for j in value['jurisdictions'] if j in JURISDICTION_NAMES
-                                               and not named(question, JURISDICTION_NAMES[j])}) & set(AGENCY_NAMES)
-    value['jurisdictions'] = list(dict.fromkeys([*[j for j in value['jurisdictions'] if j not in contradicted],
-                                                 *[j for j in verified if j in AGENCY_NAMES and j not in value['jurisdictions']]]))
-    if contradicted:
-        value['jurisdictions_removed_by_contradiction'] = sorted(contradicted)
-    unverified = [m for m in mentions if isinstance(m, dict) and m.get('role') == 'regulator'
-                  and not contains_quote(question, m.get('quote') or '')]
-    if unverified:
-        value['jurisdiction_quotes_not_verbatim'] = unverified  # recorded, not a reason to remove
+    unsupported = [j for j in value['jurisdictions'] if j in REGULATORS and j not in verified]
+    value['jurisdictions'] = list(dict.fromkeys([*[j for j in value['jurisdictions'] if j not in unsupported],
+                                                 *[j for j in REGULATORS if j in verified]]))
+    if unsupported:
+        value['jurisdictions_without_printed_name'] = unsupported
     # Trial protocol/SAP sources: the planner decides whether a task asks about the sponsor's
     # plan (its source_roles). Such a request also reaches the sponsor source even when it
     # names an agency to compare against.

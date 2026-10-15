@@ -16,13 +16,6 @@ def named(text, identifiers):
         r'(?![A-Za-z0-9])', text, re.I) for value in values)
 
 
-AGENCY_NAMES = {'EU': ['EMA', 'European Medicines Agency', '유럽의약품청'],
-                'US': ['FDA', 'Food and Drug Administration', '미국 식품의약국'],
-                'CA': ['Health Canada', '캐나다 보건부']}
-# Agency or region names: the question must name the jurisdiction somewhere (no invented agency).
-JURISDICTION_NAMES = {'EU': [*AGENCY_NAMES['EU'], 'EU', '유럽', 'Europe', 'European'],
-                      'US': [*AGENCY_NAMES['US'], 'US', 'U.S.', 'USA', '미국', 'United States'],
-                      'CA': [*AGENCY_NAMES['CA'], '캐나다', 'Canada']}
 
 
 @lru_cache(maxsize=1)
@@ -41,25 +34,22 @@ def reference_names():
 
 
 def regulator_mention(question, mention):
-    """The planner's regulator reading stands unless a proper noun in its quote contradicts it.
+    """The planner's agency reading stands when the name it copied is printed in the question.
 
-    The question must name the jurisdiction somewhere (agency or region name), so an
-    invented agency cannot narrow the scope. Contradictions: the quote names a reference
-    product ("EU Stelara" is a comparator's origin) or names only another agency ("EMA ..."
-    labelled US). A quote that is not verbatim (stitched or paraphrased) is not a
-    contradiction; ra_tasks records it.
+    Which agency a word means ("미국" -> US) is the planner's reading; code keeps no
+    agency-name list. Two proper-noun facts only: the copied name occurs in the question
+    (an invented agency cannot narrow the scope), and the mention does not name a
+    reference product ("EU Stelara" is a comparator's origin, not a regulator).
     """
+    from rag.ra_models import REGULATORS, name_in_question
     if not isinstance(mention, dict) or mention.get('role') != 'regulator':
         return False
-    quote, jurisdiction = mention.get('quote') or '', mention.get('jurisdiction')
-    if jurisdiction not in AGENCY_NAMES:
+    if mention.get('jurisdiction') not in REGULATORS:
         return False  # 'sponsor' (trial registry) is a source type, added only for protocol/SAP requests
-    if not named(question, JURISDICTION_NAMES[jurisdiction]):
+    name = mention.get('name') or ''
+    if not name_in_question(question, name):
         return False
-    if named(quote, reference_names()):
-        return False
-    others = [j for j, names in AGENCY_NAMES.items() if j != jurisdiction and named(quote, names)]
-    return not others or named(quote, AGENCY_NAMES.get(jurisdiction, []))
+    return not named(name + ' ' + (mention.get('quote') or ''), reference_names())
 
 
 def bind_request_scope(question, interpretation, products, agencies, *,

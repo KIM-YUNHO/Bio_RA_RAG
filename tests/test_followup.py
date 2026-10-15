@@ -53,7 +53,7 @@ class Client:
 
 def plan_reply(**extra):
     return {**extra, 'in_scope': True, 'products': ['CTP43'], 'jurisdictions': ['EU'],
-            'jurisdiction_mentions': [{'jurisdiction': 'EU', 'role': 'regulator', 'quote': 'EMA 문서에서'}],
+            'jurisdiction_mentions': [{'jurisdiction': 'EU', 'role': 'regulator', 'name': 'EMA', 'quote': 'EMA 문서에서'}],
             'english_query': 'CT-P43 EMA assessment issues important identified risks',
             'tasks': [{'request': 'EMA 문서에서 CTP43 평가 이슈가 전혀 없었는지 확인해 달라.', 'queries': ['CT-P43 EMA major objections'],
                        'source_roles': ['assessment'], 'guideline_request_quote': '',

@@ -62,10 +62,23 @@ class ResearchTask(Contract):
         return value
 
 
+REGULATORS = ('EU', 'US', 'CA')
+
+
+def name_in_question(question, name):
+    """A planner-copied name (agency/region word, group, endpoint) is printed in the question."""
+    from rag.evidence import contains_quote
+    return bool((name or '').strip()) and contains_quote(question or '', name.strip())
+
+
 class JurisdictionMention(Contract):
-    jurisdiction: str
+    jurisdiction: Literal['EU', 'US', 'CA', 'sponsor']
     role: Literal['regulator', 'comparator', 'context']
-    quote: str
+    # The agency or region word exactly as written in the question ("EU", "FDA", "미국").
+    name: Annotated[str, Field(max_length=100)] = ''
+    quote: str = ''
+    # Set by ResearchPlan validation (context question); not part of the planner schema.
+    name_in_question: bool = False
 
 
 class ResearchPlan(Contract):
@@ -76,6 +89,15 @@ class ResearchPlan(Contract):
     # Kept for the record; RA retrieval uses each task's queries, so an empty value is not an error.
     english_query: str
     tasks: Annotated[list[ResearchTask], Field(min_length=1, max_length=4)]
+
+    @model_validator(mode='after')
+    def names_printed_in_question(self, info: ValidationInfo):
+        """Copied names are checked against the question; a missing one is flagged, never fatal."""
+        question = getattr(self, 'standalone_question', None) or (info.context or {}).get('question')
+        if question is not None:
+            for mention in self.jurisdiction_mentions:
+                mention.name_in_question = name_in_question(question, mention.name)
+        return self
 
 
 class FollowUpResearchPlan(ResearchPlan):

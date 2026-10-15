@@ -160,7 +160,7 @@ class ProtocolSourceRouting(unittest.TestCase):
         self.assertEqual(u['tasks'][0]['source_roles'], ['assessment'])
         self.assertNotIn('sponsor_source_added', u)
         q = 'SB17 프로토콜의 1차 평가변수와 EMA 평가를 비교해줘'
-        mention = [{'jurisdiction': 'EU', 'role': 'regulator', 'quote': 'EMA'}]
+        mention = [{'jurisdiction': 'EU', 'role': 'regulator', 'name': 'EMA', 'quote': 'EMA 평가'}]
         u, _ = ra_tasks.interpret(q, Client(['protocol', 'assessment'], ['EU'], mention), ['SB17'], agencies)
         self.assertEqual(u['jurisdictions'], ['EU', 'sponsor'])
         self.assertEqual(u['tasks'][0]['source_roles'], ['protocol', 'assessment'])
