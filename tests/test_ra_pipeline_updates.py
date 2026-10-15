@@ -60,23 +60,23 @@ class RequestTests(unittest.TestCase):
             [task('시험 국가')], check_numbers=False)
         self.assertFalse(rejected)
         self.assertEqual(len(kept), 1)
-    def test_missing_general_reference_guidance_is_added_without_replacing_queries(self):
+    def test_guidance_only_task_reads_guidance_and_keeps_queries(self):
         question = 'EMA 문서의 바이오시밀러 대조약 선택과 비EEA 대조약 브리징에 대한 설명을 요약해줘.'
-        old = task(question); routed = req.route_task(question, old)
-        self.assertEqual(old['source_roles'], ['assessment'])
+        old = {**task(question), 'source_roles': ['guideline']}; routed = req.route_task(question, old)
         self.assertEqual(routed['queries'], old['queries'])
-        self.assertEqual(routed['source_roles'], ['assessment', 'guideline'])
+        self.assertEqual(routed['source_roles'], ['guideline'])
         self.assertEqual(routed['reading_source_roles'], ['guideline'])
-        self.assertIn(routed['guideline_request_quote'], question)
+        self.assertEqual(routed['required_source_roles'], ['guideline'])
 
-    def test_product_comparator_and_explicit_exclusion_do_not_add_guidance(self):
+    def test_keywords_never_add_a_guideline_role(self):
         for question in ('EMA SB17 건강인 PK 시험의 대조약과 투여 경로를 알려줘.',
-                         '가이던스는 제외하고 EMA 바이오시밀러 대조약 선택 승인 사례를 알려줘.'):
+                         '가이던스는 제외하고 EMA 바이오시밀러 대조약 선택 승인 사례를 알려줘.',
+                         'EMA 바이오시밀러 지침을 요약해줘.'):
             self.assertNotIn('guideline', req.route_task(question, task(question))['source_roles'])
 
     def test_mixed_guidance_and_product_request_keeps_both_reading_paths(self):
         question = 'EMA 지침과 SB17 승인 선례를 비교해줘.'
-        routed = req.route_task(question, task(question))
+        routed = req.route_task(question, {**task(question), 'source_roles': ['assessment', 'guideline']})
         self.assertEqual(routed['required_source_roles'], ['guideline'])
         self.assertNotIn('reading_source_roles', routed)
 
@@ -108,7 +108,7 @@ class RequestTests(unittest.TestCase):
         self.assertTrue(all(not row['satisfied'] for row in result['tasks'][0]['checks'] if row.get('product_id') == 'ABP654'))
 
     def test_source_role_requires_a_kept_claim_citing_that_role(self):
-        t = req.route_task('EMA 가이던스를 요약해줘.', task('EMA 가이던스를 요약해줘.'))
+        t = req.route_task('EMA 가이던스를 요약해줘.', {**task('EMA 가이던스를 요약해줘.'), 'source_roles': ['guideline']})
         c = claim('제품 선례를 확인했다.'); c['products'] = []
         result = req.coverage(t['request'], {'tasks': [t]}, {'E1': chunk('a')}, [c])
         self.assertFalse(result['tasks'][0]['minimum_requirements_met'])

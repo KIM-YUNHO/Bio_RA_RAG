@@ -71,32 +71,18 @@ def conditions(text):
 
 
 def route_task(question, task):
-    """Repair a narrow, explicit missing-guideline route; retain search queries.
+    """Reading boundaries from the planner's source roles; no keyword routing.
 
-    An agency mention or comparator alone is insufficient. Product-specific
-    facts retain their original reading role; explicit mixed requests retain both.
+    A guideline role the planner chose must be cited for the task to complete. A task
+    reading ONLY guidance keeps product precedents out of its context. Search queries
+    are retained.
     """
     out = deepcopy(task)
     text = task['request']
-    guidance_pattern = r'가이던스|가이드라인|지침|guidelines?|guidance|일반\s*(?:요건|기준)|규제\s*(?:요건|기준)'
-    explicit = re.search(guidance_pattern, text, re.I) if re.search(guidance_pattern, question, re.I) else None
-    excluded = re.search(r'(?:가이던스|가이드라인|지침).{0,12}(?:제외|말고|필요\s*없)|(?:excluding|without)\s+(?:guidance|guidelines)', question, re.I)
-    general_reference = (not named_products(question) and
-        re.search(r'대조약\s*선택|reference product selection|비\s*EEA.*브리징|non.?EEA.*bridging', question, re.I) and
-        re.search(r'바이오시밀러|biosimilar', text, re.I) and
-        re.search(r'대조약\s*선택|reference product selection|비\s*EEA.*브리징|non.?EEA.*bridging', text, re.I))
-    if not excluded and (explicit or general_reference):
-        original = list(out['source_roles'])
-        out['source_roles'] = list(dict.fromkeys([*original, 'guideline']))
+    if 'guideline' in out['source_roles']:
         out['required_source_roles'] = ['guideline']
-        # Preserve exact original-request text as the routing witness.
-        witness = text if text in question else (explicit.group() if explicit and explicit.group() in question else question)
-        out['guideline_request_quote'] = witness
-        precedent = re.search(r'승인\s*(?:사례|선례)|실제\s*(?:시험|사례)|approval precedent|actual study', text, re.I)
-        if not named_products(question) and not precedent:
+        if out['source_roles'] == ['guideline']:
             out['reading_source_roles'] = ['guideline']
-        out['routing_checks'] = {'original_source_roles': original, 'effective_source_roles': out['source_roles'],
-                                 'request_quote': witness, 'reason': 'general_guidance_route_required'}
     out['requested_conditions'] = conditions(question if not named_products(text) else text)
     # Keep explicit trailing requests even if the planner omits that sentence.
     original = conditions(question)
