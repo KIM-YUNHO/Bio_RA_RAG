@@ -1,0 +1,524 @@
+{
+ "version": "post-retrieval-gold-17-v1",
+ "created_kst": "2026-10-15",
+ "purpose": "Page-level relevance for the 17 H v2 development cases (+2 controls), for diagnosing where answer pages drop after first-stage retrieval. Not an independent holdout: these cases were used in development.",
+ "basis": {
+  "cited_correct": "(document_id, pdf_page) cited by kept claims of a report adjudicated 'correct' in data/runs/h_v2_rag_development_2026-10-14_luna_v1/*/adjudication.json",
+  "cited_partial": "cited by a report adjudicated 'partial' (no correct report exists)",
+  "manual_source": "located by reading the source text for a facet the partial answers missed",
+  "cited_safe_control": "cited by a control report adjudicated 'safe_control' (false premise corrected from source)"
+ },
+ "cases": [
+  {
+   "id": "E01",
+   "products": [
+    "SB17"
+   ],
+   "jurisdictions": [
+    "EU"
+   ],
+   "expected": "answer",
+   "question": "EMA SB17-1001 건강인 PK 시험에서 실제 사용한 용량과 투여 경로를 원문으로 확인해줘.",
+   "pages": [
+    [
+     "EMA:63563",
+     37,
+     "cited_correct"
+    ],
+    [
+     "EMA:63563",
+     38,
+     "cited_correct"
+    ],
+    [
+     "EMA:63563",
+     39,
+     "cited_correct"
+    ],
+    [
+     "EMA:63563",
+     59,
+     "cited_correct"
+    ]
+   ]
+  },
+  {
+   "id": "T01",
+   "products": [
+    "SB17"
+   ],
+   "jurisdictions": [
+    "EU"
+   ],
+   "expected": "answer",
+   "question_from": "cases.json",
+   "pages": [
+    [
+     "EMA:63563",
+     45,
+     "cited_correct"
+    ],
+    [
+     "EMA:63563",
+     47,
+     "cited_correct"
+    ]
+   ]
+  },
+  {
+   "id": "T02",
+   "products": [
+    "ABP654"
+   ],
+   "jurisdictions": [
+    "EU"
+   ],
+   "expected": "answer",
+   "question_from": "cases.json",
+   "pages": [
+    [
+     "EMA:64196",
+     42,
+     "cited_correct"
+    ],
+    [
+     "EMA:64196",
+     44,
+     "cited_correct"
+    ],
+    [
+     "EMA:64196",
+     83,
+     "cited_correct"
+    ]
+   ]
+  },
+  {
+   "id": "E03",
+   "products": [
+    "SB17",
+    "ABP654"
+   ],
+   "jurisdictions": [
+    "EU"
+   ],
+   "expected": "answer",
+   "question_from": "cases.json",
+   "pages": [
+    [
+     "EMA:63563",
+     37,
+     "cited_partial"
+    ],
+    [
+     "EMA:63563",
+     38,
+     "cited_partial"
+    ],
+    [
+     "EMA:63563",
+     39,
+     "cited_partial"
+    ],
+    [
+     "EMA:63563",
+     59,
+     "cited_partial"
+    ],
+    [
+     "EMA:63563",
+     60,
+     "cited_partial"
+    ],
+    [
+     "EMA:63563",
+     61,
+     "cited_partial"
+    ],
+    [
+     "EMA:64196",
+     41,
+     "cited_partial"
+    ],
+    [
+     "EMA:64196",
+     42,
+     "cited_partial"
+    ],
+    [
+     "EMA:64196",
+     43,
+     "cited_partial"
+    ],
+    [
+     "EMA:64196",
+     47,
+     "manual_source"
+    ]
+   ]
+  },
+  {
+   "id": "C03",
+   "products": [
+    "CTP43"
+   ],
+   "jurisdictions": [
+    "CA"
+   ],
+   "expected": "answer",
+   "question_from": "cases.json",
+   "pages": [
+    [
+     "HC:PM:00085585",
+     8,
+     "cited_correct"
+    ],
+    [
+     "HC:PM:00085585",
+     95,
+     "cited_correct"
+    ],
+    [
+     "HC:PM:00085585",
+     119,
+     "cited_correct"
+    ],
+    [
+     "HC:PM:00085585",
+     120,
+     "cited_correct"
+    ]
+   ]
+  },
+  {
+   "id": "U03",
+   "products": [
+    "CTP43"
+   ],
+   "jurisdictions": [
+    "US"
+   ],
+   "expected": "answer",
+   "question_from": "cases.json",
+   "pages": [
+    [
+     "FDA:letter:761338Orig1s001ltr",
+     1,
+     "cited_correct"
+    ],
+    [
+     "FDA:letter:761338Orig1s001ltr",
+     2,
+     "cited_correct"
+    ]
+   ]
+  },
+  {
+   "id": "E04",
+   "products": null,
+   "jurisdictions": [
+    "EU"
+   ],
+   "expected": "answer",
+   "question_from": "cases.json",
+   "pages": [
+    [
+     "GL:EMA-SBMP-QUALITY-REV1",
+     4,
+     "cited_partial"
+    ],
+    [
+     "GL:EMA-SBMP-REV1",
+     5,
+     "manual_source"
+    ],
+    [
+     "GL:EMA-SBMP-REV1",
+     6,
+     "cited_partial"
+    ]
+   ]
+  },
+  {
+   "id": "E02",
+   "products": [
+    "CTP43"
+   ],
+   "jurisdictions": [
+    "EU"
+   ],
+   "expected": "answer",
+   "question_from": "cases.json",
+   "pages": [
+    [
+     "EMA:64792",
+     39,
+     "cited_correct"
+    ],
+    [
+     "EMA:64792",
+     88,
+     "cited_correct"
+    ]
+   ]
+  },
+  {
+   "id": "U01",
+   "products": [
+    "BAT2206"
+   ],
+   "jurisdictions": [
+    "US"
+   ],
+   "expected": "answer",
+   "question_from": "cases.json",
+   "pages": [
+    [
+     "FDA:label:761419s000lbl",
+     3,
+     "cited_correct"
+    ]
+   ]
+  },
+  {
+   "id": "U02",
+   "products": [
+    "BMAB1200"
+   ],
+   "jurisdictions": [
+    "US"
+   ],
+   "expected": "answer",
+   "question_from": "cases.json",
+   "pages": [
+    [
+     "FDA:label:761406s002lbl",
+     1,
+     "cited_correct"
+    ],
+    [
+     "FDA:label:761406s002lbl",
+     5,
+     "cited_correct"
+    ]
+   ]
+  },
+  {
+   "id": "U04",
+   "products": null,
+   "jurisdictions": [
+    "US"
+   ],
+   "expected": "answer",
+   "question_from": "cases.json",
+   "pages": [
+    [
+     "GL:FDA-CES-UPDATED-2025",
+     1,
+     "cited_correct"
+    ],
+    [
+     "GL:FDA-CES-UPDATED-2025",
+     2,
+     "cited_correct"
+    ],
+    [
+     "GL:FDA-CES-UPDATED-2025",
+     3,
+     "cited_correct"
+    ],
+    [
+     "GL:FDA-CES-UPDATED-2025",
+     4,
+     "cited_correct"
+    ],
+    [
+     "GL:FDA-QA-REV4",
+     8,
+     "cited_correct"
+    ]
+   ]
+  },
+  {
+   "id": "C01",
+   "products": [
+    "SB17"
+   ],
+   "jurisdictions": [
+    "CA"
+   ],
+   "expected": "answer",
+   "question_from": "cases.json",
+   "pages": [
+    [
+     "HC:PM:00082519",
+     5,
+     "cited_correct"
+    ],
+    [
+     "HC:PM:00082519",
+     6,
+     "cited_correct"
+    ]
+   ]
+  },
+  {
+   "id": "C02",
+   "products": [
+    "ABP654"
+   ],
+   "jurisdictions": [
+    "CA"
+   ],
+   "expected": "answer",
+   "question_from": "cases.json",
+   "pages": [
+    [
+     "HC:SBD1721675750511",
+     8,
+     "cited_partial"
+    ],
+    [
+     "HC:SBD1721675750511",
+     11,
+     "manual_source"
+    ],
+    [
+     "HC:SBD1721675750511",
+     14,
+     "cited_partial"
+    ]
+   ]
+  },
+  {
+   "id": "C04",
+   "products": null,
+   "jurisdictions": [
+    "CA"
+   ],
+   "expected": "answer",
+   "question_from": "cases.json",
+   "pages": [
+    [
+     "GL:HC-BIOSIMILAR-2026",
+     8,
+     "cited_correct"
+    ],
+    [
+     "GL:HC-BIOSIMILAR-2026:non-clinical-and-clinical",
+     5,
+     "cited_correct"
+    ],
+    [
+     "GL:HC-BIOSIMILAR-2026:summary-changes",
+     3,
+     "cited_correct"
+    ]
+   ]
+  },
+  {
+   "id": "T03",
+   "products": [
+    "SB17"
+   ],
+   "jurisdictions": [
+    "EU"
+   ],
+   "expected": "answer",
+   "question_from": "cases.json",
+   "pages": [
+    [
+     "EMA:63563",
+     47,
+     "cited_correct"
+    ]
+   ]
+  },
+  {
+   "id": "T04",
+   "products": [
+    "ABP654"
+   ],
+   "jurisdictions": [
+    "EU"
+   ],
+   "expected": "answer",
+   "question_from": "cases.json",
+   "pages": [
+    [
+     "EMA:64196",
+     42,
+     "cited_correct"
+    ],
+    [
+     "EMA:64196",
+     44,
+     "cited_correct"
+    ]
+   ]
+  },
+  {
+   "id": "T05",
+   "products": [
+    "CTP43"
+   ],
+   "jurisdictions": [
+    "CA"
+   ],
+   "expected": "answer",
+   "question_from": "cases.json",
+   "pages": [
+    [
+     "HC:PM:00085585",
+     8,
+     "cited_correct"
+    ]
+   ]
+  },
+  {
+   "id": "N01",
+   "products": [
+    "SB17"
+   ],
+   "jurisdictions": [
+    "EU"
+   ],
+   "expected": "correct_false_premise",
+   "question_from": "cases.json",
+   "pages": [
+    [
+     "EMA:63563",
+     37,
+     "cited_safe_control"
+    ],
+    [
+     "EMA:63563",
+     38,
+     "cited_safe_control"
+    ],
+    [
+     "EMA:63563",
+     39,
+     "cited_safe_control"
+    ],
+    [
+     "EMA:63563",
+     59,
+     "cited_safe_control"
+    ]
+   ]
+  },
+  {
+   "id": "N02",
+   "products": [
+    "BAT2206"
+   ],
+   "jurisdictions": [
+    "CA"
+   ],
+   "expected": "not_found",
+   "question_from": "cases.json",
+   "pages": []
+  }
+ ]
+}
