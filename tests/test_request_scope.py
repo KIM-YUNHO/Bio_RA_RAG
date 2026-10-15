@@ -48,6 +48,16 @@ class RequestScopeTests(unittest.TestCase):
         u=self.bind('US Stelara 대비 값은?',self.u,selected_agencies=['EU'])
         self.assertEqual(u['request_scope']['status'],'applied')
 
+    def test_regulator_mention_checks_proper_nouns_not_quote_formatting(self):
+        from rag.request_scope import regulator_mention
+        q = 'Pyzchiva(SB17)의 FDA 승인일과 EU 최초 판매허가일, 그리고 미국에서의 교체가능성 지위를 비교해줘.'
+        stitched = {'jurisdiction': 'US', 'role': 'regulator', 'quote': 'FDA 승인일과 ... 미국에서의 교체가능성 지위'}
+        self.assertTrue(regulator_mention(q, stitched))
+        self.assertTrue(regulator_mention(q, {'jurisdiction': 'EU', 'role': 'regulator', 'quote': 'EU 최초 판매허가일'}))
+        arms = 'SB17 시험에서 미국 Stelara와 유럽 Stelara 군의 PK 결과를 비교해줘.'
+        self.assertFalse(regulator_mention(arms, {'jurisdiction': 'US', 'role': 'regulator', 'quote': '미국 Stelara'}))
+        self.assertFalse(regulator_mention(arms, {'jurisdiction': 'US', 'role': 'regulator', 'quote': 'US 문서'}))
+
     def test_unpinned_unavailable_product_is_not_silently_replaced(self):
         self.u['products']=['ABP654']
         u=self.bind('암젠 제품의 값은?',self.u)
