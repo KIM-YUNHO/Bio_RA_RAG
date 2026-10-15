@@ -12,6 +12,7 @@ from rag_service.__main__ import Jobs, handler
 FIVE = ['ABP654', 'BAT2206', 'BMAB1200', 'CTP43', 'SB17']
 DOCS = [{'source': 'EMA', 'jurisdiction': 'EU'}, {'source': 'FDA', 'jurisdiction': 'US'}, {'source': 'Health Canada', 'jurisdiction': 'CA'}]
 FIRST = {'question': 'EMA 문서에서 CTP43 평가할 때 중점적으로 본 이슈가 뭐인지 알려줄 수 있을까?',
+         'understanding': {'products': ['CTP43'], 'jurisdictions': ['EU']},
          'results': [{'answer_ko': '중요한 확인된 위험은 없다고 기술했다. [E3]\n\n추가 확인이 필요한 요청:\n- x'}]}
 
 
@@ -22,15 +23,12 @@ class RuleTests(unittest.TestCase):
         self.assertEqual((self.context['products'], self.context['jurisdictions']), (['CTP43'], ['EU']))
         self.assertEqual(self.context['answer_summary'], '중요한 확인된 위험은 없다고 기술했다.')
 
-    def test_inherit_replace_and_reset(self):
-        r = followup.resolve('중요 확인 위험은 없다고 하는데, 이슈가 아예 없던거야?', self.context)
-        self.assertEqual(r['inherited'], {'products': ['CTP43'], 'jurisdictions': ['EU']})
-        r = followup.resolve('그럼 FDA는?', self.context)
-        self.assertEqual(r['inherited'], {'products': ['CTP43']}); self.assertEqual(r['own']['jurisdictions'], ['US'])
-        r = followup.resolve('SB17은 어땠어?', self.context)
-        self.assertEqual(r['inherited'], {'jurisdictions': ['EU']})
-        r = followup.resolve('다른 제품들도 같은 이슈가 있었어?', self.context)
-        self.assertEqual(r['inherited'], {'jurisdictions': ['EU']}); self.assertIn('products_reset_by_question', r['rules'])
+    def test_previous_scope_is_offered_to_the_planner(self):
+        # Keeping, replacing or widening the scope is the planner's reading of the follow-up.
+        for q in ('이슈가 아예 없던거야?', '그럼 FDA는?', '다른 제품들도 같은 이슈가 있었어?'):
+            r = followup.resolve(q, self.context)
+            self.assertEqual(r['inherited'], {'products': ['CTP43'], 'jurisdictions': ['EU']})
+        self.assertEqual(followup.resolve('SB17은 어땠어?', self.context)['own']['products'], ['SB17'])
         self.assertEqual(followup.resolve('첫 질문', None)['turn_kind'], 'first')
 
     def test_standalone_check(self):
@@ -39,8 +37,9 @@ class RuleTests(unittest.TestCase):
         self.assertEqual(followup.check_standalone(ok, '이슈가 아예 없던거야?', r), (ok, 'model_standalone_accepted'))
         text, reason = followup.check_standalone('EMA 문서에서 CTP43과 SB17의 이슈는?', '이슈가 아예 없던거야?', r)
         self.assertEqual((text, reason), ('EMA 문서에서 CTP43에 대해 이슈가 아예 없던거야?', 'fallback_new_products_in_standalone'))
-        text, reason = followup.check_standalone('평가 이슈가 전혀 없었나?', '이슈가 아예 없던거야?', r)
-        self.assertEqual((text, reason), ('EMA 문서에서 CTP43에 대해 평가 이슈가 전혀 없었나?', 'standalone_with_inherited_names_added'))
+        # Dropping the carried names is the planner's decision; code does not re-add them.
+        text, reason = followup.check_standalone('다른 제품들의 평가 이슈는?', '다른 제품들도?', r)
+        self.assertEqual((text, reason), ('다른 제품들의 평가 이슈는?', 'model_standalone_accepted'))
 
 
 class Client:
@@ -74,6 +73,19 @@ class PlannerTests(unittest.TestCase):
         self.assertEqual(u['conversation']['standalone_check'], 'model_standalone_accepted')
         self.assertEqual(u['conversation']['user_question'], '중요 확인 위험은 없다고 하는데, 이슈가 아예 없던거야?')
 
+    def test_follow_up_cannot_add_an_agency_the_user_did_not_name(self):
+        context = followup.context_from_report(FIRST)
+        standalone = 'EMA와 FDA 문서에서 CTP43 평가 이슈가 전혀 없었나?'
+        reply = plan_reply(standalone_question=standalone)
+        reply['jurisdictions'] = ['EU', 'US']
+        reply['jurisdiction_mentions'].append({'jurisdiction': 'US', 'role': 'regulator', 'name': 'FDA', 'quote': 'FDA 문서'})
+        u, _ = ra_tasks.interpret('이슈가 아예 없던거야?', Client(reply), FIVE, ['CA', 'EU', 'US'],
+                                  selected_products=FIVE, selected_agencies=['CA', 'EU', 'US'], documents=DOCS, context=context)
+        self.assertEqual(u['jurisdictions'], ['EU'])
+        u, _ = ra_tasks.interpret('FDA는 어땠어?', Client(reply), FIVE, ['CA', 'EU', 'US'],
+                                  selected_products=FIVE, selected_agencies=['CA', 'EU', 'US'], documents=DOCS, context=context)
+        self.assertEqual(sorted(u['jurisdictions']), ['EU', 'US'])
+
     def test_single_turn_path_is_unchanged(self):
         client = Client(plan_reply())
         u, _ = ra_tasks.interpret(FIRST['question'], client, FIVE, ['CA', 'EU', 'US'],
@@ -93,7 +105,7 @@ class Pipeline:
     def ask(self, question, products, jurisdictions, documents, progress, include_nondefault=False, context=None):
         self.contexts.append(context)
         standalone = question if context is None else 'EMA 문서에서 CTP43에 대해 ' + question
-        return {'question': standalone, 'user_question': question,
+        return {'question': standalone, 'user_question': question, 'understanding': {'jurisdictions': ['EU']},
                 'conversation': {'turn_kind': 'follow_up' if context else 'first', 'standalone_question': standalone},
                 'results': [{'answer_ko': '중요한 확인된 위험은 없다. [E1]'}]}
 
