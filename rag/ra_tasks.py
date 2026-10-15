@@ -146,9 +146,11 @@ Products are registry IDs; unmentioned products stay empty. Jurisdictions refer
 only to requested DOCUMENT SOURCES (EU=EMA, US=FDA, CA=Health Canada, sponsor=ClinicalTrials.gov
 protocol/SAP); EU/US sourced
 comparator medicines and recruitment countries are not source jurisdictions.
-Each jurisdiction needs a mention with role=regulator: name = the agency or region word
-exactly as written in the question (e.g. "EU", "FDA", "미국", "캐나다"); quote = the phrase
-around it. If no
+Each jurisdiction needs a mention with role=regulator. mention.name copies the characters
+the QUESTION itself uses for that agency or region, not the jurisdiction code: a question
+saying "EMA 평가" gives jurisdiction EU, name "EMA"; "FDA 라벨" gives US, name "FDA";
+"미국 승인일" gives US, name "미국"; "Health Canada" gives CA, name "Health Canada".
+quote = the phrase around it. If no
 source agency was specified leave jurisdictions and mentions empty. Keep explicit
 unavailable targets so the application can explain scope gaps. Do not invent a
 scope from the user's UI filters. Queries may use identity aliases, not results.
