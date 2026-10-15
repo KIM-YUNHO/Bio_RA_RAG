@@ -52,7 +52,7 @@ SCHEMA = {'name': 'query_understanding', 'schema': obj({
         'guideline_request_quote': STRING,
         'intent': obj({'intent': {'type': 'string', 'enum': ra_intent.INTENTS}, 'request_quote': STRING}),
         'answer_facets': {'type': 'array', 'maxItems': 12, 'items': obj({
-            'facet': {'type': 'string', 'enum': list(ANSWER_FACETS)}, 'detail': STRING,
+            'facet': {'type': 'string', 'enum': list(ANSWER_FACETS)}, 'detail': STRING, 'ask': STRING,
             'items': {'type': 'array', 'maxItems': 8, 'items': STRING}})},
         'topics': {'type': 'array', 'maxItems': 6, 'items': {'type': 'string', 'enum': list(TOPICS)}}})}
 })}
@@ -84,6 +84,9 @@ no facet. List only what the task's own request asks for.
   or scope (never product information or approvals).
 - calculation: an elapsed time, difference, ratio or percent change to compute.
 detail is "" except for table_statistics and purpose.
+ask: one short Korean line restating what this facet must answer for THIS question, in the
+question's own terms and with every requested part (e.g. "피하 유지 투여의 시작 시점과 반복
+간격", "체중별 1회 용량과 바이알 수"). Every part of the question belongs to some facet's ask.
 items: when the question asks a facet's values SEPARATELY for several named groups,
 arms, categories, ranges or time points, copy each one verbatim from the question
 (e.g. "US ustekinumab군", "EU ustekinumab군"; "55 kg 이하", "85 kg 초과"); otherwise [].

@@ -33,6 +33,8 @@ TOPICS = ('clinical_program', 'pk_study', 'efficacy', 'safety', 'immunogenicity'
 class AnswerFacet(Contract):
     facet: Literal[ANSWER_FACETS]
     detail: Annotated[str, Field(max_length=100)]
+    # What this facet must answer for THIS question, in the question's own terms (Korean).
+    ask: Annotated[str, Field(max_length=160)] = ''
     # Groups, arms, ranges or time points the question asks to answer separately (verbatim).
     items: Annotated[list[Annotated[str, Field(max_length=100)]], Field(max_length=8)] = []
 
