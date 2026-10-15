@@ -33,6 +33,8 @@ TOPICS = ('clinical_program', 'pk_study', 'efficacy', 'safety', 'immunogenicity'
 class AnswerFacet(Contract):
     facet: Literal[ANSWER_FACETS]
     detail: Annotated[str, Field(max_length=100)]
+    # What this facet must answer for THIS question, in the question's own terms (Korean).
+    ask: Annotated[str, Field(max_length=160)] = ''
     # Groups, arms, ranges or time points the question asks to answer separately (verbatim).
     items: Annotated[list[Annotated[str, Field(max_length=100)]], Field(max_length=8)] = []
 
@@ -41,12 +43,14 @@ class ResearchTask(Contract):
     request: Annotated[str, Field(min_length=1, max_length=1600)]
     queries: Annotated[list[str], Field(min_length=1, max_length=2)]
     source_roles: Annotated[list[Literal['assessment', 'label', 'guideline', 'correspondence',
-        'quality', 'rmp', 'decision_summary', 'other_review', 'protocol', 'sap']], Field(min_length=1, max_length=2)]
+        'quality', 'rmp', 'decision_summary', 'other_review', 'protocol', 'sap']], Field(min_length=1, max_length=3)]
     guideline_request_quote: str = ''
     intent: TaskIntent
     # The planner's semantic reading of what the task asks for (closed sets). Plans saved
     # before these fields existed lack the keys and use the legacy literal patterns.
     answer_facets: Annotated[list[AnswerFacet], Field(max_length=12)] = []
+    # Source agencies this task reads (subset of the plan's jurisdictions); empty = all of them.
+    jurisdictions: Annotated[list[Literal['EU', 'US', 'CA', 'sponsor']], Field(max_length=4)] = []
     topics: Annotated[list[Literal[TOPICS]], Field(max_length=6)] = []
 
     @field_validator('request')

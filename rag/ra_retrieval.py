@@ -62,7 +62,10 @@ def oracle_groups(corpus, understanding, guideline_index, source_ids, documents)
 # original-question ranking lost recall or stability (data/runs/retrieval_stability_2026-10-14).
 DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': None, 'strip_slot_terms': True,
                    'suppress_boilerplate': False, 'collapse_duplicates': False, 'role_boost': True,
-                   'extra_default_groups': (), 'rerank': None, 'rerank_pool': 40}
+                   'extra_default_groups': ('correspondence',), 'rerank': None, 'rerank_pool': 40}
+# correspondence (FDA approval letters/packages) is searched by default since 2026-10-16: with the
+# planner's document inventory, Q4 (FDA approval dates) 10/20 -> 15/20 and the 29-question total
+# 269 -> 278 (data/runs/planner_facets_2026-10-15/e2e_final).
 # Options measured 2026-10-15 on release 04 with frozen plans (data/runs/retrieval_scope_2026-10-15),
 # all off by default: boilerplate suppression (no gain once short single facts are protected; it also
 # shifts role-boosted fusion), near-duplicate collapsing (no gain), role_boost 0.25-0.5 (same as 1.0),
@@ -183,9 +186,12 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
     groups = []
     for task in tasks:
         roles = set(task['source_roles'])
+        # A task bound to some agencies reads only those (planner's task.jurisdictions).
+        agencies = [j for j in understanding['jurisdictions'] if j in (task.get('jurisdictions') or [])] \
+            or understanding['jurisdictions']
         if roles - {'guideline'}:
             for product in understanding['products']:
-                for agency in understanding['jurisdictions']:
+                for agency in agencies:
                     idx = [i for i in eligible if corpus.chunks[i]['product_id'] == product
                            and corpus.chunks[i]['jurisdiction'] == agency
                            and (documents is None or (corpus.chunks[i]['document_id'], corpus.chunks[i]['version_id']) in documents)
@@ -244,7 +250,7 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
                 literal='comparative clinical efficacy studies'
                 if literal not in guideline_queries:
                     guideline_queries.append(literal);expansion.append({'query':literal,'basis':'explicit_requested_topic_translation'})
-            for agency in understanding['jurisdictions']:
+            for agency in agencies:
                 hits = guideline_index.search(guideline_queries, [agency], documents, k) if guideline_index else []
                 groups.append({'task_id': task['id'], 'product': None, 'jurisdiction': agency,
                     'doc_groups': ['guideline'], 'studies': [], 'queries': guideline_queries,'query_expansion':expansion,
