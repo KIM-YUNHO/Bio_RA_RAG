@@ -6,8 +6,9 @@ one planner call, saved). For every item the hybrid retriever builds a candidate
 Each variant then orders every group's pool:
 
   none                    the hybrid order (production)
-  <model>:<mode>          a local cross-encoder; mode = request | queries | both | ask, or
-                          request_unit | ask_unit (prefixed with the group's product names and agency)
+  <model>:<mode>[:fuse]   a local cross-encoder; mode = request | queries | both | ask, or
+                          request_unit | ask_unit (prefixed with the group's product names and agency);
+                          ':fuse' combines the hybrid and reranker ranks (RRF) instead of replacing
 
 and the top k of every group are the selected pages. Metrics per gold group (a group is
 satisfied by ANY of its pages): recall@k for k in --ks, MRR (best rank of a gold page over
@@ -127,7 +128,7 @@ def main():
                 for task_id, product, agency, pool in pools:
                     if variant == 'none' or not pool or task_id not in tasks:
                         ordered.append(pool); continue
-                    name, mode = variant.split(':')
+                    name, mode, *how = variant.split(':')
                     if name not in rerankers:
                         from rag.rerank import LocalReranker
                         model, revision = MODELS.get(name, (name, None))
@@ -136,7 +137,14 @@ def main():
                     for q in queries_for(tasks[task_id], mode, product, agency):
                         for score, i in rerankers[name].rank(q, [(0, i) for i in pool], corpus.chunks, limit=len(pool)):
                             best[i] = max(best.get(i, score), score)
-                    ordered.append([i for i, _ in sorted(best.items(), key=lambda x: -x[1])])
+                    reranked = [i for i, _ in sorted(best.items(), key=lambda x: -x[1])]
+                    if how == ['fuse']:
+                        # Reciprocal rank fusion of the hybrid order and the reranker order (k=60):
+                        # the reranker can promote a passage but cannot bury a strong hybrid hit.
+                        hybrid = {i: n for n, i in enumerate(pool, 1)}
+                        rerank_rank = {i: n for n, i in enumerate(reranked, 1)}
+                        reranked = sorted(pool, key=lambda i: -(1 / (60 + hybrid[i]) + 1 / (60 + rerank_rank.get(i, len(pool) + 1))))
+                    ordered.append(reranked)
                 seconds = time.perf_counter() - started
                 result = {'seconds': round(seconds, 3), 'groups': [],
                           'selected': {k: len({i for order in ordered for i in order[:k]}) for k in ks}}
