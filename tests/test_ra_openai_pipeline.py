@@ -77,7 +77,7 @@ class MiniClientTests(unittest.TestCase):
                 for payload in transport.payloads:
                     self.assertEqual(payload['model'], 'gpt-5.6-luna')
                     self.assertEqual(payload['reasoning_effort'], 'none')
-                    self.assertEqual(payload['max_completion_tokens'], 1000)
+                    self.assertEqual(payload['max_completion_tokens'], 1600)
                     self.assertTrue(payload['response_format']['json_schema']['strict'])
                     self.assertFalse({'max_tokens', 'temperature', 'seed'} & payload.keys())
                 self.assertEqual(client.input_limit, 13128)

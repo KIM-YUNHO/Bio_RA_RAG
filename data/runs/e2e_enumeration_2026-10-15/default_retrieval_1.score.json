@@ -1,0 +1,98 @@
+{
+ "units": 14,
+ "submission_dates": 2,
+ "approval_dates": 2,
+ "durations_computed_correctly": 0,
+ "claims_kept": 3,
+ "rejected_reasons": {
+  "claim_route_not_in_selected_sources": 10,
+  "uncertain": 3
+ },
+ "derived_withheld": [],
+ "status": "partial",
+ "llm_calls": 3,
+ "input_tokens": 56898,
+ "seconds": 41.875,
+ "non_gold_dates_for_review": [
+  [
+   [
+    "SB17",
+    "CA"
+   ],
+   "2023-09-08",
+   "SB17(Pyzchiva)는 캐나다에서 NDS 제출일 2023-08-22 및 2023-09-08(두 control number), NOC 허가일 2024-08-07로 확인된다."
+  ]
+ ],
+ "by_unit": {
+  "ABP654/CA": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "ABP654/EU": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "ABP654/US": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "BAT2206/EU": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "BAT2206/US": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "BMAB1200/CA": {
+   "submission": true,
+   "approval": true,
+   "duration": false
+  },
+  "BMAB1200/EU": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "BMAB1200/US": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "CTP43/CA": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "CTP43/EU": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "CTP43/US": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "SB17/CA": {
+   "submission": true,
+   "approval": true,
+   "duration": false
+  },
+  "SB17/EU": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "SB17/US": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  }
+ }
+}

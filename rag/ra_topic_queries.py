@@ -1,9 +1,10 @@
 """Fixed topic queries for product-source retrieval.
 
 The planner writes 1-2 English queries per task, and their wording varies run to
-run for a byte-identical planner input. A small closed set of topics is read
-from the ORIGINAL question with literal patterns and mapped to fixed English
-queries, so part of every product-slot ranking is the same on every run.
+run for a byte-identical planner input. A small closed set of topics, chosen by
+the planner per task (plans saved before that field read the ORIGINAL question
+with literal patterns), maps to fixed English queries, so part of every
+product-slot ranking does not depend on the planner's free-text wording.
 
 This is retrieval relevance only. Topic queries are added next to the planner's
 queries (never replace them), carry no expected values, product, study,
@@ -12,7 +13,7 @@ Guideline retrieval is not affected.
 """
 import re
 
-VERSION = 'ra-fixed-topic-queries-1'
+VERSION = 'ra-fixed-topic-queries-2-planner-topics'
 
 # (topic, pattern on the original question, fixed English queries)
 TOPICS = [
@@ -44,13 +45,16 @@ def topics(text):
 
 
 def for_task(question, task, task_count):
-    """Fixed queries for one task, from topics named in the original question.
+    """Fixed queries for one task: the planner's topics for that task.
 
-    With several tasks, a topic is used only for the task whose own request also
-    names it, so a dosing task does not inherit a safety search from a sibling.
+    Legacy plans: topics named in the original question; with several tasks, a topic
+    is used only for the task whose own request also names it.
     """
-    wanted = topics(question)
-    if task_count > 1:
+    if 'topics' in task:
+        wanted = [name for name, _, _ in TOPICS if name in task['topics']]
+    else:
+        wanted = topics(question)
+    if 'topics' not in task and task_count > 1:
         own = set(topics(task.get('request', '')))
         wanted = [t for t in wanted if t in own]
     queries = [q for name, _, fixed in TOPICS if name in wanted for q in fixed]

@@ -1,0 +1,97 @@
+{
+ "units": 14,
+ "submission_dates": 6,
+ "approval_dates": 7,
+ "durations_computed_correctly": 0,
+ "claims_kept": 14,
+ "rejected_reasons": {
+  "uncertain": 1
+ },
+ "derived_withheld": [],
+ "status": "partial",
+ "llm_calls": 3,
+ "input_tokens": 68546,
+ "seconds": 74.125,
+ "non_gold_dates_for_review": [
+  [
+   [
+    "SB17",
+    "US"
+   ],
+   "2024-07-29",
+   "SB17(Pyzchiva)의 PAS-001은 2024-07-29에 제출되었다."
+  ]
+ ],
+ "by_unit": {
+  "ABP654/CA": {
+   "submission": true,
+   "approval": true,
+   "duration": false
+  },
+  "ABP654/EU": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "ABP654/US": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "BAT2206/EU": {
+   "submission": true,
+   "approval": false,
+   "duration": false
+  },
+  "BAT2206/US": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "BMAB1200/CA": {
+   "submission": true,
+   "approval": true,
+   "duration": false
+  },
+  "BMAB1200/EU": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "BMAB1200/US": {
+   "submission": true,
+   "approval": true,
+   "duration": false
+  },
+  "CTP43/CA": {
+   "submission": false,
+   "approval": true,
+   "duration": false
+  },
+  "CTP43/EU": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "CTP43/US": {
+   "submission": true,
+   "approval": true,
+   "duration": false
+  },
+  "SB17/CA": {
+   "submission": false,
+   "approval": true,
+   "duration": false
+  },
+  "SB17/EU": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "SB17/US": {
+   "submission": true,
+   "approval": true,
+   "duration": false
+  }
+ }
+}

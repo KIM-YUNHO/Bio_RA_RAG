@@ -1,0 +1,107 @@
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights:  65%|██████▌   | 255/391 [00:00<00:00, 2548.61it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 2707.10it/s]
+default_retrieval_1.json {"units": 14, "submission_dates": 2, "approval_dates": 2, "durations_computed_correctly": 0, "claims_kept": 3, "rejected_reasons": {"claim_route_not_in_selected_sources": 10, "uncertain": 3}, "derived_withheld": [], "status": "partial", "llm_calls": 3, "input_tokens": 56898, "seconds": 41.875}
+SB17(Pyzchiva)는 캐나다에서 NDS 제출일 2023-08-22 및 2023-09-08(두 control number), NOC 허가일 2024-08-07로 확인된다. [E35, E71]
+
+BMAB1200(Yesintek/Yesintek I.V.)는 캐나다에서 NDS 제출일 2024-03-12, NOC 허가일 2025-10-17로 확인된다. [E30, E12, E45]
+
+SB17(Pyzchiva)의 계산 기준은 2023-08-22 제출일과 2024-08-07 허가일이다. [E35]
+
+
+인용으로 완전히 확인하지 못한 요청:
+- 우스테키누맙의 모든 바이오시밀러들의 ra 허가 날짜를 정리해줄래?
+- 제출 날짜 부터 최종 허가까지 걸린 기간이 궁금하다.
+- 등록된 우스테키누맙 바이오시밀러 각각의 RA 제출 날짜와 최종 허가 날짜를 정리하고, 제출부터 최종 허가까지 걸린 기간을 비교해줘.
+
+모델이 밝힌 미확인 사유 (원문 인용 검증 아님):
+- 제품별로 관할권이 혼재되어 있습니다. 위 날짜는 제출일과 최종 허가일이 함께 확인되는 Health Canada 기록 기준입니다.
+- BAT2206의 EMA 문서에는 과학적 자문 및 개발 정보는 있으나, 제공된 세그먼트에서 EMA 신청일과 최종 허가일을 함께 확인할 수 없습니다.
+- 미국 자료의 일부 날짜는 원신청이 아니라 후속 amendment/Request for Approval 날짜이므로 원신청 제출일부터의 최종 허가 기간으로 사용하지 않았습니다.
+- 제출일부터 최종 허가까지의 일수/개월 수는 원자료의 두 날짜를 바탕으로 계산해야 하지만, 이 응답에서는 날짜를 임의로 계산하지 않았습니다. 필요한 경우 각 제품의 두 날짜를 기준으로 별도 산출할 수 있습니다.
+- 비교 시 동일 관할권·동일 제출 유형인 Health Canada NDS–NOC 조합만 비교해야 하며, EMA 신청과 미국 amendment 날짜를 혼합하면 안 됩니다.
+default_retrieval_2.json {"units": 14, "submission_dates": 5, "approval_dates": 4, "durations_computed_correctly": 0, "claims_kept": 7, "rejected_reasons": {"claim_route_not_in_selected_sources": 3, "uncertain": 1}, "derived_withheld": [], "status": "partial", "llm_calls": 3, "input_tokens": 55552, "seconds": 32.281}
+SB17(Pyzchiva)는 캐나다에서 2024-08-07에 NOC(최종 허가)를 받았다. [E19]
+
+BAT2206(Usymro)의 EMA 신청서 제출일은 2024-06-28이다. [E85]
+
+SB17의 캐나다 제출일은 2023-08-22이고 최종 허가일은 2024-08-07이다. [E19]
+
+ABP654의 캐나다 제출일은 2022-11-15이고 최종 허가일은 2023-12-27이다. [E23]
+
+CTP43의 캐나다 제출일은 2023-06-30이고 최종 허가일은 2024-07-30이다. [E46]
+
+BMAB1200의 캐나다 제출일은 2024-03-12이고 최종 허가일은 2025-10-17이다. [E30]
+
+BAT2206의 EMA 제출일은 2024-06-28이다. [E85]
+
+
+인용으로 완전히 확인하지 못한 요청:
+- 우스테키누맙의 모든 바이오시밀러들의 ra 허가 날짜를 정리해줄래?
+- 제출 날짜 부터 최종 허가까지 걸린 기간이 궁금하다.
+- 등록된 모든 우스테키누맙 바이오시밀러의 RA 최종 허가 날짜와 제출 날짜부터 최종 허가까지 걸린 기간을 정리해줘.
+
+모델이 밝힌 미확인 사유 (원문 인용 검증 아님):
+- 제공된 자료에서 BAT2206의 EMA 최종 허가 날짜가 확인되지 않음.
+- SB17, ABP654, CTP43, BMAB1200, BAT2206에 대해 모든 관할권(CA/EU/US)의 허가일을 완전하게 확인할 수 있는 최종 결정 문구가 모두 제공되지는 않음.
+- 요청한 ‘제출일부터 최종 허가까지 걸린 기간’의 일수/개월 수는 제공된 출력 형식상 계산값으로 표시하지 못함. 각 제품의 제출일과 허가일은 위에 별도로 제시함.
+- BAT2206은 최종 허가일이 확인되지 않아 제출일부터 최종 허가까지의 기간을 산출할 수 없음.
+- 관할권이 서로 다른 날짜를 혼합하면 기간 비교가 달라질 수 있으므로, 위 기간 관련 날짜는 자료에서 제출일과 최종 허가일을 함께 확인할 수 있는 캐나다 사례 중심임.
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights:  37%|███▋      | 145/391 [00:00<00:00, 1422.80it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 2081.43it/s]
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]Loading weights:   2%|▏         | 8/393 [00:00<00:08, 43.99it/s]Loading weights:  12%|█▏        | 48/393 [00:00<00:01, 198.03it/s]Loading weights:  22%|██▏       | 85/393 [00:00<00:01, 253.74it/s]Loading weights:  29%|██▉       | 115/393 [00:00<00:01, 267.58it/s]Loading weights:  38%|███▊      | 148/393 [00:00<00:00, 272.31it/s]Loading weights:  45%|████▌     | 177/393 [00:00<00:00, 261.82it/s]Loading weights:  52%|█████▏    | 205/393 [00:00<00:00, 229.44it/s]Loading weights:  61%|██████    | 240/393 [00:01<00:00, 249.05it/s]Loading weights:  68%|██████▊   | 266/393 [00:01<00:00, 250.68it/s]Loading weights:  74%|███████▍  | 292/393 [00:01<00:00, 250.76it/s]Loading weights:  81%|████████  | 318/393 [00:01<00:00, 229.02it/s]Loading weights:  88%|████████▊ | 345/393 [00:01<00:00, 239.66it/s]Loading weights:  94%|█████████▍| 370/393 [00:01<00:00, 235.81it/s]Loading weights: 100%|██████████| 393/393 [00:01<00:00, 236.36it/s]
+rerank_corr_1.json {"units": 14, "submission_dates": 0, "approval_dates": 5, "durations_computed_correctly": 0, "claims_kept": 8, "rejected_reasons": {"claim_budget_exceeded": 5, "claim_number_not_in_final_citations": 14, "uncertain": 2}, "derived_withheld": [], "status": "partial", "llm_calls": 3, "input_tokens": 67997, "seconds": 73.187}
+SB17(Pyzchiva): Health Canada의 최종 허가(Notice of Compliance) 날짜는 2024-08-07이다. [E1, E89]
+
+ABP654(Wezlana): Health Canada의 Authorization Date는 2023-12-27이다. [E4]
+
+CTP43(Steqeyma): Health Canada의 Authorization Date는 2024-07-30이다. [E8]
+
+BMAB1200(Yesintek): Health Canada의 Authorization Date는 2025-10-17이다. [E29]
+
+BAT2206(Usymro): EMA 자료에서 첫 허가일은 2025-08-14이다. [E34]
+
+해당 검토 표에서 제품명은 Wezlana로 표시된다. [E25]
+
+해당 검토 표에 BLA 761285 및 BLA 761331이 표시된다. [E7]
+
+FDA 서신은 Starjemza의 BLA를 해당 서신의 효력일에 승인했다고 밝힌다. [E70]
+
+
+인용으로 완전히 확인하지 못한 요청:
+- 우스테키누맙의 모든 바이오시밀러들의 ra 허가 날짜를 정리해줄래?
+- 제출 날짜 부터 최종 허가까지 걸린 기간이 궁금하다.
+- 등록된 우스테키누맙 바이오시밀러 각각의 RA 최종 허가 날짜와 제출 날짜부터 최종 허가까지 걸린 기간을 정리해줘.
+
+모델이 밝힌 미확인 사유 (원문 인용 검증 아님):
+- 제품별 ‘모든’ 관할권(CA/EU/US/스폰서)의 완전한 허가 목록을 확정할 수 있는 원 허가·제출일 자료가 모든 제품에 대해 제공되지는 않았다.
+- 제출일부터 최종 허가까지의 기간은 산출값이며, 이 응답에서는 날짜 차이를 계산하지 않았다.
+- 제출일부터 최종 허가까지의 정확한 기간(일·개월·년)은 날짜 차이 계산이 필요하므로, 제공된 원문 날짜를 사용해 별도 계산해야 한다.
+- EU 제출일과 최종 허가일이 제품별로 모두 제공되지는 않았다.
+- BAT2206의 FDA 최종 허가일은 본문 승인일과 문서 제목 날짜의 연결이 불완전하여 확정적으로 계산할 수 없다.
+rerank_corr_2.json {"units": 14, "submission_dates": 3, "approval_dates": 3, "durations_computed_correctly": 0, "claims_kept": 7, "rejected_reasons": {"claim_budget_exceeded": 3, "claim_number_not_in_final_citations": 11}, "derived_withheld": [], "status": "partial", "llm_calls": 3, "input_tokens": 67694, "seconds": 68.578}
+ABP654(Wezlana)는 캐나다에서 2023-12-27 허가(NOC)되었다. [E1]
+
+BMAB1200(Yesintek)은 캐나다에서 2025-10-17 허가되었다. [E60]
+
+CTP43(Steqeyma)은 캐나다에서 2024-07-30 허가되었다. [E11]
+
+ABP654의 캐나다 NDS 제출일은 2022-11-15이고 최종 허가일은 2023-12-27이다. [E1]
+
+허가서는 BAT2206의 BLA가 해당 승인서 날짜에 유효하게 승인되었다고 명시한다. [E23]
+
+BMAB1200의 캐나다 NDS 제출일은 2024-03-12이고 최종 허가일은 2025-10-17이다. [E60]
+
+CTP43의 캐나다 NDS 제출일은 2023-06-30이고 최종 허가일은 2024-07-30이다. [E11]
+
+
+인용으로 완전히 확인하지 못한 요청:
+- 우스테키누맙의 모든 바이오시밀러들의 ra 허가 날짜를 정리해줄래?
+- 제출 날짜 부터 최종 허가까지 걸린 기간이 궁금하다.
+- 등록된 우스테키누맙 바이오시밀러들의 RA 허가 날짜와 제출 날짜부터 최종 허가까지 걸린 기간을 정리해줘.
+
+모델이 밝힌 미확인 사유 (원문 인용 검증 아님):
+- 제공 자료에서 각 제품의 모든 관할권(EU 포함)에 대한 최종 허가 결정일이 완전하게 확인되지는 않는다.
+- BAT2206의 EU 최종 허가일과 CTP43·SB17의 EU 최종 허가일은 제공된 인용문에서 확인되지 않는다.
+- 제공 자료만으로는 ‘모든’ 우스테키누맙 바이오시밀러의 전 세계 허가 목록이라고 단정할 수 없다.
+- 요청한 ‘제출일부터 최종 허가까지의 기간’의 일수·개월 수는 산출값이므로, 제공 형식상 날짜 차이를 계산한 derived 항목이 필요하지만 원자료에 제출일과 최종 허가일이 모두 명확히 있는 경우가 제한적이다.
+- ABP654 미국, BAT2206 미국, CTP43 미국, SB17 미국은 제출·접수일과 허가 관련 날짜가 각각 제공되지만, 일부는 승인일의 정확한 날짜가 본문 인용에서 완전하게 확인되지 않아 기간을 확정하지 않았다.
+- EU 제출일과 최종 허가일의 완전한 쌍이 제품별로 제공되지 않아 EU 기간은 산출할 수 없다.

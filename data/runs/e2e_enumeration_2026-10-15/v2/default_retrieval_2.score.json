@@ -1,0 +1,103 @@
+{
+ "units": 14,
+ "submission_dates": 5,
+ "approval_dates": 8,
+ "durations_computed_correctly": 0,
+ "claims_kept": 15,
+ "rejected_reasons": {
+  "uncertain": 3,
+  "unsupported": 1
+ },
+ "derived_withheld": [
+  "derived_label_contains_number",
+  "derived_label_contains_number",
+  "derived_label_contains_number",
+  "derived_label_contains_number"
+ ],
+ "status": "partial",
+ "llm_calls": 3,
+ "input_tokens": 58316,
+ "seconds": 36.281,
+ "non_gold_dates_for_review": [
+  [
+   [
+    "SB17",
+    "CA"
+   ],
+   "2023-09-08",
+   "SB17의 캐나다 NDS 제출일은 선택된 표 자료상 2023-09-08이다."
+  ]
+ ],
+ "by_unit": {
+  "ABP654/CA": {
+   "submission": true,
+   "approval": true,
+   "duration": false
+  },
+  "ABP654/EU": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "ABP654/US": {
+   "submission": true,
+   "approval": false,
+   "duration": false
+  },
+  "BAT2206/EU": {
+   "submission": true,
+   "approval": false,
+   "duration": false
+  },
+  "BAT2206/US": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "BMAB1200/CA": {
+   "submission": true,
+   "approval": true,
+   "duration": false
+  },
+  "BMAB1200/EU": {
+   "submission": false,
+   "approval": true,
+   "duration": false
+  },
+  "BMAB1200/US": {
+   "submission": false,
+   "approval": true,
+   "duration": false
+  },
+  "CTP43/CA": {
+   "submission": true,
+   "approval": true,
+   "duration": false
+  },
+  "CTP43/EU": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "CTP43/US": {
+   "submission": false,
+   "approval": true,
+   "duration": false
+  },
+  "SB17/CA": {
+   "submission": false,
+   "approval": true,
+   "duration": false
+  },
+  "SB17/EU": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "SB17/US": {
+   "submission": false,
+   "approval": true,
+   "duration": false
+  }
+ }
+}

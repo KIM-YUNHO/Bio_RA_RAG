@@ -1,0 +1,140 @@
+{
+ "mode": "ra",
+ "question": "Steqeyma(CTP43)의 EU 최초 판매허가일은 언제인가?",
+ "understanding": {
+  "in_scope": true,
+  "products": [
+   "CTP43"
+  ],
+  "jurisdictions": [
+   "CA",
+   "EU",
+   "US",
+   "sponsor"
+  ],
+  "jurisdiction_mentions": [],
+  "english_query": "What was the date of Steqeyma (CT-P43)'s initial marketing authorization in the EU?",
+  "tasks": [
+   {
+    "request": "Steqeyma(CTP43)의 EU 최초 판매허가일은 언제인가?",
+    "queries": [
+     "Steqeyma CT-P43 EU initial marketing authorization date",
+     "Steqeyma European Union first marketing authorisation date"
+    ],
+    "source_roles": [
+     "decision_summary",
+     "assessment"
+    ],
+    "guideline_request_quote": "",
+    "intent": {
+     "intent": "fact_lookup",
+     "request_quote": "Steqeyma(CTP43)의 EU 최초 판매허가일은 언제인가?"
+    },
+    "id": "T1",
+    "requested_conditions": {
+     "quantities": [],
+     "routes": [],
+     "facets": []
+    },
+    "original_request_segments": [
+     "Steqeyma(CTP43)의 EU 최초 판매허가일은 언제인가?"
+    ],
+    "intent_check": {
+     "model": "fact_lookup",
+     "final": "fact_lookup",
+     "quote": "Steqeyma(CTP43)의 EU 최초 판매허가일은 언제인가?",
+     "quote_verified": true,
+     "rule": null
+    }
+   }
+  ],
+  "intents": [
+   "fact_lookup"
+  ],
+  "intent": "fact_lookup",
+  "intent_check": {
+   "version": "ra-intent-4-task-scope",
+   "tasks": [
+    {
+     "model": "fact_lookup",
+     "final": "fact_lookup",
+     "quote": "Steqeyma(CTP43)의 EU 최초 판매허가일은 언제인가?",
+     "quote_verified": true,
+     "rule": null
+    }
+   ],
+   "uncovered_request_segments": []
+  },
+  "studies": [],
+  "study_scope": "unspecified",
+  "topic": "other",
+  "doc_groups": [
+   "decision_summary",
+   "assessment"
+  ],
+  "source_question": "Steqeyma(CTP43)의 EU 최초 판매허가일은 언제인가?",
+  "planner_version": "ra-research-tasks-6-task-intents",
+  "conversation": {
+   "version": "ra-followup-1-named-scope",
+   "turn_kind": "first",
+   "own": {
+    "products": [
+     "CTP43"
+    ],
+    "jurisdictions": []
+   },
+   "inherited": {},
+   "rules": [
+    "first_turn"
+   ],
+   "user_question": "Steqeyma(CTP43)의 EU 최초 판매허가일은 언제인가?",
+   "standalone_question": "Steqeyma(CTP43)의 EU 최초 판매허가일은 언제인가?",
+   "standalone_check": "single_turn"
+  },
+  "request_scope": {
+   "model": {
+    "products": [
+     "CTP43"
+    ],
+    "jurisdictions": []
+   },
+   "allowed": {
+    "products": [
+     "ABP654",
+     "BAT2206",
+     "BMAB1200",
+     "CTP43",
+     "SB17"
+    ],
+    "jurisdictions": [
+     "CA",
+     "EU",
+     "US",
+     "sponsor"
+    ]
+   },
+   "pinned": {
+    "products": false,
+    "jurisdictions": false
+   },
+   "adjustments": [
+    {
+     "field": "jurisdictions",
+     "model": [],
+     "effective": [
+      "CA",
+      "EU",
+      "US",
+      "sponsor"
+     ]
+    }
+   ],
+   "conflicts": [],
+   "narrowed_by_question": {},
+   "status": "applied"
+  },
+  "scope_warnings": [
+   "화면에서 선택한 제품·기관·문서 범위를 검색에 적용했습니다."
+  ]
+ }
+}

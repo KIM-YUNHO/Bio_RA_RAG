@@ -31,8 +31,8 @@ class RAGPipeline:
     def __init__(self, run=None, candidate=None, config=None, review_url='http://127.0.0.1:8766',
                  bundle=None, chat_client=None, encoder_factory=None, retrieval_pages=5,
                  retrieval_fn=None,selection_strategy=None,query_strategy=None):
-        if type(retrieval_pages) is not int or not 1 <= retrieval_pages <= 10:
-            raise ValueError('검색 페이지 수는 1~10 사이의 정수여야 합니다.')
+        if type(retrieval_pages) is not int or not 1 <= retrieval_pages <= 20:
+            raise ValueError('검색 페이지 수는 1~20 사이의 정수여야 합니다.')
         self.retrieval_pages = retrieval_pages
         self.retrieval_fn=retrieval_fn
         self.selection_strategy=selection_strategy
@@ -63,7 +63,8 @@ class RAGPipeline:
             if not own:continue
             self.documents.append({**doc,'chunks':len(own),'eligible_chunks':counts[(doc['document_id'],doc['version_id'])],
                 'eligible_with_nondefault':research_counts[(doc['document_id'],doc['version_id'])],
-                'jurisdiction':own[0]['jurisdiction'] if own else None,'product_id':own[0]['product_id'] if own else None})
+                'jurisdiction':own[0]['jurisdiction'] if own else None,'product_id':own[0]['product_id'] if own else None,
+                'doc_group':own[0].get('doc_group'),'doc_date':own[0].get('doc_date')})
         self.indexed_products=sorted({c['product_id'] for c in service_chunks},key=str)
         self.product_readiness=readiness(service_chunks)
         self.products=sorted(set(self.indexed_products)|{r['product_id'] for r in self.product_readiness},key=str)

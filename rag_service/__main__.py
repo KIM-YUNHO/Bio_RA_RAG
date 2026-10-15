@@ -255,6 +255,8 @@ def main():
     parser.add_argument('--guidelines',type=Path,help='Frozen native guideline snapshot for RA mode')
     parser.add_argument('--research-rounds',type=int,choices=(0,1),default=1,
         help='Bounded local missing-facet search rounds; no extra model calls')
+    parser.add_argument('--approval-timeline',action='store_true',
+        help='Experimental: answer approval-date questions from code-read date fields (off by default)')
     parser.add_argument('--archive-dir',type=Path,help='Durable completed and failed question records')
     parser.add_argument('--review-dir',type=Path,help='Separate append-only review history')
     parser.add_argument('--conversation-dir',type=Path,help='Conversation turn records (default data/runs/ra_conversations in RA mode)')
@@ -270,7 +272,7 @@ def main():
         from rag.openai_chat import OpenAIPipelineChat
         pipeline=RAPipeline(args.run,args.candidate,load_config(args.config),args.review_url,
             retrieval_pages=args.retrieval_pages,guideline_snapshot=args.guidelines,
-            research_rounds=args.research_rounds,
+            research_rounds=args.research_rounds,approval_timeline=args.approval_timeline,
             chat_client=OpenAIPipelineChat(model=args.llm_model,context_tokens=args.context_tokens))
     else:
         pipeline=RAGPipeline(args.run,args.candidate,load_config(args.config),args.review_url,retrieval_pages=args.retrieval_pages)

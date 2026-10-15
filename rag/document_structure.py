@@ -15,8 +15,15 @@ except ImportError:  # CLI modules retain their historical import path.
     import study_registry as sr
 
 VERSION = "sections-8"
+# Opt-in: one-level numbered layout titles. Evaluated on release 05 (2026-10-15) and not
+# adopted as the default: no retrieval gain, silver recall fell (step titles over-split).
+SECTIONS_9 = "sections-9"
 COMPAT_VERSION = "sections-4"
 NUMBERED = re.compile(r"^(\d{1,2}(?:\.\d{1,2}){1,4})\.?\s+([A-Z].{2,110})$")
+# "7. MARKETING AUTHORISATION HOLDER": one level only. In running text the same
+# shape is a list item ("9. Remove the cap"), so it needs the parser's layout
+# title label as independent evidence (sections-9).
+TOP_NUMBERED = re.compile(r"^(\d{1,2})\.\s+([A-Z].{2,110})$")
 TOC = re.compile(r"\.{2,}|\u2026")
 SUBHEADINGS = {
     "methods", "results", "discussion", "conclusion", "conclusions",
@@ -55,8 +62,11 @@ def key(text):
     return re.sub(r"\s+", " ", text).strip().rstrip(":.").casefold()
 
 
-def identify(text, product=None, *, version=COMPAT_VERSION):
-    """Only standalone heading candidates. Prose naming a study is not a heading."""
+def identify(text, product=None, *, version=COMPAT_VERSION, layout_title=False):
+    """Only standalone heading candidates. Prose naming a study is not a heading.
+
+    layout_title: the source parser laid this line out as a title (sections-9).
+    """
     text = text.strip()
     if not text or "\n" in text or len(text) > 125 or TOC.search(text):
         return None
@@ -70,7 +80,7 @@ def identify(text, product=None, *, version=COMPAT_VERSION):
             after = text[end:].strip()
             phase_title = re.fullmatch(r"(?:clinical )?(?:phase (?:[1-3]|i{1,3}) )?study\s*\(?", before)
             topic_title = re.fullmatch(r"(?:bioequivalence|pharmacokinetics)\s*\(\s*study", before)
-            clinical_title = version == VERSION and re.fullmatch(
+            clinical_title = version in (VERSION, SECTIONS_9) and re.fullmatch(
                 r'(?:(?:single|multiple)[ -]dose )?(?:(?:pk|pharmacokinetic|clinical|similarity|comparative|pivotal|supportive|efficacy|safety|bioequivalence) )*'
                 r'study(?: in [a-z -]{3,55})?\s*\(?', before) and not re.search(
                     r'\b(?:was|were|is|are|showed|reported|received|included)\b', before)
@@ -82,21 +92,25 @@ def identify(text, product=None, *, version=COMPAT_VERSION):
     match = NUMBERED.fullmatch(text)
     if match:
         return {"title": text, "kind": "numbered", "code": match[1], "study_keys": [], "basis": "numbered_heading"}
+    match = TOP_NUMBERED.fullmatch(text) if version == SECTIONS_9 and layout_title else None
+    if match:
+        return {"title": text, "kind": "numbered", "code": match[1], "study_keys": [],
+                "basis": "top_level_numbered_layout_title"}
     normalized = key(text)
     if re.fullmatch(r"(?:post[ -]?hoc )?pooled analys[ie]s", normalized):
         return {"title": text, "kind": "cross_analysis", "study_keys": [], "basis": "standalone_heading_text"}
     # A source's explicit part qualifier belongs to the structural heading;
     # it supplies evidence, never an automatic semantic assignment.
     bare = re.sub(r"\s*\(part\s+\d+\)$", "", normalized)
-    if version not in (COMPAT_VERSION, 'sections-5', 'sections-6', 'sections-7', VERSION):
+    if version not in (COMPAT_VERSION, 'sections-5', 'sections-6', 'sections-7', VERSION, SECTIONS_9):
         raise ValueError('Unknown section rules version')
-    if version in ('sections-7', VERSION) and re.fullmatch(
+    if version in ('sections-7', VERSION, SECTIONS_9) and re.fullmatch(
             r'(?:(?:clinical|pivotal|supportive) )?phase (?:[1-4](?:/[1-4])?|[ivx]+(?:/[ivx]+)?) '
             r'(?:clinical )?(?:study|trial)(?:\s*\([^()]{1,60}\))?', normalized):
         return {'title':text,'kind':'study_boundary','study_keys':[],
                 'basis':'standalone_unidentified_study_heading'}
     headings = SUBHEADINGS | CLINICAL_SUBHEADINGS if version != COMPAT_VERSION else SUBHEADINGS
-    if version in ('sections-6', 'sections-7', VERSION) and re.fullmatch(
+    if version in ('sections-6', 'sections-7', VERSION, SECTIONS_9) and re.fullmatch(
             r'(?:(?:subcutaneous|intravenous|oral) )?(?:adult|pediatric|paediatric)(?: patients?)? '
             r'(?:dosage|dose)(?: regimen| and administration)?', bare):
         return {'title': text, 'kind': 'subsection', 'study_keys': [], 'basis': 'standalone_population_dosage_heading'}
@@ -184,11 +198,12 @@ class Tracker:
         self.stack = []
         self.nodes = {}
 
-    def scan(self, texts, refs, page, source_kind="native", region=None, explicit=None):
+    def scan(self, texts, refs, page, source_kind="native", region=None, explicit=None, layout_titles=()):
         explicit = explicit or {}
         candidates = {}
         for i, text in enumerate(texts):
-            found = explicit.get(refs[i]["line_start"]) or identify(' '.join(text.split()), self.product, version=self.version)
+            found = explicit.get(refs[i]["line_start"]) or identify(' '.join(text.split()), self.product, version=self.version,
+                                                                    layout_title=i in layout_titles)
             if found:
                 # A short label next to other cells on the same row is not a
                 # section heading. Native table columns often say "Results".

@@ -149,7 +149,7 @@ class SupportTests(unittest.TestCase):
         self.assertIn('현재 검색 범위', result['answer_ko'])
         self.assertNotIn('미보고', result['answer_ko'])
 
-    def test_guideline_role_requires_a_quote_from_the_original_request(self):
+    def test_planner_guideline_role_stands_and_its_quote_is_recorded(self):
         class Client:
             def __call__(self, *args, **kwargs):
                 return {'text': json.dumps({'in_scope': True, 'products': ['SB17'],
@@ -159,8 +159,8 @@ class SupportTests(unittest.TestCase):
                                'guideline_request_quote': '',
                                'intent': {'intent': 'compare_products', 'request_quote': ''}}]})}
         u, _ = ra_tasks.interpret('SB17 시험 조건을 비교해줘', Client(), ['SB17'], ['EU'])
-        self.assertEqual(u['tasks'][0]['source_roles'], ['assessment'])
-        self.assertIn('routing_adjustment', u['tasks'][0])
+        self.assertEqual(u['tasks'][0]['source_roles'], ['assessment', 'guideline'])
+        self.assertFalse(u['tasks'][0]['guideline_quote_verbatim'])
 
 
 class GuidelineTests(unittest.TestCase):

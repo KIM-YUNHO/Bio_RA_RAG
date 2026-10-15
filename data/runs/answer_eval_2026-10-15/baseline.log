@@ -1,0 +1,27 @@
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights:   1%|▏         | 5/391 [00:03<04:41,  1.37it/s]Loading weights:  94%|█████████▍| 367/391 [00:03<00:00, 136.45it/s]Loading weights: 100%|██████████| 391/391 [00:03<00:00, 99.16it/s] 
+E01 1 partial 9.8
+T01 1 partial 16.5
+T02 1 partial 11.9
+E03 1 partial 32.6
+C03 1 partial 14.3
+U03 1 partial 18.5
+E04 1 partial 19.3
+E02 1 partial 11.9
+U01 1 partial 13.7
+U02 1 partial 10.0
+U04 1 partial 15.1
+C01 1 partial 11.6
+C02 1 FAILED ValueError This workflow is already running
+C04 1 partial 16.8
+T03 1 partial 11.7
+T04 1 FAILED ValueError This workflow is already running
+T05 1 partial 15.1
+N01 1 partial 12.5
+N02 1 not_found 2.6
+Q1 1 partial 34.4
+Q2 1 partial 20.0
+Q3 1 partial 20.5
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights:   1%|▏         | 5/391 [00:00<01:04,  6.03it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 462.76it/s]
+Q1 2 partial 27.8
+Q2 2 partial 25.9
+Q3 2 partial 27.3

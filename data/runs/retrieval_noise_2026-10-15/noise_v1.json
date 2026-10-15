@@ -1,0 +1,1082 @@
+{
+ "index": "C:\\Users\\Admin\\Documents\\project_shared\\data\\versions\\04_pipeline_h_supplement_2026-10-14\\embedded\\release",
+ "plans_per_question": 4,
+ "questions": [
+  "storage:SB17",
+  "storage:BMAB1200",
+  "shelf_life:ABP654",
+  "shelf_life:CTP43",
+  "mah:BAT2206",
+  "mah:SB17",
+  "eu_first_authorisation:ABP654",
+  "eu_first_authorisation:SB17",
+  "fda_approval_date:CTP43",
+  "fda_approval_date:BMAB1200",
+  "fda_postmarketing:SB17",
+  "excipients:CTP43",
+  "excipients:ABP654",
+  "ema_submission:BMAB1200",
+  "hc_noc_date:CTP43",
+  "crohn_iv_induction:BAT2206"
+ ],
+ "profiles": {
+  "baseline": {},
+  "role_boost_off": {
+   "role_boost": 0.0
+  },
+  "correspondence_default": {
+   "extra_default_groups": [
+    "correspondence"
+   ]
+  }
+ },
+ "summary": {
+  "baseline@8": {
+   "all_plans_mean": 0.719,
+   "single_plan_draw_95": [
+    0.594,
+    0.844
+   ],
+   "questions_with_any_plan_disagreement": 4
+  },
+  "baseline@40": {
+   "all_plans_mean": 0.938,
+   "single_plan_draw_95": [
+    0.844,
+    0.969
+   ],
+   "questions_with_any_plan_disagreement": 2
+  },
+  "role_boost_off@8": {
+   "all_plans_mean": 0.682,
+   "single_plan_draw_95": [
+    0.573,
+    0.823
+   ],
+   "questions_with_any_plan_disagreement": 4,
+   "paired_minus_baseline_95": [
+    -0.083,
+    0.042
+   ],
+   "paired_minus_baseline_mean": -0.037
+  },
+  "role_boost_off@40": {
+   "all_plans_mean": 0.938,
+   "single_plan_draw_95": [
+    0.844,
+    0.969
+   ],
+   "questions_with_any_plan_disagreement": 2,
+   "paired_minus_baseline_95": [
+    0.0,
+    0.0
+   ],
+   "paired_minus_baseline_mean": 0.0
+  },
+  "correspondence_default@8": {
+   "all_plans_mean": 0.688,
+   "single_plan_draw_95": [
+    0.594,
+    0.781
+   ],
+   "questions_with_any_plan_disagreement": 5,
+   "paired_minus_baseline_95": [
+    -0.062,
+    0.0
+   ],
+   "paired_minus_baseline_mean": -0.031
+  },
+  "correspondence_default@40": {
+   "all_plans_mean": 0.992,
+   "single_plan_draw_95": [
+    0.969,
+    1.0
+   ],
+   "questions_with_any_plan_disagreement": 1,
+   "paired_minus_baseline_95": [
+    0.0,
+    0.156
+   ],
+   "paired_minus_baseline_mean": 0.054
+  }
+ },
+ "scores": {
+  "baseline@8": {
+   "storage:SB17": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "storage:BMAB1200": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "shelf_life:ABP654": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "shelf_life:CTP43": [
+    0.5,
+    0.5,
+    0.5,
+    0.5
+   ],
+   "mah:BAT2206": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "mah:SB17": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "eu_first_authorisation:ABP654": [
+    0.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "eu_first_authorisation:SB17": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "fda_approval_date:CTP43": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "fda_approval_date:BMAB1200": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "fda_postmarketing:SB17": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "excipients:CTP43": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "excipients:ABP654": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "ema_submission:BMAB1200": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "hc_noc_date:CTP43": [
+    0.0,
+    1.0,
+    0.0,
+    0.0
+   ],
+   "crohn_iv_induction:BAT2206": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  "baseline@40": {
+   "storage:SB17": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "storage:BMAB1200": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "shelf_life:ABP654": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "shelf_life:CTP43": [
+    0.5,
+    0.5,
+    0.5,
+    0.5
+   ],
+   "mah:BAT2206": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mah:SB17": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "eu_first_authorisation:ABP654": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "eu_first_authorisation:SB17": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "fda_approval_date:CTP43": [
+    1.0,
+    1.0,
+    1.0,
+    0.0
+   ],
+   "fda_approval_date:BMAB1200": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "fda_postmarketing:SB17": [
+    1.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "excipients:CTP43": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "excipients:ABP654": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "ema_submission:BMAB1200": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "hc_noc_date:CTP43": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "crohn_iv_induction:BAT2206": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  "role_boost_off@8": {
+   "storage:SB17": [
+    0.6666666666666666,
+    0.6666666666666666,
+    0.6666666666666666,
+    0.6666666666666666
+   ],
+   "storage:BMAB1200": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "shelf_life:ABP654": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "shelf_life:CTP43": [
+    0.5,
+    0.5,
+    0.5,
+    0.5
+   ],
+   "mah:BAT2206": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "mah:SB17": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "eu_first_authorisation:ABP654": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "eu_first_authorisation:SB17": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "fda_approval_date:CTP43": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "fda_approval_date:BMAB1200": [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "fda_postmarketing:SB17": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "excipients:CTP43": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "excipients:ABP654": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "ema_submission:BMAB1200": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "hc_noc_date:CTP43": [
+    0.0,
+    1.0,
+    1.0,
+    0.0
+   ],
+   "crohn_iv_induction:BAT2206": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  "role_boost_off@40": {
+   "storage:SB17": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "storage:BMAB1200": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "shelf_life:ABP654": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "shelf_life:CTP43": [
+    0.5,
+    0.5,
+    0.5,
+    0.5
+   ],
+   "mah:BAT2206": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mah:SB17": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "eu_first_authorisation:ABP654": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "eu_first_authorisation:SB17": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "fda_approval_date:CTP43": [
+    1.0,
+    1.0,
+    1.0,
+    0.0
+   ],
+   "fda_approval_date:BMAB1200": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "fda_postmarketing:SB17": [
+    1.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "excipients:CTP43": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "excipients:ABP654": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "ema_submission:BMAB1200": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "hc_noc_date:CTP43": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "crohn_iv_induction:BAT2206": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  "correspondence_default@8": {
+   "storage:SB17": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "storage:BMAB1200": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "shelf_life:ABP654": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "shelf_life:CTP43": [
+    0.5,
+    0.5,
+    0.5,
+    0.5
+   ],
+   "mah:BAT2206": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "mah:SB17": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "eu_first_authorisation:ABP654": [
+    0.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "eu_first_authorisation:SB17": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "fda_approval_date:CTP43": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "fda_approval_date:BMAB1200": [
+    0.0,
+    1.0,
+    1.0,
+    0.0
+   ],
+   "fda_postmarketing:SB17": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "excipients:CTP43": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "excipients:ABP654": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "ema_submission:BMAB1200": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "hc_noc_date:CTP43": [
+    0.0,
+    1.0,
+    0.0,
+    0.0
+   ],
+   "crohn_iv_induction:BAT2206": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  "correspondence_default@40": {
+   "storage:SB17": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "storage:BMAB1200": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "shelf_life:ABP654": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "shelf_life:CTP43": [
+    1.0,
+    0.5,
+    1.0,
+    1.0
+   ],
+   "mah:BAT2206": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "mah:SB17": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "eu_first_authorisation:ABP654": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "eu_first_authorisation:SB17": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "fda_approval_date:CTP43": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "fda_approval_date:BMAB1200": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "fda_postmarketing:SB17": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "excipients:CTP43": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "excipients:ABP654": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "ema_submission:BMAB1200": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "hc_noc_date:CTP43": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "crohn_iv_induction:BAT2206": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ },
+ "planned_roles": {
+  "storage:SB17": [
+   [
+    [
+     "label"
+    ]
+   ],
+   [
+    [
+     "label"
+    ]
+   ],
+   [
+    [
+     "label"
+    ]
+   ],
+   [
+    [
+     "label"
+    ]
+   ]
+  ],
+  "storage:BMAB1200": [
+   [
+    [
+     "label"
+    ]
+   ],
+   [
+    [
+     "label"
+    ]
+   ],
+   [
+    [
+     "label"
+    ]
+   ],
+   [
+    [
+     "label"
+    ]
+   ]
+  ],
+  "shelf_life:ABP654": [
+   [
+    [
+     "label"
+    ]
+   ],
+   [
+    [
+     "label"
+    ]
+   ],
+   [
+    [
+     "label"
+    ]
+   ],
+   [
+    [
+     "label"
+    ]
+   ]
+  ],
+  "shelf_life:CTP43": [
+   [
+    [
+     "label"
+    ]
+   ],
+   [
+    [
+     "label"
+    ]
+   ],
+   [
+    [
+     "label"
+    ]
+   ],
+   [
+    [
+     "label"
+    ]
+   ]
+  ],
+  "mah:BAT2206": [
+   [
+    [
+     "label"
+    ]
+   ],
+   [
+    [
+     "label"
+    ]
+   ],
+   [
+    [
+     "label",
+     "assessment"
+    ]
+   ],
+   [
+    [
+     "label",
+     "assessment"
+    ]
+   ]
+  ],
+  "mah:SB17": [
+   [
+    [
+     "label",
+     "assessment"
+    ]
+   ],
+   [
+    [
+     "label",
+     "assessment"
+    ]
+   ],
+   [
+    [
+     "label",
+     "assessment"
+    ]
+   ],
+   [
+    [
+     "label"
+    ]
+   ]
+  ],
+  "eu_first_authorisation:ABP654": [
+   [
+    [
+     "assessment",
+     "decision_summary"
+    ]
+   ],
+   [
+    [
+     "decision_summary",
+     "label"
+    ]
+   ],
+   [
+    [
+     "label",
+     "decision_summary"
+    ]
+   ],
+   [
+    [
+     "decision_summary",
+     "assessment"
+    ]
+   ]
+  ],
+  "eu_first_authorisation:SB17": [
+   [
+    [
+     "decision_summary",
+     "assessment"
+    ]
+   ],
+   [
+    [
+     "decision_summary",
+     "assessment"
+    ]
+   ],
+   [
+    [
+     "decision_summary",
+     "label"
+    ]
+   ],
+   [
+    [
+     "assessment",
+     "decision_summary"
+    ]
+   ]
+  ],
+  "fda_approval_date:CTP43": [
+   [
+    [
+     "decision_summary",
+     "label"
+    ]
+   ],
+   [
+    [
+     "label",
+     "decision_summary"
+    ]
+   ],
+   [
+    [
+     "decision_summary",
+     "assessment"
+    ]
+   ],
+   [
+    [
+     "assessment",
+     "decision_summary"
+    ]
+   ]
+  ],
+  "fda_approval_date:BMAB1200": [
+   [
+    [
+     "decision_summary",
+     "assessment"
+    ]
+   ],
+   [
+    [
+     "assessment",
+     "decision_summary"
+    ]
+   ],
+   [
+    [
+     "assessment",
+     "decision_summary"
+    ]
+   ],
+   [
+    [
+     "label",
+     "decision_summary"
+    ]
+   ]
+  ],
+  "fda_postmarketing:SB17": [
+   [
+    [
+     "assessment",
+     "correspondence"
+    ]
+   ],
+   [
+    [
+     "assessment",
+     "decision_summary"
+    ]
+   ],
+   [
+    [
+     "assessment",
+     "correspondence"
+    ]
+   ],
+   [
+    [
+     "assessment",
+     "correspondence"
+    ]
+   ]
+  ],
+  "excipients:CTP43": [
+   [
+    [
+     "label"
+    ]
+   ],
+   [
+    [
+     "label"
+    ]
+   ],
+   [
+    [
+     "label"
+    ]
+   ],
+   [
+    [
+     "label"
+    ]
+   ]
+  ],
+  "excipients:ABP654": [
+   [
+    [
+     "label"
+    ]
+   ],
+   [
+    [
+     "label"
+    ]
+   ],
+   [
+    [
+     "label"
+    ]
+   ],
+   [
+    [
+     "label"
+    ]
+   ]
+  ],
+  "ema_submission:BMAB1200": [
+   [
+    [
+     "correspondence",
+     "assessment"
+    ]
+   ],
+   [
+    [
+     "assessment",
+     "correspondence"
+    ]
+   ],
+   [
+    [
+     "assessment",
+     "decision_summary"
+    ]
+   ],
+   [
+    [
+     "assessment",
+     "decision_summary"
+    ]
+   ]
+  ],
+  "hc_noc_date:CTP43": [
+   [
+    [
+     "assessment",
+     "decision_summary"
+    ]
+   ],
+   [
+    [
+     "assessment",
+     "decision_summary"
+    ]
+   ],
+   [
+    [
+     "decision_summary",
+     "correspondence"
+    ]
+   ],
+   [
+    [
+     "assessment",
+     "decision_summary"
+    ]
+   ]
+  ],
+  "crohn_iv_induction:BAT2206": [
+   [
+    [
+     "label",
+     "assessment"
+    ]
+   ],
+   [
+    [
+     "label"
+    ]
+   ],
+   [
+    [
+     "label",
+     "assessment"
+    ]
+   ],
+   [
+    [
+     "label"
+    ]
+   ]
+  ]
+ }
+}

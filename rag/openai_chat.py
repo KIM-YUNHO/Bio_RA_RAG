@@ -85,7 +85,11 @@ class EvaluationAPIChat:
         if json_schema:
             from rag.schema_budget import assert_supported
             assert_supported(json_schema.get('schema',json_schema))
-        name=(json_schema or {}).get('name','text');output=1000 if name=='query_understanding' else self.output_tokens
+        name=(json_schema or {}).get('name','text');output=1600 if name=='query_understanding' else self.output_tokens
+        if json_schema and 'max_output_tokens' in json_schema:
+            # Per-call output budget (a local field, never sent to the provider).
+            output=int(json_schema['max_output_tokens'])
+            json_schema={k:v for k,v in json_schema.items() if k!='max_output_tokens'}
         tokens=self.tokenizer.messages(messages)
         if json_schema:tokens+=self.tokenizer.one(json.dumps(json_schema,ensure_ascii=False,separators=(',',':')))
         telemetry={'provider':self.provider,'schema':name,'model_requested':self.model,
