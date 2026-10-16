@@ -63,8 +63,9 @@ def evidence_quotes(result, eid):
 
 
 class EvidencePages:
-    def __init__(self, pipeline):
+    def __init__(self, pipeline, archived_path=None):
         self.paths = {}
+        self.archived_path = archived_path
         bundle = getattr(pipeline, 'bundle', None)
         for doc in (getattr(bundle, 'docs', None) or {}).values():
             self.paths[(doc['document_id'], doc['version_id'])] = str(Path(doc.get('rendered_path') or doc['raw_path']))
@@ -86,7 +87,10 @@ class EvidencePages:
 
     def path(self, evidence):
         identity = (evidence.get('document_id'), evidence.get('version_id'))
-        if identity not in self.paths: raise KeyError('Unregistered document version')
+        if identity not in self.paths:
+            if self.archived_path is not None:
+                return self.archived_path(evidence)
+            raise KeyError('Unregistered document version')
         return self.paths[identity]
 
     def page_count(self, path):

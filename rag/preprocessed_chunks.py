@@ -262,7 +262,7 @@ def build(run, counter, cfg=None, *, _loaded=None):
                 else:
                     if u['kind'] == 'text' and not u.get('structure', {}).get('table_id'):
                         eligible.extend({**u, 'text':u['text'][start:end], 'source_offset':start}
-                            for start,end in ds.source_segments(u['text'],product))
+                            for start,end in ds.source_segments(u['text'],product,version=cfg['section_rules_version']))
                     else:
                         eligible.append(u)
             # Only prose can create section boundaries; axis labels and table cells cannot.

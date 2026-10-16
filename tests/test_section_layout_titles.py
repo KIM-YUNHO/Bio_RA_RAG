@@ -15,10 +15,11 @@ class LayoutTitleRuleTests(unittest.TestCase):
         self.assertIsNone(ds.identify('9. Remove the cap', version=ds.SECTIONS_9))
         self.assertIsNone(ds.identify(title, version=ds.SECTIONS_9))
 
-    def test_default_remains_sections_8(self):
-        self.assertEqual('sections-8', ds.VERSION)
+    def test_default_adds_study_boundaries_without_adopting_sections_9_layout_rules(self):
+        self.assertEqual('sections-10', ds.VERSION)
         from rag.preprocessed_chunks import CONFIG
-        self.assertEqual('sections-8', CONFIG['section_rules_version'])
+        self.assertEqual('sections-10', CONFIG['section_rules_version'])
+        self.assertIsNone(ds.identify('9. Remove the cap',version=ds.VERSION,layout_title=True))
 
     def test_previous_rule_versions_are_unchanged(self):
         title = '7. MARKETING AUTHORISATION HOLDER'

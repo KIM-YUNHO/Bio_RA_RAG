@@ -28,7 +28,7 @@ MODEL = "gpt-4o-mini"
 UNSUPPORTED = {"minItems", "maxItems", "minLength", "maxLength", "pattern", "format", "default", "title"}
 JURISDICTION_KO = {"EU": "EU(EMA)", "US": "미국(FDA)", "CA": "캐나다(HC)", "JP": "일본(PMDA)", "KR": "한국(식약처)"}
 HELP = ("성분·제품명·개발코드로 물어보세요. 예: '우스테키누맙 제품들 허가 현황', 'Imuldosa 적재해줘', 'SB17 수집됐어?'\n"
-        "명령: /status (적재 진행 상황과 확인표), /approve <PRODUCT_ID> (확인표를 본 뒤 프로젝트로 옮기기), /reset, /quit")
+        "명령: /status (적재 진행 상황과 확인표), /approve <PRODUCT_ID> (확인표를 본 뒤 자료 저장소에 등록), /reset, /quit")
 
 SYSTEM = """You turn one user message to a biosimilar regulatory-document ingestion assistant into JSON. You never answer the user.
 
@@ -119,6 +119,11 @@ def label(c):
     return f"[{kind}] {c['product_id'] or c['key']} — {names} ({c['ingredient']}; {flags})"
 
 
+def plan_digest(plan):
+    """Bind an explicit UI start button to the plan the person actually saw."""
+    return hashlib.sha256(json.dumps(plan, sort_keys=True, ensure_ascii=False, separators=(',', ':')).encode('utf-8')).hexdigest()
+
+
 class Agent:
     def __init__(self, conn, session_id=None, parse=None):
         self.conn = conn
@@ -153,6 +158,30 @@ class Agent:
             else:
                 parse = parse.model_copy(update={"jurisdictions": grounded_jurisdictions(text, parse.jurisdictions)})
                 reply = self.dispatch(text, parse, actions)
+        return self.record_turn(text, parse, actions, reply)
+
+    def control(self, payload):
+        """Explicit screen controls use the same dispatcher without a model call."""
+        action = payload.get('action')
+        if action == 'select' and set(payload) == {'action', 'candidate_key'}:
+            key = payload['candidate_key']
+            if self.state['stage'] != 'choosing' or not any(c['key'] == key for c in self.state['candidates']):
+                raise ValueError('현재 목록에 있는 제품을 다시 선택하세요.')
+            text = '목록에서 선택: ' + key
+            parse = TurnParse(intent='select', mentions=[], jurisdictions=[], selected_keys=[key])
+        elif action == 'start' and set(payload) == {'action', 'plan_sha256'}:
+            if self.state['stage'] != 'planned' or not self.state['plan'] or payload['plan_sha256'] != plan_digest(self.state['plan']):
+                raise ValueError('계획이 바뀌었거나 이미 시작했습니다. 최신 적재 계획을 확인하세요.')
+            text = '계획대로 스테이징 수집 시작'
+            parse = TurnParse(intent='confirm', mentions=[], jurisdictions=[], selected_keys=[])
+        else:
+            raise ValueError('지원하지 않는 적재 동작입니다.')
+        self.state['user_texts'] = (self.state['user_texts'] + [text])[-10:]
+        actions = [{'tool': 'ui_control', 'action': action}]
+        reply = self.dispatch(text, parse, actions)
+        return self.record_turn(text, parse, actions, reply)
+
+    def record_turn(self, text, parse, actions, reply):
         turn = self.conn.execute("SELECT count(*) FROM ingest.agent_turns WHERE session_id = %s", (self.session_id,)).fetchone()[0] + 1
         self.conn.execute("INSERT INTO ingest.agent_turns (session_id, turn, user_text, parse, actions, reply, stage_after) VALUES (%s, %s, %s, %s, %s, %s, %s)",
                           (self.session_id, turn, text, Jsonb(parse.model_dump()) if parse else None, Jsonb(actions), reply, self.state["stage"]))
@@ -177,7 +206,7 @@ class Agent:
             return "취소했습니다. 진행 중인 적재 요청이 있으면 /status로 볼 수 있습니다."
         if intent == "confirm":
             if self.state["stage"] in ("review", "staging", "promoting"):
-                return "프로젝트로 옮기는 승인은 확인표(/status)를 본 뒤 /approve <PRODUCT_ID> 명령으로만 받습니다."
+                return "자료 등록 승인은 확인표(/status)를 본 뒤 /approve <PRODUCT_ID> 명령으로만 받습니다."
             if self.state["stage"] != "planned":
                 return "지금 확인할 계획이 없습니다. 적재할 제품을 먼저 말씀해 주세요."
             return self.start_staging(actions)
@@ -234,8 +263,8 @@ class Agent:
             return self.plan(target, actions)
         if intent == "refresh":
             if not target["product_id"]:
-                return f"{label(target)}은(는) 아직 프로젝트 제품이 아닙니다. 새로 적재하려면 '적재해줘'라고 해 주세요."
-            return (f"{target['product_id']}은(는) 이미 프로젝트 제품입니다. 갱신은 프로젝트 전체 재수집이라 에이전트가 자동으로 실행하지 않습니다:\n"
+                return f"{label(target)}은(는) 아직 자료 저장소에 등록되지 않았습니다. 새로 적재하려면 '적재해줘'라고 해 주세요."
+            return (f"{target['product_id']}은(는) 이미 자료 저장소에 등록된 제품입니다. 기존 자료 갱신은 에이전트가 자동으로 실행하지 않습니다:\n"
                     "  uv run python -m collection.collect  →  -m collection.build_indexes  →  -m collection.verify  →  -m ingestion.load_catalog")
         if intent == "add_guideline":
             return "지침 추가는 아직 에이전트가 실행하지 않습니다. configs/collection/guidelines.json에 항목을 넣고 `uv run python -m collection.collect.py --only guidelines`를 실행해 주세요."
@@ -267,7 +296,7 @@ class Agent:
 
     def coverage(self, target, actions):
         if not target["product_id"]:
-            return f"{label(target)}: 프로젝트에 수집되지 않았습니다. 적재하려면 '적재해줘'라고 해 주세요."
+            return f"{label(target)}: 자료 저장소에 수집되지 않았습니다. 적재하려면 '적재해줘'라고 해 주세요."
         rows = self.conn.execute("SELECT d.source, count(*), sum(v.page_count), count(*) FILTER (WHERE d.default_search) FROM corpus.documents d "
                                  "JOIN corpus.document_versions v ON v.document_id = d.document_id AND v.version_id = d.current_version_id "
                                  "WHERE d.product_id = %s GROUP BY 1 ORDER BY 1", (target["product_id"],)).fetchall()
@@ -278,7 +307,7 @@ class Agent:
 
     def plan(self, target, actions):
         if target["product_id"]:
-            return f"{target['product_id']}은(는) 이미 프로젝트에 수집돼 있습니다. 현황은 '수집 현황', 갱신은 '다시 수집'이라고 해 주세요."
+            return f"{target['product_id']}은(는) 이미 자료 저장소에 수집돼 있습니다. 현황은 '수집 현황', 갱신은 '다시 수집'이라고 해 주세요."
         try:
             result = planning.plan(Candidate(**target), self.state["user_texts"])
         except planning.PlanError as exc:
@@ -294,19 +323,30 @@ class Agent:
             f"  허가: {licences}",
             f"  수집 관할: {', '.join(JURISDICTION_KO[j] for j in req.jurisdictions)}; 임상시험 {len(p.study_ids)}건 {' '.join(p.study_ids)}",
             f"  {'스테이징에 이전 수집본이 있어 받은 문서는 재사용합니다.' if result['already_staged'] else '스테이징(product_search/data/)에 새로 받습니다.'}"
-            " 프로젝트 data/는 바뀌지 않습니다.",
-            "  진행할까요? ('진행'이라고 답하면 스테이징 수집을 시작합니다. 프로젝트로 옮기는 것은 확인표를 본 뒤 /approve로 따로 합니다.)"])
+            " 현재 자료 저장소는 바뀌지 않습니다.",
+            "  진행할까요? ('진행'이라고 답하면 스테이징 수집을 시작합니다. 자료 저장소 등록은 확인표를 본 뒤 /approve로 따로 합니다.)"])
 
     def start_staging(self, actions):
         req = self.state["plan"]["request"]
         request_id = str(uuid.uuid4())
         with self.conn.transaction():
+            self.conn.execute('SELECT pg_advisory_xact_lock(20261015, 3)')
+            active = self.conn.execute("SELECT request_id::text FROM ingest.requests WHERE status IN ('queued','staging','approved','promoting') ORDER BY created_at LIMIT 1").fetchone()
+            if active:
+                return f"다른 적재 작업({active[0]})이 실행 중입니다. 완료 후 다시 진행해 주세요."
             self.conn.execute("INSERT INTO ingest.requests (request_id, kind, contract_version, payload) VALUES (%s, %s, %s, %s)",
                               (request_id, req["kind"], VERSION, Jsonb(req)))
             self.conn.execute("INSERT INTO ingest.request_events (request_id, event, payload) VALUES (%s, 'planned', %s)",
                               (request_id, Jsonb({"session_id": self.session_id, "discover_entries": [self.state["plan"]["entry"]],
                                                   "confirmed_by_text": self.state["user_texts"][-1]})))
-        spawn(["stage", request_id], request_id)
+        try:
+            spawn(["stage", request_id], request_id)
+        except OSError as exc:
+            from ingestion.worker import event, set_status
+            event(self.conn, request_id, 'failed', {'step': 'worker_start', 'error': type(exc).__name__})
+            set_status(self.conn, request_id, 'failed')
+            self.state.update(stage='planned', request_id=request_id)
+            return '수집 작업을 시작하지 못했습니다. 작업 로그를 확인한 뒤 다시 시작하세요.'
         actions.append({"tool": "stage_collect", "request_id": request_id})
         self.state.update(stage="staging", request_id=request_id, plan=None)
         return f"스테이징 수집을 시작했습니다(요청 {request_id}). 몇 분 걸릴 수 있습니다. /status로 진행 상황과 확인표를 볼 수 있습니다."
@@ -339,7 +379,7 @@ class Agent:
                 if name == "staged":
                     self.state["shown_reports"][payload["product_id"]] = payload["report_sha256"]
                     lines += [f"--- 확인표 {payload['product_id']} ---", payload["report"].rstrip()]
-            lines.append("허가·문서·시험이 맞으면 /approve <PRODUCT_ID>로 프로젝트에 옮깁니다(원본을 다시 받지 않고 그대로 복사).")
+            lines.append("허가·문서·시험이 맞으면 /approve <PRODUCT_ID>로 자료 저장소에 등록합니다(원본을 다시 받지 않고 그대로 복사).")
             self.state["stage"] = "review"
         elif status == "failed":
             lines += [f"  실패: {p.get('step')}: {p.get('error')}" for e, p in events if e == "failed"]
@@ -359,13 +399,30 @@ class Agent:
             return f"승인할 수 없습니다(요청 상태 {status}). 확인표가 바뀌었으면 /status로 다시 보세요."
         approval_id = str(uuid.uuid4())
         with self.conn.transaction():
+            self.conn.execute('SELECT pg_advisory_xact_lock(20261015, 3)')
+            # CLI and UI can race: recheck after taking the shared worker lock.
+            current = self.conn.execute("SELECT status FROM ingest.requests WHERE request_id = %s FOR UPDATE", (request_id,)).fetchone()
+            latest = self.conn.execute("SELECT payload->>'report_sha256' FROM ingest.request_events WHERE request_id = %s AND event = 'staged' "
+                                       "AND payload->>'product_id' = %s ORDER BY event_id DESC LIMIT 1", (request_id, product_id)).fetchone()
+            if not current or current[0] != 'awaiting_approval' or not latest or latest[0] != shown:
+                return '요청 상태나 확인표가 바뀌었습니다. /status로 다시 확인하세요.'
+            active = self.conn.execute("SELECT request_id::text FROM ingest.requests WHERE request_id <> %s AND status IN ('queued','staging','approved','promoting') LIMIT 1", (request_id,)).fetchone()
+            if active:
+                return f"다른 적재 작업({active[0]})이 실행 중입니다. 완료 후 승인해 주세요."
             self.conn.execute("INSERT INTO ingest.approvals (approval_id, request_id, product_id, approved_by, report_sha256) VALUES (%s, %s, %s, %s, %s)",
                               (approval_id, request_id, product_id, getpass.getuser(), shown))
             self.conn.execute("UPDATE ingest.requests SET status = 'approved' WHERE request_id = %s", (request_id,))
-        spawn(["promote", request_id, approval_id], request_id)
+        try:
+            spawn(["promote", request_id, approval_id], request_id)
+        except OSError as exc:
+            from ingestion.worker import event, set_status
+            event(self.conn, request_id, 'failed', {'step': 'worker_start', 'error': type(exc).__name__})
+            set_status(self.conn, request_id, 'failed')
+            self.state['stage'] = 'review'
+            return '승인은 기록했지만 자료 등록 작업을 시작하지 못했습니다. 작업 로그를 확인하세요.'
         actions.append({"tool": "promote_apply", "request_id": request_id, "approval_id": approval_id})
         self.state["stage"] = "promoting"
-        return f"승인을 기록하고 프로젝트로 옮기기를 시작했습니다({product_id}). 끝나면 DB 사본과 이름 사전도 갱신됩니다. /status로 확인하세요."
+        return f"승인을 기록하고 자료 저장소 등록을 시작했습니다({product_id}). 끝나면 DB 사본과 이름 사전도 갱신됩니다. /status로 확인하세요."
 
 
 def spawn(args, request_id):
@@ -373,9 +430,9 @@ def spawn(args, request_id):
     from ingestion.worker import RUNS
     folder = RUNS / request_id
     folder.mkdir(parents=True, exist_ok=True)
-    log = open(folder / f"worker_{args[0]}.log", "a", encoding="utf-8")
     flags = (subprocess.CREATE_NEW_PROCESS_GROUP | subprocess.DETACHED_PROCESS) if sys.platform == "win32" else 0
-    subprocess.Popen([sys.executable, "-m", "ingestion.worker", *args], cwd=ROOT, stdout=log, stderr=subprocess.STDOUT, creationflags=flags)
+    with open(folder / f"worker_{args[0]}.log", "a", encoding="utf-8") as log:
+        subprocess.Popen([sys.executable, "-m", "ingestion.worker", *args], cwd=ROOT, stdout=log, stderr=subprocess.STDOUT, creationflags=flags)
 
 
 if __name__ == "__main__":

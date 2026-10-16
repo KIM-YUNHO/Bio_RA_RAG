@@ -12,7 +12,8 @@ Each variant then orders every group's pool:
 
 and the top k of every group are the selected pages. Metrics per gold group (a group is
 satisfied by ANY of its pages): recall@k for k in --ks, MRR (best rank of a gold page over
-the item's groups; 0 if absent from every pool) and the pool ceiling. Weak groups (more
+the item's groups; 0 if absent from every pool), nDCG@k (1/log2(rank+1) within k, ideal = every
+fact at rank 1) and the pool ceiling. Weak groups (more
 than 20 gold pages) are reported separately. Re-running with another reranker reuses the
 saved plans and pools: no model API calls after the first run.
 
@@ -27,7 +28,13 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 GOLD = ROOT / 'data/runs/retrieval_gold_2026-10-16/gold.json'
 FACT_PLANS = ROOT / 'data/runs/retrieval_scope_2026-10-15/nondefault_gold/plans'
-MODELS = {'bge-reranker-v2-m3': ('BAAI/bge-reranker-v2-m3', '953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e')}
+# name -> (model id, pinned revision, kind, trust_remote_code, max tokens). jina's remote code
+# (revision 9cfeff2d) was read before use: model definition only, no file/network/process access.
+MODELS = {'bge-reranker-v2-m3': ('BAAI/bge-reranker-v2-m3', '953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e', 'cross_encoder', False, 1024),
+          'jina-reranker-v2-multilingual': ('jinaai/jina-reranker-v2-base-multilingual', '9cfeff2df7d40d1b78e75e5e9cebec92a99813c9', 'cross_encoder', True, 1024),
+          'qwen3-reranker-0.6b': ('Qwen/Qwen3-Reranker-0.6B', 'e61197ed45024b0ed8a2d74b80b4d909f1255473', 'qwen3_yes_no', False, 1024),
+          # English-only biomedical cross-encoder (PubMed search logs); use the English fquery modes.
+          'medcpt-cross-encoder': ('ncbi/MedCPT-Cross-Encoder', '71caf65d4927987813984f54c284405a13fcca49', 'cross_encoder', False, 512)}
 
 
 def plan_for(item, pipe, folder, fresh=False):
@@ -69,14 +76,26 @@ def unit_prefix(product, agency):
     return ' '.join(dict.fromkeys(n for n in [*names, AGENCY_LABEL.get(agency, '')] if n)) + ': '
 
 
+def ndcg(groups, k):
+    """nDCG@k with one relevant unit per gold group (its best rank); the ideal ranks every fact first,
+    since each retrieval group (task x product x agency) has its own rank 1."""
+    import math
+    return sum(1 / math.log2(g['rank'] + 1) for g in groups if g['rank'] and g['rank'] <= k) / len(groups)
+
+
 def queries_for(task, mode, product=None, agency=None):
     if mode.endswith('_unit'):
         return [unit_prefix(product, agency) + q for q in queries_for(task, mode[:-5])]
     asks = list(dict.fromkeys(f['ask'] + (' ' + item if item else '')
                               for f in task.get('answer_facets', []) if f.get('ask')
                               for item in (f.get('items') or [None])))
+    # 'fquery': the planner's English per-fact query (+ item), or the task's English queries.
+    fqueries = list(dict.fromkeys(f['query'] + (' ' + item if item else '')
+                                  for f in task.get('answer_facets', []) if f.get('query')
+                                  for item in (f.get('items') or [None])))
     return {'request': [task['request']], 'queries': list(task['queries']),
-            'both': [task['request'], *task['queries']], 'ask': asks or [task['request']]}[mode]
+            'both': [task['request'], *task['queries']], 'ask': asks or [task['request']],
+            'fquery': fqueries or list(task['queries'])}[mode]
 
 
 def main():
@@ -116,7 +135,10 @@ def main():
         for it in items:
             u = plans[it['id']]
             tasks = {t['id']: t for t in u['tasks']}
-            groups = ra_retrieval.retrieve(corpus, deepcopy(u), pipe.guidelines, documents=corpus.allowed_documents, k=a.pool)
+            # The pool is the plain hybrid order: the production default reranks, which would make
+            # 'none' a reranked baseline and tie the pool size to rerank_pool.
+            groups = ra_retrieval.retrieve(corpus, deepcopy(u), pipe.guidelines, documents=corpus.allowed_documents, k=a.pool,
+                                           profile={'rerank': None, 'rerank_fuse': False})
             pools = [(g['task_id'], g.get('product'), g.get('jurisdiction'),
                       [index[h['chunk']['chunk_id']] for h in g['hits'] if h['chunk']['chunk_id'] in index])
                      for g in groups if g.get('product') is not None or g['hits']]
@@ -131,8 +153,11 @@ def main():
                     name, mode, *how = variant.split(':')
                     if name not in rerankers:
                         from rag.rerank import LocalReranker
-                        model, revision = MODELS.get(name, (name, None))
-                        rerankers[name] = LocalReranker(model=model, revision=revision, batch_size=8, max_length=1024)
+                        model, revision, kind, trust, length = MODELS.get(name, (name, None, 'cross_encoder', False, 512))
+                        # A causal-LM reranker needs more memory per pair: smaller batches on an 8 GB GPU.
+                        rerankers[name] = LocalReranker(model=model, revision=revision, max_length=length,
+                                                        batch_size=4 if kind == 'qwen3_yes_no' else 8,
+                                                        kind=kind, trust_remote_code=trust)
                     best = {}
                     for q in queries_for(tasks[task_id], mode, product, agency):
                         for score, i in rerankers[name].rank(q, [(0, i) for i in pool], corpus.chunks, limit=len(pool)):
@@ -173,6 +198,7 @@ def main():
             summary[scope][variant] = {'groups': len(gs), **{f'recall@{k}': round(sum(g[f'r@{k}'] for g in gs) / len(gs), 3) for k in ks},
                                        **{f'chunks@{k}': sel[k] for k in ks},
                                        'mrr': round(sum(1 / g['rank'] for g in gs if g['rank']) / len(gs), 3),
+                                       **{f'ndcg@{k}': round(ndcg(gs, k), 3) for k in ks},
                                        'pool_ceiling': round(sum(g['rank'] is not None for g in gs) / len(gs), 3),
                                        'seconds_median': round(statistics.median(secs), 2), 'seconds_max': round(max(secs), 2)}
     by_type = defaultdict(dict)

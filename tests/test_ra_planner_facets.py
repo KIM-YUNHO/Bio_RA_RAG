@@ -153,6 +153,25 @@ class UnitFusedRerank(unittest.TestCase):
         self.assertIn(0, fused)  # the hybrid top hit survives fusion
         self.assertTrue(seen[0].startswith('SB17 Pyzchiva EMA: ') and seen[0].endswith('EU 최초 허가일'))
 
+    def test_fquery_unit_uses_the_english_per_fact_query(self):
+        from types import SimpleNamespace
+        from rag import ra_retrieval
+        seen = []
+
+        class Record:
+            def rank(self, query, hits, chunks, limit):
+                seen.append(query)
+                return [(0.0, i) for _, i in hits][:limit]
+        corpus = SimpleNamespace(_ra_reranker=Record(), chunks={})
+        task = {'request': 'r', 'queries': ['task query'],
+                'answer_facets': [{'facet': 'fact', 'ask': 'EU 최초 허가일', 'query': 'date of first authorisation', 'items': []}]}
+        ra_retrieval.rerank(corpus, task, [(0, 1)], 1, 'fquery_unit', 'SB17', 'EU', fuse=True)
+        self.assertEqual(seen, ['SB17 Pyzchiva EMA: date of first authorisation'])
+        seen.clear()
+        ra_retrieval.rerank(corpus, {**task, 'answer_facets': []}, [(0, 1)], 1, 'fquery_unit', 'SB17', 'EU')
+        self.assertEqual(seen, ['SB17 Pyzchiva EMA: task query'])  # open task: the task's English query
+        self.assertEqual(ra_retrieval.DEFAULT_PROFILE['rerank'], 'fquery_unit')
+
 
 class RerankKeepFirst(unittest.TestCase):
     def test_each_ranking_first_hit_is_served_before_the_reranked_order(self):
