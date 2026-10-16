@@ -43,7 +43,8 @@ class AnswerFacet(Contract):
 
 class ResearchTask(Contract):
     request: Annotated[str, Field(min_length=1, max_length=1600)]
-    queries: Annotated[list[str], Field(min_length=1, max_length=2)]
+    # The task's one English query; a task with answer facets searches with its facts' queries instead.
+    queries: Annotated[list[str], Field(min_length=0, max_length=2)]
     source_roles: Annotated[list[Literal['assessment', 'label', 'guideline', 'correspondence',
         'quality', 'rmp', 'decision_summary', 'other_review', 'protocol', 'sap']], Field(min_length=1, max_length=3)]
     guideline_request_quote: str = ''
@@ -93,7 +94,7 @@ class ResearchPlan(Contract):
     jurisdictions: list[str]
     jurisdiction_mentions: list[JurisdictionMention]
     # Kept for the record; RA retrieval uses each task's queries, so an empty value is not an error.
-    english_query: str
+    english_query: str = ''
     tasks: Annotated[list[ResearchTask], Field(min_length=1, max_length=4)]
 
     @model_validator(mode='after')

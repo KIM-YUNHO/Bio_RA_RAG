@@ -128,6 +128,34 @@ class SpanTests(unittest.TestCase):
         self.assertNotIn('90 mg', result['answer_ko'])
         self.assertEqual(result['status'], 'partial')
 
+    def test_model_gap_prose_stays_out_of_the_answer(self):
+        class Tokens:
+            def one(self, value): return len(value)
+            def messages(self, value): return sum(len(m['content']) for m in value)
+        prose = 'Study Alpha는 심사기간 정지 이후 2020년에 중단되었다.'
+        class Client:
+            tokenizer = Tokens(); input_limit = 100000
+            def __call__(self, messages, json_schema=None, provider=None):
+                if json_schema['name'] == 'ra_request_grounded_answer':
+                    return {'text': json.dumps({'request_results': {'R1': {'claims': [claim(['S2'])], 'gaps': [prose]}},
+                        'derived': [{'label': 'SB17 투여 간격', 'operation': 'difference', 'operand_span_ids': ['S2', 'S3']}]})}
+                proposals = json.loads(messages[1]['content'])['proposed_claims']
+                return {'text': json.dumps({'claims': {p['id']: {'selected_support': 'supported',
+                    'context_support': 'supported', 'clauses': [{'text': p['text'], 'kind': p['kind'],
+                    'products': p['products'], 'claim_basis': p['claim_basis'], 'verdict': 'supported',
+                    'final_span_ids': p['selected_span_ids'], 'reason': 'Original dose'}]} for p in proposals}})}
+        result = ra_answer.generate('투여 조건', {'tasks': [TASK]}, evidence(), Client(), 'spans')
+        self.assertIn('SB17은 45 mg SC를 사용했다.', result['answer_ko'])
+        self.assertNotIn('2020년', result['answer_ko'])
+        self.assertNotIn('모델이 밝힌', result['answer_ko'])
+        self.assertNotIn('인용으로 완전히 확인하지 못한 요청', result['answer_ko'])
+        self.assertIn('투여 조건', result['gaps'])
+        self.assertEqual({'texts': [prose], 'shown_to_user': False, 'citation_verified': False},
+                         result['validation']['model_gap_reasons'])
+        self.assertEqual('derived_operand_not_in_verified_claims',
+                         result['validation']['derived_withheld'][0]['reason'])
+        self.assertIn('계산하지 않은 값 (계산할 두 값이 검증된 인용에 모두 있지 않음):\n- SB17 투여 간격', result['answer_ko'])
+
     def test_review_uses_exact_selected_quotes_and_complete_cited_context(self):
         blocks = evidence(); spans, _ = ra_spans.catalog(blocks)
         resolved = ra_spans.resolve({'claims': [claim(['S2'])], 'gaps': []}, blocks, spans)

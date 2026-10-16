@@ -60,14 +60,19 @@ def oracle_groups(corpus, understanding, guideline_index, source_ids, documents)
 # Retrieval knobs; the default is production. 2026-10-14 grid on release 04: stripping slot-constant
 # words from BM25 queries raised silver recall 0.855->0.882; lower BM25 weight and an added
 # original-question ranking lost recall or stability (data/runs/retrieval_stability_2026-10-14).
-DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': None, 'strip_slot_terms': True,
+DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': None, 'question_bm25': False, 'query_unit': False, 'strip_slot_terms': True,
                    'suppress_boilerplate': False, 'collapse_duplicates': False, 'role_boost': True,
                    'extra_default_groups': ('correspondence',), 'rerank': 'fquery_unit', 'rerank_pool': 40, 'rerank_fuse': True,
+                   'rerank_question': False,
                    # A guideline-only task whose guideline search finds nothing in scope (e.g. the user picked
                    # one product document) reads the in-scope product documents instead. On by default on this
                    # branch: teammate QA (30 q, document picked) retrieval 0.800 -> 0.967, answer facts
                    # 0.592 -> 0.776; never triggered on the other sets (post-retrieval record 4-15).
                    'guideline_fallback': True}
+# Off by default (2026-10-16, eval/plan_stability.py, fact_gold rrf): the original question as a
+# dense ranking and reranker query (question_query, rerank_question) lowered recall 0.931 -> 0.902;
+# product names on first-stage queries (query_unit) add nothing inside a product x agency group.
+# Stability came from the planner writing one fixed English query per fact.
 # Reranker on by default since 2026-10-16 (bge-reranker-v2-m3): queries are the slot's product +
 # agency + the planner's per-fact English search phrase (fquery_unit), fused with the hybrid order
 # (RRF). Model comparison on the retrieval gold (pool 40): recall@8 0.715 none, 0.804 ask_unit,
@@ -139,7 +144,7 @@ def unit_prefix(product, agency):
     return ' '.join(dict.fromkeys(n for n in [*names, AGENCY_LABEL.get(agency, '')] if n)) + ': '
 
 
-def rerank(corpus, task, hits, k, mode, product=None, agency=None, fuse=False):
+def rerank(corpus, task, hits, k, mode, product=None, agency=None, fuse=False, question=None):
     """Reorder a broad candidate pool with the local cross-encoder; keep the top k.
 
     mode: 'request' (the task's Korean request), 'queries' (planner queries), 'both', 'ask'
@@ -165,6 +170,8 @@ def rerank(corpus, task, hits, k, mode, product=None, agency=None, fuse=False):
     queries = {'request': [task['request']], 'queries': list(task['queries']),
                'both': [task['request'], *task['queries']], 'ask': asks or [task['request']],
                'fquery': fqueries or list(task['queries'])}[base]
+    if question:
+        queries = [*queries, question]
     if unit:
         queries = [unit_prefix(product, agency) + q for q in queries]
     best = {}
@@ -221,6 +228,17 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
     product_needed = any(set(t['source_roles']) - {'guideline'} for t in tasks)
     vectors = corpus.encode(queries) if product_needed else None
     query_vectors = dict(zip(queries, vectors)) if vectors is not None else {}
+
+    def unit_queries(task, product, agency):
+        # query_unit: the group's own product names and agency precede each planner query
+        # (planner queries carry no product names), as in the reranker's queries.
+        if not P['query_unit']:
+            return list(task['queries'])
+        own = [unit_prefix(product, agency) + q for q in task['queries']]
+        missing = [q for q in own if q not in query_vectors]
+        if missing:
+            query_vectors.update(zip(missing, corpus.encode(missing)))
+        return own
     eligible = [int(i) for i in filter_idx(corpus.chunks, include_nondefault=True)
                 if allowed(corpus.chunks[int(i)]) and permitted(corpus.chunks[int(i)].get('document_metadata') or {})]
     default_ids = set(int(i) for i in filter_idx(corpus.chunks))
@@ -245,14 +263,14 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
         return ([j for j in understanding['jurisdictions'] if j in (task.get('jurisdictions') or [])]
                 or understanding['jurisdictions'])
 
-
     def product_groups(task, roles, agencies, fallback=None):
         out = []
         for product in understanding['products']:
             for agency in agencies:
                 idx = slot(product, agency, roles)
                 rankings = []
-                for query in task['queries']:
+                group_queries = unit_queries(task, product, agency)
+                for query in group_queries:
                     rankings.append(rrf([dense_hits(query_vectors[query], corpus.vec, idx, top_n=40),
                                          bm.hits(bm_text(query), idx, top_n=40)], top_n=40, weights=weights))
                 topic_names, topic_qs = fixed[task['id']]
@@ -266,8 +284,12 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
                     topic_pos = len(rankings) - 1
                 question_pos = None
                 if P['question_query'] and question:
-                    # The original question is identical on every run (dense only: it is Korean).
-                    rankings.append(dense_hits(query_vectors[question], corpus.vec, idx, top_n=40))
+                    # The original question is identical on every run. Dense reads its Korean;
+                    # question_bm25 also matches its literal identifiers (study numbers, English
+                    # section names) - Korean tokens find nothing in English documents.
+                    dense_q = dense_hits(query_vectors[question], corpus.vec, idx, top_n=40)
+                    rankings.append(rrf([dense_q, bm.hits(bm_text(question), idx, top_n=40)], top_n=40, weights=weights)
+                                    if P['question_bm25'] else dense_q)
                     question_pos = len(rankings) - 1
                 # Document roles guide relevance; they do not replace source
                 # reading or silently delete alternative admissible evidence.
@@ -279,7 +301,7 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
                 # Equal header matches are ordered by this task's own dense
                 # query similarity, never by their position in the document.
                 table_candidates=statistic_table_hits(task['request'],idx,corpus.chunks,limit=k,
-                    relevance=lambda i, qs=task['queries']: max(float(corpus.vec[i] @ query_vectors[q]) for q in qs))
+                    relevance=lambda i, qs=group_queries: max(float(corpus.vec[i] @ query_vectors[q]) for q in qs))
                 if table_candidates:
                     rankings.insert(0,table_candidates)
                     topic_pos = None if topic_pos is None else topic_pos + 1
@@ -289,7 +311,7 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
                 if P['rerank']:
                     pool = diverse_hits(rankings, P['rerank_pool'], consensus_only=consensus, same=same)
                     hits = rerank(corpus, task, pool, k, P['rerank'], product=product, agency=agency,
-                                  fuse=P['rerank_fuse']) if pool else pool
+                                  fuse=P['rerank_fuse'], question=question if P['rerank_question'] else None) if pool else pool
                 else:
                     hits = diverse_hits(rankings, k, consensus_only=consensus, same=same)
                 out.append({'task_id': task['id'], 'product': product, 'jurisdiction': agency,
