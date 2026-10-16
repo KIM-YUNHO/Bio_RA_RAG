@@ -63,16 +63,11 @@ def oracle_groups(corpus, understanding, guideline_index, source_ids, documents)
 DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': None, 'strip_slot_terms': True,
                    'suppress_boilerplate': False, 'collapse_duplicates': False, 'role_boost': True,
                    'extra_default_groups': ('correspondence',), 'rerank': 'fquery_unit', 'rerank_pool': 40, 'rerank_fuse': True,
-                   # Optional cap on all served hits of a question: with many searched groups (no product/agency
-                   # picked, comparisons) each group gets total_hits // groups, never below min_group_hits.
-                   # Off: on release 04 it saved prompt tokens but lost 3 gold units (post-retrieval record 4-6).
-                   'total_hits': None, 'min_group_hits': 4,
-                   # Optional: serve each ranking's (planner query, topic, table) first hit before the reranked
-                   # order, so a hybrid #1 the cross-encoder dislikes is not dropped (post-retrieval record 4-8).
-                   'rerank_keep_first': False,
-                   # Optional: a guideline-only task whose guideline search finds nothing in scope reads the
-                   # in-scope product documents instead (post-retrieval record 4-15).
-                   'guideline_fallback': False}
+                   # A guideline-only task whose guideline search finds nothing in scope (e.g. the user picked
+                   # one product document) reads the in-scope product documents instead. On by default on this
+                   # branch: teammate QA (30 q, document picked) retrieval 0.800 -> 0.967, answer facts
+                   # 0.592 -> 0.776; never triggered on the other sets (post-retrieval record 4-15).
+                   'guideline_fallback': True}
 # Reranker on by default since 2026-10-16 (bge-reranker-v2-m3): queries are the slot's product +
 # agency + the planner's per-fact English search phrase (fquery_unit), fused with the hybrid order
 # (RRF). Model comparison on the retrieval gold (pool 40): recall@8 0.715 none, 0.804 ask_unit,
@@ -185,16 +180,6 @@ def rerank(corpus, task, hits, k, mode, product=None, agency=None, fuse=False):
     return sorted(fused, key=lambda x: -x[0])[:k]
 
 
-def keep_first_hits(rankings, consensus, reranked, k):
-    """Serve each ranking's own first hit, then the reranked order (diverse_hits' first slots).
-
-    With RRF a hybrid #1 that the cross-encoder ranks last scores about 1/61 + 1/100 and can
-    fall below k; this keeps every planner query's (and topic/table ranking's) best passage.
-    """
-    first = list(dict.fromkeys(r[0][1] for n, r in enumerate(rankings) if r and n not in consensus))
-    return ([(1.0, i) for i in first] + [(s, i) for s, i in reranked if i not in first])[:k]
-
-
 def strip_slot_terms(query):
     from rag import study_registry
     names = sorted({n for p, m in study_registry.products().items() for n in [p, *m.get('names', [])]}, key=len, reverse=True)
@@ -233,7 +218,7 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
     queries = list(dict.fromkeys([q for task in tasks for q in task['queries']]
                                  + [q for _, qs in fixed.values() for q in qs]
                                  + ([question] if P['question_query'] and question else [])))
-    product_needed = any(set(t['source_roles']) - {'guideline'} for t in tasks) or P['guideline_fallback']
+    product_needed = any(set(t['source_roles']) - {'guideline'} for t in tasks)
     vectors = corpus.encode(queries) if product_needed else None
     query_vectors = dict(zip(queries, vectors)) if vectors is not None else {}
     eligible = [int(i) for i in filter_idx(corpus.chunks, include_nondefault=True)
@@ -260,11 +245,7 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
         return ([j for j in understanding['jurisdictions'] if j in (task.get('jurisdictions') or [])]
                 or understanding['jurisdictions'])
 
-    if P['total_hits']:
-        searched = sum(bool(slot(p, a, set(t['source_roles']))) for t in tasks if set(t['source_roles']) - {'guideline'}
-                       for p in understanding['products'] for a in task_agencies(t))
-        searched += sum(len(task_agencies(t)) for t in tasks if 'guideline' in t['source_roles'])
-        k = max(min(k, P['min_group_hits']), min(k, P['total_hits'] // max(searched, 1)))
+
     def product_groups(task, roles, agencies, fallback=None):
         out = []
         for product in understanding['products']:
@@ -307,10 +288,8 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
                 consensus = ((topic_pos,) if topic_queries == 'fuse' else ()) + ((question_pos,) if P['question_query'] == 'fuse' else ())
                 if P['rerank']:
                     pool = diverse_hits(rankings, P['rerank_pool'], consensus_only=consensus, same=same)
-                    hits = rerank(corpus, task, pool, len(pool) if P['rerank_keep_first'] else k, P['rerank'],
-                                  product=product, agency=agency, fuse=P['rerank_fuse']) if pool else pool
-                    if P['rerank_keep_first'] and pool:
-                        hits = keep_first_hits(rankings, consensus, hits, k)
+                    hits = rerank(corpus, task, pool, k, P['rerank'], product=product, agency=agency,
+                                  fuse=P['rerank_fuse']) if pool else pool
                 else:
                     hits = diverse_hits(rankings, k, consensus_only=consensus, same=same)
                 out.append({'task_id': task['id'], 'product': product, 'jurisdiction': agency,
@@ -319,7 +298,6 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
                                       'version': ra_topic_queries.VERSION},
                     **({'selection': {'reranker': 'bge-reranker-v2-m3', 'mode': P['rerank'], 'pool': P['rerank_pool'],
                                       'fuse': P['rerank_fuse']}} if P['rerank'] else {}),
-                    **({'served_k': k, 'total_hits': P['total_hits']} if P['total_hits'] else {}),
                     **({'fallback': fallback} if fallback else {}),
                     'hits': [{'score': s, 'chunk': corpus.chunks[i]} for s, i in hits]})
         return out
@@ -342,10 +320,10 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
                 guideline_part.append({'task_id': task['id'], 'product': None, 'jurisdiction': agency,
                     'doc_groups': ['guideline'], 'studies': [], 'queries': guideline_queries,'query_expansion':expansion,
                     'hits': [{'score': s, 'chunk': c} for s, c in hits],
-                    'scope_gap': None if guideline_index else 'guideline_snapshot_not_connected',
-                    **({'served_k': k, 'total_hits': P['total_hits']} if P['total_hits'] else {})})
+                    'scope_gap': None if guideline_index else 'guideline_snapshot_not_connected'})
         search_roles, fallback = roles - {'guideline'}, None
-        if (not search_roles and guideline_part and P['guideline_fallback']
+        # A disconnected guideline snapshot stays an explicit scope gap, not a reason to read products.
+        if (not search_roles and guideline_part and P['guideline_fallback'] and guideline_index
                 and not any(g['hits'] for g in guideline_part)):
             # The plan read only guidance, but no guidance is in scope (e.g. the user picked one
             # product document): read the in-scope product documents with the same queries.
@@ -354,6 +332,8 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
                             and corpus.chunks[i]['jurisdiction'] in agencies
                             and (documents is None or (corpus.chunks[i]['document_id'], corpus.chunks[i]['version_id']) in documents)}
             fallback = 'guideline_search_empty_product_documents_in_scope' if search_roles else None
+            if search_roles and not query_vectors:  # the plan needed no product search until now
+                query_vectors.update(zip(queries, corpus.encode(queries)))
         if search_roles:
             groups += product_groups(task, search_roles, agencies, fallback)
         groups += guideline_part

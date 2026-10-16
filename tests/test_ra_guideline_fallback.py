@@ -39,13 +39,14 @@ class GuidelineFallback(unittest.TestCase):
         return ra_retrieval._retrieve(self.corpus, self.plan, NoGuidance(), Bm(), documents=self.picked, k=8,
                                       topic_queries=False, profile={'rerank': False, **profile})
 
-    def test_off_by_default_keeps_the_guideline_only_plan(self):
-        groups = self.retrieve({})
+    def test_switched_off_keeps_the_guideline_only_plan(self):
+        groups = self.retrieve({'guideline_fallback': False})
         self.assertEqual([g['doc_groups'] for g in groups], [['guideline']])
         self.assertEqual(groups[0]['hits'], [])
 
     def test_empty_guidance_reads_the_picked_product_document(self):
-        groups = self.retrieve({'guideline_fallback': True})
+        self.assertTrue(ra_retrieval.DEFAULT_PROFILE['guideline_fallback'])  # on by default on this branch
+        groups = self.retrieve({})
         product = [g for g in groups if g['product'] == 'ABP654']
         self.assertEqual(len(product), 1)
         self.assertEqual(product[0]['fallback'], 'guideline_search_empty_product_documents_in_scope')
