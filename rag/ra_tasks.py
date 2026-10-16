@@ -44,17 +44,14 @@ SCHEMA = {'name': 'query_understanding', 'schema': obj({
     'products': STRINGS, 'jurisdictions': STRINGS,
     'jurisdiction_mentions': {'type': 'array', 'items': obj({
         'jurisdiction': {'type': 'string', 'enum': ['EU', 'US', 'CA', 'sponsor']},
-        'role': {'type': 'string', 'enum': ['regulator', 'comparator', 'context']}, 'name': STRING, 'quote': STRING})},
-    'english_query': STRING,
+        'role': {'type': 'string', 'enum': ['regulator', 'comparator', 'context']}, 'name': STRING})},
     'tasks': {'type': 'array', 'minItems': 1, 'maxItems': 4, 'items': obj({'request': STRING,
-        'queries': {'type': 'array', 'minItems': 1, 'maxItems': 2, 'items': STRING},
+        'queries': {'type': 'array', 'minItems': 0, 'maxItems': 1, 'items': STRING},
         'source_roles': {'type': 'array', 'minItems': 1, 'maxItems': 3, 'items': {'type': 'string', 'enum': ROLES}},
-        'guideline_request_quote': STRING,
         'intent': obj({'intent': {'type': 'string', 'enum': ra_intent.INTENTS}, 'request_quote': STRING}),
         'answer_facets': {'type': 'array', 'maxItems': 12, 'items': obj({
             'facet': {'type': 'string', 'enum': list(ANSWER_FACETS)}, 'detail': STRING, 'ask': STRING, 'query': STRING,
             'items': {'type': 'array', 'maxItems': 8, 'items': STRING}})},
-        'topics': {'type': 'array', 'maxItems': 6, 'items': {'type': 'string', 'enum': list(TOPICS)}},
         'jurisdictions': {'type': 'array', 'maxItems': 4, 'items': {'type': 'string', 'enum': ['EU', 'US', 'CA', 'sponsor']}}})}
 })}
 
@@ -87,9 +84,11 @@ two "fact" entries).
   or scope (never product information or approvals).
 - calculation: an elapsed time, difference, ratio or percent change to compute.
 detail is "" except for table_statistics and purpose.
-query: a short English search phrase for that fact as regulatory documents word it
-(e.g. "date of first authorisation", "marketing authorisation holder", "shelf life",
-"intravenous induction dose body weight vials"), without product or agency names.
+query: exactly ONE short English noun phrase for that one fact, worded as regulatory
+documents print it (e.g. "date of first authorisation", "marketing authorisation holder",
+"shelf life", "intravenous induction dose by body weight"). No product or agency names, no
+second fact joined with "and", no items (items are handled separately). These queries are
+the task's search queries.
 ask: one short Korean line restating what this facet must answer for THIS question, in the
 question's own terms and with every requested part (e.g. "피하 유지 투여의 시작 시점과 반복
 간격", "체중별 1회 용량과 바이알 수"). Every part of the question belongs to some facet's ask.
@@ -108,11 +107,6 @@ agency that the available documents cover. Such tasks may share the same request
 Example: "SB17의 각 기관 허가 조건을 정리해줘" -> T1 jurisdictions [EU] roles [label, assessment],
 T2 [US] [correspondence, label], T3 [CA] [decision_summary, correspondence], all quoting
 "SB17의 각 기관 허가 조건을 정리해줘".
-topics: the clinical-study CONTENT a task asks about (empty otherwise; approvals,
-interchangeability decisions, labels' dosing and guidance are not topics):
-clinical_program (overview of the clinical studies), pk_study (PK study design or
-results), efficacy (efficacy results), safety (safety results), immunogenicity
-(ADA/NAb results), design (study design).
 """
 
 
@@ -160,8 +154,9 @@ Make 1-4 open-ended research tasks: ONE task per distinct request (see intents b
 Keep task.request in Korean. task.request restates only what the user asked: never
 add notes about missing or unspecified products, agencies or scope limits (the
 application reports scope separately). Keep related requested facets together instead of
-duplicating the same search for each facet. Each gets 1-2 concise English queries
-and only the 1-2 document roles actually needed (a task reading several agencies'
+duplicating the same search for each facet. task.queries holds exactly one short English
+query ONLY for a task without answer_facets (otherwise []), and each task names only the
+1-2 document roles actually needed (a task reading several agencies'
 documents may use 3 when those agencies keep the answer in different document kinds).
 Do not list every available role.
 Do not turn questions into a fixed
@@ -172,10 +167,7 @@ for decisions/events, protocol/sap for a trial's PLANNED design, eligibility, en
 analysis sets as posted by the sponsor (use them only when the question asks about the
 protocol, SAP or planned conduct). Include guideline only for a task that actually asks about
 general guidance or recommendations; naming an agency in a study comparison is
-not a request for guidance. When including guideline, guideline_request_quote
-must copy the original phrase requesting general regulatory guidance or
-recommendations. For a product study comparison use assessment and an EMPTY
-guideline_request_quote. Do not add tasks asking exclusions or requirements that
+not a request for guidance; for a product study comparison use assessment. Do not add tasks asking exclusions or requirements that
 the original question did not request. A guideline request alone needs no product. Product facts
 and historical decisions do not establish current general regulatory requirements.
 Products are registry IDs; unmentioned products stay empty. Jurisdictions refer
@@ -185,8 +177,7 @@ comparator medicines and recruitment countries are not source jurisdictions.
 Each jurisdiction needs a mention with role=regulator. mention.name copies the characters
 the QUESTION itself uses for that agency or region, not the jurisdiction code: a question
 saying "EMA 평가" gives jurisdiction EU, name "EMA"; "FDA 라벨" gives US, name "FDA";
-"미국 승인일" gives US, name "미국"; "Health Canada" gives CA, name "Health Canada".
-quote = the phrase around it. If no
+"미국 승인일" gives US, name "미국"; "Health Canada" gives CA, name "Health Canada". If no
 source agency was specified leave jurisdictions and mentions empty. Keep explicit
 unavailable targets so the application can explain scope gaps. Do not invent a
 scope from the user's UI filters. Queries may use identity aliases, not results.
@@ -221,16 +212,22 @@ Registered product identities: """ + json.dumps(inventory, ensure_ascii=False)
         if not isinstance(value.get(key), list) or any(not isinstance(x, str) for x in value[key]):
             raise ValueError('Invalid task scope')
         value[key] = list(dict.fromkeys(value[key]))
-    if not isinstance(value.get('english_query'), str):
-        raise ValueError('Invalid retrieval query field')
     tasks = value.get('tasks')
     if not isinstance(tasks, list) or not 1 <= len(tasks) <= 4:
         raise ValueError('RA task count must be 1..4')
     from rag.evidence import contains_quote
+    for task in tasks if isinstance(tasks, list) else []:
+        if isinstance(task, dict):
+            # One search query per requested fact (fixed count and form); an open task keeps its
+            # single query; the request is the last resort (dense search reads Korean).
+            facts = list(dict.fromkeys(f['query'].strip() for f in task.get('answer_facets') or []
+                                       if f.get('query', '').strip() and f.get('facet') != 'calculation'))
+            task['queries'] = (facts or [q for q in task.get('queries') or [] if q.strip()][:1]
+                               or [task.get('request', '')])[:12]
     for i, task in enumerate(tasks, 1):
         if (not isinstance(task, dict) or not isinstance(task.get('request'), str) or not task['request'].strip()
                 or len(task['request']) > 1600 or not isinstance(task.get('queries'), list)
-                or not 1 <= len(task['queries']) <= 2
+                or not 1 <= len(task['queries']) <= 12
                 or any(not isinstance(q, str) or not q.strip() or len(q) > 800 for q in task['queries'])
                 or not isinstance(task.get('source_roles'), list) or not task['source_roles']
                 or any(r not in ROLES for r in task['source_roles'])):

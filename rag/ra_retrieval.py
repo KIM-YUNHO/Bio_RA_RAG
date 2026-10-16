@@ -60,9 +60,13 @@ def oracle_groups(corpus, understanding, guideline_index, source_ids, documents)
 # Retrieval knobs; the default is production. 2026-10-14 grid on release 04: stripping slot-constant
 # words from BM25 queries raised silver recall 0.855->0.882; lower BM25 weight and an added
 # original-question ranking lost recall or stability (data/runs/retrieval_stability_2026-10-14).
-DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': None, 'strip_slot_terms': True,
+DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': True, 'strip_slot_terms': True,
                    'suppress_boilerplate': False, 'collapse_duplicates': False, 'role_boost': True,
-                   'extra_default_groups': ('correspondence',), 'rerank': 'fquery_unit', 'rerank_pool': 40, 'rerank_fuse': True}
+                   'extra_default_groups': ('correspondence',), 'rerank': 'fquery_unit', 'rerank_pool': 40, 'rerank_fuse': True,
+                   'rerank_question': True}
+# The original question is identical on every run: it anchors each group's dense ranking
+# (question_query) and is one of the reranker's queries (rerank_question), so planner wording
+# drift moves the evidence less (2026-10-16, eval/plan_stability.py).
 # Reranker on by default since 2026-10-16 (bge-reranker-v2-m3): queries are the slot's product +
 # agency + the planner's per-fact English search phrase (fquery_unit), fused with the hybrid order
 # (RRF). Model comparison on the retrieval gold (pool 40): recall@8 0.715 none, 0.804 ask_unit,
@@ -134,7 +138,7 @@ def unit_prefix(product, agency):
     return ' '.join(dict.fromkeys(n for n in [*names, AGENCY_LABEL.get(agency, '')] if n)) + ': '
 
 
-def rerank(corpus, task, hits, k, mode, product=None, agency=None, fuse=False):
+def rerank(corpus, task, hits, k, mode, product=None, agency=None, fuse=False, question=None):
     """Reorder a broad candidate pool with the local cross-encoder; keep the top k.
 
     mode: 'request' (the task's Korean request), 'queries' (planner queries), 'both', 'ask'
@@ -160,6 +164,8 @@ def rerank(corpus, task, hits, k, mode, product=None, agency=None, fuse=False):
     queries = {'request': [task['request']], 'queries': list(task['queries']),
                'both': [task['request'], *task['queries']], 'ask': asks or [task['request']],
                'fquery': fqueries or list(task['queries'])}[base]
+    if question:
+        queries = [*queries, question]
     if unit:
         queries = [unit_prefix(product, agency) + q for q in queries]
     best = {}
@@ -275,7 +281,7 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
                     if P['rerank']:
                         pool = diverse_hits(rankings, P['rerank_pool'], consensus_only=consensus, same=same)
                         hits = rerank(corpus, task, pool, k, P['rerank'], product=product, agency=agency,
-                                      fuse=P['rerank_fuse']) if pool else pool
+                                      fuse=P['rerank_fuse'], question=question if P['rerank_question'] else None) if pool else pool
                     else:
                         hits = diverse_hits(rankings, k, consensus_only=consensus, same=same)
                     groups.append({'task_id': task['id'], 'product': product, 'jurisdiction': agency,
