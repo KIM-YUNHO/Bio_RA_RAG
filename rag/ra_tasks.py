@@ -5,7 +5,7 @@ from rag import ra_intent, study_registry as registry
 from rag.request_scope import bind_request_scope
 from rag.ra_models import ANSWER_FACETS, TOPICS
 
-VERSION = 'ra-research-tasks-7-planner-facets'
+VERSION = 'ra-research-tasks-8-fact-queries'
 ROLES = ['assessment', 'label', 'guideline', 'correspondence', 'quality', 'rmp', 'decision_summary', 'other_review',
          'protocol', 'sap']
 

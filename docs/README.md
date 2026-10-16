@@ -1,9 +1,22 @@
 # 문서 안내
 
 - 작성: 2026-10-14 14:10 KST
-- 최종 수정: 2026-10-15 17:32 KST (자료 수집·적재 창과 실제 에이전트 연결, 제어 API·상태 갱신·검증 기록 반영)
+- 최종 수정: 2026-10-16 16:50 KST (`current/` 현재 서빙 상태 파트별 문서 추가. 이전: 10-15 17:32 자료 수집·적재 창 연결)
 
-처음 읽는 순서: 루트 [README](../README.md) → [RAG 파이프라인 상세](rag/RAG_PIPELINE_CHUNK_EMBEDDING_GUIDE_2026-10-14.md) → [운영 원칙](PIPELINE_PRINCIPLES.md) → 관심 영역 문서.
+처음 읽는 순서: [현재 서빙 상태](current/README.md) → 루트 [README](../README.md) → [운영 원칙](PIPELINE_PRINCIPLES.md) → 관심 영역 문서. 아래 날짜가 붙은 문서는 당시 기록이므로, 지금 서비스가 어떤 데이터·설정으로 도는지는 `current/`를 먼저 본다.
+
+## current — 현재 서빙 상태 (서빙 구성이 바뀌면 여기부터 고친다)
+
+| 문서 | 내용 |
+| :-- | :-- |
+| [current/README.md](current/README.md) | 한눈에 보기(포트·코드 버전·릴리스·모델·리랭커), 기존 문서 중 현재와 다른 곳, 확인 명령 |
+| [01_COLLECTION_INGESTION.md](current/01_COLLECTION_INGESTION.md) | 수집·적재: 카탈로그 범위, CLI 수집, 적재 요청 에이전트·수집 창 |
+| [02_PREPROCESSING.md](current/02_PREPROCESSING.md) | 전처리: 표준 H 구성, 서비스 색인 04의 계보, 미서빙 후보 05 |
+| [03_INDEX_CHUNK_EMBEDDING.md](current/03_INDEX_CHUNK_EMBEDDING.md) | 색인: 릴리스 04 구성·기본 검색 범위, 청킹·임베딩, 파일·DB 저장, 공통 지침 |
+| [04_RETRIEVAL.md](current/04_RETRIEVAL.md) | 질문 계획·검색: 계획기, 검색 그룹, 하이브리드, 리랭커, 기본값·스위치 |
+| [05_GENERATION_VERIFICATION.md](current/05_GENERATION_VERIFICATION.md) | 문맥·생성·검증: 패킹, 입력 예산, 프롬프트·체크리스트, 검사·완료 판정 |
+| [06_SERVICE_UI.md](current/06_SERVICE_UI.md) | 서비스·화면: 프로세스, 3단 화면, 파이프라인 메모, API, 기록 위치 |
+| [07_EVALUATION.md](current/07_EVALUATION.md) | 평가: 현재 구성의 측정치, 평가 도구, main 미반영 브랜치 |
 
 ## 전체·원칙
 
