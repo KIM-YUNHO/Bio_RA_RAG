@@ -154,7 +154,9 @@ def main():
                     if name not in rerankers:
                         from rag.rerank import LocalReranker
                         model, revision, kind, trust, length = MODELS.get(name, (name, None, 'cross_encoder', False, 512))
-                        rerankers[name] = LocalReranker(model=model, revision=revision, batch_size=8, max_length=length,
+                        # A causal-LM reranker needs more memory per pair: smaller batches on an 8 GB GPU.
+                        rerankers[name] = LocalReranker(model=model, revision=revision, max_length=length,
+                                                        batch_size=4 if kind == 'qwen3_yes_no' else 8,
                                                         kind=kind, trust_remote_code=trust)
                     best = {}
                     for q in queries_for(tasks[task_id], mode, product, agency):
