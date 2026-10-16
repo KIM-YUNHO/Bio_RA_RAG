@@ -112,6 +112,8 @@ def main():
     parser.add_argument('--out', type=Path, required=True, help='Run folder; planner calls are cached here')
     parser.add_argument('--replay-plans', type=Path, help='Earlier --out folder: reuse its cached planner calls, never call the provider')
     parser.add_argument('--profile', default='{}', help='JSON retrieval profile for the served hits, e.g. {"rerank": true}')
+    parser.add_argument('--no-ui-selection', action='store_true',
+                        help='ask as a user who picks no product or agency on screen; the planner scopes from the question alone')
     args = parser.parse_args()
     profile = json.loads(args.profile)
 
@@ -143,6 +145,9 @@ def main():
                   else list(qagold(args.qa_gold, version_to_document)))
     if args.only:
         items = [i for i in items if i['id'] in args.only]
+    if args.no_ui_selection:
+        # The service passes None when nothing is picked on screen.
+        items = [{**i, 'products': None, 'jurisdictions': None} for i in items]
     missing_docs = sorted({p[0] for i in items for u in i['units'] for p in u['pages'] if p[0] not in known})
     if missing_docs:
         parser.error(f'gold documents not in this index: {missing_docs}')
@@ -232,7 +237,7 @@ def main():
         print(name, json.dumps(summary[name], ensure_ascii=False), flush=True)
     head = __import__('subprocess').run(['git', 'rev-parse', 'HEAD'], cwd=ROOT, capture_output=True, text=True).stdout.strip()
     (args.out / 'diagnosis.json').write_text(json.dumps({'code_commit': head, 'run': str(args.run), 'pool': args.pool, 'k': args.k,
-        'profile': profile, 'replay_plans': str(args.replay_plans) if args.replay_plans else None,
+        'profile': profile, 'no_ui_selection': args.no_ui_selection, 'replay_plans': str(args.replay_plans) if args.replay_plans else None,
         'context_tokens': args.context_tokens, 'chunks_sha256': pipe.index_meta['chunks_sha256'],
         'summary': summary, 'rows': rows}, ensure_ascii=False, indent=1), encoding='utf-8')
 

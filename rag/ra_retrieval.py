@@ -88,6 +88,8 @@ def reranked_hits(rankings, k, consensus, chunks, queries, P, keep_first=False):
         _RERANKERS[length] = LocalReranker(max_length=length)
     reranker = _RERANKERS[length]
     pool = diverse_hits(rankings, max(k, P['rerank_pool']), consensus_only=consensus)
+    if not pool:  # a group with no candidates (e.g. no document of that agency) has nothing to rerank
+        return []
     scores = {}
     for query in queries:
         for score, i in reranker.rank(query, pool, chunks, limit=len(pool)):
