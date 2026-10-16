@@ -69,7 +69,10 @@ DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': None, 'strip_slot_terms
                    'total_hits': None, 'min_group_hits': 4,
                    # Optional: serve each ranking's (planner query, topic, table) first hit before the reranked
                    # order, so a hybrid #1 the cross-encoder dislikes is not dropped (post-retrieval record 4-8).
-                   'rerank_keep_first': False}
+                   'rerank_keep_first': False,
+                   # Optional: a guideline-only task whose guideline search finds nothing in scope reads the
+                   # in-scope product documents instead (post-retrieval record 4-15).
+                   'guideline_fallback': False}
 # Reranker on by default since 2026-10-16 (bge-reranker-v2-m3): queries are the slot's product +
 # agency + the planner's per-fact English search phrase (fquery_unit), fused with the hybrid order
 # (RRF). Model comparison on the retrieval gold (pool 40): recall@8 0.715 none, 0.804 ask_unit,
@@ -230,7 +233,7 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
     queries = list(dict.fromkeys([q for task in tasks for q in task['queries']]
                                  + [q for _, qs in fixed.values() for q in qs]
                                  + ([question] if P['question_query'] and question else [])))
-    product_needed = any(set(t['source_roles']) - {'guideline'} for t in tasks)
+    product_needed = any(set(t['source_roles']) - {'guideline'} for t in tasks) or P['guideline_fallback']
     vectors = corpus.encode(queries) if product_needed else None
     query_vectors = dict(zip(queries, vectors)) if vectors is not None else {}
     eligible = [int(i) for i in filter_idx(corpus.chunks, include_nondefault=True)
@@ -262,65 +265,70 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
                        for p in understanding['products'] for a in task_agencies(t))
         searched += sum(len(task_agencies(t)) for t in tasks if 'guideline' in t['source_roles'])
         k = max(min(k, P['min_group_hits']), min(k, P['total_hits'] // max(searched, 1)))
+    def product_groups(task, roles, agencies, fallback=None):
+        out = []
+        for product in understanding['products']:
+            for agency in agencies:
+                idx = slot(product, agency, roles)
+                rankings = []
+                for query in task['queries']:
+                    rankings.append(rrf([dense_hits(query_vectors[query], corpus.vec, idx, top_n=40),
+                                         bm.hits(bm_text(query), idx, top_n=40)], top_n=40, weights=weights))
+                topic_names, topic_qs = fixed[task['id']]
+                topic_pos = None
+                if topic_qs:
+                    # One fused ranking for all fixed topic queries: it adds a
+                    # stable reading opportunity without outvoting the planner.
+                    rankings.append(rrf([rrf([dense_hits(query_vectors[q], corpus.vec, idx, top_n=40),
+                                              bm.hits(bm_text(q), idx, top_n=40)], top_n=40, weights=weights)
+                                         for q in topic_qs], top_n=40))
+                    topic_pos = len(rankings) - 1
+                question_pos = None
+                if P['question_query'] and question:
+                    # The original question is identical on every run (dense only: it is Korean).
+                    rankings.append(dense_hits(query_vectors[question], corpus.vec, idx, top_n=40))
+                    question_pos = len(rankings) - 1
+                # Document roles guide relevance; they do not replace source
+                # reading or silently delete alternative admissible evidence.
+                # role_boost: weight of the planned-role sublist (True = 1.0, False = 0.0).
+                if float(P['role_boost']):
+                    rankings = [rrf([hits, [(s, i) for s, i in hits if corpus.chunks[i]['doc_group'] in roles]],
+                                    top_n=40, weights=[1.0, float(P['role_boost'])]) for hits in rankings]
+                from rag.ra_statistical_tables import hits as statistic_table_hits
+                # Equal header matches are ordered by this task's own dense
+                # query similarity, never by their position in the document.
+                table_candidates=statistic_table_hits(task['request'],idx,corpus.chunks,limit=k,
+                    relevance=lambda i, qs=task['queries']: max(float(corpus.vec[i] @ query_vectors[q]) for q in qs))
+                if table_candidates:
+                    rankings.insert(0,table_candidates)
+                    topic_pos = None if topic_pos is None else topic_pos + 1
+                    question_pos = None if question_pos is None else question_pos + 1
+                # 'fuse': the ranking only adds consensus weight, never takes a first slot.
+                consensus = ((topic_pos,) if topic_queries == 'fuse' else ()) + ((question_pos,) if P['question_query'] == 'fuse' else ())
+                if P['rerank']:
+                    pool = diverse_hits(rankings, P['rerank_pool'], consensus_only=consensus, same=same)
+                    hits = rerank(corpus, task, pool, len(pool) if P['rerank_keep_first'] else k, P['rerank'],
+                                  product=product, agency=agency, fuse=P['rerank_fuse']) if pool else pool
+                    if P['rerank_keep_first'] and pool:
+                        hits = keep_first_hits(rankings, consensus, hits, k)
+                else:
+                    hits = diverse_hits(rankings, k, consensus_only=consensus, same=same)
+                out.append({'task_id': task['id'], 'product': product, 'jurisdiction': agency,
+                    'doc_groups': list(roles), 'studies': [], 'queries': task['queries'],
+                    'topic_queries': {'topics': topic_names, 'queries': topic_qs,
+                                      'version': ra_topic_queries.VERSION},
+                    **({'selection': {'reranker': 'bge-reranker-v2-m3', 'mode': P['rerank'], 'pool': P['rerank_pool'],
+                                      'fuse': P['rerank_fuse']}} if P['rerank'] else {}),
+                    **({'served_k': k, 'total_hits': P['total_hits']} if P['total_hits'] else {}),
+                    **({'fallback': fallback} if fallback else {}),
+                    'hits': [{'score': s, 'chunk': corpus.chunks[i]} for s, i in hits]})
+        return out
+
     groups = []
     for task in tasks:
         roles = set(task['source_roles'])
         agencies = task_agencies(task)
-        if roles - {'guideline'}:
-            for product in understanding['products']:
-                for agency in agencies:
-                    idx = slot(product, agency, roles)
-                    rankings = []
-                    for query in task['queries']:
-                        rankings.append(rrf([dense_hits(query_vectors[query], corpus.vec, idx, top_n=40),
-                                             bm.hits(bm_text(query), idx, top_n=40)], top_n=40, weights=weights))
-                    topic_names, topic_qs = fixed[task['id']]
-                    topic_pos = None
-                    if topic_qs:
-                        # One fused ranking for all fixed topic queries: it adds a
-                        # stable reading opportunity without outvoting the planner.
-                        rankings.append(rrf([rrf([dense_hits(query_vectors[q], corpus.vec, idx, top_n=40),
-                                                  bm.hits(bm_text(q), idx, top_n=40)], top_n=40, weights=weights)
-                                             for q in topic_qs], top_n=40))
-                        topic_pos = len(rankings) - 1
-                    question_pos = None
-                    if P['question_query'] and question:
-                        # The original question is identical on every run (dense only: it is Korean).
-                        rankings.append(dense_hits(query_vectors[question], corpus.vec, idx, top_n=40))
-                        question_pos = len(rankings) - 1
-                    # Document roles guide relevance; they do not replace source
-                    # reading or silently delete alternative admissible evidence.
-                    # role_boost: weight of the planned-role sublist (True = 1.0, False = 0.0).
-                    if float(P['role_boost']):
-                        rankings = [rrf([hits, [(s, i) for s, i in hits if corpus.chunks[i]['doc_group'] in roles]],
-                                        top_n=40, weights=[1.0, float(P['role_boost'])]) for hits in rankings]
-                    from rag.ra_statistical_tables import hits as statistic_table_hits
-                    # Equal header matches are ordered by this task's own dense
-                    # query similarity, never by their position in the document.
-                    table_candidates=statistic_table_hits(task['request'],idx,corpus.chunks,limit=k,
-                        relevance=lambda i, qs=task['queries']: max(float(corpus.vec[i] @ query_vectors[q]) for q in qs))
-                    if table_candidates:
-                        rankings.insert(0,table_candidates)
-                        topic_pos = None if topic_pos is None else topic_pos + 1
-                        question_pos = None if question_pos is None else question_pos + 1
-                    # 'fuse': the ranking only adds consensus weight, never takes a first slot.
-                    consensus = ((topic_pos,) if topic_queries == 'fuse' else ()) + ((question_pos,) if P['question_query'] == 'fuse' else ())
-                    if P['rerank']:
-                        pool = diverse_hits(rankings, P['rerank_pool'], consensus_only=consensus, same=same)
-                        hits = rerank(corpus, task, pool, len(pool) if P['rerank_keep_first'] else k, P['rerank'],
-                                      product=product, agency=agency, fuse=P['rerank_fuse']) if pool else pool
-                        if P['rerank_keep_first'] and pool:
-                            hits = keep_first_hits(rankings, consensus, hits, k)
-                    else:
-                        hits = diverse_hits(rankings, k, consensus_only=consensus, same=same)
-                    groups.append({'task_id': task['id'], 'product': product, 'jurisdiction': agency,
-                        'doc_groups': list(roles), 'studies': [], 'queries': task['queries'],
-                        'topic_queries': {'topics': topic_names, 'queries': topic_qs,
-                                          'version': ra_topic_queries.VERSION},
-                        **({'selection': {'reranker': 'bge-reranker-v2-m3', 'mode': P['rerank'], 'pool': P['rerank_pool'],
-                                          'fuse': P['rerank_fuse']}} if P['rerank'] else {}),
-                        **({'served_k': k, 'total_hits': P['total_hits']} if P['total_hits'] else {}),
-                        'hits': [{'score': s, 'chunk': corpus.chunks[i]} for s, i in hits]})
+        guideline_part = []
         if 'guideline' in roles:
             guideline_queries=list(task['queries'])
             expansion=[]
@@ -331,11 +339,24 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
                     guideline_queries.append(literal);expansion.append({'query':literal,'basis':'explicit_requested_topic_translation'})
             for agency in agencies:
                 hits = guideline_index.search(guideline_queries, [agency], documents, k) if guideline_index else []
-                groups.append({'task_id': task['id'], 'product': None, 'jurisdiction': agency,
+                guideline_part.append({'task_id': task['id'], 'product': None, 'jurisdiction': agency,
                     'doc_groups': ['guideline'], 'studies': [], 'queries': guideline_queries,'query_expansion':expansion,
                     'hits': [{'score': s, 'chunk': c} for s, c in hits],
                     'scope_gap': None if guideline_index else 'guideline_snapshot_not_connected',
                     **({'served_k': k, 'total_hits': P['total_hits']} if P['total_hits'] else {})})
+        search_roles, fallback = roles - {'guideline'}, None
+        if (not search_roles and guideline_part and P['guideline_fallback']
+                and not any(g['hits'] for g in guideline_part)):
+            # The plan read only guidance, but no guidance is in scope (e.g. the user picked one
+            # product document): read the in-scope product documents with the same queries.
+            search_roles = {corpus.chunks[i]['doc_group'] for i in eligible
+                            if corpus.chunks[i]['product_id'] in understanding['products']
+                            and corpus.chunks[i]['jurisdiction'] in agencies
+                            and (documents is None or (corpus.chunks[i]['document_id'], corpus.chunks[i]['version_id']) in documents)}
+            fallback = 'guideline_search_empty_product_documents_in_scope' if search_roles else None
+        if search_roles:
+            groups += product_groups(task, search_roles, agencies, fallback)
+        groups += guideline_part
     return groups
 
 
@@ -441,7 +462,8 @@ def context(corpus, groups, question, understanding, client, citation_mode='quot
     reading_groups = []
     for group in groups:
         reading_roles = task_map[group['task_id']].get('reading_source_roles')
-        if reading_roles == ['guideline'] and group.get('product') is not None:
+        # A guideline_fallback group is the only searchable source left in scope; it is read.
+        if reading_roles == ['guideline'] and group.get('product') is not None and not group.get('fallback'):
             omitted.extend({'chunk_id': h['chunk']['chunk_id'], 'task_id': group['task_id'],
                             'product_id': group.get('product'), 'jurisdiction': group['jurisdiction'],
                             'reason': 'product_precedent_not_requested_for_general_guidance'} for h in group['hits'])
