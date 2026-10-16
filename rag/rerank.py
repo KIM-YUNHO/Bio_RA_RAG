@@ -18,6 +18,18 @@ QWEN3_SUFFIX='<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n'
 QWEN3_INSTRUCT='Given a regulatory question, judge whether the passage states the requested fact'
 
 
+def _compat_remote_xlm_roberta():
+    """Remote XLM-R model code (e.g. jina-reranker-v2) imports a helper removed in transformers 5.
+    Restore the original helper only when it is missing; the remote code itself is not edited."""
+    import torch
+    from transformers.models.xlm_roberta import modeling_xlm_roberta as m
+    if not hasattr(m,'create_position_ids_from_input_ids'):
+        def create_position_ids_from_input_ids(input_ids,padding_idx,past_key_values_length=0):
+            mask=input_ids.ne(padding_idx).int()
+            return ((torch.cumsum(mask,dim=1).type_as(mask)+past_key_values_length)*mask).long()+padding_idx
+        m.create_position_ids_from_input_ids=create_position_ids_from_input_ids
+
+
 class LocalReranker:
     """kind 'cross_encoder': a sequence-classification head scores (query, passage) pairs.
     kind 'qwen3_yes_no': a causal LM scores P("yes") after the Qwen3-Reranker template.
@@ -30,6 +42,7 @@ class LocalReranker:
         from transformers import AutoTokenizer,AutoModelForSequenceClassification,AutoModelForCausalLM
         self.torch=torch;self.device=device or ('cuda' if torch.cuda.is_available() else 'cpu');self.kind=kind
         options=dict(revision=revision,local_files_only=True,trust_remote_code=trust_remote_code)
+        if trust_remote_code:_compat_remote_xlm_roberta()
         self.tokenizer=AutoTokenizer.from_pretrained(model,padding_side='left' if kind=='qwen3_yes_no' else 'right',**options)
         dtype=torch.float16 if self.device=='cuda' else torch.float32
         loader=AutoModelForCausalLM if kind=='qwen3_yes_no' else AutoModelForSequenceClassification
