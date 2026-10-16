@@ -1,0 +1,142 @@
+{
+ "mode": "ra",
+ "question": "Pyzchiva(SB17)의 크론병 정맥 유도요법 체중별 용량은?",
+ "understanding": {
+  "in_scope": true,
+  "products": [
+   "SB17"
+  ],
+  "jurisdictions": [
+   "CA",
+   "EU",
+   "US",
+   "sponsor"
+  ],
+  "jurisdiction_mentions": [],
+  "english_query": "Pyzchiva (SB17) Crohn's disease intravenous induction dosing by body weight",
+  "tasks": [
+   {
+    "request": "Pyzchiva(SB17)의 크론병 정맥 유도요법 체중별 용량은?",
+    "queries": [
+     "Pyzchiva SB17 Crohn's disease intravenous induction dose by body weight",
+     "SB17 ustekinumab Crohn's disease IV induction dosing weight-based"
+    ],
+    "source_roles": [
+     "label"
+    ],
+    "guideline_request_quote": "",
+    "intent": {
+     "intent": "fact_lookup",
+     "request_quote": "Pyzchiva(SB17)의 크론병 정맥 유도요법 체중별 용량은?"
+    },
+    "id": "T1",
+    "requested_conditions": {
+     "quantities": [],
+     "routes": [
+      "IV"
+     ],
+     "facets": [
+      "dose"
+     ]
+    },
+    "original_request_segments": [
+     "Pyzchiva(SB17)의 크론병 정맥 유도요법 체중별 용량은?"
+    ],
+    "intent_check": {
+     "model": "fact_lookup",
+     "final": "fact_lookup",
+     "quote": "Pyzchiva(SB17)의 크론병 정맥 유도요법 체중별 용량은?",
+     "quote_verified": true,
+     "rule": null
+    }
+   }
+  ],
+  "intents": [
+   "fact_lookup"
+  ],
+  "intent": "fact_lookup",
+  "intent_check": {
+   "version": "ra-intent-4-task-scope",
+   "tasks": [
+    {
+     "model": "fact_lookup",
+     "final": "fact_lookup",
+     "quote": "Pyzchiva(SB17)의 크론병 정맥 유도요법 체중별 용량은?",
+     "quote_verified": true,
+     "rule": null
+    }
+   ],
+   "uncovered_request_segments": []
+  },
+  "studies": [],
+  "study_scope": "unspecified",
+  "topic": "other",
+  "doc_groups": [
+   "label"
+  ],
+  "source_question": "Pyzchiva(SB17)의 크론병 정맥 유도요법 체중별 용량은?",
+  "planner_version": "ra-research-tasks-6-task-intents",
+  "conversation": {
+   "version": "ra-followup-1-named-scope",
+   "turn_kind": "first",
+   "own": {
+    "products": [
+     "SB17"
+    ],
+    "jurisdictions": []
+   },
+   "inherited": {},
+   "rules": [
+    "first_turn"
+   ],
+   "user_question": "Pyzchiva(SB17)의 크론병 정맥 유도요법 체중별 용량은?",
+   "standalone_question": "Pyzchiva(SB17)의 크론병 정맥 유도요법 체중별 용량은?",
+   "standalone_check": "single_turn"
+  },
+  "request_scope": {
+   "model": {
+    "products": [
+     "SB17"
+    ],
+    "jurisdictions": []
+   },
+   "allowed": {
+    "products": [
+     "ABP654",
+     "BAT2206",
+     "BMAB1200",
+     "CTP43",
+     "SB17"
+    ],
+    "jurisdictions": [
+     "CA",
+     "EU",
+     "US",
+     "sponsor"
+    ]
+   },
+   "pinned": {
+    "products": false,
+    "jurisdictions": false
+   },
+   "adjustments": [
+    {
+     "field": "jurisdictions",
+     "model": [],
+     "effective": [
+      "CA",
+      "EU",
+      "US",
+      "sponsor"
+     ]
+    }
+   ],
+   "conflicts": [],
+   "narrowed_by_question": {},
+   "status": "applied"
+  },
+  "scope_warnings": [
+   "화면에서 선택한 제품·기관·문서 범위를 검색에 적용했습니다."
+  ]
+ }
+}

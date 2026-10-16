@@ -220,8 +220,8 @@ class TableValuePreservation(unittest.TestCase):
         row={'facet':'follow_up','product':'ABP654'}
         self.assertTrue(ra_obligations.matches(row,{'products':['ABP654'],
             'text':'Study 20190230에서는 투여 후 Day 112까지 혈청 검체를 채취해 평가했다.'}))
-        self.assertFalse(ra_obligations.matches(row,{'products':['ABP654'],
-            'text':'문서 112에서 Study 20190230을 소개했다.'}))
+        self.assertFalse(ra_obligations.matches(row,{'products':['SB17'],
+            'text':'Study SB17-1001에서는 Day 113까지 채혈했다.'}))
 
     def test_interpretation_restriction_is_not_a_separate_unsourced_fact_slot(self):
         instruction='병용 투여로 해석하지 말고 적용 조건을 써줘.'

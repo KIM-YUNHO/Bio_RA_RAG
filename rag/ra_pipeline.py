@@ -13,17 +13,25 @@ import time
 from threading import RLock
 
 from rag.pipeline import RAGPipeline
-from rag import answer, ra_tasks, ra_retrieval, ra_answer
+from rag import answer, ra_tasks, ra_retrieval, ra_answer, ra_timeline
 from rag.ra_sources import GuidelineIndex, permitted
+from rag.search import filter_idx
+from rag.service_scope import allowed
 
 VERSION = 'ra-research-rag-4.10.1'
 
 
 class RAPipeline(RAGPipeline):
-    def __init__(self, *args, guideline_snapshot=None, citation_mode='spans', research_rounds=1, **kwargs):
+    def __init__(self, *args, guideline_snapshot=None, citation_mode='spans', research_rounds=1,
+                 approval_timeline=False, retrieval_profile=None, **kwargs):
         if type(research_rounds) is not int or not 0 <= research_rounds <= 1:
             raise ValueError('Local research round cap must be 0 or 1')
         self.research_rounds = research_rounds
+        # Experimental, opt-in: a question-type special case kept for comparison
+        # while the general retrieval/generation path is fixed.
+        self.approval_timeline = approval_timeline
+        # Retrieval options (rag.ra_retrieval.DEFAULT_PROFILE keys); None keeps the defaults.
+        self.retrieval_profile = dict(retrieval_profile) if retrieval_profile else None
         self._request_lock = RLock()
         self._ra_corpus = None
         self.warmup_info = {'ready':False}
@@ -87,6 +95,11 @@ class RAPipeline(RAGPipeline):
                 self._shared_encoder = (self.encoder_factory or (lambda:answer.Embedder('bge-m3',local_only=True)))()
             corpus._emb = self._shared_encoder
             corpus.encode(['regulatory document evidence'])
+            # Load the local reranker at startup so the first question does not pay for it.
+            profile = {**ra_retrieval.DEFAULT_PROFILE, **(self.retrieval_profile or {})}
+            if profile.get('rerank') and getattr(corpus, '_ra_reranker', None) is None:
+                from rag.rerank import LocalReranker
+                corpus._ra_reranker = LocalReranker(batch_size=8, max_length=1024)
             self.warmup_info = {'ready':True,'seconds':round(time.monotonic()-started,3),'provider_calls':0}
             return deepcopy(self.warmup_info)
 
@@ -117,7 +130,28 @@ class RAPipeline(RAGPipeline):
             question = understanding['source_question']
             timings['understanding'] = round(time.monotonic() - stamp, 3)
             understanding_calls = deepcopy(getattr(self.client, 'calls', [])[call_start:])
-            if understanding['request_scope']['status'] not in ('conflict', 'empty') and understanding['intent'] != 'out_of_scope':
+            in_scope = understanding['request_scope']['status'] not in ('conflict', 'empty') and understanding['intent'] != 'out_of_scope'
+            timeline = None
+            if self.approval_timeline and in_scope and source_ids is None and ra_timeline.requested(question):
+                # Approval dates sit in labelled fields of label/correspondence
+                # documents that default retrieval excludes; read them by code.
+                notify(stage='retrieving', message='범위 안 문서에서 제출일·허가일 필드를 읽고 있습니다.')
+                stamp = time.monotonic()
+                corpus = self.retrieval_corpus()
+                corpus.allowed_documents = {(d['document_id'], d['version_id']) for d in selected_docs}
+                scope_chunks = [corpus.chunks[int(i)] for i in filter_idx(corpus.chunks, include_nondefault=True)
+                    if allowed(corpus.chunks[int(i)]) and permitted(corpus.chunks[int(i)].get('document_metadata') or {})
+                    and (corpus.chunks[int(i)]['document_id'], corpus.chunks[int(i)]['version_id']) in corpus.allowed_documents]
+                timeline = ra_timeline.answer(corpus, understanding, question, scope_chunks)
+                timings['timeline'] = round(time.monotonic() - stamp, 3)
+            if timeline is not None:
+                evidence = timeline.pop('evidence')
+                budget = {'mode': 'approval_timeline_fields', 'version': ra_timeline.VERSION, 'omitted': [],
+                          'packets': len(evidence), 'semantic_approval': False}
+                research = {'rounds': 0, 'searches': [], 'stop_reason': 'deterministic_approval_timeline',
+                            'additional_llm_calls': 0}
+                result = timeline
+            elif in_scope:
                 notify(stage='retrieving', message='조사 항목별로 제품 근거와 공통 지침을 검색하고 있습니다.')
                 stamp = time.monotonic()
                 corpus = self.retrieval_corpus()
@@ -128,7 +162,8 @@ class RAPipeline(RAGPipeline):
                     corpus._emb = self._shared_encoder
                 groups = (ra_retrieval.oracle_groups(corpus, understanding, self.guidelines, source_ids, corpus.allowed_documents)
                     if source_ids is not None else ra_retrieval.retrieve(corpus, understanding, self.guidelines,
-                        documents=corpus.allowed_documents, include_nondefault=include_nondefault, k=self.retrieval_pages))
+                        documents=corpus.allowed_documents, include_nondefault=include_nondefault, k=self.retrieval_pages,
+                        profile=self.retrieval_profile))
                 timings['retrieval'] = round(time.monotonic() - stamp, 3)
                 stamp = time.monotonic()
                 evidence, budget = ra_retrieval.context(corpus, groups, question, understanding, self.client, self.citation_mode,
@@ -149,6 +184,9 @@ class RAPipeline(RAGPipeline):
                     # that the answer's cited scope never states. No provider call; claims unchanged.
                     from rag.ra_condition_check import apply as check_conditions
                     check_conditions(question, result)
+            if in_scope:
+                if timeline is None:
+                    timings['generation_and_review'] = round(time.monotonic() - stamp, 3)
                 for gap in dict.fromkeys(g.get('scope_gap') for g in groups if g.get('scope_gap')):
                     text = '공통 지침 검색 자료가 연결되지 않아 해당 조사 항목을 확인하지 못했습니다.'
                     result['gaps'].append(text)
@@ -161,7 +199,6 @@ class RAPipeline(RAGPipeline):
                     result['gaps'].append(text)
                     result['answer_ko'] += '\n\n' + text
                     if result['status'] == 'answered': result['status'] = 'partial'
-                timings['generation_and_review'] = round(time.monotonic() - stamp, 3)
             else:
                 result = {'status': 'not_found', 'answer_ko': '질문과 선택 범위에서 조사할 문서 범위를 확보하지 못했습니다.',
                     'claims': [], 'items': [], 'gaps': [t['request'] for t in understanding['tasks']],
@@ -178,12 +215,13 @@ class RAPipeline(RAGPipeline):
                      'score': h['score']} for h in g['hits']]} for g in groups],
                 'scope': {'selected_documents': [d['key'] for d in selected_docs],
                           'excluded_documents': [], 'excluded_products': [], 'resolution': understanding['request_scope']},
-                'context_origin': 'evaluation_selected_source_ids' if source_ids is not None else 'retrieved',
+                'context_origin': 'evaluation_selected_source_ids' if source_ids is not None else
+                    'approval_timeline_fields' if timeline is not None else 'retrieved',
                 'index': {'directory': str(self.bundle.candidate), 'chunks_sha256': self.index_meta['chunks_sha256'],
                     'model': self.index_meta['model'], 'chunks': self.index_meta['n_chunks'], 'active_index_updated': False},
                 'guideline_index': self.guidelines.manifest if self.guidelines else None,
                 'results': [result], 'status': 'scope_conflict' if understanding['request_scope']['conflicts'] else
-                    'scope_unavailable' if not groups else 'completed',
+                    'scope_unavailable' if not groups and timeline is None else 'completed',
                 'timings': timings, 'research': research, 'seconds': round(time.monotonic() - started, 3),
                 'generation_provider': getattr(self.client, 'provider', 'ollama'),
                 'local_only': getattr(self.client, 'local_only', True),

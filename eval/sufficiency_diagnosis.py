@@ -32,7 +32,7 @@ def main():
     parser.add_argument('--replay-absent', type=Path, required=True)
     parser.add_argument('--replay-condition', type=Path, required=True)
     parser.add_argument('--k', type=int, default=12)
-    parser.add_argument('--profile', default='{"rerank": true, "rerank_keep_first_slots": true}')
+    parser.add_argument('--profile', default='{}', help='JSON retrieval profile; {} is the current default (reranker ask_unit + RRF)')
     parser.add_argument('--out', type=Path, required=True)
     args = parser.parse_args()
     profile = json.loads(args.profile)

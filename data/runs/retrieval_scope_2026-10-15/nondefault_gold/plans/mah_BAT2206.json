@@ -1,0 +1,143 @@
+{
+ "mode": "ra",
+ "question": "Usymro(BAT2206)의 EU 판매허가 보유자(MAH)는 누구인가?",
+ "understanding": {
+  "in_scope": true,
+  "products": [
+   "BAT2206"
+  ],
+  "jurisdictions": [
+   "CA",
+   "EU",
+   "US",
+   "sponsor"
+  ],
+  "jurisdiction_mentions": [
+   {
+    "jurisdiction": "EU",
+    "role": "regulator",
+    "quote": "EU"
+   }
+  ],
+  "english_query": "Who is the EU marketing authorisation holder (MAH) for Usymro (BAT2206)?",
+  "tasks": [
+   {
+    "request": "Usymro(BAT2206)의 EU 판매허가 보유자(MAH)는 누구인가?",
+    "queries": [
+     "Usymro BAT2206 EU marketing authorisation holder MAH"
+    ],
+    "source_roles": [
+     "label"
+    ],
+    "guideline_request_quote": "",
+    "intent": {
+     "intent": "fact_lookup",
+     "request_quote": "Usymro(BAT2206)의 EU 판매허가 보유자(MAH)는 누구인가?"
+    },
+    "id": "T1",
+    "requested_conditions": {
+     "quantities": [],
+     "routes": [],
+     "facets": []
+    },
+    "original_request_segments": [
+     "Usymro(BAT2206)의 EU 판매허가 보유자(MAH)는 누구인가?"
+    ],
+    "intent_check": {
+     "model": "fact_lookup",
+     "final": "fact_lookup",
+     "quote": "Usymro(BAT2206)의 EU 판매허가 보유자(MAH)는 누구인가?",
+     "quote_verified": true,
+     "rule": null
+    }
+   }
+  ],
+  "intents": [
+   "fact_lookup"
+  ],
+  "intent": "fact_lookup",
+  "intent_check": {
+   "version": "ra-intent-4-task-scope",
+   "tasks": [
+    {
+     "model": "fact_lookup",
+     "final": "fact_lookup",
+     "quote": "Usymro(BAT2206)의 EU 판매허가 보유자(MAH)는 누구인가?",
+     "quote_verified": true,
+     "rule": null
+    }
+   ],
+   "uncovered_request_segments": []
+  },
+  "studies": [],
+  "study_scope": "unspecified",
+  "topic": "other",
+  "doc_groups": [
+   "label"
+  ],
+  "source_question": "Usymro(BAT2206)의 EU 판매허가 보유자(MAH)는 누구인가?",
+  "planner_version": "ra-research-tasks-6-task-intents",
+  "conversation": {
+   "version": "ra-followup-1-named-scope",
+   "turn_kind": "first",
+   "own": {
+    "products": [
+     "BAT2206"
+    ],
+    "jurisdictions": []
+   },
+   "inherited": {},
+   "rules": [
+    "first_turn"
+   ],
+   "user_question": "Usymro(BAT2206)의 EU 판매허가 보유자(MAH)는 누구인가?",
+   "standalone_question": "Usymro(BAT2206)의 EU 판매허가 보유자(MAH)는 누구인가?",
+   "standalone_check": "single_turn"
+  },
+  "request_scope": {
+   "model": {
+    "products": [
+     "BAT2206"
+    ],
+    "jurisdictions": []
+   },
+   "allowed": {
+    "products": [
+     "ABP654",
+     "BAT2206",
+     "BMAB1200",
+     "CTP43",
+     "SB17"
+    ],
+    "jurisdictions": [
+     "CA",
+     "EU",
+     "US",
+     "sponsor"
+    ]
+   },
+   "pinned": {
+    "products": false,
+    "jurisdictions": false
+   },
+   "adjustments": [
+    {
+     "field": "jurisdictions",
+     "model": [],
+     "effective": [
+      "CA",
+      "EU",
+      "US",
+      "sponsor"
+     ]
+    }
+   ],
+   "conflicts": [],
+   "narrowed_by_question": {},
+   "status": "applied"
+  },
+  "scope_warnings": [
+   "화면에서 선택한 제품·기관·문서 범위를 검색에 적용했습니다."
+  ]
+ }
+}

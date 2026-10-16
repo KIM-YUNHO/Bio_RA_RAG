@@ -1,0 +1,71 @@
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights:  58%|█████▊    | 225/391 [00:00<00:00, 2223.99it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 2406.24it/s]
+C02 1 partial 18.4
+T04 1 partial 13.7
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights:  78%|███████▊  | 305/391 [00:00<00:00, 3047.13it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 2918.12it/s]
+C01 1 partial 4
+C02 1 partial 4
+C03 1 partial 2
+C04 1 partial 5
+E01 1 partial 1
+E02 1 partial 3
+E03 1 partial 10
+E04 1 partial 4
+N01 1 partial 3
+N02 1 not_found 0
+Q1 1 partial 5
+Q2 1 partial 5
+Q3 1 partial 5
+T01 1 partial 6
+T02 1 partial 3
+T03 1 partial 2
+T04 1 partial 3
+T05 1 partial 3
+U01 1 partial 2
+U02 1 partial 2
+U03 1 partial 5
+U04 1 partial 3
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights:  50%|█████     | 197/391 [00:00<00:00, 1957.29it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 2385.14it/s]
+C01 1 partial 3
+C01 2 partial 3
+C02 1 partial 5
+C02 2 partial 5
+C03 1 partial 2
+C03 2 partial 2
+C04 1 partial 5
+C04 2 partial 4
+E01 1 partial 1
+E01 2 partial 1
+E02 1 partial 3
+E02 2 partial 3
+E03 1 partial 10
+E03 2 partial 16
+E04 1 partial 8
+E04 2 partial 4
+N01 1 partial 2
+N01 2 partial 2
+N02 1 not_found 0
+N02 2 not_found 0
+Q1 1 partial 16
+Q1 2 partial 24
+Q2 1 partial 5
+Q2 2 partial 5
+Q3 1 partial 5
+Q3 2 partial 5
+T01 1 partial 2
+T01 2 not_found 0
+T02 1 partial 3
+T02 2 partial 3
+T03 1 partial 2
+T03 2 partial 2
+T04 1 partial 3
+T04 2 partial 3
+T05 1 partial 2
+T05 2 partial 5
+U01 1 partial 1
+U01 2 partial 4
+U02 1 partial 2
+U02 2 partial 2
+U03 1 partial 4
+U03 2 partial 4
+U04 1 partial 4
+U04 2 partial 2

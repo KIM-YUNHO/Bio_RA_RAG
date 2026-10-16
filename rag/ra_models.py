@@ -23,13 +23,37 @@ class TaskIntent(Contract):
     request_quote: Annotated[str, Field(max_length=1600)]
 
 
+ANSWER_FACETS = ('dose_route', 'comparator', 'reference_selection', 'design', 'population', 'follow_up',
+                 'eligibility', 'dosing_schedule', 'table_statistics', 'statistic_identity', 'stratification',
+                 'purpose', 'analytical_bridge', 'clinical_bridge', 'assay_targets', 'document_status_scope',
+                 'calculation', 'fact')
+TOPICS = ('clinical_program', 'pk_study', 'efficacy', 'safety', 'immunogenicity', 'design')
+
+
+class AnswerFacet(Contract):
+    facet: Literal[ANSWER_FACETS]
+    detail: Annotated[str, Field(max_length=100)]
+    # What this facet must answer for THIS question, in the question's own terms (Korean).
+    ask: Annotated[str, Field(max_length=160)] = ''
+    # Groups, arms, ranges or time points the question asks to answer separately (verbatim).
+    items: Annotated[list[Annotated[str, Field(max_length=100)]], Field(max_length=8)] = []
+    # A short English search phrase for this fact as regulatory documents word it.
+    query: Annotated[str, Field(max_length=200)] = ''
+
+
 class ResearchTask(Contract):
     request: Annotated[str, Field(min_length=1, max_length=1600)]
     queries: Annotated[list[str], Field(min_length=1, max_length=2)]
     source_roles: Annotated[list[Literal['assessment', 'label', 'guideline', 'correspondence',
-        'quality', 'rmp', 'decision_summary', 'other_review', 'protocol', 'sap']], Field(min_length=1, max_length=2)]
+        'quality', 'rmp', 'decision_summary', 'other_review', 'protocol', 'sap']], Field(min_length=1, max_length=3)]
     guideline_request_quote: str = ''
     intent: TaskIntent
+    # The planner's semantic reading of what the task asks for (closed sets). Plans saved
+    # before these fields existed lack the keys and use the legacy literal patterns.
+    answer_facets: Annotated[list[AnswerFacet], Field(max_length=12)] = []
+    # Source agencies this task reads (subset of the plan's jurisdictions); empty = all of them.
+    jurisdictions: Annotated[list[Literal['EU', 'US', 'CA', 'sponsor']], Field(max_length=4)] = []
+    topics: Annotated[list[Literal[TOPICS]], Field(max_length=6)] = []
 
     @field_validator('request')
     @classmethod
@@ -44,10 +68,23 @@ class ResearchTask(Contract):
         return value
 
 
+REGULATORS = ('EU', 'US', 'CA')
+
+
+def name_in_question(question, name):
+    """A planner-copied name (agency/region word, group, endpoint) is printed in the question."""
+    from rag.evidence import contains_quote
+    return bool((name or '').strip()) and contains_quote(question or '', name.strip())
+
+
 class JurisdictionMention(Contract):
-    jurisdiction: str
+    jurisdiction: Literal['EU', 'US', 'CA', 'sponsor']
     role: Literal['regulator', 'comparator', 'context']
-    quote: str
+    # The agency or region word exactly as written in the question ("EU", "FDA", "미국").
+    name: Annotated[str, Field(max_length=100)] = ''
+    quote: str = ''
+    # Set by ResearchPlan validation (context question); not part of the planner schema.
+    name_in_question: bool = False
 
 
 class ResearchPlan(Contract):
@@ -58,6 +95,15 @@ class ResearchPlan(Contract):
     # Kept for the record; RA retrieval uses each task's queries, so an empty value is not an error.
     english_query: str
     tasks: Annotated[list[ResearchTask], Field(min_length=1, max_length=4)]
+
+    @model_validator(mode='after')
+    def names_printed_in_question(self, info: ValidationInfo):
+        """Copied names are checked against the question; a missing one is flagged, never fatal."""
+        question = getattr(self, 'standalone_question', None) or (info.context or {}).get('question')
+        if question is not None:
+            for mention in self.jurisdiction_mentions:
+                mention.name_in_question = name_in_question(question, mention.name)
+        return self
 
 
 class FollowUpResearchPlan(ResearchPlan):
@@ -74,8 +120,10 @@ class Claim(Contract):
     @model_validator(mode='after')
     def scope_references(self, info: ValidationInfo):
         if not self.text.strip(): raise ValueError('Blank claim')
-        if len(set(self.task_ids)) != len(self.task_ids): raise ValueError('Duplicate task reference')
-        if len(set(self.products)) != len(self.products): raise ValueError('Duplicate product reference')
+        # A repeated task or product ID is a formatting slip, not a different claim: keep one of each
+        # instead of rejecting the whole reply (2026-10-16: one duplicate task ID voided an answer).
+        self.task_ids = list(dict.fromkeys(self.task_ids))
+        self.products = list(dict.fromkeys(self.products))
         context = info.context or {}
         if 'task_ids' in context and not set(self.task_ids) <= set(context['task_ids']):
             raise ValueError('Unknown task reference')
@@ -96,12 +144,12 @@ class QuoteClaim(Claim):
 
 
 class SpanDraft(Contract):
-    claims: Annotated[list[SpanClaim], Field(max_length=8)]
+    claims: Annotated[list[SpanClaim], Field(max_length=MAX_PROPOSED_CLAIMS)]
     gaps: list[Annotated[str, Field(max_length=2000)]]
 
 
 class QuoteDraft(Contract):
-    claims: Annotated[list[QuoteClaim], Field(max_length=8)]
+    claims: Annotated[list[QuoteClaim], Field(max_length=MAX_PROPOSED_CLAIMS)]
     gaps: list[Annotated[str, Field(max_length=2000)]]
 
 
@@ -114,24 +162,31 @@ def request_items(question):
 
 
 class RequestDraft(Contract):
-    claims: Annotated[list[SpanClaim], Field(max_length=8)]
+    claims: Annotated[list[SpanClaim], Field(max_length=MAX_PROPOSED_CLAIMS)]
     gaps: list[Annotated[str, Field(max_length=2000)]]
+
+
+class Derived(Contract):
+    label: Annotated[str, Field(min_length=1, max_length=200)]
+    operation: Literal['date_difference', 'difference', 'ratio', 'percent_change']
+    operand_span_ids: Annotated[list[str], Field(min_length=2, max_length=2)]
+    operand_values: Annotated[list[Annotated[str, Field(max_length=100)]], Field(min_length=2, max_length=2)] | None = None
 
 
 class RequestedDraft(Contract):
     request_results: dict[str, RequestDraft]
+    derived: Annotated[list[Derived], Field(max_length=16)] = []
 
     @model_validator(mode='after')
     def requested_keys(self, info: ValidationInfo):
         if set(self.request_results) != set((info.context or {}).get('request_ids', self.request_results)):
             raise ValueError('Every original request item must be present exactly once')
-        if sum(len(r.claims) for r in self.request_results.values()) > 8:
-            raise ValueError('At most eight proposed claims')
         return self
 
 
 class ObligationDraft(Contract):
     requirement_results: dict[str, RequestDraft]
+    derived: Annotated[list[Derived], Field(max_length=16)] = []
 
     @model_validator(mode='after')
     def exact_requirements(self, info: ValidationInfo):

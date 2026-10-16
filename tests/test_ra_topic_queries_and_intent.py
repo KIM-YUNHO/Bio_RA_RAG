@@ -41,9 +41,10 @@ class TaskIntentCheck(unittest.TestCase):
         q = 'SB17과 ABP654의 PK 시험 설계를 비교하고, FDA가 면역원성을 어떻게 평가했는지 알려줘'
         v = ra_intent.check(q, plan(q, ('PK 시험 설계 비교', 'fact_lookup', 'SB17과 ABP654의 PK 시험 설계를 비교하고'),
                                        ('FDA 면역원성 평가', 'regulatory_reasoning', 'FDA가 면역원성을 어떻게 평가했는지')))
-        self.assertEqual(v['intents'], ['compare_products', 'regulatory_reasoning'])
+        # The planner's intents stand; no keyword rule rewrites them.
+        self.assertEqual(v['intents'], ['fact_lookup', 'regulatory_reasoning'])
         self.assertEqual(v['intent'], 'multi_intent')
-        self.assertEqual(v['intent_check']['tasks'][0]['rule'], 'two_named_products_with_comparison_marker')
+        self.assertIsNone(v['intent_check']['tasks'][0]['rule'])
         self.assertEqual(v['intent_check']['uncovered_request_segments'], [])
 
     def test_comparison_rule_reads_only_the_task_own_quote(self):
@@ -58,21 +59,23 @@ class TaskIntentCheck(unittest.TestCase):
         self.assertFalse(v['intent_check']['tasks'][0]['quote_verified'])
         self.assertIn('그리고 EMA가 어떤 우려를 제기했는지 알려줘.', v['intent_check']['uncovered_request_segments'])
 
-    def test_agency_versus_protocol_is_compare_sources(self):
+    def test_planner_intent_is_not_rewritten_by_keywords(self):
         q = 'SB17의 프로토콜 계획과 EMA 평가에서 1차 평가변수가 어떻게 다른지 비교해줘'
-        v = ra_intent.check(q, plan(q, ('비교', 'fact_lookup', q)))
+        v = ra_intent.check(q, plan(q, ('비교', 'compare_sources', q)))
         self.assertEqual(v['intents'], ['compare_sources'])
+        v = ra_intent.check(q, plan(q, ('비교', 'fact_lookup', q)))
+        self.assertEqual(v['intents'], ['fact_lookup'])
 
     def test_comparator_origin_is_not_a_regulator(self):
         q = 'SB17 시험에서 미국 Stelara와 유럽 Stelara 군을 비교해줘'
         v = ra_intent.check(q, plan(q, ('비교', 'fact_lookup', q)))
         self.assertEqual(v['intents'], ['fact_lookup'])
 
-    def test_compare_products_without_two_named_products_is_downgraded(self):
+    def test_study_arm_comparison_keeps_the_planner_intent(self):
         q = 'SB17 시험에서 미국 Stelara와 유럽 Stelara 군의 PK 결과를 비교해줘.'
         v = ra_intent.check(q, plan(q, ('군 비교', 'compare_products', '미국 Stelara와 유럽 Stelara 군의 PK 결과를 비교해줘')))
-        self.assertEqual(v['intents'], ['fact_lookup'])
-        self.assertEqual(v['intent_check']['tasks'][0]['rule'], 'compare_products_needs_two_named_products')
+        self.assertEqual(v['intents'], ['compare_products'])
+        self.assertIsNone(v['intent_check']['tasks'][0]['rule'])
 
     def test_empty_english_query_is_not_an_error(self):
         from rag.ra_models import ResearchPlan
@@ -138,13 +141,7 @@ class RegistryNames(unittest.TestCase):
 
 
 class ProtocolSourceRouting(unittest.TestCase):
-    def test_protocol_request_detection_tolerates_korean_particles(self):
-        for text in ('SAP에 계획된 분석 집단', 'NCT04967508의 선정 기준', 'SB17 프로토콜', 'ClinicalTrials.gov 등록 정보'):
-            self.assertTrue(ra_intent.PROTOCOL.search(text), text)
-        for text in ('SAPPHIRE 연구', 'BAT2206 임상시험 결과', 'EMA 평가 보고서'):
-            self.assertFalse(ra_intent.PROTOCOL.search(text), text)
-
-    def test_planner_drops_unrequested_protocol_role_and_adds_sponsor_when_requested(self):
+    def test_planner_protocol_role_decides_and_adds_sponsor(self):
         import json
         from rag import ra_tasks
 
@@ -158,10 +155,12 @@ class ProtocolSourceRouting(unittest.TestCase):
             def __call__(self, *a, **k):
                 return {'text': json.dumps(self.reply, ensure_ascii=False)}
         agencies = ['CA', 'EU', 'US', 'sponsor']
-        u, _ = ra_tasks.interpret('SB17 임상시험 결과를 알려줘', Client(['assessment', 'protocol'], [], []), ['SB17'], agencies)
+        # No keyword rule removes a role the planner chose; with no named agency nothing narrows.
+        u, _ = ra_tasks.interpret('SB17 임상시험 결과를 알려줘', Client(['assessment'], [], []), ['SB17'], agencies)
         self.assertEqual(u['tasks'][0]['source_roles'], ['assessment'])
+        self.assertNotIn('sponsor_source_added', u)
         q = 'SB17 프로토콜의 1차 평가변수와 EMA 평가를 비교해줘'
-        mention = [{'jurisdiction': 'EU', 'role': 'regulator', 'quote': 'EMA'}]
+        mention = [{'jurisdiction': 'EU', 'role': 'regulator', 'name': 'EMA', 'quote': 'EMA 평가'}]
         u, _ = ra_tasks.interpret(q, Client(['protocol', 'assessment'], ['EU'], mention), ['SB17'], agencies)
         self.assertEqual(u['jurisdictions'], ['EU', 'sponsor'])
         self.assertEqual(u['tasks'][0]['source_roles'], ['protocol', 'assessment'])

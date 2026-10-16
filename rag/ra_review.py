@@ -98,14 +98,18 @@ def schema(evidence, claims, tasks, *, allow_expansion=False, truth_only=False):
     _, spans, _ = view(evidence, claims, allow_expansion=allow_expansion)
     verdict = {'type': 'string', 'enum': ['supported', 'uncertain', 'unsupported']}
     boundary = {'type': 'string', 'enum': ['supported', 'insufficient', 'conflicting']}
+    from rag.ra_answer import span_choice, ENUM_SPAN_LIMIT
     properties, definitions = {}, {}
+    selected = sum(len(initial_ids(c, spans)) for c in claims)
     if allow_expansion:
-        definitions['span_id'] = {'type': 'string', 'enum': list(spans)}
+        definitions['span_id'] = span_choice(list(spans), len(spans))
     for claim in claims:
         products = claim['products']
         definition = 'span_id' if allow_expansion else 'span_' + claim['id'].replace('.', '_')
         if not allow_expansion:
-            definitions[definition] = {'type': 'string', 'enum': initial_ids(claim, spans)}
+            # Per-claim choices stay enumerated unless all claims together exceed the limit.
+            definitions[definition] = span_choice(initial_ids(claim, spans),
+                                                  ENUM_SPAN_LIMIT + 1 if selected > ENUM_SPAN_LIMIT else 0)
         clause = obj({'text': STRING, 'kind': {'type': 'string', 'enum': KINDS},
             'products': {'type': 'array', 'maxItems': len(products),
                          'items': {'type': 'string', 'enum': products} if products else STRING},

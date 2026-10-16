@@ -47,7 +47,7 @@ def extend(corpus, groups, evidence, budget, question, understanding, client, gu
     if type(max_rounds) is not int or not 0 <= max_rounds <= 1:
         raise ValueError('Local research round cap must be 0 or 1')
     result, info = deepcopy(evidence), deepcopy(budget)
-    rows = ra_obligations.build(question)
+    rows = ra_obligations.build(question, understanding.get('tasks'))
     pointers = ra_obligations.pointers(question, evidence, rows)
     missing = [r for r in rows if r['facet'] in TERMS and
                not (facet_candidate(r,evidence) if r['facet'] in ('table_statistics','dosing_schedule')
@@ -138,7 +138,8 @@ def extend(corpus, groups, evidence, budget, question, understanding, client, gu
                 for block in additions.values():
                     trial[f'E{len(trial)+1}'] = block
                 cost = ra_answer.cost(client, ra_answer.messages(question, understanding, trial, citation_mode),
-                    ra_answer.schema(trial, understanding['tasks'], citation_mode, question=question))
+                    ra_answer.schema(trial, understanding['tasks'], citation_mode, question=question,
+                               claim_budget=ra_answer.claim_budget(understanding)))
                 if cost > client.input_limit - budget.get('review_reserved_tokens', 600):
                     continue
                 result = trial
@@ -153,5 +154,6 @@ def extend(corpus, groups, evidence, budget, question, understanding, client, gu
     if result:
         info['estimated_prompt_and_schema_tokens'] = ra_answer.cost(client,
             ra_answer.messages(question, understanding, result, citation_mode),
-            ra_answer.schema(result, understanding['tasks'], citation_mode, question=question))
+            ra_answer.schema(result, understanding['tasks'], citation_mode, question=question,
+                               claim_budget=ra_answer.claim_budget(understanding)))
     return result, info, trace

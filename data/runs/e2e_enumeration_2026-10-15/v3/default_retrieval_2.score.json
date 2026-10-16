@@ -1,0 +1,283 @@
+{
+ "units": 14,
+ "submission_dates": 7,
+ "approval_dates": 7,
+ "durations_computed_correctly": 6,
+ "claims_kept": 18,
+ "rejected_reasons": {
+  "uncertain": 3
+ },
+ "derived_withheld": [
+  "derived_operand_value_ambiguous"
+ ],
+ "status": "partial",
+ "llm_calls": 3,
+ "input_tokens": 64331,
+ "seconds": 39.172,
+ "non_gold_dates_for_review": [
+  [
+   [
+    "SB17",
+    "CA"
+   ],
+   "2024-07-30",
+   "Health Canada 제출일부터 최종 허가일까지의 기간은 SB17(Pyzchiva)이 2023-08-22 제출에서 2024-08-07 허가, ABP654(Wezlana)이 2022-11-15 제출에서 2023-1"
+  ],
+  [
+   [
+    "SB17",
+    "CA"
+   ],
+   "2024-03-12",
+   "Health Canada 제출일부터 최종 허가일까지의 기간은 SB17(Pyzchiva)이 2023-08-22 제출에서 2024-08-07 허가, ABP654(Wezlana)이 2022-11-15 제출에서 2023-1"
+  ],
+  [
+   [
+    "SB17",
+    "CA"
+   ],
+   "2023-06-30",
+   "Health Canada 제출일부터 최종 허가일까지의 기간은 SB17(Pyzchiva)이 2023-08-22 제출에서 2024-08-07 허가, ABP654(Wezlana)이 2022-11-15 제출에서 2023-1"
+  ],
+  [
+   [
+    "SB17",
+    "CA"
+   ],
+   "2025-10-17",
+   "Health Canada 제출일부터 최종 허가일까지의 기간은 SB17(Pyzchiva)이 2023-08-22 제출에서 2024-08-07 허가, ABP654(Wezlana)이 2022-11-15 제출에서 2023-1"
+  ],
+  [
+   [
+    "SB17",
+    "CA"
+   ],
+   "2022-11-15",
+   "Health Canada 제출일부터 최종 허가일까지의 기간은 SB17(Pyzchiva)이 2023-08-22 제출에서 2024-08-07 허가, ABP654(Wezlana)이 2022-11-15 제출에서 2023-1"
+  ],
+  [
+   [
+    "SB17",
+    "CA"
+   ],
+   "2023-12-27",
+   "Health Canada 제출일부터 최종 허가일까지의 기간은 SB17(Pyzchiva)이 2023-08-22 제출에서 2024-08-07 허가, ABP654(Wezlana)이 2022-11-15 제출에서 2023-1"
+  ],
+  [
+   [
+    "ABP654",
+    "CA"
+   ],
+   "2024-08-07",
+   "Health Canada 제출일부터 최종 허가일까지의 기간은 SB17(Pyzchiva)이 2023-08-22 제출에서 2024-08-07 허가, ABP654(Wezlana)이 2022-11-15 제출에서 2023-1"
+  ],
+  [
+   [
+    "ABP654",
+    "CA"
+   ],
+   "2024-07-30",
+   "Health Canada 제출일부터 최종 허가일까지의 기간은 SB17(Pyzchiva)이 2023-08-22 제출에서 2024-08-07 허가, ABP654(Wezlana)이 2022-11-15 제출에서 2023-1"
+  ],
+  [
+   [
+    "ABP654",
+    "CA"
+   ],
+   "2024-03-12",
+   "Health Canada 제출일부터 최종 허가일까지의 기간은 SB17(Pyzchiva)이 2023-08-22 제출에서 2024-08-07 허가, ABP654(Wezlana)이 2022-11-15 제출에서 2023-1"
+  ],
+  [
+   [
+    "ABP654",
+    "CA"
+   ],
+   "2023-06-30",
+   "Health Canada 제출일부터 최종 허가일까지의 기간은 SB17(Pyzchiva)이 2023-08-22 제출에서 2024-08-07 허가, ABP654(Wezlana)이 2022-11-15 제출에서 2023-1"
+  ],
+  [
+   [
+    "ABP654",
+    "CA"
+   ],
+   "2025-10-17",
+   "Health Canada 제출일부터 최종 허가일까지의 기간은 SB17(Pyzchiva)이 2023-08-22 제출에서 2024-08-07 허가, ABP654(Wezlana)이 2022-11-15 제출에서 2023-1"
+  ],
+  [
+   [
+    "ABP654",
+    "CA"
+   ],
+   "2023-08-22",
+   "Health Canada 제출일부터 최종 허가일까지의 기간은 SB17(Pyzchiva)이 2023-08-22 제출에서 2024-08-07 허가, ABP654(Wezlana)이 2022-11-15 제출에서 2023-1"
+  ],
+  [
+   [
+    "CTP43",
+    "CA"
+   ],
+   "2024-08-07",
+   "Health Canada 제출일부터 최종 허가일까지의 기간은 SB17(Pyzchiva)이 2023-08-22 제출에서 2024-08-07 허가, ABP654(Wezlana)이 2022-11-15 제출에서 2023-1"
+  ],
+  [
+   [
+    "CTP43",
+    "CA"
+   ],
+   "2024-03-12",
+   "Health Canada 제출일부터 최종 허가일까지의 기간은 SB17(Pyzchiva)이 2023-08-22 제출에서 2024-08-07 허가, ABP654(Wezlana)이 2022-11-15 제출에서 2023-1"
+  ],
+  [
+   [
+    "CTP43",
+    "CA"
+   ],
+   "2025-10-17",
+   "Health Canada 제출일부터 최종 허가일까지의 기간은 SB17(Pyzchiva)이 2023-08-22 제출에서 2024-08-07 허가, ABP654(Wezlana)이 2022-11-15 제출에서 2023-1"
+  ],
+  [
+   [
+    "CTP43",
+    "CA"
+   ],
+   "2022-11-15",
+   "Health Canada 제출일부터 최종 허가일까지의 기간은 SB17(Pyzchiva)이 2023-08-22 제출에서 2024-08-07 허가, ABP654(Wezlana)이 2022-11-15 제출에서 2023-1"
+  ],
+  [
+   [
+    "CTP43",
+    "CA"
+   ],
+   "2023-08-22",
+   "Health Canada 제출일부터 최종 허가일까지의 기간은 SB17(Pyzchiva)이 2023-08-22 제출에서 2024-08-07 허가, ABP654(Wezlana)이 2022-11-15 제출에서 2023-1"
+  ],
+  [
+   [
+    "CTP43",
+    "CA"
+   ],
+   "2023-12-27",
+   "Health Canada 제출일부터 최종 허가일까지의 기간은 SB17(Pyzchiva)이 2023-08-22 제출에서 2024-08-07 허가, ABP654(Wezlana)이 2022-11-15 제출에서 2023-1"
+  ],
+  [
+   [
+    "BMAB1200",
+    "CA"
+   ],
+   "2024-08-07",
+   "Health Canada 제출일부터 최종 허가일까지의 기간은 SB17(Pyzchiva)이 2023-08-22 제출에서 2024-08-07 허가, ABP654(Wezlana)이 2022-11-15 제출에서 2023-1"
+  ],
+  [
+   [
+    "BMAB1200",
+    "CA"
+   ],
+   "2024-07-30",
+   "Health Canada 제출일부터 최종 허가일까지의 기간은 SB17(Pyzchiva)이 2023-08-22 제출에서 2024-08-07 허가, ABP654(Wezlana)이 2022-11-15 제출에서 2023-1"
+  ],
+  [
+   [
+    "BMAB1200",
+    "CA"
+   ],
+   "2023-06-30",
+   "Health Canada 제출일부터 최종 허가일까지의 기간은 SB17(Pyzchiva)이 2023-08-22 제출에서 2024-08-07 허가, ABP654(Wezlana)이 2022-11-15 제출에서 2023-1"
+  ],
+  [
+   [
+    "BMAB1200",
+    "CA"
+   ],
+   "2022-11-15",
+   "Health Canada 제출일부터 최종 허가일까지의 기간은 SB17(Pyzchiva)이 2023-08-22 제출에서 2024-08-07 허가, ABP654(Wezlana)이 2022-11-15 제출에서 2023-1"
+  ],
+  [
+   [
+    "BMAB1200",
+    "CA"
+   ],
+   "2023-08-22",
+   "Health Canada 제출일부터 최종 허가일까지의 기간은 SB17(Pyzchiva)이 2023-08-22 제출에서 2024-08-07 허가, ABP654(Wezlana)이 2022-11-15 제출에서 2023-1"
+  ],
+  [
+   [
+    "BMAB1200",
+    "CA"
+   ],
+   "2023-12-27",
+   "Health Canada 제출일부터 최종 허가일까지의 기간은 SB17(Pyzchiva)이 2023-08-22 제출에서 2024-08-07 허가, ABP654(Wezlana)이 2022-11-15 제출에서 2023-1"
+  ]
+ ],
+ "by_unit": {
+  "ABP654/CA": {
+   "submission": true,
+   "approval": true,
+   "duration": true
+  },
+  "ABP654/EU": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "ABP654/US": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "BAT2206/EU": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "BAT2206/US": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "BMAB1200/CA": {
+   "submission": true,
+   "approval": true,
+   "duration": true
+  },
+  "BMAB1200/EU": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "BMAB1200/US": {
+   "submission": true,
+   "approval": true,
+   "duration": true
+  },
+  "CTP43/CA": {
+   "submission": true,
+   "approval": true,
+   "duration": true
+  },
+  "CTP43/EU": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "CTP43/US": {
+   "submission": true,
+   "approval": true,
+   "duration": false
+  },
+  "SB17/CA": {
+   "submission": true,
+   "approval": true,
+   "duration": true
+  },
+  "SB17/EU": {
+   "submission": false,
+   "approval": false,
+   "duration": false
+  },
+  "SB17/US": {
+   "submission": true,
+   "approval": true,
+   "duration": true
+  }
+ }
+}

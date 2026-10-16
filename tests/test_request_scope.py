@@ -41,12 +41,35 @@ class RequestScopeTests(unittest.TestCase):
 
     def test_named_regulator_conflict_and_comparator_region_are_distinct(self):
         self.u['jurisdictions']=['US']
-        self.u['jurisdiction_mentions']=[{'jurisdiction':'US','role':'regulator','quote':'FDA 문서'}]
+        self.u['jurisdiction_mentions']=[{'jurisdiction':'US','role':'regulator','name':'FDA','quote':'FDA 문서'}]
         u=self.bind('FDA 문서의 결과는?',self.u,selected_agencies=['EU'])
         self.assertEqual(plan(u),[])
-        self.u['jurisdiction_mentions']=[{'jurisdiction':'US','role':'comparator','quote':'US Stelara'}]
+        self.u['jurisdiction_mentions']=[{'jurisdiction':'US','role':'comparator','name':'US','quote':'US Stelara'}]
         u=self.bind('US Stelara 대비 값은?',self.u,selected_agencies=['EU'])
         self.assertEqual(u['request_scope']['status'],'applied')
+
+    def test_regulator_mention_checks_proper_nouns_not_quote_formatting(self):
+        from rag.request_scope import regulator_mention
+        q = 'Pyzchiva의 EU 최초 판매허가일과 미국 승인일을 정리해줘.'
+        # The copied name must be printed; the quote's format does not matter.
+        self.assertTrue(regulator_mention(q, {'jurisdiction': 'EU', 'role': 'regulator', 'name': 'EU', 'quote': 'EU ... 판매허가일'}))
+        self.assertTrue(regulator_mention(q, {'jurisdiction': 'US', 'role': 'regulator', 'name': '미국', 'quote': '미국에서의 승인일'}))
+        # An invented agency name does not narrow; a reference product is a comparator's origin.
+        self.assertFalse(regulator_mention(q, {'jurisdiction': 'US', 'role': 'regulator', 'name': 'FDA', 'quote': 'FDA 승인일'}))
+        arms = 'SB17 시험에서 미국 Stelara와 유럽 Stelara 군의 PK 결과를 비교해줘.'
+        self.assertFalse(regulator_mention(arms, {'jurisdiction': 'US', 'role': 'regulator', 'name': '미국', 'quote': '미국 Stelara'}))
+        self.assertFalse(regulator_mention(q, {'jurisdiction': 'US', 'role': 'comparator', 'name': '미국', 'quote': '미국'}))
+        self.assertFalse(regulator_mention('NCT04967508 계획', {'jurisdiction': 'sponsor', 'role': 'regulator', 'name': 'NCT04967508', 'quote': ''}))
+
+    def test_plan_validation_flags_names_not_in_the_question(self):
+        import json
+        from rag.ra_models import ResearchPlan
+        task = {'request': 'x', 'queries': ['x'], 'source_roles': ['label'], 'intent': {'intent': 'fact_lookup', 'request_quote': 'x'}}
+        reply = json.dumps({'in_scope': True, 'products': [], 'jurisdictions': ['EU', 'US'], 'english_query': '', 'tasks': [task],
+                            'jurisdiction_mentions': [{'jurisdiction': 'EU', 'role': 'regulator', 'name': 'EU', 'quote': 'EU'},
+                                                      {'jurisdiction': 'US', 'role': 'regulator', 'name': 'FDA', 'quote': 'FDA'}]})
+        plan = ResearchPlan.model_validate_json(reply, context={'question': 'EU 허가일을 알려줘'})
+        self.assertEqual([m.name_in_question for m in plan.jurisdiction_mentions], [True, False])
 
     def test_unpinned_unavailable_product_is_not_silently_replaced(self):
         self.u['products']=['ABP654']
@@ -63,7 +86,7 @@ class RequestScopeTests(unittest.TestCase):
         # 2026-10-13 18:53: all five products ticked, question names CT-P43 and EMA.
         five=['ABP654','BAT2206','BMAB1200','CTP43','SB17']
         self.u.update(products=['CTP43'],jurisdictions=['EU'],
-            jurisdiction_mentions=[{'jurisdiction':'EU','role':'regulator','quote':'EMA 문서'}])
+            jurisdiction_mentions=[{'jurisdiction':'EU','role':'regulator','name':'EMA','quote':'EMA 문서'}])
         u=self.bind('EMA 문서에서 CTP43 평가할 때 중점적으로 본 이슈가 뭐야?',self.u,products=five,agencies=['CA','EU','US'],
             selected_products=five,selected_agencies=['CA','EU','US'])
         self.assertEqual((u['products'],u['jurisdictions']),(['CTP43'],['EU']))

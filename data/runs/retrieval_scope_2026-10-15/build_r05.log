@@ -1,0 +1,69 @@
+Consider using the pymupdf_layout package for a greatly improved page layout analysis.
+base_03 {"reference_chunks": 11536, "candidate_chunks": 12345, "same_text_and_page": 10878, "only_reference": 626, "only_candidate": 1433, "same_embedding_input": 5086, "differing_fields_on_matched_chunks": {"provenance": 10878, "n_tokens_with_header": 5763, "structure": 6054, "section": 5792, "header": 5792, "representation": 2}, "identical": false}
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights:  39%|███▉      | 153/391 [00:00<00:00, 1527.41it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 2006.89it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  8/7242  1s
+  168/7242  7s
+  328/7242  10s
+  488/7242  14s
+  648/7242  16s
+  808/7242  19s
+  968/7242  21s
+  1128/7242  23s
+  1288/7242  25s
+  1448/7242  27s
+  1608/7242  29s
+  1768/7242  30s
+  1928/7242  32s
+  2088/7242  33s
+  2248/7242  34s
+  2408/7242  35s
+  2568/7242  36s
+  2728/7242  37s
+  2888/7242  38s
+  3048/7242  39s
+  3208/7242  40s
+  3368/7242  40s
+  3528/7242  41s
+  3688/7242  42s
+  3848/7242  42s
+  4008/7242  43s
+  4168/7242  44s
+  4328/7242  44s
+  4488/7242  45s
+  4648/7242  45s
+  4808/7242  46s
+  4968/7242  46s
+  5128/7242  47s
+  5288/7242  47s
+  5448/7242  47s
+  5608/7242  48s
+  5768/7242  48s
+  5928/7242  49s
+  6088/7242  49s
+  6248/7242  49s
+  6408/7242  50s
+  6568/7242  50s
+  6728/7242  50s
+  6888/7242  51s
+  7048/7242  51s
+  7208/7242  51s
+base_03 vectors reused 5103 new 7242
+supplement_20261014 {"reference_chunks": 4146, "candidate_chunks": 4380, "same_text_and_page": 3945, "only_reference": 193, "only_candidate": 427, "same_embedding_input": 1983, "differing_fields_on_matched_chunks": {"n_tokens_with_header": 1952, "structure": 2032, "section": 1962, "header": 1962, "study_candidates": 17, "study_basis": 17, "studies": 8, "study_label": 8, "study_scope": 8}, "identical": false}
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights:   8%|▊         | 31/391 [00:00<00:01, 266.47it/s]Loading weights:  85%|████████▍ | 331/391 [00:00<00:00, 1751.30it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 1638.63it/s]
+  8/2396  1s
+  168/2396  5s
+  328/2396  8s
+  488/2396  10s
+  648/2396  12s
+  808/2396  13s
+  968/2396  14s
+  1128/2396  15s
+  1288/2396  16s
+  1448/2396  16s
+  1608/2396  17s
+  1768/2396  17s
+  1928/2396  18s
+  2088/2396  18s
+  2248/2396  19s
+supplement_20261014 vectors reused 1984 new 2396

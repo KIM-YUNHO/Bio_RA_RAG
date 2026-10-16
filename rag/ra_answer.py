@@ -60,10 +60,66 @@ request must receive sourced facts or an explicit gap.
 """
 
 
-def schema(evidence, tasks, citation_mode='quote', *, question=None):
+def derived_schema(operand):
+    from rag.ra_derived import OPERATIONS
+    return {'type': 'array', 'maxItems': 16, 'description': 'Requested calculations; the system computes each result '
+            'from the two cited operand spans. Never write the computed value yourself.', 'items': obj({'label': STRING,
+        'operation': {'type': 'string', 'enum': OPERATIONS},
+        'operand_span_ids': {'type': 'array', 'minItems': 2, 'maxItems': 2, 'items': operand},
+        'operand_values': {'type': 'array', 'minItems': 2, 'maxItems': 2, 'items': STRING,
+            'description': 'Each operand copied exactly as printed in the source, e.g. "March 30, 2023".'}})}
+
+
+def claim_budget(understanding):
+    """Claim slots scale with the product x agency units a question enumerates.
+
+    A single-product question keeps the long-standing 8; a 5-product x 3-agency
+    question gets 15. Bounded by MAX_PROPOSED_CLAIMS and the review output budget.
+    """
+    from rag.ra_models import MAX_PROPOSED_CLAIMS
+    products = understanding.get('products') or []
+    agencies = [j for j in understanding.get('jurisdictions') or [] if j in ('EU', 'US', 'CA')]
+    return max(8, min(MAX_PROPOSED_CLAIMS, len(products) * max(1, len(agencies))))
+
+
+SPAN_PATTERN = '^S[1-9][0-9]*$'
+ENUM_SPAN_LIMIT = 900
+
+
+def span_choice(ids, catalog_size):
+    """Enumerate span IDs while the catalog fits the provider's enum limit.
+
+    A larger reading context uses the ID format instead, so the context is bounded
+    by tokens rather than by 1000 enum values; unknown IDs are still rejected when
+    citations are resolved (unknown_or_invalid_citation_span).
+    """
+    if not ids:
+        return STRING
+    if catalog_size > ENUM_SPAN_LIMIT:
+        return {'type': 'string', 'pattern': SPAN_PATTERN}
+    return {'type': 'string', 'enum': ids}
+
+
+TOTAL_CLAIM_CAP = 32  # one generation and one clause review must fit their output budgets
+
+
+def total_claims(understanding, question):
+    """Each verbatim request may use the whole claim budget; the reply total is capped."""
+    from rag.ra_models import request_items
+    return min(TOTAL_CLAIM_CAP, claim_budget(understanding) * max(1, len(request_items(question))))
+
+
+def extra_generation_tokens(client, understanding, question):
+    """Output tokens beyond the client default: about 150 per span-cited claim past eight."""
+    if claim_budget(understanding) <= 8:
+        return 0
+    return min(8000 - client.output_tokens, 150 * max(0, total_claims(understanding, question) - 8))
+
+
+def schema(evidence, tasks, citation_mode='quote', *, question=None, claim_budget=8):
     products = sorted({b['product_id'] for b in evidence.values() if b.get('product_id')})
     result = {'name': 'ra_grounded_answer', 'schema': obj({
-        'claims': {'type': 'array', 'maxItems': 8, 'items': obj({
+        'claims': {'type': 'array', 'maxItems': claim_budget, 'items': obj({
             'text': STRING, 'kind': {'type': 'string', 'enum': KINDS},
             'products': {'type': 'array', 'maxItems': len(products),
                          'items': {'type': 'string', 'enum': products} if products else STRING},
@@ -80,22 +136,28 @@ def schema(evidence, tasks, citation_mode='quote', *, question=None):
         del item['properties']['sources']
         item['required'].remove('sources')
         item['properties']['citation_span_ids'] = {'type': 'array', 'minItems': 1, 'maxItems': 40,
-            'items': {'type': 'string', 'enum': list(spans)} if spans else STRING}
+            'items': span_choice(list(spans), len(spans))}
         item['required'].append('citation_span_ids')
         result['name'] = 'ra_span_grounded_answer'
         if question is not None:
             from rag.ra_models import request_items
             requests = request_items(question)
-            per_item = max(1, 8 // len(requests))
+            # The whole budget is available to each request; the total is enforced
+            # after generation (overflow is withheld with a reason, never silent).
+            per_item = claim_budget
             # One bounded reply for every verbatim request, including trailing
             # status/scope requests that a task planner can omit.
             group = obj({'claims': {'type': 'array', 'maxItems': per_item, 'items': {'$ref':'#/$defs/claim'}},
                          'gaps': {'type': 'array', 'items': STRING}})
             result = {'name': 'ra_request_grounded_answer', 'schema': obj({
-                'request_results': obj({key: deepcopy(group) for key in requests})})}
-            result['schema']['$defs'] = {'claim': item}
-            from rag.ra_obligations import build
-            requirements=build(question)
+                'request_results': obj({key: deepcopy(group) for key in requests}),
+                'derived': derived_schema({'$ref': '#/$defs/span_id'})})}
+            # One shared span enum for citations and derived operands (enum budget).
+            span_id = item['properties']['citation_span_ids']['items']
+            item['properties']['citation_span_ids']['items'] = {'$ref': '#/$defs/span_id'}
+            result['schema']['$defs'] = {'claim': item, 'span_id': span_id}
+            from rag.ra_obligations import slot_rows
+            requirements=slot_rows(question, tasks)
             if requirements:
                 # IDs appear before the assertion in the serialized reply.
                 item['properties']={'citation_span_ids':item['properties']['citation_span_ids'],
@@ -105,6 +167,7 @@ def schema(evidence, tasks, citation_mode='quote', *, question=None):
                     'gaps':{'type':'array','items':STRING}})
                 result={'name':'ra_requirement_grounded_answer','schema':obj({
                     'requirement_results':obj({r['id']:deepcopy(group) for r in requirements})})}
+                item['properties']['citation_span_ids']['items']=span_id
                 definitions={}
                 for product in dict.fromkeys(r['product'] for r in requirements):
                     key=product or 'general'
@@ -114,11 +177,15 @@ def schema(evidence, tasks, citation_mode='quote', *, question=None):
                     definition['properties']['citation_span_ids']['items']={'$ref':'#/$defs/ids_'+key}
                     definitions['ids_'+key]=({'anyOf':[{'$ref':'#/$defs/ids_'+p}
                         for p in dict.fromkeys(r['product'] for r in requirements) if p]}
-                        if comparison else {'type':'string','enum':ids} if ids else STRING)
+                        if comparison else span_choice(ids, len(spans)))
                     if product:
                         definition['properties']['products']={'type':'array','minItems':1,'maxItems':1,
                             'items':{'type':'string','enum':[product]}}
                     definitions['claim_'+key]=definition
+                keys=[k for k in definitions if k.startswith('ids_') and definitions[k]!=STRING and 'enum' in definitions[k]]
+                result['schema']['properties']['derived']=derived_schema(
+                    {'anyOf':[{'$ref':'#/$defs/'+k} for k in keys]} if keys else STRING)
+                result['schema']['required'].append('derived')
                 result['schema']['$defs']=definitions
                 for row in requirements:
                     result['schema']['properties']['requirement_results']['properties'][row['id']]['properties']['claims']['items']={
@@ -155,7 +222,8 @@ def messages(question, understanding, evidence, citation_mode='quote'):
             documents[alias] = {k: v for k, v in meta.items() if v is not None}
         context.append({'id': key, 'document': alias, 'pdf_page': block.get('pdf_page'),
                         'kind': block.get('structure', {}).get('kind'), 'source_text': block['text']})
-    system = SYSTEM
+    budget = claim_budget(understanding)
+    system = SYSTEM.replace('Return at most 8 concise,', f'Return at most {budget} concise,')
     if citation_mode == 'spans':
         from rag.ra_spans import catalog
         _, reading = catalog(evidence)
@@ -185,7 +253,15 @@ For status/scope requests use the named document's actual adoption/effect passag
 and its scope passage. Report stored status only; do not assert present validity.
 Keep analytical bridging requirements separate from optional clinical bridging
 when the supplied passage distinguishes them. If unable to answer an item, put
-that item's unmet request in its gaps. Never silently omit a request object.'''
+that item's unmet request in its gaps. Never silently omit a request object.
+State each sourced fact once, under the first request it answers; never restate
+it for a later request. Never write a calculated value (time elapsed between two
+dates, a difference, ratio or percent change) in any claim. For a request that
+asks for one, the answer IS its derived entries: one entry per computation, with
+the operation and the two span IDs whose printed values are the operands, in
+order (earlier date, later date) or (a, b), and operand_values copying each value
+exactly as printed. Operand span IDs may come from claims under any request. The system computes and displays each result. A derived label
+names what is computed (e.g. product and agency) and contains no numbers.'''
     elif citation_mode != 'quote':
         raise ValueError('Unknown RA citation mode')
     data = {
@@ -194,11 +270,25 @@ that item's unmet request in its gaps. Never silently omit a request object.'''
             for t in understanding['tasks']],
         'scope': {k: understanding.get(k) for k in ('products', 'jurisdictions')},
         'document_metadata_not_source_text': documents, 'sources': context}
+    if budget > 8:
+        # Enumeration: every product x agency unit present in the sources is accounted
+        # for (claims or an explicit gap), instead of a concise selection.
+        units = sorted({f"{b.get('product_id')} / {b.get('jurisdiction')}" for b in evidence.values()
+                        if b.get('product_id') and b.get('jurisdiction') in ('EU', 'US', 'CA')})
+        data['enumeration_units'] = units
+        system = system.replace('Use fewer\nclaims when sufficient and avoid repeating', 'Avoid repeating')
+        system += ('\nThis question enumerates products and agencies. Go through EVERY entry of '
+                   "enumeration_units: give that unit's requested facts as claims with its own proof, or "
+                   'name the unit and the missing fact in gaps. Do not stop after a few units.')
+    requirements = []
     if citation_mode == 'spans':
         from rag.ra_models import request_items
         data['original_request_items'] = request_items(question)
-        from rag.ra_obligations import build,pointers
-        requirements=build(question)
+        from rag.ra_obligations import slot_rows,pointers,checklist
+        requirements=slot_rows(question, understanding.get('tasks'))
+        reminders=[] if requirements else checklist(question, understanding.get('tasks') or [])
+        if reminders:
+            data['answer_checklist']=reminders
         if requirements:
             system='''Write concise KOREAN claims from supplied sources only; never copy English
 Eligibility age/weight/BMI must be labelled 선정 기준 or 허용 범위, not observed
@@ -258,16 +348,32 @@ eligibility fields explicitly, keeping criteria distinct from observed ranges.''
         system += '\nTask intents (organize each task\'s claims accordingly):' + ''.join(
             f'\n- {intent} ({", ".join(k for k, v in task_intents.items() if v == intent)}): {GUIDANCE[intent]}'
             for intent in dict.fromkeys(task_intents.values()))
+    if citation_mode == 'spans':
+        from rag import ra_prompt
+        kind = ra_prompt.variant()
+        if kind != 'current' and not requirements:
+            system = ra_prompt.system(question, understanding, evidence, budget)
+        elif kind == 'modular' and requirements:
+            system = ra_prompt.requirement_system(question, understanding, evidence)
     return [{'role': 'system', 'content': system}, {'role': 'user', 'content': json.dumps(data, ensure_ascii=False, separators=(',', ':'))}]
 
 
 def cost(client, msgs, json_schema):
+    from rag.schema_budget import enum_count, MAX_ENUM_VALUES
+    # The API rejects a structured-output schema with more than MAX_ENUM_VALUES
+    # enum values, and every selectable span ID is one. Such a context can never
+    # be sent, so it must not fit regardless of its token count.
+    if enum_count(json_schema.get('schema', json_schema)) > MAX_ENUM_VALUES:
+        return client.input_limit + 1
     return client.tokenizer.messages(msgs) + client.tokenizer.one(
         json.dumps(json_schema, ensure_ascii=False, separators=(',', ':')))
 
 
 def fits(client, msgs, json_schema):
-    return cost(client, msgs, json_schema) <= client.input_limit
+    # A per-call output budget above the client's default leaves less room for input.
+    requested = json_schema.get('max_output_tokens')
+    extra = max(0, int(requested) - client.output_tokens) if requested else 0
+    return cost(client, msgs, json_schema) <= client.input_limit - extra
 
 
 NUMBER = re.compile(r'(?<![A-Za-z\d])[-+−]?\d+(?:[.,]\d+)*(?!\d)')
@@ -307,10 +413,9 @@ def label_only_quote(quote):
 
 
 def literal_check(raw, evidence, tasks, *, check_numbers=True, check_absence=True):
-    from rag.ra_models import MAX_PROPOSED_CLAIMS
     if not isinstance(raw, dict) or not isinstance(raw.get('claims'), list):
         raise ValueError('Invalid RA claim response')
-    limit = MAX_PROPOSED_CLAIMS if all(c.get('requirement_id') for c in raw['claims'] if isinstance(c, dict)) else 8
+    limit = TOTAL_CLAIM_CAP
     if len(raw['claims']) > limit:
         raise ValueError('Invalid RA claim response')
     if not isinstance(raw.get('gaps'), list) or any(not isinstance(g, str) or len(g) > 2000 for g in raw['gaps']):
@@ -470,7 +575,12 @@ def generate(question, understanding, evidence, client, citation_mode='quote'):
         return {'status': 'not_found', 'answer_ko': '현재 검색 범위에서 질문에 답할 근거를 확보하지 못했습니다.',
                 'claims': [], 'items': [], 'gaps': [t['request'] for t in tasks],
                 'validation': {'rejected_items': [], 'semantic_review': 'not_run'}}
-    msgs, contract = messages(question, understanding, evidence, citation_mode), schema(evidence, tasks, citation_mode, question=question)
+    budget = claim_budget(understanding)
+    msgs, contract = messages(question, understanding, evidence, citation_mode), schema(
+        evidence, tasks, citation_mode, question=question, claim_budget=budget)
+    if budget > 8:
+        contract = {**contract, 'max_output_tokens': client.output_tokens + extra_generation_tokens(client, understanding, question)}
+    cap = total_claims(understanding, question) if citation_mode == 'spans' else budget
     if not fits(client, msgs, contract):
         raise ValueError('RA source context exceeds the actual model input budget')
     reply = client(msgs, json_schema=contract, provider=getattr(client, 'provider', 'ollama'))
@@ -478,10 +588,11 @@ def generate(question, understanding, evidence, client, citation_mode='quote'):
     request_generation = None
     obligations = []
     unanswered = []
+    model_gaps = []
     if citation_mode == 'spans':
         from rag.ra_models import RequestedDraft, ObligationDraft, request_items
-        from rag.ra_obligations import build
-        obligations=build(question)
+        from rag.ra_obligations import slot_rows
+        obligations=slot_rows(question, tasks)
         items_by_request = request_items(question)
         if obligations:
             by_obligation={r['id']:r for r in obligations}
@@ -494,6 +605,7 @@ def generate(question, understanding, evidence, client, citation_mode='quote'):
             generated=request_generation['request_results']
         raw = {'claims': [], 'gaps': []}
         for key, item in generated.items():
+            model_gaps.extend(g for g in item['gaps'] if g.strip())
             raw['claims'].extend([{**c,**({'requirement_id':key,'requirement_ids':[key]} if obligations else {})} for c in item['claims']])
             if item['gaps'] or not item['claims']:
                 unanswered.append((by_obligation[key]['label']+(' / '+by_obligation[key]['product'] if by_obligation[key]['product'] else ''))
@@ -501,6 +613,12 @@ def generate(question, understanding, evidence, client, citation_mode='quote'):
         raw['gaps'] = unanswered
     else:
         raw = QuoteDraft.model_validate_json(reply['text'], context={'task_ids': [t['id'] for t in tasks]}).model_dump()
+    overflow = []
+    if len(raw['claims']) > cap:
+        # Withheld visibly, in generation order; the request is reported as unanswered.
+        overflow = [{**c, 'id': f'C{n}', 'reason': 'claim_budget_exceeded', 'coverage_affecting': True}
+                    for n, c in enumerate(raw['claims'][cap:], cap + 1)]
+        raw = {**raw, 'claims': raw['claims'][:cap]}
     resolved = raw
     if citation_mode == 'spans':
         from rag.ra_spans import catalog, resolve
@@ -510,6 +628,7 @@ def generate(question, understanding, evidence, client, citation_mode='quote'):
     # unsupported absence. Final clauses still undergo the absence guard.
     claims, rejected = literal_check(resolved, evidence, tasks,
         check_numbers=citation_mode != 'spans', check_absence=citation_mode != 'spans')
+    rejected.extend(overflow)
     obligation_separation=[]
     if obligations:
         # Check the complete proposal's relevance BEFORE splitting. Its sourced
@@ -570,6 +689,11 @@ def generate(question, understanding, evidence, client, citation_mode='quote'):
         review_input = {'format': review_format, 'estimated_input_tokens': cost(client, review_msgs, contract),
                         'input_limit': client.input_limit, 'source_clipping': 'none', 'extra_model_calls': 0}
         reviewed_proposals = deepcopy(claims)
+        if len(claims) > 8:
+            # Clause review output grows with the claim count (about 200 tokens a claim).
+            contract = {**contract, 'max_output_tokens': min(8000, max(client.output_tokens, 220 * len(claims) + 600))}
+            if not fits(client, review_msgs, contract):
+                raise ValueError('RA support review exceeds the actual model input budget')
         reply = client(review_msgs, json_schema=contract, provider=getattr(client, 'provider', 'ollama'))
         if citation_mode == 'spans':
             claims, withheld, review = ra_review.apply(json.loads(reply['text']), evidence, claims, tasks, truth_only=True)
@@ -589,6 +713,11 @@ def generate(question, understanding, evidence, client, citation_mode='quote'):
     # in diagnostics; display only the actual requests still needing support.
     from rag.ra_assertions import deduplicate
     claims, deduplicated = deduplicate(claims, evidence)
+    derived_withheld = []
+    if request_generation and request_generation.get('derived'):
+        from rag.ra_derived import compute
+        made, derived_withheld = compute(request_generation['derived'], claims)
+        claims.extend(made)
     from rag.ra_obligations import final_coverage
     obligation_checks=final_coverage(obligations, claims, reviewed_proposals, evidence)
     for requirement in obligation_checks:
@@ -605,11 +734,20 @@ def generate(question, understanding, evidence, client, citation_mode='quote'):
     original_checks = None
     original_complete = False
     if citation_mode == 'spans':
-        from rag.ra_models import request_items
-        from rag.ra_obligations import answer_constraint_only
-        original_tasks = [{'id': key, 'request': text} for key, text in request_items(question).items()
-                          if not answer_constraint_only(text)]
-        original_checks = request_coverage(question, {'tasks': original_tasks}, evidence, claims)
+        from rag.ra_obligations import planned
+        if planned(tasks):
+            # The planner's tasks carry the request reading; a sentence no task quotes is uncovered.
+            from rag.ra_obligations import uncovered_sentences
+            uncovered = uncovered_sentences(question, tasks)
+            original_checks = {**request_checks, 'tasks': [*request_checks['tasks'], *[
+                {'task_id': None, 'request': s, 'requested_conditions': {}, 'checks': [],
+                 'completion_checkable': False, 'minimum_requirements_met': False} for s in uncovered]]}
+        else:
+            from rag.ra_models import request_items
+            from rag.ra_obligations import answer_constraint_only
+            original_tasks = [{'id': key, 'request': text} for key, text in request_items(question).items()
+                              if not answer_constraint_only(text)]
+            original_checks = request_coverage(question, {'tasks': original_tasks}, evidence, claims)
         original_complete = bool(claims) and all(
             row['completion_checkable'] and row['minimum_requirements_met'] for row in original_checks['tasks']) and all(
             row['observable_values_preserved'] for row in obligation_checks)
@@ -663,13 +801,17 @@ def generate(question, understanding, evidence, client, citation_mode='quote'):
         blocking_rejected_ids=[] if original_complete else [c['id'] for c in rejected])
     lines = []
     for claim in claims:
-        prefix = '해석: ' if claim['kind'] == 'interpretation' else ''
+        prefix = '계산: ' if claim.get('computed') else '해석: ' if claim['kind'] == 'interpretation' else ''
         refs = ', '.join(dict.fromkeys(s['evidence'] for s in claim['sources']))
         lines.append(prefix + claim['text'] + f' [{refs}]')
     if not lines:
         lines.append('현재 공급한 근거에서 질문을 지지하는 답변을 확인하지 못했습니다.')
     if gaps:
-        lines.append('\n추가 확인이 필요한 요청:\n' + '\n'.join('- ' + g for g in dict.fromkeys(gaps)))
+        lines.append('\n인용으로 완전히 확인하지 못한 요청:\n' + '\n'.join('- ' + g for g in dict.fromkeys(gaps)))
+        if model_gaps:
+            # Uncited model prose: shown as the reason it gave, never as a fact.
+            lines.append('모델이 밝힌 미확인 사유 (원문 인용 검증 아님):\n'
+                         + '\n'.join('- ' + g for g in dict.fromkeys(model_gaps)))
     items = []
     for claim in claims:
         for cite in claim['sources']:
@@ -683,6 +825,7 @@ def generate(question, understanding, evidence, client, citation_mode='quote'):
             'citation_completion': citation_completion,
             'review_input': review_input,
             'deduplicated_claims': deduplicated,
+            'derived_withheld': derived_withheld,
             'literal_check': 'bound_final_spans_and_typed_quantities' if citation_mode == 'spans' else
                              'contiguous_source_spans_whitespace_only_and_number_preservation',
             'semantic_review': review or 'no_literal_supported_claims', 'expert_certified': False},

@@ -1,0 +1,27 @@
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights:   1%|▏         | 5/391 [00:03<04:40,  1.38it/s]Loading weights:  90%|█████████ | 353/391 [00:03<00:00, 132.90it/s]Loading weights: 100%|██████████| 391/391 [00:04<00:00, 93.19it/s] 
+E01 1 answered 11.4
+T01 1 partial 14.2
+T02 1 partial 11.4
+E03 1 partial 32.4
+C03 1 partial 10.8
+U03 1 partial 17.2
+E04 1 partial 20.9
+E02 1 partial 14.4
+U01 1 partial 14.8
+U02 1 partial 10.3
+U04 1 partial 16.5
+C01 1 partial 11.7
+C02 1 partial 16.7
+C04 1 partial 15.9
+T03 1 partial 12.9
+T04 1 partial 17.3
+T05 1 partial 18.2
+N01 1 partial 12.4
+N02 1 not_found 2.3
+Q1 1 partial 54.9
+Q2 1 partial 19.3
+Q3 1 partial 27.5
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights:  48%|████▊     | 187/391 [00:00<00:00, 1797.37it/s]Loading weights:  94%|█████████▍| 367/391 [00:00<00:00, 1758.46it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 1794.19it/s]
+Q1 2 partial 63.5
+Q2 2 partial 31.1
+Q3 2 partial 30.0

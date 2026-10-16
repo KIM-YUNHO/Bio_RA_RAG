@@ -1,10 +1,10 @@
 """Bind model interpretations to explicit request and eligible-document boundaries."""
 from copy import deepcopy
+from functools import lru_cache
 import re
 import unicodedata
 
 from rag import study_registry as sr
-from rag.evidence import contains_quote
 
 
 def named(text, identifiers):
@@ -14,6 +14,42 @@ def named(text, identifiers):
               for v in (value, re.sub(r'\s*\([^()]*\)\s*$', '', value)) if v.strip()}
     return any(re.search(r'(?<![A-Za-z0-9])'+re.escape(unicodedata.normalize('NFKC', value))+
         r'(?![A-Za-z0-9])', text, re.I) for value in values)
+
+
+
+
+@lru_cache(maxsize=1)
+def reference_names():
+    """Reference (non-biosimilar) product proper nouns from the collection targets (not the shared ingredient)."""
+    import json
+    from pathlib import Path
+    path = Path(__file__).resolve().parents[1] / 'configs/collection/targets.json'
+    targets = json.loads(path.read_text(encoding='utf-8'))
+    references = {p.get('reference_product_id') for p in targets.get('products', []) if p.get('reference_product_id')}
+    names = []
+    for p in targets.get('products', []):
+        if p.get('product_id') in references:
+            names += [p.get('ema_name'), p.get('us_brand'), p.get('ca_brand'), *p.get('aliases', [])]
+    return sorted({n for n in names if n})
+
+
+def regulator_mention(question, mention):
+    """The planner's agency reading stands when the name it copied is printed in the question.
+
+    Which agency a word means ("미국" -> US) is the planner's reading; code keeps no
+    agency-name list. Two proper-noun facts only: the copied name occurs in the question
+    (an invented agency cannot narrow the scope), and the mention does not name a
+    reference product ("EU Stelara" is a comparator's origin, not a regulator).
+    """
+    from rag.ra_models import REGULATORS, name_in_question
+    if not isinstance(mention, dict) or mention.get('role') != 'regulator':
+        return False
+    if mention.get('jurisdiction') not in REGULATORS:
+        return False  # 'sponsor' (trial registry) is a source type, added only for protocol/SAP requests
+    name = mention.get('name') or ''
+    if not name_in_question(question, name):
+        return False
+    return not named(name + ' ' + (mention.get('quote') or ''), reference_names())
 
 
 def bind_request_scope(question, interpretation, products, agencies, *,
@@ -37,11 +73,9 @@ def bind_request_scope(question, interpretation, products, agencies, *,
         if key == 'products':
             entry = sr.products().get(value,{})
             return named(question,[value,*entry.get('names',[]),*entry.get('ko_names',[])])
-        # Only source roles verified against source identities count;
-        # EU/US reference-product sourcing is not a regulator request.
-        names = {d['source'] for d in documents if d.get('jurisdiction')==value}
-        return any(m.get('jurisdiction')==value and m.get('role')=='regulator'
-            and contains_quote(question,m.get('quote')) and named(m.get('quote'),names)
+        # A regulator mention counts unless a proper noun contradicts it;
+        # EU/US reference-product sourcing ("EU Stelara") is not a regulator request.
+        return any(m.get('jurisdiction')==value and regulator_mention(question, m)
             for m in out.get('jurisdiction_mentions',[]))
 
     adjustments, conflicts, narrowed = [], [], {}

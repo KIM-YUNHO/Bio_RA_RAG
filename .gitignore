@@ -43,3 +43,11 @@ Thumbs.db
 # data bundles built by storage/serving_data.py --zip (shared out of band)
 /biosim_data*.zip
 storage/handoff/*.zip
+
+# Full RA evaluation reports (embed source evidence; tens of MB). Logs, scores and summaries stay tracked.
+data/runs/e2e_enumeration_2026-10-15/**/*.json
+!data/runs/e2e_enumeration_2026-10-15/**/summary.json
+!data/runs/e2e_enumeration_2026-10-15/**/*.score.json
+data/runs/answer_eval_2026-10-15/baseline/
+data/runs/answer_eval_2026-10-15/branch/
+data/runs/answer_eval_2026-10-15/paired_dev/

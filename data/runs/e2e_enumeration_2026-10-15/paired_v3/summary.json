@@ -1,0 +1,167 @@
+[
+ {
+  "plan": 1,
+  "config": "default_retrieval",
+  "top8_gold_dates": 21,
+  "context_gold_dates": 21,
+  "packets": 139,
+  "omitted": 1,
+  "context_tokens": 56706,
+  "token_budget": 58380,
+  "spans": 1451,
+  "schema_enum_values": 17,
+  "submission_dates": 1,
+  "approval_dates": 9,
+  "durations_computed_correctly": 3,
+  "claims_kept": 14,
+  "rejected_reasons": {
+   "uncertain": 5
+  },
+  "derived_withheld": [
+   "derived_operand_not_in_verified_claims",
+   "derived_operand_not_in_verified_claims",
+   "derived_operand_not_in_verified_claims",
+   "derived_operand_not_in_verified_claims",
+   "derived_operand_not_in_verified_claims"
+  ]
+ },
+ {
+  "plan": 1,
+  "config": "rerank_corr",
+  "top8_gold_dates": 24,
+  "context_gold_dates": 23,
+  "packets": 109,
+  "omitted": 33,
+  "context_tokens": 58259,
+  "token_budget": 58380,
+  "spans": 1308,
+  "schema_enum_values": 17,
+  "submission_dates": 7,
+  "approval_dates": 8,
+  "durations_computed_correctly": 7,
+  "claims_kept": 21,
+  "rejected_reasons": {
+   "uncertain": 5,
+   "unsupported": 1
+  },
+  "derived_withheld": [
+   "derived_operand_not_in_verified_claims",
+   "derived_operand_not_in_verified_claims"
+  ]
+ },
+ {
+  "plan": 2,
+  "config": "default_retrieval",
+  "top8_gold_dates": 15,
+  "context_gold_dates": 15,
+  "packets": 141,
+  "omitted": 2,
+  "context_tokens": 57735,
+  "token_budget": 58380,
+  "spans": 1343,
+  "schema_enum_values": 17,
+  "submission_dates": 5,
+  "approval_dates": 5,
+  "durations_computed_correctly": 5,
+  "claims_kept": 15,
+  "rejected_reasons": {
+   "uncertain": 9
+  },
+  "derived_withheld": []
+ },
+ {
+  "plan": 2,
+  "config": "rerank_corr",
+  "top8_gold_dates": 18,
+  "context_gold_dates": 17,
+  "packets": 94,
+  "omitted": 38,
+  "context_tokens": 58232,
+  "token_budget": 58380,
+  "spans": 1234,
+  "schema_enum_values": 17,
+  "submission_dates": 4,
+  "approval_dates": 6,
+  "durations_computed_correctly": 3,
+  "claims_kept": 16,
+  "rejected_reasons": {
+   "claim_product_not_supported_by_own_cited_source": 1,
+   "uncertain": 8,
+   "claim_number_not_in_final_citations": 1,
+   "unsupported": 1
+  },
+  "derived_withheld": [
+   "derived_operand_not_in_verified_claims"
+  ]
+ },
+ {
+  "plan": 3,
+  "config": "default_retrieval",
+  "top8_gold_dates": 19,
+  "context_gold_dates": 19,
+  "packets": 139,
+  "omitted": 1,
+  "context_tokens": 57747,
+  "token_budget": 58380,
+  "spans": 1556,
+  "schema_enum_values": 17,
+  "submission_dates": 9,
+  "approval_dates": 7,
+  "durations_computed_correctly": 7,
+  "claims_kept": 25,
+  "rejected_reasons": {
+   "uncertain": 3
+  },
+  "derived_withheld": []
+ },
+ {
+  "plan": 3,
+  "config": "rerank_corr",
+  "top8_gold_dates": 21,
+  "context_gold_dates": 19,
+  "packets": 89,
+  "omitted": 45,
+  "context_tokens": 58317,
+  "token_budget": 58380,
+  "spans": 1356,
+  "schema_enum_values": 17,
+  "submission_dates": 11,
+  "approval_dates": 7,
+  "durations_computed_correctly": 7,
+  "claims_kept": 20,
+  "rejected_reasons": {
+   "claim_product_not_supported_by_own_cited_source": 1,
+   "uncertain": 5
+  },
+  "derived_withheld": [
+   "derived_operand_not_in_verified_claims",
+   "derived_operand_value_ambiguous"
+  ]
+ },
+ {
+  "plan": 4,
+  "config": "default_retrieval",
+  "top8_gold_dates": 20,
+  "context_gold_dates": 20,
+  "packets": 139,
+  "omitted": 0,
+  "context_tokens": 56193,
+  "token_budget": 58380,
+  "spans": 1416,
+  "schema_enum_values": 17,
+  "generation_error": "GenerationFailure: RateLimitError: Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}"
+ },
+ {
+  "plan": 4,
+  "config": "rerank_corr",
+  "top8_gold_dates": 23,
+  "context_gold_dates": 20,
+  "packets": 108,
+  "omitted": 36,
+  "context_tokens": 58337,
+  "token_budget": 58380,
+  "spans": 1191,
+  "schema_enum_values": 17,
+  "generation_error": "GenerationFailure: RateLimitError: Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}"
+ }
+]
