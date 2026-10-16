@@ -20,6 +20,7 @@ Question sets
   qagold   qa_gold.zip dev/indomain/external splits (EMA EPAR evidence pages)
   compare  eval/compare_cases_v1.json multi-product comparison questions (one unit per product part)
   nondefault  teammates' fact-level gold in main (48 questions; not used while tuning this branch)
+  chemr    teammates' QA candidates zip (--chemr-zip): 30 questions on the Wezlana FDA product quality review
 The 17 cases and both gold sets were seen during development: these are
 development diagnostics, not holdout results. Answer generation is not run, so
 "supplied" does not mean the answer used the page.
@@ -77,6 +78,23 @@ def nondefault():
                          for f in c['facts']]}
 
 
+CHEMR_DOCUMENTS = {'WEZENLA_FDA_CHEMR': 'FDA:761285Orig1s000,761331Orig1s000:ChemR'}
+
+
+def chemr(path):
+    """Teammates' QA candidates (zip read in place, never copied): one FDA product quality review,
+    each required evidence group is one unit (any of its evidence pages)."""
+    z = zipfile.ZipFile(path)
+    rows = lambda name: [json.loads(x) for x in z.read(name).decode('utf-8-sig').splitlines() if x.strip()]
+    evidence = {e['evidence_id']: e for e in rows('evidence_candidates.jsonl')}
+    for q in rows('qa_candidates.jsonl'):
+        doc = CHEMR_DOCUMENTS[q['source_document_id']]
+        yield {'set': 'chemr', 'split': q['split'], 'id': q['qa_id'], 'question': q['question'], 'expected': 'answer',
+               'products': ['ABP654'], 'jurisdictions': ['US'],
+               'units': [{'unit': '+'.join(g), 'pages': sorted({(doc, evidence[e]['pdf_page']) for e in g}),
+                          'basis': f'qa_candidates {q["question_type"]}'} for g in q['required_evidence_groups']]}
+
+
 def queries(include_absent=False):
     with (ROOT / 'eval/queries_v0.1.csv').open(encoding='utf-8-sig') as stream:
         for r in csv.DictReader(stream):
@@ -126,7 +144,8 @@ def main():
     parser.add_argument('--run', type=Path, default=ROOT / 'data/versions/04_pipeline_h_supplement_2026-10-14/embedded/release')
     parser.add_argument('--guidelines', type=Path, default=ROOT / 'data/guidelines/ra_guidelines_native_2026-10-12_v2')
     parser.add_argument('--qa-gold', type=Path, help='qa_gold.zip (read only, never copied)')
-    parser.add_argument('--set', action='append', choices=['gold17', 'queries', 'qagold', 'condition', 'compare', 'nondefault'], required=True)
+    parser.add_argument('--chemr-zip', type=Path, help='QA_candidates.zip (read only, never copied)')
+    parser.add_argument('--set', action='append', choices=['gold17', 'queries', 'qagold', 'condition', 'compare', 'nondefault', 'chemr'], required=True)
     parser.add_argument('--only', action='append', help='Question IDs to run (smoke test)')
     parser.add_argument('--include-absent', action='store_true', help='also load absent (not_found) rows of the queries set')
     parser.add_argument('--pool', type=int, default=40)
@@ -164,7 +183,7 @@ def main():
         if name == 'qagold' and not args.qa_gold:
             parser.error('--qa-gold is required for the qagold set')
         items += (list(queries(args.include_absent)) if name == 'queries' else list(gold17()) if name == 'gold17'
-                  else list(condition()) if name == 'condition' else list(compare()) if name == 'compare' else list(nondefault()) if name == 'nondefault'
+                  else list(condition()) if name == 'condition' else list(compare()) if name == 'compare' else list(nondefault()) if name == 'nondefault' else list(chemr(args.chemr_zip)) if name == 'chemr'
                   else list(qagold(args.qa_gold, version_to_document)))
     if args.only:
         items = [i for i in items if i['id'] in args.only]
