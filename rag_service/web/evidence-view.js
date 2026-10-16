@@ -66,7 +66,7 @@ const EvidenceView=(()=>{
   }
   function rich(tag,cls,text){const element=node(tag,cls);element.append(richText(text));return element;}
   function isVisual(evidence){return ["table_candidate","figure_candidate"].includes(evidence?.structure?.kind);}
-  function visualCard({jobId,resultIndex,eid,evidence,quotes,onOpen}){
+  function visualCard({jobId,resultIndex,eid,evidence,quotes,onOpen,onPin}){
     const isTable=evidence.structure.kind==="table_candidate",card=node("figure","visual-card");
     const head=node("figcaption","visual-head");
     head.append(node("span","visual-tag",isTable?"표":"그림"),node("strong","",`[${eid}] ${evidence.title} · p.${evidence.pdf_page}`),node("span","status pending","자동 추출 · 미검토"));
@@ -89,6 +89,7 @@ const EvidenceView=(()=>{
       for(const b of tabs.children)b.setAttribute("aria-pressed",String(b.dataset.image===String(value)));};
     const t1=button(isTable?"추출 표":"추출 텍스트","tab",()=>showImage(false)),t2=button("원문 이미지","tab",()=>showImage(true));
     t1.dataset.image="false";t2.dataset.image="true";tabs.append(t1,t2,button("원문 보기 →","download open-source",()=>onOpen(eid)));
+    if(onPin)tabs.append(button("+ 단계 메모","download",onPin));
     card.append(head,tabs,extracted,image);showImage(!isTable);
     return card;
   }

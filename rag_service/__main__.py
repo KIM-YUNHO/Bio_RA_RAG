@@ -14,21 +14,27 @@ from uuid import uuid4
 from preprocess.hybrid_config import load_config
 from rag.pipeline import RAGPipeline
 from rag_service.reviews import ReviewStore, RevisionConflict
+from rag_service import notebook_api, ingestion_api
+from rag_service.workspaces import WorkspaceStore
+from psycopg import Error as DatabaseError
 
 # Three-pane UI (2026-10-13). static/ keeps the earlier UI byte for byte for processes started before this change.
 STATIC = Path(__file__).parent/'web'
 STATIC_FILES = {'/':'index.html','/style.css':'style.css','/common.js':'common.js','/evidence-view.js':'evidence-view.js',
-    '/inventory.js':'inventory.js','/viewer.js':'viewer.js','/review-notes.js':'review-notes.js','/app.js':'app.js'}
+    '/inventory.js':'inventory.js','/viewer.js':'viewer.js','/review-notes.js':'review-notes.js','/app.js':'app.js',
+    '/pipeline-notes.js':'pipeline-notes.js','/data-manager.js':'data-manager.js','/data-manager.css':'data-manager.css'}
 STATIC_TYPES = {'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8'}
 EVIDENCE_ROUTE = re.compile(r'/api/jobs/([0-9a-f]{32})/evidence/(\d{1,3})/([A-Za-z0-9_-]{1,32})(?:/(page)/(\d{1,5})|/(crop)|/(document\.pdf))?')
 
 
 class Jobs:
-    def __init__(self,pipeline,archive_dir=None,review_dir=None,conversation_dir=None):
+    def __init__(self,pipeline,archive_dir=None,review_dir=None,conversation_dir=None,workspace_store=None,ingestion_service=None):
         self.pipeline=pipeline;self.lock=Lock();self.jobs={};self.busy=False
         self.archive_dir=Path(archive_dir).resolve() if archive_dir is not None else None
         self.archive_load_errors=[]
         self.reviews=ReviewStore(review_dir or (self.archive_dir/'reviews' if self.archive_dir else None))
+        self.workspaces = workspace_store or WorkspaceStore(self.archive_dir.parent/'ra_workspaces' if self.archive_dir else None)
+        self.ingestion = ingestion_service or ingestion_api.IngestionAPI()
         if self.archive_dir is not None:
             self.archive_dir.mkdir(parents=True,exist_ok=True)
             for path in sorted(self.archive_dir.glob('*.json'),key=lambda p:p.stat().st_mtime)[-20:]:
@@ -68,7 +74,7 @@ class Jobs:
     def pages(self):
         if self._pages is None:
             from rag_service.pages import EvidencePages
-            self._pages=EvidencePages(self.pipeline)
+            self._pages=EvidencePages(self.pipeline, self.workspaces.document_path)
         return self._pages
 
     def persist(self,job):
@@ -195,6 +201,10 @@ def handler(jobs):
                 if path=='/favicon.ico':return self.send(b'',kind='image/x-icon',status=204,cache='private, max-age=86400')
                 if path=='/api/summary':return self.send(jobs.pipeline.summary())
                 if path=='/api/inventory':return self.send(jobs.inventory())
+                extra=notebook_api.get(jobs,path)
+                if extra is not None:return self.send(extra)
+                extra=ingestion_api.get(jobs,path)
+                if extra is not None:return self.send(extra)
                 route=EVIDENCE_ROUTE.fullmatch(path)
                 if route:
                     identity,result_index,eid=route[1],int(route[2]),route[3]
@@ -214,24 +224,30 @@ def handler(jobs):
                 if path.startswith('/api/jobs/'):return self.send(jobs.get(path.removeprefix('/api/jobs/')))
                 return self.send({'error':'찾을 수 없습니다.'},status=404)
             except KeyError:return self.send({'error':'등록되지 않은 질문입니다.'},status=404)
+            except DatabaseError:return self.send({'error':'DB 연결 또는 스키마를 확인하세요. Docker 실행과 ingestion.db migrate가 필요합니다.'},status=503)
             except (BrokenPipeError,ConnectionResetError):pass
             except (ValueError,TypeError,OSError,RuntimeError) as exc:return self.send({'error':str(exc)},status=400)
 
         def do_POST(self):
             if not self.local():return self.send({'error':'Local origin required'},status=403)
             review_path=self.path.startswith('/api/jobs/') and self.path.endswith('/review')
-            if self.path!='/api/questions' and not review_path:return self.send({'error':'찾을 수 없습니다.'},status=404)
+            workspace_path=self.path=='/api/projects' or self.path.startswith('/api/projects/')
+            ingestion_path=self.path.startswith('/api/ingestion/')
+            if self.path!='/api/questions' and not review_path and not workspace_path and not ingestion_path:return self.send({'error':'찾을 수 없습니다.'},status=404)
             if self.headers.get('Content-Type','').split(';')[0]!='application/json':return self.send({'error':'JSON required'},status=415)
             try:
                 length=int(self.headers.get('Content-Length','0'))
-                if not 0<length<=(65536 if review_path else 16384):raise ValueError('요청 크기를 확인하세요.')
+                if not 0<length<=(65536 if review_path or workspace_path else 16384):raise ValueError('요청 크기를 확인하세요.')
                 payload=json.loads(self.rfile.read(length))
+                if workspace_path:return self.send(notebook_api.post(jobs,self.path,payload))
+                if ingestion_path:return self.send(ingestion_api.post(jobs,self.path,payload))
                 if review_path:
                     return self.send(jobs.reviews.append(jobs.get(self.path[len('/api/jobs/'):-len('/review')]),payload))
                 return self.send(jobs.submit(payload),status=202)
             except BlockingIOError as exc:return self.send({'error':str(exc)},status=409)
             except RevisionConflict as exc:return self.send({'error':str(exc)},status=409)
             except KeyError:return self.send({'error':'등록되지 않은 질문입니다.'},status=404)
+            except DatabaseError:return self.send({'error':'DB 연결 또는 스키마를 확인하세요. Docker 실행과 ingestion.db migrate가 필요합니다.'},status=503)
             except OSError as exc:return self.send({'error':'검토 의견 저장 실패: '+str(exc)},status=500)
             except (ValueError,TypeError) as exc:return self.send({'error':str(exc)},status=400)
             except (BrokenPipeError,ConnectionResetError):pass
@@ -260,6 +276,7 @@ def main():
     parser.add_argument('--archive-dir',type=Path,help='Durable completed and failed question records')
     parser.add_argument('--review-dir',type=Path,help='Separate append-only review history')
     parser.add_argument('--conversation-dir',type=Path,help='Conversation turn records (default data/runs/ra_conversations in RA mode)')
+    parser.add_argument('--workspace-dir',type=Path,help='Use local notebook files instead of PostgreSQL (offline fixture/standalone mode)')
     parser.add_argument('--warmup',action='store_true',help='Warm local retrieval before accepting questions; no provider calls')
     parser.add_argument('--context-tokens',type=int,default=65536,
         help='RA reading budget per model call (prompt + output); a project limit, not the model limit')
@@ -278,8 +295,10 @@ def main():
         pipeline=RAGPipeline(args.run,args.candidate,load_config(args.config),args.review_url,retrieval_pages=args.retrieval_pages)
     archive_dir=args.archive_dir or (Path('data/runs/ra_service_reports') if args.mode=='ra' else None)
     if args.warmup and args.mode=='ra':print(json.dumps({'retrieval_warmup':pipeline.warmup()},ensure_ascii=False),flush=True)
+    from rag_service.workspaces import PostgresWorkspaceStore
+    workspace_store=WorkspaceStore(args.workspace_dir) if args.workspace_dir else PostgresWorkspaceStore()
     jobs=Jobs(pipeline,archive_dir,args.review_dir or (Path('data/runs/ra_review_records') if args.mode=='ra' else None),
-        args.conversation_dir or (Path('data/runs/ra_conversations') if args.mode=='ra' else None))
+        args.conversation_dir or (Path('data/runs/ra_conversations') if args.mode=='ra' else None), workspace_store)
     server=ThreadingHTTPServer(('127.0.0.1',args.port),handler(jobs))
     print(f'RA RAG 메인 서비스: http://127.0.0.1:{args.port}/',flush=True)
     print(json.dumps(pipeline.summary(),ensure_ascii=False),flush=True)

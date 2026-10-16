@@ -1,7 +1,7 @@
 # 문서 안내
 
 - 작성: 2026-10-14 14:10 KST
-- 최종 수정: 2026-10-14 14:59 KST (`text_layer.py` 위치 갱신. 14:45 H v2 개발 평가·개선 문서 추가. 14:10에는 project_shared 구성 시 핵심 문서만 선별)
+- 최종 수정: 2026-10-15 17:32 KST (자료 수집·적재 창과 실제 에이전트 연결, 제어 API·상태 갱신·검증 기록 반영)
 
 처음 읽는 순서: 루트 [README](../README.md) → [RAG 파이프라인 상세](rag/RAG_PIPELINE_CHUNK_EMBEDDING_GUIDE_2026-10-14.md) → [운영 원칙](PIPELINE_PRINCIPLES.md) → 관심 영역 문서.
 
@@ -43,6 +43,7 @@
 
 | 문서 | 내용 |
 | :-- | :-- |
+| [RA_WORKSPACE_IMPLEMENTATION_PLAN_2026-10-15.md](project/RA_WORKSPACE_IMPLEMENTATION_PLAN_2026-10-15.md) | 현재 코드·서비스를 확인한 RA 파이프라인·단계 메모·협력사 이슈·적재 에이전트 운영창의 구현 과제, 재사용 범위, 의존관계와 완료 기준 |
 | [SHARED_BASELINE_MIGRATION_2026-10-14.md](project/SHARED_BASELINE_MIGRATION_2026-10-14.md) | project_shared 이관 기록: 원본→대상 매핑, 경로 수정, 제외 목록, 검증, 제약 |
 | [PGVECTOR_INTEGRATION_MAP_2026-10-14.md](project/PGVECTOR_INTEGRATION_MAP_2026-10-14.md) | **PostgreSQL + pgvector 통합 때 고칠 파일·모듈 위치** |
 | [LIMITATIONS_AND_NEXT_STEPS_2026-10-12.md](project/LIMITATIONS_AND_NEXT_STEPS_2026-10-12.md) | 한계점과 보완 순서 |

@@ -1,0 +1,92 @@
+"use strict";
+// Optional test-only dependency: linkedom, supplied through NODE_PATH.
+// DOM integration, not a browser/rendering test; no model or collection calls.
+const {parseHTML,HTMLSelectElement,HTMLInputElement,HTMLElement}=require("linkedom");
+const vm=require("vm"),assert=require("node:assert/strict"),{webcrypto}=require("node:crypto");
+const base=process.argv[2];if(!/^http:\/\/127\.0\.0\.1:\d+$/.test(base||""))throw Error("Use the isolated local fixture URL");
+Object.defineProperty(HTMLSelectElement.prototype,"value",{get(){const options=[...this.querySelectorAll("option")];return options.find(o=>o.hasAttribute("selected"))?.getAttribute("value")||options[0]?.getAttribute("value")||"";},set(value){for(const option of this.querySelectorAll("option"))option.toggleAttribute("selected",option.getAttribute("value")===String(value));}});
+Object.defineProperty(HTMLInputElement.prototype,"checked",{get(){return this.hasAttribute("checked");},set(value){this.toggleAttribute("checked",!!value);}});
+HTMLElement.prototype.scrollIntoView=function(){};
+HTMLElement.prototype.showModal=function(){this.open=true;this.setAttribute("open","");};
+HTMLElement.prototype.close=function(){this.open=false;this.removeAttribute("open");this.dispatchEvent(new this.ownerDocument.defaultView.Event("close"));};
+const storage=new Map(),localStorage={getItem:k=>storage.get(k)??null,setItem:(k,v)=>storage.set(k,String(v))};
+const localFetch=(path,options)=>{const url=new URL(path,base);assert.equal(url.origin,base);return fetch(url,options);};
+const wait=async(condition,label)=>{const until=Date.now()+5000;while(!condition()){if(Date.now()>until)throw Error("Timed out: "+label);await new Promise(r=>setTimeout(r,15));}};
+let context,document,window;
+async function boot(){
+  const html=await(await localFetch("/")).text();({document,window}=parseHTML(html));
+  const location=new URL(base+"/"),history={replaceState(_a,_b,url){const next=new URL(url,location);location.href=next.href;}};
+  context=vm.createContext({window,document,localStorage,location,history,crypto:webcrypto,URL,Blob,console,setTimeout,clearTimeout,fetch:localFetch});
+  for(const script of document.querySelectorAll("script[src]")){const code=await(await localFetch(script.getAttribute("src"))).text();vm.runInContext(code,context,{filename:script.getAttribute("src")});}
+  await wait(()=>{const option=document.querySelector("#workspace-project option");return option&&option.textContent!=="파이프라인 불러오는 중";},"workspace load");
+  return document;
+}
+const textButton=(root,text)=>[...root.querySelectorAll("button")].find(b=>b.textContent===text);
+const click=element=>{assert.ok(element,"button exists");element.click();};
+const submit=form=>form.dispatchEvent(new window.Event("submit",{cancelable:true,bubbles:true}));
+async function saveDialog(body,tags){const d=document.querySelector(".workspace-dialog");assert.ok(d);d.querySelector("textarea").value=body;d.querySelector("#memo-tag-entry").value=tags;click(textButton(d,"태그 추가"));submit(d.querySelector("form"));await wait(()=>!d.isConnected,"memo saved");}
+(async()=>{
+  storage.set("ra-ui:widths",JSON.stringify({left:"392px",right:"480px"}));
+  await boot();
+  const layout=document.querySelector("#layout"),toggle=document.querySelector("#scope-toggle");
+  assert.equal(layout.style.getPropertyValue("--left-w"),"392px");
+  click(toggle);assert.equal(layout.classList.contains("scope-collapsed"),true);assert.equal(toggle.getAttribute("aria-expanded"),"false");
+  assert.equal(layout.style.getPropertyValue("--left-w"),"392px","collapse preserves the expanded width");
+  const css=await(await localFetch("/style.css")).text();
+  const rules=require("cssom").parse(css).cssRules;
+  const collapsed=Array.from(rules).filter(r=>r.selectorText===".layout.scope-collapsed").at(-1);
+  assert.equal(collapsed.style.getPropertyValue("--scope-track"),"54px","collapsed grid track is independent from saved width");
+  click(toggle);assert.equal(layout.classList.contains("scope-collapsed"),false);assert.equal(toggle.getAttribute("aria-expanded"),"true");
+  assert.equal(layout.style.getPropertyValue("--left-w"),"392px");
+  assert.ok(document.querySelector(".ra-workspace-body #pipeline-dock"));assert.ok(document.querySelector(".ra-conversation #question-form"));
+  assert.equal(document.querySelectorAll(".inventory-picker[open]").length,0);
+  const product=document.querySelector('input[data-kind="product"]');product.checked=true;product.onchange();
+  const originalScope=JSON.stringify(vm.runInContext("Inventory.payload()",context));
+  click(document.querySelector("#workspace-create"));let d=document.querySelector(".workspace-dialog");
+  assert.equal(d.querySelector("h2").textContent,"파이프라인 추가");assert.equal(d.querySelectorAll('input[type="checkbox"]').length,0);
+  assert.equal(d.querySelector("input").value,"");d.querySelector("input").value="자사 개발 코드 A";submit(d.querySelector("form"));
+  await wait(()=>document.querySelectorAll(".pipeline-step").length===7,"pipeline creation");
+  assert.equal(document.querySelectorAll(".pipeline-shared-stage,#pipeline-parallel").length,0);
+  assert.deepEqual([...document.querySelectorAll(".pipeline-step")].map(s=>s.dataset.stageId),["bridging","cmc","nonclinical","phase1","phase2","phase3","approval"]);
+  assert.deepEqual([...document.querySelectorAll(".pipeline-step strong")].slice(3,6).map(s=>s.textContent),["임상 1상","임상 2상","임상 3상"]);
+  assert.equal(document.querySelectorAll(".pipeline-step[data-stage-id='phase2']").length,1);
+  assert.equal(document.querySelectorAll(".pipeline-step[data-stage-id='clinical_application'],.pipeline-step[data-stage-id='postmarketing']").length,0);
+  assert.equal(document.querySelectorAll(".pipeline-step-meta").length,0);
+  for(const step of document.querySelectorAll(".pipeline-step"))assert.doesNotMatch(step.textContent,/\bM[1-5](?:\s|\d|[./])/);
+  click(document.querySelector("[data-stage-id='cmc']"));assert.equal(JSON.stringify(vm.runInContext("Inventory.payload()",context)),originalScope);
+  click(document.querySelector("#memo-add"));await saveDialog("협력사 분석자료 요청 <img src=x onerror=bad()>","CRO A, 자료 요청");
+  assert.ok(document.querySelector(".pipeline-memo-body").textContent.includes("<img"));assert.equal(document.querySelector(".pipeline-memo-body img"),null);
+  click(textButton(document.querySelector(".memo-tags"),"#CRO A"));assert.equal(document.querySelector("#memo-tag-filter").value,"CRO A");
+  click(textButton(document.querySelector(".pipeline-memo-meta"),"수정"));await saveDialog("협력사 분석자료 요청 · 수정","");
+  const projectId=document.querySelector("#workspace-project").value;
+  const saved=await(await localFetch("/api/projects/"+projectId)).json();assert.equal(saved.name,"자사 개발 코드 A");assert.equal(Object.hasOwn(saved,"products"),false);assert.equal(saved.memos[0].revision,2);assert.deepEqual(saved.memos[0].products,[]);assert.deepEqual(saved.memos[0].tags,["CRO A","자료 요청"]);
+  await boot();await wait(()=>document.querySelector(".pipeline-memo-body"),"restore notes");
+  // A saved selection restores CMC notes without changing search scope.
+  click(document.querySelector("[data-stage-id='cmc']"));assert.ok(document.querySelector(".pipeline-memo-body").textContent.endsWith("수정"));
+  await vm.runInContext(`openJob('${"a".repeat(32)}')`,context);
+  click(textButton(document,"+ 단계 메모로 반영"));await saveDialog("검증한 근거 메모","CRO A");
+  let result=await(await localFetch("/api/projects/"+projectId)).json();assert.equal(result.memos.length,2);assert.deepEqual(result.memos[0].products,["SB17"]);assert.equal(result.memos[0].source.quotes[0].unit_id,"unit1");
+  click(textButton(document,"+ 단계 메모로 반영"));await saveDialog("검증한 근거 메모","CRO A");result=await(await localFetch("/api/projects/"+projectId)).json();assert.equal(result.memos.length,2);
+  const sourceButton=[...document.querySelectorAll(".memo-source-links button")][0];click(sourceButton);await wait(()=>document.querySelector(".viewer-head"),"viewer source");
+  assert.equal(document.querySelector("#viewer-pane").hidden,false);
+  click(document.querySelector("#data-manager-open"));await wait(()=>document.querySelector(".collection-top-actions .primary-button"),"data manager");assert.ok(textButton(document,"+ 새 수집 요청"));document.querySelector(".data-manager-dialog").close();
+  const legacyResponse=await localFetch(`/api/projects/${projectId}/memos`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({request_id:"c".repeat(32),body:"기존 개발 전략 메모",stage_ids:["bridging"],products:[],tags:[]})});assert.equal(legacyResponse.status,200);
+  await boot();await wait(()=>document.querySelector(".pipeline-step[data-stage-id='bridging']"),"strategy stage");
+  assert.equal(document.querySelectorAll(".pipeline-step").length,7);assert.equal(document.querySelector("#memo-legacy-stage"),null);
+  const tags=document.querySelector("#memo-tag-filter");tags.value="";tags.onchange({target:tags});
+  click(document.querySelector(".pipeline-step[data-stage-id='bridging']"));
+  assert.equal(document.querySelector(".pipeline-memo-body").textContent,"기존 개발 전략 메모");
+  assert.equal(document.querySelector(".pipeline-step[aria-pressed=true]").dataset.stageId,"bridging");
+  assert.equal(document.querySelector("#pipeline-memos").dataset.stageId,"bridging");assert.equal(document.querySelector("#pipeline-memo-title").dataset.stageId,"bridging");
+  await boot();await wait(()=>document.querySelector(".pipeline-memo-body")?.textContent==="기존 개발 전략 메모","selected strategy restore");assert.equal(document.querySelector(".pipeline-step[aria-pressed=true]").dataset.stageId,"bridging");
+  click(document.querySelector("#pipeline-all"));
+  assert.deepEqual([...document.querySelectorAll(".pipeline-column")].map(c=>c.dataset.stageId),[...document.querySelectorAll(".pipeline-step")].map(s=>s.dataset.stageId));
+  assert.equal(document.querySelector("#pipeline-steps").parentElement,document.querySelector("#pipeline-memos").parentElement,"stage rail and note columns share one scroll container");
+  click(document.querySelector(".pipeline-column[data-stage-id='phase3'] .pipeline-empty"));
+  const memoEditor=document.querySelector(".workspace-dialog");assert.ok(memoEditor);assert.equal([...memoEditor.querySelectorAll('input[type="checkbox"]')].find(i=>i.value==="phase3").checked,true);assert.equal(document.querySelector(".pipeline-step[aria-pressed=true]").dataset.stageId,"phase3");memoEditor.querySelector(".workspace-dialog-head button").click();
+  click(document.querySelector(".pipeline-step[data-stage-id='phase2']"));assert.equal(document.querySelector(".pipeline-step[aria-pressed=true]").dataset.stageId,"phase2");assert.equal(document.querySelector("#pipeline-memos").dataset.stageId,"phase2");assert.ok(document.querySelector("#pipeline-memo-title").textContent.startsWith("임상 2상"));assert.equal(document.querySelector(".pipeline-memo-body"),null);
+  const collectionCss=await(await localFetch("/data-manager.css")).text();assert.ok(collectionCss.includes(".data-manager-dialog"));assert.ok(!css.includes("/* Live collection workspace"));
+  assert.equal(document.querySelectorAll(".pipeline-shared-stage,#pipeline-parallel").length,0);
+  console.log(JSON.stringify({checks:["scope frame collapses independently of saved width","scope width restored on expand","separate pipeline and conversation sections","strategy and phase 1/2/3 in one stage rail","selection matches memo stage","selection survives reload","stage order matches memo columns","shared horizontal scrolling","independent collection stylesheet","no shared CMC lane","all CTD captions removed","pipeline creation without comparison products","independent search filters","memo+company tags","plain text safety","revision","reload persistence","RAG provenance and reference products","duplicate pin","source viewer","ingestion window"],result:"passed"}));
+  await localFetch("/__fixture_stop",{method:"POST"});
+})().catch(async error=>{console.error(error);try{await localFetch("/__fixture_stop",{method:"POST"});}catch{}process.exitCode=1;});

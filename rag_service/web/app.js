@@ -44,7 +44,7 @@ function opener(jobId,resultIndex,result,ids){const cited=citedList(result,ids);
 function answerText(text,result,onCite){const box=node("div","answer-text");box.append(EvidenceView.linkify(text||"",new Set(Object.keys(result.evidence||{})),onCite));return box;}
 function visuals(target,{jobId,resultIndex,result,cited,quotesFor,question,onOpen}){
   const shown=cited.filter(id=>EvidenceView.isVisual(result.evidence[id]));
-  for(const eid of shown)target.append(EvidenceView.visualCard({jobId,resultIndex,eid,evidence:result.evidence[eid],quotes:quotesFor(eid),onOpen}));
+  for(const eid of shown)target.append(EvidenceView.visualCard({jobId,resultIndex,eid,evidence:result.evidence[eid],quotes:quotesFor(eid),onOpen,onPin:()=>PipelineNotes.pin({jobId,resultIndex,kind:"evidence",evidenceId:eid,body:`${result.evidence[eid].title} · p.${result.evidence[eid].pdf_page}`,products:[result.evidence[eid].product_id].filter(Boolean)})}));
   if(!VISUAL_REQUEST.test(question||""))return;
   const related=Object.keys(result.evidence).filter(id=>!shown.includes(id)&&EvidenceView.isVisual(result.evidence[id]));
   if(!related.length)return;
@@ -69,6 +69,7 @@ function renderMemo(report,target,jobId){
   panel.append(node("p","validation-note","자동 생성 초안입니다. 미팅 질문은 전문가 검토가 필요합니다."));
   for(const issue of memo.issues){const box=node("section","memo-issue");box.append(node("h3","",issue.request));
     for(const claim of issue.claims){box.append(node("p","",({source_fact:"원문 사실",applicant_position:"신청자 설명",regulator_position:"기관 판단",interpretation:"해석"}[claim.statement_role]||claim.statement_role)+" · "+claim.text));
+      if(typeof PipelineNotes!=="undefined")box.append(button("+ 단계 메모로 반영","link-button",()=>PipelineNotes.pin({jobId,resultIndex:0,claimId:claim.claim_id,body:claim.text,products:claim.products||[]})));
       for(const doc of new Set(claim.sources.map(s=>`${s.title} · p.${s.pdf_page}`)))box.append(node("p","memo-source",doc));}
     if(issue.unresolved_requests.length)box.append(node("p","validation-note","추가 확인할 요청: "+issue.unresolved_requests.join(" / ")));
     if(issue.potential_conflicts.length)box.append(node("p","validation-note","서로 다른 투여 조건이 포착됐습니다. 시험·분석 범위를 확인해야 합니다."));panel.append(box);}
@@ -84,6 +85,7 @@ function renderResearch(report,card,jobId){
   const onOpen=opener(jobId,0,result,cited);
   card.querySelector(".answer-status").replaceWith(node("span","status answer-status"+(result.status!=="answered"?" pending":""),{answered:"근거 지지 검토",partial:"부분 답변",not_found:"근거 미확보"}[result.status]||result.status));
   card.append(answerText(result.answer_ko,result,onOpen));
+  if(claims.length&&typeof PipelineNotes!=="undefined"){const actions=node("div","answer-pin-actions");actions.append(node("span","muted small","근거와 함께 단계별로 정리"),button("+ 답변을 단계 메모로 저장","download",()=>PipelineNotes.pin({jobId,resultIndex:0,kind:"answer",body:result.answer_ko,products:report.understanding.products||[]})));card.append(actions);}
   visuals(card,{jobId,resultIndex:0,result,cited,quotesFor,question:report.question,onOpen});
   const rows=result.question_requirement_coverage?.requirements||[];
   if(rows.length){const coverage=node("details","scope-details");coverage.append(node("summary","","질문 항목별 확인 상태"));
@@ -194,7 +196,7 @@ async function loadQuestionHistory(append=false){
 }
 function splitter(id,side){
   const handle=$(id),layout=$("layout");
-  handle.onpointerdown=event=>{event.preventDefault();handle.setPointerCapture(event.pointerId);handle.classList.add("dragging");
+  handle.onpointerdown=event=>{if(side==="left"&&layout.classList.contains("scope-collapsed"))return;event.preventDefault();handle.setPointerCapture(event.pointerId);handle.classList.add("dragging");
     const move=e=>{const rect=layout.getBoundingClientRect();
       if(side==="left"){const w=Math.min(Math.max(e.clientX-rect.left,220),520);layout.style.setProperty("--left-w",w+"px");}
       else{const w=Math.min(Math.max(rect.right-e.clientX,320),rect.width-640);layout.style.setProperty("--right-w",w+"px");}};
@@ -206,11 +208,12 @@ function layoutInit(){
   const layout=$("layout"),widths=Prefs.get("widths",{});
   if(/^\d+px$/.test(widths.left||""))layout.style.setProperty("--left-w",widths.left);if(/^\d+px$/.test(widths.right||""))layout.style.setProperty("--right-w",widths.right);
   splitter("split-left","left");splitter("split-right","right");
-  const collapse=value=>{layout.classList.toggle("scope-collapsed",value);$("scope-toggle").textContent=value?"›":"‹";$("scope-toggle").setAttribute("aria-label",value?"자료 패널 펼치기":"자료 패널 접기");Prefs.set("scopeCollapsed",value);};
+  const collapse=value=>{layout.classList.toggle("scope-collapsed",value);$("scope-toggle").textContent=value?"›":"‹";$("scope-toggle").setAttribute("aria-label",value?"자료 패널 펼치기":"자료 패널 접기");$("scope-toggle").setAttribute("aria-expanded",String(!value));Prefs.set("scopeCollapsed",value);};
   $("scope-toggle").onclick=()=>collapse(!layout.classList.contains("scope-collapsed"));collapse(Prefs.get("scopeCollapsed",false));
 }
 async function init(){
   layoutInit();Viewer.init();
+  if(typeof DataManager!=="undefined")DataManager.init();
   $("question-form").onsubmit=submitQuestion;$("new-chat").onclick=newChat;
   $("question").onkeydown=event=>{if(event.key==="Enter"&&!event.shiftKey&&!event.isComposing){event.preventDefault();$("question-form").requestSubmit();}};
   $("include-nondefault").onchange=()=>Inventory.refreshCounts();
@@ -222,6 +225,7 @@ async function init(){
     if(state.busy)return;if(conv&&conv!==state.conversationId)openConversation(conv);else if(!conv&&id&&id!==state.jobId)openJob(id);});
   try{const [summary,inventory]=await Promise.all([api("/api/summary"),api("/api/inventory")]);state.summary=summary;
     Inventory.render($("inventory"),inventory,()=>{});
+    if(typeof PipelineNotes!=="undefined")await PipelineNotes.init(inventory);
     $("review-link").href=summary.review_url;
     $("index-info").textContent=`${summary.chunks.toLocaleString()}청크 · 검색 허용 ${summary.eligible_chunks.toLocaleString()}\nBGE-M3 · ${summary.answer_model}\n${summary.run_name}${summary.pipeline_version?"\n"+summary.pipeline_version:""}`;
     const params=new URLSearchParams(location.hash.slice(1));if(params.get("conv"))await openConversation(params.get("conv"));else if(params.get("job"))await openJob(params.get("job"));}
