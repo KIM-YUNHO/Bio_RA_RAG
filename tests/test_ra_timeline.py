@@ -96,5 +96,6 @@ class TimelineExtractionTests(unittest.TestCase):
 
 class FollowupSummaryTests(unittest.TestCase):
     def test_summary_drops_new_gap_sections(self):
-        for header in ('인용으로 완전히 확인하지 못한 요청', '확인하지 못한 항목', '추가 확인이 필요한 요청'):
+        for header in ('인용으로 완전히 확인하지 못한 요청', '확인하지 못한 항목', '추가 확인이 필요한 요청',
+                       '계산하지 않은 값 (계산할 두 값이 검증된 인용에 모두 있지 않음)'):
             self.assertEqual('사실 A.', answer_summary(f'사실 A. [E1]\n\n{header}:\n- x'))
