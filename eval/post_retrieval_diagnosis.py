@@ -90,7 +90,7 @@ def chemr(path):
     for q in rows('qa_candidates.jsonl'):
         doc = CHEMR_DOCUMENTS[q['source_document_id']]
         yield {'set': 'chemr', 'split': q['split'], 'id': q['qa_id'], 'question': q['question'], 'expected': 'answer',
-               'products': ['ABP654'], 'jurisdictions': ['US'],
+               'products': ['ABP654'], 'jurisdictions': ['US'], 'documents': [doc],
                'units': [{'unit': '+'.join(g), 'pages': sorted({(doc, evidence[e]['pdf_page']) for e in g}),
                           'basis': f'qa_candidates {q["question_type"]}'} for g in q['required_evidence_groups']]}
 
@@ -154,6 +154,8 @@ def main():
     parser.add_argument('--out', type=Path, required=True, help='Run folder; planner calls are cached here')
     parser.add_argument('--replay-plans', type=Path, help='Earlier --out folder: reuse its cached planner calls, never call the provider')
     parser.add_argument('--profile', default='{}', help='JSON retrieval profile for the served hits, e.g. {"rerank": true}')
+    parser.add_argument('--select-documents', action='store_true',
+                        help='ask with each item\'s own document(s) picked on screen (sets that record documents, e.g. chemr)')
     parser.add_argument('--no-ui-selection', action='store_true',
                         help='ask as a user who picks no product or agency on screen; the planner scopes from the question alone')
     args = parser.parse_args()
@@ -205,8 +207,12 @@ def main():
                 planner = planners[item['set']] = (EvaluationAPIChat(folder, max_new_calls=1, model='gpt-5.6-luna', client=NoProvider())
                     if args.replay_plans else EvaluationAPIChat(folder, max_new_calls=60, model='gpt-5.6-luna'))
             planner.case = item['id']
+            # --select-documents: the user picked the item's own document(s) on screen, as the service's
+            # documents= filter does (guidelines are then out of scope unless picked).
+            picked = item.get('documents') if args.select_documents else None
             selected = [d for d in pipe.documents
-                        if (not item['products'] or d['product_id'] in item['products'] or d.get('role') == 'guideline')
+                        if (not picked or d['document_id'] in picked)
+                        and (not item['products'] or d['product_id'] in item['products'] or d.get('role') == 'guideline')
                         and (not item['jurisdictions'] or d['jurisdiction'] in item['jurisdictions'])]
             row = {k: item.get(k) for k in ('set', 'split', 'id', 'question', 'expected', 'products', 'jurisdictions')}
             try:
@@ -214,7 +220,7 @@ def main():
                     sorted({d['product_id'] for d in selected if d['product_id'] is not None}),
                     sorted({d['jurisdiction'] for d in selected}),
                     selected_products=item['products'], selected_agencies=item['jurisdictions'],
-                    document_scope=False, documents=pipe.documents)
+                    document_scope=bool(picked), documents=pipe.documents)
             except Exception as exc:
                 row.update(error=f'planner: {type(exc).__name__}: {exc}', units=[])
                 rows.append(row)
@@ -279,7 +285,7 @@ def main():
         print(name, json.dumps(summary[name], ensure_ascii=False), flush=True)
     head = __import__('subprocess').run(['git', 'rev-parse', 'HEAD'], cwd=ROOT, capture_output=True, text=True).stdout.strip()
     (args.out / 'diagnosis.json').write_text(json.dumps({'code_commit': head, 'run': str(args.run), 'pool': args.pool, 'k': args.k,
-        'profile': profile, 'no_ui_selection': args.no_ui_selection, 'replay_plans': str(args.replay_plans) if args.replay_plans else None,
+        'profile': profile, 'no_ui_selection': args.no_ui_selection, 'select_documents': args.select_documents, 'replay_plans': str(args.replay_plans) if args.replay_plans else None,
         'context_tokens': args.context_tokens, 'chunks_sha256': pipe.index_meta['chunks_sha256'],
         'summary': summary, 'rows': rows}, ensure_ascii=False, indent=1), encoding='utf-8')
 
