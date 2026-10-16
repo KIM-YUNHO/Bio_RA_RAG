@@ -60,7 +60,7 @@ def oracle_groups(corpus, understanding, guideline_index, source_ids, documents)
 # Retrieval knobs; the default is production. 2026-10-14 grid on release 04: stripping slot-constant
 # words from BM25 queries raised silver recall 0.855->0.882; lower BM25 weight and an added
 # original-question ranking lost recall or stability (data/runs/retrieval_stability_2026-10-14).
-DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': True, 'strip_slot_terms': True,
+DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': True, 'query_unit': True, 'strip_slot_terms': True,
                    'suppress_boilerplate': False, 'collapse_duplicates': False, 'role_boost': True,
                    'extra_default_groups': ('correspondence',), 'rerank': 'fquery_unit', 'rerank_pool': 40, 'rerank_fuse': True,
                    'rerank_question': True}
@@ -222,6 +222,17 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
     product_needed = any(set(t['source_roles']) - {'guideline'} for t in tasks)
     vectors = corpus.encode(queries) if product_needed else None
     query_vectors = dict(zip(queries, vectors)) if vectors is not None else {}
+
+    def unit_queries(task, product, agency):
+        # query_unit: the group's own product names and agency precede each planner query
+        # (planner queries carry no product names), as in the reranker's queries.
+        if not P['query_unit']:
+            return list(task['queries'])
+        own = [unit_prefix(product, agency) + q for q in task['queries']]
+        missing = [q for q in own if q not in query_vectors]
+        if missing:
+            query_vectors.update(zip(missing, corpus.encode(missing)))
+        return own
     eligible = [int(i) for i in filter_idx(corpus.chunks, include_nondefault=True)
                 if allowed(corpus.chunks[int(i)]) and permitted(corpus.chunks[int(i)].get('document_metadata') or {})]
     default_ids = set(int(i) for i in filter_idx(corpus.chunks))
@@ -244,7 +255,8 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
                            and (i in default_ids or include_nondefault or corpus.chunks[i]['doc_group'] in roles
                                 or corpus.chunks[i]['doc_group'] in P['extra_default_groups'])]
                     rankings = []
-                    for query in task['queries']:
+                    group_queries = unit_queries(task, product, agency)
+                    for query in group_queries:
                         rankings.append(rrf([dense_hits(query_vectors[query], corpus.vec, idx, top_n=40),
                                              bm.hits(bm_text(query), idx, top_n=40)], top_n=40, weights=weights))
                     topic_names, topic_qs = fixed[task['id']]
@@ -271,7 +283,7 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
                     # Equal header matches are ordered by this task's own dense
                     # query similarity, never by their position in the document.
                     table_candidates=statistic_table_hits(task['request'],idx,corpus.chunks,limit=k,
-                        relevance=lambda i, qs=task['queries']: max(float(corpus.vec[i] @ query_vectors[q]) for q in qs))
+                        relevance=lambda i, qs=group_queries: max(float(corpus.vec[i] @ query_vectors[q]) for q in qs))
                     if table_candidates:
                         rankings.insert(0,table_candidates)
                         topic_pos = None if topic_pos is None else topic_pos + 1

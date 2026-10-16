@@ -48,6 +48,7 @@ SCHEMA = {'name': 'query_understanding', 'schema': obj({
     'tasks': {'type': 'array', 'minItems': 1, 'maxItems': 4, 'items': obj({'request': STRING,
         'queries': {'type': 'array', 'minItems': 1, 'maxItems': 1, 'items': STRING},
         'source_roles': {'type': 'array', 'minItems': 1, 'maxItems': 3, 'items': {'type': 'string', 'enum': ROLES}},
+        'guideline_request_quote': STRING,
         'intent': obj({'intent': {'type': 'string', 'enum': ra_intent.INTENTS}, 'request_quote': STRING}),
         'answer_facets': {'type': 'array', 'maxItems': 12, 'items': obj({
             'facet': {'type': 'string', 'enum': list(ANSWER_FACETS)}, 'detail': STRING, 'ask': STRING, 'query': STRING,
@@ -86,9 +87,11 @@ two "fact" entries).
 detail is "" except for table_statistics and purpose.
 query: exactly ONE short English noun phrase for that one fact, worded as regulatory
 documents print it (e.g. "date of first authorisation", "marketing authorisation holder",
-"shelf life", "intravenous induction dose by body weight"). No product or agency names, no
-second fact joined with "and", no items (items are handled separately). These queries are
-the task's search queries.
+"shelf life", "intravenous induction dose by body weight"). Keep verbatim every identifier
+or section the question names for that fact (study number, PMC number, document section
+such as "Environmental Assessment"). Leave out only product and agency names (search adds
+them per product and agency), a second fact joined with "and", and items (handled
+separately). These queries are the task's search queries.
 ask: one short Korean line restating what this facet must answer for THIS question, in the
 question's own terms and with every requested part (e.g. "피하 유지 투여의 시작 시점과 반복
 간격", "체중별 1회 용량과 바이알 수"). Every part of the question belongs to some facet's ask.
@@ -167,7 +170,10 @@ for decisions/events, protocol/sap for a trial's PLANNED design, eligibility, en
 analysis sets as posted by the sponsor (use them only when the question asks about the
 protocol, SAP or planned conduct). Include guideline only for a task that actually asks about
 general guidance or recommendations; naming an agency in a study comparison is
-not a request for guidance; for a product study comparison use assessment. Do not add tasks asking exclusions or requirements that
+not a request for guidance. When including guideline, guideline_request_quote
+must copy the original phrase requesting general regulatory guidance or
+recommendations. For a product study comparison use assessment and an EMPTY
+guideline_request_quote. Do not add tasks asking exclusions or requirements that
 the original question did not request. A guideline request alone needs no product. Product facts
 and historical decisions do not establish current general regulatory requirements.
 Products are registry IDs; unmentioned products stay empty. Jurisdictions refer
