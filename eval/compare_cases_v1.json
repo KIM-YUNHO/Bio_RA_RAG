@@ -1,0 +1,273 @@
+{
+ "version": "compare-cases-v1",
+ "created": "2026-10-16",
+ "note": "Multi-product comparison questions for the question decomposition diagnosis. Each product part reuses the acceptable pages of the matching single-product row of eval/queries_v0.1.csv (one unit per part). EMA EPARs only; development diagnostics, not holdout.",
+ "cases": [
+  {
+   "id": "CMP01",
+   "question": "SB17-1001 시험과 ABP 654 20190230 시험의 설계(단계, 무작위배정, 눈가림, 군 구성)를 비교해줘.",
+   "products": [
+    "ABP654",
+    "SB17"
+   ],
+   "jurisdictions": [
+    "EU"
+   ],
+   "parts": [
+    {
+     "from_query": "Q001",
+     "product": "SB17",
+     "document_id": "EMA:63563",
+     "pages": [
+      37
+     ]
+    },
+    {
+     "from_query": "Q015",
+     "product": "ABP654",
+     "document_id": "EMA:64196",
+     "pages": [
+      42
+     ]
+    }
+   ]
+  },
+  {
+   "id": "CMP02",
+   "question": "Pyzchiva, Wezenla, Steqeyma의 PK 유사성 시험(Steqeyma는 CT-P43 1.1 Part 2)에서 투여 용량과 투여 경로를 제품별로 비교해줘.",
+   "products": [
+    "ABP654",
+    "CTP43",
+    "SB17"
+   ],
+   "jurisdictions": [
+    "EU"
+   ],
+   "parts": [
+    {
+     "from_query": "Q003",
+     "product": "SB17",
+     "document_id": "EMA:63563",
+     "pages": [
+      39
+     ]
+    },
+    {
+     "from_query": "Q017",
+     "product": "ABP654",
+     "document_id": "EMA:64196",
+     "pages": [
+      42
+     ]
+    },
+    {
+     "from_query": "Q030",
+     "product": "CTP43",
+     "document_id": "EMA:64792",
+     "pages": [
+      31
+     ]
+    }
+   ]
+  },
+  {
+   "id": "CMP03",
+   "question": "SB17-1001, ABP 654 20190230, CT-P43 1.1 Part 2 시험의 PK 동등성 한계를 비교해줘.",
+   "products": [
+    "ABP654",
+    "CTP43",
+    "SB17"
+   ],
+   "jurisdictions": [
+    "EU"
+   ],
+   "parts": [
+    {
+     "from_query": "Q005",
+     "product": "SB17",
+     "document_id": "EMA:63563",
+     "pages": [
+      39
+     ]
+    },
+    {
+     "from_query": "Q019",
+     "product": "ABP654",
+     "document_id": "EMA:64196",
+     "pages": [
+      44
+     ]
+    },
+    {
+     "from_query": "Q032",
+     "product": "CTP43",
+     "document_id": "EMA:64792",
+     "pages": [
+      31
+     ]
+    }
+   ]
+  },
+  {
+   "id": "CMP04",
+   "question": "Pyzchiva(SB17-1001)와 Steqeyma(CT-P43 1.2) 시험의 투여 후 ADA 양성률을 군별로 비교해줘.",
+   "products": [
+    "CTP43",
+    "SB17"
+   ],
+   "jurisdictions": [
+    "EU"
+   ],
+   "parts": [
+    {
+     "from_query": "Q009",
+     "product": "SB17",
+     "document_id": "EMA:63563",
+     "pages": [
+      49,
+      50
+     ]
+    },
+    {
+     "from_query": "Q050",
+     "product": "CTP43",
+     "document_id": "EMA:64792",
+     "pages": [
+      112
+     ]
+    }
+   ]
+  },
+  {
+   "id": "CMP05",
+   "question": "SB17-1001과 ABP 654 20190230 시험의 군별 PK 분석군(PK set) 인원을 비교해줘.",
+   "products": [
+    "ABP654",
+    "SB17"
+   ],
+   "jurisdictions": [
+    "EU"
+   ],
+   "parts": [
+    {
+     "from_query": "Q008",
+     "product": "SB17",
+     "document_id": "EMA:63563",
+     "pages": [
+      42,
+      43,
+      47
+     ]
+    },
+    {
+     "from_query": "Q022",
+     "product": "ABP654",
+     "document_id": "EMA:64196",
+     "pages": [
+      43
+     ]
+    }
+   ]
+  },
+  {
+   "id": "CMP06",
+   "question": "Pyzchiva, Wezenla, Steqeyma(CT-P43 1.1 Part 2) PK 시험의 1차 PK 평가변수가 같은지 비교해줘.",
+   "products": [
+    "ABP654",
+    "CTP43",
+    "SB17"
+   ],
+   "jurisdictions": [
+    "EU"
+   ],
+   "parts": [
+    {
+     "from_query": "Q004",
+     "product": "SB17",
+     "document_id": "EMA:63563",
+     "pages": [
+      39
+     ]
+    },
+    {
+     "from_query": "Q018",
+     "product": "ABP654",
+     "document_id": "EMA:64196",
+     "pages": [
+      43
+     ]
+    },
+    {
+     "from_query": "Q031",
+     "product": "CTP43",
+     "document_id": "EMA:64792",
+     "pages": [
+      31
+     ]
+    }
+   ]
+  },
+  {
+   "id": "CMP07",
+   "question": "SB17-1001과 ABP 654 20190230 시험에서 EU Stelara 대비 AUCinf와 Cmax의 기하평균비와 90% CI를 비교해줘.",
+   "products": [
+    "ABP654",
+    "SB17"
+   ],
+   "jurisdictions": [
+    "EU"
+   ],
+   "parts": [
+    {
+     "from_query": "Q013",
+     "product": "SB17",
+     "document_id": "EMA:63563",
+     "pages": [
+      43,
+      45,
+      62,
+      162
+     ]
+    },
+    {
+     "from_query": "Q026",
+     "product": "ABP654",
+     "document_id": "EMA:64196",
+     "pages": [
+      44,
+      111
+     ]
+    }
+   ]
+  },
+  {
+   "id": "CMP08",
+   "question": "SB17-1001 시험과 CT-P43 1.2 시험의 대상자 선정기준(연령, 체중, BMI)을 비교해줘.",
+   "products": [
+    "CTP43",
+    "SB17"
+   ],
+   "jurisdictions": [
+    "EU"
+   ],
+   "parts": [
+    {
+     "from_query": "Q002",
+     "product": "SB17",
+     "document_id": "EMA:63563",
+     "pages": [
+      38
+     ]
+    },
+    {
+     "from_query": "Q043",
+     "product": "CTP43",
+     "document_id": "EMA:64792",
+     "pages": [
+      39
+     ]
+    }
+   ]
+  }
+ ]
+}
