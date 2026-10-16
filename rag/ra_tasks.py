@@ -85,13 +85,14 @@ two "fact" entries).
   or scope (never product information or approvals).
 - calculation: an elapsed time, difference, ratio or percent change to compute.
 detail is "" except for table_statistics and purpose.
-query: exactly ONE short English noun phrase for that one fact, worded as regulatory
-documents print it (e.g. "date of first authorisation", "marketing authorisation holder",
-"shelf life", "intravenous induction dose by body weight"). Keep verbatim every identifier
-or section the question names for that fact (study number, PMC number, document section
-such as "Environmental Assessment"). Leave out only product and agency names (search adds
-them per product and agency), a second fact joined with "and", and items (handled
-separately). These queries are the task's search queries.
+query: exactly ONE short English search phrase for that one fact, worded as regulatory
+documents print it, WITH every qualifier the question attaches to that fact: indication,
+study number, population, route or dosage form, document section (e.g. "date of first
+authorisation", "shelf life", "Crohn's disease intravenous induction dose by body weight",
+"SB17-1001 Cmax arithmetic mean", "Environmental Assessment categorical exclusion"). Leave
+out only product and agency names (search is already limited to one product and agency),
+a second fact joined with "and", and items (handled separately). These queries are the
+task's search queries.
 ask: one short Korean line restating what this facet must answer for THIS question, in the
 question's own terms and with every requested part (e.g. "피하 유지 투여의 시작 시점과 반복
 간격", "체중별 1회 용량과 바이알 수"). Every part of the question belongs to some facet's ask.
