@@ -62,9 +62,11 @@ def oracle_groups(corpus, understanding, guideline_index, source_ids, documents)
 # original-question ranking lost recall or stability (data/runs/retrieval_stability_2026-10-14).
 DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': None, 'strip_slot_terms': True,
                    'suppress_boilerplate': False, 'collapse_duplicates': False, 'role_boost': True,
-                   'extra_default_groups': ('correspondence',), 'rerank': 'ask_unit', 'rerank_pool': 40, 'rerank_fuse': True}
-# Reranker on by default since 2026-10-16: queries are the slot's product + agency + the planner's
-# per-fact ask, fused with the hybrid order (RRF). Retrieval gold (100 items) recall@8 0.715 -> 0.804
+                   'extra_default_groups': ('correspondence',), 'rerank': 'fquery_unit', 'rerank_pool': 40, 'rerank_fuse': True}
+# Reranker on by default since 2026-10-16 (bge-reranker-v2-m3): queries are the slot's product +
+# agency + the planner's per-fact English search phrase (fquery_unit), fused with the hybrid order
+# (RRF). Model comparison on the retrieval gold (pool 40): recall@8 0.715 none, 0.804 ask_unit,
+# 0.843 fquery_unit. Retrieval gold (100 items) recall@8 0.715 -> 0.804
 # with no bucket below baseline; 29-question answers 278 -> 311 (docs/RA_QUERY_HANDLING_LOG.md).
 # correspondence (FDA approval letters/packages) is searched by default since 2026-10-16: with the
 # planner's document inventory, Q4 (FDA approval dates) 10/20 -> 15/20 and the 29-question total
@@ -135,9 +137,9 @@ def unit_prefix(product, agency):
 def rerank(corpus, task, hits, k, mode, product=None, agency=None, fuse=False):
     """Reorder a broad candidate pool with the local cross-encoder; keep the top k.
 
-    mode: 'request' (the task's Korean request), 'queries' (planner queries), 'both' or
-    'ask' (the planner's per-fact restatements); '<mode>_unit' prefixes each query with the
-    slot's product names and agency. A passage scores the best of its queries. With fuse the
+    mode: 'request' (the task's Korean request), 'queries' (planner queries), 'both', 'ask'
+    (the planner's per-fact Korean restatements) or 'fquery' (the planner's per-fact English
+    search phrases); '<mode>_unit' prefixes each query with the slot's product names and agency. A passage scores the best of its queries. With fuse the
     hybrid and reranker ranks are combined (RRF, k=60): the reranker can promote a passage but
     cannot bury a strong hybrid hit. Scores order sources only.
     """
@@ -149,10 +151,15 @@ def rerank(corpus, task, hits, k, mode, product=None, agency=None, fuse=False):
     asks = list(dict.fromkeys(f['ask'] + (' ' + item if item else '')
                               for f in task.get('answer_facets', []) if f.get('ask')
                               for item in (f.get('items') or [None])))
+    # 'fquery': the planner's English per-fact search phrase (+ item), or the task's English queries.
+    fqueries = list(dict.fromkeys(f['query'] + (' ' + item if item else '')
+                                  for f in task.get('answer_facets', []) if f.get('query')
+                                  for item in (f.get('items') or [None])))
     unit = mode.endswith('_unit')
     base = mode[:-5] if unit else mode
     queries = {'request': [task['request']], 'queries': list(task['queries']),
-               'both': [task['request'], *task['queries']], 'ask': asks or [task['request']]}[base]
+               'both': [task['request'], *task['queries']], 'ask': asks or [task['request']],
+               'fquery': fqueries or list(task['queries'])}[base]
     if unit:
         queries = [unit_prefix(product, agency) + q for q in queries]
     best = {}
