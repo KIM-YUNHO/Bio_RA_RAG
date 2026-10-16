@@ -60,13 +60,14 @@ def oracle_groups(corpus, understanding, guideline_index, source_ids, documents)
 # Retrieval knobs; the default is production. 2026-10-14 grid on release 04: stripping slot-constant
 # words from BM25 queries raised silver recall 0.855->0.882; lower BM25 weight and an added
 # original-question ranking lost recall or stability (data/runs/retrieval_stability_2026-10-14).
-DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': True, 'question_bm25': False, 'query_unit': True, 'strip_slot_terms': True,
+DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': None, 'question_bm25': False, 'query_unit': False, 'strip_slot_terms': True,
                    'suppress_boilerplate': False, 'collapse_duplicates': False, 'role_boost': True,
                    'extra_default_groups': ('correspondence',), 'rerank': 'fquery_unit', 'rerank_pool': 40, 'rerank_fuse': True,
-                   'rerank_question': True}
-# The original question is identical on every run: it anchors each group's dense ranking
-# (question_query) and is one of the reranker's queries (rerank_question), so planner wording
-# drift moves the evidence less (2026-10-16, eval/plan_stability.py).
+                   'rerank_question': False}
+# Off by default (2026-10-16, eval/plan_stability.py, fact_gold rrf): the original question as a
+# dense ranking and reranker query (question_query, rerank_question) lowered recall 0.931 -> 0.902;
+# product names on first-stage queries (query_unit) add nothing inside a product x agency group.
+# Stability came from the planner writing one fixed English query per fact.
 # Reranker on by default since 2026-10-16 (bge-reranker-v2-m3): queries are the slot's product +
 # agency + the planner's per-fact English search phrase (fquery_unit), fused with the hybrid order
 # (RRF). Model comparison on the retrieval gold (pool 40): recall@8 0.715 none, 0.804 ask_unit,
