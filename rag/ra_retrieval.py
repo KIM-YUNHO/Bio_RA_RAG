@@ -60,7 +60,7 @@ def oracle_groups(corpus, understanding, guideline_index, source_ids, documents)
 # Retrieval knobs; the default is production. 2026-10-14 grid on release 04: stripping slot-constant
 # words from BM25 queries raised silver recall 0.855->0.882; lower BM25 weight and an added
 # original-question ranking lost recall or stability (data/runs/retrieval_stability_2026-10-14).
-DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': True, 'query_unit': True, 'strip_slot_terms': True,
+DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': True, 'question_bm25': False, 'query_unit': True, 'strip_slot_terms': True,
                    'suppress_boilerplate': False, 'collapse_duplicates': False, 'role_boost': True,
                    'extra_default_groups': ('correspondence',), 'rerank': 'fquery_unit', 'rerank_pool': 40, 'rerank_fuse': True,
                    'rerank_question': True}
@@ -270,8 +270,12 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
                         topic_pos = len(rankings) - 1
                     question_pos = None
                     if P['question_query'] and question:
-                        # The original question is identical on every run (dense only: it is Korean).
-                        rankings.append(dense_hits(query_vectors[question], corpus.vec, idx, top_n=40))
+                        # The original question is identical on every run. Dense reads its Korean;
+                        # question_bm25 also matches its literal identifiers (study numbers, English
+                        # section names) - Korean tokens find nothing in English documents.
+                        dense_q = dense_hits(query_vectors[question], corpus.vec, idx, top_n=40)
+                        rankings.append(rrf([dense_q, bm.hits(bm_text(question), idx, top_n=40)], top_n=40, weights=weights)
+                                        if P['question_bm25'] else dense_q)
                         question_pos = len(rankings) - 1
                     # Document roles guide relevance; they do not replace source
                     # reading or silently delete alternative admissible evidence.

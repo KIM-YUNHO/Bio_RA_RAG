@@ -66,16 +66,19 @@ def plan(item, n, pipe, folder, saved_only=False, fresh_first=False):
     return json.loads(path.read_text(encoding='utf-8'))
 
 
-def orders_for(corpus, u, guidelines, reranker, index, pool_size, k, anchor=True):
+def orders_for(corpus, u, guidelines, reranker, index, pool_size, k, anchor='both', question_bm25=False, query_unit=True):
     """{order name: set of selected chunk indices} for one plan.
 
-    anchor: the original question joins each group's dense ranking and the reranker's queries."""
+    anchor: where the original question joins - 'dense' (a first-stage ranking per group),
+    'rerank' (one of the reranker's queries), 'both' or 'none'."""
     from rag import ra_retrieval
     from eval.retrieval_gold import queries_for
     tasks = {t['id']: t for t in u['tasks']}
     question = u.get('source_question') or ''
     groups = ra_retrieval.retrieve(corpus, deepcopy(u), guidelines, documents=corpus.allowed_documents, k=pool_size,
-                                   profile={'rerank': None, 'rerank_fuse': False, 'question_query': True if anchor else None})
+                                   profile={'rerank': None, 'rerank_fuse': False,
+                                            'question_query': True if anchor in ('dense', 'both') else None,
+                                            'question_bm25': question_bm25, 'query_unit': query_unit})
     selected = {name: set() for name in ORDERS}
     for g in groups:
         pool = [index[h['chunk']['chunk_id']] for h in g['hits'] if h['chunk']['chunk_id'] in index]
@@ -88,7 +91,7 @@ def orders_for(corpus, u, guidelines, reranker, index, pool_size, k, anchor=True
             continue
         best = {}
         from rag.ra_retrieval import unit_prefix
-        extra = [unit_prefix(g.get('product'), g.get('jurisdiction')) + question] if anchor and question else []
+        extra = [unit_prefix(g.get('product'), g.get('jurisdiction')) + question] if anchor in ('rerank', 'both') and question else []
         for q in queries_for(task, 'fquery_unit', g.get('product'), g.get('jurisdiction')) + extra:
             for score, i in reranker.rank(q, [(0, i) for i in pool], corpus.chunks, limit=len(pool)):
                 best[i] = max(best.get(i, score), score)
@@ -111,7 +114,10 @@ def main():
     p.add_argument('--plans-dir', type=Path, help='where plans are saved (default: next to --output)')
     p.add_argument('--fresh-first', action='store_true', help='plan 1 is also a fresh planner call')
     p.add_argument('--items-from', type=Path, help='only the items of an earlier stability result')
-    p.add_argument('--no-anchor', action='store_true', help='without the original-question anchor')
+    p.add_argument('--no-anchor', action='store_true', help='same as --anchor none')
+    p.add_argument('--anchor', choices=['both', 'dense', 'rerank', 'none'], default='both')
+    p.add_argument('--question-bm25', action='store_true', help='the question ranking also uses BM25')
+    p.add_argument('--no-query-unit', action='store_true', help='first-stage queries without product names')
     a = p.parse_args()
     items = json.loads(GOLD.read_text(encoding='utf-8'))['items']
     from rag import answer
@@ -145,7 +151,9 @@ def main():
             gold = [{tuple(x) for x in g['pages']} for g in it['groups'] if not g['weak']]
             if not gold:
                 continue
-            per_plan = [orders_for(corpus, u, pipe.guidelines, reranker, index, a.pool, a.k, anchor=not a.no_anchor)
+            per_plan = [orders_for(corpus, u, pipe.guidelines, reranker, index, a.pool, a.k,
+                                   anchor='none' if a.no_anchor else a.anchor, question_bm25=a.question_bm25,
+                                   query_unit=not a.no_query_unit)
                         for u in plans[it['id']]]
             row = {'id': it['id'], 'bucket': bucket(it), 'groups': len(gold)}
             for name in ORDERS:
