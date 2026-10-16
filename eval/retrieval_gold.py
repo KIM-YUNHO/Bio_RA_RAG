@@ -12,7 +12,8 @@ Each variant then orders every group's pool:
 
 and the top k of every group are the selected pages. Metrics per gold group (a group is
 satisfied by ANY of its pages): recall@k for k in --ks, MRR (best rank of a gold page over
-the item's groups; 0 if absent from every pool) and the pool ceiling. Weak groups (more
+the item's groups; 0 if absent from every pool), nDCG@k (1/log2(rank+1) within k, ideal = every
+fact at rank 1) and the pool ceiling. Weak groups (more
 than 20 gold pages) are reported separately. Re-running with another reranker reuses the
 saved plans and pools: no model API calls after the first run.
 
@@ -73,6 +74,13 @@ def unit_prefix(product, agency):
     brands = [n.split('(')[0].strip() for n in meta.get('names', []) if key(n.split('(')[0]) != key(product or '')]
     names = [product, *list(dict.fromkeys(brands))[:2]] if product else []
     return ' '.join(dict.fromkeys(n for n in [*names, AGENCY_LABEL.get(agency, '')] if n)) + ': '
+
+
+def ndcg(groups, k):
+    """nDCG@k with one relevant unit per gold group (its best rank); the ideal ranks every fact first,
+    since each retrieval group (task x product x agency) has its own rank 1."""
+    import math
+    return sum(1 / math.log2(g['rank'] + 1) for g in groups if g['rank'] and g['rank'] <= k) / len(groups)
 
 
 def queries_for(task, mode, product=None, agency=None):
@@ -188,6 +196,7 @@ def main():
             summary[scope][variant] = {'groups': len(gs), **{f'recall@{k}': round(sum(g[f'r@{k}'] for g in gs) / len(gs), 3) for k in ks},
                                        **{f'chunks@{k}': sel[k] for k in ks},
                                        'mrr': round(sum(1 / g['rank'] for g in gs if g['rank']) / len(gs), 3),
+                                       **{f'ndcg@{k}': round(ndcg(gs, k), 3) for k in ks},
                                        'pool_ceiling': round(sum(g['rank'] is not None for g in gs) / len(gs), 3),
                                        'seconds_median': round(statistics.median(secs), 2), 'seconds_max': round(max(secs), 2)}
     by_type = defaultdict(dict)
