@@ -25,7 +25,7 @@ def main():
     parser.add_argument('--profile', default='{}')
     parser.add_argument('--context-tokens', type=int, default=65536)
     parser.add_argument('--only', action='append')
-    parser.add_argument('--set', action='append', choices=['gold17', 'queries', 'qagold', 'condition'])
+    parser.add_argument('--set', action='append', choices=['gold17', 'queries', 'qagold', 'condition', 'nondefault'])
     parser.add_argument('--qa-gold', type=Path, help='qa_gold.zip (read only, never copied)')
     parser.add_argument('--include-absent', action='store_true')
     parser.add_argument('--price-in', type=float, default=0.20)
@@ -34,14 +34,14 @@ def main():
     args = parser.parse_args()
     profile = json.loads(args.profile)
 
-    from eval.post_retrieval_diagnosis import gold17, queries, qagold, condition, NoProvider
+    from eval.post_retrieval_diagnosis import gold17, queries, qagold, condition, nondefault, NoProvider
     from rag import ra_retrieval, ra_tasks
     from rag.openai_chat import EvaluationAPIChat
     from rag.ra_pipeline import RAPipeline
     from preprocess.hybrid_config import load_config
 
     replays = {name: EvaluationAPIChat(args.replay_plans / f'planner_{name}', max_new_calls=1, model='gpt-5.6-luna',
-                                       client=NoProvider()) for name in ('gold17', 'queries', 'qagold', 'condition')}
+                                       client=NoProvider()) for name in ('gold17', 'queries', 'qagold', 'condition', 'nondefault')}
     current = {}
     interpret = ra_tasks.interpret
     ra_tasks.interpret = lambda question, client, *a, **kw: interpret(question, current['replay'], *a, **kw)
@@ -61,7 +61,7 @@ def main():
     for name in args.set or ['gold17']:
         items += (list(qagold(args.qa_gold, version_to_document)) if name == 'qagold'
                   else list(queries(args.include_absent)) if name == 'queries'
-                  else list(condition()) if name == 'condition' else list(gold17()))
+                  else list(condition()) if name == 'condition' else list(nondefault()) if name == 'nondefault' else list(gold17()))
     try:
         for item in items:
             if args.only and item['id'] not in args.only:
@@ -87,6 +87,8 @@ def main():
             rows.append({'set': item['set'], 'id': item['id'], 'expected': item['expected'], 'status': result['status'],
                          'claims': len(result.get('claims', [])), 'gaps': len(result.get('gaps', [])),
                          'gold_pages_cited': len(gold & cited), 'gold_pages': len(gold),
+                         'units_cited': sum(bool({tuple(p[:2]) for p in u['pages']} & cited) for u in item['units']),
+                         'units': len(item['units']),
                          'cited_outside_gold_docs': sorted({d for d, _ in cited if d not in gold_docs}),
                          'evidence_blocks': len(evidence), 'calls': len(calls), 'input_tokens': tin, 'output_tokens': tout,
                          'usd': round(tin / 1e6 * args.price_in + tout / 1e6 * args.price_out, 5)})
@@ -97,6 +99,7 @@ def main():
     summary = {'k': args.k, 'profile': profile, 'cases': len(rows), 'errors': len(rows) - len(ok),
                'status': dict(Counter(r['status'] for r in ok)),
                'gold_pages_cited': sum(r['gold_pages_cited'] for r in ok), 'gold_pages': sum(r['gold_pages'] for r in ok),
+               'units_cited': sum(r['units_cited'] for r in ok), 'units': sum(r['units'] for r in ok),
                'calls': sum(r['calls'] for r in ok), 'input_tokens': sum(r['input_tokens'] for r in ok),
                'output_tokens': sum(r['output_tokens'] for r in ok), 'usd': round(sum(r['usd'] for r in ok), 4)}
     print(json.dumps(summary, ensure_ascii=False), flush=True)
