@@ -64,7 +64,10 @@ DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': None, 'strip_slot_terms
                    'rerank': os.environ.get('BIOSIM_RERANK', '').lower() == 'on', 'rerank_pool': 40, 'rerank_max_per_doc': None,
                    # The service setting keeps each query's first hit (2026-10-15: +12/-4 vs +12/-6 without).
                    'rerank_keep_first_slots': os.environ.get('BIOSIM_RERANK', '').lower() == 'on',
-                   'rerank_max_length': 512}
+                   'rerank_max_length': 512,
+                   # Optional cap on all served hits of a question: with many searched groups (no product/agency
+                   # picked, comparisons) each group gets total_hits // groups, never below min_group_hits.
+                   'total_hits': None, 'min_group_hits': 4}
 # Words every chunk of a product x agency slot shares; in a slot they only add BM25 noise.
 SLOT_TERMS = re.compile(r'(?<![A-Za-z0-9])(?:EMA|FDA|Health\s+Canada|EPAR|European\s+Medicines\s+Agency|assessment\s+reports?|'
                         r'product\s+monographs?|summary\s+basis\s+of\s+decision|multi-?discipline\s+reviews?|labell?ing|label)(?![A-Za-z0-9])', re.I)
@@ -156,16 +159,29 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
     eligible = [int(i) for i in filter_idx(corpus.chunks, include_nondefault=True)
                 if allowed(corpus.chunks[int(i)]) and permitted(corpus.chunks[int(i)].get('document_metadata') or {})]
     default_ids = set(int(i) for i in filter_idx(corpus.chunks))
+    slot_index = {}
+
+    def slot(product, agency, roles):
+        key = (product, agency, frozenset(roles))
+        if key not in slot_index:
+            slot_index[key] = [i for i in eligible if corpus.chunks[i]['product_id'] == product
+                               and corpus.chunks[i]['jurisdiction'] == agency
+                               and (documents is None or (corpus.chunks[i]['document_id'], corpus.chunks[i]['version_id']) in documents)
+                               and (i in default_ids or include_nondefault or corpus.chunks[i]['doc_group'] in roles)]
+        return slot_index[key]
+
+    if P['total_hits']:
+        searched = sum(bool(slot(p, a, set(t['source_roles']))) for t in tasks if set(t['source_roles']) - {'guideline'}
+                       for p in understanding['products'] for a in understanding['jurisdictions'])
+        searched += sum(len(understanding['jurisdictions']) for t in tasks if 'guideline' in t['source_roles'])
+        k = max(min(k, P['min_group_hits']), min(k, P['total_hits'] // max(searched, 1)))
     groups = []
     for task in tasks:
         roles = set(task['source_roles'])
         if roles - {'guideline'}:
             for product in understanding['products']:
                 for agency in understanding['jurisdictions']:
-                    idx = [i for i in eligible if corpus.chunks[i]['product_id'] == product
-                           and corpus.chunks[i]['jurisdiction'] == agency
-                           and (documents is None or (corpus.chunks[i]['document_id'], corpus.chunks[i]['version_id']) in documents)
-                           and (i in default_ids or include_nondefault or corpus.chunks[i]['doc_group'] in roles)]
+                    idx = slot(product, agency, roles)
                     rankings = []
                     for query in task['queries']:
                         rankings.append(rrf([dense_hits(query_vectors[query], corpus.vec, idx, top_n=40),
@@ -208,6 +224,7 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
                                           'version': ra_topic_queries.VERSION},
                         **({'selection': {'reranker': 'bge-reranker-v2-m3', 'pool': P['rerank_pool'],
                                           'max_per_doc': P['rerank_max_per_doc']}} if P['rerank'] else {}),
+                        **({'served_k': k, 'total_hits': P['total_hits']} if P['total_hits'] else {}),
                         'hits': [{'score': s, 'chunk': corpus.chunks[i]} for s, i in hits]})
         if 'guideline' in roles:
             guideline_queries=list(task['queries'])
@@ -222,7 +239,8 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
                 groups.append({'task_id': task['id'], 'product': None, 'jurisdiction': agency,
                     'doc_groups': ['guideline'], 'studies': [], 'queries': guideline_queries,'query_expansion':expansion,
                     'hits': [{'score': s, 'chunk': c} for s, c in hits],
-                    'scope_gap': None if guideline_index else 'guideline_snapshot_not_connected'})
+                    'scope_gap': None if guideline_index else 'guideline_snapshot_not_connected',
+                    **({'served_k': k, 'total_hits': P['total_hits']} if P['total_hits'] else {})})
     return groups
 
 
