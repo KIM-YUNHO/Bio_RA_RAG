@@ -10,8 +10,10 @@ import unicodedata
 
 from rag.ra_tasks import obj, STRING
 
-VERSION = 'ra-grounded-synthesis-4.8.9'
+VERSION = 'ra-grounded-synthesis-4.8.10'
 KINDS = ['source_fact', 'applicant_position', 'regulator_position', 'interpretation']
+# A declared calculation withheld for these reasons is named in the answer.
+DERIVED_WITHHELD_SHOWN = {'derived_operand_not_in_verified_claims', 'derived_operand_value_ambiguous'}
 SYSTEM = """Answer the original Korean RA question from supplied sources only.
 Eligibility criteria describe allowed enrollment, not observed participant ranges.
 Say 선정 기준/선별 시/허용 범위 for eligibility age, weight and BMI. An inclusion
@@ -806,12 +808,15 @@ def generate(question, understanding, evidence, client, citation_mode='quote'):
         lines.append(prefix + claim['text'] + f' [{refs}]')
     if not lines:
         lines.append('현재 공급한 근거에서 질문을 지지하는 답변을 확인하지 못했습니다.')
-    if gaps:
-        lines.append('\n인용으로 완전히 확인하지 못한 요청:\n' + '\n'.join('- ' + g for g in dict.fromkeys(gaps)))
-        if model_gaps:
-            # Uncited model prose: shown as the reason it gave, never as a fact.
-            lines.append('모델이 밝힌 미확인 사유 (원문 인용 검증 아님):\n'
-                         + '\n'.join('- ' + g for g in dict.fromkeys(model_gaps)))
+    # Unconfirmed requests stay in result['gaps'] (status, memo) but are not
+    # listed in the answer text. The model's gap prose is uncited and can state
+    # facts or assumptions of its own; it stays in validation only. Withheld
+    # calculations are listed by code: the declared label plus a fixed reason.
+    not_computed = [str(w['declaration'].get('label', '')).strip() for w in derived_withheld
+                    if w['reason'] in DERIVED_WITHHELD_SHOWN]
+    if any(not_computed):
+        lines.append('계산하지 않은 값 (계산할 두 값이 검증된 인용에 모두 있지 않음):\n'
+                     + '\n'.join('- ' + label for label in dict.fromkeys(not_computed) if label))
     items = []
     for claim in claims:
         for cite in claim['sources']:
@@ -826,6 +831,8 @@ def generate(question, understanding, evidence, client, citation_mode='quote'):
             'review_input': review_input,
             'deduplicated_claims': deduplicated,
             'derived_withheld': derived_withheld,
+            'model_gap_reasons': {'texts': list(dict.fromkeys(model_gaps)), 'shown_to_user': False,
+                                  'citation_verified': False},
             'literal_check': 'bound_final_spans_and_typed_quantities' if citation_mode == 'spans' else
                              'contiguous_source_spans_whitespace_only_and_number_preservation',
             'semantic_review': review or 'no_literal_supported_claims', 'expert_certified': False},
