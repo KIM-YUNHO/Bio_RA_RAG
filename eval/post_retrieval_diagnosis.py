@@ -19,6 +19,7 @@ Question sets
   queries  eval/queries_v0.1.csv retrieval rows (EMA EPAR, acceptable pages)
   qagold   qa_gold.zip dev/indomain/external splits (EMA EPAR evidence pages)
   compare  eval/compare_cases_v1.json multi-product comparison questions (one unit per product part)
+  nondefault  teammates' fact-level gold in main (48 questions; not used while tuning this branch)
 The 17 cases and both gold sets were seen during development: these are
 development diagnostics, not holdout results. Answer generation is not run, so
 "supplied" does not mean the answer used the page.
@@ -63,6 +64,17 @@ def compare():
                'products': c['products'], 'jurisdictions': c['jurisdictions'],
                'units': [{'unit': f"{c['id']}:{p['product']}", 'pages': [[p['document_id'], n] for n in p['pages']],
                           'basis': f"queries_v0.1 {p['from_query']}"} for p in c['parts']]}
+
+
+def nondefault():
+    """Teammates' fact-level gold (main, data/runs/retrieval_scope_2026-10-15/nondefault_gold/gold.json):
+    48 questions, each fact = every (document, page) printing it; product/agency from the fact keys."""
+    data = json.loads((ROOT / 'data/runs/retrieval_scope_2026-10-15/nondefault_gold/gold.json').read_text(encoding='utf-8'))
+    for c in data['cases']:
+        yield {'set': 'nondefault', 'id': c['id'], 'question': c['question'], 'expected': 'answer',
+               'products': sorted({f['key'][0] for f in c['facts']}), 'jurisdictions': sorted({f['key'][1] for f in c['facts']}),
+               'units': [{'unit': ':'.join(f['key']), 'pages': [list(p) for p in f['pages']], 'basis': f'nondefault_gold {c["template"]}'}
+                         for f in c['facts']]}
 
 
 def queries(include_absent=False):
@@ -114,7 +126,7 @@ def main():
     parser.add_argument('--run', type=Path, default=ROOT / 'data/versions/04_pipeline_h_supplement_2026-10-14/embedded/release')
     parser.add_argument('--guidelines', type=Path, default=ROOT / 'data/guidelines/ra_guidelines_native_2026-10-12_v2')
     parser.add_argument('--qa-gold', type=Path, help='qa_gold.zip (read only, never copied)')
-    parser.add_argument('--set', action='append', choices=['gold17', 'queries', 'qagold', 'condition', 'compare'], required=True)
+    parser.add_argument('--set', action='append', choices=['gold17', 'queries', 'qagold', 'condition', 'compare', 'nondefault'], required=True)
     parser.add_argument('--only', action='append', help='Question IDs to run (smoke test)')
     parser.add_argument('--include-absent', action='store_true', help='also load absent (not_found) rows of the queries set')
     parser.add_argument('--pool', type=int, default=40)
@@ -152,7 +164,7 @@ def main():
         if name == 'qagold' and not args.qa_gold:
             parser.error('--qa-gold is required for the qagold set')
         items += (list(queries(args.include_absent)) if name == 'queries' else list(gold17()) if name == 'gold17'
-                  else list(condition()) if name == 'condition' else list(compare()) if name == 'compare'
+                  else list(condition()) if name == 'condition' else list(compare()) if name == 'compare' else list(nondefault()) if name == 'nondefault'
                   else list(qagold(args.qa_gold, version_to_document)))
     if args.only:
         items = [i for i in items if i['id'] in args.only]
