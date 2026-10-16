@@ -1,7 +1,8 @@
 # 4. 질문 계획·검색 — 현재 상태
 
 - 작성: 2026-10-16 16:50 KST
-- 기준: `rag/ra_retrieval.py`(`DEFAULT_PROFILE`), `rag/ra_tasks.py`, `rag/ra_models.py`, `rag/rerank.py`, `rag/ra_sources.py`, `rag/ra_research.py`, 서비스 요약(`query_strategy: ra-research-tasks-7-planner-facets`, `retrieval_strategy: ra-task-hybrid-context-7-topic-queries-slot-terms`)
+- 수정: 2026-10-16 17:55 KST (`feature/stable-queries` 병합 기준: 계획기 칸 축소, 사실당 영어 검색어 1개. 병합 후 서비스 재시작이 필요하다)
+- 기준: `rag/ra_retrieval.py`(`DEFAULT_PROFILE`), `rag/ra_tasks.py`, `rag/ra_models.py`, `rag/rerank.py`, `rag/ra_sources.py`, `rag/ra_research.py`, 서비스 요약(`query_strategy: ra-research-tasks-8-fact-queries`, `retrieval_strategy: ra-task-hybrid-context-7-topic-queries-slot-terms`)
 - 상위: [현재 서빙 상태](README.md)
 
 ## 1. 흐름
@@ -25,16 +26,18 @@
 | :-- | :-- | :-- |
 | 작업(task) | 질문 안의 요청 | 1~4개 |
 | `request` | 작업을 한국어로 다시 쓴 요청문 | |
-| `queries` | 작업의 영어 검색어 | 1~2개 |
+| `queries` | 작업의 검색어. 코드가 facet마다의 `query`로 채운다(사실당 1개, 중복 제거, 계산 facet 제외). facet이 없는 열린 작업만 계획기가 쓴 영어 검색어 1개 | 1~12개 |
 | `source_roles` | 읽을 문서 역할(assessment·label·correspondence·guideline·quality·rmp·decision_summary·other_review·protocol·sap) | 1~3개 (여러 기관을 읽는 작업은 3개까지) |
 | `jurisdictions` | 이 작업이 읽을 기관(EU·US·CA·sponsor) | 없으면 질문 범위 전체 |
-| `answer_facets` | 요청 사실 목록. 종류(dose_route, dosing_schedule, table_statistics, calculation, … 목록 밖은 `fact`), `ask`(질문 용어의 한국어 한 줄), `query`(영어 사실 검색어), `items`(따로 답할 군·구간·시점) | 최대 12개 |
-| `topics` | 임상 주제(pk_study, efficacy, safety, immunogenicity, design, clinical_program) | 고정 주제 질의 선택에 사용 |
+| `answer_facets` | 요청 사실 목록. 종류(dose_route, dosing_schedule, table_statistics, calculation, … 목록 밖은 `fact`), `ask`(질문 용어의 한국어 한 줄), `query`(영어 사실 검색어 1개: 질문이 그 사실에 붙인 적응증·시험 번호·대상군·투여 경로·문서 섹션을 포함하고 제품·기관 이름과 두 번째 사실은 뺀다. 예: `Crohn's disease intravenous induction dose by body weight`), `items`(따로 답할 군·구간·시점) | 최대 12개 |
+| `guideline_request_quote` | guideline 역할을 고를 때 질문 속 일반 지침 요청 문구를 그대로 복사. 제품 질문이면 빈 값 | 제품 질문에 guideline을 고르지 않게 하는 장치 |
+
+- 2026-10-16 17:55부터 계획기는 `english_query`, 기관 언급 `quote`, 고정 주제 `topics`를 쓰지 않는다(계획기 `ra-research-tasks-8-fact-queries`).
 
 - 계획기는 범위 안 **문서 목록**(제품·기관·문서 종류·제목·날짜·기본 검색 여부)을 함께 본다(`RA_PLANNER_INVENTORY=1`).
 - 기관은 enum과 질문 속 단어(`name`)를 함께 내고, 그 단어가 질문에 있어야 인정한다. 기관 이름 목록 규칙은 없다.
 - 후속 질문: 이전 계획의 범위를 후보로 주고 계획기가 판단한다. 새 기관은 사용자가 쓴 단어가 있어야 인정한다. 독립 질문으로 바꾼 뒤 같은 경로를 탄다(추가 호출 없음).
-- 계획기 temperature 0·seed를 줘도 실행마다 표현이 달라진다. 이 편차가 검색 결과를 흔드는 것이 현재 가장 큰 불안정 요인이다([07 평가](07_EVALUATION.md) 4절).
+- 계획기 temperature 0·seed를 줘도 실행마다 표현이 달라진다. 검색어를 사실당 1개로 고정해 이 편차가 검색 결과를 흔드는 정도를 줄였다(같은 질문 계획 4개에서 사실 정답 flip 9.8% → 0%, [07 평가](07_EVALUATION.md) 2.4절). 계획기가 두 사실을 "and"로 묶어 쓰는 경우는 아직 남아 있다.
 
 ## 3. 범위와 검색 그룹
 
@@ -46,8 +49,8 @@
 
 | 순위 목록 | 내용 |
 | :-- | :-- |
-| 계획기 검색어별 | dense(BGE-M3 내적) 상위 40 + BM25 상위 40을 RRF(k=60)로 합침 |
-| 고정 주제 질의 | `ra_topic_queries`가 계획기 `topics`에서 고른 영어 질의들을 한 순위로 합쳐 추가(계획기 표현과 무관하게 같은 읽기 기회) |
+| 사실 검색어별 | dense(BGE-M3 내적) 상위 40 + BM25 상위 40을 RRF(k=60)로 합침 |
+| 고정 주제 질의 | 새 계획은 `topics`가 비어 있어 생기지 않는다. `topics` 칸이 없는 옛 저장 계획을 다시 돌릴 때만 질문 단어로 주제를 골라 추가한다(`ra_topic_queries`) |
 | 통계 표 헤더 | 질문이 표 통계를 물으면 `ra_statistical_tables`가 헤더가 맞는 표 후보를 첫 순위 목록으로 넣음 |
 | 문서 역할 가산 | 각 순위 목록에 "계획기가 고른 역할의 문서만" 부분 목록을 가중치 1.0으로 다시 RRF (`role_boost`) |
 
@@ -79,9 +82,10 @@
 `rag/ra_retrieval.py`:
 
 ```python
-DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': None, 'strip_slot_terms': True,
+DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': None, 'question_bm25': False, 'query_unit': False, 'strip_slot_terms': True,
                    'suppress_boilerplate': False, 'collapse_duplicates': False, 'role_boost': True,
-                   'extra_default_groups': ('correspondence',), 'rerank': 'fquery_unit', 'rerank_pool': 40, 'rerank_fuse': True}
+                   'extra_default_groups': ('correspondence',), 'rerank': 'fquery_unit', 'rerank_pool': 40, 'rerank_fuse': True,
+                   'rerank_question': False}
 ```
 
 | 스위치 | 기본 | 뜻 |
@@ -91,11 +95,14 @@ DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': None, 'strip_slot_terms
 | `RA_CHECKLIST_PACKING` | `0` | 체크리스트 기준 패킹(측정상 효과 없음) |
 | `rerank` | `fquery_unit` | `None`이면 리랭커 끔. `ask_unit`, `ask`, `request` 등 다른 질의 방식 |
 | `rerank_pool` | 40 | 응답 속도가 우선이면 20 (recall@8 0.804 → 0.787 측정) |
-| `suppress_boilerplate`, `collapse_duplicates`, `question_query` | 끔 | 측정상 이득 없어 꺼 둔 실험 옵션 |
+| `suppress_boilerplate`, `collapse_duplicates` | 끔 | 측정상 이득 없어 꺼 둔 실험 옵션 |
+| `question_query`, `rerank_question` | 끔 | 원 질문을 그룹마다 dense 순위 하나로, 리랭커 질의 하나로 함께 쓰기(anchor). 사실 정답 recall 0.931 → 0.902로 하락해 끔. 제품이 없는 질문에서는 flip을 줄였다 |
+| `query_unit` | 끔 | 1차 검색 질의 앞에 그룹 제품명·기관. 그룹이 이미 제품 × 기관으로 걸러져 있어 끔 |
+| `question_bm25` | 끔 | 원 질문을 BM25에도 넣어 시험 번호 같은 식별자를 글자 그대로 맞춤. 측정 안 함 |
 
 환경 변수는 서비스 프로세스 시작 때 읽는다. 바꾸면 재시작해야 한다.
 
 ## 9. 원 기록
 
-- [RA 질문 처리 변경 기록](../RA_QUERY_HANDLING_LOG.md) — 개념 정리(작업·facet·그룹·atomic need), 10-16 01:55~11:38 결정과 측정 (마지막 항목이 현재)
+- [RA 질문 처리 변경 기록](../RA_QUERY_HANDLING_LOG.md) — 개념 정리(작업·facet·그룹·atomic need), 10-16 01:55~17:55 결정과 측정 (마지막 항목 17:55 "검색어 안정화"가 현재)
 - [RAG 파이프라인 상세](../rag/RAG_PIPELINE_CHUNK_EMBEDDING_GUIDE_2026-10-14.md) §7~8 (검색 구조. 리랭커 미연결·페이지 수 5는 당시 상태)

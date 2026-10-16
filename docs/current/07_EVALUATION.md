@@ -1,6 +1,7 @@
 # 7. 평가와 진행 중 작업 — 현재 상태
 
 - 작성: 2026-10-16 16:50 KST
+- 수정: 2026-10-16 17:55 KST (`feature/stable-queries` 병합 기준: end-to-end 317점, 검색 안정성 측정 추가)
 - 기준: `docs/RA_QUERY_HANDLING_LOG.md`(main, 11:38까지), `feature/generation-units`·`feature/stable-queries` 브랜치의 같은 기록과 커밋 메시지, `data/runs/` 실행 기록
 - 상위: [현재 서빙 상태](README.md)
 
@@ -15,7 +16,7 @@
 
 ## 2. 현재 서빙 구성의 측정치
 
-서빙 구성 = 계획기 facet(`fact` 포함)·문서 목록 + 그룹당 8 + 리랭커 `fquery_unit` + RRF + 풀 40 + correspondence 기본 포함 + 4.10.2.
+서빙 구성 = 계획기 facet(`fact` 포함)·문서 목록·사실당 영어 검색어 1개(한정어 포함) + 그룹당 8 + 리랭커 `fquery_unit` + RRF + 풀 40 + correspondence 기본 포함 + 4.10.3. 2.1의 검색 골든셋은 계획을 고정한 측정이라 4.10.2 계획 기준이다.
 
 ### 2.1 검색 골든셋 (API 비용 없음, 풀 40, 주 지표 235묶음)
 
@@ -33,23 +34,39 @@
 | :-- | --: | --: | :-- | :-- |
 | 리랭커 이전 기본값 | 278 | 86 | 17.5초 / 52초 | `data/runs/planner_facets_2026-10-15/e2e_final` |
 | `ask_unit` + RRF | 311 | 85 | 18.1초 / 75초 | `…/e2e_atomic_fuse` |
-| **`fquery_unit` + RRF (현재)** | **305** | 72 | 20.3초 / 99초 | `data/runs/generation_units_2026-10-16/base_fquery` |
+| `fquery_unit` + RRF (4.10.2) | 305 | 72 | 20.3초 / 99초 | `data/runs/generation_units_2026-10-16/base_fquery` |
+| **+ 사실당 영어 검색어 1개, 한정어 포함 (현재, 4.10.3)** | **317** | 71 | 18.5초 / 78초 | `data/runs/stable_queries_2026-10-16/e2e_qual` |
 
-- 현재 구성의 end-to-end(305)는 main 기록이 아니라 `feature/generation-units` 브랜치의 변경 기록(13:42 항목)에만 있다.
-- 311과 305의 차이는 계획기 편차 범위 안이다. 같은 코드·질문에서도 Q1(허가 타임라인)이 10점과 25점으로 갈린다. 매 실행 계획을 새로 만드는 end-to-end로는 6점 차이의 원인을 가를 수 없다.
+- 같은 문항 1회차와 2회차가 같은 정답 항목을 맞혔는지(일치율, 192항목): 4.10.2 0.880 → 현재 0.891.
+- 사실 검색어에서 한정어(적응증·시험 번호)를 뺀 중간 버전은 302점, 일치율 0.833이었다. 검색 안정성 지표가 좋아도 답변 단위에서 나빠질 수 있다([변경 기록](../RA_QUERY_HANDLING_LOG.md) 17:55 항목).
+- 311과 305의 차이는 계획기 편차 범위 안이다. 같은 코드·질문에서도 Q1(허가 타임라인)이 10점과 25점으로 갈린다. 실행 1번의 몇 점 차이보다 일치율과 아래 2.4의 계획 반복 측정을 함께 본다.
 
-### 2.3 현재 구성의 손실 위치 (`eval/loss_attribution.py`, 305점 실행)
+### 2.3 현재 구성의 손실 위치 (`eval/loss_attribution.py`)
 
-| 위치 | 항목 수 (384개 중) |
-| :-- | --: |
-| 성공 | 305 |
-| 생성 (입력에 있는데 claim 없음) | 32 |
-| 앞 단계 때문 (날짜가 빠져 계산 불가) | 17 |
-| 순위·상위 k (풀에는 있으나 입력에 없음) | 14 |
-| 검증 (claim이 있었으나 탈락) | 9 |
-| 1차 검색 (풀에도 없음) | 6 |
+| 위치 | 4.10.2 (305점) | 현재 (317점) |
+| :-- | --: | --: |
+| 성공 | 305 | 317 |
+| 생성 (입력에 있는데 claim 없음) | 32 | 22 |
+| 순위·상위 k (풀에는 있으나 입력에 없음) | 14 | 16 |
+| 검증 (claim이 있었으나 탈락) | 9 | 12 |
+| 앞 단계 때문 (날짜가 빠져 계산 불가) | 17 | 11 |
+| 1차 검색 (풀에도 없음) | 6 | 4 |
+| 채점 불가 (한국어 표현만 있는 값) | 1 | 2 |
 
-손실은 허가 날짜·기간 타임라인에 몰려 있다. 생성 손실의 원인은 체크리스트가 제품마다 펼쳐지지 않는 것과 계산 facet 누락이다([05](05_GENERATION_VERIFICATION.md) 4절).
+손실은 여전히 허가 날짜·기간 타임라인에 가장 많다. 생성 손실의 원인은 체크리스트가 제품마다 펼쳐지지 않는 것과 계산 facet 누락이다([05](05_GENERATION_VERIFICATION.md) 4절). 현재 구성의 순위 손실 중 C03(6항목)은 계획기가 두 사실을 "and"로 묶은 검색어 때문이다.
+
+### 2.4 같은 질문, 계획 4개 반복 (`eval/plan_stability.py`, API는 계획기 호출만)
+
+검색 골든셋 62문항(사실 정답 39 + QA_candidates 23) × 계획을 매번 새로 만든 4개. 하이브리드 + 리랭커 RRF 순서, 그룹당 8.
+
+| 구성 | 사실 정답 recall 평균 / 최저 / flip | QA_candidates 평균 / 최저 / flip |
+| :-- | :-- | :-- |
+| 4.10.2 계획기 | 0.877 / 0.824 / 9.8% | 0.650 / 0.525 / 27.5% |
+| 현재 계획기 (식별자 유지 지시 단계) | **0.941 / 0.941 / 0%** | 0.619 / 0.400 / 42.5% |
+
+- 최저 = 가장 운 나쁜 계획의 recall. flip = 계획에 따라 찾았다 못 찾았다 하는 정답 묶음 비율.
+- QA_candidates는 문서 한 건을 보며 만든 질문이라 제품·기관이 없다. 20그룹을 다 뒤지므로 이 지표로는 흐리다. 질문을 고쳐 쓸 필요가 있다.
+- 이 측정은 한정어 지시를 넣기 전 계획으로 했다. 한정어 버전은 end-to-end(2.2)로 확인했다.
 
 ## 3. 수치를 인용할 때
 
@@ -70,6 +87,7 @@
 | `eval/run_questions.py` | 29문항 end-to-end (`--retrieval-pages`, `--rerank`, `--rerank-pool`, `--planner-inventory`, `--extra-default`) | 있음 (실행당 약 $0.40) |
 | `eval/retrieval_gold.py`, `eval/build_retrieval_gold.py` | 검색 골든셋 생성·평가, `--variants 모델:모드[:fuse]`, `--pool` | 없음 |
 | `eval/loss_attribution.py` | end-to-end 보고서로 정답 항목별 손실 단계 분해 | 없음 |
+| `eval/plan_stability.py` | 같은 질문에 계획을 여러 번 새로 만들어 검색 결과 흔들림(최저 recall·flip·Jaccard) 측정. `--fresh-first`, `--plans-dir`, `--items-from`, `--anchor`, `--question-bm25`, `--no-query-unit` | 계획기 호출만 (62문항 × 4, 약 $0.15) |
 | `eval/packing_recall.py` | 저장 계획으로 검색·패킹만 다시 해 LLM 입력 근거 recall | 없음 |
 | `eval/paired_dev.py`, `eval/prompt_variants.py` | 계획·근거 고정 짝 비교 | 생성만 |
 
@@ -78,13 +96,13 @@
 | 브랜치 | main보다 | 내용 | 상태 |
 | :-- | --: | :-- | :-- |
 | `feature/generation-units` | 6커밋 | G1 계산 facet 체크리스트 줄, G2 체크리스트를 범위 제품·기관으로 펼침, G3 근거를 제품×기관 단위로 묶어 제시(`RA_GENERATION_UNITS`). 손실 분해 기록, `eval/plan_stability.py` | end-to-end 306점(생성 손실 32→21, 순위 손실 14→25는 계획기 편차). 판정 보류 |
-| `feature/stable-queries` | 5커밋 (마지막 15:50) | 계획기 필드 축소, 사실당 영어 검색어 1개, 질문에 적힌 식별자 유지, 1차 검색어에 그룹 제품명, 지침 인용 복원 | 계획 4개 안정성 측정(사실 정답 62문항): recall 평균 0.877 → 0.941, 최저 0.824 → 0.941, 흔들리는 정답 9.8% → 0%. end-to-end 미실행 |
+| `feature/stable-queries` | — | 계획기 칸 축소, 사실당 영어 검색어 1개(한정어 포함), 지침 인용 유지 | 이 문서 수정과 함께 main PR. 병합 후 서비스 재시작 필요 |
 | `docs/ra-painpoints-luna-selection` | 2커밋 | 발표 문서의 RA pain point·Luna 선정 보강 | 문서 PR |
 
 main 작업 폴더에는 이 밖에 미커밋 화면 수정(`rag_service/web/`, `workspaces.py`)과 발표 문서 수정이 있다.
 
 ## 6. 원 기록
 
-- [RA 질문 처리 변경 기록](../RA_QUERY_HANDLING_LOG.md) (main: 11:38까지. 12:29 이후 항목은 `feature/generation-units` 브랜치)
+- [RA 질문 처리 변경 기록](../RA_QUERY_HANDLING_LOG.md) (11:38까지와 17:55 검색어 안정화 항목. 12:29~13:42 손실 분해·생성 단위 항목은 `feature/generation-units` 브랜치)
 - [H v2 개발 평가](../rag/H_V2_RAG_DEVELOPMENT_EVAL_2026-10-14.md), [전처리 최종 선정](../preprocessing/FINAL_PREPROCESSING_DECISION_2026-10-14.md)
 - [발표 이슈·근거 정리](../project/PRESENTATION_ISSUE_REVIEW_2026-10-16.md) §3~4 (문서 간 시점 차이, 수치 해석)
