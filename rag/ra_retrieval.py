@@ -66,7 +66,10 @@ DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': None, 'strip_slot_terms
                    # Optional cap on all served hits of a question: with many searched groups (no product/agency
                    # picked, comparisons) each group gets total_hits // groups, never below min_group_hits.
                    # Off: on release 04 it saved prompt tokens but lost 3 gold units (post-retrieval record 4-6).
-                   'total_hits': None, 'min_group_hits': 4}
+                   'total_hits': None, 'min_group_hits': 4,
+                   # Optional: serve each ranking's (planner query, topic, table) first hit before the reranked
+                   # order, so a hybrid #1 the cross-encoder dislikes is not dropped (post-retrieval record 4-8).
+                   'rerank_keep_first': False}
 # Reranker on by default since 2026-10-16: queries are the slot's product + agency + the planner's
 # per-fact ask, fused with the hybrid order (RRF). Retrieval gold (100 items) recall@8 0.715 -> 0.804
 # with no bucket below baseline; 29-question answers 278 -> 311 (docs/RA_QUERY_HANDLING_LOG.md).
@@ -170,6 +173,16 @@ def rerank(corpus, task, hits, k, mode, product=None, agency=None, fuse=False):
     model_rank = {i: n for n, (_, i) in enumerate(reranked, 1)}
     fused = [(1 / (60 + n) + 1 / (60 + model_rank.get(i, len(hits) + 1)), i) for i, n in hybrid.items()]
     return sorted(fused, key=lambda x: -x[0])[:k]
+
+
+def keep_first_hits(rankings, consensus, reranked, k):
+    """Serve each ranking's own first hit, then the reranked order (diverse_hits' first slots).
+
+    With RRF a hybrid #1 that the cross-encoder ranks last scores about 1/61 + 1/100 and can
+    fall below k; this keeps every planner query's (and topic/table ranking's) best passage.
+    """
+    first = list(dict.fromkeys(r[0][1] for n, r in enumerate(rankings) if r and n not in consensus))
+    return ([(1.0, i) for i in first] + [(s, i) for s, i in reranked if i not in first])[:k]
 
 
 def strip_slot_terms(query):
@@ -287,8 +300,10 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
                     consensus = ((topic_pos,) if topic_queries == 'fuse' else ()) + ((question_pos,) if P['question_query'] == 'fuse' else ())
                     if P['rerank']:
                         pool = diverse_hits(rankings, P['rerank_pool'], consensus_only=consensus, same=same)
-                        hits = rerank(corpus, task, pool, k, P['rerank'], product=product, agency=agency,
-                                      fuse=P['rerank_fuse']) if pool else pool
+                        hits = rerank(corpus, task, pool, len(pool) if P['rerank_keep_first'] else k, P['rerank'],
+                                      product=product, agency=agency, fuse=P['rerank_fuse']) if pool else pool
+                        if P['rerank_keep_first'] and pool:
+                            hits = keep_first_hits(rankings, consensus, hits, k)
                     else:
                         hits = diverse_hits(rankings, k, consensus_only=consensus, same=same)
                     groups.append({'task_id': task['id'], 'product': product, 'jurisdiction': agency,

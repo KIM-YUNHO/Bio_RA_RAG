@@ -154,6 +154,15 @@ class UnitFusedRerank(unittest.TestCase):
         self.assertTrue(seen[0].startswith('SB17 Pyzchiva EMA: ') and seen[0].endswith('EU 최초 허가일'))
 
 
+class RerankKeepFirst(unittest.TestCase):
+    def test_each_ranking_first_hit_is_served_before_the_reranked_order(self):
+        from rag import ra_retrieval
+        rankings = [[(0.9, 5), (0.8, 6)], [(0.7, 7), (0.6, 5)], [(0.5, 8)]]  # last one is consensus-only
+        reranked = [(3.0, 1), (2.0, 5), (1.0, 2), (0.5, 3)]  # cross-encoder order; 7 ranked out
+        served = [i for _, i in ra_retrieval.keep_first_hits(rankings, (2,), reranked, 4)]
+        self.assertEqual(served, [5, 7, 1, 2])
+
+
 class PlannerTopics(unittest.TestCase):
     def test_fixed_queries_follow_planner_topics(self):
         q = 'SB17의 안전성 결과를 알려줘'
