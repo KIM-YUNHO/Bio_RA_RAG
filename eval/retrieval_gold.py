@@ -27,13 +27,13 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 GOLD = ROOT / 'data/runs/retrieval_gold_2026-10-16/gold.json'
 FACT_PLANS = ROOT / 'data/runs/retrieval_scope_2026-10-15/nondefault_gold/plans'
-# name -> (model id, revision or None for the downloaded snapshot, kind, trust_remote_code, max tokens)
+# name -> (model id, pinned revision, kind, trust_remote_code, max tokens). jina's remote code
+# (revision 9cfeff2d) was read before use: model definition only, no file/network/process access.
 MODELS = {'bge-reranker-v2-m3': ('BAAI/bge-reranker-v2-m3', '953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e', 'cross_encoder', False, 1024),
-          'jina-reranker-v2-multilingual': ('jinaai/jina-reranker-v2-base-multilingual', None, 'cross_encoder', True, 1024),
-          'gte-multilingual-reranker': ('Alibaba-NLP/gte-multilingual-reranker-base', None, 'cross_encoder', True, 1024),
-          'qwen3-reranker-0.6b': ('Qwen/Qwen3-Reranker-0.6B', None, 'qwen3_yes_no', False, 1024),
+          'jina-reranker-v2-multilingual': ('jinaai/jina-reranker-v2-base-multilingual', '9cfeff2df7d40d1b78e75e5e9cebec92a99813c9', 'cross_encoder', True, 1024),
+          'qwen3-reranker-0.6b': ('Qwen/Qwen3-Reranker-0.6B', 'e61197ed45024b0ed8a2d74b80b4d909f1255473', 'qwen3_yes_no', False, 1024),
           # English-only biomedical cross-encoder (PubMed search logs); use the English fquery modes.
-          'medcpt-cross-encoder': ('ncbi/MedCPT-Cross-Encoder', None, 'cross_encoder', False, 512)}
+          'medcpt-cross-encoder': ('ncbi/MedCPT-Cross-Encoder', '71caf65d4927987813984f54c284405a13fcca49', 'cross_encoder', False, 512)}
 
 
 def plan_for(item, pipe, folder, fresh=False):
