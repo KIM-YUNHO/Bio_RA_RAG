@@ -27,11 +27,13 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 GOLD = ROOT / 'data/runs/retrieval_gold_2026-10-16/gold.json'
 FACT_PLANS = ROOT / 'data/runs/retrieval_scope_2026-10-15/nondefault_gold/plans'
-# name -> (model id, revision or None for the downloaded snapshot, kind, trust_remote_code)
-MODELS = {'bge-reranker-v2-m3': ('BAAI/bge-reranker-v2-m3', '953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e', 'cross_encoder', False),
-          'jina-reranker-v2-multilingual': ('jinaai/jina-reranker-v2-base-multilingual', None, 'cross_encoder', True),
-          'gte-multilingual-reranker': ('Alibaba-NLP/gte-multilingual-reranker-base', None, 'cross_encoder', True),
-          'qwen3-reranker-0.6b': ('Qwen/Qwen3-Reranker-0.6B', None, 'qwen3_yes_no', False)}
+# name -> (model id, revision or None for the downloaded snapshot, kind, trust_remote_code, max tokens)
+MODELS = {'bge-reranker-v2-m3': ('BAAI/bge-reranker-v2-m3', '953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e', 'cross_encoder', False, 1024),
+          'jina-reranker-v2-multilingual': ('jinaai/jina-reranker-v2-base-multilingual', None, 'cross_encoder', True, 1024),
+          'gte-multilingual-reranker': ('Alibaba-NLP/gte-multilingual-reranker-base', None, 'cross_encoder', True, 1024),
+          'qwen3-reranker-0.6b': ('Qwen/Qwen3-Reranker-0.6B', None, 'qwen3_yes_no', False, 1024),
+          # English-only biomedical cross-encoder (PubMed search logs); use the English fquery modes.
+          'medcpt-cross-encoder': ('ncbi/MedCPT-Cross-Encoder', None, 'cross_encoder', False, 512)}
 
 
 def plan_for(item, pipe, folder, fresh=False):
@@ -79,8 +81,13 @@ def queries_for(task, mode, product=None, agency=None):
     asks = list(dict.fromkeys(f['ask'] + (' ' + item if item else '')
                               for f in task.get('answer_facets', []) if f.get('ask')
                               for item in (f.get('items') or [None])))
+    # 'fquery': the planner's English per-fact query (+ item), or the task's English queries.
+    fqueries = list(dict.fromkeys(f['query'] + (' ' + item if item else '')
+                                  for f in task.get('answer_facets', []) if f.get('query')
+                                  for item in (f.get('items') or [None])))
     return {'request': [task['request']], 'queries': list(task['queries']),
-            'both': [task['request'], *task['queries']], 'ask': asks or [task['request']]}[mode]
+            'both': [task['request'], *task['queries']], 'ask': asks or [task['request']],
+            'fquery': fqueries or list(task['queries'])}[mode]
 
 
 def main():
@@ -138,8 +145,8 @@ def main():
                     name, mode, *how = variant.split(':')
                     if name not in rerankers:
                         from rag.rerank import LocalReranker
-                        model, revision, kind, trust = MODELS.get(name, (name, None, 'cross_encoder', False))
-                        rerankers[name] = LocalReranker(model=model, revision=revision, batch_size=8, max_length=1024,
+                        model, revision, kind, trust, length = MODELS.get(name, (name, None, 'cross_encoder', False, 512))
+                        rerankers[name] = LocalReranker(model=model, revision=revision, batch_size=8, max_length=length,
                                                         kind=kind, trust_remote_code=trust)
                     best = {}
                     for q in queries_for(tasks[task_id], mode, product, agency):

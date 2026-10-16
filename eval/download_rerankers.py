@@ -4,7 +4,7 @@ LocalReranker loads with local_files_only=True (no hidden downloads), so candida
 explicitly here once. The resolved commit of each snapshot is printed; pin it in
 eval/retrieval_gold.MODELS before reporting results.
 
-  python eval/download_rerankers.py jina-reranker-v2-multilingual gte-multilingual-reranker qwen3-reranker-0.6b
+  python eval/download_rerankers.py jina-reranker-v2-multilingual gte-multilingual-reranker qwen3-reranker-0.6b medcpt-cross-encoder
 """
 import sys
 from pathlib import Path
