@@ -46,7 +46,7 @@ SCHEMA = {'name': 'query_understanding', 'schema': obj({
         'jurisdiction': {'type': 'string', 'enum': ['EU', 'US', 'CA', 'sponsor']},
         'role': {'type': 'string', 'enum': ['regulator', 'comparator', 'context']}, 'name': STRING})},
     'tasks': {'type': 'array', 'minItems': 1, 'maxItems': 4, 'items': obj({'request': STRING,
-        'queries': {'type': 'array', 'minItems': 0, 'maxItems': 1, 'items': STRING},
+        'queries': {'type': 'array', 'minItems': 1, 'maxItems': 1, 'items': STRING},
         'source_roles': {'type': 'array', 'minItems': 1, 'maxItems': 3, 'items': {'type': 'string', 'enum': ROLES}},
         'intent': obj({'intent': {'type': 'string', 'enum': ra_intent.INTENTS}, 'request_quote': STRING}),
         'answer_facets': {'type': 'array', 'maxItems': 12, 'items': obj({
@@ -155,7 +155,7 @@ Keep task.request in Korean. task.request restates only what the user asked: nev
 add notes about missing or unspecified products, agencies or scope limits (the
 application reports scope separately). Keep related requested facets together instead of
 duplicating the same search for each facet. task.queries holds exactly one short English
-query ONLY for a task without answer_facets (otherwise []), and each task names only the
+noun phrase for the task as a whole (used only when the task has no answer_facets), and each task names only the
 1-2 document roles actually needed (a task reading several agencies'
 documents may use 3 when those agencies keep the answer in different document kinds).
 Do not list every available role.

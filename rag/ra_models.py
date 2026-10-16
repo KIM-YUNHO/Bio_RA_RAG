@@ -43,7 +43,7 @@ class AnswerFacet(Contract):
 
 class ResearchTask(Contract):
     request: Annotated[str, Field(min_length=1, max_length=1600)]
-    # One English query for a task without answer facets; faceted tasks search with their facts' queries.
+    # The task's one English query; a task with answer facets searches with its facts' queries instead.
     queries: Annotated[list[str], Field(min_length=0, max_length=2)]
     source_roles: Annotated[list[Literal['assessment', 'label', 'guideline', 'correspondence',
         'quality', 'rmp', 'decision_summary', 'other_review', 'protocol', 'sap']], Field(min_length=1, max_length=3)]
