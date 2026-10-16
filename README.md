@@ -1,7 +1,9 @@
 # Biosimilar RA 문서 RAG — 공유 기준 프로젝트 (project_shared)
 
 - 작성: 2026-10-14 14:10 KST
-- 최종 수정: 2026-10-14 14:59 KST (루트 정리: 수집 스크립트 → `collection/`, 규칙 파일 → `configs/collection/`. 14:45 H v2 개발 평가 반영, 14:10 최초 구성)
+- 최종 수정: 2026-10-16 16:50 KST (2절 데이터 버전 표를 현재 서비스 색인 04 기준으로 갱신, [현재 서빙 상태](docs/current/README.md) 연결. 이전: 10-14 14:59 루트 정리)
+
+> 지금 서비스가 어떤 데이터·코드·설정으로 도는지는 [docs/current/](docs/current/README.md)에 파트별로 정리했다. 이 README의 나머지 내용은 2026-10-14 이관 시점 기준이다.
 
 우스테키누맙 바이오시밀러 5제품(SB17·ABP654·CTP43·BMAB1200·BAT2206)의 EMA·FDA·Health Canada 규제 문서를 **수집 → 전처리 → 청킹·임베딩 → 근거 인용 RA 답변**까지 처리하는 프로젝트의 공유용 기준본이다. 원본 작업 폴더(`biosimilar_collection`)에서 핵심 코드·데이터·문서만 복사해 다시 구성했다. 무엇을 어디서 가져왔는지는 [이관 기록](docs/project/SHARED_BASELINE_MIGRATION_2026-10-14.md)에 있다.
 
@@ -26,8 +28,8 @@ project_shared/
 ├─ review_viewer/        전처리·원문 검토 화면
 ├─ storage/              DB 접속 단일 진입점 — pgvector 통합 코드가 들어갈 자리
 ├─ eval/ · gold/ · tests/ · scripts/
-├─ data/                 원본·카탈로그 + versions/(01 파일럿 기준 / 02 H v2 / 03 H v2 표 회수 후보) × (전처리 / 임베딩)
-└─ docs/                 핵심 문서 (docs/README.md가 목차)
+├─ data/                 원본·카탈로그 + versions/(01 파일럿 / 02 H v2 / 03 표 회수 / 04 보충 = 현재 서비스 / 05 미등록 후보) × (전처리 / 임베딩)
+└─ docs/                 핵심 문서 (docs/README.md가 목차, docs/current/가 현재 서빙 상태)
 ```
 
 | 핵심 | 위치 | 설명 |
@@ -44,11 +46,13 @@ project_shared/
 
 | 버전 | 위치 | 상태 | 청크·벡터 |
 | :-- | :-- | :-- | :-- |
-| 01 파일럿 기준 | `data/versions/01_pilot_baseline_2026-10-10/` | 현재 RA 서비스 색인 | 10,088 × 1024 |
-| 02 pipeline_h v2 | `data/versions/02_pipeline_h_2026-10-14/` | 전체 실행·검증 완료, 서비스 미전환 | 11,536 × 1024 |
-| 03 v2 표 회수 후보 (최신) | `data/versions/03_pipeline_h_v2_table_recovery_2026-10-14/` | 02 + 연속 표 2개 단위 회수, 별도 검토 후보 | 11,536 × 1024 |
+| 01 파일럿 기준 | `data/versions/01_pilot_baseline_2026-10-10/` | 이전 서비스 색인. 백업·비교용 | 10,088 × 1024 |
+| 02 pipeline_h v2 | `data/versions/02_pipeline_h_2026-10-14/` | 전체 실행·검증 완료. 03·04의 입력 | 11,536 × 1024 |
+| 03 v2 표 회수 | `data/versions/03_pipeline_h_v2_table_recovery_2026-10-14/` | 02 + 연속 표 2개 단위 회수. 04의 입력 | 11,536 × 1024 |
+| **04 보충 (현재 서비스)** | `data/versions/04_pipeline_h_supplement_2026-10-14/` | 03 + 보충 19문서(보호 해제 9 + CT.gov 프로토콜·SAP 10), 111문서. **2026-10-14 22:28부터 RA 서비스 색인** | 15,682 × 1024 |
+| 05 절 제목 재청킹 | `data/versions/05_section_titles_2026-10-15/` | 비교 후 채택하지 않은 후보(`versions.json` 미등록). 서비스 안 함 | 16,725 × 1024 |
 
-같은 17문항·GPT-5.6 Luna 개발 평가에서 완전 충족은 01이 8/17, 02가 11/17이다. 03과 코드 4.9.1~4.9.3은 일부 문항의 제한 재평가만 했다([H v2 개발 평가](docs/rag/H_V2_RAG_DEVELOPMENT_EVAL_2026-10-14.md)).
+같은 17문항·GPT-5.6 Luna 개발 평가에서 완전 충족은 01이 8/17, 02가 11/17이다. 03과 코드 4.9.1~4.9.3은 일부 문항의 제한 재평가만 했다([H v2 개발 평가](docs/rag/H_V2_RAG_DEVELOPMENT_EVAL_2026-10-14.md)). 04와 현재 코드의 측정은 [현재 서빙 상태 — 평가](docs/current/07_EVALUATION.md).
 
 각 버전은 `preprocessed/`(전처리 완료) · `embedded/`(청크+BGE-M3 벡터) · `records/`(실행 기록)로 나뉜다. 역할 포인터는 `data/versions/versions.json`. 상세와 벡터 DB 적재 시 읽을 파일은 [data/README.md](data/README.md).
 
@@ -70,9 +74,9 @@ uv run python -m ingestion.load_catalog ; uv run python -m ingestion.db_verify
 .\.venv\Scripts\python.exe -X utf8 -B -m unittest discover -s tests
 .\.venv\Scripts\python.exe -X utf8 -B -m unittest pipelines.pipeline_h.test_policy pipelines.pipeline_h.test_batch pipelines.pipeline_h.test_html_source
 
-# 5) RA 서비스 (파일럿 기준 데이터). 다른 서비스가 쓰는 포트는 피한다
+# 5) RA 서비스 (릴리스를 생략하면 versions.json의 served_by_ra_service = 04). 다른 서비스가 쓰는 포트는 피한다
 .\scripts\start_ra_service.ps1 -Port 8895 -ReviewUrl http://127.0.0.1:8896
-.\.venv\Scripts\python.exe -X utf8 -B -m review_viewer --run data/versions/02_pipeline_h_2026-10-14/embedded/release --port 8896
+.\.venv\Scripts\python.exe -X utf8 -B -m review_viewer --run data/versions/04_pipeline_h_supplement_2026-10-14/embedded/release --port 8896
 
 # 6) 적재 요청 에이전트
 uv run python -m ingestion.agent
