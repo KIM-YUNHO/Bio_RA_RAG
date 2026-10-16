@@ -13,7 +13,7 @@ Off by default; BIOSIM_CONDITION_CHECK=on enables it in the RA pipeline.
 """
 import re
 
-VERSION = 'ra-question-condition-check-2-value-claims'
+VERSION = 'ra-question-condition-check-3-extrapolation-timepoint'
 
 # dimension -> {condition: (pattern in the Korean/English question, pattern in an English source quote)}
 CONDITIONS = {
@@ -70,6 +70,17 @@ def cited_scope(result, claims=None):
     return ' '.join(p for p in parts if p)
 
 
+# A condition named only where a source extrapolates or waives it ("extrapolation of the SC data
+# to the IV route", "waive a clinical study using the IV presentation") is not studied data for it.
+EXTRAPOLATION = re.compile(r'extrapolat|waiv|외삽|면제', re.I)
+
+
+def states(pattern, scope):
+    """The scope states the condition in a sentence that is not an extrapolation or waiver."""
+    return any(re.search(pattern, sentence, re.I) and not EXTRAPOLATION.search(sentence)
+               for sentence in re.split(r'(?<=[.;])\s+|\n', scope))
+
+
 def value_claim(claim):
     """A claim that reports a measured result (a decimal such as a ratio or CI bound, or a
     percentage); a dose strength or volume ("45 mg/0.5 mL") is not a result."""
@@ -78,11 +89,39 @@ def value_claim(claim):
 
 def unlabelled_value(result, claim, dimension, name):
     """A result value whose own cited scope does not state the requested condition, while the
-    claim text names no condition of this dimension (it would read as the requested one)."""
+    claim text names no OTHER condition of this dimension (naming only the requested one, as in
+    "IV 외삽을 뒷받침한 시험의 GMR", still reads as the requested condition's result)."""
     if not value_claim(claim) or any(re.search(q, claim.get('text', ''), re.I)
-                                     for q, _ in CONDITIONS[dimension].values()):
+                                     for other, (q, _) in CONDITIONS[dimension].items() if other != name):
         return False
-    return not re.search(CONDITIONS[dimension][name][1], cited_scope(result, [claim]), re.I)
+    return not states(CONDITIONS[dimension][name][1], cited_scope(result, [claim]))
+
+
+# Visit time points that make a value time-point specific; dosing/baseline days are not.
+TIMEPOINT = re.compile(r'\b(Day|Week|Month)\s*(-?\d+)\b', re.I)
+# A source sentence that reports the whole period ("overall incidence ... across timepoints").
+OVERALL = re.compile(r'overall|across\s+(?:all\s+)?time\s*points|any\s+time\s*point|at\s+least\s+one|whole\s+study|entire\s+study', re.I)
+TIME_WORDS = re.compile(r'(?:Day|Week|Month)\s*\d+|\d+\s*(?:일|주|개월)\s*(?:차|째|시점|까지|후)?|시점|기간|기준선|baseline|EOS|종료', re.I)
+
+
+def timepoint_values(question, result):
+    """Value claims citing time-point specific results (Day 29, Day 99) without naming a time
+    point, when the question named none either: the value would read as the whole-period result."""
+    if TIME_WORDS.search(question or ''):
+        return [], []
+    claims, points = [], []
+    for claim in result.get('claims', []):
+        if not value_claim(claim) or TIME_WORDS.search(claim.get('text', '')):
+            continue
+        scope = cited_scope(result, [claim])
+        if OVERALL.search(scope):
+            continue
+        found = [f'{u.title()} {n}' for u, n in TIMEPOINT.findall(scope)
+                 if not (u.lower() in ('day', 'week') and int(n) <= 1)]
+        if found:
+            claims.append(claim)
+            points += found
+    return claims, list(dict.fromkeys(points))
 
 
 def check(question, result):
@@ -100,7 +139,7 @@ def check(question, result):
     for dimension, names in requested(question).items():
         for name in names:
             pattern = CONDITIONS[dimension][name][1]
-            if re.search(pattern, quotes, re.I):
+            if states(pattern, quotes):
                 values = [c for c in result.get('claims', []) if unlabelled_value(result, c, dimension, name)]
                 if not values:
                     continue
@@ -112,6 +151,10 @@ def check(question, result):
                       if other != name and re.search(s_pattern, scope, re.I)]
             missing.append({'dimension': dimension, 'requested': name, 'cited_instead': stated,
                             **({'value_claims': ids} if ids else {})})
+    claims, points = timepoint_values(question, result)
+    if claims:
+        missing.append({'dimension': 'timepoint', 'requested': '시점 미지정', 'cited_instead': points,
+                        'value_claims': [c.get('id') for c in claims]})
     return missing
 
 
@@ -123,6 +166,9 @@ def apply(question, result):
         return result
     notes = []
     for m in missing:
+        if m['dimension'] == 'timepoint':
+            notes.append(f"인용한 값은 특정 시점({', '.join(m['cited_instead'][:4])})의 결과입니다. 전체 기간의 값으로 해석하지 마세요.")
+            continue
         other = f" 인용한 근거는 {', '.join(m['cited_instead'])} 자료입니다." if m['cited_instead'] else ''
         notes.append(f"질문한 조건({m['requested']})을 명시한 근거를 확인하지 못했습니다.{other}")
     notice = ' '.join(notes) + ' 아래 내용을 질문한 조건의 결과로 해석하지 마세요.'
