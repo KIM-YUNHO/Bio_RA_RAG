@@ -13,7 +13,7 @@ Off by default; BIOSIM_CONDITION_CHECK=on enables it in the RA pipeline.
 """
 import re
 
-VERSION = 'ra-question-condition-check-1'
+VERSION = 'ra-question-condition-check-2-value-claims'
 
 # dimension -> {condition: (pattern in the Korean/English question, pattern in an English source quote)}
 CONDITIONS = {
@@ -53,7 +53,7 @@ def requested(question):
     return found
 
 
-def cited_scope(result):
+def cited_scope(result, claims=None):
     """Cited quotes plus the section path and caption of each cited evidence block.
 
     A table cell quote ('260 mg') carries its scope only in the table caption or section
@@ -62,7 +62,7 @@ def cited_scope(result):
     """
     evidence = result.get('evidence') or {}
     parts = []
-    for claim in result.get('claims', []):
+    for claim in (result.get('claims', []) if claims is None else claims):
         for source in claim.get('sources', []):
             parts.append(source.get('quote', ''))
             structure = (evidence.get(source.get('evidence')) or {}).get('structure') or {}
@@ -70,19 +70,48 @@ def cited_scope(result):
     return ' '.join(p for p in parts if p)
 
 
+def value_claim(claim):
+    """A claim that reports a measured result (a decimal such as a ratio or CI bound, or a
+    percentage); a dose strength or volume ("45 mg/0.5 mL") is not a result."""
+    return bool(re.search(r'\d\.\d+(?!\d|\s*(?:mL|mg|ml))|\d\s*%', claim.get('text', '')))
+
+
+def unlabelled_value(result, claim, dimension, name):
+    """A result value whose own cited scope does not state the requested condition, while the
+    claim text names no condition of this dimension (it would read as the requested one)."""
+    if not value_claim(claim) or any(re.search(q, claim.get('text', ''), re.I)
+                                     for q, _ in CONDITIONS[dimension].values()):
+        return False
+    return not re.search(CONDITIONS[dimension][name][1], cited_scope(result, [claim]), re.I)
+
+
 def check(question, result):
-    """Conditions requested by the question that the cited scope never states, with conditions it does state."""
+    """Conditions requested by the question that the cited scope does not state, with conditions it does state.
+
+    The whole answer's cited scope must state the condition. In addition a value claim must not
+    silently carry another condition's value: another claim's quote about the requested condition
+    (e.g. "extrapolation of the SC data to the IV route") does not make an SC study's GMR an IV
+    result. A value claim that names its own condition ("경로는 피하주사였다") is not flagged.
+    """
     quotes = cited_scope(result)
     missing = []
     if not quotes:
         return missing
     for dimension, names in requested(question).items():
         for name in names:
-            if re.search(CONDITIONS[dimension][name][1], quotes, re.I):
-                continue
+            pattern = CONDITIONS[dimension][name][1]
+            if re.search(pattern, quotes, re.I):
+                values = [c for c in result.get('claims', []) if unlabelled_value(result, c, dimension, name)]
+                if not values:
+                    continue
+                scope = cited_scope(result, values)
+                ids = [c.get('id') for c in values]
+            else:
+                scope, ids = quotes, None
             stated = [other for other, (_, s_pattern) in CONDITIONS[dimension].items()
-                      if other != name and re.search(s_pattern, quotes, re.I)]
-            missing.append({'dimension': dimension, 'requested': name, 'cited_instead': stated})
+                      if other != name and re.search(s_pattern, scope, re.I)]
+            missing.append({'dimension': dimension, 'requested': name, 'cited_instead': stated,
+                            **({'value_claims': ids} if ids else {})})
     return missing
 
 

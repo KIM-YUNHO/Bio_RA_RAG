@@ -75,6 +75,21 @@ def quantities(text):
     return result
 
 
+LISTED = re.compile(r'(?<![\w.])(\d+(?:\.\d+)?(?:\s*,\s*\d+(?:\.\d+)?)+\s*,?\s*(?:and|or)\s+\d+(?:\.\d+)?)\s*('
+    + UNIT_PATTERN + r')(?![A-Za-z])')
+
+
+def listed_quantities(text):
+    """A printed source list shares its one trailing unit: "at 10, 15, and 113 days".
+
+    Used only on cited source text, so a claim may write "10일, 15일, 113일".
+    """
+    result = set()
+    for values, unit in LISTED.findall(normalized(text)):
+        result.update((Decimal(numeric_token(v)), unit_alias(unit)) for v in re.findall(r'\d+(?:\.\d+)?', values))
+    return result
+
+
 def proposed_quantities(text):
     """Recognize an explicit pair sharing a trailing unit in a proposal.
 
@@ -104,7 +119,9 @@ def substantive_text(claim, evidence):
             # Source product metadata already constrains this proposal's scope.
             names=[product,*study_registry.products().get(product,{}).get('names',[])]
             for name in names:
-                pattern=r'(?<![A-Za-z0-9])'+re.escape(name)+r'(?![A-Za-z0-9])'
+                # Not inside a longer hyphenated identifier: removing BAT-2206 from
+                # BAT-2206-001-CR would leave "-001", read as the number -1.
+                pattern=r'(?<![A-Za-z0-9])(?<![A-Za-z0-9]-)'+re.escape(name)+r'(?![A-Za-z0-9]|-[A-Za-z0-9])'
                 removals.update((m.start(),m.end()) for m in re.finditer(pattern,text,re.I))
         identified = set()
         for cite in claim['sources']:
@@ -141,7 +158,7 @@ def check(claim, evidence):
                 substantive = substantive.replace(left + title + right, '')
     if not numbers(substantive) <= numbers(quoted):
         return 'claim_number_not_in_final_citations'
-    if not quantities(substantive) <= quantities(quoted) | table_quantities(claim, evidence):
+    if not quantities(substantive) <= quantities(quoted) | listed_quantities(quoted) | table_quantities(claim, evidence):
         return 'claim_quantity_value_or_unit_not_in_final_citations'
     # Explicit product clauses must get their quantities from their own product.
     # This is a lexical invariant, not a parser for all cross-sentence meaning.

@@ -40,5 +40,26 @@ class ConditionCheckTests(unittest.TestCase):
         self.assertEqual(r['condition_check']['missing'], [])
 
 
+    def test_value_claim_needs_the_condition_in_its_own_cited_scope(self):
+        # Another claim's quote names IV; the GMR value cites only the SC study (EMA_UST_PK_023).
+        evidence = {'E1': {'structure': {'section_path': ['2.6 Clinical aspects'], 'caption': None}}}
+        background = {'id': 'C1', 'text': 'EPAR은 SC 자료를 IV 경로로 외삽하는 근거를 기술했다.',
+                      'sources': [{'evidence': 'E1', 'quote': 'extrapolation of the SC data to the IV administration route'}]}
+        value = {'id': 'C2', 'text': 'BAT-2206-001-CR에서 AUCinf GMR은 0.9789였다.',
+                 'sources': [{'evidence': 'E1', 'quote': 'pivotal PK study BAT-2206-001-CR, the 90% CIs of the GMRs'}]}
+        r = {'status': 'answered', 'answer_ko': '답변', 'gaps': [], 'evidence': evidence, 'claims': [background, value]}
+        self.assertEqual(check('IV 직접 비교 PK 시험에서 측정된 AUCinf GMR은?', r),
+                         [{'dimension': 'route', 'requested': '정맥(IV)', 'cited_instead': [], 'value_claims': ['C2']}])
+        value['text'] = 'BAT-2206-001-CR(피하 투여)에서 AUCinf GMR은 0.9789였다.'
+        self.assertEqual(check('IV 직접 비교 PK 시험에서 측정된 AUCinf GMR은?', r), [])
+
+    def test_value_claim_citing_the_requested_condition_is_not_flagged(self):
+        r = result(['Cmax GMR 0.98 after a single intravenous infusion'])
+        r['claims'][0]['text'] = 'IV 단회 주입 후 Cmax GMR은 0.98이었다.'
+        self.assertEqual(check('IV 투여 시험의 Cmax GMR은?', r), [])
+        r['claims'][0]['text'] = 'Cmax GMR은 0.98이었다.'
+        self.assertEqual(check('IV 투여 시험의 Cmax GMR은?', r), [])
+
+
 if __name__ == '__main__':
     unittest.main()

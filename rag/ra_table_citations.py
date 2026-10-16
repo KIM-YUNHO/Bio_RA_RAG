@@ -100,6 +100,10 @@ def binding_quantities(alias, relation, spans, *, role=None, endpoint=None):
     if endpoint and compact(endpoint) not in compact(header):return set()
     printed_units=ra_quantities.units(header)
     raw=ra_quantities.normalized(spans[alias]['quote']).strip()
+    # A cell may print its own percentage with the counts behind it: "16.2% (18/111)".
+    printed=re.fullmatch(r'([+−-]?\d+(?:\.\d+)?)\s*%\s*(?:\(\s*\d+\s*/\s*\d+\s*\))?',raw)
+    if printed:
+        return set() if role is not None else {(Decimal(ra_quantities.numeric_token(printed[1])),'%')}
     if not re.fullmatch(r'[\d\s.,+−\-–()±]+',raw):return set()
     roles=[]
     if re.search(r'\bMedian\b',header,re.I):roles=['median','range']

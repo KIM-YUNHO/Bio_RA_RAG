@@ -109,7 +109,10 @@ def _check(text, own):
             and re.search(r'If certain clinical and in vivo non-clinical studies', own, re.I)
             and not re.search(r'임상|비임상|clinical|in vivo|PK|PD', text, re.I)):
         return 'selected_clinical_bridge_condition_not_preserved'
-    if re.search(r'단일\s*(?:용량|투여|주사|SC)|단회|한\s*번|single[- ]dose', text, re.I):
+    # "한 번" is a dose qualifier only next to an administration word; "최소 한 번 양성"
+    # or "한 번 이상" counts test results, not doses.
+    if re.search(r'단일\s*(?:용량|투여|주사|SC)|단회|한\s*번(?:만)?\s*(?:의\s*)?(?:투여|주사|주입|접종|용량)'
+                 r'|(?:투여|주사|주입|접종)\S*\s*한\s*번(?!\s*(?:이상|도))|single[- ]dose', text, re.I):
         if not re.search(r'\bsingle(?:[- ]dose|\s+(?:dose|injection|SC|(?:subcutaneous\s+|intravenous(?:\s*\(IV\))?\s+(?:tiered\s+)?)?(?:dose|infusion)))|단회|단일\s*(?:용량|투여)', own, re.I):
             return 'single_dose_qualifier_not_in_selected_sources'
     if re.search(r'대조약|comparator', text, re.I) and re.search(r'승인|허가|라이선스|라이센스|authori[sz]ed|approved|licensed', text, re.I):
