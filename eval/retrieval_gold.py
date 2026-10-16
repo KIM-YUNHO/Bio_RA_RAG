@@ -120,7 +120,10 @@ def main():
         for it in items:
             u = plans[it['id']]
             tasks = {t['id']: t for t in u['tasks']}
-            groups = ra_retrieval.retrieve(corpus, deepcopy(u), pipe.guidelines, documents=corpus.allowed_documents, k=a.pool)
+            # The pool is the plain hybrid order: the production default reranks, which would make
+            # 'none' a reranked baseline and tie the pool size to rerank_pool.
+            groups = ra_retrieval.retrieve(corpus, deepcopy(u), pipe.guidelines, documents=corpus.allowed_documents, k=a.pool,
+                                           profile={'rerank': None, 'rerank_fuse': False})
             pools = [(g['task_id'], g.get('product'), g.get('jurisdiction'),
                       [index[h['chunk']['chunk_id']] for h in g['hits'] if h['chunk']['chunk_id'] in index])
                      for g in groups if g.get('product') is not None or g['hits']]
