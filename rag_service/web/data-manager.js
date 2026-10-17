@@ -2,32 +2,49 @@
 const DataManager=(()=>{
   const labels={queued:"수집 준비",staging:"스테이징 수집 중",awaiting_approval:"확인표 검토 대기",approved:"등록 준비",promoting:"자료 등록 중",done:"자료 등록 완료",failed:"실패",cancelled:"취소"};
   const eventLabels={planned:"수집 계획 확정",staging_started:"수집 시작",staged:"수집 결과 확인표",promoted:"자료 등록",database_updated:"DB 갱신",failed:"작업 실패"};
-  let dialog=null,sidebar=null,main=null,notice=null,connection=null,session=null,view=null,busy=false,timer=null,generation=0,overviewData=null,signature="",query="";
+  let dialog=null,sidebar=null,main=null,notice=null,connection=null,session=null,view=null,busy=false,timer=null,generation=0,overviewToken=0,overviewData=null,signature="",query="",deleteBox=null,pendingDelete=null;
   const drafts=new Map();
   const post=(path,value)=>api(path,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(value)});
   const alive=screen=>dialog===screen&&screen?.open;
   const note=(message,error=false)=>{if(notice){notice.textContent=message;notice.classList.toggle("is-error",error);}};
-  function working(value){busy=value;if(dialog)dialog.querySelectorAll("button,input,textarea").forEach(e=>{if(!e.classList.contains("data-manager-close"))e.disabled=value;});}
+  function working(value){busy=value;if(dialog)dialog.querySelectorAll("button,input,textarea").forEach(e=>{if(!e.classList.contains("data-manager-close"))e.disabled=value||e.dataset.unavailable==="true";});}
   function sessionName(s){return s.target?.product_id||Object.values(s.target?.names||{})[0]||s.target?.ingredient||"새 적재 대화";}
+  const canDelete=s=>s.can_delete??(!s.request_status&&!s.request||["done","failed","cancelled"].includes(s.request_status||s.request?.status));
+  function deleteButton(s,header=false){const b=button(header?"대화 삭제":"삭제",header?"download collection-delete-action":"collection-session-delete",()=>askDelete(s));b.dataset.sessionId=s.id;b.dataset.unavailable=String(!canDelete(s));b.disabled=!canDelete(s);b.setAttribute("aria-label",sessionName({target:s.target||s.state?.target})+" 적재 대화 삭제");b.title=canDelete(s)?"이 적재 대화 삭제":"수집·등록 또는 확인표 검토가 끝난 뒤 삭제할 수 있습니다.";return b;}
+  function askDelete(s){
+    if(busy||!canDelete(s))return;pendingDelete={id:s.id,name:sessionName({target:s.target||s.state?.target})};deleteBox.replaceChildren();deleteBox.hidden=false;
+    const text=node("div"),error=node("p","collection-delete-error");error.setAttribute("role","alert");text.append(node("strong","",pendingDelete.name+" 대화를 삭제할까요?"),node("p","","대화 목록에서 삭제합니다. 수집 요청과 등록한 자료는 유지됩니다."),error);
+    const actions=node("div","collection-delete-actions"),cancel=button("취소","download",()=>{pendingDelete=null;deleteBox.hidden=true;deleteBox.replaceChildren();});actions.append(cancel,button("삭제","primary-button collection-delete-confirm-button",removeSession));deleteBox.append(text,actions);cancel.focus();
+  }
+  function forgetSession(id){drafts.delete(id);if(Prefs.get("ingestionSession","")===id)Prefs.set("ingestionSession","");const saved=Prefs.get("ingestionView",null);if(saved?.kind==="session"&&saved.id===id)Prefs.set("ingestionView",null);}
+  async function removeSession(){
+    if(busy||!pendingDelete)return;const screen=dialog,id=pendingDelete.id;deleteBox.querySelector(".collection-delete-error").textContent="";working(true);note("대화를 삭제하고 있습니다.");
+    try{await post(`/api/ingestion/sessions/${id}/delete`,{});forgetSession(id);if(!alive(screen))return;pendingDelete=null;deleteBox.hidden=true;deleteBox.replaceChildren();
+      if(session?.id===id)session=null;if(view?.kind==="session"&&view.id===id){view=null;signature="";main.replaceChildren(node("div","collection-welcome","대화를 삭제했습니다. 다른 대화를 선택하거나 새 수집 요청을 시작하세요."));}
+      const current=view;await overview();if(alive(screen)&&view===current&&current?.kind==="request"){const data=await api(`/api/ingestion/requests/${current.id}`);if(alive(screen)&&view===current){signature=JSON.stringify(data);renderRequest(data,true);}}
+      if(alive(screen))note("적재 대화를 삭제했습니다.");
+    }catch(e){if(alive(screen)){note(e.message,true);const error=deleteBox.querySelector(".collection-delete-error");if(error)error.textContent="삭제하지 못했습니다. "+e.message;}}finally{if(alive(screen))working(false);}
+  }
   const productName=p=>p.ema_name||p.us_brand||p.ca_brand||p.product_id||"수집 요청";
   const requestName=r=>(r.products||r.payload?.products||[]).map(productName).join(" · ")||"수집 요청";
   const date=value=>new Date(value).toLocaleString("ko-KR",{month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit"});
   function mark(item,kind,id){item.setAttribute("aria-current",String(view?.kind===kind&&view.id===id));return item;}
   function paintSidebar(data){
+    const sessionsOpen=sidebar.querySelector(".collection-sessions")?.open,releasesOpen=sidebar.querySelector(".collection-releases")?.open,scrollTop=sidebar.scrollTop;
     sidebar.replaceChildren();const caption=node("div","collection-list-caption");const rows=data.requests.filter(r=>[requestName(r),JSON.stringify(r.products||[])].join(" ").toLocaleLowerCase().includes(query));caption.append(node("span","","수집 요청"),node("span","",String(rows.length)));sidebar.append(caption);
     if(!rows.length)sidebar.append(node("p","collection-sidebar-empty",query?"검색 결과가 없습니다.":"아직 수집 요청이 없습니다."));
     for(const r of rows){const item=mark(button("","data-manager-item collection-request",()=>openRequest(r.id)),"request",r.id),identity=node("span","collection-request-identity");identity.append(node("strong","",requestName(r)),node("small","",(r.products||[]).map(p=>p.product_id).filter(Boolean).join(" · ")||date(r.created_at)));item.append(identity,node("span","collection-badge "+r.status,labels[r.status]||r.status));sidebar.append(item);}
-    const sessions=node("details","collection-sessions");sessions.open=view?.kind==="session";sessions.append(node("summary","",`적재 대화 ${data.sessions.length}개`));
+    const sessions=node("details","collection-sessions");sessions.open=sessionsOpen??(view?.kind==="session");sessions.append(node("summary","",`적재 대화 ${data.sessions.length}개`));
     if(!data.sessions.length)sessions.append(node("p","muted small","아직 적재 대화가 없습니다."));
-    for(const s of data.sessions.filter(s=>[sessionName(s),s.target?.ingredient].join(" ").toLocaleLowerCase().includes(query)))sessions.append(mark(button(`${sessionName(s)} · ${new Date(s.updated_at).toLocaleDateString("ko-KR")}`,"data-manager-item",()=>openSession(s.id)),"session",s.id));sidebar.append(sessions);
-    const releases=node("details","scope-details");releases.append(node("summary","",`DB 릴리스 ${data.releases.length}개`));
+    for(const s of data.sessions.filter(s=>[sessionName(s),s.target?.ingredient].join(" ").toLocaleLowerCase().includes(query))){const row=node("div","collection-session-row");row.dataset.sessionId=s.id;row.append(mark(button(`${sessionName(s)} · ${new Date(s.updated_at).toLocaleDateString("ko-KR")}`,"data-manager-item",()=>openSession(s.id)),"session",s.id),deleteButton(s));sessions.append(row);}sidebar.append(sessions);
+    const releases=node("details","scope-details collection-releases");releases.open=releasesOpen??false;releases.append(node("summary","",`DB 릴리스 ${data.releases.length}개`));
     for(const r of data.releases)releases.append(node("p","small",`${r.id}\n${r.documents}문서 · ${r.chunks.toLocaleString()}청크`));sidebar.append(releases);
-    sidebar.append(node("p","validation-note",`현재 검색 자료 · ${(data.service.product_index_chunks||0).toLocaleString()}청크`));working(busy);
+    sidebar.append(node("p","validation-note",`현재 검색 자료 · ${(data.service.product_index_chunks||0).toLocaleString()}청크`));sidebar.scrollTop=scrollTop;working(busy);
   }
   async function overview(){
-    const screen=dialog;if(!alive(screen))return null;
-    try{const data=await api("/api/ingestion");if(!alive(screen))return null;overviewData=data;connection.textContent="적재 서비스 연결됨 · 5초마다 상태 갱신";connection.classList.remove("is-error");paintSidebar(data);return data;}
-    catch(e){if(alive(screen)){connection.textContent="적재 서비스 연결 오류";connection.classList.add("is-error");note(e.message,true);}return null;}
+    const screen=dialog,mine=++overviewToken;if(!alive(screen))return null;
+    try{const data=await api("/api/ingestion");if(!alive(screen)||mine!==overviewToken)return null;overviewData=data;connection.textContent="적재 서비스 연결됨 · 5초마다 상태 갱신";connection.classList.remove("is-error");paintSidebar(data);return data;}
+    catch(e){if(alive(screen)&&mine===overviewToken){connection.textContent="적재 서비스 연결 오류";connection.classList.add("is-error");note(e.message,true);}return null;}
   }
   async function create(){
     if(busy)return;const screen=dialog;working(true);note("새 적재 대화를 만들고 있습니다.");
@@ -41,7 +58,7 @@ const DataManager=(()=>{
   }
   function renderSession(){
     if(!dialog?.open||!session)return;main.replaceChildren();const head=node("div","data-manager-section-head");
-    head.append(node("h3","",sessionName({target:session.state.target})+" · 자료 적재"),button("진행·확인표 보기","download",()=>turn("/status")));main.append(head);
+    const actions=node("div","collection-session-actions");actions.append(button("진행·확인표 보기","download",()=>turn("/status")),deleteButton(session,true));head.append(node("h3","",sessionName({target:session.state.target})+" · 자료 적재"),actions);main.append(head);
     if(session.request){main.append(progress(session.request.status));const status=node("div","ingestion-progress");status.append(node("strong","",labels[session.request.status]||session.request.status),button("이벤트·로그 보기","link-button",()=>openRequest(session.request.id)));main.append(status);
       if(session.request.status==="awaiting_approval")main.append(node("p","validation-note","수집이 끝났습니다. ‘진행·확인표 보기’에서 결과를 확인한 뒤 자료 등록을 승인하세요."));
       if(session.request.status==="done")main.append(node("p","validation-note","자료 등록이 완료됐습니다. 검색에 사용하려면 전처리·임베딩·릴리스 반영이 필요합니다."));}
@@ -126,10 +143,10 @@ const DataManager=(()=>{
     catch(e){if(alive(screen))note(e.message,true);}
   }
   async function open(){
-    if(dialog)return;const epoch=++generation;session=null;view=null;overviewData=null;signature="";busy=false;
+    if(dialog)return;const epoch=++generation;session=null;view=null;overviewData=null;signature="";busy=false;pendingDelete=null;
     dialog=node("dialog","workspace-dialog data-manager-dialog");dialog.setAttribute("aria-labelledby","collection-title");const screen=dialog,head=node("div","workspace-dialog-head"),title=node("div","collection-brand"),titleText=node("div"),heading=node("h2","","자료 수집·적재");heading.id="collection-title";titleText.append(heading,node("p","","비교·참고 제품의 규제 자료를 관리합니다"));title.append(node("span","collection-brand-bar"),titleText);connection=node("p","ingestion-connection","적재 서비스 연결 확인 중");connection.setAttribute("role","status");
     const close=button("×","icon-button data-manager-close",()=>screen.close());close.setAttribute("aria-label","자료 관리 닫기");const topActions=node("div","collection-top-actions");topActions.append(connection,button("+ 새 수집 요청","primary-button",create),close);head.append(title,topActions);
-    const body=node("div","data-manager-body"),aside=node("aside","data-manager-sidebar"),searchLabel=node("label","collection-search"),search=node("input");search.type="search";search.placeholder="제품명으로 찾기";search.setAttribute("aria-label","수집 요청 검색");search.value=query;search.oninput=()=>{query=search.value.trim().toLocaleLowerCase();if(overviewData)paintSidebar(overviewData);};searchLabel.append(search);sidebar=node("div","collection-sidebar-list");aside.append(searchLabel,sidebar);main=node("section","data-manager-main");main.setAttribute("aria-label","자료 수집 요청 상세");main.append(node("div","collection-welcome","수집 요청을 선택하거나 ‘새 수집 요청’으로 제품·성분을 입력하세요."));body.append(aside,main);notice=node("div","pipeline-message");notice.setAttribute("role","status");dialog.append(head,body,notice);document.body.append(dialog);
+    const body=node("div","data-manager-body"),aside=node("aside","data-manager-sidebar"),searchLabel=node("label","collection-search"),search=node("input");search.type="search";search.placeholder="제품명으로 찾기";search.setAttribute("aria-label","수집 요청 검색");search.value=query;search.oninput=()=>{query=search.value.trim().toLocaleLowerCase();if(overviewData)paintSidebar(overviewData);};searchLabel.append(search);sidebar=node("div","collection-sidebar-list");aside.append(searchLabel,sidebar);main=node("section","data-manager-main");main.setAttribute("aria-label","자료 수집 요청 상세");main.append(node("div","collection-welcome","수집 요청을 선택하거나 ‘새 수집 요청’으로 제품·성분을 입력하세요."));body.append(aside,main);deleteBox=node("section","collection-delete-confirm");deleteBox.hidden=true;deleteBox.setAttribute("aria-label","적재 대화 삭제 확인");notice=node("div","pipeline-message");notice.setAttribute("role","status");dialog.append(head,deleteBox,body,notice);document.body.append(dialog);
     screen.addEventListener("close",()=>{clearTimeout(timer);screen.remove();if(dialog===screen){dialog=null;session=null;view=null;busy=false;generation++;}},{once:true});screen.showModal();
     const data=await overview();if(!alive(screen)||generation!==epoch)return;
     if(data){const saved=Prefs.get("ingestionView",null),previous=Prefs.get("ingestionSession","");if(saved?.kind==="request"&&data.requests.some(r=>r.id===saved.id))await openRequest(saved.id);else if(saved?.kind==="session"&&data.sessions.some(s=>s.id===saved.id))await openSession(saved.id);else{const pending=data.requests.find(r=>!['done','failed','cancelled'].includes(r.status));if(pending||data.requests[0])await openRequest((pending||data.requests[0]).id);else if(data.sessions.some(s=>s.id===previous))await openSession(previous);}}

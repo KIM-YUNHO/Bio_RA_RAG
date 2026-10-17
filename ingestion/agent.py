@@ -129,7 +129,7 @@ class Agent:
         self.conn = conn
         self.parse = parse or (lambda text, context: openai_parse(conn, self.session_id, text, context))
         if session_id:
-            row = conn.execute("SELECT state FROM ingest.agent_sessions WHERE session_id = %s", (session_id,)).fetchone()
+            row = conn.execute("SELECT state FROM ingest.agent_sessions WHERE session_id = %s AND deleted_at IS NULL", (session_id,)).fetchone()
             if not row:
                 raise SystemExit(f"no session {session_id}")
             self.session_id, self.state = session_id, row[0]

@@ -166,6 +166,82 @@ class PostgresNotebookTests(unittest.TestCase):
         self.assertIn('시작하지 못했습니다', result['turns'][-1]['reply'])
         self.assertEqual(service.request(result['request']['id'])['events'][-1]['payload']['step'], 'worker_start')
 
+    def test_session_deletion_hides_history_without_erasing_audit_records(self):
+        from ingestion.agent import Agent
+        service = self.control_service()
+        session = service.create()
+        reply = service.turn(session['id'], {'text': '/status'})
+        self.assertTrue(reply['can_delete'])
+        service.delete(session['id'])
+        self.assertEqual(service.delete(session['id']), {'id': session['id'], 'deleted': True})
+        self.assertNotIn(session['id'], [s['id'] for s in service.overview({})['sessions']])
+        with self.assertRaises(KeyError):
+            service.session(session['id'])
+        with self.assertRaises(KeyError):
+            service.turn(session['id'], {'text': '/status'})
+        with self.connector() as conn:
+            self.assertIsNotNone(conn.execute('SELECT deleted_at FROM ingest.agent_sessions WHERE session_id = %s', (session['id'],)).fetchone()[0])
+            self.assertEqual(conn.execute('SELECT user_text, reply FROM ingest.agent_turns WHERE session_id = %s', (session['id'],)).fetchall(), [('/status', reply['turns'][0]['reply'])])
+            with self.assertRaises(SystemExit):
+                Agent(conn, session['id'])
+
+    def test_deletion_blocks_active_requests_and_preserves_completed_request(self):
+        from ingestion.worker import set_status
+        service = self.control_service()
+        session = self.seed_planned(service)
+        with patch('ingestion.agent.spawn'):
+            started = service.turn(session['id'], {'action': 'start', 'plan_sha256': session['plan_sha256']}, control=True)
+        request_id = started['request']['id']
+        with self.connector() as conn:
+            for status in ('queued', 'staging', 'awaiting_approval', 'approved', 'promoting'):
+                with self.subTest(status=status):
+                    set_status(conn, request_id, status)
+                    self.assertFalse(service.session(session['id'])['can_delete'])
+                    listed = next(s for s in service.overview({})['sessions'] if s['id'] == session['id'])
+                    self.assertFalse(listed['can_delete'])
+                    with self.assertRaises(RevisionConflict):
+                        service.delete(session['id'])
+                    self.assertIsNone(conn.execute('SELECT deleted_at FROM ingest.agent_sessions WHERE session_id = %s', (session['id'],)).fetchone()[0])
+            set_status(conn, request_id, 'done')
+        original_request = service.request(request_id)
+        self.assertTrue(service.session(session['id'])['can_delete'])
+        service.delete(session['id'])
+        self.assertEqual(service.request(request_id), original_request)
+        self.assertIn(request_id, [r['id'] for r in service.overview({})['requests']])
+
+    def test_session_deletion_http_contract_and_turn_lock(self):
+        import json
+        import urllib.request
+        import urllib.error
+        from test_workspace_http import fixture
+        service = self.control_service()
+        session = service.create()
+        with self.connector() as lock_conn:
+            lock_conn.execute('SELECT pg_advisory_lock(20261015, 2)')
+            with self.assertRaises(RevisionConflict):
+                service.delete(session['id'])
+            lock_conn.execute('SELECT pg_advisory_unlock(20261015, 2)')
+        with fixture(ingestion_service=service) as (server, _, __):
+            base = f'http://127.0.0.1:{server.server_port}/api/ingestion/sessions/{session["id"]}'
+            opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+            def request(suffix='', payload=None, origin=None):
+                headers = {'Content-Type': 'application/json'}
+                if origin:
+                    headers['Origin'] = origin
+                req = urllib.request.Request(base+suffix, data=json.dumps(payload).encode() if payload is not None else None, headers=headers)
+                with opener.open(req) as response:
+                    return json.load(response)
+            for suffix, payload, origin, status in [('/delete', {}, 'https://example.com', 403),
+                    ('/delete', {'request_id': 'forged'}, None, 400), ('/delete', None, None, 404)]:
+                with self.subTest(status=status), self.assertRaises(urllib.error.HTTPError) as error:
+                    request(suffix, payload, origin)
+                self.assertEqual(error.exception.code, status)
+            self.assertEqual(request('/delete', {}), {'id': session['id'], 'deleted': True})
+            for suffix, payload in [('', None), ('/turns', {'text': '/status'})]:
+                with self.assertRaises(urllib.error.HTTPError) as error:
+                    request(suffix, payload)
+                self.assertEqual(error.exception.code, 404)
+
 
 if __name__ == '__main__':
     unittest.main()
