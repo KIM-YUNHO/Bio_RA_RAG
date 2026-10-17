@@ -23,7 +23,8 @@ class FixtureIngestion:
 
 
 @contextmanager
-def fixture(ingestion_service=None):
+def fixture_jobs(ingestion_service=None):
+    """Jobs over a one-document pipeline with one completed job (evidence E1 on a real PDF); no HTTP server."""
     with tempfile.TemporaryDirectory() as tmp:
         root = Path(tmp)
         path = root/'source.pdf'
@@ -51,6 +52,15 @@ def fixture(ingestion_service=None):
                   'review_memo': {'issues': [{'request': '확인 항목', 'claims': [memo_claim], 'unresolved_requests': [], 'potential_conflicts': []}], 'meeting_questions': [], 'markdown': 'fixture'}}
         job = {'id': JOB_ID, 'state': 'completed', 'question': report['question'], 'created_at': 1, 'report': report}
         jobs.jobs[JOB_ID] = job; jobs.persist(job)
+        try:
+            yield jobs
+        finally:
+            jobs.close()
+
+
+@contextmanager
+def fixture(ingestion_service=None):
+    with fixture_jobs(ingestion_service) as jobs:
         base_handler = handler(jobs)
         class FixtureHandler(base_handler):
             def do_POST(self):
@@ -64,7 +74,7 @@ def fixture(ingestion_service=None):
         try:
             yield server, jobs, thread
         finally:
-            server.shutdown(); server.server_close(); thread.join(); jobs.close()
+            server.shutdown(); server.server_close(); thread.join()
 
 
 class NotebookHttpTests(unittest.TestCase):
