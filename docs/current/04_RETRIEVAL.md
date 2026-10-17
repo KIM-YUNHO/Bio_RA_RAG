@@ -2,6 +2,7 @@
 
 - 작성: 2026-10-16 16:50 KST
 - 수정: 2026-10-16 17:55 KST (`feature/stable-queries` 병합 기준: 계획기 칸 축소, 사실당 영어 검색어 1개. 병합 후 서비스 재시작이 필요하다)
+- 수정: 2026-10-17 17:45 KST (8775·8885 재시작 완료. 두 서비스가 `query_strategy: ra-research-tasks-8-fact-queries`, 4.10.3을 보고한다)
 - 기준: `rag/ra_retrieval.py`(`DEFAULT_PROFILE`), `rag/ra_tasks.py`, `rag/ra_models.py`, `rag/rerank.py`, `rag/ra_sources.py`, `rag/ra_research.py`, 서비스 요약(`query_strategy: ra-research-tasks-8-fact-queries`, `retrieval_strategy: ra-task-hybrid-context-7-topic-queries-slot-terms`)
 - 상위: [현재 서빙 상태](README.md)
 

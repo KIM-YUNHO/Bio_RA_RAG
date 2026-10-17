@@ -21,7 +21,7 @@ from ingestion import db, sources
 from ingestion.contracts import ROOT, Candidate, Evidence, Resolution, load_targets
 from ingestion.sources import norm
 
-ACTIVE_RELEASE = os.environ.get("BIOSIM_ACTIVE_RELEASE", "data/versions/01_pilot_baseline_2026-10-10/embedded/rag_finalization_2026-10-10_v2")  # scripts/start_ra_service.ps1
+ACTIVE_RELEASE = os.environ.get("BIOSIM_ACTIVE_RELEASE", "data/versions/04_pipeline_h_supplement_2026-10-14/embedded/release")  # scripts/start_ra_service.ps1
 TRIGRAM_MIN = 0.45   # similarity floor for typo matches; set with eval/resolver_cases (ingestion.eval_resolver)
 TRIGRAM_BAND = 0.08  # keep matches this close to the best one
 CODE = re.compile(r"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z0-9][A-Za-z0-9 -]{1,14}$")
