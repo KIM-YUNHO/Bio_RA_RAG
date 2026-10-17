@@ -1,5 +1,5 @@
 "use strict";
-// Right pane: a simple view of the cited source page. Detailed review stays in the separate review page.
+// Cited source pages stay inside the RA workspace or the memo reader.
 const Viewer=(()=>{
   let ctx=null,token=0,dock=null,home=null;
   const METHOD={region:"저장된 근거 영역을 강조했습니다.",quote:"인용 문장을 페이지 텍스트에서 찾아 강조했습니다."};
@@ -38,8 +38,7 @@ const Viewer=(()=>{
     img.onload=()=>{const first=frame.querySelector(".page-box");if(first)first.scrollIntoView({block:"center",behavior:"smooth"});};
     img.onerror=()=>frame.replaceWith(node("p","error","페이지 이미지를 만들지 못했습니다."));
     const scroll=node("div","page-scroll");scroll.append(frame);body.append(scroll);
-    const links=node("div","source-links viewer-links"),review=d.review_links[0]&&sourceLink(d.review_links[0].url,"검토 페이지에서 상세 보기 ↗");
-    if(review)links.append(review);
+    const links=node("div","source-links viewer-links");
     const pdf=sourceLink(evidenceUrl(d.eid,"/document.pdf")+`#page=${d.page}`,"원본 PDF ↗");if(pdf)links.append(pdf);
     const official=d.source_url&&sourceLink(d.source_url,"기관 출처 ↗");if(official)links.append(official);
     body.append(links);
