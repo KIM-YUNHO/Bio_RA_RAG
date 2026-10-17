@@ -1,0 +1,16 @@
+:root{--ink:#222;--muted:#6b6b6b;--line:#e0dcdc;--accent:#a50034}
+body{margin:0;background:#f6f6f6;color:var(--ink);font:15px/1.6 "Segoe UI","Malgun Gothic",sans-serif}
+main{max-width:980px;margin:0 auto;padding:24px 16px}
+h1{font-size:22px;margin:0 0 4px;border-left:4px solid var(--accent);padding-left:10px}
+#api-desc{color:var(--muted);margin:0 0 20px}
+.api-area{background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 16px 10px;margin-bottom:14px}
+.api-area h2{font-size:15px;margin:10px 0 6px;color:var(--accent)}
+.api-row{display:flex;gap:10px;align-items:baseline;padding:5px 0;border-top:1px solid #f0eded;flex-wrap:wrap}
+.api-row code{font-size:13px;overflow-wrap:anywhere}
+.api-summary{color:var(--muted);font-size:13px}
+.api-method{min-width:52px;text-align:center;font-size:11px;font-weight:700;border-radius:4px;padding:1px 6px;color:#fff;background:#6b7a90}
+.api-method.post{background:var(--accent)}
+.api-note{color:var(--muted);font-size:12px}
+@media(prefers-color-scheme:dark){body{background:#1b1b1d;color:#e8e8e8}.api-area{background:#242427;border-color:#38383c}.api-row{border-color:#333}}
+.api-row code{min-width:0;word-break:break-all}
+@media(max-width:600px){main{padding:16px 12px}.api-row code{flex:1 1 calc(100% - 70px)}.api-summary{flex:1 1 100%}}

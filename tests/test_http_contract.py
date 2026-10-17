@@ -235,6 +235,21 @@ class StdlibContract(Contract, unittest.TestCase):
 class FastApiContract(Contract, unittest.TestCase):
     kind = 'fastapi'
 
+    def test_api_reference(self):
+        spec = self.get_json('/openapi.json')
+        self.assertEqual(spec['openapi'][:2], '3.')
+        for path, method in [('/api/summary', 'get'), ('/api/questions', 'post'), (f'/api/jobs/{{job_id}}/evidence/{{result_index}}/{{evidence_id}}', 'get'),
+                             ('/api/ingestion/sessions/{session_id}/delete', 'post')]:
+            self.assertIn(method, spec['paths'][path])
+        self.assertNotIn('/app.js', spec['paths'])  # screen files are not part of the API
+        for name in ('/api-docs', '/api-docs.js', '/api-docs.css'):
+            code, headers, payload = self.call('GET', name)
+            self.assertEqual((code, headers['cache-control']), (200, 'no-store'))
+            self.assertIn('x-content-type-options', headers)
+            self.assertGreater(len(payload), 100)
+        self.assertNotIn(b'http', self.call('GET', '/api-docs')[2].replace(b'<!doctype html>', b''))  # nothing is loaded from elsewhere
+        self.assertError(self.call('GET', '/openapi.json', headers={'Origin': 'https://example.org'}), 403, 'Local origin required')
+
 
 if __name__ == '__main__':
     unittest.main()

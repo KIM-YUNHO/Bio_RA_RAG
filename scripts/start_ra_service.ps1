@@ -4,7 +4,9 @@ param(
     [ValidatePattern('^http://127\.0\.0\.1:\d{1,5}$')][string]$ReviewUrl = 'http://127.0.0.1:8766',
     # Release folder relative to the project root (a versions.json embedded_path).
     # Default: the version that versions.json marks as served_by_ra_service.
-    [string]$Release = ''
+    [string]$Release = '',
+    # HTTP layer: the FastAPI app (rag_service/app.py) or the earlier standard-library server.
+    [ValidateSet('fastapi','stdlib')][string]$Server = 'stdlib'
 )
 $ErrorActionPreference = 'Stop'
 $projectRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
@@ -46,7 +48,7 @@ $stdoutPath = Join-Path $logDirectory ($stamp+'.stdout.log')
 $stderrPath = Join-Path $logDirectory ($stamp+'.stderr.log')
 $arguments = @('-X','utf8','-u','-B','-m','rag_service','--mode','ra','--llm-model',$Model,
     '--run',$releasePath,'--guidelines',$guidelinePath,'--port',[string]$Port,
-    '--review-url',$ReviewUrl,'--research-rounds','1','--archive-dir',$archivePath,'--warmup',
+    '--server',$Server,'--review-url',$ReviewUrl,'--research-rounds','1','--archive-dir',$archivePath,'--warmup',
     '--review-dir',(Join-Path $projectRoot 'data\runs\ra_review_records'))
 $quotedArguments = ($arguments | ForEach-Object { '"' + $_.Replace('"','\"') + '"' }) -join ' '
 $serviceProcess = Start-Process -FilePath $pythonPath -ArgumentList $quotedArguments -WorkingDirectory $projectRoot `

@@ -149,7 +149,7 @@ async def json_payload(request: Request):
 def create_app(jobs, port):
     """The service over `jobs` for the given port (the port is part of the same-origin rule)."""
     app = FastAPI(title='RA 근거 검색 서비스', description='바이오시밀러 RA 근거 검색·메모·자료 적재 API (로컬 전용)',
-                  docs_url=None, redoc_url=None, redirect_slashes=False)
+                  docs_url=None, redoc_url=None, openapi_url=None, redirect_slashes=False)
     app.state.jobs = jobs
     app.add_middleware(Boundary, port=port)
 
@@ -183,6 +183,17 @@ def create_app(jobs, port):
         def page(name=name):
             return Response((STATIC / name).read_bytes(), headers={'content-type': STATIC_TYPES[Path(name).suffix], 'cache-control': DEFAULT_CACHE})
         get(url, show=False)(page)
+
+    @get('/openapi.json', show=False)
+    def openapi():
+        return json_response(app.openapi())  # same JSON type as every other answer
+
+    # The API reference page (only this app has /openapi.json); its files come from the repository, not a CDN.
+    for url, name in {'/api-docs': 'api-docs.html', '/api-docs.js': 'api-docs.js', '/api-docs.css': 'api-docs.css'}.items():
+        def doc_page(name=name):
+            kind = {'.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8'}[Path(name).suffix]
+            return Response((STATIC / name).read_bytes(), headers={'content-type': kind, 'cache-control': DEFAULT_CACHE})
+        get(url, show=False)(doc_page)
 
     @get('/favicon.ico', show=False)
     def favicon():

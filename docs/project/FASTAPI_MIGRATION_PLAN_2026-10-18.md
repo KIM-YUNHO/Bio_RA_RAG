@@ -1,7 +1,7 @@
 # RA 서비스 HTTP 계층 FastAPI 전환 계획
 
 - 작성: 2026-10-18 KST
-- 상태: **계획**. 코드는 바꾸지 않았다.
+- 상태: **0~3, 5단계 완료, 4단계 진행 중**(2026-10-18). 구현은 `rag_service/app.py`·`http_rules.py`, 테스트는 `tests/test_http_contract.py`·`tests/http_server.py`. 8885가 FastAPI로 운영 중이고 8775는 기존 서버다. 6단계(Pydantic 요청 모델)는 보류, 7단계(기존 서버 제거)는 운영 확인 뒤. 구현 중 알게 된 차이: 기존 서버는 예상 못 한 예외에 응답 없이 연결을 닫고, 거절한 요청의 본문을 읽지 않고 닫아 Windows에서 클라이언트가 연결 오류를 받을 수 있다(새 앱은 500 응답, 거절 전 본문 읽기).
 - 기준 코드: `feature/memo-reader-session-delete` `7bcd3b8` (PR #12) — `rag_service/__main__.py`의 `handler()`·`main()`, `rag_service/notebook_api.py`, `rag_service/ingestion_api.py`의 `get`·`post`
 - 범위: RA 서비스(8775·8885)의 요청 처리 껍데기. 원본 검토 화면(`review_viewer`, 8886)과 전처리 도구의 서버는 대상이 아니다.
 

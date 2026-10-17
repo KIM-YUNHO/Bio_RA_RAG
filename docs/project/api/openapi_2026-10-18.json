@@ -1,0 +1,500 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "RA 근거 검색 서비스",
+    "description": "바이오시밀러 RA 근거 검색·메모·자료 적재 API (로컬 전용)",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/api/summary": {
+      "get": {
+        "summary": "서비스 요약: 코드 버전·릴리스·모델·전략 (답변 생성 없음)",
+        "operationId": "summary_api_summary_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/inventory": {
+      "get": {
+        "summary": "왼쪽 범위 선택용 성분·제품·기관·문서 목록",
+        "operationId": "inventory_api_inventory_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects": {
+      "get": {
+        "summary": "파이프라인 목록과 단계",
+        "operationId": "handler_api_projects_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "파이프라인 만들기",
+        "operationId": "write_api_projects_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects/{project_id}": {
+      "get": {
+        "summary": "파이프라인 한 건과 메모",
+        "operationId": "handler_api_projects__project_id__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ingestion": {
+      "get": {
+        "summary": "자료 수집 창: 대화·요청·릴리스 목록",
+        "operationId": "handler_api_ingestion_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ingestion/sessions/{session_id}": {
+      "get": {
+        "summary": "적재 대화 한 건",
+        "operationId": "handler_api_ingestion_sessions__session_id__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ingestion/requests/{request_id}": {
+      "get": {
+        "summary": "적재 요청 한 건과 이벤트",
+        "operationId": "handler_api_ingestion_requests__request_id__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ingestion/requests/{request_id}/logs": {
+      "get": {
+        "summary": "적재 요청의 작업 로그",
+        "operationId": "handler_api_ingestion_requests__request_id__logs_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/jobs": {
+      "get": {
+        "summary": "질문 목록 (limit·offset·q)",
+        "operationId": "job_list_api_jobs_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/jobs/{job_id}": {
+      "get": {
+        "summary": "질문 한 건의 상태·결과",
+        "operationId": "job_records_api_jobs__job_id__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/jobs/{job_id}/review": {
+      "get": {
+        "summary": "답변별 검토 기록",
+        "operationId": "job_records_api_jobs__job_id__review_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "답변 검토 기록 추가",
+        "operationId": "write_api_jobs__job_id__review_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/jobs/{job_id}/evidence/{result_index}/{evidence_id}": {
+      "get": {
+        "summary": "근거 상세 (?page=)",
+        "operationId": "job_records_api_jobs__job_id__evidence__result_index___evidence_id__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/jobs/{job_id}/evidence/{result_index}/{evidence_id}/page/{page}": {
+      "get": {
+        "summary": "근거 원문 페이지 이미지",
+        "operationId": "job_records_api_jobs__job_id__evidence__result_index___evidence_id__page__page__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/jobs/{job_id}/evidence/{result_index}/{evidence_id}/crop": {
+      "get": {
+        "summary": "근거 영역 이미지",
+        "operationId": "job_records_api_jobs__job_id__evidence__result_index___evidence_id__crop_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/jobs/{job_id}/evidence/{result_index}/{evidence_id}/document.pdf": {
+      "get": {
+        "summary": "근거 원본 PDF",
+        "operationId": "job_records_api_jobs__job_id__evidence__result_index___evidence_id__document_pdf_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/conversations/{rest}": {
+      "get": {
+        "summary": "대화 기록",
+        "operationId": "conversation_api_conversations__rest__get",
+        "parameters": [
+          {
+            "name": "rest",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Rest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/questions": {
+      "post": {
+        "summary": "질문 접수 (모델 호출 발생)",
+        "operationId": "write_api_questions_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects/{project_id}/memos": {
+      "post": {
+        "summary": "메모 저장",
+        "operationId": "write_api_projects__project_id__memos_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects/{project_id}/memos/{memo_id}/revisions": {
+      "post": {
+        "summary": "메모 수정",
+        "operationId": "write_api_projects__project_id__memos__memo_id__revisions_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ingestion/sessions": {
+      "post": {
+        "summary": "새 적재 대화",
+        "operationId": "write_api_ingestion_sessions_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ingestion/sessions/{session_id}/turns": {
+      "post": {
+        "summary": "적재 대화 한 턴",
+        "operationId": "write_api_ingestion_sessions__session_id__turns_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ingestion/sessions/{session_id}/approve": {
+      "post": {
+        "summary": "확인표 승인",
+        "operationId": "write_api_ingestion_sessions__session_id__approve_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ingestion/sessions/{session_id}/actions": {
+      "post": {
+        "summary": "후보 선택·수집 시작 버튼",
+        "operationId": "write_api_ingestion_sessions__session_id__actions_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ingestion/sessions/{session_id}/delete": {
+      "post": {
+        "summary": "적재 대화 삭제",
+        "operationId": "write_api_ingestion_sessions__session_id__delete_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

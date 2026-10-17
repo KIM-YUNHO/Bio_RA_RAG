@@ -2,6 +2,7 @@
 
 - 작성: 2026-10-16 16:50 KST
 - 수정: 2026-10-17 17:45 KST (두 서비스 재시작, 원본 검토 링크 제거, 메모 상세 창·질문 카드, 적재 대화 삭제 API)
+- 수정: 2026-10-18 04:45 KST (HTTP 계층 FastAPI 전환: 8885는 FastAPI, 8775는 기존 서버. API 명세 화면)
 - 기준: 실행 중 프로세스 명령줄·시작 시각, `GET /api/summary`·`/api/projects`·`/api/ingestion`, `rag_service/`(`__main__.py`, `notebook_api.py`, `ingestion_api.py`, `web/`), `scripts/start_ra_service.ps1`
 - 상위: [현재 서빙 상태](README.md)
 
@@ -64,6 +65,10 @@
 단계는 메모 분류이며 필수 시험 목록이나 자동 검색 필터가 아니다. 단계 ID를 유지해 과거 메모·태그·이력은 그대로 읽힌다.
 
 ## 4. API
+
+**HTTP 계층 (2026-10-18):** `--server fastapi|stdlib`(`rag_service/app.py` 대 `rag_service/__main__.py`의 `handler`). 두 구현은 같은 URL·JSON·상태 코드·보안 헤더를 내며(`rag_service/http_rules.py` 공통 규칙, `tests/test_http_contract.py`가 둘에 같은 검사를 돌린다) 화면은 어느 쪽이든 그대로 쓴다. 실제 데이터 16개 요청을 두 서버에 보내 상태·헤더·본문이 같음을 확인했다(PDF·PNG 포함). 차이는 둘: 예상 못 한 예외에 FastAPI는 500 `{"error"}`(기존은 응답 없이 연결 종료), 정의하지 않은 메서드(PUT 등)에 405(기존 501). 시작 스크립트 `-Server fastapi|stdlib`(기본 stdlib). 8885가 FastAPI, 8775가 기존 서버로 떠 있다.
+
+**API 명세:** FastAPI 서버에서 `/api-docs`(화면, 외부 CDN 없음)와 `/openapi.json`. 저장본 `docs/project/api/openapi_2026-10-18.json`. 전환 계획·단계: [FASTAPI_MIGRATION_PLAN](../project/FASTAPI_MIGRATION_PLAN_2026-10-18.md).
 
 | 경로 | 용도 |
 | :-- | :-- |
