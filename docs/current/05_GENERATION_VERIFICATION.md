@@ -1,7 +1,8 @@
 # 5. 문맥 구성·생성·검증 — 현재 상태
 
 - 작성: 2026-10-16 16:50 KST
-- 기준: `rag/ra_pipeline.py`(`VERSION = 'ra-research-rag-4.10.2'`), `rag/ra_retrieval.py`(패킹), `rag/source_study_scope.py`, `rag/ra_prompt.py`, `rag/ra_answer.py`, `rag/ra_review.py`, `rag/openai_chat.py`, 서비스 요약(`answer_strategy: ra-grounded-synthesis-4.8.9`, `citation_mode: spans`)
+- 수정: 2026-10-17 17:45 KST (재시작으로 4.10.3·`feature/hide-model-gaps`(PR #9) 반영: 답변 본문에는 검증된 주장만)
+- 기준: `rag/ra_pipeline.py`(`VERSION = 'ra-research-rag-4.10.3'`), `rag/ra_retrieval.py`(패킹), `rag/source_study_scope.py`, `rag/ra_prompt.py`, `rag/ra_answer.py`, `rag/ra_review.py`, `rag/openai_chat.py`, 서비스 요약(`answer_strategy: ra-grounded-synthesis-4.8.10`, `citation_mode: spans`)
 - 상위: [현재 서빙 상태](README.md)
 
 ## 1. 흐름
@@ -80,12 +81,13 @@ LLM은 세 단계 모두 `gpt-5.6-luna`(reasoning `none`)이고 질문당 최대
 
 - 완료 판정은 계획기 facet 기준이다. 값으로 대조 가능한 facet(`dose_route`, `dosing_schedule`, `table_statistics`)이 모두 확인돼야 `answered`. 질문에 적힌 숫자·경로는 필수 조건이다.
 - 작업 상태 `completed`와 답변 충족 `answered/partial/not_found`는 다르다.
+- 답변 본문(`answer_ko`)에는 검사를 통과한 claim만 나온다. 생성 모델이 쓴 gap 문장은 인용 검사를 거치지 않으므로 본문에 붙이지 않고 `validation.model_gap_reasons`(`shown_to_user: false`)에만 남긴다. "인용으로 완전히 확인하지 못한 요청" 목록도 본문에서 빠졌고, `result['gaps']`에 남아 완료 판정과 검토 메모에 쓰인다(PR #9).
 - 서비스 요약의 `numeric_accuracy_certified`, `semantic_accuracy_certified`, `current_guideline_validity_verified`는 모두 `false`다. 인용 일치·수치 검사·내부 검토는 전문가 인증이 아니다.
 - 보고서(질문·계획·검색 후보·공급 근거·제외 청크·예산·claim·gap·단계 시간·사용량)는 `data/runs/ra_service_reports/`에 저장된다. 검토 메모·미팅 질문 초안은 보고서에서 만들며 추가 LLM 호출이 없다.
 
 ## 7. 원 기록
 
 - [RA 생성 프롬프트 모듈](../rag/RA_PROMPT_MODULES_2026-10-15.md)
-- [문맥 연결 감사](../rag/CONTEXT_LINK_AUDIT_2026-10-16.md), [문맥 연결 수정 4.10.2](../rag/CONTEXT_LINK_FIX_2026-10-16.md) — 문서에는 "서버 미재시작"으로 적혀 있지만, 이후 재시작한 8775(12:11)·8885(16:14)가 4.10.2를 보고하므로 지금은 적용돼 있다
+- [문맥 연결 감사](../rag/CONTEXT_LINK_AUDIT_2026-10-16.md), [문맥 연결 수정 4.10.2](../rag/CONTEXT_LINK_FIX_2026-10-16.md) — 문서에는 "서버 미재시작"으로 적혀 있지만, 이후 재시작한 서비스(현재 10-17 17:41·17:43 시작, 4.10.3)에 적용돼 있다
 - [RAG 파이프라인 상세](../rag/RAG_PIPELINE_CHUNK_EMBEDDING_GUIDE_2026-10-14.md) §9~12
 - [RA 질문 처리 변경 기록](../RA_QUERY_HANDLING_LOG.md) 01:55 항목(체크리스트·완료 판정 변경)

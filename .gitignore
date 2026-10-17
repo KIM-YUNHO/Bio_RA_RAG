@@ -51,3 +51,32 @@ data/runs/e2e_enumeration_2026-10-15/**/*.json
 data/runs/answer_eval_2026-10-15/baseline/
 data/runs/answer_eval_2026-10-15/branch/
 data/runs/answer_eval_2026-10-15/paired_dev/
+
+# Local workspace: UI drafts, QA scripts and screenshots; product search source data
+work/
+product_search/data/
+
+# Service runtime records (conversations, reports, requests, logs, model quota), kept locally only
+data/runs/ingest_requests/
+data/runs/ra_conversations/
+data/runs/ra_pipeline_requests/
+data/runs/ra_service_logs/
+data/runs/ra_service_reports/
+data/runs/ra_service_*.log
+data/runs/model_quota/
+
+# Experiment run outputs kept locally (2026-10-14..16); files already tracked in these folders stay tracked
+data/runs/context_link_audit_2026-10-16/
+data/runs/context_link_fix_2026-10-16/
+data/runs/corpus_supplement_2026-10-14/controller.log
+data/runs/generation_units_2026-10-16/
+data/runs/guard_2026-10-15/
+data/runs/inventory_2026-10-15*
+data/runs/loss_2026-10-16*
+data/runs/packing_2026-10-16*
+data/runs/planner_facets_2026-10-15*
+data/runs/prompt_rework_2026-10-15/
+data/runs/retrieval_gold_2026-10-16*
+data/runs/retrieval_stability_2026-10-14/
+data/runs/stability_2026-10-16*
+data/runs/stable_queries_2026-10-16*

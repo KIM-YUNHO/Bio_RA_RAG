@@ -2,6 +2,7 @@
 
 - 작성: 2026-10-16 16:50 KST
 - 수정: 2026-10-16 17:55 KST (`feature/stable-queries` 병합 기준: end-to-end 317점, 검색 안정성 측정 추가)
+- 수정: 2026-10-17 17:45 KST (브랜치 표: stable-queries·발표 문서 병합, 화면·적재 브랜치 추가)
 - 기준: `docs/RA_QUERY_HANDLING_LOG.md`(main, 11:38까지), `feature/generation-units`·`feature/stable-queries` 브랜치의 같은 기록과 커밋 메시지, `data/runs/` 실행 기록
 - 상위: [현재 서빙 상태](README.md)
 
@@ -96,10 +97,9 @@
 | 브랜치 | main보다 | 내용 | 상태 |
 | :-- | --: | :-- | :-- |
 | `feature/generation-units` | 6커밋 | G1 계산 facet 체크리스트 줄, G2 체크리스트를 범위 제품·기관으로 펼침, G3 근거를 제품×기관 단위로 묶어 제시(`RA_GENERATION_UNITS`). 손실 분해 기록, `eval/plan_stability.py` | end-to-end 306점(생성 손실 32→21, 순위 손실 14→25는 계획기 편차). 판정 보류 |
-| `feature/stable-queries` | — | 계획기 칸 축소, 사실당 영어 검색어 1개(한정어 포함), 지침 인용 유지 | 이 문서 수정과 함께 main PR. 병합 후 서비스 재시작 필요 |
-| `docs/ra-painpoints-luna-selection` | 2커밋 | 발표 문서의 RA pain point·Luna 선정 보강 | 문서 PR |
-
-main 작업 폴더에는 이 밖에 미커밋 화면 수정(`rag_service/web/`, `workspaces.py`)과 발표 문서 수정이 있다.
+| `feature/stable-queries` | — | 계획기 칸 축소, 사실당 영어 검색어 1개(한정어 포함), 지침 인용 유지 | main 병합(PR #10). 10-17 재시작으로 서비스 반영 |
+| `docs/ra-painpoints-luna-selection` | — | 발표 문서의 RA pain point·Luna 선정 보강 | main 병합(PR #8) |
+| `feature/memo-reader-session-delete` | 5커밋 | 메모 질문 카드·메모 상세 창, 적재 대화 삭제, 원본 검토 링크 제거, `.gitignore`, 이 폴더 갱신 | PR 전. 서비스는 이 브랜치 코드로 떠 있다 |
 
 ## 6. 원 기록
 

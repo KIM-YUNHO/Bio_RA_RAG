@@ -1,6 +1,7 @@
 # 6. 서비스·화면 — 현재 상태
 
 - 작성: 2026-10-16 16:50 KST
+- 수정: 2026-10-17 17:45 KST (두 서비스 재시작, 원본 검토 링크 제거, 메모 상세 창·질문 카드, 적재 대화 삭제 API)
 - 기준: 실행 중 프로세스 명령줄·시작 시각, `GET /api/summary`·`/api/projects`·`/api/ingestion`, `rag_service/`(`__main__.py`, `notebook_api.py`, `ingestion_api.py`, `web/`), `scripts/start_ra_service.ps1`
 - 상위: [현재 서빙 상태](README.md)
 
@@ -8,8 +9,8 @@
 
 | 포트 | 시작 | 시작 방법 | 차이 |
 | :-- | :-- | :-- | :-- |
-| **8885** | 2026-10-16 16:14 | `python -m rag_service` 직접 실행 | `--conversation-dir data/runs/ra_conversations` 명시 |
-| **8775** | 2026-10-16 12:11 | `scripts/start_ra_service.ps1` (로그 `data/runs/ra_service_logs/20261016_121144_*`) | 대화 기록 경로는 기본값(같은 폴더) |
+| **8775** | 2026-10-17 17:41 | `scripts/start_ra_service.ps1` (로그 `data/runs/ra_service_logs/20261017_174153_*`) | — |
+| **8885** | 2026-10-17 17:43 | `scripts/start_ra_service.ps1` (로그 `data/runs/ra_service_logs/20261017_174301_*`) | — |
 
 두 프로세스의 공통 인자:
 
@@ -21,11 +22,11 @@
 --archive-dir data/runs/ra_service_reports --review-dir data/runs/ra_review_records
 ```
 
-- 두 프로세스 모두 main 코드(8775는 `c9f03d2`, 8885는 `c0b5738` 시점에 시작. 그 사이 변경은 `eval/` 파일뿐)를 읽었다. 질문 보고서·검토 기록·대화 기록 폴더와 PostgreSQL을 **함께 쓴다**.
+- 두 프로세스 모두 main `96894d3`(stable-queries·hide-model-gaps 병합) + `feature/memo-reader-session-delete` 커밋 시점의 코드로 시작했다. 대화 기록은 RA 모드 기본값 `data/runs/ra_conversations`. 질문 보고서·검토 기록·대화 기록 폴더와 PostgreSQL을 **함께 쓴다**.
 - `127.0.0.1`에만 바인딩된다. 로그인·권한 없음. RAG 질문은 프로세스마다 한 번에 한 건씩 처리한다.
 - 시작 때 BGE-M3·리랭커·BM25를 예열한다(약 26~34초, 모델 API 호출 0).
-- **원본 검토 화면 8886은 떠 있지 않다.** 다시 띄우려면: `.\.venv\Scripts\python.exe -X utf8 -B -m review_viewer --run data/versions/04_pipeline_h_supplement_2026-10-14/embedded/release --port 8886`
-- Python 코드·환경 변수는 재시작해야 반영된다. `rag_service/web/` 화면 파일은 요청 때마다 읽으므로 새로고침으로 반영된다. 그래서 main 작업 폴더의 **미커밋 화면 수정**(2026-10-16 메모·근거 나란히 보기 등)이 이미 두 포트에 보인다.
+- **화면에 별도 원본 검토 페이지 링크가 없다**(10-16 제거). 원문 확인은 오른쪽 근거 패널과 메모 상세 창에서 하며 원본 PDF·기관 출처 링크는 남아 있다. `--review-url`(8886) 인자는 그대로 넘기지만 화면이 쓰지 않고, 8886은 떠 있지 않다. 따로 띄우려면: `.\.venv\Scripts\python.exe -X utf8 -B -m review_viewer --run data/versions/04_pipeline_h_supplement_2026-10-14/embedded/release --port 8886`
+- Python 코드·환경 변수(`.env`)는 재시작해야 반영된다. `rag_service/web/` 화면 파일은 요청 때마다 읽으므로 새로고침으로 반영된다.
 
 새로 띄울 때(포트는 Windows 예약 범위 `netsh interface ipv4 show excludedportrange protocol=tcp`를 피한다):
 
@@ -41,10 +42,10 @@
 | :-- | :-- | :-- |
 | 헤더 | `+ 파이프라인`(이름·원성분만 입력), `자료 수집·적재` 창 열기 | `index.html`, `app.js` |
 | 왼쪽 `자료·검색 범위` | 성분 → 제품 → 문서 체크, 기관, 공통 지침, 제품×기관 현황, 보조 문서 포함 옵션. 접이식, 선택 요약 칩 | `inventory.js` |
-| 가운데 위 | 개발 파이프라인 단계 카드 7개 + 선택 단계 메모(직접/RAG), 태그 필터, 빈 단계의 메모 추가 카드 | `pipeline-notes.js` |
-| 가운데 아래 | 채팅(멀티턴), 인용 번호 버튼, 인용된 표·그림 카드, 처리 중 표시 | `app.js`, `common.js` |
+| 가운데 위 | 개발 파이프라인 단계 카드 7개 + 선택 단계 메모(직접/RAG), 태그 필터, 빈 단계의 메모 추가 카드. RAG 메모 카드는 원 질문을, 직접 메모 카드는 첫 줄을 보여 주고 누르면 메모 상세 창이 열린다 | `pipeline-notes.js` |
+| 가운데 아래 | 채팅(멀티턴), 인용 번호 버튼, 인용된 표·그림 카드, 처리 중 표시. 대화 이어가기 안내는 입력창 안에 있다 | `app.js`, `common.js` |
 | 오른쪽 | 근거 원문: 페이지 이미지·근거 영역 강조·crop·PDF | `viewer.js`, `evidence-view.js` |
-| 메모 상세 창 | 최대 900px. 원문을 누르면 데스크톱은 왼쪽 메모·오른쪽 근거를 나란히, 좁은 화면은 `메모 / 근거 원문` 전환 | `pipeline-notes.js`, `viewer.js` |
+| 메모 상세 창 | 최대 900px. 원 질문·메모 전문·출처·태그. 원문을 누르면 데스크톱은 왼쪽 메모·오른쪽 근거를 나란히, 좁은 화면은 `메모 / 근거 원문` 전환. 오른쪽 근거 패널을 복제하지 않고 옮겨 오며, 창을 닫으면 메인 오른쪽으로 돌려놓는다 | `pipeline-notes.js`, `viewer.js` |
 | 질문 검토 | 답변별 검토 상태·의견·미팅 질문 수정, append-only 이력, Markdown 내보내기 | `review-notes.js` |
 | 자료 수집 창 | [01 수집·적재](01_COLLECTION_INGESTION.md) 3.2절 | `data-manager.js`, `data-manager.css` |
 
@@ -74,7 +75,7 @@
 | `GET /api/jobs/<id>/evidence/<결과>/<근거>[/page/<n>|/crop|/document.pdf]` | 근거 원문 (클라이언트는 파일 경로를 보내지 않음) |
 | `GET /api/conversations/<id>` | 대화 기록 |
 | `/api/projects[/<id>[/memos[/<memo>/revisions]]]` | 파이프라인·메모 |
-| `/api/ingestion[/sessions…|/requests…]` | 자료 수집 창 |
+| `/api/ingestion[/sessions…|/requests…]` | 자료 수집 창 (`POST /api/ingestion/sessions/<id>/delete` 대화 삭제 포함) |
 
 ## 5. 기록 저장 위치
 

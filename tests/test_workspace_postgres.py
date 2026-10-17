@@ -116,9 +116,10 @@ class PostgresNotebookTests(unittest.TestCase):
         reviewed = service.turn(session['id'], {'text': '/status'})
         self.assertIn('Fixture check table', reviewed['turns'][-1]['reply'])
         self.assertEqual(reviewed['request']['reports']['SB17'], 'f'*64)
-        with patch('ingestion.agent.spawn') as spawn:
+        with patch('ingestion.agent.spawn') as spawn, patch('ingestion.worker.check_here', return_value='f'*64) as check:
             promoted = service.turn(session['id'], approval, approval=True)
             self.assertEqual(promoted['request']['status'], 'approved')
+            check.assert_called_once_with('SB17', request_id)
             service.turn(session['id'], approval, approval=True)
             self.assertEqual(spawn.call_count, 1)
         with self.connector() as conn:
@@ -156,6 +157,28 @@ class PostgresNotebookTests(unittest.TestCase):
                     post(payload)
                 self.assertEqual(error.exception.code, 400)
 
+    def test_approval_requires_the_check_table_from_this_folders_staging(self):
+        from ingestion.worker import event, set_status
+        service = self.control_service()
+        session = self.seed_planned(service)
+        with patch('ingestion.agent.spawn'):
+            request_id = service.turn(session['id'], {'action': 'start', 'plan_sha256': session['plan_sha256']}, control=True)['request']['id']
+        with self.connector() as conn:
+            event(conn, request_id, 'staged', {'product_id': 'SB17', 'report_sha256': 'f'*64, 'report': 'Fixture check table',
+                                               'stage_root': r'C:\other_project'})
+            set_status(conn, request_id, 'awaiting_approval')
+        service.turn(session['id'], {'text': '/status'})
+        approval = {'product_id': 'SB17', 'report_sha256': 'f'*64}
+        # Staged by another project folder that shares the database, then a staging copy that changed after review.
+        for here, expected in ((None, r'스테이징한 폴더: C:\other_project'), ('e'*64, '확인표와 달라')):
+            with self.subTest(here=here), patch('ingestion.agent.spawn') as spawn, patch('ingestion.worker.check_here', return_value=here):
+                result = service.turn(session['id'], approval, approval=True)
+                self.assertIn(expected, result['turns'][-1]['reply'])
+                self.assertEqual(result['request']['status'], 'awaiting_approval')
+                spawn.assert_not_called()
+        with self.connector() as conn:
+            self.assertEqual(conn.execute('SELECT count(*) FROM ingest.approvals WHERE request_id = %s', (request_id,)).fetchone()[0], 0)
+
     def test_worker_start_failure_does_not_leave_a_queued_job(self):
         service = self.control_service()
         session = self.seed_planned(service)
@@ -165,6 +188,82 @@ class PostgresNotebookTests(unittest.TestCase):
         self.assertEqual(result['state']['stage'], 'planned')
         self.assertIn('시작하지 못했습니다', result['turns'][-1]['reply'])
         self.assertEqual(service.request(result['request']['id'])['events'][-1]['payload']['step'], 'worker_start')
+
+    def test_session_deletion_hides_history_without_erasing_audit_records(self):
+        from ingestion.agent import Agent
+        service = self.control_service()
+        session = service.create()
+        reply = service.turn(session['id'], {'text': '/status'})
+        self.assertTrue(reply['can_delete'])
+        service.delete(session['id'])
+        self.assertEqual(service.delete(session['id']), {'id': session['id'], 'deleted': True})
+        self.assertNotIn(session['id'], [s['id'] for s in service.overview({})['sessions']])
+        with self.assertRaises(KeyError):
+            service.session(session['id'])
+        with self.assertRaises(KeyError):
+            service.turn(session['id'], {'text': '/status'})
+        with self.connector() as conn:
+            self.assertIsNotNone(conn.execute('SELECT deleted_at FROM ingest.agent_sessions WHERE session_id = %s', (session['id'],)).fetchone()[0])
+            self.assertEqual(conn.execute('SELECT user_text, reply FROM ingest.agent_turns WHERE session_id = %s', (session['id'],)).fetchall(), [('/status', reply['turns'][0]['reply'])])
+            with self.assertRaises(SystemExit):
+                Agent(conn, session['id'])
+
+    def test_deletion_blocks_active_requests_and_preserves_completed_request(self):
+        from ingestion.worker import set_status
+        service = self.control_service()
+        session = self.seed_planned(service)
+        with patch('ingestion.agent.spawn'):
+            started = service.turn(session['id'], {'action': 'start', 'plan_sha256': session['plan_sha256']}, control=True)
+        request_id = started['request']['id']
+        with self.connector() as conn:
+            for status in ('queued', 'staging', 'awaiting_approval', 'approved', 'promoting'):
+                with self.subTest(status=status):
+                    set_status(conn, request_id, status)
+                    self.assertFalse(service.session(session['id'])['can_delete'])
+                    listed = next(s for s in service.overview({})['sessions'] if s['id'] == session['id'])
+                    self.assertFalse(listed['can_delete'])
+                    with self.assertRaises(RevisionConflict):
+                        service.delete(session['id'])
+                    self.assertIsNone(conn.execute('SELECT deleted_at FROM ingest.agent_sessions WHERE session_id = %s', (session['id'],)).fetchone()[0])
+            set_status(conn, request_id, 'done')
+        original_request = service.request(request_id)
+        self.assertTrue(service.session(session['id'])['can_delete'])
+        service.delete(session['id'])
+        self.assertEqual(service.request(request_id), original_request)
+        self.assertIn(request_id, [r['id'] for r in service.overview({})['requests']])
+
+    def test_session_deletion_http_contract_and_turn_lock(self):
+        import json
+        import urllib.request
+        import urllib.error
+        from test_workspace_http import fixture
+        service = self.control_service()
+        session = service.create()
+        with self.connector() as lock_conn:
+            lock_conn.execute('SELECT pg_advisory_lock(20261015, 2)')
+            with self.assertRaises(RevisionConflict):
+                service.delete(session['id'])
+            lock_conn.execute('SELECT pg_advisory_unlock(20261015, 2)')
+        with fixture(ingestion_service=service) as (server, _, __):
+            base = f'http://127.0.0.1:{server.server_port}/api/ingestion/sessions/{session["id"]}'
+            opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+            def request(suffix='', payload=None, origin=None):
+                headers = {'Content-Type': 'application/json'}
+                if origin:
+                    headers['Origin'] = origin
+                req = urllib.request.Request(base+suffix, data=json.dumps(payload).encode() if payload is not None else None, headers=headers)
+                with opener.open(req) as response:
+                    return json.load(response)
+            for suffix, payload, origin, status in [('/delete', {}, 'https://example.com', 403),
+                    ('/delete', {'request_id': 'forged'}, None, 400), ('/delete', None, None, 404)]:
+                with self.subTest(status=status), self.assertRaises(urllib.error.HTTPError) as error:
+                    request(suffix, payload, origin)
+                self.assertEqual(error.exception.code, status)
+            self.assertEqual(request('/delete', {}), {'id': session['id'], 'deleted': True})
+            for suffix, payload in [('', None), ('/turns', {'text': '/status'})]:
+                with self.assertRaises(urllib.error.HTTPError) as error:
+                    request(suffix, payload)
+                self.assertEqual(error.exception.code, 404)
 
 
 if __name__ == '__main__':

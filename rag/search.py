@@ -45,15 +45,18 @@ def literal_caption_hits(query, idx, chunks):
     return hits
 
 
-def load_index(model_key=DEFAULT_MODEL, rag_dir=None):
+def load_index(model_key=DEFAULT_MODEL, rag_dir=None, vector_store=False):
     # BIOSIM_SEARCH_BACKEND=postgres reads the chunks and vectors of a release loaded by storage/rag_loader.py (same values,
-    # same order as the files). A folder that is not a loaded release is read from files as before.
-    if os.environ.get("BIOSIM_SEARCH_BACKEND") == "postgres" and rag_dir is not None and model_key == "bge-m3":
+    # same order as the files). =pgvector does the same, except that a caller passing vector_store=True gets the vectors as
+    # a pgvector store (storage.rag_index.PgVectors) searched in the database. A folder that is not a loaded release is
+    # read from files as before.
+    backend = os.environ.get("BIOSIM_SEARCH_BACKEND")
+    if backend in ("postgres", "pgvector") and rag_dir is not None and model_key == "bge-m3":
         from storage.rag_index import load_from_database
-        loaded = load_from_database(rag_dir)
+        loaded = load_from_database(rag_dir, store=vector_store and backend == "pgvector")
         if loaded is not None:
             return loaded
-        print(f"BIOSIM_SEARCH_BACKEND=postgres: {rag_dir} is not a loaded release; reading files", file=sys.stderr)
+        print(f"BIOSIM_SEARCH_BACKEND={backend}: {rag_dir} is not a loaded release; reading files", file=sys.stderr)
     chunks, sha = load_chunks(rag_dir)
     out = Path(rag_dir or RAG) / "emb" / model_key
     meta = json.loads((out / "meta.json").read_text(encoding="utf-8"))
@@ -85,10 +88,34 @@ def filter_idx(chunks, product=None, doc_group=None, jurisdiction=None,
 
 
 def dense_hits(query_vec, vec, idx, top_n=50):
+    """[(score, chunk index)] of the best rows in idx by inner product; vec is the matrix or a pgvector store."""
     if not len(idx):
         return []
+    if hasattr(vec, "top"):
+        return vec.top(query_vec, idx, top_n)
     scores = vec[idx] @ query_vec
     return [(float(scores[j]), int(idx[j])) for j in np.argsort(-scores)[:top_n]]
+
+
+def similarity(vec, rows, query_vec):
+    """{chunk index: inner product with the query} for a few rows; one database query when vec is a pgvector store."""
+    if hasattr(vec, "scores"):
+        return vec.scores(rows, query_vec)
+    return {int(i): float(vec[i] @ query_vec) for i in rows}
+
+
+def max_similarity(vec, rows, query_vecs):
+    """Row -> best inner product over several queries. A store scores all `rows` once, on the first call."""
+    if not hasattr(vec, "scores"):
+        return lambda i: max(float(vec[i] @ q) for q in query_vecs)
+    best = {}
+    def score(i):
+        if not best:
+            for q in query_vecs:
+                for row, s in vec.scores(rows, q).items():
+                    best[row] = max(s, best.get(row, s))
+        return best[i] if i in best else max(similarity(vec, [i], q)[int(i)] for q in query_vecs)
+    return score
 
 
 class Bm25:

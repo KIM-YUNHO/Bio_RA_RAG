@@ -3,7 +3,7 @@ import re
 from urllib.parse import urlencode, urlsplit
 
 from rag.preprocessed_chunks import related_visual_contexts
-from rag.search import filter_idx
+from rag.search import filter_idx, similarity
 
 EVIDENCE_CHARS = 10000
 PROMPT_VERSION = 'preprocessed-6-source-ids'
@@ -115,7 +115,8 @@ class PreprocessedEvidence:
                 selected.append(best); seen.add(best['chunk_id'])
         candidates = [i for page in pages for i in corpus.by_page.get((page['document_id'], page['version_id'], page['pdf_page']), []) if i in allowed_set]
         if qv is not None:
-            candidates.sort(key=lambda i:-float(corpus.vec[i] @ qv))
+            scores = similarity(corpus.vec, candidates, qv)
+            candidates.sort(key=lambda i:-scores[i])
         for i in candidates:
             chunk = self.chunks[i]
             if chunk['chunk_id'] not in seen:

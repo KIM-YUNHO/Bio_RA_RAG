@@ -129,7 +129,7 @@ class Agent:
         self.conn = conn
         self.parse = parse or (lambda text, context: openai_parse(conn, self.session_id, text, context))
         if session_id:
-            row = conn.execute("SELECT state FROM ingest.agent_sessions WHERE session_id = %s", (session_id,)).fetchone()
+            row = conn.execute("SELECT state FROM ingest.agent_sessions WHERE session_id = %s AND deleted_at IS NULL", (session_id,)).fetchone()
             if not row:
                 raise SystemExit(f"no session {session_id}")
             self.session_id, self.state = session_id, row[0]
@@ -393,10 +393,20 @@ class Agent:
         if not request_id or not shown:
             return "먼저 /status로 그 제품의 확인표를 보고 승인해 주세요."
         status = self.conn.execute("SELECT status FROM ingest.requests WHERE request_id = %s", (request_id,)).fetchone()[0]
-        latest = self.conn.execute("SELECT payload->>'report_sha256' FROM ingest.request_events WHERE request_id = %s AND event = 'staged' "
+        latest = self.conn.execute("SELECT payload->>'report_sha256', payload->>'stage_root' FROM ingest.request_events WHERE request_id = %s AND event = 'staged' "
                                    "AND payload->>'product_id' = %s ORDER BY event_id DESC LIMIT 1", (request_id, product_id)).fetchone()
         if status != "awaiting_approval" or not latest or latest[0] != shown:
             return f"승인할 수 없습니다(요청 상태 {status}). 확인표가 바뀌었으면 /status로 다시 보세요."
+        # The database can be shared by several project folders; promotion copies from this folder's staging.
+        from ingestion.worker import check_here
+        here = check_here(product_id, request_id)
+        if here != shown:
+            where = f"스테이징한 폴더: {latest[1]}. " if latest[1] and latest[1] != str(ROOT) else ""
+            if here is None:
+                return (f"이 작업 폴더({ROOT})의 스테이징에 {product_id}가 없어 승인하지 않았습니다. {where}"
+                        "스테이징한 폴더에서 승인하거나, 이 폴더에서 새 수집 요청으로 다시 스테이징하세요. 요청은 확인표 검토 대기로 남습니다.")
+            return (f"이 작업 폴더의 스테이징으로 만든 {product_id} 확인표가 승인하려는 확인표와 달라 승인하지 않았습니다. {where}"
+                    "새 수집 요청으로 다시 스테이징한 뒤 확인표를 보고 승인하세요.")
         approval_id = str(uuid.uuid4())
         with self.conn.transaction():
             self.conn.execute('SELECT pg_advisory_xact_lock(20261015, 3)')

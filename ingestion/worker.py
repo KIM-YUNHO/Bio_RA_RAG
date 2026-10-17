@@ -42,6 +42,17 @@ def report(product_id, folder, name):
     return done.stdout, hashlib.sha256(done.stdout.encode("utf-8")).hexdigest()
 
 
+def check_here(product_id, request_id):
+    """SHA-256 of the check table rebuilt from this folder's staging, or None if it cannot be built here.
+    Projects that share the database stage into their own product_search/data, so approval checks this before promoting."""
+    folder = RUNS / request_id
+    folder.mkdir(parents=True, exist_ok=True)
+    try:
+        return report(product_id, folder, f"promote_check_{product_id}_at_approval.txt")[1]
+    except RuntimeError:
+        return None
+
+
 def stage(conn, request_id):
     folder = RUNS / request_id
     folder.mkdir(parents=True, exist_ok=True)
@@ -59,7 +70,7 @@ def stage(conn, request_id):
             raise RuntimeError(f"collect_products exited {done.returncode}: {done.stderr[-300:]}")
         for p in payload["products"]:
             text, digest = report(p["product_id"], folder, f"promote_check_{p['product_id']}.txt")
-            event(conn, request_id, "staged", {"product_id": p["product_id"], "report": text, "report_sha256": digest})
+            event(conn, request_id, "staged", {"product_id": p["product_id"], "report": text, "report_sha256": digest, "stage_root": str(ROOT)})
         set_status(conn, request_id, "awaiting_approval")
     except Exception as exc:
         event(conn, request_id, "failed", {"step": "staging", "error": f"{type(exc).__name__}: {exc}"})

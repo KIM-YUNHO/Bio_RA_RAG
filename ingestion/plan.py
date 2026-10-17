@@ -7,6 +7,8 @@ import datetime as dt
 import json
 import re
 
+from pydantic import ValidationError
+
 from ingestion.contracts import ROOT, Evidence, IngestionRequest, ProductTarget, load_targets
 from ingestion.sources import norm
 
@@ -23,13 +25,14 @@ def staged_products():
     return {json.loads(l)["product_id"] for l in path.read_text(encoding="utf-8").splitlines() if l.strip()} if path.exists() else set()
 
 
-def find_entry(candidate):
+def find_entry(candidate, result=None):
     """Keep a resolved official licence identity; use names only for code/brand-only candidates."""
-    from product_search import discover  # heavy import; sets collect.ROOT to product_search/ for this process
     wanted = {norm(n) for n in candidate.names.values()} | {norm(e.matched_text) for e in candidate.evidence}
     if candidate.key.startswith("CODE:"):
         wanted.add(norm(candidate.key[5:]))
-    result = discover.search(candidate.ingredient)
+    if result is None:
+        from product_search import discover  # heavy import; sets collect.ROOT to product_search/ for this process
+        result = discover.search(candidate.ingredient)
     def matches(product):
         if norm(product.get("ingredient")) != norm(candidate.ingredient):
             return False
@@ -62,23 +65,56 @@ def target_of(entry):
     return ProductTarget.model_validate(data)
 
 
+def brand(product):
+    return next((n for n in (product.get("ema_name"), product.get("us_brand"), product.get("ca_brand")) if n), product["product_id"])
+
+
+def label(product):
+    return f"{product['product_id']}({brand(product)})"
+
+
+def check_reference(entry, references):
+    """A biosimilar is added under a registered reference product of its ingredient; that product is registered first.
+    Otherwise promote would write a targets.json the contract refuses (reference_product_id must name a registered reference)."""
+    if (entry.get("kind") or "biosimilar") != "biosimilar":
+        return
+    targets = load_targets()
+    registered = [p.product_id for p in targets.products if p.kind == "reference" and norm(targets.ingredient_of(p)) == norm(entry["ingredient"])]
+    ref = entry.get("reference_product_id") or (registered[0] if len(registered) == 1 else None)
+    if not ref:
+        found = ", ".join(label(r) for r in references) or "찾지 못함"
+        raise PlanError(f"{entry['product_id']}의 대조약을 하나로 정할 수 없습니다(공식 목록의 오리지널: {found}). "
+                        "대조약이 여럿인 성분은 아직 자동 적재를 지원하지 않습니다.")
+    if ref not in registered:
+        reference = next((r for r in references if r["product_id"] == ref), {"product_id": ref})
+        raise PlanError(f"{entry['product_id']}의 대조약 {label(reference)}이(가) 아직 자료 저장소에 없습니다. "
+                        f"대조약을 먼저 적재한 뒤(예: '{brand(reference)} 수집') 이 제품을 요청하세요.")
+
+
 def plan(candidate, user_texts):
-    entry = find_entry(candidate)
+    from product_search import discover  # heavy import; sets collect.ROOT to product_search/ for this process
+    result = discover.search(candidate.ingredient)
+    entry = find_entry(candidate, result)
     if entry["product_id"] in {p.product_id for p in load_targets().products}:
         raise PlanError(f"{entry['product_id']} is already a project product; it is updated by collect.py (refresh), not added again")
-    target = target_of(entry)
-    tool_text = json.dumps(entry, ensure_ascii=False)
-    today = dt.date.today().isoformat()
-    provenance = {}
-    if target.development_code:
-        provenance[f"{target.product_id}.development_code"] = Evidence(source="EMA EPAR text via product_search.discover", url=None,
-                                                                       matched_text=target.development_code, as_of=today, snapshot_sha256=None)
-    if target.study_ids:
-        provenance[f"{target.product_id}.study_ids"] = Evidence(source="ClinicalTrials.gov via product_search.discover", url=None,
-                                                                matched_text=" ".join(target.study_ids), as_of=today, snapshot_sha256=None)
-    jurisdictions = [j for j, name in (("EU", target.ema_name), ("US", target.us_brand), ("CA", target.ca_brand)) if name]
-    request = IngestionRequest.model_validate(
-        {"kind": "new_product", "ingredient": entry["ingredient"], "products": [target.model_dump()], "include_reference": target.kind == "reference",
-         "jurisdictions": jurisdictions, "provenance": {k: v.model_dump() for k, v in provenance.items()}},
-        context={"evidence_text": [tool_text] + list(user_texts)})
+    check_reference(entry, [p for p in result["products"] if p.get("kind") == "reference"])
+    try:
+        target = target_of(entry)
+        tool_text = json.dumps(entry, ensure_ascii=False)
+        today = dt.date.today().isoformat()
+        provenance = {}
+        if target.development_code:
+            provenance[f"{target.product_id}.development_code"] = Evidence(source="EMA EPAR text via product_search.discover", url=None,
+                                                                           matched_text=target.development_code, as_of=today, snapshot_sha256=None)
+        if target.study_ids:
+            provenance[f"{target.product_id}.study_ids"] = Evidence(source="ClinicalTrials.gov via product_search.discover", url=None,
+                                                                    matched_text=" ".join(target.study_ids), as_of=today, snapshot_sha256=None)
+        jurisdictions = [j for j, name in (("EU", target.ema_name), ("US", target.us_brand), ("CA", target.ca_brand)) if name]
+        request = IngestionRequest.model_validate(
+            {"kind": "new_product", "ingredient": entry["ingredient"], "products": [target.model_dump()], "include_reference": target.kind == "reference",
+             "jurisdictions": jurisdictions, "provenance": {k: v.model_dump() for k, v in provenance.items()}},
+            context={"evidence_text": [tool_text] + list(user_texts)})
+    except ValidationError as exc:
+        # The agent shows a PlanError as a reply; a contract failure must not end the turn with an exception.
+        raise PlanError(f"{entry['product_id']} 적재 계획이 계약 검증을 통과하지 못했습니다: {exc.errors()[0]['msg']}") from exc
     return {"entry": entry, "request": request, "already_staged": target.product_id in staged_products()}

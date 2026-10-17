@@ -8,6 +8,9 @@ from uuid import UUID
 
 from rag_service.reviews import RevisionConflict
 
+TERMINAL_REQUEST_STATUSES = {'done', 'failed', 'cancelled'}
+DELETE_BLOCK_REASON = '수집·등록 중이거나 확인표 검토를 기다리는 요청이 있습니다. 요청이 끝난 뒤 대화를 삭제하세요.'
+
 
 def sid(value):
     try:
@@ -41,18 +44,20 @@ class IngestionAPI:
 
     def overview(self, summary):
         with self.connection() as conn:
-            sessions = conn.execute("""SELECT session_id::text, created_at, updated_at, state->>'stage', state->'target', state->>'request_id'
-                FROM ingest.agent_sessions ORDER BY updated_at DESC LIMIT 40""").fetchall()
+            sessions = conn.execute("""SELECT s.session_id::text, s.created_at, s.updated_at, s.state->>'stage', s.state->'target', s.state->>'request_id', r.status
+                FROM ingest.agent_sessions s LEFT JOIN ingest.requests r ON r.request_id::text = s.state->>'request_id'
+                WHERE s.deleted_at IS NULL ORDER BY s.updated_at DESC LIMIT 40""").fetchall()
             requests = conn.execute("""SELECT request_id::text, created_at, kind, status, payload->'products'
                 FROM ingest.requests ORDER BY created_at DESC LIMIT 40""").fetchall()
             releases = conn.execute("""SELECT release_id, n_documents, n_chunks, loaded_at
                 FROM rag.releases ORDER BY loaded_at DESC""").fetchall()
-        return public({'sessions': [dict(zip(('id', 'created_at', 'updated_at', 'stage', 'target', 'request_id'), r)) for r in sessions],
+        return public({'sessions': [dict(zip(('id', 'created_at', 'updated_at', 'stage', 'target', 'request_id', 'request_status'), r),
+            can_delete=r[6] is None or r[6] in TERMINAL_REQUEST_STATUSES) for r in sessions],
             'requests': [dict(zip(('id', 'created_at', 'kind', 'status', 'products'), r)) for r in requests],
             'releases': [dict(zip(('id', 'documents', 'chunks', 'loaded_at'), r)) for r in releases],
             'service': {k: summary.get(k) for k in ('pipeline_version', 'run_name', 'product_index_chunks')},
             'capabilities': {'new_product': True, 'refresh': False, 'new_guideline': False, 'worker_cancel': False,
-                             'automatic_search_publish': False}, 'database_ready': True})
+                             'automatic_search_publish': False, 'session_delete': True}, 'database_ready': True})
 
     def session(self, session_id):
         with self.connection() as conn:
@@ -61,7 +66,7 @@ class IngestionAPI:
     @staticmethod
     def _session(conn, session_id):
         from ingestion.agent import plan_digest
-        row = conn.execute('SELECT state, created_at, updated_at FROM ingest.agent_sessions WHERE session_id = %s', (session_id,)).fetchone()
+        row = conn.execute('SELECT state, created_at, updated_at FROM ingest.agent_sessions WHERE session_id = %s AND deleted_at IS NULL', (session_id,)).fetchone()
         if row is None:
             raise KeyError(session_id)
         turns = conn.execute('SELECT turn, at, user_text, reply FROM ingest.agent_turns WHERE session_id = %s ORDER BY turn', (session_id,)).fetchall()
@@ -73,7 +78,9 @@ class IngestionAPI:
                     FROM ingest.request_events WHERE request_id = %s AND event = 'staged'
                     ORDER BY payload->>'product_id', event_id DESC""", (state['request_id'],)).fetchall()
                 request = {'id': state['request_id'], 'status': req[0], 'reports': dict(reports)}
+        can_delete = request is None or request['status'] in TERMINAL_REQUEST_STATUSES
         return public({'id': session_id, 'state': row[0], 'created_at': row[1], 'updated_at': row[2],
+            'can_delete': can_delete, 'delete_block_reason': None if can_delete else DELETE_BLOCK_REASON,
             'request': request, 'plan_sha256': plan_digest(state['plan']) if state.get('stage') == 'planned' and state.get('plan') else None,
             'turns': [dict(zip(('turn', 'at', 'user_text', 'reply'), t)) for t in turns]})
 
@@ -82,6 +89,29 @@ class IngestionAPI:
         with self.connection() as conn:
             agent = (self.agent_factory or Agent)(conn)
             return self._session(conn, agent.session_id)
+
+    def delete(self, session_id):
+        session_id = sid(session_id)
+        with self.connection() as conn:
+            # Use the same cross-server lock as a turn, so a reply cannot race deletion.
+            if not conn.execute('SELECT pg_try_advisory_lock(20261015, 2)').fetchone()[0]:
+                raise RevisionConflict('다른 적재 요청을 처리 중입니다. 완료 후 다시 시도하세요.')
+            try:
+                with conn.transaction():
+                    row = conn.execute('SELECT state, deleted_at FROM ingest.agent_sessions WHERE session_id = %s FOR UPDATE', (session_id,)).fetchone()
+                    if row is None:
+                        raise KeyError(session_id)
+                    if row[1] is not None:
+                        return {'id': session_id, 'deleted': True}
+                    request_id = row[0].get('request_id')
+                    if request_id:
+                        request = conn.execute('SELECT status FROM ingest.requests WHERE request_id = %s FOR UPDATE', (request_id,)).fetchone()
+                        if request and request[0] not in TERMINAL_REQUEST_STATUSES:
+                            raise RevisionConflict(DELETE_BLOCK_REASON)
+                    conn.execute('UPDATE ingest.agent_sessions SET deleted_at = now() WHERE session_id = %s', (session_id,))
+                return {'id': session_id, 'deleted': True}
+            finally:
+                conn.execute('SELECT pg_advisory_unlock(20261015, 2)')
 
     def turn(self, session_id, payload, approval=False, control=False):
         from ingestion.agent import Agent
@@ -156,7 +186,7 @@ class IngestionAPI:
         return {'logs': logs, 'note': '하위 작업 로그는 작업 종료 후 기록될 수 있습니다.'}
 
 
-SESSION = re.compile(r'/api/ingestion/sessions/([0-9a-f-]{36})(?:/(turns|approve|actions))?')
+SESSION = re.compile(r'/api/ingestion/sessions/([0-9a-f-]{36})(?:/(turns|approve|actions|delete))?')
 REQUEST = re.compile(r'/api/ingestion/requests/([0-9a-f-]{36})(?:/(logs))?')
 
 
@@ -178,6 +208,10 @@ def post(jobs, path, payload):
             raise ValueError('새 세션 요청을 확인하세요.')
         return jobs.ingestion.create()
     match = SESSION.fullmatch(path)
+    if match and match[2] == 'delete':
+        if payload != {}:
+            raise ValueError('대화 삭제 요청을 확인하세요.')
+        return jobs.ingestion.delete(match[1])
     if match and match[2] in ('turns', 'approve', 'actions'):
         return jobs.ingestion.turn(match[1], payload, approval=match[2] == 'approve', control=match[2] == 'actions')
     raise KeyError(path)

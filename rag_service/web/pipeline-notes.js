@@ -6,6 +6,19 @@ const PipelineNotes=(()=>{
   const msg=(text,error=false)=>{const box=$("pipeline-message");box.textContent=text;box.classList.toggle("is-error",error);};
   const send=(path,body)=>api(path,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
   const uuid=()=>crypto.randomUUID().replaceAll("-","");
+  const questionCache=new Map();
+  function memoQuestion(memo){
+    const saved=memo.source?.question;if(typeof saved==="string"&&saved.trim())return Promise.resolve(saved);
+    const id=memo.source?.job_id;if(!id)return Promise.resolve("");
+    if(!questionCache.has(id))questionCache.set(id,api("/api/jobs/"+encodeURIComponent(id)).then(job=>job.question||job.report?.question||"").catch(()=>""));
+    return questionCache.get(id);
+  }
+  function questionTitle(target,memo){
+    const direct=(memo.body.split(/\r?\n/).find(line=>line.trim())||"직접 메모").slice(0,160);
+    target.textContent=memo.source?.question||(memo.source?"원 질문을 불러오는 중입니다.":direct);
+    if(memo.source)memoQuestion(memo).then(question=>{if(target.isConnected){target.textContent=question||"저장된 RAG 메모";target.title=target.textContent;}});
+    else target.title=direct;
+  }
   const date=value=>new Date(value).toLocaleString("ko-KR",{month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit"});
   const memoList=id=>(project?.memos||[]).filter(m=>m.stage_ids.includes(id)&&Boolean(m.archived)===archived&&(!tag||m.tags.some(t=>t.toLocaleLowerCase()===tag.toLocaleLowerCase())));
   function emptyMemo(s){
@@ -43,12 +56,24 @@ const PipelineNotes=(()=>{
     }
   }
   function card(memo){
-    const box=node("article","pipeline-memo "+(memo.origin==="rag"?"from-rag":"from-user"));
-    const meta=node("div","pipeline-memo-meta");meta.append(node("span","memo-origin",memo.origin==="rag"?"RAG 근거":"직접 메모"));if(memo.products.length)meta.append(node("span","","참고 제품 · "+memo.products.join(" · ")));meta.append(button("수정","link-button",()=>openEditor({memo})));box.append(meta,node("p","pipeline-memo-body",memo.body));
+    const box=node("article","pipeline-memo "+(memo.origin==="rag"?"from-rag":"from-user"));box.dataset.memoId=memo.id;
+    const meta=node("div","pipeline-memo-meta");meta.append(node("span","memo-origin",memo.origin==="rag"?"RAG 근거":"직접 메모"));if(memo.products.length)meta.append(node("span","","참고 제품 · "+memo.products.join(" · ")));meta.append(button("수정","link-button",()=>openEditor({memo})));box.append(meta);
+    const open=button("","memo-open",()=>openReader(memo)),query=node("span","memo-query"),arrow=node("span","memo-open-arrow","↗");arrow.setAttribute("aria-hidden","true");open.setAttribute("aria-haspopup","dialog");questionTitle(query,memo);open.append(query,arrow);box.append(open);
     if(memo.tags.length){const chips=node("div","memo-tags");for(const t of memo.tags)chips.append(button("#"+t,"memo-tag",()=>{tag=t;Prefs.set("workspaceTag:"+project.id,tag);render();}));box.append(chips);}
-    if(memo.source){const refs=node("div","memo-source-links"),source=memo.source,cited=source.evidence.map(e=>({eid:e.id,title:e.title,page:e.pdf_page}));
-      for(const e of source.evidence)refs.append(button(`[${e.id}] 원문 · p.${e.pdf_page}`,"cite",()=>Viewer.open({jobId:source.job_id,resultIndex:source.result_index,eid:e.id,cited})));box.append(refs);}
     box.append(node("div","memo-time",`${date(memo.updated_at)} · 수정 ${memo.revision} · ${memo.stage_ids.map(id=>stages().find(s=>s.id===id)?.short||id).join(" / ")}`));return box;
+  }
+  function openReader(memo){
+    const d=dialog("단계 메모"),content=node("div","workspace-dialog-body memo-reader-content"),query=node("h3","memo-reader-question");d.classList.add("memo-reader-dialog");d.setAttribute("aria-label","단계 메모 상세");d.querySelector(".workspace-dialog-head .icon-button").setAttribute("aria-label","메모 상세 닫기");
+    const layout=node("div","memo-reader-layout"),evidence=node("div","memo-reader-evidence"),switcher=node("div","memo-reader-switch");switcher.setAttribute("role","group");switcher.setAttribute("aria-label","메모와 근거 보기");
+    const setPane=value=>{layout.dataset.activePane=value;for(const b of switcher.querySelectorAll("button"))b.setAttribute("aria-pressed",String(b.dataset.pane===value));};
+    for(const [value,label] of [["memo","메모"],["evidence","근거 원문"]]){const b=button(label,"reader-pane-button",()=>setPane(value));b.dataset.pane=value;switcher.append(b);}setPane("memo");
+    questionTitle(query,memo);const meta=node("div","pipeline-memo-meta");meta.append(node("span","memo-origin",memo.origin==="rag"?"RAG 근거":"직접 메모"),node("span","",memo.stage_ids.map(id=>stages().find(s=>s.id===id)?.label||id).join(" / ")));
+    content.append(meta,query,node("p","pipeline-memo-body memo-reader-body",memo.body));
+    if(memo.source){const refs=node("div","memo-source-links"),source=memo.source,cited=source.evidence.map(e=>({eid:e.id,title:e.title,page:e.pdf_page}));for(const e of source.evidence)refs.append(button(`[${e.id}] 원문 · p.${e.pdf_page}`,"cite",()=>{Viewer.open({jobId:source.job_id,resultIndex:source.result_index,eid:e.id,cited});setPane("evidence");}));content.append(refs);}
+    if(memo.tags.length)content.append(node("p","memo-reader-tags",memo.tags.map(t=>"#"+t).join(" · ")));
+    content.append(node("p","memo-time",`${date(memo.updated_at)} · 수정 ${memo.revision}`));const actions=node("div","workspace-dialog-actions");actions.append(button("메모 수정","download",()=>{d.close();openEditor({memo});}),button("닫기","primary-button",()=>d.close()));content.append(actions);layout.append(content,evidence);d.append(switcher,layout);
+    const release=Viewer.attach(evidence,open=>{d.classList.toggle("has-evidence",open);if(!open)setPane("memo");});d.addEventListener("close",release,{once:true});
+    d.addEventListener("cancel",event=>{if(Viewer.isOpen()){event.preventDefault();Viewer.close();}});d.showModal();
   }
   function dialog(title){const d=node("dialog","workspace-dialog"),head=node("div","workspace-dialog-head");head.append(node("h2","",title),button("×","icon-button",()=>d.close()));d.append(head);document.body.append(d);d.addEventListener("close",()=>d.remove(),{once:true});return d;}
   function field(form,label,control){const wrap=node("label","workspace-field");wrap.append(node("span","",label),control);form.append(wrap);return control;}

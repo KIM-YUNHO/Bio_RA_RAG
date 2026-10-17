@@ -15,7 +15,7 @@ function setScopeChip(turn,text){const chip=turn.querySelector(".scope-chip");if
 function conversationState(){
   const box=$("conversation-state");box.replaceChildren();box.hidden=!state.conversationId||!state.turns;
   if(box.hidden){$("question").placeholder=$("question").dataset.first;return;}
-  box.append(node("span","",`대화 이어가는 중 · ${state.turns}턴 · 다음 질문은 앞 질문의 제품·기관을 이어받습니다`),button("새 대화","link-button",newChat));
+  box.append(node("span","conversation-state-text",`대화 이어가는 중 · ${state.turns}턴 · 다음 질문은 앞 질문의 제품·기관을 이어받습니다`),button("새 대화","link-button",newChat));
   $("question").placeholder="이어서 질문하세요. 예: 그럼 FDA는?  (제품·기관을 새로 적으면 그 값으로 바뀝니다)";
 }
 function interpretationBox(report){
@@ -35,8 +35,8 @@ function startTurn(question,scopeText){
   turn.append(bubble);chatLog().append(turn);turn.scrollIntoView({block:"start",behavior:"smooth"});return turn;
 }
 function pending(turn){
-  const box=node("div","bubble answer progress"),stage=node("strong"),message=node("p");box.setAttribute("role","status");
-  const text=node("div");text.append(stage,message);box.append(node("span","spinner"),text);turn.append(box);
+  const box=node("div","bubble answer progress"),stage=node("strong"),message=node("p");box.setAttribute("role","status");box.setAttribute("aria-live","polite");box.setAttribute("aria-atomic","true");
+  const text=node("div","progress-copy");text.append(stage,message);const spinner=node("span","spinner");spinner.setAttribute("aria-hidden","true");box.append(spinner,text);turn.append(box);
   return {box,update(job){stage.textContent=STAGES[job.stage]||job.stage;message.textContent=(job.message||"")+(job.total?` (${job.current}/${job.total})`:"");}};
 }
 function citedList(result,ids){return ids.filter(id=>result.evidence[id]).map(id=>({eid:id,title:result.evidence[id].title,page:result.evidence[id].pdf_page}));}
@@ -57,7 +57,6 @@ function citationBox(id,evidence,quotes,onOpen){
   box.append(node("strong","",`[${id}] ${evidence.title} · p.${evidence.pdf_page}`));
   box.append(node("div","",[evidence.source||AGENCIES[evidence.jurisdiction],evidence.product_id||(evidence.product_id===null?"공통 지침":""),meta.status&&`문서 상태 ${meta.status}`,meta.checked&&`확인 시점 ${meta.checked}`].filter(Boolean).join(" · ")));
   const links=node("div","source-links");links.append(button("원문 보기 →","link-button",()=>onOpen(id)));
-  for(const link of evidence.review_links||[]){const anchor=sourceLink(link.url,`검토 페이지 · p.${link.pdf_page} ↗`);if(anchor){links.append(anchor);break;}}
   const original=sourceLink(evidence.source_url,"기관 출처 ↗");if(original)links.append(original);box.append(links);
   for(const quote of quotes)box.append(node("blockquote","quote",quote));
   const details=node("details");details.append(node("summary","","공급한 원문 문맥"),node("pre","chunk-text",evidence.text));box.append(details);
@@ -226,7 +225,6 @@ async function init(){
   try{const [summary,inventory]=await Promise.all([api("/api/summary"),api("/api/inventory")]);state.summary=summary;
     Inventory.render($("inventory"),inventory,()=>{});
     if(typeof PipelineNotes!=="undefined")await PipelineNotes.init(inventory);
-    $("review-link").href=summary.review_url;
     $("index-info").textContent=`${summary.chunks.toLocaleString()}청크 · 검색 허용 ${summary.eligible_chunks.toLocaleString()}\nBGE-M3 · ${summary.answer_model}\n${summary.run_name}${summary.pipeline_version?"\n"+summary.pipeline_version:""}`;
     const params=new URLSearchParams(location.hash.slice(1));if(params.get("conv"))await openConversation(params.get("conv"));else if(params.get("job"))await openJob(params.get("job"));}
   catch(error){showError(error.message);}

@@ -70,7 +70,42 @@ def report(product_id):
     targets = json.loads((PROJECT / "configs/collection/targets.json").read_text(encoding="utf-8"))
     if any(t["product_id"] == product_id for t in targets["products"]):
         print(f"!! {product_id} is already in the project targets.json; it is updated by the project's collect.py, not moved again")
+    else:
+        problem = targets_problem(targets, target_entry(with_reference(dict(product), targets), len(docs)))
+        if problem:
+            print(f"!! {product_id} cannot be added to targets.json: {problem}")
     return product, docs, studies, results
+
+
+def with_reference(product, targets):
+    """Point a biosimilar without a reference at the project's reference product of the same ingredient, if there is exactly one."""
+    if product.get("kind", "biosimilar") == "biosimilar" and not product.get("reference_product_id"):
+        refs = [t["product_id"] for t in targets["products"] if t.get("kind") == "reference" and (t.get("ingredient") or targets["ingredient"]) == product.get("ingredient")]
+        product["reference_product_id"] = refs[0] if len(refs) == 1 else None
+    return product
+
+
+def target_entry(product, n_docs):
+    """The targets.json entry of a moved product. Every contract field is written, null where no source gave a value:
+    the contract requires the keys, and later loads of targets.json refuse an entry that leaves one out."""
+    entry = {k: product.get(k) for k in TARGET_KEYS}
+    for k in ("aliases", "study_ids", "pmda_general_list_ids", "licences"):
+        entry[k] = entry[k] or []
+    entry["added"] = dt.date.today().isoformat()
+    entry["notes"] = f"Moved from product_search/data (checked staging copy, {n_docs} documents)."
+    return entry
+
+
+def targets_problem(targets, entry):
+    """Why targets.json would be refused with the entry appended (ingestion validates it on every later load), or None."""
+    from pydantic import ValidationError
+    from ingestion.contracts import TargetsFile
+    try:
+        TargetsFile.model_validate({**targets, "products": targets["products"] + [entry]})
+    except ValidationError as exc:
+        error = exc.errors()[0]
+        return f"{'.'.join(str(part) for part in error['loc'])}: {error['msg']}"
+    return None
 
 
 def copy(rel):
@@ -91,6 +126,11 @@ def apply(product_id):
     clash = {d["document_id"] for d in project_docs} & {d["document_id"] for d in docs}
     if clash:
         sys.exit(f"not moved: document ids already in the project: {sorted(clash)[:5]}")
+    # Checked before any file is copied: a refused targets.json would stop every later step half way.
+    entry = target_entry(with_reference(product, targets), len(docs))
+    problem = targets_problem(targets, entry)
+    if problem:
+        sys.exit(f"not moved: targets.json would not validate with {product_id}: {problem}")
     # Files: raw (checked against its hash), the text copy parsing read, parsed pages and their layout text, sample tables.
     for d in docs:
         copy(d["raw_path"])
@@ -113,19 +153,10 @@ def apply(product_id):
             cache[url] = rec
     collect.write_json(cache_path, cache)
     # Catalog rows as checked; the target entry so the project keeps collecting the product.
-    if product.get("kind", "biosimilar") == "biosimilar" and not product.get("reference_product_id"):
-        # Point the biosimilar at the project's reference product of the same ingredient, if there is exactly one.
-        refs = [t["product_id"] for t in targets["products"] if t.get("kind") == "reference" and (t.get("ingredient") or targets["ingredient"]) == product.get("ingredient")]
-        product["reference_product_id"] = refs[0] if len(refs) == 1 else None
     write_jsonl(pcat / "documents.jsonl", project_docs + docs)
     write_jsonl(pcat / "products.jsonl", read_jsonl(pcat / "products.jsonl") + [product])
     write_jsonl(pcat / "studies.jsonl", read_jsonl(pcat / "studies.jsonl") + studies)
     write_jsonl(pcat / "study_results.jsonl", read_jsonl(pcat / "study_results.jsonl") + results)
-    entry = {k: product.get(k) for k in TARGET_KEYS if product.get(k) not in (None, [])}
-    entry.setdefault("pmda_general_list_ids", [])
-    entry.setdefault("study_ids", [])
-    entry["added"] = dt.date.today().isoformat()
-    entry["notes"] = f"Moved from product_search/data (checked staging copy, {len(docs)} documents)."
     text = targets_path.read_text(encoding="utf-8")
     end = text.index("\n  ],\n", text.index('"products": ['))
     targets_path.write_text(text[:end] + ",\n    " + json.dumps(entry, ensure_ascii=False) + text[end:], encoding="utf-8", newline="\n")

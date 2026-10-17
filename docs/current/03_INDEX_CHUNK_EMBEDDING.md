@@ -1,6 +1,7 @@
 # 3. 색인 (청킹·임베딩·저장) — 현재 상태
 
 - 작성: 2026-10-16 16:50 KST
+- 수정: 2026-10-18 01:30 KST (서비스 검색을 pgvector로 전환, 새 릴리스 게시 명령)
 - 기준: `GET /api/summary`(8885), 릴리스 04 `release_manifest.json`·`candidate/`, DB `rag.releases`·`rag.active_release`, `rag/search.py`·`rag/service_scope.py`·`rag/ra_sources.py`
 - 상위: [현재 서빙 상태](README.md)
 
@@ -83,9 +84,10 @@ release/
 
 | 저장소 | 현재 |
 | :-- | :-- |
-| 파일 | **서비스가 실제로 읽는 곳.** 시작 때 `chunks.jsonl`·`doc.npy`를 읽고 sha256·ID 순서를 확인한 뒤 메모리 행렬로 검색 |
-| PostgreSQL `rag` 스키마 | 01·03·04 적재(04: 2026-10-14 21:23 KST). `rag.active_release`: `pilot`→01, `latest`→04, `served_by_ra_service`→04. 청크·벡터는 릴리스별 파티션, HNSW(내적) 인덱스, UPDATE 금지 트리거 |
-| DB 백엔드 | `BIOSIM_SEARCH_BACKEND=postgres`로 시작하면 청크·벡터를 DB에서 한 번 읽어 같은 메모리 검색을 한다. 지금 서비스는 이 설정 없이 떠 있다. pgvector로 직접 질의하는 경로는 서비스 코드에 없다 |
+| PostgreSQL `rag` 스키마 | **서비스가 검색하는 곳**(10-18부터). 01·03·04 적재(04: 2026-10-14 21:23 KST). `rag.active_release`: `pilot`→01, `latest`→04, `served_by_ra_service`→04. 청크·벡터는 릴리스별 파티션, HNSW(내적) 인덱스, UPDATE 금지 트리거 |
+| 검색 방식 | `BIOSIM_SEARCH_BACKEND=pgvector`: 시작 때 청크만 DB에서 읽고(BM25·필터용), 벡터는 DB에 둔다. 그룹별 dense 상위 40은 `storage/rag_index.py` `PgVectors.top`이 그 그룹의 행만 내적(`<#>`)으로 전수 계산하는 정확 검색이며 동점은 순번 순. HNSW는 필터 없는 근사 검색(`nearest`)용. 릴리스 04에서 450회 비교 시 집합 449/450 일치(다른 1건과 순서 차이는 모두 점수 차 0인 동점), 그룹 검색 중앙값 17.6ms·p90 36ms. 저장된 계획 검색(`eval/plan_stability.py --saved-only`)의 결과 JSON이 파일 방식과 같았다 |
+| 파일 | 원문 패널용 원본 PDF·페이지·문맥(`release/`의 contexts·visual 등)은 여전히 파일. `chunks.jsonl`·`doc.npy`는 DB에 올리는 원천이자, DB에 없는 릴리스를 읽을 때 쓴다 |
+| 새 릴리스 게시 | `python -m storage.publish_release data/versions/<id>/embedded/release [--serve]`: 파일 일관성 검사 → `versions.json` 항목 추가 → DB 적재(한 트랜잭션) → 파일·numpy 대 pgvector 검증 → `--serve`면 `latest`·`served_by_ra_service` 역할 이동. `pipelines/pipeline_h/merge_release.py`·`rechunk_release.py`가 릴리스를 만든 직후 자동으로 호출한다(`--no-publish`로 끔). 서비스는 재시작 때 새 역할의 릴리스를 읽는다 |
 | BM25 | DB로 옮기지 않음. 서비스 프로세스 안에서 SQLite FTS5로 만든다 |
 
 매니페스트·출처 필드에 만든 PC의 절대 경로가 남아 있다. `rag/portable_paths.py`가 읽을 때 현재 프로젝트 경로로 바꾼다. 원본 PDF(`data/raw/`)와 전처리 산출물은 원문 패널 때문에 파일로 있어야 한다.
