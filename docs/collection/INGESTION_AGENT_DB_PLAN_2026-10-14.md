@@ -6,6 +6,12 @@
 - 근거: 2026-10-14에 다시 읽은 코드. `product_search/discover.py`(이름 검색), `collect.py`(수집 단계), `rag/openai_chat.py`·`rag/ra_models.py`(LLM 호출과 Pydantic 계약), `rag_service/conversations.py`·`reviews.py`·`inventory.py`(세션·검토·자료 목록), `data/rag/releases/`(청크·임베딩 파일), EMA 의약품 JSON과 Purple Book CSV 원본.
 - 함께 읽을 문서: [RA 문서 적재 파이프라인 총정리](INGESTION_PIPELINE.md)
 
+### 2026-10-17 KST — 승인 전에 이 작업 폴더의 스테이징 확인
+
+Imuldosa(DMB3115) 요청 `3f6b4c92…`는 원래 프로젝트 폴더 `biosimilar_collection`에서 스테이징됐다(10-14 04:22 KST, 스테이징 자료는 그 폴더의 `product_search/data`). 두 폴더가 같은 PostgreSQL을 써서 `project_shared` 화면에도 확인표 검토 대기로 보였고, 10-16 17:38 KST 그 화면에서 승인되자 등록 작업이 `project_shared`에서 확인표를 다시 만들다 `DMB3115 is not in product_search/data`로 실패했다. 옮겨진 자료는 없다.
+
+수정: 스테이징 이벤트(`staged`)에 스테이징한 폴더 `stage_root`를 기록한다. 승인(`/approve`, 화면 승인 버튼)은 승인 기록 전에 이 폴더의 스테이징으로 확인표를 다시 만들어(`ingestion.worker.check_here`) 승인하려는 해시와 비교한다. 없거나 다르면 승인하지 않고 스테이징한 폴더를 알려 주며, 요청은 확인표 검토 대기로 남는다. 실패한 요청은 이력으로 두고, 이 폴더에서 새 수집 요청으로 다시 스테이징한다.
+
 ### 2026-10-15 17:32 KST — 실제 화면 연결
 
 초기 계획 상태 표시는 당시 기록이다. 실제 RA 서비스의 `자료 수집·적재` 창을 기존 `ingestion.agent.Agent`에 연결했다. `rag_service/ingestion_api.py`가 DB 세션/대화 복원, 자연어 요청, 명시적 후보 선택·수집 시작, 확인표 조회·등록 승인, 요청 이벤트·로그를 제공한다. 후보 선택/시작은 구조화된 `/actions` 요청이며 LLM을 호출하지 않는다. 새 제품명·성분명 등 자연어 요청의 해석은 기존 gpt-4o-mini 경로를 유지한다.

@@ -48,7 +48,7 @@ uv run python -m ingestion.load_catalog      # 카탈로그 JSONL → DB corpus�
 
 - LLM은 자연어 요청을 구조화하는 데만 쓴다(`gpt-4o-mini`). 대상 확인·허가 상태·실행 여부는 코드와 Pydantic 계약이 정한다.
 - 화면의 후보 선택·수집 시작 버튼은 `/actions`로 직접 실행하며 모델을 부르지 않는다.
-- 수집 시작은 화면에서 본 계획 해시, 등록 승인은 확인표 해시와 요청 상태를 다시 확인한다.
+- 수집 시작은 화면에서 본 계획 해시, 등록 승인은 확인표 해시와 요청 상태를 다시 확인한다. 승인 전에 **이 작업 폴더의 스테이징으로 확인표를 다시 만들어** 해시가 같을 때만 승인한다(10-17). 같은 DB를 쓰는 다른 폴더(`biosimilar_collection`)에서 스테이징한 요청은 여기서 승인되지 않는다. 스테이징 이벤트에는 `stage_root`(스테이징한 폴더)가 남는다.
 - 화면은 5초마다 GET으로 상태를 갱신한다(모델 호출·새 턴 없음).
 - 대화 삭제: 목록과 대화 상단의 삭제 버튼 → 확인 → `POST …/sessions/<id>/delete`. 지우지 않고 `deleted_at`으로 숨긴다(마이그레이션 `009`). 턴·요청·이벤트 기록은 남고, 삭제한 대화는 목록·조회·이어쓰기·CLI 재개에서 빠진다. 요청이 `queued`·`staging`·`awaiting_approval`·`approved`·`promoting`인 대화는 삭제할 수 없다. 화면에 되살리기 기능은 없다(SQL로 `deleted_at`을 비우면 돌아온다).
 
@@ -57,7 +57,7 @@ uv run python -m ingestion.load_catalog      # 카탈로그 JSONL → DB corpus�
 | 항목 | 값 (2026-10-17 17:40 조회) |
 | :-- | :-- |
 | 에이전트 세션 | 14개 중 화면에 보이는 것 3개. 11개는 10-16 17:26~17:34 KST에 삭제 처리(`deleted_at`). 턴 31개는 그대로 남아 있다 |
-| 적재 요청 | 1건 — Imuldosa(DMB3115) `new_product`, 2026-10-14 04:21 KST 생성. 10-16 17:38 KST 등록(`promote`) 단계에서 **`failed`**: `DMB3115 is not in product_search/data; collect it first`. 이 작업 폴더의 `product_search/data`에 스테이징 결과가 없어 실패했다 |
+| 적재 요청 | 1건 — Imuldosa(DMB3115) `new_product`, 2026-10-14 04:21 KST 생성. 10-16 17:38 KST 등록(`promote`) 단계에서 **`failed`**: `DMB3115 is not in product_search/data; collect it first`. 스테이징은 같은 DB를 쓰는 원래 프로젝트 폴더 `biosimilar_collection`에서 했고, 승인·등록은 이 폴더에서 돌아 스테이징 자료를 찾지 못했다. 옮겨진 자료는 없다(두 폴더 모두 카탈로그 6제품·228문서, DMB3115 없음) |
 | `capabilities` | `new_product` 가능 / `refresh`·`new_guideline`·`worker_cancel`·`automatic_search_publish` 미지원 |
 | DB 릴리스 목록 | 01·03·04 적재됨 (자세히는 [03 색인](03_INDEX_CHUNK_EMBEDDING.md) 5절) |
 

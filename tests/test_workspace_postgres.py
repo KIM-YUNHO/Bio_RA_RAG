@@ -116,9 +116,10 @@ class PostgresNotebookTests(unittest.TestCase):
         reviewed = service.turn(session['id'], {'text': '/status'})
         self.assertIn('Fixture check table', reviewed['turns'][-1]['reply'])
         self.assertEqual(reviewed['request']['reports']['SB17'], 'f'*64)
-        with patch('ingestion.agent.spawn') as spawn:
+        with patch('ingestion.agent.spawn') as spawn, patch('ingestion.worker.check_here', return_value='f'*64) as check:
             promoted = service.turn(session['id'], approval, approval=True)
             self.assertEqual(promoted['request']['status'], 'approved')
+            check.assert_called_once_with('SB17', request_id)
             service.turn(session['id'], approval, approval=True)
             self.assertEqual(spawn.call_count, 1)
         with self.connector() as conn:
@@ -155,6 +156,28 @@ class PostgresNotebookTests(unittest.TestCase):
                 with self.assertRaises(urllib.error.HTTPError) as error:
                     post(payload)
                 self.assertEqual(error.exception.code, 400)
+
+    def test_approval_requires_the_check_table_from_this_folders_staging(self):
+        from ingestion.worker import event, set_status
+        service = self.control_service()
+        session = self.seed_planned(service)
+        with patch('ingestion.agent.spawn'):
+            request_id = service.turn(session['id'], {'action': 'start', 'plan_sha256': session['plan_sha256']}, control=True)['request']['id']
+        with self.connector() as conn:
+            event(conn, request_id, 'staged', {'product_id': 'SB17', 'report_sha256': 'f'*64, 'report': 'Fixture check table',
+                                               'stage_root': r'C:\other_project'})
+            set_status(conn, request_id, 'awaiting_approval')
+        service.turn(session['id'], {'text': '/status'})
+        approval = {'product_id': 'SB17', 'report_sha256': 'f'*64}
+        # Staged by another project folder that shares the database, then a staging copy that changed after review.
+        for here, expected in ((None, r'스테이징한 폴더: C:\other_project'), ('e'*64, '확인표와 달라')):
+            with self.subTest(here=here), patch('ingestion.agent.spawn') as spawn, patch('ingestion.worker.check_here', return_value=here):
+                result = service.turn(session['id'], approval, approval=True)
+                self.assertIn(expected, result['turns'][-1]['reply'])
+                self.assertEqual(result['request']['status'], 'awaiting_approval')
+                spawn.assert_not_called()
+        with self.connector() as conn:
+            self.assertEqual(conn.execute('SELECT count(*) FROM ingest.approvals WHERE request_id = %s', (request_id,)).fetchone()[0], 0)
 
     def test_worker_start_failure_does_not_leave_a_queued_job(self):
         service = self.control_service()
