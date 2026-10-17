@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>바이오시밀러 RA 근거 검색</title>
-<link rel="stylesheet" href="/style.css?v=20261015-ra-refined">
+<link rel="stylesheet" href="/style.css?v=20261016-memo-evidence">
 <link rel="stylesheet" href="/data-manager.css?v=20261015-collection-live">
 <script defer src="/common.js"></script><script defer src="/review-notes.js"></script><script defer src="/evidence-view.js"></script>
-<script defer src="/inventory.js"></script><script defer src="/viewer.js"></script><script defer src="/pipeline-notes.js?v=20261015-ra-refined"></script><script defer src="/data-manager.js?v=20261015-collection-live"></script><script defer src="/app.js?v=20261015-main-ra-v2"></script></head>
+<script defer src="/inventory.js"></script><script defer src="/viewer.js?v=20261016-memo-evidence"></script><script defer src="/pipeline-notes.js?v=20261016-memo-evidence"></script><script defer src="/data-manager.js?v=20261015-collection-live"></script><script defer src="/app.js?v=20261016-memo-evidence"></script></head>
 <body>
 <header><a class="brand" href="/" aria-label="처음 화면"><span class="brand-bar" aria-hidden="true"></span><div class="brand-text"><strong>바이오시밀러 RA 근거 검색</strong><small>EMA · FDA · Health Canada 공개 규제 문서</small></div></a><div class="header-right"><button id="data-manager-open" type="button" class="download">자료 수집·적재</button><a id="review-link" target="_blank" rel="noopener">원본 검토 페이지 ↗</a></div></header>
 <main id="layout" class="layout">
@@ -46,8 +46,8 @@
       <div class="empty" id="empty"><span aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M10 5H7v22h18V11l-6-6h-5v7h11M11 17h7M11 21h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h2>질문으로 시작하세요.</h2><p>왼쪽에서 고른 범위 안에서 기관·제품별로 근거를 찾습니다.<br>답변의 [E1] 같은 인용 번호나 ‘원문 보기’를 누르면 오른쪽에 원문 페이지가 열립니다.</p></div>
     </div>
     <div id="error" class="error" hidden role="alert"></div>
-    <div id="conversation-state" class="conversation-state" hidden role="status"></div>
     <form id="question-form" class="composer"><label for="question" class="sr-only">질문</label>
+      <div id="conversation-state" class="conversation-state" hidden role="status"></div>
       <textarea id="question" maxlength="2000" rows="2" required placeholder="예: EMA 문서에서 SB17-1001 시험의 대상자는 어떻게 설명되어 있는가?  (Enter 전송 · Shift+Enter 줄바꿈)"></textarea>
       <div class="form-bottom"><span>자동 추출 결과를 사용합니다. 표·그림의 수치와 의미는 원문에서 확인하세요.</span><button id="submit" type="submit">질문하기 <span>↗</span></button></div>
     </form>

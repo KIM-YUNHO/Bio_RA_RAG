@@ -86,6 +86,7 @@ class NotebookHttpTests(unittest.TestCase):
             saved = request(route+'/memos', payload)
             memo = saved['memos'][0]
             self.assertEqual(memo['source']['original_text'], '검증한 근거 메모')
+            self.assertEqual(memo['source']['question'], 'fixture question')
             self.assertEqual(memo['products'], ['SB17'])
             self.assertEqual(request(route)['memos'][0]['tags'], ['CRO A'])
             changes = {k: memo[k] for k in ('body', 'stage_ids', 'products', 'tags', 'archived')}

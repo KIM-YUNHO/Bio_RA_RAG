@@ -418,5 +418,6 @@ def source_packet(jobs, request):
         evidence_rows.append({'id': eid, **{k: deepcopy(block.get(k)) for k in keys}})
     locator = {k: request[k] for k in ('job_id', 'result_index', 'kind', 'claim_id', 'evidence_id') if k in request}
     return {**locator, 'key': hashlib.sha256(json.dumps(locator, sort_keys=True).encode()).hexdigest(),
+            'question': job.get('question') or job['report'].get('question') or '',
             'original_text': original, 'quotes': quotes, 'evidence': evidence_rows,
             'report_sha256': jobs.reviews.report_hash(job), 'index': deepcopy(job['report'].get('index'))}

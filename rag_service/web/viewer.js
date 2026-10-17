@@ -1,9 +1,14 @@
 "use strict";
 // Right pane: a simple view of the cited source page. Detailed review stays in the separate review page.
 const Viewer=(()=>{
-  let ctx=null,token=0;
+  let ctx=null,token=0,dock=null,home=null;
   const METHOD={region:"저장된 근거 영역을 강조했습니다.",quote:"인용 문장을 페이지 텍스트에서 찾아 강조했습니다."};
-  function show(value){$("viewer-pane").hidden=!value;$("split-right").hidden=!value;$("layout").classList.toggle("viewer-open",value);}
+  function show(value){$("viewer-pane").hidden=!value;$("split-right").hidden=!value||!!dock;$("layout").classList.toggle("viewer-open",value&&!dock);if(dock){dock.host.hidden=!value;dock.changed(value);}}
+  // Move the same live pane into the memo reader; keep its page and pending load.
+  function attach(host,changed){
+    const pane=$("viewer-pane"),binding={host,changed};dock=binding;host.append(pane);show(!!ctx);
+    return ()=>{if(dock!==binding)return;home.parent.insertBefore(pane,home.next);dock=null;show(!!ctx);};
+  }
   function evidenceUrl(eid,suffix=""){return `/api/jobs/${ctx.jobId}/evidence/${ctx.resultIndex}/${encodeURIComponent(eid)}${suffix}`;}
   function open({jobId,resultIndex,eid,cited}){ctx={jobId,resultIndex,cited:cited||[]};show(true);load(eid,null);}
   function close(){token++;ctx=null;show(false);$("viewer-body").replaceChildren();}
@@ -39,6 +44,6 @@ const Viewer=(()=>{
     const official=d.source_url&&sourceLink(d.source_url,"기관 출처 ↗");if(official)links.append(official);
     body.append(links);
   }
-  function init(){$("viewer-close").onclick=close;document.addEventListener("keydown",event=>{if(event.key==="Escape"&&ctx)close();});}
-  return Object.freeze({init,open,close,isOpen:()=>!!ctx});
+  function init(){const pane=$("viewer-pane");home={parent:pane.parentNode,next:pane.nextSibling};$("viewer-close").onclick=close;document.addEventListener("keydown",event=>{if(event.key==="Escape"&&ctx&&!document.querySelector("dialog[open]"))close();});}
+  return Object.freeze({init,open,close,attach,isOpen:()=>!!ctx});
 })();

@@ -15,7 +15,7 @@ function setScopeChip(turn,text){const chip=turn.querySelector(".scope-chip");if
 function conversationState(){
   const box=$("conversation-state");box.replaceChildren();box.hidden=!state.conversationId||!state.turns;
   if(box.hidden){$("question").placeholder=$("question").dataset.first;return;}
-  box.append(node("span","",`대화 이어가는 중 · ${state.turns}턴 · 다음 질문은 앞 질문의 제품·기관을 이어받습니다`),button("새 대화","link-button",newChat));
+  box.append(node("span","conversation-state-text",`대화 이어가는 중 · ${state.turns}턴 · 다음 질문은 앞 질문의 제품·기관을 이어받습니다`),button("새 대화","link-button",newChat));
   $("question").placeholder="이어서 질문하세요. 예: 그럼 FDA는?  (제품·기관을 새로 적으면 그 값으로 바뀝니다)";
 }
 function interpretationBox(report){
@@ -35,8 +35,8 @@ function startTurn(question,scopeText){
   turn.append(bubble);chatLog().append(turn);turn.scrollIntoView({block:"start",behavior:"smooth"});return turn;
 }
 function pending(turn){
-  const box=node("div","bubble answer progress"),stage=node("strong"),message=node("p");box.setAttribute("role","status");
-  const text=node("div");text.append(stage,message);box.append(node("span","spinner"),text);turn.append(box);
+  const box=node("div","bubble answer progress"),stage=node("strong"),message=node("p");box.setAttribute("role","status");box.setAttribute("aria-live","polite");box.setAttribute("aria-atomic","true");
+  const text=node("div","progress-copy");text.append(stage,message);const spinner=node("span","spinner");spinner.setAttribute("aria-hidden","true");box.append(spinner,text);turn.append(box);
   return {box,update(job){stage.textContent=STAGES[job.stage]||job.stage;message.textContent=(job.message||"")+(job.total?` (${job.current}/${job.total})`:"");}};
 }
 function citedList(result,ids){return ids.filter(id=>result.evidence[id]).map(id=>({eid:id,title:result.evidence[id].title,page:result.evidence[id].pdf_page}));}
