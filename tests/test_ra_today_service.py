@@ -1,12 +1,13 @@
 import json
-from http.server import ThreadingHTTPServer
 from pathlib import Path
 import tempfile
-from threading import Thread
 import unittest
 import urllib.request
 import urllib.error
-from rag_service.__main__ import Jobs, handler
+from rag_service.__main__ import Jobs
+import sys
+sys.path.insert(0, str(Path(__file__).parent))
+from http_server import Running  # noqa: E402
 from rag.ra_sources import GuidelineIndex, permitted
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -24,8 +25,7 @@ class TodayServiceTests(unittest.TestCase):
                         'review_memo':{'meeting_questions':[{'issue_id':'I1','question_ko':'원본'}]}}}
                 (Path(directory)/(identity+'.json')).write_text(json.dumps(job),encoding='utf-8')
             jobs=Jobs(Pipeline(),directory)
-            server=ThreadingHTTPServer(('127.0.0.1',0),handler(jobs))
-            worker=Thread(target=server.serve_forever,daemon=True);worker.start()
+            server=Running(jobs)
             opener=urllib.request.build_opener(urllib.request.ProxyHandler({}))
             def call(path,payload=None):
                 request=urllib.request.Request(f'http://127.0.0.1:{server.server_port}'+path,
@@ -46,7 +46,7 @@ class TodayServiceTests(unittest.TestCase):
                 self.assertEqual(error.exception.code,409)
                 self.assertEqual(jobs.get(identity),original)
             finally:
-                jobs.close();server.shutdown();server.server_close();worker.join()
+                jobs.close();server.shutdown()
             restarted=Jobs(Pipeline(),directory)
             try:self.assertEqual(restarted.reviews.get(restarted.get(identity))['revisions'][0]['note'],'재검토')
             finally:restarted.close()

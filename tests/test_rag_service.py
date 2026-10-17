@@ -1,5 +1,4 @@
 """Main service job lifecycle, concurrency and local-only HTTP boundaries."""
-from http.server import ThreadingHTTPServer
 import json
 from threading import Event, Thread
 import time
@@ -7,7 +6,11 @@ import unittest
 import urllib.error
 import urllib.request
 
-from rag_service.__main__ import Jobs,handler
+from rag_service.__main__ import Jobs
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent))
+from http_server import Running  # noqa: E402
 
 
 class Pipeline:
@@ -25,13 +28,12 @@ class Pipeline:
 class ServiceTests(unittest.TestCase):
     def setUp(self):
         self.pipeline=Pipeline();self.jobs=Jobs(self.pipeline)
-        self.server=ThreadingHTTPServer(('127.0.0.1',0),handler(self.jobs))
-        self.thread=Thread(target=self.server.serve_forever,daemon=True);self.thread.start()
+        self.server=Running(self.jobs)
         self.url=f'http://127.0.0.1:{self.server.server_port}'
         self.opener=urllib.request.build_opener(urllib.request.ProxyHandler({}))
 
     def tearDown(self):
-        self.pipeline.release.set();self.jobs.close();self.server.shutdown();self.server.server_close();self.thread.join()
+        self.pipeline.release.set();self.jobs.close();self.server.shutdown()
 
     def request(self,path,payload=None,headers=None):
         data=json.dumps(payload).encode() if payload is not None else None

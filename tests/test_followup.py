@@ -1,13 +1,16 @@
 """Follow-up turns: inherited scope rules, standalone checks, planner wiring and the service flow."""
-from http.server import ThreadingHTTPServer
 import json
+from pathlib import Path
+import sys
 from threading import Event, Thread
 import time
 import unittest
 import urllib.request
 
 from rag import followup, ra_tasks
-from rag_service.__main__ import Jobs, handler
+from rag_service.__main__ import Jobs
+sys.path.insert(0, str(Path(__file__).parent))
+from http_server import Running  # noqa: E402
 
 FIVE = ['ABP654', 'BAT2206', 'BMAB1200', 'CTP43', 'SB17']
 DOCS = [{'source': 'EMA', 'jurisdiction': 'EU'}, {'source': 'FDA', 'jurisdiction': 'US'}, {'source': 'Health Canada', 'jurisdiction': 'CA'}]
@@ -113,12 +116,11 @@ class Pipeline:
 class ServiceTests(unittest.TestCase):
     def setUp(self):
         self.pipeline = Pipeline(); self.jobs = Jobs(self.pipeline)
-        self.server = ThreadingHTTPServer(('127.0.0.1', 0), handler(self.jobs))
-        self.thread = Thread(target=self.server.serve_forever, daemon=True); self.thread.start()
+        self.server = Running(self.jobs)
         self.opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
 
     def tearDown(self):
-        self.jobs.close(); self.server.shutdown(); self.server.server_close(); self.thread.join()
+        self.jobs.close(); self.server.shutdown()
 
     def call(self, path, payload=None):
         request = urllib.request.Request(f'http://127.0.0.1:{self.server.server_port}'+path,

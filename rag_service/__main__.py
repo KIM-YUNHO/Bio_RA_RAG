@@ -18,13 +18,8 @@ from rag_service import notebook_api, ingestion_api
 from rag_service.workspaces import WorkspaceStore
 from psycopg import Error as DatabaseError
 
-# Three-pane UI (2026-10-13). static/ keeps the earlier UI byte for byte for processes started before this change.
-STATIC = Path(__file__).parent/'web'
-STATIC_FILES = {'/':'index.html','/style.css':'style.css','/common.js':'common.js','/evidence-view.js':'evidence-view.js',
-    '/inventory.js':'inventory.js','/viewer.js':'viewer.js','/review-notes.js':'review-notes.js','/app.js':'app.js',
-    '/pipeline-notes.js':'pipeline-notes.js','/data-manager.js':'data-manager.js','/data-manager.css':'data-manager.css'}
-STATIC_TYPES = {'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8'}
-EVIDENCE_ROUTE = re.compile(r'/api/jobs/([0-9a-f]{32})/evidence/(\d{1,3})/([A-Za-z0-9_-]{1,32})(?:/(page)/(\d{1,5})|/(crop)|/(document\.pdf))?')
+from rag_service.http_rules import (STATIC, STATIC_FILES, STATIC_TYPES, EVIDENCE_ROUTE, SECURITY_HEADERS, DEFAULT_CACHE, JSON_TYPE,
+    local_origin, is_review_path, is_workspace_path, is_ingestion_path, post_path_known, body_limit)
 
 
 class Jobs:
@@ -180,16 +175,14 @@ class Jobs:
 
 def handler(jobs):
     class Handler(BaseHTTPRequestHandler):
-        def send(self,body,kind='application/json; charset=utf-8',status=200,cache='no-store'):
+        def send(self,body,kind=JSON_TYPE,status=200,cache=DEFAULT_CACHE):
             if isinstance(body,(dict,list)):body=json.dumps(body,ensure_ascii=False,allow_nan=False).encode('utf-8')
             self.send_response(status)
-            for key,value in {'Content-Type':kind,'Content-Length':str(len(body)),'Cache-Control':cache,
-                'X-Content-Type-Options':'nosniff','Content-Security-Policy':"default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'"}.items():self.send_header(key,value)
+            for key,value in {'Content-Type':kind,'Content-Length':str(len(body)),'Cache-Control':cache,**SECURITY_HEADERS}.items():self.send_header(key,value)
             self.end_headers();self.wfile.write(body)
 
         def local(self):
-            allowed=(f'127.0.0.1:{self.server.server_port}',f'localhost:{self.server.server_port}')
-            return self.headers.get('Host') in allowed and self.headers.get('Origin') in (None,*('http://'+host for host in allowed))
+            return local_origin(self.headers.get('Host'),self.headers.get('Origin'),self.server.server_port)
 
         def do_GET(self):
             if not self.local():return self.send({'error':'Local origin required'},status=403)
@@ -230,14 +223,12 @@ def handler(jobs):
 
         def do_POST(self):
             if not self.local():return self.send({'error':'Local origin required'},status=403)
-            review_path=self.path.startswith('/api/jobs/') and self.path.endswith('/review')
-            workspace_path=self.path=='/api/projects' or self.path.startswith('/api/projects/')
-            ingestion_path=self.path.startswith('/api/ingestion/')
-            if self.path!='/api/questions' and not review_path and not workspace_path and not ingestion_path:return self.send({'error':'찾을 수 없습니다.'},status=404)
+            review_path=is_review_path(self.path);workspace_path=is_workspace_path(self.path);ingestion_path=is_ingestion_path(self.path)
+            if not post_path_known(self.path):return self.send({'error':'찾을 수 없습니다.'},status=404)
             if self.headers.get('Content-Type','').split(';')[0]!='application/json':return self.send({'error':'JSON required'},status=415)
             try:
                 length=int(self.headers.get('Content-Length','0'))
-                if not 0<length<=(65536 if review_path or workspace_path else 16384):raise ValueError('요청 크기를 확인하세요.')
+                if not 0<length<=body_limit(self.path):raise ValueError('요청 크기를 확인하세요.')
                 payload=json.loads(self.rfile.read(length))
                 if workspace_path:return self.send(notebook_api.post(jobs,self.path,payload))
                 if ingestion_path:return self.send(ingestion_api.post(jobs,self.path,payload))
@@ -277,6 +268,8 @@ def main():
     parser.add_argument('--review-dir',type=Path,help='Separate append-only review history')
     parser.add_argument('--conversation-dir',type=Path,help='Conversation turn records (default data/runs/ra_conversations in RA mode)')
     parser.add_argument('--workspace-dir',type=Path,help='Use local notebook files instead of PostgreSQL (offline fixture/standalone mode)')
+    parser.add_argument('--server',choices=('stdlib','fastapi'),default='stdlib',
+        help='HTTP layer: the standard-library server, or the FastAPI app (rag_service/app.py, same URLs and answers)')
     parser.add_argument('--warmup',action='store_true',help='Warm local retrieval before accepting questions; no provider calls')
     parser.add_argument('--context-tokens',type=int,default=65536,
         help='RA reading budget per model call (prompt + output); a project limit, not the model limit')
@@ -302,6 +295,17 @@ def main():
     workspace_store=WorkspaceStore(args.workspace_dir) if args.workspace_dir else PostgresWorkspaceStore()
     jobs=Jobs(pipeline,archive_dir,args.review_dir or (Path('data/runs/ra_review_records') if args.mode=='ra' else None),
         args.conversation_dir or (Path('data/runs/ra_conversations') if args.mode=='ra' else None), workspace_store)
+    if args.server=='fastapi':
+        import uvicorn
+        from rag_service.app import create_app
+        # One worker: every worker would load its own embedding and reranker models. Questions run in Jobs' own thread.
+        config=uvicorn.Config(create_app(jobs,args.port),host='127.0.0.1',port=args.port,workers=1,access_log=False,log_level='warning',lifespan='off')
+        print(f'RA RAG 메인 서비스(FastAPI): http://127.0.0.1:{args.port}/',flush=True)
+        print(json.dumps(pipeline.summary(),ensure_ascii=False),flush=True)
+        try:uvicorn.Server(config).run()
+        except KeyboardInterrupt:pass
+        finally:jobs.close();pipeline.close()
+        return
     server=ThreadingHTTPServer(('127.0.0.1',args.port),handler(jobs))
     print(f'RA RAG 메인 서비스: http://127.0.0.1:{args.port}/',flush=True)
     print(json.dumps(pipeline.summary(),ensure_ascii=False),flush=True)
