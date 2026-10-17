@@ -1,6 +1,6 @@
 # RA RAG 서비스
 
-FastAPI 전환(2026-10-18): HTTP 계층을 FastAPI로도 띄울 수 있다(`--server fastapi`, 시작 스크립트 `-Server fastapi`; 기본은 기존 표준 라이브러리 서버). URL·JSON·상태 코드·보안 헤더가 같아 화면은 바뀌지 않는다. 같은 검사를 두 서버에 돌리는 계약 테스트 `tests/test_http_contract.py`, 전체 테스트 1,326개와 RA DOM 검사가 두 서버에서 통과했고, 실제 데이터 16개 요청의 응답이 기존 서버와 같았다. `/api-docs`(명세 화면)·`/openapi.json`은 FastAPI 서버에만 있다. 8885가 FastAPI, 8775는 기존 서버로 운영한다. 계획: `docs/project/FASTAPI_MIGRATION_PLAN_2026-10-18.md`.
+FastAPI 전환(2026-10-18): HTTP 계층을 FastAPI로도 띄울 수 있다(`--server fastapi`; 시작 스크립트 `-Server`의 기본은 fastapi, `python -m rag_service`의 기본은 기존 표준 라이브러리 서버). URL·JSON·상태 코드·보안 헤더가 같아 화면은 바뀌지 않는다. 같은 검사를 두 서버에 돌리는 계약 테스트 `tests/test_http_contract.py`, 전체 테스트 1,326개와 RA DOM 검사가 두 서버에서 통과했고, 실제 데이터 16개 요청의 응답이 기존 서버와 같았다. `/api-docs`(명세 화면)·`/openapi.json`은 FastAPI 서버에만 있다. 8885가 FastAPI, 8775는 기존 서버로 운영한다. 계획: `docs/project/FASTAPI_MIGRATION_PLAN_2026-10-18.md`.
 
 별도 원문 검토 페이지 연결 제거(2026-10-16): 상단 `원본 검토 페이지`, 답변의 `검토 페이지`, 근거 패널의 `검토 페이지에서 상세 보기`를 제거하고 시작 시 해당 링크를 설정하던 코드도 삭제했다. 원문 확인은 메인 RA의 근거 패널과 메모 상세 안에서 이어진다. 원본 PDF·기관 출처, 단계 메모와 검토 메모 기능은 유지한다. RA DOM 회귀 및 실제 데스크톱·모바일 원문 열람 검증을 통과했고, 8775·8885에서 제거된 진입점과 기존 원문 패널을 확인했다. 저장 데이터 변경이나 서버 재시작 없이 새로고침으로 적용된다.
 

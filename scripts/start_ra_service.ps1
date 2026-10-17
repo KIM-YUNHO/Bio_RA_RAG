@@ -6,7 +6,7 @@ param(
     # Default: the version that versions.json marks as served_by_ra_service.
     [string]$Release = '',
     # HTTP layer: the FastAPI app (rag_service/app.py) or the earlier standard-library server.
-    [ValidateSet('fastapi','stdlib')][string]$Server = 'stdlib'
+    [ValidateSet('fastapi','stdlib')][string]$Server = 'fastapi'
 )
 $ErrorActionPreference = 'Stop'
 $projectRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
