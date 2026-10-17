@@ -3,6 +3,7 @@ from contextlib import contextmanager
 from http.server import ThreadingHTTPServer
 import json
 from pathlib import Path
+import sys
 import tempfile
 from threading import Thread
 from types import SimpleNamespace
@@ -13,6 +14,9 @@ import urllib.request
 import fitz
 
 from rag_service.__main__ import Jobs, handler
+
+sys.path.insert(0, str(Path(__file__).parent))
+from http_server import Running, default_kind  # noqa: E402
 
 JOB_ID = 'a' * 32
 
@@ -58,9 +62,26 @@ def fixture_jobs(ingestion_service=None):
             jobs.close()
 
 
+def add_stop_route(app, running):
+    """The FastAPI fixture's POST /__fixture_stop, which the DOM checks use to end the server (same as FixtureHandler)."""
+    from fastapi import Response
+
+    def stop():
+        running.request_stop()
+        return Response(b'{"stopping": true}', headers={'content-type': 'application/json; charset=utf-8'})
+    app.add_api_route('/__fixture_stop', stop, methods=['POST'], include_in_schema=False)
+
+
 @contextmanager
 def fixture(ingestion_service=None):
     with fixture_jobs(ingestion_service) as jobs:
+        if default_kind() == 'fastapi':
+            server = Running(jobs, 'fastapi', extend=add_stop_route)
+            try:
+                yield server, jobs, server.thread
+            finally:
+                server.shutdown()
+            return
         base_handler = handler(jobs)
         class FixtureHandler(base_handler):
             def do_POST(self):

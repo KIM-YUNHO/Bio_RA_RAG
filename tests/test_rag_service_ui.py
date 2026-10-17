@@ -1,5 +1,4 @@
 """Three-pane service: inventory counts, evidence page view boundaries and static files."""
-from http.server import ThreadingHTTPServer
 import json
 from pathlib import Path
 import tempfile
@@ -11,7 +10,11 @@ import urllib.request
 
 import fitz
 
-from rag_service.__main__ import Jobs, handler, STATIC_FILES
+from rag_service.__main__ import Jobs
+from rag_service.http_rules import STATIC_FILES
+import sys
+sys.path.insert(0, str(Path(__file__).parent))
+from http_server import Running  # noqa: E402
 from rag_service.inventory import build
 from rag_service.pages import EvidencePages, quote_segments
 
@@ -112,12 +115,11 @@ class HttpTests(unittest.TestCase):
         archive = Path(self.tmp.name)/'archive'; archive.mkdir()
         (archive/(JOB_ID+'.json')).write_text(json.dumps(job()), encoding='utf-8')
         self.jobs = Jobs(Pipeline(pdf), archive)
-        self.server = ThreadingHTTPServer(('127.0.0.1',0), handler(self.jobs))
-        self.thread = Thread(target=self.server.serve_forever, daemon=True); self.thread.start()
+        self.server = Running(self.jobs)
         self.opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
 
     def tearDown(self):
-        self.jobs.close(); self.server.shutdown(); self.server.server_close(); self.thread.join(); self.tmp.cleanup()
+        self.jobs.close(); self.server.shutdown(); self.tmp.cleanup()
 
     def get(self, path):
         return self.opener.open(f'http://127.0.0.1:{self.server.server_port}'+path)

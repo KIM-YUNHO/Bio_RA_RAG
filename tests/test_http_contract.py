@@ -52,19 +52,26 @@ class Contract:
         data = raw if raw is not None else (json.dumps(body).encode() if body is not None else None)
         if method == 'POST':
             headers.setdefault('Content-Type', 'application/json')
-        conn = http.client.HTTPConnection('127.0.0.1', self.port, timeout=15)
-        conn.putrequest(method, path, skip_host=True, skip_accept_encoding=True)
-        conn.putheader('Host', host or f'127.0.0.1:{self.port}')
-        for key, value in headers.items():
-            conn.putheader(key, value)
-        if data is not None:
-            conn.putheader('Content-Length', str(len(data)))
-        conn.endheaders(data)
-        reply = conn.getresponse()
-        payload = reply.read()
-        out = {k.lower(): v for k, v in reply.getheaders()}
-        conn.close()
-        return reply.status, out, payload
+        for attempt in range(3):
+            conn = http.client.HTTPConnection('127.0.0.1', self.port, timeout=15)
+            try:
+                conn.putrequest(method, path, skip_host=True, skip_accept_encoding=True)
+                conn.putheader('Host', host or f'127.0.0.1:{self.port}')
+                for key, value in headers.items():
+                    conn.putheader(key, value)
+                if data is not None:
+                    conn.putheader('Content-Length', str(len(data)))
+                conn.endheaders(data)
+                reply = conn.getresponse()
+                payload = reply.read()
+                return reply.status, {k.lower(): v for k, v in reply.getheaders()}, payload
+            except ConnectionError:
+                # A server that refuses a large body may answer and close before reading it; Windows then resets the
+                # connection under the sender. The request is repeated (these checks do not depend on being the first).
+                if attempt == 2:
+                    raise
+            finally:
+                conn.close()
 
     def get_json(self, path, status=200):
         code, headers, payload = self.call('GET', path)
