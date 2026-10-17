@@ -3,6 +3,7 @@
 - 작성: 2026-10-16 16:50 KST
 - 수정: 2026-10-16 17:55 KST (`feature/stable-queries` 병합 기준: 파이프라인 4.10.3, 계획기 사실 검색어. 병합 후 8885·8775 재시작 전까지 서비스는 4.10.2로 돈다)
 - 수정: 2026-10-17 17:45 KST (8775·8885 재시작으로 4.10.3·답변 본문 정리(PR #9) 반영, `BIOSIM_ACTIVE_RELEASE` 04, 원본 검토 페이지 링크 제거, 적재 대화 삭제)
+- 수정: 2026-10-18 00:40 KST (이 프로젝트 전용 DB `biosim_ra`로 분리, 적재 계획·등록의 대조약·빈 칸 검사)
 - 기준: 실행 중 서비스의 `GET /api/summary`·`/api/ingestion`·`/api/projects`(8885·8775), 프로세스 명령줄, `data/versions/versions.json`, DB `rag.active_release`, 작업 폴더 코드(main `96894d3` + `feature/memo-reader-session-delete` 화면·적재 커밋)
 - 이 폴더는 **지금 떠 있는 서비스가 어떤 데이터·코드·설정으로 답하는가**만 적는다. 실험 경위와 수치의 근거는 각 파일 끝의 원 기록을 따른다. 서빙 구성(릴리스·기본값·모델·포트)이 바뀌면 이 폴더를 먼저 고친다.
 
@@ -22,7 +23,7 @@
 | 리랭커 | 로컬 `BAAI/bge-reranker-v2-m3`, 질의 `fquery_unit`, 하이브리드와 RRF 결합, 후보 풀 40 |
 | 그룹당 근거 | 8개 (`--retrieval-pages` 기본값) |
 | 검색 백엔드 | 파일(`chunks.jsonl`·`doc.npy`)을 읽어 메모리에서 계산. `.env`·시작 스크립트에 `BIOSIM_SEARCH_BACKEND` 설정이 없다 |
-| 업무 데이터 | PostgreSQL(이 PC 55432) — 파이프라인·단계 메모(`app`), 수집 요청·세션(`ingest`), 카탈로그(`corpus`·`registry`), 청크·벡터 사본(`rag`) |
+| 업무 데이터 | PostgreSQL(이 PC 55432) **DB `biosim_ra`**(10-18 원래 프로젝트용 `biosim`에서 분리) — 파이프라인·단계 메모(`app`), 수집 요청·세션(`ingest`), 카탈로그(`corpus`·`registry`), 청크·벡터 사본(`rag`) |
 | 원본 검토 화면 | 화면에서 별도 검토 페이지 링크를 제거했다(10-16). 원문 확인은 오른쪽 근거 패널과 메모 상세 창에서 한다. 서비스는 아직 `--review-url http://127.0.0.1:8886` 인자를 받지만 화면이 쓰지 않으며, 8886은 떠 있지 않다 |
 | 수집 기준 릴리스 | `.env`의 `BIOSIM_ACTIVE_RELEASE` = 04 (10-17 변경). 수집 에이전트가 04의 111문서를 "검색 가능"으로 본다 |
 
