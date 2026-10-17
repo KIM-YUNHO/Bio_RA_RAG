@@ -284,6 +284,9 @@ def main():
     if not 1<=args.port<=65535:parser.error('Invalid port')
     if args.guidelines and args.mode!='ra':parser.error('--guidelines requires --mode ra')
     if args.llm_model!='gpt-4o-mini' and args.mode!='ra':parser.error('--llm-model requires --mode ra')
+    # The root .env decides the database and the search backend (BIOSIM_SEARCH_BACKEND) before the index is loaded.
+    from rag.llm import load_env
+    load_env()
     if args.mode=='ra':
         from rag.ra_pipeline import RAPipeline
         from rag.openai_chat import OpenAIPipelineChat

@@ -83,6 +83,7 @@ class RagLoader(unittest.TestCase):
         self.entry = make_release(self.folder, self.document)
         self.rel = rag_loader.release_id(self.entry["id"])
         self.conn.execute("DROP TABLE IF EXISTS rag.emb_bge_m3__" + self.rel)
+        self.conn.execute("DELETE FROM rag.active_release WHERE release_id = %s", (self.rel,))
         self.conn.execute("DELETE FROM rag.releases WHERE release_id = %s", (self.rel,))
 
     def test_release_id_is_a_safe_identifier(self):
@@ -136,6 +137,76 @@ class RagLoader(unittest.TestCase):
         with mock.patch.dict(os.environ, {"BIOSIM_SEARCH_BACKEND": "postgres"}):
             chunks, vectors, _ = search.load_index("bge-m3", Path(other["embedded_path"]) / "candidate")
         self.assertEqual((len(chunks), vectors.shape), (4, (4, 1024)))
+
+    def test_pgvector_store_ranks_as_the_matrix(self):
+        """BIOSIM_SEARCH_BACKEND=pgvector: a caller asking for the store searches in the database and gets the matrix's ranking;
+        callers that score vectors themselves still get the matrix."""
+        from unittest import mock
+        from rag import search
+        from storage.rag_index import PgVectors
+        rag_loader.load_release(self.conn, self.entry)
+        candidate = self.folder / "candidate"
+        _, matrix, _ = search.load_index("bge-m3", candidate)
+        with mock.patch.dict(os.environ, {"BIOSIM_SEARCH_BACKEND": "pgvector"}):
+            chunks, store, _ = search.load_index("bge-m3", candidate, vector_store=True)
+            _, plain, _ = search.load_index("bge-m3", candidate)
+        self.assertIsInstance(store, PgVectors)
+        self.assertTrue(np.array_equal(plain, matrix))
+        self.assertEqual(store.shape, matrix.shape)
+        query = (matrix[2] + np.float32(0.1) * matrix[4]).astype(np.float32)
+        for rows in (np.arange(len(chunks)), np.array([5, 1, 3])):
+            want, got = search.dense_hits(query, matrix, rows, 3), search.dense_hits(query, store, rows, 3)
+            self.assertEqual([i for _, i in got], [i for _, i in want])
+            self.assertTrue(np.allclose([s for s, _ in got], [s for s, _ in want], atol=1e-5))
+        self.assertEqual(search.dense_hits(query, store, np.array([], dtype=int), 3), [])
+        scores = search.similarity(store, [0, 3], query)
+        self.assertEqual(set(scores), {0, 3})
+        self.assertAlmostEqual(scores[3], float(matrix[3] @ query), places=5)
+        self.assertAlmostEqual(search.max_similarity(store, [0, 1, 2], [matrix[0], matrix[1]])(1), float(matrix[1] @ matrix[1]), places=5)
+        self.assertEqual(store.nearest(matrix[2], 1)[0][1], 2)
+        store.close()
+        self.assertEqual(store.top(query, [2, 4], 1)[0][1], 2)  # a closed connection is opened again
+        store.close()
+
+    def publish_project(self):
+        """A throwaway project root with versions.json and the test release at data/versions/<id>/embedded/release."""
+        from unittest import mock
+        from storage import publish_release
+        root = Path(self.tmp.name) / uuid.uuid4().hex
+        versions = root / "data/versions/versions.json"
+        folder = versions.parent / "99_test_release" / "embedded" / "release"
+        make_release(folder, self.document)
+        versions.write_text(json.dumps({"updated_kst": "", "roles": {"latest": "01_x"}, "versions": []}, indent=2) + "\n", encoding="utf-8")
+        for target, value in ((rag_loader, "ROOT"), (rag_loader, "VERSIONS")):
+            patcher = mock.patch.object(target, value, root if value == "ROOT" else versions)
+            patcher.start()
+            self.addCleanup(patcher.stop)
+        return publish_release, folder, versions
+
+    def test_publish_registers_loads_checks_and_serves(self):
+        publish_release, folder, versions = self.publish_project()
+        first = publish_release.publish(folder, conn=self.conn, queries=6)
+        self.assertEqual((first["version"], first["registered"], first["roles"]), ("99_test_release", "added", []))
+        self.assertIn("loaded 6 chunks", first["load"])
+        entry = json.loads(versions.read_text(encoding="utf-8"))["versions"][0]
+        self.assertEqual((entry["embedded_path"], entry["chunks"], entry["vectors"]), ("data/versions/99_test_release/embedded/release", 6, [6, 1024]))
+        again = publish_release.publish(folder, conn=self.conn, serve=True, queries=6)
+        self.assertEqual((again["registered"], again["load"]), ("already listed", "already loaded"))
+        self.assertEqual(again["roles"], ["latest", "served_by_ra_service"])
+        roles = json.loads(versions.read_text(encoding="utf-8"))["roles"]
+        self.assertEqual((roles["latest"], roles["served_by_ra_service"]), ("99_test_release", "99_test_release"))
+
+    def test_publish_refuses_before_writing(self):
+        publish_release, folder, versions = self.publish_project()
+        before = versions.read_text(encoding="utf-8")
+        ids = folder / "candidate/emb/bge-m3/chunk_ids.json"
+        ids.write_text(json.dumps(json.loads(ids.read_text(encoding="utf-8"))[::-1]), encoding="utf-8")
+        with self.assertRaises(ValueError):
+            publish_release.publish(folder, conn=self.conn, queries=6)
+        self.assertEqual(versions.read_text(encoding="utf-8"), before)
+        self.assertIsNone(self.conn.execute("SELECT 1 FROM rag.releases WHERE release_id = %s", (self.rel,)).fetchone())
+        with self.assertRaises(ValueError):  # not under data/versions/<id>/embedded/
+            publish_release.version_id(Path(self.tmp.name) / "elsewhere")
 
     def test_catalog_reload_keeps_releases(self):
         """ingestion.load_catalog truncates and refills corpus.*; a loaded release must neither block nor lose it."""

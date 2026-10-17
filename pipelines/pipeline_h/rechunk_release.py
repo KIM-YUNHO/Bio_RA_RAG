@@ -61,6 +61,7 @@ def main():
     p.add_argument('--out', type=Path, required=True)
     p.add_argument('--stage', choices=['chunk', 'all'], required=True)
     p.add_argument('--section-rules', help='e.g. sections-9 (release 05); default: current rag.document_structure.VERSION')
+    p.add_argument('--no-publish', action='store_true', help='with --stage all: do not load the release into PostgreSQL + pgvector')
     a = p.parse_args()
     out = a.out.resolve()
     if out.exists() and any(out.iterdir()):
@@ -80,11 +81,16 @@ def main():
             report['components'][name]['embedding'] = {k: reuse[k] for k in ('reused_vectors', 'new_vectors')}
             print(name, 'vectors reused', reuse['reused_vectors'], 'new', reuse['new_vectors'], flush=True)
         specs.append((extraction, candidate))
+    status = 0
     if a.stage == 'all':
         from rag.release import compose
+        from storage.publish_release import after_build
         compose(specs, out / 'release')
         report['release'] = str(out / 'release')
+        status = after_build(out / 'release', a.no_publish)
+        report['published'] = status == 0 and not a.no_publish
     write(out / 'rechunk_report.json', report)
+    raise SystemExit(status)
 
 
 if __name__ == '__main__':

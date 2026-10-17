@@ -47,5 +47,8 @@ if __name__ == '__main__':
     p.add_argument('--base-candidate', required=True)
     p.add_argument('--supplement-run', required=True)
     p.add_argument('--out', required=True)
+    p.add_argument('--no-publish', action='store_true', help='do not load the release into PostgreSQL + pgvector (storage.publish_release)')
     a = p.parse_args()
     print(json.dumps(merge(a.base_extraction, a.base_candidate, a.supplement_run, a.out), ensure_ascii=False, indent=1))
+    from storage.publish_release import after_build
+    raise SystemExit(after_build(a.out, a.no_publish))

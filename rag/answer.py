@@ -28,7 +28,7 @@ from embed_index import Embedder  # noqa: E402
 from llm import chat, settings  # noqa: E402
 from rag.evidence import contains_quote, contains_value  # noqa: E402
 from plan_query import plan  # noqa: E402
-from search import Bm25, filter_idx, load_index, to_pages  # noqa: E402
+from search import Bm25, filter_idx, load_index, similarity, to_pages  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 # answer-1: first version (results in data/rag/eval/answers_v0.1.json).
@@ -85,7 +85,7 @@ class Corpus:
         self.model = model
         self.local_only = local_only
         self.include_nondefault = include_nondefault
-        self.chunks, self.vec, self.index_meta = load_index(model, rag_dir)
+        self.chunks, self.vec, self.index_meta = load_index(model, rag_dir, vector_store=True)
         self.evidence_adapter = None
         if bundle is not None:
             from rag.budgeted_evidence import BudgetedEvidence
@@ -133,7 +133,8 @@ class Corpus:
         keep = set(ids)
         if sum(len(self.chunks[i]["text"]) for i in ids) > PAGE_CHARS:
             keep, size = set(), 0
-            order = sorted(ids, key=lambda i: -float(self.vec[i] @ qv)) if qv is not None else ids
+            scores = similarity(self.vec, ids, qv) if qv is not None else None
+            order = sorted(ids, key=lambda i: -scores[i]) if scores is not None else ids
             for i in order:
                 if size + len(self.chunks[i]["text"]) > PAGE_CHARS and keep:
                     continue

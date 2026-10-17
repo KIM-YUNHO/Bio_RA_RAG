@@ -3,7 +3,7 @@ from copy import deepcopy
 import itertools
 import re
 
-from rag.search import filter_idx, dense_hits, rrf, Bm25
+from rag.search import filter_idx, dense_hits, rrf, Bm25, similarity, max_similarity
 from rag.ra_sources import permitted
 from rag.service_scope import allowed
 from rag import ra_answer
@@ -288,7 +288,7 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
                     # Equal header matches are ordered by this task's own dense
                     # query similarity, never by their position in the document.
                     table_candidates=statistic_table_hits(task['request'],idx,corpus.chunks,limit=k,
-                        relevance=lambda i, qs=group_queries: max(float(corpus.vec[i] @ query_vectors[q]) for q in qs))
+                        relevance=max_similarity(corpus.vec, idx, [query_vectors[q] for q in group_queries]))
                     if table_candidates:
                         rankings.insert(0,table_candidates)
                         topic_pos = None if topic_pos is None else topic_pos + 1
@@ -412,7 +412,8 @@ def checklist_first(corpus, groups, question, understanding):
         for group in groups:
             if group.get('product') != entry['product'] or not group['hits']:
                 continue
-            scored = [(float(corpus.vec[index[h['chunk']['chunk_id']]] @ vector), n, h)
+            rows = similarity(corpus.vec, [index[h['chunk']['chunk_id']] for h in group['hits'] if h['chunk']['chunk_id'] in index], vector)
+            scored = [(rows[index[h['chunk']['chunk_id']]], n, h)
                       for n, h in enumerate(group['hits']) if h['chunk']['chunk_id'] in index]
             if scored:
                 picks.append((max(scored, key=lambda x: (x[0], -x[1]))[2]['chunk'], group))

@@ -67,6 +67,8 @@ Qwen 표 재생성, 그림 의미 설명은 기본 경로에 없다. 모델 작�
 # pipelines/pipeline_h/config.example.json → config.local.json 을 먼저 만든다
 .\.venv\Scripts\python.exe -X utf8 -m pipelines.pipeline_h.run --run pipelines/pipeline_h/runs/<새_run_이름>
 # 기존 릴리스에 문서를 보탤 때: prepare_supplement → run --supplement → merge_release
+#   merge_release·rechunk_release는 릴리스를 만든 직후 storage.publish_release로 PostgreSQL + pgvector에 올린다(10-18).
+#   서비스에 내보내기: python -m storage.publish_release data/versions/<id>/embedded/release --serve → 서비스 재시작
 ```
 
 Docling·Paddle 작업은 별도 가상환경과 로컬 모델이 필요하다(`pipelines/pipeline_h/vendor/compare_study_standalone/setup.ps1`, `download_models.py`).

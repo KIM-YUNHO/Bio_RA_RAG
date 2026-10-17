@@ -45,9 +45,14 @@ class RAGPipeline:
         self.client = chat_client or LocalChat(self.config)
         self.encoder_factory = encoder_factory
         self._shared_encoder = None
-        chunks, vectors, meta = load_index('bge-m3',self.bundle.candidate)
-        if vectors.shape != (len(chunks),meta['dim']) or not np.isfinite(vectors).all() or meta['n_chunks'] != len(chunks) or meta.get('truncated_inputs') != 0:
+        chunks, vectors, meta = load_index('bge-m3',self.bundle.candidate,vector_store=True)
+        # A pgvector store is not read into memory; its vector type cannot hold NaN or infinity.
+        finite = vectors.all_finite() if hasattr(vectors,'all_finite') else np.isfinite(vectors).all()
+        if vectors.shape != (len(chunks),meta['dim']) or not finite or meta['n_chunks'] != len(chunks) or meta.get('truncated_inputs') != 0:
             raise ValueError('후보 임베딩의 크기·개수·유효성 검사가 실패했습니다.')
+        self.vector_store = 'pgvector' if hasattr(vectors,'top') else 'memory'
+        if hasattr(vectors,'close'):
+            vectors.close()  # the retrieval corpus opens its own store
         if meta['chunks_sha256'] != self.bundle.chunks_sha256:
             raise ValueError('전처리 후보와 임베딩 버전이 다릅니다.')
         self.index_meta = meta
@@ -80,7 +85,7 @@ class RAGPipeline:
             'eligible_chunks':sum(d['eligible_chunks'] for d in self.documents),
             'chunks_sha256':self.index_meta['chunks_sha256'],'embedding_model':self.index_meta['model'],
             'answer_model':getattr(self.client,'model',self.config.qwen.model),'review_url':self.review_url,
-            'retrieval_pages':self.retrieval_pages,
+            'retrieval_pages':self.retrieval_pages,'vector_store':getattr(self,'vector_store','memory'),
             'query_strategy':getattr(self.query_strategy,'VERSION',None),
             'local_only':getattr(self.client,'local_only',True),'generation_provider':getattr(self.client,'provider','ollama'),
             'numeric_accuracy_certified':False}
