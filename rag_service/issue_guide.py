@@ -19,6 +19,7 @@ import json
 import os
 from pathlib import Path
 import re
+import shutil
 from threading import Lock
 import time
 from types import SimpleNamespace
@@ -27,11 +28,12 @@ from uuid import uuid4
 from rag_service import internal_documents
 
 ID = re.compile(r'[0-9a-f]{32}')
-SECTIONS = [('cause', '원인 규명 방향'), ('experiments', '실험 설계'), ('response', '기관 대응 논리'),
+SECTIONS = [('cause', '원인 후보'), ('experiments', '실험 설계'), ('response', '기관 대응 논리'),
             ('mock_questions', '예상 심사 질의'), ('precedents', '다른 제품 사례')]
 BASIS = {'public': '공개 근거', 'internal': '사내 자료', 'suggestion': 'AI 제안'}
+LIKELIHOOD = {'high': '높음', 'medium': '중간', 'low': '낮음'}
 TOPICS = {'precedents': '같은 시험 항목의 다른 제품 사례', 'cause': '원인 후보 확인', 'guideline': '지침 요구', 'followup': '추가 확인'}
-QUOTE_LIMIT = 500
+QUOTE_LIMIT = 300
 PLAN_QUESTIONS, FOLLOWUP_QUESTIONS = 5, 2
 
 PLAN = """너는 바이오시밀러 RA·CMC 전문가다. 사내 이슈 하나를 받고, 이를 해결하기 위해 공개 심사 자료(EMA EPAR, FDA 심사 문서, Health Canada SBD)와 규제 지침에서 찾아볼 검색 계획을 세운다. 아직 답을 쓰지 않는다.
@@ -55,13 +57,19 @@ WRITE = """너는 바이오시밀러 개발사의 RA·CMC 담당자를 돕는다
 - 근거를 바탕으로 한 너의 제안·추론은 basis="suggestion"으로 쓴다. 기대는 근거가 있으면 그 ID를 넣는다.
 - 다른 제품의 사례는 제품 이름을 밝혀 쓰고, 이 제품에서 확인된 사실처럼 쓰지 않는다.
 - 기관의 판단을 예측하거나 승인을 보장하지 않는다. 공개 근거가 부족한 부분은 부족하다고 쓴다.
-섹션:
-- cause: 원인 규명 방향. 후보 원인을 공개 근거와 맞춰 보고, 근거가 있는 후보를 앞에 둔다. 다른 제품에서 같은 특성 차이를 어떻게 확인·평가했는지 연결한다.
-- experiments: 실험 설계. 후보 원인을 직접 확인하는 시험(예: 특정 변이를 제거하거나 분리한 시료로 다시 측정)을 우선한다. 공개 자료에서 다른 제품이 그 특성 차이를 확인할 때 쓴 방법이 있으면, 그 방법을 이 이슈의 시험 항목에 옮겨 적용하는 시험으로 쓴다. 어떤 결과가 나오면 무엇을 뜻하는지 쓴다.
-- response: 기관 대응 논리. 차이를 어떤 근거의 조합으로 설명·정당화할지. 범위 밖 결과라면 결과와 함께 비교 기준(범위 산정에 쓴 대조약 lot 수·제형·통계 방법)의 적절성도 점검 대상에 넣는다. 같은 제품의 다른 제형·시료 결과가 범위 안이라면 그 차이가 무엇을 뜻하는지, 정당화 근거로 쓸 수 있는지 검토한다.
-- mock_questions: 예상 심사 질의. question(질의), background(질의 배경: 기관이 이것을 확인하려는 이유), prepare(준비할 자료).
-- precedents: 다른 제품 사례. 제품·기관, 무엇이 달랐고 어떻게 확인·평가됐는지.
-summary는 이슈와 대응 방향을 2~3문장으로 쓴다. 각 섹션 2~4개 항목. 한국어로 짧고 구체적으로 쓴다. 본문에 ID를 괄호로 넣지 말고 source_ids에만 넣는다."""
+출력:
+- situation: 확인된 사실만 1~2문장. 원인을 단정하거나 대응 방향 하나를 고르지 않는다.
+- candidates: 원인 후보 3~5개를 가능성 높은 순서로. 하나로 좁히지 않는다. 사내 사실과 공개 근거를 함께 따져 순서를 정한다.
+  · name: 후보 이름(25자 이내). likelihood: high/medium/low.
+  · support: 이 후보를 지지하는 근거 1~2문장. against: 반대 근거나 불확실성 1~2문장.
+  · confirm: 이 후보를 확인하거나 배제하는 결정적 시험 한 줄(60자 이내). 공개 자료에서 다른 제품이 그 특성 차이를 확인할 때 쓴 방법(예: 특정 변이를 제거하거나 분리한 시료로 다시 측정)이 있으면, 그 방법을 이 이슈의 시험 항목에 옮겨 적용한다.
+  · source_ids: 근거 ID.
+- sections의 각 항목은 title(핵심 한 줄, 30자 이내)과 text(설명 1~3문장)로 쓴다.
+  · experiments: 실험 설계. 무엇을 어떤 시료·비교로 시험하고, 어떤 결과가 나오면 어느 후보를 지지·배제하는지.
+  · response: 기관 대응 논리. 차이를 어떤 근거의 조합으로 설명·정당화할지. 범위 밖 결과라면 비교 기준(범위 산정에 쓴 대조약 lot 수·제형·통계 방법)의 적절성도 점검 대상에 넣는다. 같은 제품의 다른 제형·시료 결과가 범위 안이라면 그 차이가 무엇을 뜻하는지, 정당화 근거로 쓸 수 있는지 검토한다.
+  · mock_questions: 예상 심사 질의. question(질의), background(질의 배경: 기관이 이것을 확인하려는 이유), prepare(준비할 자료).
+  · precedents: 다른 제품 사례. title은 '제품 · 기관 · 핵심', text는 무엇이 달랐고 어떻게 확인·평가됐는지.
+각 섹션 2~4개 항목. 한국어로 짧고 구체적으로 쓴다. 본문에 ID를 괄호로 넣지 말고 source_ids에만 넣는다."""
 
 
 def now():
@@ -181,9 +189,12 @@ def public_sources(answers):
 
 
 def messages(issue, fact_rows, ingredient, hypotheses, answers, sources, claim_ids):
-    """The writing prompt: issue, internal facts, hypotheses, the RA answers with P-IDs, and the cited pages. No answer key."""
+    """The writing prompt: issue, internal facts, hypotheses, the RA claims with P-IDs, and the cited pages. No answer key.
+
+    The answer prose is left out: it restates the claims, and 7 searches can cite 60-75 pages.
+    """
     payload = {**issue_payload(issue, fact_rows, ingredient), 'hypotheses_before_search': hypotheses,
-               'public_answers': [{'question_id': a['id'], 'question': a['text'], 'status': a.get('status'), 'answer': a.get('answer', ''),
+               'public_answers': [{'question_id': a['id'], 'question': a['text'], 'status': a.get('status'),
                                    'claims': [{'text': c['text'], 'source_ids': ids} for c, ids in zip(a.get('claims', []), mapped)]}
                                   for a, mapped in zip(answers, claim_ids)],
                'public_sources': [{'id': s['id'], 'product': s['product'] or '공통 지침', 'agency': s['agency'], 'title': s['title'],
@@ -193,49 +204,65 @@ def messages(issue, fact_rows, ingredient, hypotheses, answers, sources, claim_i
 
 def schema(ids):
     refs = {'type': 'array', 'maxItems': 8, 'items': {'type': 'string', 'enum': list(ids)}}
-    item = {'type': 'object', 'additionalProperties': False, 'required': ['text', 'basis', 'source_ids'],
-            'properties': {'text': {'type': 'string'}, 'basis': {'type': 'string', 'enum': list(BASIS)}, 'source_ids': refs}}
+    string = {'type': 'string'}
+    candidate = {'type': 'object', 'additionalProperties': False, 'required': ['name', 'likelihood', 'support', 'against', 'confirm', 'source_ids'],
+                 'properties': {'name': string, 'likelihood': {'type': 'string', 'enum': list(LIKELIHOOD)}, 'support': string,
+                                'against': string, 'confirm': string, 'source_ids': refs}}
+    item = {'type': 'object', 'additionalProperties': False, 'required': ['title', 'text', 'basis', 'source_ids'],
+            'properties': {'title': string, 'text': string, 'basis': {'type': 'string', 'enum': list(BASIS)}, 'source_ids': refs}}
     question = {'type': 'object', 'additionalProperties': False, 'required': ['question', 'background', 'prepare', 'source_ids'],
-                'properties': {'question': {'type': 'string'}, 'background': {'type': 'string'}, 'prepare': {'type': 'string'},
-                               'source_ids': refs}}
+                'properties': {'question': string, 'background': string, 'prepare': string, 'source_ids': refs}}
     sections = {key: {'type': 'array', 'minItems': 1, 'maxItems': 4, 'items': question if key == 'mock_questions' else item}
-                for key, _ in SECTIONS}
-    return {'name': 'issue_guide', 'max_output_tokens': 4000,
-            'schema': {'type': 'object', 'additionalProperties': False, 'required': ['summary', 'sections'],
-                       'properties': {'summary': {'type': 'string'},
+                for key, _ in SECTIONS[1:]}
+    return {'name': 'issue_guide', 'max_output_tokens': 5000,
+            'schema': {'type': 'object', 'additionalProperties': False, 'required': ['situation', 'candidates', 'sections'],
+                       'properties': {'situation': string,
+                                      'candidates': {'type': 'array', 'minItems': 2, 'maxItems': 5, 'items': candidate},
                                       'sections': {'type': 'object', 'additionalProperties': False,
-                                                   'required': [key for key, _ in SECTIONS], 'properties': sections}}}}
+                                                   'required': [key for key, _ in SECTIONS[1:]], 'properties': sections}}}}
 
 
 INLINE_IDS = re.compile(r'\s*[\[(](?:[PU]\d{1,3}(?:\s*,\s*)?)+[\])]')
-TEXT_KEYS = ('text', 'question', 'background', 'prepare')
+TEXT_KEYS = ('name', 'support', 'against', 'confirm', 'title', 'text', 'question', 'background', 'prepare')
 
 
 def normalize(raw, ids):
-    """The model's JSON as screen sections; refuses a shape the schema did not allow."""
-    if not isinstance(raw, dict) or not isinstance(raw.get('summary'), str) or not isinstance(raw.get('sections'), dict):
+    """The model's JSON as screen sections (ranked cause candidates first); refuses a shape the schema did not allow."""
+    if (not isinstance(raw, dict) or not isinstance(raw.get('situation'), str) or not isinstance(raw.get('candidates'), list)
+            or not raw['candidates'] or not isinstance(raw.get('sections'), dict)):
         raise ValueError('모델 응답 형식이 맞지 않습니다.')
     known = set(ids)
     clean = lambda text: INLINE_IDS.sub('', text).strip()
-    sections = []
-    for key, label in SECTIONS:
+    refs = lambda row: [i for i in dict.fromkeys(row.get('source_ids') or []) if i in known]
+    candidates = []
+    for rank, row in enumerate(raw['candidates'], 1):
+        if (not isinstance(row, dict) or row.get('likelihood') not in LIKELIHOOD
+                or not all(isinstance(row.get(k), str) for k in ('name', 'support', 'against', 'confirm'))):
+            raise ValueError('원인 후보 형식이 맞지 않습니다.')
+        candidates.append({'rank': rank, 'name': clean(row['name']), 'likelihood': row['likelihood'],
+                           'likelihood_label': LIKELIHOOD[row['likelihood']], 'support': clean(row['support']),
+                           'against': clean(row['against']), 'confirm': clean(row['confirm']), 'source_ids': refs(row)})
+    sections = [{'key': 'cause', 'label': SECTIONS[0][1], 'items': candidates}]
+    for key, label in SECTIONS[1:]:
         rows = raw['sections'].get(key)
         if not isinstance(rows, list) or not rows:
             raise ValueError('모델 응답에 빈 섹션이 있습니다.')
         items = []
         for row in rows:
-            refs = [i for i in dict.fromkeys(row.get('source_ids') or []) if i in known] if isinstance(row, dict) else None
+            if not isinstance(row, dict):
+                raise ValueError('가이드 항목 형식이 맞지 않습니다.')
             if key == 'mock_questions':
-                if refs is None or not all(isinstance(row.get(k), str) for k in ('question', 'background', 'prepare')):
+                if not all(isinstance(row.get(k), str) for k in ('question', 'background', 'prepare')):
                     raise ValueError('예상 질의 항목 형식이 맞지 않습니다.')
                 items.append({'question': clean(row['question']), 'background': clean(row['background']), 'prepare': clean(row['prepare']),
-                              'source_ids': refs})
+                              'source_ids': refs(row)})
             else:
-                if refs is None or row.get('basis') not in BASIS or not isinstance(row.get('text'), str):
+                if row.get('basis') not in BASIS or not all(isinstance(row.get(k), str) for k in ('title', 'text')):
                     raise ValueError('가이드 항목 형식이 맞지 않습니다.')
-                items.append({'text': clean(row['text']), 'basis': row['basis'], 'basis_label': BASIS[row['basis']], 'source_ids': refs})
+                items.append({'title': clean(row['title']), 'text': clean(row['text']), 'basis': row['basis'],
+                              'basis_label': BASIS[row['basis']], 'source_ids': refs(row)})
         sections.append({'key': key, 'label': label, 'items': items})
-    return {'summary': clean(raw['summary']), 'sections': sections}
+    return {'situation': clean(raw['situation']), 'sections': sections}
 
 
 def item_text(item):
@@ -272,7 +299,8 @@ def review(guide, answer_key):
             for item in section['items']:
                 match = re.search(point['pattern'], item_text(item), re.I)
                 if match and found is None:
-                    found = {'section': section['label'], 'match': match.group(0)}
+                    where = f"{section['label']} {item['rank']}순위" if 'rank' in item else section['label']
+                    found = {'section': where, 'match': match.group(0)}
         rows.append({'id': point['id'], 'text': point['text'], 'page': point['page'], 'covered': found is not None,
                      **({'where': found} if found else {})})
     return {'label': answer_key['label'], 'summary': answer_key['summary'], 'points': rows,
@@ -280,7 +308,7 @@ def review(guide, answer_key):
 
 
 class IssueGuideService:
-    def __init__(self, jobs, directory, model='gpt-5.6-luna', chat_factory=None, context_tokens=32768, poll=2.0, wait_limit=1800):
+    def __init__(self, jobs, directory, model='gpt-5.6-luna', chat_factory=None, context_tokens=65536, poll=2.0, wait_limit=1800):
         self.jobs = jobs
         self.directory = Path(directory).resolve() if directory is not None else None
         self.model = model
@@ -342,7 +370,7 @@ class IssueGuideService:
             if self.busy:
                 raise BlockingIOError('다른 이슈 가이드를 만드는 중입니다. 완료 후 다시 시도하세요.')
             self.busy = True
-        record = {'id': uuid4().hex, 'kind': 'issue_guide', 'version': 'issue-guide-2-plan-followup', 'state': 'running',
+        record = {'id': uuid4().hex, 'kind': 'issue_guide', 'version': 'issue-guide-3-ranked-candidates', 'state': 'running',
                   'stage': 'planning', 'created_at': now(), 'project_id': project['id'], 'project_name': project['name'],
                   'project_revision': project['revision'], 'issue_id': issue['id'], 'issue_title': issue['title'],
                   'model': self.model, 'ingredient': project.get('ingredient'),
@@ -497,6 +525,17 @@ class IssueGuideService:
                 continue
             rows.append(self.summary(record))
         return sorted(rows, key=lambda r: r['created_at'], reverse=True)[:20]
+
+    def delete(self, project_id, guide_id):
+        """Remove a finished guide and its model-call records; a guide still being made stays."""
+        record = self.get(project_id, guide_id)
+        with self.lock:
+            if guide_id in self.records and self.records[guide_id]['state'] == 'running':
+                raise ValueError('만드는 중인 가이드는 지울 수 없습니다.')
+            self.records.pop(guide_id, None)
+        (self.directory / (guide_id + '.json')).unlink(missing_ok=True)
+        shutil.rmtree(self.directory / (guide_id + '_api'), ignore_errors=True)
+        return {'deleted': record['id']}
 
     def close(self):
         self.executor.shutdown(wait=False, cancel_futures=True)

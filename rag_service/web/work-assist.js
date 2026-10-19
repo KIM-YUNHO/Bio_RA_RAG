@@ -181,9 +181,18 @@ const WorkAssist=(()=>{
       const running=guides.find(g=>g.state==="running");if(running&&onRunning)onRunning(running);
       target.replaceChildren(node("h3","","이전 가이드"));if(!guides.length){target.append(node("p","muted small","아직 만든 가이드가 없습니다."));return;}
       const list=node("div","work-history-list");
-      for(const g of guides)list.append(button(`${g.issue_title} · ${guideState(g)} · ${when(g.created_at)}`,"work-history-item",async()=>{
-        try{const record=await api(`/api/projects/${state.projectId}/issue-guides/${g.id}`);state.guide=record;renderGuide(result,record);result.scrollIntoView?.({block:"start"});}
-        catch(e){result.replaceChildren(node("p","error",e.message));}}));
+      for(const g of guides){
+        const row=node("div","work-history-row"),openGuide=button(`${g.issue_title} · ${guideState(g)} · ${when(g.created_at)}`,"work-history-item",async()=>{
+          try{const record=await api(`/api/projects/${state.projectId}/issue-guides/${g.id}`);state.guide=record;renderGuide(result,record);result.scrollIntoView?.({block:"start"});}
+          catch(e){result.replaceChildren(node("p","error",e.message));}});
+        const remove=button("삭제","link-button work-history-delete",async()=>{
+          if(!confirm("이 가이드를 지울까요? 검색 답변 기록은 남고, 가이드와 정리 기록은 되돌릴 수 없습니다."))return;
+          remove.disabled=true;
+          try{await send(`/api/projects/${state.projectId}/issue-guides/${g.id}/delete`,{});if(state?.guide?.id===g.id){state.guide=null;result.replaceChildren();}listGuides(target,result);}
+          catch(e){remove.disabled=false;result.replaceChildren(node("p","error",e.message));}});
+        remove.disabled=g.state==="running";remove.setAttribute("aria-label",`${when(g.created_at)} 가이드 삭제`);
+        row.append(openGuide,remove);list.append(row);
+      }
       target.append(list);
     }catch(e){target.replaceChildren(node("p","error",e.message));}
   }
@@ -215,30 +224,45 @@ const WorkAssist=(()=>{
   }
   const sourceLabel=s=>`${s.id} · ${s.product||"지침"} ${s.agency||""} p.${s.page}`.replace(/\s+/g," ");
 
+  // A guide reads top-down: the facts, the ranked cause candidates, then one tab per section of one-line items that open.
   function renderGuide(target,record){
     target.replaceChildren();
     if(record.state==="failed"){target.append(node("p","error","가이드를 만들지 못했습니다: "+record.error));return;}
     if(record.state!=="completed")return;
     const sources=Object.fromEntries(record.sources.map(s=>[s.id,s])),units=Object.fromEntries(record.facts.map(f=>[f.id,{unit_id:f.id,text:f.text,speaker:f.speaker,document:{date:f.date,title:f.title}}]));
     const detail=node("div","work-unit-detail");detail.hidden=true;
-    const refs=ids=>{const box=node("div","work-refs");for(const id of ids){if(sources[id]){const b=button(sourceLabel(sources[id]),"work-chip is-public",()=>openSource(record,sources[id]));b.title=sources[id].title;box.append(b);}else if(units[id])box.append(chip(id,()=>showUnit(detail,units[id])));}return box;};
+    const refs=ids=>{const box=node("div","work-refs");for(const id of ids||[]){if(sources[id]){const b=button(sourceLabel(sources[id]),"work-chip is-public",()=>openSource(record,sources[id]));b.title=sources[id].title;box.append(b);}else if(units[id])box.append(chip(id,()=>showUnit(detail,units[id])));}return box;};
+    const flagged=new Set(record.warnings.map(w=>w.section+":"+w.item)),chevron=()=>{const c=node("span","guide-chevron","▸");c.setAttribute("aria-hidden","true");return c;};
     const head=node("div","work-draft-head");
     head.append(badge(record.warnings.length?`확인 필요 ${record.warnings.length}`:"검토 전 가이드",record.warnings.length?"is-warning":"is-draft"),node("strong","",record.issue_title),node("span","muted",when(record.created_at)));
     const scope=record.scope.excluded_products.length?` · 검색에서 뺀 제품: ${record.scope.excluded_products.join(", ")}`:"";
     const failed=record.answers.filter(a=>a.state!=="completed").length;
     target.append(head,node("p","issue-scope",`검색한 제품: ${record.scope.products.join(", ")} 및 공통 지침${scope} · 인용된 공개 자료 ${record.sources.length}쪽`));
     if(failed)target.append(node("p","error",`공개 자료 검색 ${record.answers.length}건 중 ${failed}건이 실패해, 그 질문의 근거 없이 정리했습니다.`));
-    const summary=node("p","work-position");summary.append(badge("AI 요약","is-ai"),document.createTextNode(" "+record.guide.summary));target.append(summary);
-    const grid=node("div","issue-sections"),flagged=new Set(record.warnings.map(w=>w.section+":"+w.item));
-    for(const section of record.guide.sections){
-      const box=node("section","work-column issue-section is-"+section.key);box.append(node("h3","",section.label));
-      section.items.forEach((item,index)=>{const row=node("div","work-item"+(flagged.has(section.key+":"+index)?" has-warning":""));
-        if(section.key==="mock_questions"){row.append(node("p","issue-q","Q. "+item.question),node("p","issue-why","질의 배경: "+(item.background||item.why)),node("p","issue-prepare","준비할 자료: "+item.prepare));}
-        else{const text=node("p","");const tag=GUIDE_BADGE[item.basis];if(tag)text.append(badge(tag[0],tag[1]),document.createTextNode(" "));text.append(document.createTextNode(item.text));row.append(text);}
-        row.append(refs(item.source_ids));box.append(row);});
-      grid.append(box);
+    const situation=node("section","guide-situation");situation.append(node("h3","","상황 정리"),node("p","",record.guide.situation||record.guide.summary));target.append(situation);
+    // Ranked candidates (records from before the ranking keep their cause items in the tabs below).
+    const cause=record.guide.sections.find(s=>s.key==="cause"),ranked=cause?.items[0]?.rank!==undefined;
+    if(ranked){
+      const block=node("section","guide-block");block.append(node("h3","","원인 후보"),node("p","guide-hint","AI가 사내 사실과 공개 근거로 매긴 순서입니다. 하나로 확정한 것이 아니므로 위에서부터 확인·배제합니다."));
+      cause.items.forEach((c,index)=>{const row=node("details","candidate"+(flagged.has("cause:"+index)?" has-warning":"")),summary=node("summary");
+        summary.append(node("span","candidate-rank",String(c.rank)),node("strong","candidate-name",c.name),node("span","likelihood is-"+c.likelihood,"가능성 "+c.likelihood_label),chevron(),node("span","candidate-confirm","확인: "+c.confirm));
+        const body=node("div","candidate-body");body.append(node("p","",`지지 근거 · ${c.support}`),node("p","",`반대 근거·불확실성 · ${c.against}`),refs(c.source_ids));
+        row.append(summary,body);block.append(row);});
+      target.append(block);
     }
-    target.append(grid,detail);
+    const tabs=record.guide.sections.filter(s=>s.key!=="cause"||!ranked);
+    if(!tabs.some(s=>s.key===state.guideTab))state.guideTab=tabs[0]?.key;
+    const bar=node("div","guide-tabs"),panel=node("div","guide-list");bar.setAttribute("role","tablist");
+    const show=()=>{for(const b of bar.children)b.setAttribute("aria-selected",String(b.dataset.key===state.guideTab));panel.replaceChildren();
+      const section=tabs.find(s=>s.key===state.guideTab);
+      section.items.forEach((item,index)=>{const row=node("details","guide-item"+(flagged.has(section.key+":"+index)?" has-warning":"")),summary=node("summary"),body=node("div","guide-item-body");
+        if(section.key==="mock_questions"){summary.append(node("strong","","Q. "+item.question),chevron());
+          body.append(node("p","",`질의 배경 · ${item.background||item.why}`),node("p","",`준비할 자료 · ${item.prepare}`));}
+        else{const tag=GUIDE_BADGE[item.basis];if(tag)summary.append(badge(tag[0],tag[1]));summary.append(node("strong","",item.title||item.text),chevron());
+          if(item.title)body.append(node("p","",item.text));}
+        body.append(refs(item.source_ids));row.append(summary,body);panel.append(row);});};
+    for(const s of tabs){const b=button(`${s.label} ${s.items.length}`,"guide-tab",()=>{state.guideTab=s.key;show();});b.dataset.key=s.key;b.setAttribute("role","tab");bar.append(b);}
+    show();target.append(bar,panel,detail);
     if(record.warnings.length){const box=node("section","work-warnings"),labels=Object.fromEntries(record.guide.sections.map(s=>[s.key,s.label]));
       box.append(node("h3","",`확인이 필요한 문장 ${record.warnings.length}`));
       for(const w of record.warnings){const row=node("div","work-warning");row.append(node("strong","",`${labels[w.section]} ${w.item+1}`),node("span","",w.detail));box.append(row);}
@@ -254,7 +278,7 @@ const WorkAssist=(()=>{
       const list=node("ul","issue-review-points");
       for(const p of r.points){const li=node("li",p.covered?"is-covered":"is-missed");li.append(node("strong","",(p.covered?"✓ ":"✗ ")+p.text),node("span","muted small",` · 원문 ${p.page}`+(p.where?` · 가이드 '${p.where.section}'에서 "${p.where.match}"`:"")));list.append(li);}
       box.append(list,node("p","muted small",r.method));target.append(box);}
-    target.append(node("p","work-foot",`'공개 근거' = 검색된 공개 자료 인용 · '사내 자료' = 내부 문서 · 'AI 제안' = AI가 근거를 바탕으로 낸 제안. 칩을 누르면 원문이 열립니다. · ${record.model} · 검색 ${record.answers.length}회`));
+    target.append(node("p","work-foot",`모든 글은 AI가 정리했습니다. '공개 근거' = 검색된 공개 자료 인용 · '사내 자료' = 내부 문서 · 'AI 제안' = AI가 근거를 바탕으로 낸 제안. 항목을 누르면 설명과 근거가, 칩을 누르면 원문이 열립니다. · ${record.model} · 검색 ${record.answers.length}회`));
   }
 
   return Object.freeze({open,summary});

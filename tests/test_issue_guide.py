@@ -41,8 +41,8 @@ class FakeJobs:
         return deepcopy(self.jobs[job_id])
 
 
-def item(text, basis='public', ids=('P1',)):
-    return {'text': text, 'basis': basis, 'source_ids': list(ids)}
+def item(title, text, basis='public', ids=('P1',)):
+    return {'title': title, 'text': text, 'basis': basis, 'source_ids': list(ids)}
 
 
 PLAN = {'hypotheses': [{'attribute': '전하 변이(C-말단 Lys)', 'reason': '염기성 변이 차이는 결합 측정에 영향을 줄 수 있다.'},
@@ -53,12 +53,15 @@ PLAN = {'hypotheses': [{'attribute': '전하 변이(C-말단 Lys)', 'reason': '�
                       {'topic': 'cause', 'text': 'Fc 산화(Met oxidation) 차이의 PK 영향 판단은?'},
                       {'topic': 'guideline', 'text': '범위 밖 품질 결과의 정당화에 대한 지침 요구는?'}]}
 FOLLOWUP = {'questions': ['carboxypeptidase B 처리로 C-말단 Lys 차이를 확인한 사례와 PK 판단은?']}
-ANSWER = {'summary': 'C-말단 라이신 차이를 먼저 확인한다 [P1].',
-          'sections': {'cause': [item('전하 변이, 특히 C-말단 Lys 차이를 확인한다 (P1, U03)')],
-                       'experiments': [item('CPB 처리 전후 FcRn 결합을 비교한다', 'suggestion', ['P2'])],
-                       'response': [item('PFS 결과는 범위 안이다', 'internal', ['U04'])],
+ANSWER = {'situation': 'IV vial 3 lot만 범위 하한 미만이다 [U03].',
+          'candidates': [{'name': '제형 매트릭스 간섭', 'likelihood': 'medium', 'support': 'IV에서만 낮다 (U03, U04)', 'against': '시험은 유효하다',
+                          'confirm': 'buffer exchange 후 재측정', 'source_ids': ['U03', 'U04']},
+                         {'name': '전하 변이(C-말단 Lys)', 'likelihood': 'medium', 'support': '다른 제품은 염기성 변이를 C-말단 Lys로 설명했다',
+                          'against': 'FcRn과의 직접 연결 근거는 없다', 'confirm': 'CPB 처리 전후 FcRn 재측정', 'source_ids': ['P1', 'NOPE']}],
+          'sections': {'experiments': [item('CPB 처리 재시험', 'CPB 처리 전후 FcRn 결합을 비교한다', 'suggestion', ['P2'])],
+                       'response': [item('PFS 결과', 'PFS 결과는 범위 안이다', 'internal', ['U04'])],
                        'mock_questions': [{'question': 'IV에서만 낮은 이유는?', 'background': '제형 차이', 'prepare': 'CEX 자료', 'source_ids': ['U03']}],
-                       'precedents': [item('공개 근거 없이 쓴 문장', 'public', ['U03'])]}}
+                       'precedents': [item('근거 없는 사례', '공개 근거 없이 쓴 문장', 'public', ['U03'])]}}
 
 
 class FakeModel:
@@ -160,16 +163,24 @@ class GuideRun(unittest.TestCase):
                 self.assertNotIn(term, prompt)
             self.assertNotIn('P17', messages[0]['content'], 'no product alias in the instructions')
         schema = self.model.prompts[2][1]
-        allowed = schema['schema']['properties']['sections']['properties']['cause']['items']['properties']['source_ids']['items']['enum']
+        allowed = schema['schema']['properties']['candidates']['items']['properties']['source_ids']['items']['enum']
         self.assertEqual(allowed, ['P1', 'P2', 'P3', 'P4', 'P5', 'U01', 'U02', 'U03', 'U04', 'U05', 'U07'])
         guide = record['guide']
-        self.assertEqual(guide['summary'], 'C-말단 라이신 차이를 먼저 확인한다.', 'IDs the model wrote into prose are removed')
-        self.assertEqual(guide['sections'][0]['items'][0]['text'], '전하 변이, 특히 C-말단 Lys 차이를 확인한다')
+        self.assertEqual(guide['situation'], 'IV vial 3 lot만 범위 하한 미만이다.', 'IDs the model wrote into prose are removed')
+        cause = guide['sections'][0]
+        self.assertEqual((cause['key'], [(c['rank'], c['name'], c['likelihood_label']) for c in cause['items']]),
+                         ('cause', [(1, '제형 매트릭스 간섭', '중간'), (2, '전하 변이(C-말단 Lys)', '중간')]))
+        self.assertEqual(cause['items'][0]['support'], 'IV에서만 낮다')
+        self.assertEqual(cause['items'][1]['source_ids'], ['P1'], 'unknown IDs are dropped')
+        self.assertEqual([s['key'] for s in guide['sections']], ['cause', 'experiments', 'response', 'mock_questions', 'precedents'])
+        self.assertEqual(guide['sections'][1]['items'][0]['title'], 'CPB 처리 재시험')
         self.assertEqual(guide['sections'][3]['items'][0]['background'], '제형 차이')
         self.assertEqual([w['code'] for w in record['warnings']], ['public_without_source'])
         self.assertEqual([u['step'] for u in record['usage']], ['issue_search_plan', 'issue_search_followup', 'issue_guide'])
-        review = {p['id']: p['covered'] for p in record['review']['points']}
-        self.assertTrue(review['K1'] and review['K2'] and review['K4'])
+        review = {p['id']: p for p in record['review']['points']}
+        self.assertEqual(review['K1']['where']['section'], '원인 후보 2순위', 'a cause point says which rank it came from')
+        self.assertTrue(review['K2']['covered'] and review['K4']['covered'])
+        review = {k: p['covered'] for k, p in review.items()}
         summary = service.summary(record)
         self.assertEqual((summary['covered'], summary['searches'], summary['failed_questions']), (sum(review.values()), 5, 0))
         self.assertEqual([g['id'] for g in service.list(self.project_id)], [record['id']])
@@ -186,9 +197,26 @@ class GuideRun(unittest.TestCase):
         guide = issue_guide.normalize(deepcopy(ANSWER), ['P1', 'P2', 'U03', 'U04'])
         self.assertTrue(next(p for p in issue_guide.review(guide, key)['points'] if p['id'] == 'K2')['covered'])
         # The same words only in another product's precedent are not a proposal for this product.
-        guide['sections'][1]['items'] = [{'text': '재현 시험을 한다', 'basis': 'suggestion', 'basis_label': 'AI 제안', 'source_ids': []}]
-        guide['sections'][4]['items'] = [{'text': 'ABP654는 CPB 처리 자료를 냈다', 'basis': 'public', 'basis_label': '공개 근거', 'source_ids': ['P1']}]
+        guide['sections'][0]['items'][1]['confirm'] = '재측정'
+        guide['sections'][1]['items'] = [{'title': '재현', 'text': '재현 시험을 한다', 'basis': 'suggestion', 'basis_label': 'AI 제안', 'source_ids': []}]
+        guide['sections'][4]['items'] = [{'title': 'ABP654', 'text': 'ABP654는 CPB 처리 자료를 냈다', 'basis': 'public',
+                                          'basis_label': '공개 근거', 'source_ids': ['P1']}]
         self.assertFalse(next(p for p in issue_guide.review(guide, key)['points'] if p['id'] == 'K2')['covered'])
+
+    def test_a_finished_guide_can_be_deleted_but_not_one_being_made(self):
+        service, record = self.run_guide(FakeJobs(self.store))
+        path = f"/api/projects/{self.project_id}/issue-guides/{record['id']}/delete"
+        self.assertEqual(notebook_api.post(SimpleNamespace(issue_guides=service), path, {}), {'deleted': record['id']})
+        self.assertEqual(service.list(self.project_id), [])
+        self.assertFalse((self.root / 'guides' / (record['id'] + '_api')).exists())
+        with self.assertRaises(KeyError):
+            service.get(self.project_id, record['id'])
+        running = 'f' * 32
+        service.records[running] = {'id': running, 'project_id': self.project_id, 'state': 'running', 'created_at': '2026'}
+        with self.assertRaisesRegex(ValueError, '만드는 중'):
+            service.delete(self.project_id, running)
+        with self.assertRaises(KeyError):
+            service.delete('0' * 32, running)
 
     def test_a_cited_held_out_product_fails_the_guide(self):
         _, record = self.run_guide(FakeJobs(self.store, product='SB17'))

@@ -634,3 +634,25 @@ details.work-disclosure{padding:7px 10px}details.work-disclosure summary{cursor:
 .work-viewer{margin-top:12px;height:min(78vh,820px);border:1px solid #e4e8ef;border-radius:8px;overflow:hidden}.work-viewer[hidden]{display:none}
 .work-viewer>.viewer-pane{position:static;width:100%;height:100%;max-height:none;border:0;border-radius:0;box-shadow:none}
 .issue-hypotheses{margin:4px 0 0 18px;font-size:12px;line-height:1.7;color:#3b4554}
+/* Issue guide v3: facts, ranked candidates, one tab per section of one-line items */
+.issue-result>*{margin-top:0}.guide-situation{border:1px solid #e4e8ef;background:#f8fafc;border-radius:8px;padding:10px 14px;font-size:13px;line-height:1.75}
+.guide-situation h3,.guide-block h3{font-size:13px;color:#86334e;margin:0 0 4px;font-weight:700}.guide-situation p{margin:0}
+.guide-hint{font-size:12px;color:#6b7280;margin:0 0 8px}
+.candidate{border:1px solid #e9e2e5;border-radius:8px;background:#fff;margin-bottom:6px}
+.candidate>summary{display:grid;grid-template-columns:24px minmax(0,1fr) auto 14px;gap:3px 10px;align-items:center;padding:9px 12px;cursor:pointer;list-style:none}
+.candidate>summary::-webkit-details-marker,.guide-item>summary::-webkit-details-marker{display:none}
+.candidate-rank{width:22px;height:22px;border-radius:50%;background:#86334e;color:#fff;font-size:12px;font-weight:700;display:grid;place-items:center}
+.candidate-name{font-size:13px;font-weight:600;color:#1f2937}.candidate-confirm{grid-column:2/5;font-size:12px;color:#5f6b7a;line-height:1.6}
+.likelihood{font-size:11px;border-radius:999px;padding:1px 8px;font-weight:600;white-space:nowrap}.likelihood.is-high{background:#fde8ee;color:#a5003a}.likelihood.is-medium{background:#fff1db;color:#8a5200}.likelihood.is-low{background:#eef0f3;color:#6b7280}
+.candidate-body{padding:0 12px 10px 46px;font-size:13px;line-height:1.75}.candidate-body p,.guide-item-body p{margin:2px 0 6px}
+.guide-tabs{display:flex;gap:2px;flex-wrap:wrap;border-bottom:1px solid #ece4e8;margin-top:14px}
+.guide-tab{border:0;border-bottom:2px solid transparent;background:none;padding:7px 12px;font:inherit;font-size:13px;color:#5f6b7a;cursor:pointer}
+.guide-tab[aria-selected=true]{color:#86334e;border-bottom-color:#86334e;font-weight:600}
+.guide-list{display:grid;gap:6px;margin:10px 0}
+.guide-item{border:1px solid #ece4e8;border-radius:8px;background:#fff}
+.guide-item>summary{display:flex;gap:8px;align-items:center;padding:9px 12px;cursor:pointer;list-style:none;font-size:13px}
+.guide-item>summary strong{flex:1;font-weight:600;color:#1f2937;line-height:1.6}
+.guide-item-body{padding:0 12px 10px;font-size:13px;line-height:1.75;color:#374151}
+.guide-chevron{color:#b7a3ad;font-size:12px;transition:transform .15s;justify-self:end}details[open]>summary .guide-chevron{transform:rotate(90deg);color:#86334e}
+.candidate.has-warning,.guide-item.has-warning{box-shadow:inset 3px 0 0 #d92d20}
+.work-history-row{display:flex;gap:6px;align-items:center}.work-history-row .work-history-item{flex:1}.work-history-delete{font-size:12px;color:#9c365b}

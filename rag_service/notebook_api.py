@@ -16,6 +16,7 @@ DRAFT = re.compile(r'/api/projects/([0-9a-f]{32})/work-drafts/([0-9a-f]{32})')
 ISSUES = re.compile(r'/api/projects/([0-9a-f]{32})/issues')
 GUIDES = re.compile(r'/api/projects/([0-9a-f]{32})/issue-guides')
 GUIDE = re.compile(r'/api/projects/([0-9a-f]{32})/issue-guides/([0-9a-f]{32})')
+GUIDE_DELETE = re.compile(r'/api/projects/([0-9a-f]{32})/issue-guides/([0-9a-f]{32})/delete')
 
 
 def public(record):
@@ -114,4 +115,7 @@ def post(jobs, path, payload):
     match = GUIDES.fullmatch(path)
     if match:
         return jobs.issue_guides.submit(match[1], payload)
+    match = GUIDE_DELETE.fullmatch(path)
+    if match:
+        return jobs.issue_guides.delete(match[1], match[2])
     raise KeyError(path)

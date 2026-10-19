@@ -288,6 +288,8 @@ def create_app(jobs, port):
                               ('/api/projects/{project_id}/memos/{memo_id}/structure', '원 보고서에서 기존 메모 항목 복원'),
                               ('/api/projects/{project_id}/documents', '내부 문서 등록 (같은 버전은 바꿀 수 없음)'),
                               ('/api/projects/{project_id}/work-drafts', '업무 초안 작성 접수 (모델 호출 1회)'),
+                              ('/api/projects/{project_id}/issue-guides', '이슈 대응 가이드 작성 접수 (모델 3회 + 공개 자료 검색)'),
+                              ('/api/projects/{project_id}/issue-guides/{guide_id}/delete', '이슈 대응 가이드 삭제 (만드는 중이면 거절)'),
                               ('/api/ingestion/sessions', '새 적재 대화'),
                               ('/api/ingestion/sessions/{session_id}/turns', '적재 대화 한 턴'),
                               ('/api/ingestion/sessions/{session_id}/approve', '확인표 승인'),
