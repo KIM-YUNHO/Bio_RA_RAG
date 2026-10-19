@@ -109,6 +109,13 @@ class BoundReviewTests(unittest.TestCase):
         self.assertIn('explicit_final_span_ids_required', str(payload))
         self.assertEqual(payload['sources'][0]['reading_segments'][2][0], 'S3')
 
+    def test_review_output_budget_covers_three_clauses_a_claim(self):
+        self.assertEqual(ra_answer.review_output_budget(6, 3000), 3000)
+        # 9-12 claims ran out at 3000-3240 tokens (about 100 tokens a clause, about 3 clauses a claim).
+        self.assertEqual(ra_answer.review_output_budget(9, 3000), 3840)
+        self.assertEqual(ra_answer.review_output_budget(12, 3000), 4920)
+        self.assertEqual(ra_answer.review_output_budget(40, 3000), 8000)
+
     def test_quantities_are_checked_against_their_own_products_in_a_comparison(self):
         evidence = {'E1': {'product_id': 'SB17'}, 'E2': {'product_id': 'ABP654'}}
         c = {'products': ['SB17', 'ABP654'], 'text': 'SB17은 90 mg, ABP654는 45 mg을 투여하였다.',

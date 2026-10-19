@@ -571,6 +571,14 @@ def check_review(raw, claims, tasks):
     return raw
 
 
+def review_output_budget(claim_count, default):
+    """Output tokens for the clause review: a claim is usually written as 2-4 clauses of about 100 tokens.
+
+    Measured 94-112 tokens a clause in three reviews of 9-12 claims that ran out of the earlier 220-a-claim budget.
+    """
+    return max(default, min(8000, 360 * claim_count + 600))
+
+
 def generate(question, understanding, evidence, client, citation_mode='quote'):
     tasks = understanding['tasks']
     if not evidence:
@@ -691,9 +699,8 @@ def generate(question, understanding, evidence, client, citation_mode='quote'):
         review_input = {'format': review_format, 'estimated_input_tokens': cost(client, review_msgs, contract),
                         'input_limit': client.input_limit, 'source_clipping': 'none', 'extra_model_calls': 0}
         reviewed_proposals = deepcopy(claims)
-        if len(claims) > 8:
-            # Clause review output grows with the claim count (about 200 tokens a claim).
-            contract = {**contract, 'max_output_tokens': min(8000, max(client.output_tokens, 220 * len(claims) + 600))}
+        if len(claims) > 6:  # up to 6 claims fit the default output budget
+            contract = {**contract, 'max_output_tokens': review_output_budget(len(claims), client.output_tokens)}
             if not fits(client, review_msgs, contract):
                 raise ValueError('RA support review exceeds the actual model input budget')
         reply = client(review_msgs, json_schema=contract, provider=getattr(client, 'provider', 'ollama'))
