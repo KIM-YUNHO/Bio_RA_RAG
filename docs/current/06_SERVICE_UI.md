@@ -61,7 +61,7 @@
 | 저장 | PostgreSQL `app` 스키마(`app.workspace_projects`, `app.memo_documents`, 마이그레이션 `008_workspace_memos.sql`). `/api/projects` 응답 `storage: postgres` |
 | 지금 데이터 | 파이프라인 1개("ustekinumab RA 검토", 원성분 ustekinumab), 메모 3개 |
 | 규칙 | 파이프라인 생성·전환·단계 선택은 검색 범위를 바꾸지 않는다. 비교 제품은 왼쪽 범위에서 고른다. RAG 메모는 저장 당시 질문과 근거 위치를 보존하고 참고 제품은 근거 문서에서 자동 기록한다. 수정은 revision 충돌 검사와 이력으로 남는다 |
-| 내부 문서·업무 초안 | 파이프라인에 사내·협력사 문서 묶음을 등록(`internal_document_bundle_v1`). 기준일을 고르면 그날까지의 문서, 업무별 상태판(요청·합의·일정·보고서·QA·승인·제출·기관 판단), 결과 검토·협력사 미팅·기관 질의 대응 초안(판단/근거/공백/다음 행동, 근거 칩, 자동 검사)을 본다. 데모: [v4](../demo/internal_pipeline_v4/README.md), 파이프라인 `[시나리오 v4] P17 FcRn 내부 업무` |
+| 내부 문서·업무 초안 | 파이프라인에 사내·협력사 문서 묶음을 등록(`internal_document_bundle_v1`). 기준일을 고르면 그날까지의 문서, 업무별 상태판(요청·합의·일정·보고서·QA·승인·제출·기관 판단), 이슈를 본다. 이슈가 있으면 '이슈 대응' 탭에서 공개 자료 RAG 질문(검색 제외 제품 지정 가능)과 AI 정리 1회로 대응 가이드(원인 규명·실험 설계·기관 대응·예상 질의·다른 제품 사례, 공개 근거 칩)를 만들고, 정답이 등록된 시나리오는 정답 대조(어휘 1차 분류)를 함께 본다. 단계 카드 아래 한 줄에 업무·이슈 수가 나온다. 데모: [v5 이슈 대응](../demo/issue_guide_v5/README.md), [v4 업무 현황](../demo/internal_pipeline_v4/README.md) |
 | 없는 것 | 내부 PDF·메일 원본에서 문서 묶음을 만드는 추출, 협력사·담당자·기한을 갖는 독립 이슈 모델, 다중 사용자 권한 |
 
 단계는 메모 분류이며 필수 시험 목록이나 자동 검색 필터가 아니다. 단계 ID를 유지해 과거 메모·태그·이력은 그대로 읽힌다.
@@ -84,7 +84,9 @@
 | `/api/projects[/<id>[/memos[/<memo>/revisions]]]` | 파이프라인·메모 |
 | `GET/POST /api/projects/<id>/documents` | 내부 문서 묶음 조회·등록(버전 불변) |
 | `GET /api/projects/<id>/workboard/<YYYY-MM-DD>` | 기준일의 업무 상태(원문 이벤트에서 계산)·문서 |
-| `GET/POST /api/projects/<id>/work-drafts[/<draft>]` | 업무 초안 목록·작성(모델 1회)·조회 |
+| `GET/POST /api/projects/<id>/work-drafts[/<draft>]` | 업무 초안 목록·작성(모델 1회)·조회 (화면 탭은 '이슈 대응'으로 바뀜, API·기록은 유지) |
+| `GET /api/projects/<id>/issues` | 등록한 이슈(정답 제외) |
+| `GET/POST /api/projects/<id>/issue-guides[/<guide>]` | 이슈 대응 가이드 목록·작성(공개 자료 질문 N회 + 모델 1회)·조회 |
 | `/api/ingestion[/sessions…|/requests…]` | 자료 수집 창 (`POST /api/ingestion/sessions/<id>/delete` 대화 삭제 포함) |
 
 ## 5. 기록 저장 위치
@@ -95,6 +97,7 @@
 | `data/runs/ra_review_records/` | 질문 검토 상태·의견·수정 이력 |
 | `data/runs/ra_conversations/` | 대화·후속 질문 문맥 |
 | `data/runs/ra_work_drafts/` | 업무 초안 기록(입력 단위·상태·답변·검사)과 호출 기록 |
+| `data/runs/ra_issue_guides/` | 이슈 가이드 기록(검색 범위·질문별 답변·인용 쪽·가이드·검사·정답 대조)과 호출 기록 |
 | `data/runs/ra_pipeline_requests/` | 제공자 요청·응답 기록 |
 | `data/runs/ra_service_logs/` | 시작 스크립트로 띄운 프로세스의 stdout·stderr·process.json |
 | `data/runs/model_quota/` | 이 프로젝트의 API 호출·사용량 일별 장부 |

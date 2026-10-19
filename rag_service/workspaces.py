@@ -281,10 +281,11 @@ class WorkspaceStore:
         from rag_service import internal_documents
         with self.writing():
             project = self.get(project_id)
-            documents, scopes, simulation = internal_documents.normalize_bundle(bundle, project.get('work_scopes'))
-            before = (project.get('work_scopes'), project.get('simulation'))
-            result = internal_documents.merge(project, documents, scopes, simulation)
-            if result['added'] or before != (project.get('work_scopes'), project.get('simulation')):
+            documents, scopes, simulation, issues = internal_documents.normalize_bundle(bundle, project.get('work_scopes'))
+            settings = lambda: deepcopy((project.get('work_scopes'), project.get('simulation'), project.get('issues')))
+            before = settings()
+            result = internal_documents.merge(project, documents, scopes, simulation, issues)
+            if result['added'] or before != settings():
                 self.save(project)
             return {**result, 'project_id': project['id'], 'document_count': len(project['documents']),
                     'project_revision': project['revision']}

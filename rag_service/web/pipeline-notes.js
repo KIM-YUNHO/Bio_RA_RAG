@@ -37,7 +37,7 @@ const PipelineNotes=(()=>{
     const box=$("pipeline-work"),id=project?.id,token=loadToken;box.hidden=true;box.replaceChildren();
     if(!id||typeof WorkAssist==="undefined")return;
     try{const s=await WorkAssist.summary(id);if(!s||token!==loadToken||project?.id!==id)return;
-      box.append(node("strong","","업무 현황"),node("span","pipeline-work-date",`${s.point?s.point+" · ":""}${s.asOf} 기준`),node("span","pipeline-work-counts",`업무 ${s.count}개 · ${s.text}`),node("span","pipeline-work-open","열기 ›"));
+      box.append(node("strong","","업무 현황"),node("span","pipeline-work-date",`${s.point?s.point+" · ":""}${s.asOf} 기준`),node("span","pipeline-work-counts",`업무 ${s.count}개 · ${s.text}${s.issues?` · 이슈 ${s.issues}`:""}`),node("span","pipeline-work-open","열기 ›"));
       box.hidden=false;}
     catch(error){box.hidden=true;}
   }
