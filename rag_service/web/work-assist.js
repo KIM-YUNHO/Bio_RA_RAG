@@ -13,13 +13,30 @@ const WorkAssist=(()=>{
 
   function chip(id,onclick){const b=button(id,"work-chip",onclick);b.title=id+" 원문 보기";return b;}
   function badge(text,cls=""){return node("span","work-badge "+cls,text);}
+  const tally=items=>{const counts={};for(const it of items)counts[it.status.label]=(counts[it.status.label]||0)+1;return Object.entries(counts).map(([k,v])=>`${k} ${v}`).join(" · ");};
+  // The date the window opens on: the last one chosen for this pipeline, else the last scenario point or document date.
+  function pickDate(projectId,docs){
+    const dates=[...new Set(docs.documents.map(x=>x.date))].sort(),points=docs.simulation?.checkpoints||[];
+    let asOf=Prefs.get("workAsOf:"+projectId,"");
+    if(!points.some(p=>p.as_of===asOf)&&!dates.includes(asOf))asOf=points.length?points[points.length-1].as_of:dates[dates.length-1];
+    const point=points.find(p=>p.as_of===asOf&&p.id===Prefs.get("workPoint:"+projectId,""))||points.find(p=>p.as_of===asOf);
+    return {dates,points,asOf,point};
+  }
+
+  // One line for the pipeline board, on the same date the window opens on; null when the pipeline has no documents.
+  async function summary(projectId){
+    const docs=await api(`/api/projects/${projectId}/documents`);
+    if(!docs.documents.length)return null;
+    const {asOf,point}=pickDate(projectId,docs),board=await api(`/api/projects/${projectId}/workboard/${asOf}`);
+    return {asOf,point:point?.id||"",count:board.items.length,text:tally(board.items)};
+  }
 
   async function open(projectId,projectName){
     const d=node("dialog","workspace-dialog work-dialog"),head=node("div","workspace-dialog-head");
     head.append(node("h2","","업무 현황 · "+projectName),button("×","icon-button",()=>d.close()));
     head.querySelector(".icon-button").setAttribute("aria-label","닫기");
     const body=node("div","workspace-dialog-body work-body");d.append(head,body);document.body.append(d);
-    d.addEventListener("close",()=>{if(state?.poll)clearTimeout(state.poll);state=null;d.remove();},{once:true});
+    d.addEventListener("close",()=>{if(state?.poll)clearTimeout(state.poll);state=null;d.remove();document.dispatchEvent(new CustomEvent("workassist:close",{detail:{projectId}}));},{once:true});
     state={projectId,dialog:d,body,asOf:"",tab:Prefs.get("workTab","board"),overview:null,draft:null,poll:null,token:0};
     if(!TABS.some(([key])=>key===state.tab))state.tab="board";
     d.showModal();body.append(node("p","muted","문서를 불러오는 중입니다."));
@@ -28,14 +45,12 @@ const WorkAssist=(()=>{
       if(!state||state.dialog!==d)return;
       if(!docs.documents.length){body.replaceChildren(node("p","muted","이 파이프라인에는 등록한 문서가 없습니다. 문서 묶음을 등록하면 날짜별 진행 현황과 AI 초안을 볼 수 있습니다."));return;}
       state.simulation=docs.simulation;
-      const dates=[...new Set(docs.documents.map(x=>x.date))].sort(),points=docs.simulation?.checkpoints||[];
-      state.asOf=Prefs.get("workAsOf:"+projectId,"");
-      if(!points.some(p=>p.as_of===state.asOf)&&!dates.includes(state.asOf))state.asOf=points.length?points[points.length-1].as_of:dates[dates.length-1];
-      layout(dates,points);await load();
+      const {dates,points,asOf,point}=pickDate(projectId,docs);state.asOf=asOf;
+      layout(dates,points,point);await load();
     }catch(e){if(state?.dialog===d)body.replaceChildren(node("p","error",e.message));}
   }
 
-  function layout(dates,points){
+  function layout(dates,points,point){
     const {body}=state;body.replaceChildren();
     const disclosure=state.simulation?.disclosure;
     if(disclosure){const box=node("details","work-disclosure"),[first,...rest]=disclosure.split(/(?<=[.다])\s+/);box.append(node("summary","",first));if(rest.length)box.append(node("p","",rest.join(" ")));body.append(box);}
@@ -44,7 +59,6 @@ const WorkAssist=(()=>{
     const group=(name,rows)=>{if(!rows.length)return;const g=node("optgroup");g.label=name;for(const [value,text] of rows){const o=node("option","",text);o.value=value;g.append(o);}select.append(g);};
     group("시나리오 시점",points.map(p=>[p.as_of+"|"+p.id,`${p.id} · ${p.as_of} · ${p.label}`]));
     group("문서 날짜",dates.map(x=>[x,x+"까지"]));
-    const point=points.find(p=>p.as_of===state.asOf&&p.id===Prefs.get("workPoint:"+state.projectId,""))||points.find(p=>p.as_of===state.asOf);
     select.value=point?state.asOf+"|"+point.id:state.asOf;state.pointId=point?.id||"";
     select.onchange=()=>{const [asOf,pointId]=select.value.split("|");state.asOf=asOf;state.pointId=pointId||"";Prefs.set("workAsOf:"+state.projectId,asOf);Prefs.set("workPoint:"+state.projectId,state.pointId);load();};
     const tabs=node("div","work-tabs");tabs.setAttribute("role","tablist");
@@ -92,8 +106,8 @@ const WorkAssist=(()=>{
     if(!items.length){panel.append(node("p","muted","기준일까지 기록된 업무가 없습니다."));return;}
     const ref=reference(),since=ref?.date,open=state.openRows||(state.openRows=new Set());
     const fresh=it=>Boolean(since&&it.first_date>since),moved=it=>Boolean(since&&!fresh(it)&&it.last_change>since);
-    const top=node("div","work-summary"),counts={};for(const it of items)counts[it.status.label]=(counts[it.status.label]||0)+1;
-    top.append(node("strong","",`업무 ${items.length}개`),node("span","",Object.entries(counts).map(([k,v])=>`${k} ${v}`).join(" · ")));
+    const top=node("div","work-summary");
+    top.append(node("strong","",`업무 ${items.length}개`),node("span","",tally(items)));
     if(ref)top.append(node("span","work-summary-change",`${ref.label} 이후 새 업무 ${items.filter(fresh).length} · 진행된 업무 ${items.filter(moved).length}`));
     panel.append(top,node("p","work-hint","업무를 누르면 진행 이력과 결과가 펼쳐집니다. 모든 내용은 문서 기록에서 계산합니다. '기록 없음'은 안 했다는 뜻이 아닙니다."));
     for(const [title,kind] of [["시험·작업","work"],["문서·답변","document"]]){
@@ -206,5 +220,5 @@ const WorkAssist=(()=>{
     target.append(node("p","work-foot",`표시 없음 = 문서에 적힌 내용 · '의견' = 발언자가 있는 의견 · 'AI 판단' = AI가 정리한 판단. 문장 검사는 규칙 기반이라 모든 오류를 찾지 못합니다. · AI 입력: 문서 문단 ${record.selected.length}개(기준일까지 ${record.eligible_unit_ids.length}개) · ${record.model}`));
   }
 
-  return Object.freeze({open});
+  return Object.freeze({open,summary});
 })();

@@ -18,10 +18,13 @@ const tab=(dialog,label)=>{const b=[...dialog.querySelectorAll(".work-tab")].fin
 (async()=>{
   const html=await(await localFetch("/")).text(),{document,window}=parseHTML(html);
   const location=new URL(`${base}/?project=${projectId}&stage=cmc`),history={replaceState(_a,_b,url){location.href=new URL(url,location).href;}};
-  const context=vm.createContext({window,document,localStorage,location,history,crypto:webcrypto,URL,Blob,console,setTimeout,clearTimeout,fetch:localFetch});
+  const context=vm.createContext({window,document,localStorage,location,history,crypto:webcrypto,URL,Blob,console,setTimeout,clearTimeout,fetch:localFetch,CustomEvent:window.CustomEvent});
   for(const script of document.querySelectorAll("script[src]"))vm.runInContext(await(await localFetch(script.getAttribute("src"))).text(),context,{filename:script.getAttribute("src")});
   await wait(()=>document.querySelector("#workspace-project").value===projectId&&!document.querySelector("#memo-work").disabled,"project loaded and work button enabled");
-  document.querySelector("#memo-work").click();
+  // The board's one-line summary uses the window's date and counts, and opens the window.
+  const line=document.querySelector("#pipeline-work");await wait(()=>!line.hidden,"pipeline work line");
+  assert.match(line.textContent,/^업무 현황T4 · 2026-05-15 기준업무 8개 · .+열기 ›$/);
+  line.click();
   const dialog=document.querySelector(".work-dialog");assert.ok(dialog);
   await wait(()=>dialog.querySelector("#work-as-of"),"as-of selector");
   assert.ok(dialog.querySelector(".work-disclosure summary").textContent.includes("SB17")&&dialog.querySelector(".work-disclosure").textContent.includes("합성"));
@@ -56,7 +59,7 @@ const tab=(dialog,label)=>{const b=[...dialog.querySelectorAll(".work-tab")].fin
   await wait(()=>dialog.querySelector(".work-form textarea"),"draft form");
   assert.ok(dialog.querySelector(".work-form textarea").value.includes("재산정안(v1.1)"));
   assert.equal(dialog.querySelectorAll(".work-form select").length,1,"no audience choice on screen");
-  const checks=["as-of options from scenario checkpoints","work list: one status, summary and what it waits for","history, results and opinions per work item","restated record kept as history, not progress","source chip opens unit text","documents hidden after the date","current vs unapproved protocol badges","no audience choice on screen","checkpoint question prefilled"];
+  const checks=["board line opens the window on its date","as-of options from scenario checkpoints","work list: one status, summary and what it waits for","history, results and opinions per work item","restated record kept as history, not progress","source chip opens unit text","documents hidden after the date","current vs unapproved protocol badges","no audience choice on screen","checkpoint question prefilled"];
   if(submit){
     dialog.querySelector(".work-form").onsubmit({preventDefault(){}});
     await wait(()=>dialog.querySelector(".work-columns"),"completed draft");
@@ -68,5 +71,8 @@ const tab=(dialog,label)=>{const b=[...dialog.querySelectorAll(".work-tab")].fin
     await wait(()=>dialog.querySelectorAll(".work-history-item").length>=1,"draft history");
     checks.push("draft submitted, four columns rendered","audit warning shown on the flagged item","draft history listed");
   }
+  dialog.close();
+  await wait(()=>line.textContent.startsWith("업무 현황T3 · 2026-04-21 기준업무 7개"),"board line follows the date chosen in the window");
+  checks.push("board line follows the date chosen in the window");
   console.log(JSON.stringify({result:"passed",mode:"DOM_not_browser_rendering",submit,projectId,checks,requests:requests.length}));
 })().catch(error=>{console.error(error);process.exitCode=1;});
