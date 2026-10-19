@@ -57,6 +57,14 @@ class TodayInvariants(unittest.TestCase):
         a=claim(evidence,'1차 평가변수는 12차 방문에서 평가했다.')
         self.assertEqual(ra_quantities.check(a,evidence),'claim_number_not_in_final_citations')
 
+    def test_korean_once_is_not_a_number_when_the_source_says_once(self):
+        # Steqeyma monograph: "the product can be returned to the refrigerator once up to the original expiry date"
+        evidence={'E1':block('The product can be returned to the refrigerator once up to the original expiry date.')}
+        a=claim(evidence,'원래 사용기한까지 1회에 한해 냉장고로 되돌릴 수 있다.')
+        self.assertIsNone(ra_quantities.check(a,evidence))
+        a['text']='원래 사용기한까지 2회 냉장고로 되돌릴 수 있다.'
+        self.assertEqual(ra_quantities.check(a,evidence),'claim_number_not_in_final_citations')
+
     def test_eligibility_does_not_establish_observed_female_weight_or_bmi(self):
         evidence={'E1':block('The sex criterion was extended to include female subjects with body weight of 60.0-90.0 kg and BMI 19.0-29.9 kg/m2. Eligibility criteria were acceptable.')}
         a=claim(evidence,'실제 대상군에 여성도 포함되었고 여성의 체중은 60.0~90.0 kg, BMI는 19.0~29.9 kg/m²였다.')

@@ -172,11 +172,12 @@ def check(claim, evidence):
         if title:
             for left, right in [("'", "'"), ('"', '"'), ('‘', '’'), ('“', '”')]:
                 substantive = substantive.replace(left + title + right, '')
-    # Korean "1차/2차" render "primary/secondary": ranks, not values, when the
-    # citations say primary/secondary.
-    for rank, word in (('1', 'primary'), ('2', 'secondary')):
-        if re.search(r'\b' + word + r'\b', quoted, re.I):
-            substantive = re.sub(r'(?<![\d.])' + rank + r'\s*차(?!\d)', ' ', substantive)
+    # Korean writes as digits what the English source writes as words: "1차/2차" for
+    # primary/secondary, "1회/2회" for once/twice. Only when the citations use that word.
+    for digit, suffix, word in (('1', '차', r'primary'), ('2', '차', r'secondary'),
+                                ('1', '회', r'once|one\s+time'), ('2', '회', r'twice|two\s+times')):
+        if re.search(r'\b(?:' + word + r')\b', quoted, re.I):
+            substantive = re.sub(r'(?<![\d.])' + digit + r'\s*' + suffix + r'(?!\d)', ' ', substantive)
     if not numbers(substantive) <= numbers(quoted):
         return 'claim_number_not_in_final_citations'
     if not quantities(substantive) <= quantities(quoted) | listed_quantities(quoted) | table_quantities(claim, evidence):
