@@ -1,0 +1,84 @@
+{
+  "checked_at_kst": "2026-10-19T02:05:05+09:00",
+  "scope": "read-only live GET /api/summary plus local experiment records; no new performance experiment",
+  "ports": [
+    {
+      "port": 8885,
+      "pipeline_version": "ra-research-rag-4.10.3",
+      "run_name": "release",
+      "product_index_chunks": 15682,
+      "chunks_sha256": "2b5684a27f444cfc08a4fe50c1a5047cbf53ee9c9577dd69807b220f25a7d905",
+      "embedding_model": "BAAI/bge-m3",
+      "answer_model": "gpt-5.6-luna",
+      "retrieval_pages": 8,
+      "vector_store": "pgvector",
+      "query_strategy": "ra-research-tasks-8-fact-queries",
+      "retrieval_strategy": "ra-task-hybrid-context-7-topic-queries-slot-terms",
+      "answer_strategy": "ra-grounded-synthesis-4.8.10",
+      "guideline_chunks": 236,
+      "reasoning_effort": "none",
+      "local_research_rounds_maximum": 1,
+      "default_llm_calls_maximum": 3,
+      "products": [
+        "ABP654",
+        "BAT2206",
+        "BMAB1200",
+        "CTP43",
+        "SB17"
+      ],
+      "retrieval_readiness": {
+        "ready": true,
+        "seconds": 37.188,
+        "provider_calls": 0
+      }
+    },
+    {
+      "port": 8775,
+      "pipeline_version": "ra-research-rag-4.10.3",
+      "run_name": "release",
+      "product_index_chunks": 15682,
+      "chunks_sha256": "2b5684a27f444cfc08a4fe50c1a5047cbf53ee9c9577dd69807b220f25a7d905",
+      "embedding_model": "BAAI/bge-m3",
+      "answer_model": "gpt-5.6-luna",
+      "retrieval_pages": 8,
+      "vector_store": "pgvector",
+      "query_strategy": "ra-research-tasks-8-fact-queries",
+      "retrieval_strategy": "ra-task-hybrid-context-7-topic-queries-slot-terms",
+      "answer_strategy": "ra-grounded-synthesis-4.8.10",
+      "guideline_chunks": 236,
+      "reasoning_effort": "none",
+      "local_research_rounds_maximum": 1,
+      "default_llm_calls_maximum": 3,
+      "products": [
+        "ABP654",
+        "BAT2206",
+        "BMAB1200",
+        "CTP43",
+        "SB17"
+      ],
+      "retrieval_readiness": {
+        "ready": true,
+        "seconds": 29.078,
+        "provider_calls": 0
+      }
+    }
+  ],
+  "release_roles": {
+    "pilot": "01_pilot_baseline_2026-10-10",
+    "latest": "04_pipeline_h_supplement_2026-10-14",
+    "latest_full_pipeline_run": "02_pipeline_h_2026-10-14",
+    "served_by_ra_service": "04_pipeline_h_supplement_2026-10-14"
+  },
+  "workspace_git_head": "1923db04113d574f248d43f42316c10d79461927",
+  "workspace_has_uncommitted_changes": true,
+  "source_sha256": {
+    "docs/current/02_PREPROCESSING.md": "544c2e40f4e3a4edf933f1b59680c442b36cd0ef2004f818cf529e2380157235",
+    "docs/current/03_INDEX_CHUNK_EMBEDDING.md": "50fef326efa663f4b607014e46e628be2e67cedad5c6031827498d8d3b28bf54",
+    "docs/current/04_RETRIEVAL.md": "0c51b705eed815fa06ec8b4af3f953c640045a03cfe695b867a67ea0f72dfbcf",
+    "docs/current/07_EVALUATION.md": "1b159f03446ddc13cf5dbe42736410923621a2e2bc65dca6d404a42714d22027",
+    "docs/RA_QUERY_HANDLING_LOG.md": "9df0c03caf6b0fbb8dc4dcf8b34d5d4eddc157aa7dd4823493eb75106ad95a43",
+    "data/runs/retrieval_gold_2026-10-16/gold.json": "2aec78e7ce912c02884a86e6c00484398c65925052e242485bf8a93c0ff63eaa",
+    "data/runs/retrieval_gold_2026-10-16/model40_bge.json": "2f6ebb956ebc13045b7bdcba3bc9f3caba5fafd8c84705c8c923fd9b8ce6eb76",
+    "data/runs/stable_queries_2026-10-16/v2_final.json": "dc265448940048cfa1617d4bde28a35f31c136637e145adf9dabb8774f559674"
+  }
+}

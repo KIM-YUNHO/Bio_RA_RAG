@@ -1,0 +1,87 @@
+{
+  "source": "data/runs/retrieval_gold_2026-10-16/model40_bge.json",
+  "scope": "Existing fixed-plan results; derived rank counts, no new retrieval run",
+  "results": [
+    {
+      "variant": "none",
+      "groups": 235,
+      "rank_counts": {
+        "rank_4_to_8": 36,
+        "pool_missing": 24,
+        "rank_9_to_40": 43,
+        "rank_1": 84,
+        "rank_2_to_3": 48
+      },
+      "metrics": {
+        "groups": 235,
+        "recall@4": 0.609,
+        "recall@8": 0.715,
+        "recall@16": 0.809,
+        "chunks@4": 17.1,
+        "chunks@8": 34.3,
+        "chunks@16": 68.6,
+        "mrr": 0.482,
+        "ndcg@4": 0.491,
+        "ndcg@8": 0.529,
+        "ndcg@16": 0.555,
+        "pool_ceiling": 0.898,
+        "seconds_median": 0.0,
+        "seconds_max": 0.0
+      }
+    },
+    {
+      "variant": "bge-reranker-v2-m3:ask_unit:fuse",
+      "groups": 235,
+      "rank_counts": {
+        "rank_2_to_3": 47,
+        "pool_missing": 24,
+        "rank_9_to_40": 22,
+        "rank_1": 116,
+        "rank_4_to_8": 26
+      },
+      "metrics": {
+        "groups": 235,
+        "recall@4": 0.719,
+        "recall@8": 0.804,
+        "recall@16": 0.872,
+        "chunks@4": 17.1,
+        "chunks@8": 34.3,
+        "chunks@16": 68.6,
+        "mrr": 0.609,
+        "ndcg@4": 0.621,
+        "ndcg@8": 0.651,
+        "ndcg@16": 0.67,
+        "pool_ceiling": 0.898,
+        "seconds_median": 1.78,
+        "seconds_max": 40.05
+      }
+    },
+    {
+      "variant": "bge-reranker-v2-m3:fquery_unit:fuse",
+      "groups": 235,
+      "rank_counts": {
+        "rank_2_to_3": 53,
+        "pool_missing": 24,
+        "rank_4_to_8": 30,
+        "rank_1": 115,
+        "rank_9_to_40": 13
+      },
+      "metrics": {
+        "groups": 235,
+        "recall@4": 0.749,
+        "recall@8": 0.843,
+        "recall@16": 0.881,
+        "chunks@4": 17.1,
+        "chunks@8": 34.3,
+        "chunks@16": 68.6,
+        "mrr": 0.617,
+        "ndcg@4": 0.637,
+        "ndcg@8": 0.669,
+        "ndcg@16": 0.679,
+        "pool_ceiling": 0.898,
+        "seconds_median": 1.67,
+        "seconds_max": 39.73
+      }
+    }
+  ]
+}

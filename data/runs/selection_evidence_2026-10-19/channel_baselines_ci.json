@@ -1,0 +1,279 @@
+{
+  "seed": 20261019,
+  "replicates": 2000,
+  "unit": "question; micro fact metric recomputed in each sample",
+  "items": 100,
+  "scored_questions": 98,
+  "question_order": [
+    "CHEMR_Q001",
+    "CHEMR_Q002",
+    "CHEMR_Q003",
+    "CHEMR_Q004",
+    "CHEMR_Q005",
+    "CHEMR_Q006",
+    "CHEMR_Q007",
+    "CHEMR_Q008",
+    "CHEMR_Q009",
+    "CHEMR_Q012",
+    "CHEMR_Q013",
+    "CHEMR_Q016",
+    "CHEMR_Q020",
+    "CHEMR_Q021",
+    "CHEMR_Q022",
+    "CHEMR_Q023",
+    "CHEMR_Q024",
+    "CHEMR_Q025",
+    "CHEMR_Q026",
+    "CHEMR_Q027",
+    "CHEMR_Q028",
+    "CHEMR_Q029",
+    "CHEMR_Q030",
+    "storage:ABP654",
+    "storage:BAT2206",
+    "storage:BMAB1200",
+    "storage:CTP43",
+    "storage:SB17",
+    "shelf_life:ABP654",
+    "shelf_life:BAT2206",
+    "shelf_life:BMAB1200",
+    "shelf_life:CTP43",
+    "shelf_life:SB17",
+    "mah:ABP654",
+    "mah:BAT2206",
+    "mah:BMAB1200",
+    "mah:CTP43",
+    "mah:SB17",
+    "eu_first_authorisation:ABP654",
+    "eu_first_authorisation:BAT2206",
+    "eu_first_authorisation:BMAB1200",
+    "eu_first_authorisation:CTP43",
+    "eu_first_authorisation:SB17",
+    "fda_approval_date:ABP654",
+    "fda_approval_date:BAT2206",
+    "fda_approval_date:BMAB1200",
+    "fda_approval_date:CTP43",
+    "fda_approval_date:SB17",
+    "fda_postmarketing:ABP654",
+    "fda_postmarketing:BAT2206",
+    "fda_postmarketing:CTP43",
+    "fda_postmarketing:SB17",
+    "excipients:ABP654",
+    "excipients:BAT2206",
+    "excipients:BMAB1200",
+    "excipients:CTP43",
+    "excipients:SB17",
+    "ema_submission:ABP654",
+    "ema_submission:BAT2206",
+    "ema_submission:BMAB1200",
+    "ema_submission:CTP43",
+    "ema_submission:SB17",
+    "hc_noc_date:ABP654",
+    "hc_noc_date:BMAB1200",
+    "hc_noc_date:CTP43",
+    "hc_noc_date:SB17",
+    "crohn_iv_induction:ABP654",
+    "crohn_iv_induction:BAT2206",
+    "crohn_iv_induction:BMAB1200",
+    "crohn_iv_induction:CTP43",
+    "crohn_iv_induction:SB17",
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "E01",
+    "E02",
+    "E03",
+    "E04",
+    "N01",
+    "Q1",
+    "Q2",
+    "Q3",
+    "T01",
+    "T02",
+    "T03",
+    "T04",
+    "T05",
+    "U01",
+    "U02",
+    "U03",
+    "U04",
+    "Q4",
+    "Q5",
+    "Q6",
+    "Q7",
+    "G1",
+    "G2",
+    "G3",
+    "G4"
+  ],
+  "comparisons": [
+    {
+      "chosen": "hybrid_current",
+      "baseline": "dense_channel",
+      "metric": "recall@40",
+      "difference": 0.06808510638297872,
+      "bootstrap95": [
+        0.022433035714285714,
+        0.12501265182186228
+      ],
+      "improved": 10,
+      "worse": 1,
+      "equal": 87,
+      "without_primary_gold": 2
+    },
+    {
+      "chosen": "hybrid_current",
+      "baseline": "dense_channel",
+      "metric": "recall@8",
+      "difference": 0.08936170212765958,
+      "bootstrap95": [
+        0.02390404253293991,
+        0.1822681831353231
+      ],
+      "improved": 15,
+      "worse": 4,
+      "equal": 79,
+      "without_primary_gold": 2
+    },
+    {
+      "chosen": "hybrid_current",
+      "baseline": "dense_channel",
+      "metric": "ndcg@8",
+      "difference": 0.01733648180803305,
+      "bootstrap95": [
+        -0.015268907535821273,
+        0.05768277476678302
+      ],
+      "improved": 29,
+      "worse": 19,
+      "equal": 50,
+      "without_primary_gold": 2
+    },
+    {
+      "chosen": "hybrid_current",
+      "baseline": "dense_channel",
+      "metric": "mrr",
+      "difference": -0.002138143053282785,
+      "bootstrap95": [
+        -0.03507434403719909,
+        0.02658790905274334
+      ],
+      "improved": 40,
+      "worse": 20,
+      "equal": 38,
+      "without_primary_gold": 2
+    },
+    {
+      "chosen": "hybrid_current",
+      "baseline": "bm25_channel",
+      "metric": "recall@40",
+      "difference": 0.025531914893617016,
+      "bootstrap95": [
+        0.005291005291005291,
+        0.04824915110356533
+      ],
+      "improved": 5,
+      "worse": 0,
+      "equal": 93,
+      "without_primary_gold": 2
+    },
+    {
+      "chosen": "hybrid_current",
+      "baseline": "bm25_channel",
+      "metric": "recall@8",
+      "difference": -0.01702127659574468,
+      "bootstrap95": [
+        -0.0859407018442623,
+        0.06798231940856851
+      ],
+      "improved": 7,
+      "worse": 11,
+      "equal": 80,
+      "without_primary_gold": 2
+    },
+    {
+      "chosen": "hybrid_current",
+      "baseline": "bm25_channel",
+      "metric": "ndcg@8",
+      "difference": 0.020007912054127056,
+      "bootstrap95": [
+        -0.03360093392221112,
+        0.09575744846688762
+      ],
+      "improved": 30,
+      "worse": 28,
+      "equal": 40,
+      "without_primary_gold": 2
+    },
+    {
+      "chosen": "hybrid_current",
+      "baseline": "bm25_channel",
+      "metric": "mrr",
+      "difference": 0.03446939299025326,
+      "bootstrap95": [
+        -0.013635224793821296,
+        0.10330429808083576
+      ],
+      "improved": 34,
+      "worse": 32,
+      "equal": 32,
+      "without_primary_gold": 2
+    },
+    {
+      "chosen": "hybrid_current",
+      "baseline": "hybrid_unstripped",
+      "metric": "recall@40",
+      "difference": 0.0,
+      "bootstrap95": [
+        0.0,
+        0.0
+      ],
+      "improved": 0,
+      "worse": 0,
+      "equal": 98,
+      "without_primary_gold": 2
+    },
+    {
+      "chosen": "hybrid_current",
+      "baseline": "hybrid_unstripped",
+      "metric": "recall@8",
+      "difference": -0.00425531914893617,
+      "bootstrap95": [
+        -0.02640924092409241,
+        0.010932490472445688
+      ],
+      "improved": 1,
+      "worse": 1,
+      "equal": 96,
+      "without_primary_gold": 2
+    },
+    {
+      "chosen": "hybrid_current",
+      "baseline": "hybrid_unstripped",
+      "metric": "ndcg@8",
+      "difference": -0.01988027108605415,
+      "bootstrap95": [
+        -0.0519315233397061,
+        -0.0009485723501130043
+      ],
+      "improved": 1,
+      "worse": 6,
+      "equal": 91,
+      "without_primary_gold": 2
+    },
+    {
+      "chosen": "hybrid_current",
+      "baseline": "hybrid_unstripped",
+      "metric": "mrr",
+      "difference": -0.02420557748467636,
+      "bootstrap95": [
+        -0.06564839384116877,
+        -0.0023991410594956138
+      ],
+      "improved": 1,
+      "worse": 6,
+      "equal": 91,
+      "without_primary_gold": 2
+    }
+  ]
+}
