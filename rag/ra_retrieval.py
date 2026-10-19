@@ -8,7 +8,9 @@ from rag.ra_sources import permitted
 from rag.service_scope import allowed
 from rag import ra_answer
 
-VERSION = 'ra-task-hybrid-context-7-topic-queries-slot-terms'
+VERSION = 'ra-task-hybrid-context-8-guideline-fallback'
+# The question itself asks what a guideline says (guideline_fallback does not answer it from products).
+NAMES_GUIDANCE = re.compile(r'가이드\s*라인|지침|guidelines?\b|guidance\b', re.I)
 
 
 def diverse_hits(rankings, k, consensus_only=(), same=None):
@@ -345,8 +347,10 @@ def _retrieve(corpus, understanding, guideline_index, bm, documents=None, includ
                     'scope_gap': None if guideline_index else 'guideline_snapshot_not_connected'})
         search_roles, fallback = roles - {'guideline'}, None
         # A disconnected guideline snapshot stays an explicit scope gap, not a reason to read products.
+        # A question that names a guideline ("EMA 가이드라인은 ... 권고해?") asks for guidance itself:
+        # "not in scope" is its honest answer, and product assessments must not stand in for it.
         if (not search_roles and guideline_part and P['guideline_fallback'] and guideline_index
-                and not any(g['hits'] for g in guideline_part)):
+                and not any(g['hits'] for g in guideline_part) and not NAMES_GUIDANCE.search(question or '')):
             # The plan read only guidance, but no guidance is in scope (e.g. the user picked one
             # product document): read the in-scope product documents with the same queries.
             search_roles = {corpus.chunks[i]['doc_group'] for i in eligible

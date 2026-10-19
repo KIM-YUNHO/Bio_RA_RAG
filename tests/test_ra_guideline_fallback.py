@@ -61,6 +61,17 @@ class GuidelineFallback(unittest.TestCase):
                                         topic_queries=False, profile={'rerank': False, 'guideline_fallback': True})
         self.assertEqual([g['doc_groups'] for g in groups], [['guideline']])
 
+    def test_a_question_about_a_guideline_is_not_answered_from_product_documents(self):
+        # Saved service question: the EMA guideline was not in scope, so "not found" is the honest answer.
+        for question in ['EMA 바이오시밀러 가이드라인은 비교 임상 효능시험이 언제 필요하다고 권고해?',
+                         'ICH Q12 지침은 Established Conditions를 어떻게 설명하나?',
+                         'What does the FDA guidance recommend for Established Conditions?']:
+            with self.subTest(question=question):
+                self.plan['source_question'] = question
+                groups = self.retrieve({'guideline_fallback': True})
+                self.assertEqual([g['doc_groups'] for g in groups], [['guideline']])
+                self.assertFalse(any(g.get('fallback') for g in groups))
+
 
 if __name__ == '__main__':
     unittest.main()
