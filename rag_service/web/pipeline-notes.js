@@ -59,7 +59,7 @@ const PipelineNotes=(()=>{
     const tags=[...new Set(project.memos.flatMap(m=>m.tags))].sort((a,b)=>a.localeCompare(b,"ko"));
     const filter=$("memo-tag-filter");filter.replaceChildren();const every=node("option","","전체 태그");every.value="";filter.append(every);
     if(tag&&!tags.includes(tag))tags.unshift(tag);for(const t of tags){const option=node("option","","#"+t);option.value=t;filter.append(option);}filter.value=tag;
-    $("pipeline-memo-title").textContent=all?`${project.name} · 전 단계 메모`:`${stages().find(s=>s.id===stage)?.label||""} · 메모`;
+    $("pipeline-memo-title").textContent=all?"전 단계 메모":`${stages().find(s=>s.id===stage)?.label||""} · 메모`;
     list.classList.toggle("all-stages",all);
     for(const s of all?stages():stages().filter(s=>s.id===stage)){
       const target=all?node("section","pipeline-column"):list;if(all){target.dataset.stageId=s.id;target.setAttribute("aria-labelledby","pipeline-stage-"+s.id);target.append(node("h3","sr-only",s.label));}
