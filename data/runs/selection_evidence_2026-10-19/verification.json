@@ -1,0 +1,39 @@
+{
+  "production_sources_unchanged": true,
+  "gold_unchanged": true,
+  "rows_with_identical_gold_and_production_top8": 100,
+  "historical_ndcg_scorer_agreement": true,
+  "primary_gold_groups": 235,
+  "service_request_validation_passed": 100,
+  "pure_bm25_dense_database_queries": 0,
+  "dense_channel_native_top40_match": true,
+  "dense_channel_native_candidates": 40,
+  "bm25_channel_native_top40_match": true,
+  "bm25_channel_native_candidates": 40,
+  "native_check_document": [
+    "EMA:63561",
+    "24f42a13e263361e45daf03240bd1f30ff701ef234e4b135f72f1f3a44cecfae"
+  ],
+  "planner_response_replays": 29,
+  "new_current_planner_calls": 71,
+  "services_unchanged": [
+    {
+      "port": 8885,
+      "pipeline_version": "ra-research-rag-4.10.3",
+      "query_strategy": "ra-research-tasks-8-fact-queries",
+      "chunks_sha256": "2b5684a27f444cfc08a4fe50c1a5047cbf53ee9c9577dd69807b220f25a7d905",
+      "product_index_chunks": 15682,
+      "vector_store": "pgvector"
+    },
+    {
+      "port": 8775,
+      "pipeline_version": "ra-research-rag-4.10.3",
+      "query_strategy": "ra-research-tasks-8-fact-queries",
+      "chunks_sha256": "2b5684a27f444cfc08a4fe50c1a5047cbf53ee9c9577dd69807b220f25a7d905",
+      "product_index_chunks": 15682,
+      "vector_store": "pgvector"
+    }
+  ],
+  "verified_at_kst": "2026-10-19T04:22:05.909368+09:00",
+  "passed": true
+}

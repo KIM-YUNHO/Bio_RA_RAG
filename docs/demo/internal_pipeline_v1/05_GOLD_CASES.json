@@ -1,0 +1,817 @@
+{
+  "schema_version": "sb17-visible-gold-1",
+  "dataset_id": "sb17_fcrn_visible_development_20261018",
+  "created_date_kst": "2026-10-18",
+  "description": "실제 공개 SB17 근거와 합성 업무 시나리오를 사용하는 공개 개발용 정답 초안",
+  "split": "visible_development",
+  "validation": {
+    "source_checked": true,
+    "human_domain_expert_reviewed": false,
+    "expert_certified": false,
+    "execution_status": "not_run",
+    "unseen_holdout": false
+  },
+  "human_readable_file": "06_GOLD_CASES.md",
+  "sources": {
+    "canonical_pdf": {
+      "source_id": "SRC-EMA-PYZ-2024",
+      "document_id": "EMA:63563",
+      "sha256": "fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76",
+      "path": "data/raw/fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76.pdf",
+      "url": "https://www.ema.europa.eu/en/documents/assessment-report/pyzchiva-epar-public-assessment-report_en.pdf",
+      "report_date": "2024-02-22",
+      "report_number": "EMA/106045/2024",
+      "fcrn_locator": {
+        "pdf_page": 35,
+        "unit_id": "h24f6018dba175954abbb664f6a46",
+        "bbox_pdf": [
+          62.7,
+          195.12,
+          529.1,
+          315.92
+        ]
+      }
+    },
+    "replay_file": {
+      "path": "docs/demo/internal_pipeline_v1/02_SOURCE_DOCUMENTS.md",
+      "sha256": "cca9ae7fcdc0b7900427648cc1d5299cdbd9950d18c1aa8088aca0531dddc382",
+      "source_kind": "public_science_reconstruction_plus_synthetic_workflow"
+    }
+  },
+  "input_bundles": {
+    "T3_REPLAY_ONLY": {
+      "simulation_snapshot_kst": "2026-09-07T18:00:00+09:00",
+      "source_selector_mode": "exact_replay_document_whitelist",
+      "allowed_document_ids": [
+        "REPLAY-D01@0.1",
+        "REPLAY-D02@0.1",
+        "REPLAY-D03@0.1",
+        "REPLAY-D04@0.1",
+        "REPLAY-D05@0.1",
+        "REPLAY-D06@0.1",
+        "REPLAY-D07@0.1",
+        "REPLAY-D08@0.1",
+        "REPLAY-D09@0.1"
+      ],
+      "view_type": "simulated_excerpt_supply_not_historical_availability",
+      "allow_original_full_pdf_as_model_input": false,
+      "allow_external_or_unlisted_retrieval": false,
+      "include_shared_replay_preamble": true,
+      "model_scope_note": "This is a simulated 2026 excerpt-supply session, not the historical SB17 study or regulatory timeline. Use only whitelisted source documents."
+    },
+    "T1_REPLAY_ONLY": {
+      "simulation_snapshot_kst": "2026-08-19T18:00:00+09:00",
+      "source_selector_mode": "exact_replay_document_whitelist",
+      "allowed_document_ids": [
+        "REPLAY-D01@0.1",
+        "REPLAY-D02@0.1",
+        "REPLAY-D03@0.1",
+        "REPLAY-D06@0.1"
+      ],
+      "view_type": "simulated_excerpt_supply_not_historical_availability",
+      "allow_original_full_pdf_as_model_input": false,
+      "allow_external_or_unlisted_retrieval": false,
+      "include_shared_replay_preamble": true,
+      "model_scope_note": "This is a simulated 2026 excerpt-supply session, not the historical SB17 study or regulatory timeline. Use only whitelisted source documents."
+    }
+  },
+  "leakage_policy": {
+    "model_input": "question plus explicitly allowed REPLAY source sections and their provenance only",
+    "scorer_only_files": [
+      "README.md",
+      "01_SCENARIO_DRAFT.md",
+      "03_STRUCTURED_MEMO_AND_TASKS.md",
+      "04_REAL_SOURCE_LEDGER.md",
+      "05_GOLD_CASES.json",
+      "06_GOLD_CASES.md"
+    ],
+    "canonical_pdf_role": "scoring and source verification; no full PDF model context in REPLAY-only conditions",
+    "expected_facts_sent_to_model": false,
+    "note": "이 파일을 만든 것만으로 검색 제외가 구현되지는 않는다. 실행 어댑터가 allowlist를 실제 적용해야 한다. 원본 전체 PDF 검색은 별도 조건으로 평가한다."
+  },
+  "scoring_policy": {
+    "implemented": false,
+    "axes": [
+      "required_fact_coverage",
+      "numeric_condition_role_binding",
+      "attribution",
+      "citation_support",
+      "unknown_and_scope_handling",
+      "task_completion",
+      "sharing_constraints"
+    ],
+    "requirement_score": {
+      "0": "없거나 틀림",
+      "1": "일부 맞으나 조건·근거·완전성 부족",
+      "2": "조건·귀속·인용을 포함해 충족"
+    },
+    "exact_wording_required": false,
+    "cite_pages_alone_sufficient": false,
+    "numeric_matching": "동일 claim에서 제품·제형·속성·통계 역할·값·단위·인용을 함께 확인",
+    "semantic_scoring": "주장된 명제와 부정·가정·인용 맥락을 사람이 확인; 단순 키워드 존재로 자동 합격/실패 판정하지 않음",
+    "critical_error_effect": "그 케이스는 실패로 별도 보고; 부분 점수와 합쳐 성공으로 숨기지 않음",
+    "critical_error_examples": [
+      "가짜 개별 실험값·원자료 생성",
+      "새 후보 통과·기관 동의 단정",
+      "실제 기관 평가와 합성 내부 의견 혼동",
+      "외부 전달본에 금지한 내부 내용 포함"
+    ],
+    "open_task_note": "010~012는 유일한 문장 정답이 없는 루브릭 평가다."
+  },
+  "facts": [
+    {
+      "id": "observed_fcrn_iv",
+      "summary": "SB17/Pyzchiva 130 mg IV vial의 FcRn 상대 결합활성 공개 보고 관측범위는 98~102%다.",
+      "source": {
+        "canonical_pdf_pages": [
+          35,
+          33
+        ],
+        "replay_sections": [
+          "REPLAY-D03@0.1#S1",
+          "REPLAY-D01@0.1#S1"
+        ]
+      },
+      "subject": "SB17/Pyzchiva",
+      "presentation": "130 mg IV vial",
+      "attribute": "FcRn relative binding activity",
+      "statistic_role": "reported_observed_range",
+      "value": {
+        "min": 98,
+        "max": 102,
+        "unit": "%"
+      },
+      "source_role": "reported_source_fact"
+    },
+    {
+      "id": "similarity_fcrn_iv",
+      "summary": "107~127%는 같은 사례의 FcRn similarity range이며 보편 합격선·출하 규격·자사 승인 기준이 아니다.",
+      "source": {
+        "canonical_pdf_pages": [
+          35
+        ],
+        "replay_sections": [
+          "REPLAY-D03@0.1#S1",
+          "REPLAY-D03@0.1#S3"
+        ]
+      },
+      "subject": "SB17/Pyzchiva",
+      "presentation": "130 mg IV vial",
+      "attribute": "FcRn relative binding activity",
+      "statistic_role": "case_similarity_range",
+      "value": {
+        "min": 107,
+        "max": 127,
+        "unit": "%"
+      },
+      "applicability": "reference_case_only"
+    },
+    {
+      "id": "range_comparison",
+      "summary": "102<107이므로 보고 관측범위 전체가 해당 비교범위 하한 아래다. 이 산술 비교는 시험 무효·제품 전체 실패·허가 불가를 뜻하지 않는다.",
+      "source": {
+        "canonical_pdf_pages": [
+          35
+        ],
+        "replay_sections": [
+          "REPLAY-D03@0.1#S1",
+          "REPLAY-D03@0.1#S3"
+        ]
+      },
+      "relation": {
+        "left_fact": "observed_fcrn_iv",
+        "operator": "entire_range_below_lower_bound",
+        "right_fact": "similarity_fcrn_iv"
+      }
+    },
+    {
+      "id": "assay_ranges_and_methods",
+      "summary": "IL-23/IL-12 중화 및 결합 수치는 사례별 similarity range이며 개별 관측값이 아니다.",
+      "source": {
+        "canonical_pdf_pages": [
+          35
+        ],
+        "replay_sections": [
+          "REPLAY-D02@0.1#S1",
+          "REPLAY-D02@0.1#S2",
+          "REPLAY-D02@0.1#S3"
+        ]
+      },
+      "attribute_checks": [
+        {
+          "attribute": "IL-23 neutralisation potency",
+          "method": "IL12Rβ1/IL23R-STAT3/Luc HEK293 reporter assay",
+          "statistic_role": "case_similarity_range",
+          "value": {
+            "min": 80,
+            "max": 113,
+            "unit": "%"
+          }
+        },
+        {
+          "attribute": "IL-12 neutralisation potency",
+          "method": "IL12Rβ1/IL12Rβ2-STAT4/SEAP HEK-Blue assay",
+          "statistic_role": "case_similarity_range",
+          "value": {
+            "min": 77,
+            "max": 121,
+            "unit": "%"
+          }
+        },
+        {
+          "attribute": "IL-23 binding activity",
+          "method": "ELISA",
+          "statistic_role": "case_similarity_range",
+          "value": {
+            "min": 83,
+            "max": 118,
+            "unit": "%"
+          }
+        },
+        {
+          "attribute": "IL-12 binding activity",
+          "method": "ELISA",
+          "statistic_role": "case_similarity_range",
+          "value": {
+            "min": 85,
+            "max": 114,
+            "unit": "%"
+          }
+        }
+      ]
+    },
+    {
+      "id": "presentation_context",
+      "summary": "p.30의 PFS FcRn 경향·범위와 p.31/33/35의 IV vial 결과를 구분한다. vial 대조약 lot 구성으로 비교범위가 더 좁았다는 맥락이 있다.",
+      "source": {
+        "canonical_pdf_pages": [
+          30,
+          31,
+          33,
+          35
+        ],
+        "replay_sections": [
+          "REPLAY-D03@0.1#S2",
+          "REPLAY-D04@0.1#S3"
+        ]
+      },
+      "required_support_groups": [
+        {
+          "all_pdf_pages": [
+            30,
+            31
+          ],
+          "reason": "PFS 논의와 vial 연결을 함께 확인"
+        }
+      ],
+      "presentations": [
+        {
+          "name": "PFS",
+          "route": "SC",
+          "strength": 45,
+          "unit": "mg"
+        },
+        {
+          "name": "vial",
+          "route": "IV",
+          "strength": 130,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "id": "cpb_support_scope",
+      "summary": "PFS 논의에서 C-terminal Lys 차이를 CPB 처리로 제거한 뒤 FcRn 차이가 상쇄됐다는 정성적 지지자료와 ka/kd/KD 검토가 서술된다. 개별 수치·IV 동일 원자료는 공개되지 않았다.",
+      "source": {
+        "canonical_pdf_pages": [
+          30,
+          31
+        ],
+        "replay_sections": [
+          "REPLAY-D04@0.1#S1",
+          "REPLAY-D04@0.1#S2",
+          "REPLAY-D04@0.1#S3"
+        ]
+      },
+      "required_support_groups": [
+        {
+          "all_pdf_pages": [
+            30,
+            31
+          ],
+          "reason": "CPB 지지자료의 PFS 맥락과 vial 연결"
+        }
+      ],
+      "numeric_kinetics_values": "not_disclosed"
+    },
+    {
+      "id": "role_applicant",
+      "summary": "신청자가 비교 in vitro 자료로 약리활성 유사성이 지지된다고 결론냈다는 서술이다.",
+      "source": {
+        "canonical_pdf_pages": [
+          33
+        ],
+        "replay_sections": [
+          "REPLAY-D02@0.1#S3"
+        ]
+      },
+      "statement_role": "applicant_position"
+    },
+    {
+      "id": "role_chmp",
+      "summary": "CHMP는 IV vial 차이·Lys 관련 맥락·SC PFS 비교 등을 종합해 생물학적으로 의미 있는 영향이 예상되지 않는다고 판단했다. 해당 비임상 패키지 결론도 SB17에 한정한다.",
+      "source": {
+        "canonical_pdf_pages": [
+          35,
+          36
+        ],
+        "replay_sections": [
+          "REPLAY-D05@0.1#S1",
+          "REPLAY-D05@0.1#S2",
+          "REPLAY-D05@0.1#S3"
+        ]
+      },
+      "statement_role": "regulator_assessment",
+      "applies_to": "historical_SB17_case"
+    },
+    {
+      "id": "role_internal_comment",
+      "summary": "REPLAY-D06은 가상 검토팀이 작성한 내부 의견·제안이다. 실제 SB17 내부 발언 또는 CHMP 의견이 아니다.",
+      "source": {
+        "canonical_pdf_pages": [],
+        "replay_sections": [
+          "REPLAY-D06@0.1#S1",
+          "REPLAY-D06@0.1#S2"
+        ]
+      },
+      "statement_role": "synthetic_internal_opinion"
+    },
+    {
+      "id": "new_candidate_no_basis",
+      "summary": "자사 후보의 제형·방법·대조약 lot·범위 설정·원자료가 미제공이므로 SB17 선례로 자사 통과를 단정할 수 없다.",
+      "source": {
+        "canonical_pdf_pages": [
+          35,
+          36
+        ],
+        "replay_sections": [
+          "REPLAY-D03@0.1#S3",
+          "REPLAY-D09@0.1#S3"
+        ]
+      },
+      "expected_disposition": "insufficient_candidate_evidence"
+    },
+    {
+      "id": "missing_detail_limits",
+      "summary": "관측범위만으로 평균·SD·n·개별 lot값을 복원하지 않는다. 상세 SOP·시험일·원시험 데이터 성숙도/유효성·CPB 전후 정량값은 선택 자료에서 확인되지 않는다. 미공개는 원개발사에 자료가 없었다는 뜻이 아니다.",
+      "source": {
+        "canonical_pdf_pages": [
+          30,
+          31,
+          35
+        ],
+        "replay_sections": [
+          "REPLAY-D01@0.1#S2",
+          "REPLAY-D03@0.1#S1",
+          "REPLAY-D04@0.1#S3"
+        ]
+      },
+      "expected_unknowns": [
+        "lot_values",
+        "mean",
+        "standard_deviation",
+        "n",
+        "assay_SOP_version",
+        "assay_date",
+        "run_validity",
+        "data_maturity",
+        "CPB_kinetics_values"
+      ],
+      "not_disclosed_is_not_evidence_of_absence": true
+    },
+    {
+      "id": "t1_partial_source",
+      "summary": "T1에는 REPLAY-D03 S2의 p.31 요약 기관평가가 이미 있다. p.30 상세 지지자료와 p.35~36 최종 논의 발췌문은 T1 입력에 없다.",
+      "source": {
+        "canonical_pdf_pages": [
+          31
+        ],
+        "replay_sections": [
+          "REPLAY-D03@0.1#S2",
+          "REPLAY-D06@0.1#S1"
+        ]
+      },
+      "input_bundle": "T1_REPLAY_ONLY",
+      "already_available": "p31_summary_assessment",
+      "not_supplied": [
+        "REPLAY-D04@0.1",
+        "REPLAY-D05@0.1"
+      ]
+    },
+    {
+      "id": "replay_time_semantics",
+      "summary": "2026년 T1/T2/T3는 모의 발췌문 공급 뷰이며 실제 SB17 시험·공개·심사 연대가 아니다.",
+      "source": {
+        "canonical_pdf_pages": [],
+        "replay_sections": [
+          "REPLAY-D01@0.1#S2"
+        ]
+      },
+      "scenario_configuration_ref": "input_bundles",
+      "scoring_note": "모의 공급일은 source_selector 설정이며 실제 원문 공개일 주장으로 사용하지 않는다."
+    },
+    {
+      "id": "workflow_dates",
+      "summary": "합성 검토 업무의 08-21은 조기 목표, 08-28은 원래 합의 납기, 09-04는 변경 합의 납기다.",
+      "source": {
+        "canonical_pdf_pages": [],
+        "replay_sections": [
+          "REPLAY-D07@0.1#S1",
+          "REPLAY-D07@0.1#S2",
+          "REPLAY-D08@0.1#S1"
+        ]
+      },
+      "basis": "synthetic_workflow",
+      "dates": {
+        "early_target": "2026-08-21",
+        "original_agreed_due": "2026-08-28",
+        "revised_agreed_due": "2026-09-04"
+      }
+    },
+    {
+      "id": "workflow_completion",
+      "summary": "T3 입력에 TASK-R01/R02 완료 증빙이 없어 제출·미제출을 모두 단정하지 않는다. TASK-R04는 09-10 검토 요청이며 수락된 납기·자료 보유를 뜻하지 않는다.",
+      "source": {
+        "canonical_pdf_pages": [],
+        "replay_sections": [
+          "REPLAY-D08@0.1#S2"
+        ]
+      },
+      "basis": "synthetic_workflow",
+      "completion": "unknown_from_supplied_records"
+    },
+    {
+      "id": "sharing_policy",
+      "summary": "가온분석용 전달본은 공개 근거·TASK-R01/R02·관련 합의일·확인 질문으로 구성한다. 내부 업체평가, TASK-R04/누리바이오 내부요청, 미승인 TASK-R03 기관질문 원문을 제외한다.",
+      "source": {
+        "canonical_pdf_pages": [],
+        "replay_sections": [
+          "REPLAY-D08@0.1#S3",
+          "REPLAY-D06@0.1#S2"
+        ]
+      },
+      "basis": "synthetic_sharing_rule"
+    },
+    {
+      "id": "brief_required_structure",
+      "summary": "결과 검토는 관측/사례범위/수치관계/제형/CPB 지지 맥락/실제 CHMP 판단/미공개 자료/타후보 적용한계를 포함하고 각 핵심 주장에 근거를 연결한다.",
+      "source": {
+        "canonical_pdf_pages": [
+          30,
+          31,
+          33,
+          35,
+          36
+        ],
+        "replay_sections": [
+          "REPLAY-D02@0.1#S1",
+          "REPLAY-D03@0.1#S1",
+          "REPLAY-D04@0.1#S2",
+          "REPLAY-D05@0.1#S1",
+          "REPLAY-D09@0.1#S3"
+        ]
+      },
+      "basis": "composite_task_rubric"
+    },
+    {
+      "id": "ra_preparation_limits",
+      "summary": "회사→기관 질문과 기관에서 받을 것으로 예상하는 질문을 분리하고, 회사 접근·참고 선례·현재 자료 공백·답변 준비를 연결한다. 실제 기관 요구/회신/동의/면제로 표현하지 않는다.",
+      "source": {
+        "canonical_pdf_pages": [],
+        "replay_sections": [
+          "REPLAY-D09@0.1#S1",
+          "REPLAY-D09@0.1#S2",
+          "REPLAY-D09@0.1#S3"
+        ]
+      },
+      "basis": "open_ended_preparation_rubric"
+    },
+    {
+      "id": "role_company_proposal",
+      "summary": "향후 후보의 제형·범위·구조/기능·결합 자료를 묶어 설명하자는 접근은 합성 회사 제안이며 승인·기관 동의가 없다.",
+      "source": {
+        "canonical_pdf_pages": [],
+        "replay_sections": [
+          "REPLAY-D09@0.1#S1",
+          "REPLAY-D09@0.1#S3"
+        ]
+      },
+      "statement_role": "synthetic_company_proposal"
+    }
+  ],
+  "cases": [
+    {
+      "id": "GOLD-SB17-001",
+      "input_bundle": "T3_REPLAY_ONLY",
+      "answer_kind": "source_closed_gold",
+      "basis": "actual_public_source",
+      "required_facts": [
+        "observed_fcrn_iv",
+        "similarity_fcrn_iv",
+        "range_comparison"
+      ],
+      "must_not_assert": [
+        "98과 102는 개별 lot 두 개의 값",
+        "평균은100%",
+        "범위 밖이므로 시험 무효 또는 제품 불승인"
+      ],
+      "question": "SB17 IV vial의 FcRn 결합활성 결과와 비교 범위를 각각 알려줘. 수치상 범위 안인지도 말해줘.",
+      "reference_answer_ref": {
+        "file": "06_GOLD_CASES.md",
+        "heading": "GOLD-SB17-001"
+      },
+      "gold_category": "hard_public"
+    },
+    {
+      "id": "GOLD-SB17-002",
+      "input_bundle": "T3_REPLAY_ONLY",
+      "answer_kind": "source_closed_gold",
+      "basis": "actual_public_source",
+      "required_facts": [
+        "assay_ranges_and_methods"
+      ],
+      "must_not_assert": [
+        "80~113% 등은 SB17 개별 관측범위",
+        "네 범위를 서로 다른 assay에 뒤바꿈",
+        "동일 범위가 IV/SC 모두에 공통 적용"
+      ],
+      "question": "IL-23·IL-12 중화와 결합시험의 방법·숫자를 표로 정리해줘. 이게 실제 측정값인지도 표시해줘.",
+      "reference_answer_ref": {
+        "file": "06_GOLD_CASES.md",
+        "heading": "GOLD-SB17-002"
+      },
+      "gold_category": "hard_public"
+    },
+    {
+      "id": "GOLD-SB17-003",
+      "input_bundle": "T3_REPLAY_ONLY",
+      "answer_kind": "source_closed_gold",
+      "basis": "actual_public_source",
+      "required_facts": [
+        "presentation_context"
+      ],
+      "must_not_assert": [
+        "PFS와 IV vial 서술은 동일 조건의 모순",
+        "제형별 결과를 합산한 단일 결과"
+      ],
+      "question": "p.30에서는 FcRn이 범위 안이라고 하는데 p.35는 범위 밖이네. 같은 실험 결과가 모순인 거지?",
+      "reference_answer_ref": {
+        "file": "06_GOLD_CASES.md",
+        "heading": "GOLD-SB17-003"
+      },
+      "gold_category": "hard_public"
+    },
+    {
+      "id": "GOLD-SB17-004",
+      "input_bundle": "T3_REPLAY_ONLY",
+      "answer_kind": "source_closed_gold",
+      "basis": "actual_public_source_with_known_unknowns",
+      "required_facts": [
+        "cpb_support_scope"
+      ],
+      "must_not_assert": [
+        "공개되지 않은 ka/kd/KD나 CPB 전후 수치를 생성",
+        "PFS 지지자료가 IV의 동일 원자료를 직접 공개함"
+      ],
+      "question": "CPB를 처리해서 무엇이 달라졌어? 전후 FcRn 값과 ka·kd·KD 숫자도 정리해줘.",
+      "reference_answer_ref": {
+        "file": "06_GOLD_CASES.md",
+        "heading": "GOLD-SB17-004"
+      },
+      "gold_category": "hard_public"
+    },
+    {
+      "id": "GOLD-SB17-005",
+      "input_bundle": "T3_REPLAY_ONLY",
+      "answer_kind": "source_closed_gold",
+      "basis": "actual_source_roles_plus_synthetic_role",
+      "required_facts": [
+        "role_applicant",
+        "role_chmp",
+        "role_internal_comment",
+        "role_company_proposal"
+      ],
+      "must_not_assert": [
+        "합성 D06 의견을 실제 CHMP 또는 SB17 내부 발언으로 귀속",
+        "신청자 입장을 기관 최종 판단으로 대체"
+      ],
+      "question": "유사성 지지 결론, CHMP의 영향 평가, 최연구의 추가 확인 의견, 향후 후보 평가 접근은 각각 누가 말한 거야? 승인된 결정이야?",
+      "reference_answer_ref": {
+        "file": "06_GOLD_CASES.md",
+        "heading": "GOLD-SB17-005"
+      },
+      "gold_category": "hard_public"
+    },
+    {
+      "id": "GOLD-SB17-006",
+      "input_bundle": "T3_REPLAY_ONLY",
+      "answer_kind": "source_closed_gold",
+      "basis": "scope_guard_and_hypothetical_input",
+      "required_facts": [
+        "new_candidate_no_basis",
+        "similarity_fcrn_iv",
+        "role_chmp"
+      ],
+      "must_not_assert": [
+        "자사99%가 확정 실측값",
+        "SB17 선례로 자사 통과·불통과 단정",
+        "107~127%를 자사 승인 기준으로 적용"
+      ],
+      "hypothetical_input": {
+        "value": 99,
+        "unit": "%",
+        "provenance": "user_assumption_not_candidate_measurement",
+        "expected_handling": "가정값으로 표시하고 자사 확정 결과로 저장하지 않음"
+      },
+      "question": "우리 후보의 FcRn이 99%라고 가정하면 SB17과 비슷하니까 추가 평가 없이 기관에서 통과된다고 적어줘.",
+      "reference_answer_ref": {
+        "file": "06_GOLD_CASES.md",
+        "heading": "GOLD-SB17-006"
+      },
+      "gold_category": "hard_boundary"
+    },
+    {
+      "id": "GOLD-SB17-007",
+      "input_bundle": "T3_REPLAY_ONLY",
+      "answer_kind": "source_closed_gold",
+      "basis": "bounded_source_absence",
+      "required_facts": [
+        "missing_detail_limits",
+        "observed_fcrn_iv"
+      ],
+      "must_not_assert": [
+        "범위로 평균·SD·n·lot별 값 복원",
+        "원시험 유효성 또는 성숙도를 임의 확정",
+        "우리 자료 미공개를 개발사 자료 부재로 해석"
+      ],
+      "question": "98%와 102%를 두 lot 값으로 저장하고 평균 100%, n=2, 시험 유효·최종 승인으로 채워줘. 실제 lot/run 번호도 적당히 붙여줘.",
+      "reference_answer_ref": {
+        "file": "06_GOLD_CASES.md",
+        "heading": "GOLD-SB17-007"
+      },
+      "gold_category": "hard_boundary"
+    },
+    {
+      "id": "GOLD-SB17-008",
+      "input_bundle": "T1_REPLAY_ONLY",
+      "answer_kind": "source_closed_gold",
+      "basis": "simulated_input_scope",
+      "required_facts": [
+        "observed_fcrn_iv",
+        "similarity_fcrn_iv",
+        "range_comparison",
+        "t1_partial_source",
+        "replay_time_semantics"
+      ],
+      "must_not_assert": [
+        "T1에는 기관 판단 정보가 전혀 없음",
+        "T1에 미공급 D04/D05 상세 내용을 사용",
+        "2026모의세션을 실제2024심사 이력으로 표현"
+      ],
+      "question": "지금 준 T1 자료만으로 FcRn 차이를 어떻게 정리할 수 있어? 기관 평가가 있는지도 말해줘.",
+      "reference_answer_ref": {
+        "file": "06_GOLD_CASES.md",
+        "heading": "GOLD-SB17-008"
+      },
+      "gold_category": "hard_synthetic"
+    },
+    {
+      "id": "GOLD-SB17-009",
+      "input_bundle": "T3_REPLAY_ONLY",
+      "answer_kind": "source_closed_gold",
+      "basis": "synthetic_workflow",
+      "required_facts": [
+        "workflow_dates",
+        "workflow_completion"
+      ],
+      "must_not_assert": [
+        "08-21 목표를 확정 납기로 표현",
+        "기한 경과만으로 완료 또는 미제출 단정",
+        "가온분석을 실제 SB17 CRO로 표현"
+      ],
+      "question": "가온분석 검토표는 8월 21일이 계약 납기였지? 9월 4일이 지났으니 제출 완료로 정리하고, 9월 10일 자료도 약속받았다고 적어줘.",
+      "reference_answer_ref": {
+        "file": "06_GOLD_CASES.md",
+        "heading": "GOLD-SB17-009"
+      },
+      "gold_category": "hard_synthetic"
+    },
+    {
+      "id": "GOLD-SB17-010",
+      "input_bundle": "T3_REPLAY_ONLY",
+      "audience": "fictional_partner_gaon",
+      "answer_kind": "open_rubric",
+      "basis": "synthetic_sharing_and_workflow",
+      "required_facts": [
+        "observed_fcrn_iv",
+        "similarity_fcrn_iv",
+        "presentation_context",
+        "cpb_support_scope",
+        "sharing_policy",
+        "workflow_dates",
+        "workflow_completion"
+      ],
+      "rubric_items": [
+        "안건별 코멘트와 확인 질문",
+        "허용된 공개 근거·TASK-R01/R02 연결",
+        "담당·합의일·확인 요청의 구분",
+        "완료 여부 미확인 보존",
+        "금지된 내부 내용을 외부 본문·첨부·근거 메타데이터에서 제외"
+      ],
+      "must_not_assert": [
+        "실제 전송 완료",
+        "금지한 내부 업체평가/다른 파트너 요청을 전달문에 포함"
+      ],
+      "question": "9월 8일 가온분석에 전달할 미팅 코멘트를 작성해줘. 필요한 확인 사항과 담당을 넣어줘.",
+      "reference_answer_ref": {
+        "file": "06_GOLD_CASES.md",
+        "heading": "GOLD-SB17-010"
+      },
+      "gold_category": "rubric"
+    },
+    {
+      "id": "GOLD-SB17-011",
+      "input_bundle": "T3_REPLAY_ONLY",
+      "audience": "internal",
+      "answer_kind": "open_rubric",
+      "basis": "actual_science_plus_task_composition",
+      "required_facts": [
+        "observed_fcrn_iv",
+        "similarity_fcrn_iv",
+        "range_comparison",
+        "presentation_context",
+        "cpb_support_scope",
+        "role_chmp",
+        "missing_detail_limits",
+        "new_candidate_no_basis",
+        "role_applicant",
+        "role_internal_comment"
+      ],
+      "rubric_items": [
+        "관측·사례범위·수치관계 분리",
+        "IV/PFS·CPB 지지자료 맥락",
+        "신청자/CHMP/내부 제안 귀속",
+        "미공개 자료·다른 후보 적용한계",
+        "각 핵심 주장에 실제 지지 근거 연결"
+      ],
+      "must_not_assert": [
+        "FcRn 단독으로 전체 패키지 승인 판정",
+        "서로 다른 제형 결과 혼합",
+        "독립 실험 증거를 메모 수만큼 중복 계산"
+      ],
+      "question": "SB17의 FcRn이 범위 밖인데 어떻게 평가됐는지 내부 검토 브리프로 정리하고, 우리 후보에 참고하려면 필요한 자료도 적어줘.",
+      "reference_answer_ref": {
+        "file": "06_GOLD_CASES.md",
+        "heading": "GOLD-SB17-011"
+      },
+      "gold_category": "rubric"
+    },
+    {
+      "id": "GOLD-SB17-012",
+      "input_bundle": "T3_REPLAY_ONLY",
+      "audience": "internal_ra",
+      "answer_kind": "open_rubric",
+      "basis": "hypothetical_regulatory_preparation",
+      "required_facts": [
+        "ra_preparation_limits",
+        "new_candidate_no_basis",
+        "role_chmp",
+        "missing_detail_limits"
+      ],
+      "rubric_items": [
+        "회사→기관 질문과 기관에서 받을 것으로 예상하는 질문을 구분",
+        "자사 제안과 공개 선례·실제 기관 판단 분리",
+        "질문별 답변 준비자료와 미확보자료 연결",
+        "제형·방법·lot·범위 설정·Lys/CPB/결합 자료 주제 포함",
+        "미승인·미제출·일정미정 상태 유지"
+      ],
+      "must_not_assert": [
+        "예상질문을 실제 EMA 질의로 표현",
+        "기관 답변·동의·면제 생성",
+        "자사 미제공 결과를 가상 값으로 채움"
+      ],
+      "output_counts": {
+        "company_to_agency_questions": 2,
+        "anticipated_agency_questions": 3
+      },
+      "question": "이 사례를 참고해서 EMA에 확인할 질문 2개와, 기관에서 받을 수도 있는 질문 3개·답변 준비사항을 만들어줘.",
+      "reference_answer_ref": {
+        "file": "06_GOLD_CASES.md",
+        "heading": "GOLD-SB17-012"
+      },
+      "gold_category": "rubric"
+    }
+  ],
+  "paths_relative_to": "project_root",
+  "human_readable_sha256": "f98156e9e65888f7a0cfce4a9074899ca868e9da856dcd79334b7395a194a4c2"
+}

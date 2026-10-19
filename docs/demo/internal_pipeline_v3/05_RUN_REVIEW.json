@@ -1,0 +1,1369 @@
+{
+  "version": "pre-disclosure-memo-simulation-2",
+  "tasks": [
+    {
+      "task_id": "S1_RESULT_REVIEW",
+      "phase": 1,
+      "selected_unit_ids": [
+        "U01",
+        "U03",
+        "U02",
+        "U04",
+        "U13"
+      ],
+      "future_units_excluded": [
+        "U06",
+        "U07",
+        "U08",
+        "U09",
+        "U12",
+        "U14",
+        "U15",
+        "U16",
+        "U10",
+        "U11"
+      ],
+      "execution_status": "completed",
+      "audit": {
+        "nonempty_cited_items": true,
+        "all_citations_in_supplied_context": true,
+        "item_count": 11,
+        "within_12_items": true,
+        "four_sections": true,
+        "observation_only_supported_by_opinion_rows": [],
+        "cited_unit_ids": [
+          "U01",
+          "U02",
+          "U03",
+          "U04",
+          "U13"
+        ],
+        "meaning_verified_automatically": false,
+        "regulatory_prediction_accuracy": null
+      },
+      "input_tokens": 2669,
+      "output_tokens": 853,
+      "model_reported": "gpt-5.6-luna"
+    },
+    {
+      "task_id": "S2_PARTNER_MEETING",
+      "phase": 2,
+      "selected_unit_ids": [
+        "U14",
+        "U16",
+        "U15",
+        "U04",
+        "U09",
+        "U01",
+        "U06",
+        "U08",
+        "U12",
+        "U13",
+        "U07",
+        "U02"
+      ],
+      "future_units_excluded": [
+        "U10",
+        "U11"
+      ],
+      "execution_status": "completed",
+      "audit": {
+        "nonempty_cited_items": true,
+        "all_citations_in_supplied_context": true,
+        "item_count": 12,
+        "within_12_items": true,
+        "four_sections": true,
+        "observation_only_supported_by_opinion_rows": [],
+        "cited_unit_ids": [
+          "U01",
+          "U02",
+          "U06",
+          "U07",
+          "U08",
+          "U09",
+          "U12",
+          "U14",
+          "U15",
+          "U16"
+        ],
+        "meaning_verified_automatically": false,
+        "regulatory_prediction_accuracy": null
+      },
+      "input_tokens": 4808,
+      "output_tokens": 1180,
+      "model_reported": "gpt-5.6-luna"
+    },
+    {
+      "task_id": "S3_RA_RESPONSE",
+      "phase": 3,
+      "selected_unit_ids": [
+        "U11",
+        "U10",
+        "U16",
+        "U09",
+        "U03",
+        "U14",
+        "U01",
+        "U02",
+        "U06",
+        "U07",
+        "U08",
+        "U12",
+        "U15",
+        "U13",
+        "U04"
+      ],
+      "future_units_excluded": [],
+      "execution_status": "completed",
+      "audit": {
+        "nonempty_cited_items": true,
+        "all_citations_in_supplied_context": true,
+        "item_count": 12,
+        "within_12_items": true,
+        "four_sections": true,
+        "observation_only_supported_by_opinion_rows": [],
+        "cited_unit_ids": [
+          "U01",
+          "U02",
+          "U06",
+          "U07",
+          "U08",
+          "U09",
+          "U11",
+          "U12",
+          "U13",
+          "U14",
+          "U15",
+          "U16"
+        ],
+        "meaning_verified_automatically": false,
+        "regulatory_prediction_accuracy": null
+      },
+      "input_tokens": 5891,
+      "output_tokens": 1146,
+      "model_reported": "gpt-5.6-luna"
+    }
+  ],
+  "model_attempts": 3,
+  "input_sha256_unchanged": true,
+  "production_data_modified": false,
+  "v1_gold_12_cases_evaluated": false,
+  "manual_review_required": true,
+  "protocol": {
+    "version": "pre-disclosure-memo-simulation-2",
+    "created_at": "2026-10-18T13:16:06.551660+00:00",
+    "input_file": "docs\\demo\\internal_pipeline_v3\\02_INTERNAL_DOCUMENTS.json",
+    "input_sha256": "5ddf70b047868c504e52502e060174e6cbe08d23ec82a5d7b840a1adf6ff1b5a",
+    "input_files_read": [
+      "docs\\demo\\internal_pipeline_v3\\02_INTERNAL_DOCUMENTS.json"
+    ],
+    "hidden_original_PDF_in_context": false,
+    "review_or_gold_file_in_context": false,
+    "production_pgvector_pipeline": false,
+    "independent_holdout": false,
+    "new_model_call_cap": 3,
+    "automatic_retry": false,
+    "task_count": 3
+  },
+  "comparison_with_v2": [
+    {
+      "task_id": "S1_RESULT_REVIEW",
+      "before_item_count": 13,
+      "after_item_count": 11,
+      "review_status": "needs_review"
+    },
+    {
+      "task_id": "S2_PARTNER_MEETING",
+      "before_item_count": 15,
+      "after_item_count": 12,
+      "review_status": "draft"
+    },
+    {
+      "task_id": "S3_RA_RESPONSE",
+      "before_item_count": 16,
+      "after_item_count": 12,
+      "review_status": "draft"
+    }
+  ],
+  "post_generation_reaudit": [
+    {
+      "task_id": "S1_RESULT_REVIEW",
+      "audit": {
+        "nonempty_cited_items": true,
+        "all_citations_in_supplied_context": true,
+        "item_count": 11,
+        "within_12_items": true,
+        "four_sections": true,
+        "observation_only_supported_by_opinion_rows": [],
+        "workflow_consistency_warnings": [
+          {
+            "row": 7,
+            "scope_id": "W-IV-RERUN",
+            "reason": "agreement_document_missing_is_not_explicit_nonagreement",
+            "source_unit_ids": [
+              "U04"
+            ],
+            "text": "독립 재분석의 수락·실행 일정·납기는 아직 합의되지 않았고 QA 승인 자료도 없습니다. PFS CPB 탐색 요청은 별도 업무이며 IV 결과에 동일 시험이 수행됐다는 의미가 아닙니다."
+          }
+        ],
+        "review_status": "needs_review",
+        "cited_unit_ids": [
+          "U01",
+          "U02",
+          "U03",
+          "U04",
+          "U13"
+        ],
+        "meaning_verified_automatically": false,
+        "regulatory_prediction_accuracy": null
+      },
+      "workflow_states": [
+        {
+          "scope_id": "W-IV-RERUN",
+          "label": "IV FcRn 재분석",
+          "axes": {
+            "execution": {
+              "value": "requested",
+              "label": "요청 기록 있음",
+              "source_unit_ids": [
+                "U04"
+              ],
+              "speaker": "박개발",
+              "at": [
+                1,
+                10
+              ]
+            },
+            "qa_approval": {
+              "value": "not_recorded",
+              "label": "QA 승인 자료 미제공",
+              "source_unit_ids": [
+                "U04"
+              ],
+              "speaker": "박개발",
+              "at": [
+                1,
+                10
+              ]
+            },
+            "scope_agreement": {
+              "value": "not_recorded",
+              "label": "합의문 자료 미제공",
+              "source_unit_ids": [
+                "U04"
+              ],
+              "speaker": "박개발",
+              "at": [
+                1,
+                10
+              ]
+            },
+            "technical_review": {
+              "value": "pending",
+              "label": "기술 검토 중",
+              "source_unit_ids": [
+                "U04"
+              ],
+              "speaker": "박개발",
+              "at": [
+                1,
+                10
+              ]
+            }
+          },
+          "history": [
+            {
+              "id": "U04:W-IV-RERUN:execution",
+              "scope_id": "W-IV-RERUN",
+              "scope_label": "IV FcRn 재분석",
+              "axis": "execution",
+              "value": "requested",
+              "order": 10,
+              "phase": 1,
+              "unit_id": "U04",
+              "speaker": "박개발",
+              "statement_role": "work_request"
+            },
+            {
+              "id": "U04:W-IV-RERUN:qa_approval",
+              "scope_id": "W-IV-RERUN",
+              "scope_label": "IV FcRn 재분석",
+              "axis": "qa_approval",
+              "value": "not_recorded",
+              "order": 10,
+              "phase": 1,
+              "unit_id": "U04",
+              "speaker": "박개발",
+              "statement_role": "work_request"
+            },
+            {
+              "id": "U04:W-IV-RERUN:scope_agreement",
+              "scope_id": "W-IV-RERUN",
+              "scope_label": "IV FcRn 재분석",
+              "axis": "scope_agreement",
+              "value": "not_recorded",
+              "order": 10,
+              "phase": 1,
+              "unit_id": "U04",
+              "speaker": "박개발",
+              "statement_role": "work_request"
+            },
+            {
+              "id": "U04:W-IV-RERUN:technical_review",
+              "scope_id": "W-IV-RERUN",
+              "scope_label": "IV FcRn 재분석",
+              "axis": "technical_review",
+              "value": "pending",
+              "order": 10,
+              "phase": 1,
+              "unit_id": "U04",
+              "speaker": "박개발",
+              "statement_role": "work_request"
+            }
+          ]
+        },
+        {
+          "scope_id": "W-PFS-CPB",
+          "label": "PFS CPB 탐색",
+          "axes": {
+            "execution": {
+              "value": "requested",
+              "label": "요청 기록 있음",
+              "source_unit_ids": [
+                "U13"
+              ],
+              "speaker": "박개발",
+              "at": [
+                1,
+                10
+              ]
+            },
+            "qa_approval": {
+              "value": "not_recorded",
+              "label": "QA 승인 자료 미제공",
+              "source_unit_ids": [
+                "U13"
+              ],
+              "speaker": "박개발",
+              "at": [
+                1,
+                10
+              ]
+            },
+            "scope_agreement": {
+              "value": "not_recorded",
+              "label": "합의문 자료 미제공",
+              "source_unit_ids": [
+                "U13"
+              ],
+              "speaker": "박개발",
+              "at": [
+                1,
+                10
+              ]
+            },
+            "technical_review": {
+              "value": "pending",
+              "label": "기술 검토 중",
+              "source_unit_ids": [
+                "U13"
+              ],
+              "speaker": "박개발",
+              "at": [
+                1,
+                10
+              ]
+            }
+          },
+          "history": [
+            {
+              "id": "U13:W-PFS-CPB:execution",
+              "scope_id": "W-PFS-CPB",
+              "scope_label": "PFS CPB 탐색",
+              "axis": "execution",
+              "value": "requested",
+              "order": 10,
+              "phase": 1,
+              "unit_id": "U13",
+              "speaker": "박개발",
+              "statement_role": "work_request"
+            },
+            {
+              "id": "U13:W-PFS-CPB:qa_approval",
+              "scope_id": "W-PFS-CPB",
+              "scope_label": "PFS CPB 탐색",
+              "axis": "qa_approval",
+              "value": "not_recorded",
+              "order": 10,
+              "phase": 1,
+              "unit_id": "U13",
+              "speaker": "박개발",
+              "statement_role": "work_request"
+            },
+            {
+              "id": "U13:W-PFS-CPB:scope_agreement",
+              "scope_id": "W-PFS-CPB",
+              "scope_label": "PFS CPB 탐색",
+              "axis": "scope_agreement",
+              "value": "not_recorded",
+              "order": 10,
+              "phase": 1,
+              "unit_id": "U13",
+              "speaker": "박개발",
+              "statement_role": "work_request"
+            },
+            {
+              "id": "U13:W-PFS-CPB:technical_review",
+              "scope_id": "W-PFS-CPB",
+              "scope_label": "PFS CPB 탐색",
+              "axis": "technical_review",
+              "value": "pending",
+              "order": 10,
+              "phase": 1,
+              "unit_id": "U13",
+              "speaker": "박개발",
+              "statement_role": "work_request"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "S2_PARTNER_MEETING",
+      "audit": {
+        "nonempty_cited_items": true,
+        "all_citations_in_supplied_context": true,
+        "item_count": 12,
+        "within_12_items": true,
+        "four_sections": true,
+        "observation_only_supported_by_opinion_rows": [],
+        "workflow_consistency_warnings": [],
+        "review_status": "draft",
+        "cited_unit_ids": [
+          "U01",
+          "U02",
+          "U06",
+          "U07",
+          "U08",
+          "U09",
+          "U12",
+          "U14",
+          "U15",
+          "U16"
+        ],
+        "meaning_verified_automatically": false,
+        "regulatory_prediction_accuracy": null
+      },
+      "workflow_states": [
+        {
+          "scope_id": "W-IV-CPB",
+          "label": "추가 IV CPB 시험",
+          "axes": {
+            "execution": {
+              "value": "not_performed",
+              "label": "미실시",
+              "source_unit_ids": [
+                "U15"
+              ],
+              "speaker": "이시험",
+              "at": [
+                2,
+                10
+              ]
+            },
+            "scope_agreement": {
+              "value": "not_agreed",
+              "label": "범위·납기 미합의",
+              "source_unit_ids": [
+                "U15"
+              ],
+              "speaker": "이시험",
+              "at": [
+                2,
+                10
+              ]
+            }
+          },
+          "history": [
+            {
+              "id": "U15:W-IV-CPB:execution",
+              "scope_id": "W-IV-CPB",
+              "scope_label": "추가 IV CPB 시험",
+              "axis": "execution",
+              "value": "not_performed",
+              "order": 10,
+              "phase": 2,
+              "unit_id": "U15",
+              "speaker": "이시험",
+              "statement_role": "partner_response"
+            },
+            {
+              "id": "U15:W-IV-CPB:scope_agreement",
+              "scope_id": "W-IV-CPB",
+              "scope_label": "추가 IV CPB 시험",
+              "axis": "scope_agreement",
+              "value": "not_agreed",
+              "order": 10,
+              "phase": 2,
+              "unit_id": "U15",
+              "speaker": "이시험",
+              "statement_role": "partner_response"
+            }
+          ]
+        },
+        {
+          "scope_id": "W-IV-RERUN",
+          "label": "IV FcRn 재분석",
+          "axes": {
+            "execution": {
+              "value": "result_reported",
+              "label": "결과 회신 자료 있음",
+              "source_unit_ids": [
+                "U14"
+              ],
+              "speaker": "이시험",
+              "at": [
+                2,
+                10
+              ]
+            },
+            "qa_approval": {
+              "value": "not_recorded",
+              "label": "QA 승인 자료 미제공",
+              "source_unit_ids": [
+                "U14"
+              ],
+              "speaker": "이시험",
+              "at": [
+                2,
+                10
+              ]
+            },
+            "scope_agreement": {
+              "value": "not_recorded",
+              "label": "합의문 자료 미제공",
+              "source_unit_ids": [
+                "U14"
+              ],
+              "speaker": "이시험",
+              "at": [
+                2,
+                10
+              ]
+            },
+            "technical_review": {
+              "value": "analyst_comment_recorded",
+              "label": "분석자 검토 의견 회신",
+              "source_unit_ids": [
+                "U12"
+              ],
+              "speaker": "김분석",
+              "at": [
+                2,
+                20
+              ]
+            }
+          },
+          "history": [
+            {
+              "id": "U04:W-IV-RERUN:execution",
+              "scope_id": "W-IV-RERUN",
+              "scope_label": "IV FcRn 재분석",
+              "axis": "execution",
+              "value": "requested",
+              "order": 10,
+              "phase": 1,
+              "unit_id": "U04",
+              "speaker": "박개발",
+              "statement_role": "work_request"
+            },
+            {
+              "id": "U04:W-IV-RERUN:qa_approval",
+              "scope_id": "W-IV-RERUN",
+              "scope_label": "IV FcRn 재분석",
+              "axis": "qa_approval",
+              "value": "not_recorded",
+              "order": 10,
+              "phase": 1,
+              "unit_id": "U04",
+              "speaker": "박개발",
+              "statement_role": "work_request"
+            },
+            {
+              "id": "U04:W-IV-RERUN:scope_agreement",
+              "scope_id": "W-IV-RERUN",
+              "scope_label": "IV FcRn 재분석",
+              "axis": "scope_agreement",
+              "value": "not_recorded",
+              "order": 10,
+              "phase": 1,
+              "unit_id": "U04",
+              "speaker": "박개발",
+              "statement_role": "work_request"
+            },
+            {
+              "id": "U04:W-IV-RERUN:technical_review",
+              "scope_id": "W-IV-RERUN",
+              "scope_label": "IV FcRn 재분석",
+              "axis": "technical_review",
+              "value": "pending",
+              "order": 10,
+              "phase": 1,
+              "unit_id": "U04",
+              "speaker": "박개발",
+              "statement_role": "work_request"
+            },
+            {
+              "id": "U06:W-IV-RERUN:execution",
+              "scope_id": "W-IV-RERUN",
+              "scope_label": "IV FcRn 재분석",
+              "axis": "execution",
+              "value": "result_reported",
+              "order": 5,
+              "phase": 2,
+              "unit_id": "U06",
+              "speaker": "P17 분석팀",
+              "statement_role": "experiment_result"
+            },
+            {
+              "id": "U14:W-IV-RERUN:execution",
+              "scope_id": "W-IV-RERUN",
+              "scope_label": "IV FcRn 재분석",
+              "axis": "execution",
+              "value": "result_reported",
+              "order": 10,
+              "phase": 2,
+              "unit_id": "U14",
+              "speaker": "이시험",
+              "statement_role": "partner_response"
+            },
+            {
+              "id": "U14:W-IV-RERUN:qa_approval",
+              "scope_id": "W-IV-RERUN",
+              "scope_label": "IV FcRn 재분석",
+              "axis": "qa_approval",
+              "value": "not_recorded",
+              "order": 10,
+              "phase": 2,
+              "unit_id": "U14",
+              "speaker": "이시험",
+              "statement_role": "partner_response"
+            },
+            {
+              "id": "U14:W-IV-RERUN:scope_agreement",
+              "scope_id": "W-IV-RERUN",
+              "scope_label": "IV FcRn 재분석",
+              "axis": "scope_agreement",
+              "value": "not_recorded",
+              "order": 10,
+              "phase": 2,
+              "unit_id": "U14",
+              "speaker": "이시험",
+              "statement_role": "partner_response"
+            },
+            {
+              "id": "U12:W-IV-RERUN:technical_review",
+              "scope_id": "W-IV-RERUN",
+              "scope_label": "IV FcRn 재분석",
+              "axis": "technical_review",
+              "value": "analyst_comment_recorded",
+              "order": 20,
+              "phase": 2,
+              "unit_id": "U12",
+              "speaker": "김분석",
+              "statement_role": "analyst_opinion"
+            }
+          ]
+        },
+        {
+          "scope_id": "W-PFS-CPB",
+          "label": "PFS CPB 탐색",
+          "axes": {
+            "execution": {
+              "value": "result_reported",
+              "label": "결과 회신 자료 있음",
+              "source_unit_ids": [
+                "U14"
+              ],
+              "speaker": "이시험",
+              "at": [
+                2,
+                10
+              ]
+            },
+            "qa_approval": {
+              "value": "not_recorded",
+              "label": "QA 승인 자료 미제공",
+              "source_unit_ids": [
+                "U14"
+              ],
+              "speaker": "이시험",
+              "at": [
+                2,
+                10
+              ]
+            },
+            "scope_agreement": {
+              "value": "not_recorded",
+              "label": "합의문 자료 미제공",
+              "source_unit_ids": [
+                "U14"
+              ],
+              "speaker": "이시험",
+              "at": [
+                2,
+                10
+              ]
+            },
+            "technical_review": {
+              "value": "pending",
+              "label": "기술 검토 중",
+              "source_unit_ids": [
+                "U13"
+              ],
+              "speaker": "박개발",
+              "at": [
+                1,
+                10
+              ]
+            }
+          },
+          "history": [
+            {
+              "id": "U13:W-PFS-CPB:execution",
+              "scope_id": "W-PFS-CPB",
+              "scope_label": "PFS CPB 탐색",
+              "axis": "execution",
+              "value": "requested",
+              "order": 10,
+              "phase": 1,
+              "unit_id": "U13",
+              "speaker": "박개발",
+              "statement_role": "work_request"
+            },
+            {
+              "id": "U13:W-PFS-CPB:qa_approval",
+              "scope_id": "W-PFS-CPB",
+              "scope_label": "PFS CPB 탐색",
+              "axis": "qa_approval",
+              "value": "not_recorded",
+              "order": 10,
+              "phase": 1,
+              "unit_id": "U13",
+              "speaker": "박개발",
+              "statement_role": "work_request"
+            },
+            {
+              "id": "U13:W-PFS-CPB:scope_agreement",
+              "scope_id": "W-PFS-CPB",
+              "scope_label": "PFS CPB 탐색",
+              "axis": "scope_agreement",
+              "value": "not_recorded",
+              "order": 10,
+              "phase": 1,
+              "unit_id": "U13",
+              "speaker": "박개발",
+              "statement_role": "work_request"
+            },
+            {
+              "id": "U13:W-PFS-CPB:technical_review",
+              "scope_id": "W-PFS-CPB",
+              "scope_label": "PFS CPB 탐색",
+              "axis": "technical_review",
+              "value": "pending",
+              "order": 10,
+              "phase": 1,
+              "unit_id": "U13",
+              "speaker": "박개발",
+              "statement_role": "work_request"
+            },
+            {
+              "id": "U08:W-PFS-CPB:execution",
+              "scope_id": "W-PFS-CPB",
+              "scope_label": "PFS CPB 탐색",
+              "axis": "execution",
+              "value": "result_reported",
+              "order": 5,
+              "phase": 2,
+              "unit_id": "U08",
+              "speaker": "한빛분석 시험팀",
+              "statement_role": "experiment_result"
+            },
+            {
+              "id": "U14:W-PFS-CPB:execution",
+              "scope_id": "W-PFS-CPB",
+              "scope_label": "PFS CPB 탐색",
+              "axis": "execution",
+              "value": "result_reported",
+              "order": 10,
+              "phase": 2,
+              "unit_id": "U14",
+              "speaker": "이시험",
+              "statement_role": "partner_response"
+            },
+            {
+              "id": "U14:W-PFS-CPB:qa_approval",
+              "scope_id": "W-PFS-CPB",
+              "scope_label": "PFS CPB 탐색",
+              "axis": "qa_approval",
+              "value": "not_recorded",
+              "order": 10,
+              "phase": 2,
+              "unit_id": "U14",
+              "speaker": "이시험",
+              "statement_role": "partner_response"
+            },
+            {
+              "id": "U14:W-PFS-CPB:scope_agreement",
+              "scope_id": "W-PFS-CPB",
+              "scope_label": "PFS CPB 탐색",
+              "axis": "scope_agreement",
+              "value": "not_recorded",
+              "order": 10,
+              "phase": 2,
+              "unit_id": "U14",
+              "speaker": "이시험",
+              "statement_role": "partner_response"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": "S3_RA_RESPONSE",
+      "audit": {
+        "nonempty_cited_items": true,
+        "all_citations_in_supplied_context": true,
+        "item_count": 12,
+        "within_12_items": true,
+        "four_sections": true,
+        "observation_only_supported_by_opinion_rows": [],
+        "workflow_consistency_warnings": [],
+        "review_status": "draft",
+        "cited_unit_ids": [
+          "U01",
+          "U02",
+          "U06",
+          "U07",
+          "U08",
+          "U09",
+          "U11",
+          "U12",
+          "U13",
+          "U14",
+          "U15",
+          "U16"
+        ],
+        "meaning_verified_automatically": false,
+        "regulatory_prediction_accuracy": null
+      },
+      "workflow_states": [
+        {
+          "scope_id": "W-IV-CPB",
+          "label": "추가 IV CPB 시험",
+          "axes": {
+            "execution": {
+              "value": "not_performed",
+              "label": "미실시",
+              "source_unit_ids": [
+                "U15"
+              ],
+              "speaker": "이시험",
+              "at": [
+                2,
+                10
+              ]
+            },
+            "scope_agreement": {
+              "value": "not_agreed",
+              "label": "범위·납기 미합의",
+              "source_unit_ids": [
+                "U15"
+              ],
+              "speaker": "이시험",
+              "at": [
+                2,
+                10
+              ]
+            }
+          },
+          "history": [
+            {
+              "id": "U15:W-IV-CPB:execution",
+              "scope_id": "W-IV-CPB",
+              "scope_label": "추가 IV CPB 시험",
+              "axis": "execution",
+              "value": "not_performed",
+              "order": 10,
+              "phase": 2,
+              "unit_id": "U15",
+              "speaker": "이시험",
+              "statement_role": "partner_response"
+            },
+            {
+              "id": "U15:W-IV-CPB:scope_agreement",
+              "scope_id": "W-IV-CPB",
+              "scope_label": "추가 IV CPB 시험",
+              "axis": "scope_agreement",
+              "value": "not_agreed",
+              "order": 10,
+              "phase": 2,
+              "unit_id": "U15",
+              "speaker": "이시험",
+              "statement_role": "partner_response"
+            }
+          ]
+        },
+        {
+          "scope_id": "W-IV-RERUN",
+          "label": "IV FcRn 재분석",
+          "axes": {
+            "execution": {
+              "value": "result_reported",
+              "label": "결과 회신 자료 있음",
+              "source_unit_ids": [
+                "U14"
+              ],
+              "speaker": "이시험",
+              "at": [
+                2,
+                10
+              ]
+            },
+            "qa_approval": {
+              "value": "not_recorded",
+              "label": "QA 승인 자료 미제공",
+              "source_unit_ids": [
+                "U14"
+              ],
+              "speaker": "이시험",
+              "at": [
+                2,
+                10
+              ]
+            },
+            "scope_agreement": {
+              "value": "not_recorded",
+              "label": "합의문 자료 미제공",
+              "source_unit_ids": [
+                "U14"
+              ],
+              "speaker": "이시험",
+              "at": [
+                2,
+                10
+              ]
+            },
+            "technical_review": {
+              "value": "analyst_comment_recorded",
+              "label": "분석자 검토 의견 회신",
+              "source_unit_ids": [
+                "U12"
+              ],
+              "speaker": "김분석",
+              "at": [
+                2,
+                20
+              ]
+            }
+          },
+          "history": [
+            {
+              "id": "U04:W-IV-RERUN:execution",
+              "scope_id": "W-IV-RERUN",
+              "scope_label": "IV FcRn 재분석",
+              "axis": "execution",
+              "value": "requested",
+              "order": 10,
+              "phase": 1,
+              "unit_id": "U04",
+              "speaker": "박개발",
+              "statement_role": "work_request"
+            },
+            {
+              "id": "U04:W-IV-RERUN:qa_approval",
+              "scope_id": "W-IV-RERUN",
+              "scope_label": "IV FcRn 재분석",
+              "axis": "qa_approval",
+              "value": "not_recorded",
+              "order": 10,
+              "phase": 1,
+              "unit_id": "U04",
+              "speaker": "박개발",
+              "statement_role": "work_request"
+            },
+            {
+              "id": "U04:W-IV-RERUN:scope_agreement",
+              "scope_id": "W-IV-RERUN",
+              "scope_label": "IV FcRn 재분석",
+              "axis": "scope_agreement",
+              "value": "not_recorded",
+              "order": 10,
+              "phase": 1,
+              "unit_id": "U04",
+              "speaker": "박개발",
+              "statement_role": "work_request"
+            },
+            {
+              "id": "U04:W-IV-RERUN:technical_review",
+              "scope_id": "W-IV-RERUN",
+              "scope_label": "IV FcRn 재분석",
+              "axis": "technical_review",
+              "value": "pending",
+              "order": 10,
+              "phase": 1,
+              "unit_id": "U04",
+              "speaker": "박개발",
+              "statement_role": "work_request"
+            },
+            {
+              "id": "U06:W-IV-RERUN:execution",
+              "scope_id": "W-IV-RERUN",
+              "scope_label": "IV FcRn 재분석",
+              "axis": "execution",
+              "value": "result_reported",
+              "order": 5,
+              "phase": 2,
+              "unit_id": "U06",
+              "speaker": "P17 분석팀",
+              "statement_role": "experiment_result"
+            },
+            {
+              "id": "U14:W-IV-RERUN:execution",
+              "scope_id": "W-IV-RERUN",
+              "scope_label": "IV FcRn 재분석",
+              "axis": "execution",
+              "value": "result_reported",
+              "order": 10,
+              "phase": 2,
+              "unit_id": "U14",
+              "speaker": "이시험",
+              "statement_role": "partner_response"
+            },
+            {
+              "id": "U14:W-IV-RERUN:qa_approval",
+              "scope_id": "W-IV-RERUN",
+              "scope_label": "IV FcRn 재분석",
+              "axis": "qa_approval",
+              "value": "not_recorded",
+              "order": 10,
+              "phase": 2,
+              "unit_id": "U14",
+              "speaker": "이시험",
+              "statement_role": "partner_response"
+            },
+            {
+              "id": "U14:W-IV-RERUN:scope_agreement",
+              "scope_id": "W-IV-RERUN",
+              "scope_label": "IV FcRn 재분석",
+              "axis": "scope_agreement",
+              "value": "not_recorded",
+              "order": 10,
+              "phase": 2,
+              "unit_id": "U14",
+              "speaker": "이시험",
+              "statement_role": "partner_response"
+            },
+            {
+              "id": "U12:W-IV-RERUN:technical_review",
+              "scope_id": "W-IV-RERUN",
+              "scope_label": "IV FcRn 재분석",
+              "axis": "technical_review",
+              "value": "analyst_comment_recorded",
+              "order": 20,
+              "phase": 2,
+              "unit_id": "U12",
+              "speaker": "김분석",
+              "statement_role": "analyst_opinion"
+            }
+          ]
+        },
+        {
+          "scope_id": "W-PFS-CPB",
+          "label": "PFS CPB 탐색",
+          "axes": {
+            "execution": {
+              "value": "result_reported",
+              "label": "결과 회신 자료 있음",
+              "source_unit_ids": [
+                "U14"
+              ],
+              "speaker": "이시험",
+              "at": [
+                2,
+                10
+              ]
+            },
+            "qa_approval": {
+              "value": "not_recorded",
+              "label": "QA 승인 자료 미제공",
+              "source_unit_ids": [
+                "U14"
+              ],
+              "speaker": "이시험",
+              "at": [
+                2,
+                10
+              ]
+            },
+            "scope_agreement": {
+              "value": "not_recorded",
+              "label": "합의문 자료 미제공",
+              "source_unit_ids": [
+                "U14"
+              ],
+              "speaker": "이시험",
+              "at": [
+                2,
+                10
+              ]
+            },
+            "technical_review": {
+              "value": "pending",
+              "label": "기술 검토 중",
+              "source_unit_ids": [
+                "U13"
+              ],
+              "speaker": "박개발",
+              "at": [
+                1,
+                10
+              ]
+            }
+          },
+          "history": [
+            {
+              "id": "U13:W-PFS-CPB:execution",
+              "scope_id": "W-PFS-CPB",
+              "scope_label": "PFS CPB 탐색",
+              "axis": "execution",
+              "value": "requested",
+              "order": 10,
+              "phase": 1,
+              "unit_id": "U13",
+              "speaker": "박개발",
+              "statement_role": "work_request"
+            },
+            {
+              "id": "U13:W-PFS-CPB:qa_approval",
+              "scope_id": "W-PFS-CPB",
+              "scope_label": "PFS CPB 탐색",
+              "axis": "qa_approval",
+              "value": "not_recorded",
+              "order": 10,
+              "phase": 1,
+              "unit_id": "U13",
+              "speaker": "박개발",
+              "statement_role": "work_request"
+            },
+            {
+              "id": "U13:W-PFS-CPB:scope_agreement",
+              "scope_id": "W-PFS-CPB",
+              "scope_label": "PFS CPB 탐색",
+              "axis": "scope_agreement",
+              "value": "not_recorded",
+              "order": 10,
+              "phase": 1,
+              "unit_id": "U13",
+              "speaker": "박개발",
+              "statement_role": "work_request"
+            },
+            {
+              "id": "U13:W-PFS-CPB:technical_review",
+              "scope_id": "W-PFS-CPB",
+              "scope_label": "PFS CPB 탐색",
+              "axis": "technical_review",
+              "value": "pending",
+              "order": 10,
+              "phase": 1,
+              "unit_id": "U13",
+              "speaker": "박개발",
+              "statement_role": "work_request"
+            },
+            {
+              "id": "U08:W-PFS-CPB:execution",
+              "scope_id": "W-PFS-CPB",
+              "scope_label": "PFS CPB 탐색",
+              "axis": "execution",
+              "value": "result_reported",
+              "order": 5,
+              "phase": 2,
+              "unit_id": "U08",
+              "speaker": "한빛분석 시험팀",
+              "statement_role": "experiment_result"
+            },
+            {
+              "id": "U14:W-PFS-CPB:execution",
+              "scope_id": "W-PFS-CPB",
+              "scope_label": "PFS CPB 탐색",
+              "axis": "execution",
+              "value": "result_reported",
+              "order": 10,
+              "phase": 2,
+              "unit_id": "U14",
+              "speaker": "이시험",
+              "statement_role": "partner_response"
+            },
+            {
+              "id": "U14:W-PFS-CPB:qa_approval",
+              "scope_id": "W-PFS-CPB",
+              "scope_label": "PFS CPB 탐색",
+              "axis": "qa_approval",
+              "value": "not_recorded",
+              "order": 10,
+              "phase": 2,
+              "unit_id": "U14",
+              "speaker": "이시험",
+              "statement_role": "partner_response"
+            },
+            {
+              "id": "U14:W-PFS-CPB:scope_agreement",
+              "scope_id": "W-PFS-CPB",
+              "scope_label": "PFS CPB 탐색",
+              "axis": "scope_agreement",
+              "value": "not_recorded",
+              "order": 10,
+              "phase": 2,
+              "unit_id": "U14",
+              "speaker": "이시험",
+              "statement_role": "partner_response"
+            }
+          ]
+        },
+        {
+          "scope_id": "W-RA-RESPONSE",
+          "label": "모의 기관 질의 답변",
+          "axes": {
+            "agency_decision": {
+              "value": "no_actual_agency_process",
+              "label": "모의 질의 · 실제 기관 판단 대상 아님",
+              "source_unit_ids": [
+                "U11"
+              ],
+              "speaker": "한규제",
+              "at": [
+                3,
+                10
+              ]
+            },
+            "approval": {
+              "value": "draft",
+              "label": "미승인 초안",
+              "source_unit_ids": [
+                "U11"
+              ],
+              "speaker": "한규제",
+              "at": [
+                3,
+                10
+              ]
+            },
+            "submission": {
+              "value": "not_submitted",
+              "label": "미제출",
+              "source_unit_ids": [
+                "U11"
+              ],
+              "speaker": "한규제",
+              "at": [
+                3,
+                10
+              ]
+            }
+          },
+          "history": [
+            {
+              "id": "U11:W-RA-RESPONSE:agency_decision",
+              "scope_id": "W-RA-RESPONSE",
+              "scope_label": "모의 기관 질의 답변",
+              "axis": "agency_decision",
+              "value": "no_actual_agency_process",
+              "order": 10,
+              "phase": 3,
+              "unit_id": "U11",
+              "speaker": "한규제",
+              "statement_role": "sponsor_draft"
+            },
+            {
+              "id": "U11:W-RA-RESPONSE:approval",
+              "scope_id": "W-RA-RESPONSE",
+              "scope_label": "모의 기관 질의 답변",
+              "axis": "approval",
+              "value": "draft",
+              "order": 10,
+              "phase": 3,
+              "unit_id": "U11",
+              "speaker": "한규제",
+              "statement_role": "sponsor_draft"
+            },
+            {
+              "id": "U11:W-RA-RESPONSE:submission",
+              "scope_id": "W-RA-RESPONSE",
+              "scope_label": "모의 기관 질의 답변",
+              "axis": "submission",
+              "value": "not_submitted",
+              "order": 10,
+              "phase": 3,
+              "unit_id": "U11",
+              "speaker": "한규제",
+              "statement_role": "sponsor_draft"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "model_calls_this_continuation": 6,
+  "intermediate_run_model_calls": 3,
+  "final_run_model_calls": 3,
+  "intermediate_run": "work/pre_disclosure_v3_scoped",
+  "final_run": "work/pre_disclosure_v3_scoped_final",
+  "final_api_prompt_tokens": 13368,
+  "final_api_output_tokens": 3179,
+  "generation_code_snapshots": "work/pre_disclosure_v3_scoped_final/code_snapshot",
+  "source_input_sha256": "5ddf70b047868c504e52502e060174e6cbe08d23ec82a5d7b840a1adf6ff1b5a",
+  "reviewer": "coding_agent",
+  "human_domain_expert_reviewed": false,
+  "semantic_correctness_certified": false,
+  "implementation_test_count": 78,
+  "full_suite_before_last_two_audit_tests": 76,
+  "targeted_suite_after_audit_changes": 19,
+  "status": "draft_with_S1_review_required",
+  "manual_findings": [
+    {
+      "scope": "S2/S3",
+      "finding": "Previous global no-acceptance/no-agreement statement is absent; IV/PFS result reports and additional IV CPB are separated."
+    },
+    {
+      "scope": "S2/S3",
+      "finding": "Analyst comment explicitly attributed to Kim; no QA validation inferred."
+    },
+    {
+      "scope": "S1",
+      "finding": "Narrative still says no agreement when only the agreement document is missing; detected by post-generation consistency check.",
+      "reviewer_rewrite": "?? ???? ???????? ???? ?? ??? ??, ?? ?? ??? ??? ????."
+    },
+    {
+      "scope": "S1/S2",
+      "finding": "Model introduces Q-01..03 numbering for general check questions; should use plain agenda labels to distinguish simulated agency IDs in S3."
+    },
+    {
+      "scope": "all",
+      "finding": "Clinical relevance and sufficiency of follow-up experiments require domain review; source IDs/shape checks are not semantic certification."
+    }
+  ],
+  "raw_model_answers_edited": false,
+  "production_database_modified": false,
+  "production_full_search_integration": false,
+  "v2_science_input_preserved": true,
+  "source_input_snapshots": {
+    "intermediate": "work/pre_disclosure_v3_scoped/source_input_snapshot.json",
+    "final": "work/pre_disclosure_v3_scoped_final/source_input_snapshot.json",
+    "sha256_matches_original_protocol": {
+      "pre_disclosure_v3_scoped": true,
+      "pre_disclosure_v3_scoped_final": true
+    }
+  },
+  "final_full_suite_tests_passed": 78,
+  "meaning_of_counts": "78 distinct tests; earlier 76-test and 19-test runs are not added to this total"
+}

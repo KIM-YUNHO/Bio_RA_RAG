@@ -13,9 +13,9 @@ const storage=new Map(),localStorage={getItem:k=>storage.get(k)??null,setItem:(k
 const localFetch=(path,options)=>{const url=new URL(path,base);assert.equal(url.origin,base);return fetch(url,options);};
 const wait=async(condition,label)=>{const until=Date.now()+5000;while(!condition()){if(Date.now()>until)throw Error("Timed out: "+label);await new Promise(r=>setTimeout(r,15));}};
 let context,document,window;
-async function boot(){
+async function boot(suffix=""){
   const html=await(await localFetch("/")).text();({document,window}=parseHTML(html));
-  const location=new URL(base+"/"),history={replaceState(_a,_b,url){const next=new URL(url,location);location.href=next.href;}};
+  const location=new URL(base+"/"+suffix),history={replaceState(_a,_b,url){const next=new URL(url,location);location.href=next.href;}};
   context=vm.createContext({window,document,localStorage,location,history,crypto:webcrypto,URL,Blob,console,setTimeout,clearTimeout,fetch:localFetch});
   for(const script of document.querySelectorAll("script[src]")){const code=await(await localFetch(script.getAttribute("src"))).text();vm.runInContext(code,context,{filename:script.getAttribute("src")});}
   await wait(()=>{const option=document.querySelector("#workspace-project option");return option&&option.textContent!=="파이프라인 불러오는 중";},"workspace load");
@@ -80,6 +80,34 @@ async function saveDialog(body,tags){const d=document.querySelector(".workspace-
   const secondReader=document.querySelector(".memo-reader-dialog");assert.ok(secondReader.classList.contains("has-evidence"));assert.equal(secondReader.querySelector(".viewer-head"),loadedHead);assert.equal(document.querySelectorAll("#viewer-pane").length,1);
   click(document.querySelector("#viewer-close"));assert.ok(secondReader.isConnected);assert.equal(secondReader.classList.contains("has-evidence"),false);assert.equal(secondReader.querySelector(".memo-reader-layout").dataset.activePane,"memo");assert.equal(document.querySelector("#viewer-pane").hidden,true);
   click(textButton(secondReader,"닫기"));assert.equal(document.querySelector("#viewer-pane").parentElement,document.querySelector("#layout"));
+  // Classifications are saved separately from immutable source claims and survive task views.
+  click(textButton(document.querySelector(".from-rag .pipeline-memo-meta"),"수정"));
+  const itemEditor=document.querySelector('.memo-item-fields[data-item-key="C1"]');assert.ok(itemEditor);
+  const itemSelects=itemEditor.querySelectorAll("select");itemSelects[0].value="fact";itemSelects[1].value="reported";
+  itemEditor.querySelector('input:not([type="checkbox"])').value="SB17 IV FcRn";
+  itemEditor.querySelector("textarea").value="추가 의견 <img src=x onerror=bad()>";
+  await saveDialog("변경한 메모 본문","");
+  result=await(await localFetch("/api/projects/"+projectId)).json();
+  assert.equal(result.memos[0].items[0].type,"fact");assert.equal(result.memos[0].items[0].text,"검증한 근거 메모");
+  assert.equal(result.memos[0].items[0].run_validity,"not_disclosed");assert.equal(result.memos[0].items[0].subject,"SB17 IV FcRn");
+  const typeFilter=document.querySelector("#memo-type-filter");typeFilter.value="fact";typeFilter.onchange({target:typeFilter});assert.equal(document.querySelectorAll(".pipeline-memo").length,1);
+  typeFilter.value="question";typeFilter.onchange({target:typeFilter});assert.equal(document.querySelectorAll(".pipeline-memo").length,0);
+  typeFilter.value="";typeFilter.onchange({target:typeFilter});
+  click(document.querySelector("#memo-brief"));await wait(()=>document.querySelector(".workspace-dialog .memo-item"),"task item view");
+  let briefDialog=document.querySelector(".workspace-dialog");assert.ok(briefDialog.textContent.includes("내부 검토용"));
+  assert.ok(briefDialog.textContent.includes("SB17 IV FcRn"));assert.equal(briefDialog.querySelector(".memo-item-note img"),null);
+  const subjectSelect=briefDialog.querySelectorAll("select")[1];subjectSelect.value="SB17 IV FcRn";subjectSelect.onchange();assert.equal(briefDialog.querySelectorAll(".memo-item").length,1);
+  subjectSelect.value="";subjectSelect.onchange();assert.equal(briefDialog.querySelectorAll(".memo-item").length,2);
+  const taskSelect=briefDialog.querySelector("select");taskSelect.value="ra_preparation";taskSelect.onchange();
+  await wait(()=>briefDialog.querySelector(".memo-item"),"agency preparation view");
+  click(textButton(briefDialog,"항목 원문 보기"));await wait(()=>document.querySelector(".memo-reader-dialog"),"task view provenance link");
+  assert.equal(document.querySelector(".memo-reader-body").textContent,"변경한 메모 본문");click(textButton(document.querySelector(".memo-reader-dialog"),"닫기"));
+  // Full-answer pinning requires a selected item and stores the server's claim text.
+  vm.runInContext(`PipelineNotes.pin({jobId:'${"a".repeat(32)}',kind:'answer',body:'검증한 근거 메모',claims:[{id:'C1',text:'검증한 근거 메모',kind:'source_fact'}]})`,context);
+  let answerEditor=document.querySelector(".workspace-dialog"),choose=answerEditor.querySelector('.memo-item-select input');choose.checked=false;choose.onchange();
+  submit(answerEditor.querySelector("form"));assert.ok(answerEditor.querySelector(".workspace-form-error").textContent.includes("한 개 이상"));
+  choose.checked=true;choose.onchange();await saveDialog("선택 항목에 대한 작업 메모","");
+  result=await(await localFetch("/api/projects/"+projectId)).json();assert.deepEqual(result.memos[0].source.claim_ids,["C1"]);assert.equal(result.memos[0].items[0].text,"검증한 근거 메모");
   click(document.querySelector("#data-manager-open"));await wait(()=>document.querySelector(".collection-top-actions .primary-button"),"data manager");assert.ok(textButton(document,"+ 새 수집 요청"));document.querySelector(".data-manager-dialog").close();
   const legacyResponse=await localFetch(`/api/projects/${projectId}/memos`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({request_id:"c".repeat(32),body:"기존 개발 전략 메모",stage_ids:["bridging"],products:[],tags:[]})});assert.equal(legacyResponse.status,200);
   await boot();await wait(()=>document.querySelector(".pipeline-step[data-stage-id='bridging']"),"strategy stage");
@@ -98,6 +126,7 @@ async function saveDialog(body,tags){const d=document.querySelector(".workspace-
   click(document.querySelector(".pipeline-step[data-stage-id='phase2']"));assert.equal(document.querySelector(".pipeline-step[aria-pressed=true]").dataset.stageId,"phase2");assert.equal(document.querySelector("#pipeline-memos").dataset.stageId,"phase2");assert.ok(document.querySelector("#pipeline-memo-title").textContent.startsWith("임상 2상"));assert.equal(document.querySelector(".pipeline-memo-body"),null);
   const collectionCss=await(await localFetch("/data-manager.css")).text();assert.ok(collectionCss.includes(".data-manager-dialog"));assert.ok(!css.includes("/* Live collection workspace"));
   assert.equal(document.querySelectorAll(".pipeline-shared-stage,#pipeline-parallel").length,0);
-  console.log(JSON.stringify({checks:["scope frame collapses independently of saved width","scope width restored on expand","separate pipeline and conversation sections","strategy and phase 1/2/3 in one stage rail","selection matches memo stage","selection survives reload","stage order matches memo columns","shared horizontal scrolling","independent collection stylesheet","no shared CMC lane","all CTD captions removed","pipeline creation without comparison products","independent search filters","memo+company tags","plain text safety","revision","reload persistence","RAG provenance and reference products","duplicate pin","source viewer","ingestion window"],result:"passed"}));
+  await boot(`?project=${projectId}&stage=cmc`);await wait(()=>document.querySelector(".pipeline-step[aria-pressed=true]")?.dataset.stageId==="cmc","direct project and stage link");assert.ok(document.querySelector(".from-rag"));
+  console.log(JSON.stringify({checks:["scope frame collapses independently of saved width","scope width restored on expand","separate pipeline and conversation sections","strategy and phase 1/2/3 in one stage rail","selection matches memo stage","selection survives reload","stage order matches memo columns","shared horizontal scrolling","independent collection stylesheet","no shared CMC lane","all CTD captions removed","pipeline creation without comparison products","independent search filters","memo+company tags","plain text safety","revision","reload persistence","RAG provenance and reference products","duplicate pin","source viewer","item classification and subject","immutable claim text and unknown validity","item type filter","task view and provenance navigation","selected answer items","ingestion window"],result:"passed"}));
   await localFetch("/__fixture_stop",{method:"POST"});
 })().catch(async error=>{console.error(error);try{await localFetch("/__fixture_stop",{method:"POST"});}catch{}process.exitCode=1;});

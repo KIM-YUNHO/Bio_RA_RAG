@@ -8,17 +8,20 @@ define, an unexpected exception in a handler) are listed in the plan as known di
 import http.client
 import json
 import sys
+import time
 import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from http_server import fastapi_available, serve  # noqa: E402
 from test_workspace_http import JOB_ID, fixture_jobs  # noqa: E402
+from test_internal_work import BUNDLE, FakeChat  # noqa: E402
 
 WEB = Path(__file__).resolve().parents[1] / 'rag_service/web'
 STATIC = {'/': 'index.html', '/style.css': 'style.css', '/common.js': 'common.js', '/evidence-view.js': 'evidence-view.js',
           '/inventory.js': 'inventory.js', '/viewer.js': 'viewer.js', '/review-notes.js': 'review-notes.js', '/app.js': 'app.js',
-          '/pipeline-notes.js': 'pipeline-notes.js', '/data-manager.js': 'data-manager.js', '/data-manager.css': 'data-manager.css'}
+          '/pipeline-notes.js': 'pipeline-notes.js', '/data-manager.js': 'data-manager.js', '/data-manager.css': 'data-manager.css',
+          '/work-assist.js': 'work-assist.js'}
 TYPES = {'.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8'}
 JSON_TYPE = 'application/json; charset=utf-8'
 MISSING = '찾을 수 없습니다.'
@@ -37,6 +40,7 @@ class Contract:
         jobs = fixture_jobs()
         cls.jobs = jobs.__enter__()
         cls.stack.append(jobs)
+        cls.jobs.work_drafts.chat_factory = lambda folder: FakeChat()  # never a provider call
         server = serve(cls.jobs, cls.kind)
         cls.port = server.__enter__()
         cls.stack.append(server)
@@ -200,7 +204,7 @@ class Contract:
     def test_body_size_limits(self):
         body = lambda n: b'{"a":"' + b'x' * (n - 8) + b'"}'
         for path, limit in [('/api/projects', 65536), (f'/api/jobs/{JOB_ID}/review', 65536), ('/api/questions', 16384),
-                            ('/api/ingestion/sessions', 16384)]:
+                            ('/api/ingestion/sessions', 16384), (f'/api/projects/{UNKNOWN_ID}/documents', 524288)]:
             with self.subTest(path=path):
                 self.assertError(self.call('POST', path, raw=body(limit + 1)), 400, '요청 크기를 확인하세요.')
         # At the limit the request is read; the route then rejects the content, not the size.
@@ -220,6 +224,33 @@ class Contract:
         project = json.loads(payload)
         self.assertEqual(headers['content-type'], JSON_TYPE)
         self.assertEqual(self.get_json('/api/projects/' + project['id'])['name'], '계약 시험')
+
+    def test_workspace_internal_documents_board_and_draft(self):  # after test_json_reads, which expects no projects
+        _, _, payload = self.call('POST', '/api/projects', {'name': '내부 자료 ' + self.kind, 'ingredient': 'ustekinumab'})
+        project_id = json.loads(payload)['id']
+        code, _, payload = self.call('POST', f'/api/projects/{project_id}/documents', BUNDLE)
+        self.assertEqual(code, 200, payload[:300])
+        self.assertEqual(json.loads(payload)['document_count'], 20)
+        self.assertNotIn('documents', self.get_json(f'/api/projects/{project_id}'))
+        self.assertEqual(len(self.get_json(f'/api/projects/{project_id}/documents')['documents']), 20)
+        board = self.get_json(f'/api/projects/{project_id}/workboard/2026-03-27')
+        self.assertEqual(board['hidden_after_count'], 10)
+        self.assertIn('W-IV-RERUN', {s['scope_id'] for s in board['states']})
+        self.assertError(self.call('GET', f'/api/projects/{project_id}/workboard/2026-02-30'), 400, '날짜는 YYYY-MM-DD로 입력하세요.')
+        self.assertError(self.call('POST', f'/api/projects/{project_id}/work-drafts', {'task': 'x', 'question': 'q', 'as_of': '2026-03-06'}), 400,
+                         '업무를 결과 검토·협력사 미팅 준비·기관 질의 대응 준비 중에서 고르세요.')
+        code, _, payload = self.call('POST', f'/api/projects/{project_id}/work-drafts',
+                                     {'task': 'result_review', 'question': '결과를 검토해 주세요.', 'as_of': '2026-03-06'})
+        self.assertEqual(code, 200, payload[:300])
+        draft_id = json.loads(payload)['id']
+        for _ in range(200):
+            record = self.get_json(f'/api/projects/{project_id}/work-drafts/{draft_id}')
+            if record['state'] != 'running':
+                break
+            time.sleep(.02)
+        self.assertEqual(record['state'], 'completed')
+        self.assertEqual(self.get_json(f'/api/projects/{project_id}/work-drafts')['drafts'][0]['id'], draft_id)
+        self.assertError(self.call('GET', f'/api/projects/{UNKNOWN_ID}/work-drafts/{draft_id}'), 404, UNKNOWN_JOB)
 
     def test_methods_the_service_does_not_define_are_not_served(self):
         for method in ('PUT', 'DELETE', 'PATCH'):

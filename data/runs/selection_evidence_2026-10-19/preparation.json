@@ -1,0 +1,1359 @@
+{
+  "created_at_kst": "2026-10-19T03:54:58.363725+09:00",
+  "pipeline_version": "ra-research-rag-4.10.3",
+  "planner_version": "ra-research-tasks-8-fact-queries",
+  "gold_sha256": "2aec78e7ce912c02884a86e6c00484398c65925052e242485bf8a93c0ff63eaa",
+  "source_hashes": {
+    "rag/ra_tasks.py": "6ab844b67815330aa5cc4b84ea0b57f70192f1c9ef1f2c32def9abd4ecc81400",
+    "rag/ra_models.py": "dbd9d28e2f199409dcd07abce39c4c0964bf4f66c45e22f095e4f853b112e0f4",
+    "rag/ra_retrieval.py": "2a7c5b752c7adf4a1532bd9cb0b3d22d4415f46d51af0bd7130e54faaa5bac7a",
+    "rag/search.py": "3afe7c106e74e3b08e2eabcda30acf9728cdef07b07ef60ad9b67cb560e1459b",
+    "rag/rerank.py": "aafc6f268c34a982e83ad880b7f0e248ab05cf457b7847b80695504c1fa790b5"
+  },
+  "new_planner_calls": 71,
+  "items": [
+    {
+      "id": "CHEMR_Q001",
+      "source": "qa_chemr",
+      "request_key": "51616a6765499e4af995878271e8db01d909b353231a879c43c55f10a66b3249",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "51616a6765499e4af995878271e8db01d909b353231a879c43c55f10a66b3249"
+      }
+    },
+    {
+      "id": "CHEMR_Q002",
+      "source": "qa_chemr",
+      "request_key": "0bb4a7c32eed447515f05465269db08588ee9284b232ee40e45e111d97293756",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "0bb4a7c32eed447515f05465269db08588ee9284b232ee40e45e111d97293756"
+      }
+    },
+    {
+      "id": "CHEMR_Q003",
+      "source": "qa_chemr",
+      "request_key": "3b9649a6c03efc7d2e0a5733d2e2310d8b22218e042507c8cb4d6e586a93b20c",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "3b9649a6c03efc7d2e0a5733d2e2310d8b22218e042507c8cb4d6e586a93b20c"
+      }
+    },
+    {
+      "id": "CHEMR_Q004",
+      "source": "qa_chemr",
+      "request_key": "da571a0eba15406e19baf270a294141737df34465d4608593e106ee7663fa8ed",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "da571a0eba15406e19baf270a294141737df34465d4608593e106ee7663fa8ed"
+      }
+    },
+    {
+      "id": "CHEMR_Q005",
+      "source": "qa_chemr",
+      "request_key": "d8ba37e98d6fc56d0700307a77ea5ea51ef80b5af9b4f310fc017a23160424bc",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "d8ba37e98d6fc56d0700307a77ea5ea51ef80b5af9b4f310fc017a23160424bc"
+      }
+    },
+    {
+      "id": "CHEMR_Q006",
+      "source": "qa_chemr",
+      "request_key": "03863be58c9d7a87870410ff07445abcb15c227b821ea4fb981c49159f7f07cb",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "03863be58c9d7a87870410ff07445abcb15c227b821ea4fb981c49159f7f07cb"
+      }
+    },
+    {
+      "id": "CHEMR_Q007",
+      "source": "qa_chemr",
+      "request_key": "4e5392055e60ff3a6853511226149f0e8f408530f18fb16e853ebb7fc7ed1e87",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "4e5392055e60ff3a6853511226149f0e8f408530f18fb16e853ebb7fc7ed1e87"
+      }
+    },
+    {
+      "id": "CHEMR_Q008",
+      "source": "qa_chemr",
+      "request_key": "a4faafb425d409aa0669ec2b1832656f03ac939ecd52cc542d22e000729cfcb9",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "a4faafb425d409aa0669ec2b1832656f03ac939ecd52cc542d22e000729cfcb9"
+      }
+    },
+    {
+      "id": "CHEMR_Q009",
+      "source": "qa_chemr",
+      "request_key": "473d228e1ccdc271ff4afb5718612f1082e4831d61ff48c65e3a80126cb93943",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "473d228e1ccdc271ff4afb5718612f1082e4831d61ff48c65e3a80126cb93943"
+      }
+    },
+    {
+      "id": "CHEMR_Q012",
+      "source": "qa_chemr",
+      "request_key": "b61229e2f33b66141bf0fa608254e905c65e63bb3ecad10e0c5ee6bd1e77c9db",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "b61229e2f33b66141bf0fa608254e905c65e63bb3ecad10e0c5ee6bd1e77c9db"
+      }
+    },
+    {
+      "id": "CHEMR_Q013",
+      "source": "qa_chemr",
+      "request_key": "621fc80d597282b747def004c95bf891488caddac4de5f5439ffd38268288bef",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "621fc80d597282b747def004c95bf891488caddac4de5f5439ffd38268288bef"
+      }
+    },
+    {
+      "id": "CHEMR_Q016",
+      "source": "qa_chemr",
+      "request_key": "25ffe44a77b6ba01e3b30c4bffd602db6f863d43c4b125daed9fdb3d3b44f873",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "25ffe44a77b6ba01e3b30c4bffd602db6f863d43c4b125daed9fdb3d3b44f873"
+      }
+    },
+    {
+      "id": "CHEMR_Q020",
+      "source": "qa_chemr",
+      "request_key": "e390c2717f0aec2ee9e9667897b95aeedb185801819912d984f6dd833c6ec460",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "e390c2717f0aec2ee9e9667897b95aeedb185801819912d984f6dd833c6ec460"
+      }
+    },
+    {
+      "id": "CHEMR_Q021",
+      "source": "qa_chemr",
+      "request_key": "17dae7394c1ee9a2f49c726e9845baf8c89a594559b2a1c487901f4687ed449f",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "17dae7394c1ee9a2f49c726e9845baf8c89a594559b2a1c487901f4687ed449f"
+      }
+    },
+    {
+      "id": "CHEMR_Q022",
+      "source": "qa_chemr",
+      "request_key": "58574503b9c903930c53e2bc2762403dce6db8d94b62059454fb2086bf551f97",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "58574503b9c903930c53e2bc2762403dce6db8d94b62059454fb2086bf551f97"
+      }
+    },
+    {
+      "id": "CHEMR_Q023",
+      "source": "qa_chemr",
+      "request_key": "2ed2667147089722710162f9bad071bef2e3a1cc6715a8fb11b20140d38e3b68",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "2ed2667147089722710162f9bad071bef2e3a1cc6715a8fb11b20140d38e3b68"
+      }
+    },
+    {
+      "id": "CHEMR_Q024",
+      "source": "qa_chemr",
+      "request_key": "40e553ee010579b78a14fbb548a16b54cda299af0b0904859af599c2016b80eb",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "40e553ee010579b78a14fbb548a16b54cda299af0b0904859af599c2016b80eb"
+      }
+    },
+    {
+      "id": "CHEMR_Q025",
+      "source": "qa_chemr",
+      "request_key": "7ec4a76ca8ddd081e71930aa100245d3e64c004d720335726930bc05e15e45d0",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "7ec4a76ca8ddd081e71930aa100245d3e64c004d720335726930bc05e15e45d0"
+      }
+    },
+    {
+      "id": "CHEMR_Q026",
+      "source": "qa_chemr",
+      "request_key": "f06995ccd44739614d8ab5cc3056e01219b43ca38172df370607266a72b8b691",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "f06995ccd44739614d8ab5cc3056e01219b43ca38172df370607266a72b8b691"
+      }
+    },
+    {
+      "id": "CHEMR_Q027",
+      "source": "qa_chemr",
+      "request_key": "837a3d6da74276abd1839afba1da67271575f48e52095d7a9ceccfa7c6f0413b",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "837a3d6da74276abd1839afba1da67271575f48e52095d7a9ceccfa7c6f0413b"
+      }
+    },
+    {
+      "id": "CHEMR_Q028",
+      "source": "qa_chemr",
+      "request_key": "392db51d7c85e316e7c18305dffc095f31598b6c5ff780d95e0121fba3a85f83",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "392db51d7c85e316e7c18305dffc095f31598b6c5ff780d95e0121fba3a85f83"
+      }
+    },
+    {
+      "id": "CHEMR_Q029",
+      "source": "qa_chemr",
+      "request_key": "1e09d368c708f401d621cda735cb03864265f258e3a148877d117ef327abf243",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "1e09d368c708f401d621cda735cb03864265f258e3a148877d117ef327abf243"
+      }
+    },
+    {
+      "id": "CHEMR_Q030",
+      "source": "qa_chemr",
+      "request_key": "ca867e7da2cfd3d573caa8cd22e37f2b096d4932ac6769a6c5db6164e824fe85",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "ca867e7da2cfd3d573caa8cd22e37f2b096d4932ac6769a6c5db6164e824fe85"
+      }
+    },
+    {
+      "id": "storage:ABP654",
+      "source": "fact_gold",
+      "request_key": "14b1a6fb2de7c7e28063a571cece3dfe794c78538abe2558b7b2c9710d4dabe1",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "14b1a6fb2de7c7e28063a571cece3dfe794c78538abe2558b7b2c9710d4dabe1"
+      }
+    },
+    {
+      "id": "storage:BAT2206",
+      "source": "fact_gold",
+      "request_key": "7229b56d2bf51d1090102b6b0fb5d01cdbea27a0798ac6ae1b2d9407be1a82c8",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "7229b56d2bf51d1090102b6b0fb5d01cdbea27a0798ac6ae1b2d9407be1a82c8"
+      }
+    },
+    {
+      "id": "storage:BMAB1200",
+      "source": "fact_gold",
+      "request_key": "abcbabdd6322b1739de465208470507fa53ca3f76383760de450597f1ce6f730",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "abcbabdd6322b1739de465208470507fa53ca3f76383760de450597f1ce6f730"
+      }
+    },
+    {
+      "id": "storage:CTP43",
+      "source": "fact_gold",
+      "request_key": "949c0d27d72b9229043d7829fc85ca49b0bf954616b49779ab282c3ab867867d",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "949c0d27d72b9229043d7829fc85ca49b0bf954616b49779ab282c3ab867867d"
+      }
+    },
+    {
+      "id": "storage:SB17",
+      "source": "fact_gold",
+      "request_key": "a36c7c67a14cafbfd3b6cd73bd98ef2fcb4660eec92bec789ae24ede1f0a6d9d",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "a36c7c67a14cafbfd3b6cd73bd98ef2fcb4660eec92bec789ae24ede1f0a6d9d"
+      }
+    },
+    {
+      "id": "shelf_life:ABP654",
+      "source": "fact_gold",
+      "request_key": "b84d47e5e038126b50fdcafb207a9340b3e7831f5f7af4dddb42e6d1416f6118",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "b84d47e5e038126b50fdcafb207a9340b3e7831f5f7af4dddb42e6d1416f6118"
+      }
+    },
+    {
+      "id": "shelf_life:BAT2206",
+      "source": "fact_gold",
+      "request_key": "e93c529e1c142a5660217d31dc23fcac8d7cd84385867ef678c3dd996227659a",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "e93c529e1c142a5660217d31dc23fcac8d7cd84385867ef678c3dd996227659a"
+      }
+    },
+    {
+      "id": "shelf_life:BMAB1200",
+      "source": "fact_gold",
+      "request_key": "6c79efdd7523661f339fc4c89d4287635ddabd8b5117852ed40f06905c890685",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "6c79efdd7523661f339fc4c89d4287635ddabd8b5117852ed40f06905c890685"
+      }
+    },
+    {
+      "id": "shelf_life:CTP43",
+      "source": "fact_gold",
+      "request_key": "55d0b766bee23db1f34be9004a4f45285368f824ce75fa460d0ae3df9fb21b3f",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "55d0b766bee23db1f34be9004a4f45285368f824ce75fa460d0ae3df9fb21b3f"
+      }
+    },
+    {
+      "id": "shelf_life:SB17",
+      "source": "fact_gold",
+      "request_key": "f8c7c5231e41757e022810e6411bdb82d377ae5b6ac0fbafad9bff8535fe2bb3",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "f8c7c5231e41757e022810e6411bdb82d377ae5b6ac0fbafad9bff8535fe2bb3"
+      }
+    },
+    {
+      "id": "mah:ABP654",
+      "source": "fact_gold",
+      "request_key": "6b54e79648d803eab583f7291a5228b9c3b65d39d1fba2aa086659d736a8cefd",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "6b54e79648d803eab583f7291a5228b9c3b65d39d1fba2aa086659d736a8cefd"
+      }
+    },
+    {
+      "id": "mah:BAT2206",
+      "source": "fact_gold",
+      "request_key": "14c6c35c07c17adea6d157918bdf62486c95524ee24b93950ac876d795742476",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "14c6c35c07c17adea6d157918bdf62486c95524ee24b93950ac876d795742476"
+      }
+    },
+    {
+      "id": "mah:BMAB1200",
+      "source": "fact_gold",
+      "request_key": "3a53bba6d333a914be3206423bc69b2ba84805bc3a2a724ca1f86ef19d79e7d2",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "3a53bba6d333a914be3206423bc69b2ba84805bc3a2a724ca1f86ef19d79e7d2"
+      }
+    },
+    {
+      "id": "mah:CTP43",
+      "source": "fact_gold",
+      "request_key": "c5dec6f021078b30234f8be4519471f12cd33a1bf66e937dc716a1b3c3acfefa",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "c5dec6f021078b30234f8be4519471f12cd33a1bf66e937dc716a1b3c3acfefa"
+      }
+    },
+    {
+      "id": "mah:SB17",
+      "source": "fact_gold",
+      "request_key": "615194eac9ab9411956b91e10e0bd36f071ab329650b064c04904c38e35ec890",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "615194eac9ab9411956b91e10e0bd36f071ab329650b064c04904c38e35ec890"
+      }
+    },
+    {
+      "id": "eu_first_authorisation:ABP654",
+      "source": "fact_gold",
+      "request_key": "935d1f655d3be702135b86f0c26cee85aa265ae4c7ea987804396f3643659a9d",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "935d1f655d3be702135b86f0c26cee85aa265ae4c7ea987804396f3643659a9d"
+      }
+    },
+    {
+      "id": "eu_first_authorisation:BAT2206",
+      "source": "fact_gold",
+      "request_key": "29831c7765e2e3c3ba5d68f5473b3de097142eee4cfa8520b2cdb98bea6b8d8e",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "29831c7765e2e3c3ba5d68f5473b3de097142eee4cfa8520b2cdb98bea6b8d8e"
+      }
+    },
+    {
+      "id": "eu_first_authorisation:BMAB1200",
+      "source": "fact_gold",
+      "request_key": "f7647450cab31503f6ffbbb45b6f039bea1fa1027bc23ca2b1cab32e15e9cb7c",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "f7647450cab31503f6ffbbb45b6f039bea1fa1027bc23ca2b1cab32e15e9cb7c"
+      }
+    },
+    {
+      "id": "eu_first_authorisation:CTP43",
+      "source": "fact_gold",
+      "request_key": "ae366da5e1b179205edbdd12dab157da5cf7878849282e2b510e3b0c14656431",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "ae366da5e1b179205edbdd12dab157da5cf7878849282e2b510e3b0c14656431"
+      }
+    },
+    {
+      "id": "eu_first_authorisation:SB17",
+      "source": "fact_gold",
+      "request_key": "472c95163712e0dfab885bc6ea17af75b9d16bdcc478835e9c0eccd5b1973f70",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "472c95163712e0dfab885bc6ea17af75b9d16bdcc478835e9c0eccd5b1973f70"
+      }
+    },
+    {
+      "id": "fda_approval_date:ABP654",
+      "source": "fact_gold",
+      "request_key": "9ee4f91b2825cb327883bdb1d6b5c125415cb06b05a6c6efa643773d12158416",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "9ee4f91b2825cb327883bdb1d6b5c125415cb06b05a6c6efa643773d12158416"
+      }
+    },
+    {
+      "id": "fda_approval_date:BAT2206",
+      "source": "fact_gold",
+      "request_key": "646b0d3f379298554ed79b4d36086f91e6f8775f25f583dcc791521411ce78d0",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "646b0d3f379298554ed79b4d36086f91e6f8775f25f583dcc791521411ce78d0"
+      }
+    },
+    {
+      "id": "fda_approval_date:BMAB1200",
+      "source": "fact_gold",
+      "request_key": "c040d579b80b003e7447dfca4f9e106f73e36a777d7aa812f12f89a4a689056f",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "c040d579b80b003e7447dfca4f9e106f73e36a777d7aa812f12f89a4a689056f"
+      }
+    },
+    {
+      "id": "fda_approval_date:CTP43",
+      "source": "fact_gold",
+      "request_key": "05bd0a6226ce96f4281ee6bce987aa75e476504bea77c1cfc1c4344fadcd1d75",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "05bd0a6226ce96f4281ee6bce987aa75e476504bea77c1cfc1c4344fadcd1d75"
+      }
+    },
+    {
+      "id": "fda_approval_date:SB17",
+      "source": "fact_gold",
+      "request_key": "79d5ceb26a41cdd823bc87a09d66abd98cd5748ea641742c6999f4df9985f138",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "79d5ceb26a41cdd823bc87a09d66abd98cd5748ea641742c6999f4df9985f138"
+      }
+    },
+    {
+      "id": "fda_postmarketing:ABP654",
+      "source": "fact_gold",
+      "request_key": "05bfcffd8a85b7c775d3af12821203edaab18256a3df1e437620b0163291e298",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "05bfcffd8a85b7c775d3af12821203edaab18256a3df1e437620b0163291e298"
+      }
+    },
+    {
+      "id": "fda_postmarketing:BAT2206",
+      "source": "fact_gold",
+      "request_key": "06656e9721f4d627f7cdfa5636b42a88cbb3b09226a21117d3fc606a22b09e9e",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "06656e9721f4d627f7cdfa5636b42a88cbb3b09226a21117d3fc606a22b09e9e"
+      }
+    },
+    {
+      "id": "fda_postmarketing:CTP43",
+      "source": "fact_gold",
+      "request_key": "96ab576830a130ae9e7305575feb31ddf7862c765e1b163eb0a35fa8a1531e23",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "96ab576830a130ae9e7305575feb31ddf7862c765e1b163eb0a35fa8a1531e23"
+      }
+    },
+    {
+      "id": "fda_postmarketing:SB17",
+      "source": "fact_gold",
+      "request_key": "36e0cc55c420174c7f8ab395b6e70c249cf4b210d2e0299bbe74ba2c09d073b7",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "36e0cc55c420174c7f8ab395b6e70c249cf4b210d2e0299bbe74ba2c09d073b7"
+      }
+    },
+    {
+      "id": "excipients:ABP654",
+      "source": "fact_gold",
+      "request_key": "0eaf02d0a0d4f78e4fa8a29040d73298da7d901a838b554a8de50362bc9999d3",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "0eaf02d0a0d4f78e4fa8a29040d73298da7d901a838b554a8de50362bc9999d3"
+      }
+    },
+    {
+      "id": "excipients:BAT2206",
+      "source": "fact_gold",
+      "request_key": "37ae814b83eead44f7383562a3cd04583cad1b734056d86cdec3ec84bd27fa12",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "37ae814b83eead44f7383562a3cd04583cad1b734056d86cdec3ec84bd27fa12"
+      }
+    },
+    {
+      "id": "excipients:BMAB1200",
+      "source": "fact_gold",
+      "request_key": "23ba5d43f075e24e02953400c0978929e3f51068c24861ce7ee4b3b934ebfe09",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "23ba5d43f075e24e02953400c0978929e3f51068c24861ce7ee4b3b934ebfe09"
+      }
+    },
+    {
+      "id": "excipients:CTP43",
+      "source": "fact_gold",
+      "request_key": "1162c583b9d0eb70f84e67ccbe42c60e195b6513a5abc32a64ccb847842013cd",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "1162c583b9d0eb70f84e67ccbe42c60e195b6513a5abc32a64ccb847842013cd"
+      }
+    },
+    {
+      "id": "excipients:SB17",
+      "source": "fact_gold",
+      "request_key": "660206f3545835a6af864c1f6cb86729685242e70d7ec04d77ecfdbaf91f8d1c",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "660206f3545835a6af864c1f6cb86729685242e70d7ec04d77ecfdbaf91f8d1c"
+      }
+    },
+    {
+      "id": "ema_submission:ABP654",
+      "source": "fact_gold",
+      "request_key": "43dfcb4666b95536e6d2b26260203a8fb3f5cf012464e790297bdfca17b2e260",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "43dfcb4666b95536e6d2b26260203a8fb3f5cf012464e790297bdfca17b2e260"
+      }
+    },
+    {
+      "id": "ema_submission:BAT2206",
+      "source": "fact_gold",
+      "request_key": "6694d0a3b7699cd099a5819ccc7b7b0b0ce0c410592e9816d34c9dc14c4e9f5b",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "6694d0a3b7699cd099a5819ccc7b7b0b0ce0c410592e9816d34c9dc14c4e9f5b"
+      }
+    },
+    {
+      "id": "ema_submission:BMAB1200",
+      "source": "fact_gold",
+      "request_key": "4d8ac9557c910f5289a3e3a1abc8260e894922c0c2cee21f74bbecaf52b5f3c0",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "4d8ac9557c910f5289a3e3a1abc8260e894922c0c2cee21f74bbecaf52b5f3c0"
+      }
+    },
+    {
+      "id": "ema_submission:CTP43",
+      "source": "fact_gold",
+      "request_key": "118e0763b37de222bc61865a42d1a2e43be03166106c61f57dea7291cf19c628",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "118e0763b37de222bc61865a42d1a2e43be03166106c61f57dea7291cf19c628"
+      }
+    },
+    {
+      "id": "ema_submission:SB17",
+      "source": "fact_gold",
+      "request_key": "30dd408824b49b10ed561f11f96dd2dbdb3c65f9c64e846612b464d20fa50ec1",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "30dd408824b49b10ed561f11f96dd2dbdb3c65f9c64e846612b464d20fa50ec1"
+      }
+    },
+    {
+      "id": "hc_noc_date:ABP654",
+      "source": "fact_gold",
+      "request_key": "6eacff1941d7f17143221a4ef98d29c0d567e881e78c01783c26add262af1d1e",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "6eacff1941d7f17143221a4ef98d29c0d567e881e78c01783c26add262af1d1e"
+      }
+    },
+    {
+      "id": "hc_noc_date:BMAB1200",
+      "source": "fact_gold",
+      "request_key": "8bb635a64473cda05eae49e57bcc39944bf4defaa834fa18b17dcf92f4d2e589",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "8bb635a64473cda05eae49e57bcc39944bf4defaa834fa18b17dcf92f4d2e589"
+      }
+    },
+    {
+      "id": "hc_noc_date:CTP43",
+      "source": "fact_gold",
+      "request_key": "2d956c23a1dd9048d648ab4b3e78bf3134d5a1fc8be77be058c4bf702373d92a",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "2d956c23a1dd9048d648ab4b3e78bf3134d5a1fc8be77be058c4bf702373d92a"
+      }
+    },
+    {
+      "id": "hc_noc_date:SB17",
+      "source": "fact_gold",
+      "request_key": "f6de15daae2a99525b05eedc50bc43394cc23c1806bfb45fe4a33cdb91338cb3",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "f6de15daae2a99525b05eedc50bc43394cc23c1806bfb45fe4a33cdb91338cb3"
+      }
+    },
+    {
+      "id": "crohn_iv_induction:ABP654",
+      "source": "fact_gold",
+      "request_key": "b18ac5462e1b4cd48eaf16dfc47ed97dc6ee9fcd292d1a55c5398d384bc6fd27",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "b18ac5462e1b4cd48eaf16dfc47ed97dc6ee9fcd292d1a55c5398d384bc6fd27"
+      }
+    },
+    {
+      "id": "crohn_iv_induction:BAT2206",
+      "source": "fact_gold",
+      "request_key": "029c70c71935ce0da6ed420e7409df3d3dfd65630e80f495fdde883e1580f7ca",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "029c70c71935ce0da6ed420e7409df3d3dfd65630e80f495fdde883e1580f7ca"
+      }
+    },
+    {
+      "id": "crohn_iv_induction:BMAB1200",
+      "source": "fact_gold",
+      "request_key": "8a21ad6f0b732dcb0ed8e73d7f69265cc3a41ff9bf25f431317d0286a332f998",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "8a21ad6f0b732dcb0ed8e73d7f69265cc3a41ff9bf25f431317d0286a332f998"
+      }
+    },
+    {
+      "id": "crohn_iv_induction:CTP43",
+      "source": "fact_gold",
+      "request_key": "4494c603152ec0ad46388c8e8d85e05b0068cc85adbbf605b7776ca38845ce99",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "4494c603152ec0ad46388c8e8d85e05b0068cc85adbbf605b7776ca38845ce99"
+      }
+    },
+    {
+      "id": "crohn_iv_induction:SB17",
+      "source": "fact_gold",
+      "request_key": "82a0e341a523a26ad0239eb3c39854bc6a56f5d8dd1db988f3bd3e44f557c2c3",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "new_current_planner",
+        "request_key": "82a0e341a523a26ad0239eb3c39854bc6a56f5d8dd1db988f3bd3e44f557c2c3"
+      }
+    },
+    {
+      "id": "C01",
+      "source": "e2e29",
+      "request_key": "0d38c8bd0488dee94aa85ba6b4d8d09e9dd4b659e1c04541506ec2b3989de3d2",
+      "ui_products": [
+        "SB17"
+      ],
+      "ui_agencies": [
+        "CA"
+      ],
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\C01_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    },
+    {
+      "id": "C02",
+      "source": "e2e29",
+      "request_key": "d22509a9a34388f8387d06795ee46bf9cb39262b257a79786855047b665b45b8",
+      "ui_products": [
+        "ABP654"
+      ],
+      "ui_agencies": [
+        "CA"
+      ],
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\C02_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    },
+    {
+      "id": "C03",
+      "source": "e2e29",
+      "request_key": "ad9f9936e72469e24a7e30eddcc5cafbf05f2b1ef1ca13e1104b51070ee1f6f9",
+      "ui_products": [
+        "CTP43"
+      ],
+      "ui_agencies": [
+        "CA"
+      ],
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\C03_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    },
+    {
+      "id": "C04",
+      "source": "e2e29",
+      "request_key": "7a821d805d6746c823239ae8165a9edfc915e63ce51c85b12875bf6a4c1af99d",
+      "ui_products": null,
+      "ui_agencies": [
+        "CA"
+      ],
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\C04_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    },
+    {
+      "id": "E01",
+      "source": "e2e29",
+      "request_key": "86d9d6fd9063ed329b4e10caee9ca6473a785bccdfda8e1666e8c6c649ab315a",
+      "ui_products": [
+        "SB17"
+      ],
+      "ui_agencies": [
+        "EU"
+      ],
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\E01_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    },
+    {
+      "id": "E02",
+      "source": "e2e29",
+      "request_key": "b17f5f0d913153a8f0d6505fde6dff48c94812cc6a469d5ebee772abe4b1b650",
+      "ui_products": [
+        "CTP43"
+      ],
+      "ui_agencies": [
+        "EU"
+      ],
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\E02_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    },
+    {
+      "id": "E03",
+      "source": "e2e29",
+      "request_key": "d79c22b2e6de69eec8ffd1f35b7e4f105f6e3675f073dba9871acf088ce35c60",
+      "ui_products": [
+        "SB17",
+        "ABP654"
+      ],
+      "ui_agencies": [
+        "EU"
+      ],
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\E03_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    },
+    {
+      "id": "E04",
+      "source": "e2e29",
+      "request_key": "59e87feb4ea7458f771147c3a5956b561065e1c0e8ca934711f35822ae330600",
+      "ui_products": null,
+      "ui_agencies": [
+        "EU"
+      ],
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\E04_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    },
+    {
+      "id": "N01",
+      "source": "e2e29",
+      "request_key": "60f3a52132c2d1dfcf727d25d37ed326d744468653af05895b8110a4eeb7f2f0",
+      "ui_products": [
+        "SB17"
+      ],
+      "ui_agencies": [
+        "EU"
+      ],
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\N01_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    },
+    {
+      "id": "Q1",
+      "source": "e2e29",
+      "request_key": "002da8719afb5e9d5e2eae6824deb7e4afcde8569d0f6539a4ef45a07fb700e7",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\Q1_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    },
+    {
+      "id": "Q2",
+      "source": "e2e29",
+      "request_key": "ce7142ae53dd99e78e1b91482469e72fa34ef31531f029fe2b9a513605fa1234",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\Q2_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    },
+    {
+      "id": "Q3",
+      "source": "e2e29",
+      "request_key": "71f5c10c809b4b4800dc7498f60d307df178d3840e24ca8ddd501a0278e4172b",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\Q3_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    },
+    {
+      "id": "T01",
+      "source": "e2e29",
+      "request_key": "35785b71e22765be22cc83e4cd76a79f7249dc950f60060175dc36fb45403fc6",
+      "ui_products": [
+        "SB17"
+      ],
+      "ui_agencies": [
+        "EU"
+      ],
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\T01_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    },
+    {
+      "id": "T02",
+      "source": "e2e29",
+      "request_key": "48ff4703d1653d744d0334d61b775bd9669bf92b70ca8914bed4a45558d2f718",
+      "ui_products": [
+        "ABP654"
+      ],
+      "ui_agencies": [
+        "EU"
+      ],
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\T02_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    },
+    {
+      "id": "T03",
+      "source": "e2e29",
+      "request_key": "d3626f752d11c44ba09138b8b5df95ccb6b3a31f07ee6d789b41011c6ebabf9e",
+      "ui_products": [
+        "SB17"
+      ],
+      "ui_agencies": [
+        "EU"
+      ],
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\T03_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    },
+    {
+      "id": "T04",
+      "source": "e2e29",
+      "request_key": "85953c9781cf1bc2ecd063b6aa725ba98c19b066f446552b8ab1f7b1a4fda2bc",
+      "ui_products": [
+        "ABP654"
+      ],
+      "ui_agencies": [
+        "EU"
+      ],
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\T04_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    },
+    {
+      "id": "T05",
+      "source": "e2e29",
+      "request_key": "05f187a8975a6eef1b8b6a92aa9b494bfc252945a80166bc9581efc513ef15c7",
+      "ui_products": [
+        "CTP43"
+      ],
+      "ui_agencies": [
+        "CA"
+      ],
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\T05_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    },
+    {
+      "id": "U01",
+      "source": "e2e29",
+      "request_key": "936948b9032e4096367df8db29b6bfc93f9be1020ad245e7288712808753a3e3",
+      "ui_products": [
+        "BAT2206"
+      ],
+      "ui_agencies": [
+        "US"
+      ],
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\U01_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    },
+    {
+      "id": "U02",
+      "source": "e2e29",
+      "request_key": "25dc5c61692c26a34a066c19cfb2de3ca7b96bbdea47545efc26aed2b5140a25",
+      "ui_products": [
+        "BMAB1200"
+      ],
+      "ui_agencies": [
+        "US"
+      ],
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\U02_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    },
+    {
+      "id": "U03",
+      "source": "e2e29",
+      "request_key": "d323490cab07590510a1656702e78cfce59763821da0c90696cdf5112975f22b",
+      "ui_products": [
+        "CTP43"
+      ],
+      "ui_agencies": [
+        "US"
+      ],
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\U03_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    },
+    {
+      "id": "U04",
+      "source": "e2e29",
+      "request_key": "eb4e09ee767a2ad153a17ddab3fbd8dae556d238d2649a1195087e07a35f9c7a",
+      "ui_products": null,
+      "ui_agencies": [
+        "US"
+      ],
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\U04_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    },
+    {
+      "id": "Q4",
+      "source": "e2e29",
+      "request_key": "18f531b384b7a0d20fddb6790efc8280f9632918d97d88403ab89f21a06db8c4",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\Q4_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    },
+    {
+      "id": "Q5",
+      "source": "e2e29",
+      "request_key": "36e3a495685c5b61a4ae5c2f272786148e0ad29ae64dbc7e75915027735375e2",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\Q5_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    },
+    {
+      "id": "Q6",
+      "source": "e2e29",
+      "request_key": "c0792befc6db69211e5850e0cc20b6cd0be16a59a3c6b4c4d587a8824221452d",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\Q6_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    },
+    {
+      "id": "Q7",
+      "source": "e2e29",
+      "request_key": "855e3cde1a66a500e950e41612660304bb9416fc4a43c76d5f56795d5f7bb618",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\Q7_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    },
+    {
+      "id": "G1",
+      "source": "e2e29",
+      "request_key": "9ecde2a4523ca6e2b92cae5357ceab9a10ef86381c71e237df34a8f5a1284c55",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\G1_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    },
+    {
+      "id": "G2",
+      "source": "e2e29",
+      "request_key": "d41c43247265ac1b3c7fb966ef1a846b1a599fbb08058ff1cac7326fbb1bb53f",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\G2_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    },
+    {
+      "id": "G3",
+      "source": "e2e29",
+      "request_key": "c062ab4217972627e3dcf502b0c3f8d53ab083a14c18c9d00370b6f915038c8e",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\G3_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    },
+    {
+      "id": "G4",
+      "source": "e2e29",
+      "request_key": "2f5c6895203fe14d19722a6bf51405b71ff6c6559eab55be3b030ed07bcb1cb5",
+      "ui_products": null,
+      "ui_agencies": null,
+      "status": "ready",
+      "origin": {
+        "kind": "exact_request_hash_replay",
+        "report": "data\\runs\\stable_queries_2026-10-16\\e2e_qual\\G4_1.json",
+        "original_pipeline_label": "ra-research-rag-4.10.2",
+        "original_planner_label": "ra-research-tasks-7-planner-facets"
+      }
+    }
+  ],
+  "services": [
+    {
+      "port": 8885,
+      "pipeline_version": "ra-research-rag-4.10.3",
+      "query_strategy": "ra-research-tasks-8-fact-queries",
+      "chunks_sha256": "2b5684a27f444cfc08a4fe50c1a5047cbf53ee9c9577dd69807b220f25a7d905",
+      "product_index_chunks": 15682,
+      "vector_store": "pgvector"
+    },
+    {
+      "port": 8775,
+      "pipeline_version": "ra-research-rag-4.10.3",
+      "query_strategy": "ra-research-tasks-8-fact-queries",
+      "chunks_sha256": "2b5684a27f444cfc08a4fe50c1a5047cbf53ee9c9577dd69807b220f25a7d905",
+      "product_index_chunks": 15682,
+      "vector_store": "pgvector"
+    }
+  ]
+}

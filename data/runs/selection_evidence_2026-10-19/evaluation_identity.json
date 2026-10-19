@@ -1,0 +1,38 @@
+{
+  "eval_version": "selected-retrieval-comparison-1",
+  "gold_sha256": "2aec78e7ce912c02884a86e6c00484398c65925052e242485bf8a93c0ff63eaa",
+  "chunks_sha256": "2b5684a27f444cfc08a4fe50c1a5047cbf53ee9c9577dd69807b220f25a7d905",
+  "profiles": {
+    "dense_channel": {
+      "channel": "dense",
+      "strip_slot_terms": true
+    },
+    "bm25_channel": {
+      "channel": "bm25",
+      "strip_slot_terms": true
+    },
+    "hybrid_unstripped": {
+      "channel": "hybrid",
+      "strip_slot_terms": false
+    },
+    "hybrid_current": {
+      "channel": "hybrid",
+      "strip_slot_terms": true
+    }
+  },
+  "retrieval_pages": 8,
+  "pool": 40,
+  "backend": "pgvector",
+  "reranker_model": "BAAI/bge-reranker-v2-m3",
+  "reranker_revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+  "reranker_batch": 4,
+  "reranker_max_length": 1024,
+  "source_hashes": {
+    "rag/ra_tasks.py": "6ab844b67815330aa5cc4b84ea0b57f70192f1c9ef1f2c32def9abd4ecc81400",
+    "rag/ra_retrieval.py": "2a7c5b752c7adf4a1532bd9cb0b3d22d4415f46d51af0bd7130e54faaa5bac7a",
+    "rag/rerank.py": "aafc6f268c34a982e83ad880b7f0e248ab05cf457b7847b80695504c1fa790b5",
+    "rag/search.py": "3afe7c106e74e3b08e2eabcda30acf9728cdef07b07ef60ad9b67cb560e1459b"
+  },
+  "channel_ablation_contract": "Disable candidate channel only; keep statistical-table prior and dense tie-break common",
+  "latency_contract": "Frozen query vectors; persistent reranker score cache. Timings are diagnostic, not model latency benchmarks."
+}

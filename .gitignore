@@ -62,6 +62,7 @@ data/runs/ra_conversations/
 data/runs/ra_pipeline_requests/
 data/runs/ra_service_logs/
 data/runs/ra_service_reports/
+data/runs/ra_work_drafts/
 data/runs/ra_service_*.log
 data/runs/model_quota/
 

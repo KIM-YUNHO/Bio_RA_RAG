@@ -1,0 +1,585 @@
+{
+  "scenario": "P17_FCRN_WORKFLOW_V4",
+  "input_file": "docs/demo/internal_pipeline_v4/02_INTERNAL_DOCUMENTS.json",
+  "input_sha256": "e71423bf448545c1ffe09069f0e23a2205e0cac82fc0a73e3b48c8529171baf0",
+  "model": "gpt-5.6-luna (reasoning_effort none, one call per draft, no retry)",
+  "model_calls": {
+    "scenario_runs": 22,
+    "live_service_end_to_end": 2,
+    "all_completed": true,
+    "ledger": "data/runs/model_quota/2026-10-18.json, 2026-10-19.json (case internal_work_draft)"
+  },
+  "storage": "scenario runs: isolated file workspaces under work/internal_v4; live check: app DB pipeline 41afdde4a4114c4c9dcb45e05e0e8080 on 8885",
+  "rubric_sent_to_model": false,
+  "review_criteria_sent_to_model": false,
+  "human_domain_expert_reviewed": false,
+  "reviewer": "coding_agent (Claude), every draft read in full",
+  "semantic_correctness_certified": false,
+  "runs": [
+    {
+      "run": "run1",
+      "change_before_run": "첫 실행(검색: 기준일 필터 + 업무별 우선 자료 + 같은 문서 절 + 업무 상태 근거 확장)",
+      "code_sha256": {
+        "rag_service/work_assist.py": "9d31f6d73abb7ce994eaac53235453f0168625fb221d3a78910b2f57799d2d06",
+        "rag_service/internal_documents.py": "006d4a4bffb784c6df1a88afc46c9327caad66800b06db2c10cd91505e19ba8f",
+        "rag_service/memo_workflow.py": "5597b4cf6dd2fa82024297805e28680dc2ad2c0243106cc74fc2a409c098ed99",
+        "rag_service/work_drafts.py": "92fd9a14ac4756e6627c1a2c9e016e6a18b565017666ad4ba03d9ecd48294355"
+      },
+      "drafts": [
+        {
+          "label": "T1",
+          "as_of": "2026-03-06",
+          "audience": "internal",
+          "model_reported": "gpt-5.6-luna",
+          "selected_units": 6,
+          "eligible_units": 6,
+          "retrieval": "all_available_units",
+          "items": 10,
+          "usage": {
+            "input_tokens": 2711,
+            "output_tokens": 901
+          },
+          "audit_warnings": [],
+          "rubric_final_rules_misses": [],
+          "reviewer_verdict": "pass",
+          "reviewer_notes": []
+        },
+        {
+          "label": "T2",
+          "as_of": "2026-03-27",
+          "audience": "internal",
+          "model_reported": "gpt-5.6-luna",
+          "selected_units": 15,
+          "eligible_units": 15,
+          "retrieval": "all_available_units",
+          "items": 12,
+          "usage": {
+            "input_tokens": 4839,
+            "output_tokens": 1122
+          },
+          "audit_warnings": [],
+          "rubric_final_rules_misses": [
+            "T2-next"
+          ],
+          "reviewer_verdict": "partial",
+          "reviewer_notes": [
+            "IV 직접 확인 시험(CPB·kinetics) 안건 없음",
+            "보고서 결론 표현을 협력사와 협의하자는 항목",
+            "영향 없는 일정 항목(예정일=수령일)"
+          ]
+        },
+        {
+          "label": "T2P",
+          "as_of": "2026-03-27",
+          "audience": "partner",
+          "model_reported": "gpt-5.6-luna",
+          "selected_units": 9,
+          "eligible_units": 9,
+          "retrieval": "all_available_units",
+          "items": 10,
+          "usage": {
+            "input_tokens": 3275,
+            "output_tokens": 845
+          },
+          "audit_warnings": [],
+          "rubric_final_rules_misses": [
+            "T2P-next"
+          ],
+          "reviewer_verdict": "partial",
+          "reviewer_notes": [
+            "IV 직접 확인 시험 안건 없음",
+            "최종 결론 문구를 협력사와 협의",
+            "영향 없는 공백 항목(시료 수령일·10영업일 산정)"
+          ]
+        },
+        {
+          "label": "T3",
+          "as_of": "2026-04-21",
+          "audience": "internal",
+          "model_reported": "gpt-5.6-luna",
+          "selected_units": 25,
+          "eligible_units": 25,
+          "retrieval": "criteria_task_material_bm25_then_documents_and_scope_state_sources",
+          "items": 11,
+          "usage": {
+            "input_tokens": 7172,
+            "output_tokens": 931
+          },
+          "audit_warnings": [],
+          "rubric_final_rules_misses": [],
+          "reviewer_verdict": "pass",
+          "reviewer_notes": []
+        },
+        {
+          "label": "T4",
+          "as_of": "2026-05-15",
+          "audience": "internal",
+          "model_reported": "gpt-5.6-luna",
+          "selected_units": 30,
+          "eligible_units": 31,
+          "retrieval": "criteria_task_material_bm25_then_documents_and_scope_state_sources",
+          "items": 12,
+          "usage": {
+            "input_tokens": 8413,
+            "output_tokens": 1463
+          },
+          "audit_warnings": [
+            "draft_report_called_final"
+          ],
+          "rubric_final_rules_misses": [],
+          "reviewer_verdict": "pass",
+          "reviewer_notes": [
+            "자동 검사 오탐: '최종 보고서 … 확보가 필요'를 최종 보고서 보유로 판정"
+          ]
+        }
+      ]
+    },
+    {
+      "run": "run2",
+      "change_before_run": "시스템 규칙: 다른 제형 근거를 쓰면 대상 제형 직접 자료 점검, 공백 칸은 영향 있는 것만. 협력사 공유용: 결론은 협의 대상 아님. 검사: 최종 보고서 판정을 문장 단위로",
+      "code_sha256": {
+        "rag_service/work_assist.py": "e542971f2b9fea24722cb78c71c00c2966f9621868c49fb01c7ec0b871108d11",
+        "rag_service/internal_documents.py": "006d4a4bffb784c6df1a88afc46c9327caad66800b06db2c10cd91505e19ba8f",
+        "rag_service/memo_workflow.py": "5597b4cf6dd2fa82024297805e28680dc2ad2c0243106cc74fc2a409c098ed99",
+        "rag_service/work_drafts.py": "92fd9a14ac4756e6627c1a2c9e016e6a18b565017666ad4ba03d9ecd48294355"
+      },
+      "drafts": [
+        {
+          "label": "T1",
+          "as_of": "2026-03-06",
+          "audience": "internal",
+          "model_reported": "gpt-5.6-luna",
+          "selected_units": 6,
+          "eligible_units": 6,
+          "retrieval": "all_available_units",
+          "items": 11,
+          "usage": {
+            "input_tokens": 2810,
+            "output_tokens": 1070
+          },
+          "audit_warnings": [
+            "contradicts_result_record"
+          ],
+          "rubric_final_rules_misses": [],
+          "reviewer_verdict": "pass",
+          "reviewer_notes": [
+            "자동 검사 오탐: 'QA 데이터 검토 결과가 없다'를 시험 결과 없음으로 판정",
+            "루브릭 오탐: '무효로 처리하지 않도록' 부정문"
+          ]
+        },
+        {
+          "label": "T2",
+          "as_of": "2026-03-27",
+          "audience": "internal",
+          "model_reported": "gpt-5.6-luna",
+          "selected_units": 15,
+          "eligible_units": 15,
+          "retrieval": "all_available_units",
+          "items": 12,
+          "usage": {
+            "input_tokens": 4938,
+            "output_tokens": 1120
+          },
+          "audit_warnings": [],
+          "rubric_final_rules_misses": [
+            "T2-next"
+          ],
+          "reviewer_verdict": "partial",
+          "reviewer_notes": [
+            "IV 직접 자료 공백은 인식했으나 다음 행동에 시험 안건 없음",
+            "일정 확인에 행동 칸 사용(예정일=수령일)",
+            "보고서 표현을 협력사와 협의"
+          ]
+        },
+        {
+          "label": "T2P",
+          "as_of": "2026-03-27",
+          "audience": "partner",
+          "model_reported": "gpt-5.6-luna",
+          "selected_units": 9,
+          "eligible_units": 9,
+          "retrieval": "all_available_units",
+          "items": 12,
+          "usage": {
+            "input_tokens": 3453,
+            "output_tokens": 948
+          },
+          "audit_warnings": [],
+          "rubric_final_rules_misses": [
+            "T2P-next"
+          ],
+          "reviewer_verdict": "partial",
+          "reviewer_notes": [
+            "IV 직접 확인 시험 안건 없음",
+            "협력사 공유 자료에 없다는 메타 공백 항목"
+          ]
+        },
+        {
+          "label": "T3",
+          "as_of": "2026-04-21",
+          "audience": "internal",
+          "model_reported": "gpt-5.6-luna",
+          "selected_units": 25,
+          "eligible_units": 25,
+          "retrieval": "criteria_task_material_bm25_then_documents_and_scope_state_sources",
+          "items": 11,
+          "usage": {
+            "input_tokens": 7271,
+            "output_tokens": 1210
+          },
+          "audit_warnings": [],
+          "rubric_final_rules_misses": [],
+          "reviewer_verdict": "pass",
+          "reviewer_notes": [
+            "본문에도 근거 ID를 써서 화면에 이중 표시"
+          ]
+        },
+        {
+          "label": "T4",
+          "as_of": "2026-05-15",
+          "audience": "internal",
+          "model_reported": "gpt-5.6-luna",
+          "selected_units": 30,
+          "eligible_units": 31,
+          "retrieval": "criteria_task_material_bm25_then_documents_and_scope_state_sources",
+          "items": 12,
+          "usage": {
+            "input_tokens": 8512,
+            "output_tokens": 1283
+          },
+          "audit_warnings": [],
+          "rubric_final_rules_misses": [],
+          "reviewer_verdict": "pass",
+          "reviewer_notes": [
+            "'실제 기관 판단 없음' 표시가 모델 본문에서 빠짐(상태 표시를 모델에 맡긴 한계)"
+          ]
+        }
+      ]
+    },
+    {
+      "run": "run3",
+      "change_before_run": "상태판 일정에 '결과 회신일' 병기, 본문 근거 ID 제거, 답변 상태를 원문 기록에서 계산해 표시, 결론 비협의 규칙을 사내용에도 적용, 다음 행동을 공백과 연결, '검토 결과' 오탐 제외",
+      "code_sha256": {
+        "rag_service/work_assist.py": "5dc5166dd1b8aac80146e59afbfd8e7704ecfa23387f642c2c21a7210e4af1ba",
+        "rag_service/internal_documents.py": "006d4a4bffb784c6df1a88afc46c9327caad66800b06db2c10cd91505e19ba8f",
+        "rag_service/memo_workflow.py": "5597b4cf6dd2fa82024297805e28680dc2ad2c0243106cc74fc2a409c098ed99",
+        "rag_service/work_drafts.py": "b55e0fca7f16134f77add24039e9a0d1f1e6e68cd109e679c5cc03c69f46720f"
+      },
+      "drafts": [
+        {
+          "label": "T1",
+          "as_of": "2026-03-06",
+          "audience": "internal",
+          "model_reported": "gpt-5.6-luna",
+          "selected_units": 6,
+          "eligible_units": 6,
+          "retrieval": "all_available_units",
+          "items": 10,
+          "usage": {
+            "input_tokens": 2855,
+            "output_tokens": 909
+          },
+          "audit_warnings": [],
+          "rubric_final_rules_misses": [],
+          "reviewer_verdict": "pass",
+          "reviewer_notes": []
+        },
+        {
+          "label": "T2",
+          "as_of": "2026-03-27",
+          "audience": "internal",
+          "model_reported": "gpt-5.6-luna",
+          "selected_units": 15,
+          "eligible_units": 15,
+          "retrieval": "all_available_units",
+          "items": 11,
+          "usage": {
+            "input_tokens": 5024,
+            "output_tokens": 1072
+          },
+          "audit_warnings": [],
+          "rubric_final_rules_misses": [
+            "T2-next"
+          ],
+          "reviewer_verdict": "partial",
+          "reviewer_notes": [
+            "IV 직접 확인 시험 안건 없음(나머지 지적 사항은 해소)"
+          ]
+        },
+        {
+          "label": "T2P",
+          "as_of": "2026-03-27",
+          "audience": "partner",
+          "model_reported": "gpt-5.6-luna",
+          "selected_units": 9,
+          "eligible_units": 9,
+          "retrieval": "all_available_units",
+          "items": 12,
+          "usage": {
+            "input_tokens": 3513,
+            "output_tokens": 854
+          },
+          "audit_warnings": [],
+          "rubric_final_rules_misses": [
+            "T2P-next"
+          ],
+          "reviewer_verdict": "partial",
+          "reviewer_notes": [
+            "IV 직접 확인 시험 안건 없음"
+          ]
+        },
+        {
+          "label": "T3",
+          "as_of": "2026-04-21",
+          "audience": "internal",
+          "model_reported": "gpt-5.6-luna",
+          "selected_units": 25,
+          "eligible_units": 25,
+          "retrieval": "criteria_task_material_bm25_then_documents_and_scope_state_sources",
+          "items": 11,
+          "usage": {
+            "input_tokens": 7331,
+            "output_tokens": 1036
+          },
+          "audit_warnings": [],
+          "rubric_final_rules_misses": [],
+          "reviewer_verdict": "pass",
+          "reviewer_notes": []
+        },
+        {
+          "label": "T4",
+          "as_of": "2026-05-15",
+          "audience": "internal",
+          "model_reported": "gpt-5.6-luna",
+          "selected_units": 30,
+          "eligible_units": 31,
+          "retrieval": "criteria_task_material_bm25_then_documents_and_scope_state_sources",
+          "items": 12,
+          "usage": {
+            "input_tokens": 8586,
+            "output_tokens": 1405
+          },
+          "audit_warnings": [],
+          "rubric_final_rules_misses": [],
+          "reviewer_verdict": "pass",
+          "reviewer_notes": []
+        }
+      ]
+    },
+    {
+      "run": "run4_t2",
+      "change_before_run": "협력사 미팅 지시: 문제 결과의 원인을 다른 제형 자료로 설명하면 문제 제형의 직접 확인 시험을 새 안건으로",
+      "code_sha256": {
+        "rag_service/work_assist.py": "e0c569e62f44823cbf621389695a5a21ea38e0e01e8b784c85f63da46c391626",
+        "rag_service/internal_documents.py": "006d4a4bffb784c6df1a88afc46c9327caad66800b06db2c10cd91505e19ba8f",
+        "rag_service/memo_workflow.py": "5597b4cf6dd2fa82024297805e28680dc2ad2c0243106cc74fc2a409c098ed99",
+        "rag_service/work_drafts.py": "b55e0fca7f16134f77add24039e9a0d1f1e6e68cd109e679c5cc03c69f46720f"
+      },
+      "drafts": [
+        {
+          "label": "T2",
+          "as_of": "2026-03-27",
+          "audience": "internal",
+          "model_reported": "gpt-5.6-luna",
+          "selected_units": 15,
+          "eligible_units": 15,
+          "retrieval": "all_available_units",
+          "items": 12,
+          "usage": {
+            "input_tokens": 5102,
+            "output_tokens": 1222
+          },
+          "audit_warnings": [],
+          "rubric_final_rules_misses": [],
+          "reviewer_verdict": "pass",
+          "reviewer_notes": []
+        },
+        {
+          "label": "T2P",
+          "as_of": "2026-03-27",
+          "audience": "partner",
+          "model_reported": "gpt-5.6-luna",
+          "selected_units": 9,
+          "eligible_units": 9,
+          "retrieval": "all_available_units",
+          "items": 12,
+          "usage": {
+            "input_tokens": 3591,
+            "output_tokens": 855
+          },
+          "audit_warnings": [],
+          "rubric_final_rules_misses": [
+            "T2P-next"
+          ],
+          "reviewer_verdict": "partial",
+          "reviewer_notes": [
+            "IV 직접 확인 시험 안건 없음 — 협력사 공유용 입력에는 사내 계획서·분석자 가설이 없어 IV 결과가 문제라는 맥락이 약함(설계 한계)"
+          ]
+        }
+      ]
+    },
+    {
+      "run": "run5_t2",
+      "change_before_run": "코드 변경 없음 — 4회차 T2 결과의 재현 확인",
+      "code_sha256": {
+        "rag_service/work_assist.py": "e0c569e62f44823cbf621389695a5a21ea38e0e01e8b784c85f63da46c391626",
+        "rag_service/internal_documents.py": "006d4a4bffb784c6df1a88afc46c9327caad66800b06db2c10cd91505e19ba8f",
+        "rag_service/memo_workflow.py": "5597b4cf6dd2fa82024297805e28680dc2ad2c0243106cc74fc2a409c098ed99",
+        "rag_service/work_drafts.py": "b55e0fca7f16134f77add24039e9a0d1f1e6e68cd109e679c5cc03c69f46720f"
+      },
+      "drafts": [
+        {
+          "label": "T2",
+          "as_of": "2026-03-27",
+          "audience": "internal",
+          "model_reported": "gpt-5.6-luna",
+          "selected_units": 15,
+          "eligible_units": 15,
+          "retrieval": "all_available_units",
+          "items": 12,
+          "usage": {
+            "input_tokens": 5102,
+            "output_tokens": 1193
+          },
+          "audit_warnings": [],
+          "rubric_final_rules_misses": [],
+          "reviewer_verdict": "pass",
+          "reviewer_notes": []
+        }
+      ]
+    },
+    {
+      "run": "run6_plain_labels",
+      "change_before_run": "화면·AI 입력 문구를 일상어로(상태·항목·기준 표시), 진행 현황 카드형, 상태가 된 날(since)·재확인 기록 구분, 업무 시작 순 정렬. 협력사 공유용은 화면에서 숨겨 T1~T4만 실행",
+      "code_sha256": {
+        "rag_service/work_assist.py": "d1c8bf40aef8ffe7f8d207a0b4393daeae6bd07c5eb2c46b09e8d20700e00619",
+        "rag_service/internal_documents.py": "aaf8465f59d514b74ae0355c88666ad6cadb8fbd396c2851bda2156a9895f442",
+        "rag_service/memo_workflow.py": "c50d3e4ddfb7a4b758aa18183a38794aef0ccded599c2a4dbb8454bac53f36a4",
+        "rag_service/work_drafts.py": "b55e0fca7f16134f77add24039e9a0d1f1e6e68cd109e679c5cc03c69f46720f"
+      },
+      "drafts": [
+        {
+          "label": "T1",
+          "as_of": "2026-03-06",
+          "audience": "internal",
+          "model_reported": "gpt-5.6-luna",
+          "selected_units": 6,
+          "eligible_units": 6,
+          "retrieval": "all_available_units",
+          "items": 10,
+          "usage": {
+            "input_tokens": 2795,
+            "output_tokens": 854
+          },
+          "audit_warnings_at_run": [
+            "contradicts_result_record"
+          ],
+          "audit_warnings_final_checker": [],
+          "rubric_final_rules_misses": [],
+          "reviewer_verdict": "pass",
+          "reviewer_notes": [
+            "IV 직접 확인 자료 필요까지 언급",
+            "자동 검사 오탐: 업무 이름 없는 '재확인 결과가 없다'(검사기 수정 후 0건)"
+          ]
+        },
+        {
+          "label": "T2",
+          "as_of": "2026-03-27",
+          "audience": "internal",
+          "model_reported": "gpt-5.6-luna",
+          "selected_units": 15,
+          "eligible_units": 15,
+          "retrieval": "all_available_units",
+          "items": 12,
+          "usage": {
+            "input_tokens": 4968,
+            "output_tokens": 1173
+          },
+          "audit_warnings_at_run": [],
+          "audit_warnings_final_checker": [],
+          "rubric_final_rules_misses": [],
+          "reviewer_verdict": "pass",
+          "reviewer_notes": [
+            "공백 1에 '유사함으로 변경 가능 여부 미확정'이라는 표현이 판단 칸과 약간 어긋남(경미)"
+          ]
+        },
+        {
+          "label": "T3",
+          "as_of": "2026-04-21",
+          "audience": "internal",
+          "model_reported": "gpt-5.6-luna",
+          "selected_units": 25,
+          "eligible_units": 25,
+          "retrieval": "criteria_task_material_bm25_then_documents_and_scope_state_sources",
+          "items": 12,
+          "usage": {
+            "input_tokens": 7132,
+            "output_tokens": 1113
+          },
+          "audit_warnings_at_run": [],
+          "audit_warnings_final_checker": [],
+          "rubric_final_rules_misses": [],
+          "reviewer_verdict": "pass",
+          "reviewer_notes": [
+            "구두 4/24 → 서면 5/8 변경을 직접 언급"
+          ]
+        },
+        {
+          "label": "T4",
+          "as_of": "2026-05-15",
+          "audience": "internal",
+          "model_reported": "gpt-5.6-luna",
+          "selected_units": 31,
+          "eligible_units": 31,
+          "retrieval": "criteria_task_material_bm25_then_documents_and_scope_state_sources",
+          "items": 12,
+          "usage": {
+            "input_tokens": 8551,
+            "output_tokens": 1504
+          },
+          "audit_warnings_at_run": [],
+          "audit_warnings_final_checker": [],
+          "rubric_final_rules_misses": [],
+          "reviewer_verdict": "pass",
+          "reviewer_notes": [
+            "Q-02 대체 문구 항목의 근거 성격을 모델이 '발언 주체 의견'으로 잘못 표시(화면 배지 '의견', 경미)"
+          ]
+        }
+      ]
+    }
+  ],
+  "live_service_check": [
+    {
+      "as_of": "2026-04-21",
+      "task": "result_review",
+      "state": "completed",
+      "created_at": "2026-10-18T14:15:01.845701+00:00",
+      "usage": {
+        "input_tokens": 7331,
+        "output_tokens": 1027
+      },
+      "audit_warnings": [],
+      "reviewer_verdict": "pass"
+    },
+    {
+      "as_of": "2026-05-15",
+      "task": "ra_preparation",
+      "state": "completed",
+      "created_at": "2026-10-18T18:58:41.144710+00:00",
+      "usage": {
+        "input_tokens": 8551,
+        "output_tokens": 1473
+      },
+      "audit_warnings": [],
+      "reviewer_verdict": "pass"
+    }
+  ],
+  "remaining_limits": [
+    "협력사 공유용 초안은 사내 맥락이 없어 IV 직접 확인 시험 같은 사내 판단에서 나오는 안건을 만들지 못함(4/4회). 10-19부터 화면에서 숨김(API는 유지)",
+    "같은 입력도 모델 응답이 달라짐: 사내용 T2의 IV 직접 시험 안건은 규칙 추가 후 2/2회, 그 전 0/3회. 표본이 작음",
+    "자동 검사는 한국어 정규식 기반의 좁은 검사이며 실행 중 오탐 2종을 고침. 놓치는 오류가 있을 수 있음",
+    "시나리오 31개 단위는 대부분 기준일에 전부 공급됨(T4만 30/31). 대규모 내부 문서에서의 검색 성능은 검증하지 않음",
+    "전문가 검토 없음. 합성 시나리오이며 실제 회사 자료·기관 판단과 무관"
+  ],
+  "input_note": "2026-10-19에 안내문(disclosure)만 SB17 가명 표기로 바꿈. 문서·단위·이벤트는 그대로(문서별 content_sha256 동일). 안내문은 모델 입력에 들어가지 않음."
+}

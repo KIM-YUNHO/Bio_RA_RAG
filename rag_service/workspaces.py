@@ -16,6 +16,7 @@ import time
 from uuid import uuid4
 
 from rag_service.reviews import RevisionConflict
+from rag_service import memo_items
 
 STAGES = [
     # The notebook follows the project's biosimilar evidence review scope.
@@ -197,8 +198,8 @@ class WorkspaceStore:
             raise ValueError('저장할 단계를 한 개 이상 선택하세요.')
         return {'body': body, 'stage_ids': stage_ids, 'products': products, 'tags': tags(payload.get('tags', []))}
 
-    def add(self, project_id, payload, source=None):
-        if not isinstance(payload, dict) or set(payload) - {'body', 'stage_ids', 'products', 'tags', 'source', 'request_id'}:
+    def add(self, project_id, payload, source=None, *, item_context=None):
+        if not isinstance(payload, dict) or set(payload) - {'body', 'stage_ids', 'products', 'tags', 'source', 'request_id', 'annotations'}:
             raise ValueError('메모 저장 요청을 확인하세요.')
         request_id = identity(payload.get('request_id'))
         key = ('rag:' + source['key']) if source else ('manual:' + request_id)
@@ -219,12 +220,13 @@ class WorkspaceStore:
             stamp = now()
             memo = {'id': uuid4().hex, **fields, 'origin': 'rag' if source else 'manual', 'source': source,
                     'save_key': key, 'archived': False, 'revision': 1, 'history': [], 'created_at': stamp, 'updated_at': stamp}
+            memo['items'] = memo_items.annotate(memo_items.build(memo['id'], fields['body'], source, item_context), payload.get('annotations', []))
             project['memos'].insert(0, memo)
             self.save(project)
             return {**self.pipeline_record(project), 'saved_memo_id': memo['id'], 'duplicate': False}
 
     def revise(self, project_id, memo_id, payload):
-        if not isinstance(payload, dict) or set(payload) != {'body', 'stage_ids', 'products', 'tags', 'archived', 'expected_revision'}:
+        if not isinstance(payload, dict) or set(payload) - {'body', 'stage_ids', 'products', 'tags', 'archived', 'expected_revision', 'annotations'} or not {'body', 'stage_ids', 'products', 'tags', 'archived', 'expected_revision'} <= set(payload):
             raise ValueError('메모 수정 요청을 확인하세요.')
         if type(payload['expected_revision']) is not int or type(payload['archived']) is not bool:
             raise ValueError('메모 버전과 보관 상태를 확인하세요.')
@@ -237,13 +239,55 @@ class WorkspaceStore:
             if memo['revision'] != payload['expected_revision']:
                 raise RevisionConflict('다른 창에서 메모가 바뀌었습니다. 입력을 보존한 뒤 다시 불러오세요.')
             fields = {**self.fields(payload), 'archived': payload['archived']}
+            if 'annotations' in payload:
+                fields['items'] = memo_items.annotate(memo.get('items', []), payload['annotations'])
+            if memo['origin'] == 'manual' and memo.get('items') and not memo['items'][0].get('context') and fields['body'] != memo['body']:
+                fields['items'] = deepcopy(fields.get('items', memo['items']))
+                fields['items'][0]['text'] = fields['body']
             if fields['products'] != memo['products']:
                 raise ValueError('저장 당시 참고 제품은 변경할 수 없습니다. 메모 내용과 태그를 수정하세요.')
-            if any(memo[k] != v for k, v in fields.items()):
-                memo['history'].append({k: deepcopy(memo[k]) for k in (*fields, 'revision', 'updated_at')})
+            if any(memo.get(k) != v for k, v in fields.items()):
+                memo['history'].append({k: deepcopy(memo.get(k)) for k in (*fields, 'revision', 'updated_at')})
                 memo.update(fields, revision=memo['revision'] + 1, updated_at=now())
                 self.save(project)
             return self.pipeline_record(project)
+
+    def structure(self, project_id, memo_id, expected_revision, source):
+        """Explicit, non-destructive conversion from the original hash-checked report."""
+        if type(expected_revision) is not int:
+            raise ValueError('메모 버전을 확인하세요.')
+        with self.writing():
+            project = self.get(project_id)
+            memo = next((m for m in project['memos'] if m['id'] == identity(memo_id)), None)
+            if memo is None:
+                raise KeyError(memo_id)
+            if memo['revision'] != expected_revision:
+                raise RevisionConflict('다른 창에서 메모가 바뀌었습니다. 다시 불러오세요.')
+            old = memo.get('source')
+            if not old or not source or old.get('report_sha256') != source.get('report_sha256') or old.get('key') != source.get('key'):
+                raise ValueError('저장 당시 보고서와 일치하지 않습니다. 기존 메모는 보존했습니다.')
+            if memo.get('items'):
+                return self.pipeline_record(project)
+            items = memo_items.build(memo['id'], memo['body'], source)
+            if not items:
+                raise ValueError('원 보고서에 분리 가능한 주장이 없습니다. 원문 메모를 유지합니다.')
+            memo['history'].append({k: deepcopy(memo.get(k)) for k in ('body', 'items', 'source', 'revision', 'updated_at')})
+            memo.update(source=source, items=items, revision=memo['revision'] + 1, updated_at=now())
+            self.save(project)
+            return self.pipeline_record(project)
+
+    def register_documents(self, project_id, bundle):
+        """Add internal document versions (immutable); an identical re-import changes nothing."""
+        from rag_service import internal_documents
+        with self.writing():
+            project = self.get(project_id)
+            documents, scopes, simulation = internal_documents.normalize_bundle(bundle, project.get('work_scopes'))
+            before = (project.get('work_scopes'), project.get('simulation'))
+            result = internal_documents.merge(project, documents, scopes, simulation)
+            if result['added'] or before != (project.get('work_scopes'), project.get('simulation')):
+                self.save(project)
+            return {**result, 'project_id': project['id'], 'document_count': len(project['documents']),
+                    'project_revision': project['revision']}
 
     def save(self, project):
         project['revision'] += 1
@@ -375,7 +419,7 @@ class PostgresWorkspaceStore(WorkspaceStore):
 
 def source_packet(jobs, request):
     """Resolve references from an archived report, never trust client-supplied quotes."""
-    if not isinstance(request, dict) or set(request) - {'job_id', 'result_index', 'kind', 'claim_id', 'evidence_id'}:
+    if not isinstance(request, dict) or set(request) - {'job_id', 'result_index', 'kind', 'claim_id', 'claim_ids', 'evidence_id'}:
         raise ValueError('근거 저장 요청을 확인하세요.')
     job_id = identity(request.get('job_id'))
     job = jobs.get(job_id)
@@ -387,14 +431,26 @@ def source_packet(jobs, request):
         raise ValueError('답변 위치를 확인하세요.')
     result = results[index]
     kind = request.get('kind')
+    selected = []
+    if 'claim_ids' in request and kind != 'answer':
+        raise ValueError('답변 항목 선택은 전체 답변 저장에서만 지원합니다.')
     if kind == 'claim':
         claim = next((c for c in result.get('claims', []) if c.get('id') == request.get('claim_id')), None)
         if claim is None:
             raise ValueError('저장할 주장을 찾지 못했습니다.')
         original, quotes = claim['text'], deepcopy(claim.get('sources') or [])
+        selected = [claim]
     elif kind == 'answer':
         claims = result.get('claims') or []
+        if 'claim_ids' in request:
+            ids = request['claim_ids']
+            if not isinstance(ids, list) or not ids or len(ids) > 64 or any(not isinstance(i, str) for i in ids) or len(set(ids)) != len(ids) or not set(ids) <= {c['id'] for c in claims}:
+                raise ValueError('저장할 답변 항목을 한 개 이상 선택하세요.')
+            claims = [c for c in claims if c['id'] in ids]
+        selected = claims
         original = result.get('answer_ko') or ''
+        if 'claim_ids' in request:
+            original = '\n\n'.join(c['text'] for c in claims)
         quotes = [deepcopy(s) for c in claims for s in c.get('sources', [])]
     elif kind == 'evidence':
         eid = request.get('evidence_id')
@@ -414,10 +470,15 @@ def source_packet(jobs, request):
         path = jobs.pages.path(block)
         jobs.workspaces.remember_document(block, path)
         keys = ('document_id', 'version_id', 'chunk_id', 'pdf_page', 'pdf_page_label', 'title', 'source', 'product_id',
-                'jurisdiction', 'source_url', 'source_refs', 'source_spans', 'structure')
+                 'jurisdiction', 'source_url', 'source_refs', 'source_spans', 'structure', 'document_metadata')
         evidence_rows.append({'id': eid, **{k: deepcopy(block.get(k)) for k in keys}})
-    locator = {k: request[k] for k in ('job_id', 'result_index', 'kind', 'claim_id', 'evidence_id') if k in request}
+    locator = {k: request[k] for k in ('job_id', 'result_index', 'kind', 'claim_id', 'claim_ids', 'evidence_id') if k in request}
+    if 'claim_ids' in locator:
+        locator['claim_ids'] = sorted(locator['claim_ids'])
+    claim_keys = ('id', 'text', 'kind', 'claim_basis', 'parent_claim_id', 'products', 'task_ids', 'sources', 'support_review')
     return {**locator, 'key': hashlib.sha256(json.dumps(locator, sort_keys=True).encode()).hexdigest(),
             'question': job.get('question') or job['report'].get('question') or '',
             'original_text': original, 'quotes': quotes, 'evidence': evidence_rows,
+            'claims': [{k: deepcopy(c[k]) for k in claim_keys if k in c} for c in selected],
+            'report_origin': job['report'].get('origin', 'rag'),
             'report_sha256': jobs.reviews.report_hash(job), 'index': deepcopy(job['report'].get('index'))}
