@@ -1,7 +1,7 @@
 # 문서 안내
 
 - 작성: 2026-10-14 14:10 KST
-- 최종 수정: 2026-10-16 16:50 KST (`current/` 현재 서빙 상태 파트별 문서 추가. 이전: 10-15 17:32 자료 수집·적재 창 연결)
+- 최종 수정: 2026-10-20 02:00 KST (project에 발표 도입부 배경 문서 추가. 이전: 10-16 16:50 `current/` 현재 서빙 상태 파트별 문서 추가)
 
 처음 읽는 순서: [현재 서빙 상태](current/README.md) → 루트 [README](../README.md) → [운영 원칙](PIPELINE_PRINCIPLES.md) → 관심 영역 문서. 아래 날짜가 붙은 문서는 당시 기록이므로, 지금 서비스가 어떤 데이터·설정으로 도는지는 `current/`를 먼저 본다.
 
@@ -61,6 +61,7 @@
 | [PGVECTOR_INTEGRATION_MAP_2026-10-14.md](project/PGVECTOR_INTEGRATION_MAP_2026-10-14.md) | **PostgreSQL + pgvector 통합 때 고칠 파일·모듈 위치** |
 | [LIMITATIONS_AND_NEXT_STEPS_2026-10-12.md](project/LIMITATIONS_AND_NEXT_STEPS_2026-10-12.md) | 한계점과 보완 순서 |
 | [BIOSIMILAR_WORKFLOW_AND_POC_REVIEW_2026-10-04.md](project/BIOSIMILAR_WORKFLOW_AND_POC_REVIEW_2026-10-04.md) | 바이오시밀러 RA 실무와 PoC 방향(프로젝트 목적) |
+| [PRESENTATION_BACKGROUND_BIOSIMILAR_2026-10-20.md](project/PRESENTATION_BACKGROUND_BIOSIMILAR_2026-10-20.md) | 발표 도입부 배경: RA 업무·문서의 어려움, RAG가 필요한 이유, 우스테키누맙·5제품, 성분·제품 수, 특허 만료 전망(수치·출처) |
 | [RELATED_RESEARCH_REVIEW_2026-10-06.md](research/RELATED_RESEARCH_REVIEW_2026-10-06.md) | 참고 선행연구 |
 
 ## 옮기지 않은 문서로 가는 링크
