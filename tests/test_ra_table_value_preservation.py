@@ -255,3 +255,31 @@ class TableValuePreservation(unittest.TestCase):
 
 if __name__=='__main__':
     unittest.main()
+
+
+ADA_TABLE = '''Table 21.  Immunogenicity Results for Post-treatment Status (Safety Set)
+<table><tr><th>Study </th><th>% (n/N) </th><th>CT-P43 </th><th>EU-Stelara </th><th>US-Stelara</th></tr>
+<tr><td>CT-P43 1.2 </td><td>At Least One Positive  ADA After Administration </td><td>16.2% (18/111) </td><td>44.4% (48/108) </td><td>39.6% (42/106)</td></tr></table>'''
+
+
+class PrintedPercentCells(unittest.TestCase):
+    """A cell that prints its own % (and n/N) gives its value that unit; group identity still binds."""
+    def setUp(self):
+        self.evidence={'E1':block(ADA_TABLE,trial='CT-P43 1.2',product='CTP43')}
+
+    def complete(self,text,quotes):
+        parent=selected(self.evidence,text,quotes)
+        parent['products']=['CTP43']
+        return ra_table_citations.complete([parent],self.evidence)[0][0]
+
+    def test_printed_percent_cell_supports_its_own_group(self):
+        parent=self.complete('CT-P43 1.2 시험의 투여 후 ADA 양성률은 CT-P43군 16.2%(18/111)였다.',['<td>16.2% (18/111) </td>'])
+        self.assertIsNone(ra_table_citations.check(parent,self.evidence))
+        self.assertIsNone(ra_quantities.check(parent,self.evidence))
+
+    def test_printed_percent_cell_of_another_group_or_value_is_rejected(self):
+        for text,quote in [('CT-P43 1.2 시험의 투여 후 ADA 양성률은 CT-P43군 44.4%였다.','<td>44.4% (48/108) </td>'),
+                           ('CT-P43 1.2 시험의 투여 후 ADA 양성률은 EU-Stelara군 16.2%였다.','<td>16.2% (18/111) </td>')]:
+            with self.subTest(text=text):
+                parent=self.complete(text,[quote])
+                self.assertIsNotNone(ra_table_citations.check(parent,self.evidence) or ra_quantities.check(parent,self.evidence))

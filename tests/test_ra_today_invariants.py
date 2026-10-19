@@ -13,6 +13,50 @@ class TodayInvariants(unittest.TestCase):
         self.assertNotIn('1',ra_quantities.numbers('I consider IV administration appropriate.'))
         self.assertNotIn((1,'mg'),ra_quantities.quantities('Phase I study'))
 
+    def test_product_name_inside_study_id_is_not_removed_into_a_negative_number(self):
+        quote=('PK similarity study in healthy adult subjects (BAT-2206-001-CR). The ADA samples were collected at '
+               'pre - dose, and at 10, 15, 29, 57, 85, and 113 days after drug administration.')
+        evidence={'E1':block(quote,trial='BAT-2206-001-CR',product='BAT2206')}
+        a=claim(evidence,'BAT-2206-001-CR에서 ADA 시료는 투여 전과 투여 후 10일, 15일, 29일, 57일, 85일 및 113일에 채취했다.')
+        a['products']=['BAT2206']
+        self.assertNotIn('-1',ra_quantities.numbers(ra_quantities.substantive_text(a,evidence)))
+        self.assertIsNone(ra_quantities.check(a,evidence))
+        a['text']='BAT-2206에서 ADA 시료는 투여 후 10일, 15일, 29일, 57일, 85일 및 120일에 채취했다.'
+        self.assertEqual(ra_quantities.check(a,evidence),'claim_number_not_in_final_citations')
+
+    def test_at_least_once_positive_is_not_a_single_dose_qualifier(self):
+        evidence={'E1':block('At Least One Positive ADA After Administration 16.2% (18/111)')}
+        for text in ['투여 후 ADA 양성(투여 후 최소 한 번 양성)은 16.2%였다.',
+                     '투여 후 ADA 양성은 기저시점 이후 ADA 양성이 한 번 이상인 경우로 정의되었다.']:
+            a=claim(evidence,text)
+            self.assertNotEqual(ra_source_constraints.check(a,evidence),'single_dose_qualifier_not_in_selected_sources',text)
+        evidence={'E1':block('Subjects received 45 mg SC injection.')}
+        for text in ['대상자는 45 mg을 한 번 투여받았다.','대상자는 45 mg SC를 한 번만 주사받았다.']:
+            a=claim(evidence,text)
+            self.assertEqual(ra_source_constraints.check(a,evidence),'single_dose_qualifier_not_in_selected_sources',text)
+
+    def test_overlapping_identity_spans_are_removed_once(self):
+        # When one removed name contains another, deleting both in turn also deleted the
+        # characters after them ("12" lost its 1), so an unsupported number could pass.
+        from unittest import mock
+        from rag import study_registry
+        evidence={'E1':block('Subjects received 2 doses.')}
+        a=claim(evidence,'Foo Bar 12주에 투여했다.')
+        with mock.patch.object(study_registry,'products',return_value={'SB17':{'names':['Foo','Foo Bar']}}):
+            self.assertIn('12',ra_quantities.substantive_text(a,evidence))
+            self.assertEqual(ra_quantities.check(a,evidence),'claim_number_not_in_final_citations')
+
+    def test_korean_primary_secondary_ranks_are_not_numbers_when_cited_as_such(self):
+        evidence={'E1':block('The primary efficacy endpoint was percent improvement in PASI at Week 12.')}
+        a=claim(evidence,'1차 유효성 평가변수는 Week 12의 PASI 백분율 개선이었다.')
+        self.assertIsNone(ra_quantities.check(a,evidence))
+        evidence={'E1':block('The efficacy endpoint was percent improvement in PASI at Week 12.')}
+        a=claim(evidence,'1차 유효성 평가변수는 Week 12의 PASI 백분율 개선이었다.')
+        self.assertEqual(ra_quantities.check(a,evidence),'claim_number_not_in_final_citations')
+        evidence={'E1':block('The primary endpoint was assessed at Visit 11.')}
+        a=claim(evidence,'1차 평가변수는 12차 방문에서 평가했다.')
+        self.assertEqual(ra_quantities.check(a,evidence),'claim_number_not_in_final_citations')
+
     def test_eligibility_does_not_establish_observed_female_weight_or_bmi(self):
         evidence={'E1':block('The sex criterion was extended to include female subjects with body weight of 60.0-90.0 kg and BMI 19.0-29.9 kg/m2. Eligibility criteria were acceptable.')}
         a=claim(evidence,'실제 대상군에 여성도 포함되었고 여성의 체중은 60.0~90.0 kg, BMI는 19.0~29.9 kg/m²였다.')
