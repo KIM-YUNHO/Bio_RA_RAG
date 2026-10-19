@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>바이오시밀러 RA 근거 검색</title>
-<link rel="stylesheet" href="/style.css?v=20261016-memo-evidence">
+<link rel="stylesheet" href="/style.css?v=20261019-work-simple">
 <link rel="stylesheet" href="/data-manager.css?v=20261016-session-delete-fix1">
 <script defer src="/common.js"></script><script defer src="/review-notes.js"></script><script defer src="/evidence-view.js"></script>
-<script defer src="/inventory.js"></script><script defer src="/viewer.js?v=20261016-remove-review-page"></script><script defer src="/pipeline-notes.js?v=20261016-memo-evidence"></script><script defer src="/data-manager.js?v=20261016-sidebar-state"></script><script defer src="/app.js?v=20261016-remove-review-page"></script></head>
+<script defer src="/inventory.js"></script><script defer src="/viewer.js?v=20261016-remove-review-page"></script><script defer src="/pipeline-notes.js?v=20261019-work-simple"></script><script defer src="/work-assist.js?v=20261019-work-simple"></script><script defer src="/data-manager.js?v=20261016-sidebar-state"></script><script defer src="/app.js?v=20261016-remove-review-page"></script></head>
 <body>
 <header><a class="brand" href="/" aria-label="처음 화면"><span class="brand-bar" aria-hidden="true"></span><div class="brand-text"><strong>바이오시밀러 RA 근거 검색</strong><small>EMA · FDA · Health Canada 공개 규제 문서</small></div></a><div class="header-right"><button id="data-manager-open" type="button" class="download">자료 수집·적재</button></div></header>
 <main id="layout" class="layout">
@@ -27,10 +27,10 @@
       <div class="pipeline-dock-bar"><strong>바이오시밀러 RA 파이프라인</strong><button id="pipeline-all" type="button" class="download">전 단계 메모</button></div>
       <div id="pipeline-board" class="pipeline-board">
       <div id="pipeline-steps" class="pipeline-steps"></div>
-      <div class="pipeline-memo-toolbar"><strong id="pipeline-memo-title">단계별 메모</strong><div class="pipeline-filters"><label for="memo-tag-filter" class="sr-only">메모 태그 필터</label><select id="memo-tag-filter"><option value="">전체 태그</option></select><label class="small"><input id="memo-archived" type="checkbox">보관함</label><button id="memo-refresh" type="button" class="link-button">새로고침</button></div></div>
+      <div class="pipeline-memo-toolbar"><strong id="pipeline-memo-title">단계별 메모</strong><div class="pipeline-filters"><label for="memo-type-filter" class="sr-only">항목 유형 필터</label><select id="memo-type-filter"><option value="">전체 유형</option></select><label for="memo-tag-filter" class="sr-only">메모 태그 필터</label><select id="memo-tag-filter"><option value="">전체 태그</option></select><label class="small"><input id="memo-archived" type="checkbox">보관함</label><button id="memo-refresh" type="button" class="link-button">새로고침</button></div></div>
       <div id="pipeline-memos" class="pipeline-memos"><p class="muted small">개발 중인 제품의 파이프라인을 추가하고 단계별로 메모와 근거를 저장하세요.</p></div>
       </div>
-      <div class="pipeline-bottom"><span class="muted small">협력사·쟁점은 메모 태그로 정리하세요.</span><button id="memo-add" type="button" class="download">+ 단계 메모</button></div>
+      <div class="pipeline-bottom"><button id="memo-work" type="button" class="download">업무 현황·AI 초안</button><button id="memo-brief" type="button" class="download">업무별 항목 보기</button><button id="memo-add" type="button" class="download">+ 단계 메모</button></div>
       <div id="pipeline-message" class="pipeline-message" role="status"></div>
     </section>
     <section class="ra-conversation" aria-label="문서 근거 채팅">

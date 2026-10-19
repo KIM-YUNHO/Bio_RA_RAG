@@ -6,7 +6,8 @@ import re
 STATIC = Path(__file__).parent/'web'
 STATIC_FILES = {'/':'index.html','/style.css':'style.css','/common.js':'common.js','/evidence-view.js':'evidence-view.js',
     '/inventory.js':'inventory.js','/viewer.js':'viewer.js','/review-notes.js':'review-notes.js','/app.js':'app.js',
-    '/pipeline-notes.js':'pipeline-notes.js','/data-manager.js':'data-manager.js','/data-manager.css':'data-manager.css'}
+    '/pipeline-notes.js':'pipeline-notes.js','/data-manager.js':'data-manager.js','/data-manager.css':'data-manager.css',
+    '/work-assist.js':'work-assist.js'}
 STATIC_TYPES = {'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8'}
 EVIDENCE_ROUTE = re.compile(r'/api/jobs/([0-9a-f]{32})/evidence/(\d{1,3})/([A-Za-z0-9_-]{1,32})(?:/(page)/(\d{1,5})|/(crop)|/(document\.pdf))?')
 
@@ -45,4 +46,6 @@ def post_path_known(path):
 
 def body_limit(path):
     """Largest accepted JSON body for a POST path, in bytes."""
+    if is_workspace_path(path) and path.endswith('/documents'):
+        return 524288  # an internal document bundle
     return 65536 if is_review_path(path) or is_workspace_path(path) else 16384

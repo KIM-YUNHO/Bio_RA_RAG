@@ -23,13 +23,16 @@ from rag_service.http_rules import (STATIC, STATIC_FILES, STATIC_TYPES, EVIDENCE
 
 
 class Jobs:
-    def __init__(self,pipeline,archive_dir=None,review_dir=None,conversation_dir=None,workspace_store=None,ingestion_service=None):
+    def __init__(self,pipeline,archive_dir=None,review_dir=None,conversation_dir=None,workspace_store=None,ingestion_service=None,work_drafts=None):
         self.pipeline=pipeline;self.lock=Lock();self.jobs={};self.busy=False
         self.archive_dir=Path(archive_dir).resolve() if archive_dir is not None else None
         self.archive_load_errors=[]
         self.reviews=ReviewStore(review_dir or (self.archive_dir/'reviews' if self.archive_dir else None))
         self.workspaces = workspace_store or WorkspaceStore(self.archive_dir.parent/'ra_workspaces' if self.archive_dir else None)
         self.ingestion = ingestion_service or ingestion_api.IngestionAPI()
+        from rag_service.work_drafts import WorkDraftService
+        self.work_drafts = work_drafts or WorkDraftService(self.workspaces, self.archive_dir.parent/'ra_work_drafts' if self.archive_dir else None,
+            model=getattr(getattr(pipeline,'chat_client',None),'model','gpt-5.6-luna'))
         if self.archive_dir is not None:
             self.archive_dir.mkdir(parents=True,exist_ok=True)
             for path in sorted(self.archive_dir.glob('*.json'),key=lambda p:p.stat().st_mtime)[-20:]:
@@ -170,7 +173,7 @@ class Jobs:
         rows.sort(key=lambda r:r['created_at'],reverse=True)
         return {'jobs':rows[offset:offset+limit],'total':len(rows),'limit':limit,'offset':offset,'busy':busy}
 
-    def close(self):self.executor.shutdown(wait=True)
+    def close(self):self.executor.shutdown(wait=True);self.work_drafts.close()
 
 
 def handler(jobs):
@@ -268,6 +271,7 @@ def main():
     parser.add_argument('--review-dir',type=Path,help='Separate append-only review history')
     parser.add_argument('--conversation-dir',type=Path,help='Conversation turn records (default data/runs/ra_conversations in RA mode)')
     parser.add_argument('--workspace-dir',type=Path,help='Use local notebook files instead of PostgreSQL (offline fixture/standalone mode)')
+    parser.add_argument('--work-draft-dir',type=Path,help='Internal work draft records (default: ra_work_drafts next to the report archive)')
     parser.add_argument('--server',choices=('stdlib','fastapi'),default='stdlib',
         help='HTTP layer: the standard-library server, or the FastAPI app (rag_service/app.py, same URLs and answers)')
     parser.add_argument('--warmup',action='store_true',help='Warm local retrieval before accepting questions; no provider calls')
@@ -293,8 +297,12 @@ def main():
     if args.warmup and args.mode=='ra':print(json.dumps({'retrieval_warmup':pipeline.warmup()},ensure_ascii=False),flush=True)
     from rag_service.workspaces import PostgresWorkspaceStore
     workspace_store=WorkspaceStore(args.workspace_dir) if args.workspace_dir else PostgresWorkspaceStore()
+    from rag_service.work_drafts import WorkDraftService
+    # Internal work drafts use the service's selected model; legacy mode has no framework model, so they default to Luna.
+    draft_dir=args.work_draft_dir or (Path(archive_dir).parent/'ra_work_drafts' if archive_dir else None)
+    work_drafts=WorkDraftService(workspace_store,draft_dir,model=args.llm_model if args.mode=='ra' else 'gpt-5.6-luna')
     jobs=Jobs(pipeline,archive_dir,args.review_dir or (Path('data/runs/ra_review_records') if args.mode=='ra' else None),
-        args.conversation_dir or (Path('data/runs/ra_conversations') if args.mode=='ra' else None), workspace_store)
+        args.conversation_dir or (Path('data/runs/ra_conversations') if args.mode=='ra' else None), workspace_store, work_drafts=work_drafts)
     if args.server=='fastapi':
         import uvicorn
         from rag_service.app import create_app

@@ -35,6 +35,51 @@ class PostgresNotebookTests(unittest.TestCase):
         with connect() as conn:
             conn.execute(sql.SQL('DROP DATABASE {}').format(sql.Identifier(cls.dbname)))
 
+    def test_item_annotations_and_history_persist_across_connections(self):
+        store = PostgresWorkspaceStore(self.connector)
+        project = store.create({'name': 'Memo unit persistence', 'ingredient': 'ustekinumab'})
+        saved = store.add(project['id'], {'request_id': uuid4().hex, 'body': 'Hypothetical result',
+            'stage_ids': ['cmc'], 'products': [], 'tags': [],
+            'annotations': [{'key': 'manual', 'type': 'interpretation', 'modality': 'predicted', 'subject': 'FcRn'}]})
+        memo = saved['memos'][0]
+        changes = {k: memo[k] for k in ('body', 'stage_ids', 'products', 'tags', 'archived')}
+        store.revise(project['id'], memo['id'], {**changes, 'expected_revision': 1,
+            'annotations': [{'key': 'manual', 'note': 'Check raw data first'}]})
+        restored = PostgresWorkspaceStore(self.connector).get(project['id'])['memos'][0]
+        self.assertEqual(restored['items'][0]['modality'], 'predicted')
+        self.assertEqual(restored['items'][0]['run_validity'], 'not_disclosed')
+        self.assertEqual(restored['items'][0]['note'], 'Check raw data first')
+        self.assertEqual(restored['history'][0]['items'], memo['items'])
+
+    def test_document_item_keeps_speaker_and_events_after_reopen_and_body_edit(self):
+        from eval.build_pre_disclosure_v3 import fixture
+        store = PostgresWorkspaceStore(self.connector)
+        project = store.create({'name': 'Imported source context', 'ingredient': 'ustekinumab'})
+        unit = next(u for u in fixture()['units'] if u['id'] == 'U12')
+        saved = store.add(project['id'], {'request_id': uuid4().hex, 'body': unit['text'],
+            'stage_ids': ['cmc'], 'products': [], 'tags': []}, item_context=unit['context'])
+        memo = saved['memos'][0]
+        changes = {k: memo[k] for k in ('body', 'stage_ids', 'products', 'tags', 'archived')}
+        store.revise(project['id'], memo['id'], {**changes, 'expected_revision': 1, 'body': 'Separate reviewer working note'})
+        restored = PostgresWorkspaceStore(self.connector).get(project['id'])['memos'][0]
+        self.assertEqual(restored['items'][0]['context'], unit['context'])
+        self.assertEqual(restored['items'][0]['text'], unit['text'])
+        self.assertEqual(restored['items'][0]['statement_role'], 'analyst_opinion')
+        self.assertEqual(restored['body'], 'Separate reviewer working note')
+
+    def test_internal_documents_persist_and_reimport_is_a_no_op(self):
+        from test_internal_work import BUNDLE
+        from rag_service import internal_documents
+        store = PostgresWorkspaceStore(self.connector)
+        project = store.create({'name': 'Internal document persistence', 'ingredient': 'ustekinumab'})
+        self.assertEqual(len(store.register_documents(project['id'], BUNDLE)['added']), 20)
+        reopened = PostgresWorkspaceStore(self.connector)
+        self.assertEqual(reopened.register_documents(project['id'], BUNDLE)['added'], [])
+        restored = reopened.get(project['id'])
+        board = {s['scope_id']: s for s in internal_documents.board(restored, '2026-04-21')}
+        self.assertEqual(board['W-IV-CPB']['axes']['schedule']['date'], '2026-05-08')
+        self.assertEqual(restored['revision'], project['revision'] + 1)
+
     def test_projects_tags_revision_and_catalog_reload_independence(self):
         store = PostgresWorkspaceStore(self.connector)
         project = store.create({'name': 'DB 개발 제품', 'ingredient': 'ustekinumab'})

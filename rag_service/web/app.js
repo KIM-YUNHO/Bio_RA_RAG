@@ -68,7 +68,7 @@ function renderMemo(report,target,jobId){
   panel.append(node("p","validation-note","자동 생성 초안입니다. 미팅 질문은 전문가 검토가 필요합니다."));
   for(const issue of memo.issues){const box=node("section","memo-issue");box.append(node("h3","",issue.request));
     for(const claim of issue.claims){box.append(node("p","",({source_fact:"원문 사실",applicant_position:"신청자 설명",regulator_position:"기관 판단",interpretation:"해석"}[claim.statement_role]||claim.statement_role)+" · "+claim.text));
-      if(typeof PipelineNotes!=="undefined")box.append(button("+ 단계 메모로 반영","link-button",()=>PipelineNotes.pin({jobId,resultIndex:0,claimId:claim.claim_id,body:claim.text,products:claim.products||[]})));
+      if(typeof PipelineNotes!=="undefined")box.append(button("+ 단계 메모로 반영","link-button",()=>PipelineNotes.pin({jobId,resultIndex:0,claimId:claim.claim_id,body:claim.text,products:claim.products||[],claims:[{id:claim.claim_id,text:claim.text,kind:claim.statement_role}]})));
       for(const doc of new Set(claim.sources.map(s=>`${s.title} · p.${s.pdf_page}`)))box.append(node("p","memo-source",doc));}
     if(issue.unresolved_requests.length)box.append(node("p","validation-note","추가 확인할 요청: "+issue.unresolved_requests.join(" / ")));
     if(issue.potential_conflicts.length)box.append(node("p","validation-note","서로 다른 투여 조건이 포착됐습니다. 시험·분석 범위를 확인해야 합니다."));panel.append(box);}
@@ -78,13 +78,14 @@ function renderMemo(report,target,jobId){
   target.append(panel);
 }
 function renderResearch(report,card,jobId){
+  if(report.origin==="public_source_replay")card.append(node("p","validation-note","공개자료를 사람이 재구성한 저장·분류 시연입니다. RAG 검색이나 모델이 생성한 답변의 평가 결과가 아닙니다."));
   const result=report.results[0],claims=result.claims||[];
   const cited=[...new Set(claims.flatMap(claim=>claim.sources.map(source=>source.evidence)))];
   const quotesFor=id=>[...new Set(claims.flatMap(claim=>claim.sources.filter(s=>s.evidence===id).map(s=>s.quote)))];
   const onOpen=opener(jobId,0,result,cited);
   card.querySelector(".answer-status").replaceWith(node("span","status answer-status"+(result.status!=="answered"?" pending":""),{answered:"근거 지지 검토",partial:"부분 답변",not_found:"근거 미확보"}[result.status]||result.status));
   card.append(answerText(result.answer_ko,result,onOpen));
-  if(claims.length&&typeof PipelineNotes!=="undefined"){const actions=node("div","answer-pin-actions");actions.append(node("span","muted small","근거와 함께 단계별로 정리"),button("+ 답변을 단계 메모로 저장","download",()=>PipelineNotes.pin({jobId,resultIndex:0,kind:"answer",body:result.answer_ko,products:report.understanding.products||[]})));card.append(actions);}
+  if(claims.length&&typeof PipelineNotes!=="undefined"){const actions=node("div","answer-pin-actions");actions.append(node("span","muted small","항목을 골라 유형·대상과 함께 저장"),button("+ 답변을 단계 메모로 저장","download",()=>PipelineNotes.pin({jobId,resultIndex:0,kind:"answer",body:result.answer_ko,products:report.understanding.products||[],claims})));card.append(actions);}
   visuals(card,{jobId,resultIndex:0,result,cited,quotesFor,question:report.question,onOpen});
   const rows=result.question_requirement_coverage?.requirements||[];
   if(rows.length){const coverage=node("details","scope-details");coverage.append(node("summary","","질문 항목별 확인 상태"));

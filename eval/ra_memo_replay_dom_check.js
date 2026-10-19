@@ -1,0 +1,45 @@
+"use strict";
+// Read-only DOM integration against the installed replay. No POST, model calls or browser rendering.
+// Optional test dependencies: linkedom and cssom via NODE_PATH, as in ra_workspace_dom_check.js.
+const {parseHTML,HTMLSelectElement,HTMLInputElement,HTMLElement}=require("linkedom");
+const vm=require("vm"),assert=require("node:assert/strict"),{webcrypto}=require("node:crypto");
+const [base,projectId]=process.argv.slice(2);
+if(!/^http:\/\/127\.0\.0\.1:\d+$/.test(base||"")||!/^[a-f0-9]{32}$/.test(projectId||""))throw Error("Use a loopback URL and replay project id");
+Object.defineProperty(HTMLSelectElement.prototype,"value",{get(){const options=[...this.querySelectorAll("option")];return options.find(o=>o.hasAttribute("selected"))?.getAttribute("value")||options[0]?.getAttribute("value")||"";},set(value){for(const option of this.querySelectorAll("option"))option.toggleAttribute("selected",option.getAttribute("value")===String(value));}});
+Object.defineProperty(HTMLInputElement.prototype,"checked",{get(){return this.hasAttribute("checked");},set(value){this.toggleAttribute("checked",!!value);}});
+HTMLElement.prototype.scrollIntoView=function(){};
+HTMLElement.prototype.showModal=function(){this.open=true;this.setAttribute("open","");};
+HTMLElement.prototype.close=function(){this.open=false;this.removeAttribute("open");this.dispatchEvent(new this.ownerDocument.defaultView.Event("close"));};
+const storage=new Map(),localStorage={getItem:k=>storage.get(k)??null,setItem:(k,v)=>storage.set(k,String(v))},requests=[];
+const localFetch=(path,options={})=>{assert.equal((options.method||"GET").toUpperCase(),"GET","read-only verification");const url=new URL(path,base);assert.equal(url.origin,base);requests.push(url.pathname);return fetch(url,options);};
+const wait=async(condition,label)=>{const until=Date.now()+10000;while(!condition()){if(Date.now()>until)throw Error("Timed out: "+label);await new Promise(r=>setTimeout(r,15));}};
+const clickText=(root,text)=>{const b=[...root.querySelectorAll("button")].find(b=>b.textContent===text);assert.ok(b,text);b.click();};
+(async()=>{
+  const html=await(await localFetch("/")).text(),{document,window}=parseHTML(html);
+  const location=new URL(`${base}/?project=${projectId}&stage=cmc`),history={replaceState(_a,_b,url){location.href=new URL(url,location).href;}};
+  const context=vm.createContext({window,document,localStorage,location,history,crypto:webcrypto,URL,Blob,console,setTimeout,clearTimeout,fetch:localFetch});
+  for(const script of document.querySelectorAll("script[src]"))vm.runInContext(await(await localFetch(script.getAttribute("src"))).text(),context,{filename:script.getAttribute("src")});
+  await wait(()=>document.querySelectorAll(".pipeline-memo").length===4,"four replay memos");
+  assert.equal(document.querySelector("#workspace-project").value,projectId);
+  assert.equal(document.querySelector(".pipeline-step[aria-pressed=true]").dataset.stageId,"cmc");
+  assert.equal(document.querySelector(".from-rag .memo-origin").textContent,"공개자료 재현");
+  document.querySelector(".from-rag .memo-open").click();
+  let reader=document.querySelector(".memo-reader-dialog");assert.equal(reader.querySelectorAll(".memo-item").length,3);
+  assert.ok(reader.textContent.includes("98–102%"));assert.ok(reader.textContent.includes("107–127%"));
+  assert.ok(reader.textContent.includes("유효성: 미공개"));assert.ok(reader.textContent.includes("기관 판단"));
+  clickText(reader,"항목 원문 보기");await wait(()=>reader.querySelector(".viewer-head"),"real PDF viewer");
+  assert.ok(requests.some(p=>p.endsWith("/evidence/0/E1")));clickText(reader,"닫기");
+  document.querySelector("#memo-brief").click();
+  await wait(()=>document.querySelectorAll(".workspace-dialog .memo-item").length===6,"six task items");
+  const brief=document.querySelector(".workspace-dialog"),view=brief.querySelector("select");
+  assert.equal(brief.querySelector(".memo-item-list h3").textContent,"사실·결과");
+  assert.ok(brief.textContent.includes("합성 내부 의견"));assert.ok(brief.textContent.includes("미제출·답변 없음"));
+  view.value="partner_meeting";view.onchange();
+  await wait(()=>brief.querySelector(".memo-item-list h3")?.textContent==="후속 조치","partner task grouping");
+  view.value="ra_preparation";view.onchange();
+  await wait(()=>brief.querySelector(".memo-item-list h3")?.textContent==="미해결 질문","agency task grouping");
+  clickText(brief,"원 메모 보기");reader=document.querySelector(".memo-reader-dialog");assert.ok(reader.textContent.includes("합성 질문"));clickText(reader,"닫기");
+  await vm.runInContext("openJob('9a922393839459878d4f26a70603afa6')",context);
+  assert.ok(document.querySelector(".answer").textContent.includes("사람이 재구성한"));
+  console.log(JSON.stringify({result:"passed",mode:"read_only_DOM_not_browser_rendering",projectId,checks:["direct project/stage URL","four memos and six units","public replay label","observed range versus criterion","unknown experimental validity","regulator attribution","canonical PDF viewer","synthetic comment and question labels","three task groupings","manual note navigation","replay report disclosure"],requests:requests.length}));
+})().catch(error=>{console.error(error);process.exitCode=1;});
