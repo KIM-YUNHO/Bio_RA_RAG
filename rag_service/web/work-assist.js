@@ -150,7 +150,8 @@ const WorkAssist=(()=>{
     }
   }
 
-  // 이슈 대응: the issue's public-source questions run through the RA service, then one AI call organizes the cited answers.
+  // 이슈 대응: AI plans public-source questions from the issue, the RA service answers them (with one follow-up round),
+  // and AI organizes the cited answers.
   function paintIssue(){
     const panel=state.panel,issues=state.overview.issues||[];
     if(!issues.length){panel.append(node("p","muted","기준일까지 등록된 이슈가 없습니다. 이슈는 문서 묶음과 함께 등록합니다."));return;}
@@ -160,14 +161,12 @@ const WorkAssist=(()=>{
       const card=node("section","issue-card"),head=node("div","issue-head");
       head.append(badge("이슈","is-issue"),node("strong","",issue.title),node("span","muted",md(issue.date)));
       const refs=node("div","work-refs");refs.append(node("span","muted small","사내 근거 "));for(const id of issue.unit_ids)refs.append(chip(id,()=>showUnit(detail,unitIndex()[id])));
-      const asks=node("details","issue-questions"),list=node("ol");asks.append(node("summary","",`공개 자료에 물어볼 질문 ${issue.questions.length}개`));
-      for(const q of issue.questions)list.append(node("li","",q.text));asks.append(list);
-      const scope=node("p","issue-scope","검색 범위: 같은 성분 바이오시밀러의 공개 심사 자료와 지침"+(issue.search.note?" · "+issue.search.note:""));
+      const how=node("p","issue-scope","AI가 이슈를 읽고 원인 가설과 검색 질문을 만든 뒤, 같은 성분 바이오시밀러의 공개 심사 자료와 지침을 검색해 대응 방법을 정리합니다.");
       const run=button("RAG 대응 가이드 만들기","primary-button",async()=>{setRuns(true);result.replaceChildren(node("p","muted","요청을 보내는 중입니다."));
         try{const s=await send(`/api/projects/${state.projectId}/issue-guides`,{issue_id:issue.id});watchGuide(s.id,result,setRuns,history);}
         catch(e){result.replaceChildren(node("p","error",e.message));setRuns(false);}});runs.push(run);
-      const actions=node("div","work-form-actions");actions.append(run,node("span","muted small",`공개 자료 검색 ${issue.questions.length}회 + AI 정리 1회 · 5분 안팎 · 결과는 사람이 검토할 가이드입니다.`));
-      card.append(head,node("p","issue-summary",issue.summary),refs,detail,asks,scope,actions);panel.append(card);
+      const actions=node("div","work-form-actions");actions.append(run,node("span","muted small","공개 자료 검색 4~7회 + AI 호출 3회 · 10분 안팎 · 결과는 사람이 검토할 가이드입니다."));
+      card.append(head,node("p","issue-summary",issue.summary),refs,detail,how,actions);panel.append(card);
     }
     panel.append(result,history);
     if(state.guide&&issues.some(i=>i.id===state.guide.issue_id))renderGuide(result,state.guide);
@@ -175,7 +174,8 @@ const WorkAssist=(()=>{
     listGuides(history,result,running=>{setRuns(true);watchGuide(running.id,result,setRuns,history);});
   }
 
-  const guideState=g=>(({running:"만드는 중",failed:"실패",completed:g.points?`정답 대조 ${g.covered}/${g.points}`:"완료"})[g.state]||g.state)+(g.failed_questions?` · 검색 실패 ${g.failed_questions}`:"");
+  const guideState=g=>(({running:"만드는 중",failed:"실패",completed:g.points?`정답 대조 ${g.covered}/${g.points}`:"완료"})[g.state]||g.state)
+    +(g.searches?` · 검색 ${g.searches}회`:"")+(g.failed_questions?` · 검색 실패 ${g.failed_questions}`:"");
   async function listGuides(target,result,onRunning){
     try{const {guides}=await api(`/api/projects/${state.projectId}/issue-guides`);if(!state||!target.isConnected)return;
       const running=guides.find(g=>g.state==="running");if(running&&onRunning)onRunning(running);
@@ -189,6 +189,9 @@ const WorkAssist=(()=>{
   }
 
   const STEP={waiting:"대기",running:"검색 중",completed:"완료",failed:"실패"};
+  const STAGE={planning:"AI가 이슈를 읽고 원인 가설과 검색 질문을 만드는 중입니다.",searching:"공개 자료를 검색하는 중입니다.",
+    following_up:"1차 검색 결과를 보고 추가로 확인할 질문을 만드는 중입니다.",writing:"검색이 끝났습니다. AI가 가이드를 정리하는 중입니다."};
+  const questionLabel=q=>`${q.id}${q.round===2?" (추가)":""} · ${q.text}`;
   function watchGuide(id,result,setRuns,history){
     if(state.poll)clearTimeout(state.poll);
     const token=state.watch=(state.watch||0)+1;
@@ -196,8 +199,8 @@ const WorkAssist=(()=>{
       if(!state||state.watch!==token||!result.isConnected)return;
       try{const record=await api(`/api/projects/${state.projectId}/issue-guides/${id}`);if(!state||state.watch!==token)return;
         if(record.state==="running"){
-          const box=node("div","issue-progress");box.append(node("p","",record.stage==="writing"?"검색이 끝났습니다. AI가 가이드를 정리하는 중입니다.":"공개 자료를 검색하는 중입니다."));
-          const steps=node("ol","issue-steps");for(const q of record.questions)steps.append(node("li","is-"+q.state,`${STEP[q.state]||q.state} · ${q.text}`));
+          const box=node("div","issue-progress");box.append(node("p","",STAGE[record.stage]||"진행 중입니다."));
+          const steps=node("ol","issue-steps");for(const q of record.questions)steps.append(node("li","is-"+q.state,`${STEP[q.state]||q.state} · ${questionLabel(q)}`));
           box.append(steps);result.replaceChildren(box);state.poll=setTimeout(tick,3000);return;}
         state.guide=record;setRuns(false);renderGuide(result,record);listGuides(history,result);}
       catch(e){result.replaceChildren(node("p","error",e.message));setRuns(false);}
@@ -225,12 +228,12 @@ const WorkAssist=(()=>{
     const failed=record.answers.filter(a=>a.state!=="completed").length;
     target.append(head,node("p","issue-scope",`검색한 제품: ${record.scope.products.join(", ")} 및 공통 지침${scope} · 인용된 공개 자료 ${record.sources.length}쪽`));
     if(failed)target.append(node("p","error",`공개 자료 검색 ${record.answers.length}건 중 ${failed}건이 실패해, 그 질문의 근거 없이 정리했습니다.`));
-    target.append(node("p","work-position",record.guide.summary));
+    const summary=node("p","work-position");summary.append(badge("AI 요약","is-ai"),document.createTextNode(" "+record.guide.summary));target.append(summary);
     const grid=node("div","issue-sections"),flagged=new Set(record.warnings.map(w=>w.section+":"+w.item));
     for(const section of record.guide.sections){
       const box=node("section","work-column issue-section is-"+section.key);box.append(node("h3","",section.label));
       section.items.forEach((item,index)=>{const row=node("div","work-item"+(flagged.has(section.key+":"+index)?" has-warning":""));
-        if(section.key==="mock_questions"){row.append(node("p","issue-q","Q. "+item.question),node("p","issue-why","왜 묻나: "+item.why),node("p","issue-prepare","준비할 자료: "+item.prepare));}
+        if(section.key==="mock_questions"){row.append(node("p","issue-q","Q. "+item.question),node("p","issue-why","질의 배경: "+(item.background||item.why)),node("p","issue-prepare","준비할 자료: "+item.prepare));}
         else{const text=node("p","");const tag=GUIDE_BADGE[item.basis];if(tag)text.append(badge(tag[0],tag[1]),document.createTextNode(" "));text.append(document.createTextNode(item.text));row.append(text);}
         row.append(refs(item.source_ids));box.append(row);});
       grid.append(box);
@@ -240,8 +243,11 @@ const WorkAssist=(()=>{
       box.append(node("h3","",`확인이 필요한 문장 ${record.warnings.length}`));
       for(const w of record.warnings){const row=node("div","work-warning");row.append(node("strong","",`${labels[w.section]} ${w.item+1}`),node("span","",w.detail));box.append(row);}
       target.append(box);}
-    const answers=node("details","issue-answers");answers.append(node("summary","",`공개 자료 검색 답변 ${record.answers.length}건`));
-    for(const a of record.answers){const box=node("div","issue-answer");box.append(node("p","issue-q",`${a.id} · ${a.text}`),node("p","muted small",`답변 상태 ${a.status||a.state} · 인용 ${Object.keys(a.evidence).length}건`),node("p","issue-answer-text",a.answer||"(답변 없음)"));answers.append(box);}
+    const answers=node("details","issue-answers");answers.append(node("summary","",`검색 계획과 공개 자료 답변 ${record.answers.length}건`));
+    if(record.plan?.hypotheses?.length){const box=node("div","issue-answer"),list=node("ul","issue-hypotheses");box.append(node("p","issue-q","AI가 검색 전에 세운 원인 가설"));
+      for(const h of record.plan.hypotheses){const li=node("li");li.append(node("strong","",h.attribute),document.createTextNode(" · "+h.reason));list.append(li);}
+      box.append(list);answers.append(box);}
+    for(const a of record.answers){const box=node("div","issue-answer");box.append(node("p","issue-q",questionLabel(a)),node("p","muted small",`답변 상태 ${a.status||a.state} · 인용 ${Object.keys(a.evidence).length}건`),node("p","issue-answer-text",a.answer||"(답변 없음)"));answers.append(box);}
     target.append(answers);
     if(record.review){const r=record.review,box=node("details","issue-review"),covered=r.points.filter(p=>p.covered).length;
       box.append(node("summary","",`정답 대조(평가용) · ${r.label} · ${r.points.length}개 중 ${covered}개 언급`),node("p","issue-review-summary",r.summary));

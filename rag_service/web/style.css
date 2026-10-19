@@ -633,3 +633,4 @@ details.work-disclosure{padding:7px 10px}details.work-disclosure summary{cursor:
 .issue-review-points{margin:6px 0;padding-left:0;list-style:none;display:grid;gap:4px;font-size:12px}.issue-review-points .is-covered strong{color:#1f6f43}.issue-review-points .is-missed strong{color:#b42318}
 .work-viewer{margin-top:12px;height:min(78vh,820px);border:1px solid #e4e8ef;border-radius:8px;overflow:hidden}.work-viewer[hidden]{display:none}
 .work-viewer>.viewer-pane{position:static;width:100%;height:100%;max-height:none;border:0;border-radius:0;box-shadow:none}
+.issue-hypotheses{margin:4px 0 0 18px;font-size:12px;line-height:1.7;color:#3b4554}

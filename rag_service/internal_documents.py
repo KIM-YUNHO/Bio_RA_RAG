@@ -41,20 +41,19 @@ def content_hash(raw):
     return hashlib.sha256(json.dumps(raw, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
 
 
-ISSUE_TOPICS = {'precedents': '다른 제품 사례', 'cause': '원인 규명', 'justification': '영향 정당화', 'guideline': '지침 요구'}
 GUIDE_SECTIONS = ('cause', 'experiments', 'response', 'mock_questions', 'precedents')  # issue_guide.SECTIONS keys
 
 
 def normalize_issues(raw_issues, scopes, blocked):
-    """An issue names the internal facts it rests on and the public-source questions asked about it.
+    """An issue names the internal facts it rests on; the guide plans its own public-source questions from them.
 
     `answer_key` is review-side only (what actually happened in the public case); the guide never sends it to a model.
     """
     issues = []
     for raw in raw_issues or []:
-        keys = {'id', 'title', 'date', 'scope_id', 'unit_ids', 'summary', 'search', 'questions', 'answer_key'}
+        keys = {'id', 'title', 'date', 'scope_id', 'unit_ids', 'summary', 'search', 'answer_key'}
         if not isinstance(raw, dict) or set(raw) - keys or not keys - {'answer_key', 'search'} <= set(raw):
-            raise ValueError('이슈 정의(ID·제목·일자·업무·근거 단위·요약·질문)를 확인하세요.')
+            raise ValueError('이슈 정의(ID·제목·일자·업무·근거 단위·요약)를 확인하세요.')
         issue = {'id': _text(raw['id'], '이슈 ID', 60), 'title': _text(raw['title'], '이슈 제목', 200),
                  'date': memo_workflow.day(raw['date']), 'summary': _text(raw['summary'], '이슈 요약', 2000)}
         if raw['scope_id'] not in scopes:
@@ -64,20 +63,10 @@ def normalize_issues(raw_issues, scopes, blocked):
             raise ValueError(f'이슈 {issue["id"]}: 근거 단위 ID 목록을 확인하세요.')
         issue['unit_ids'] = list(dict.fromkeys(raw['unit_ids']))
         search = raw.get('search') or {}
-        if not isinstance(search, dict) or set(search) - {'exclude_products', 'note'}:
+        if not isinstance(search, dict) or set(search) - {'exclude_products'}:
             raise ValueError(f'이슈 {issue["id"]}: 검색 범위 설정을 확인하세요.')
-        issue['search'] = {'exclude_products': [_text(p, '제외 제품', 40) for p in search.get('exclude_products', [])],
-                           'note': _text(search['note'], '검색 범위 안내', 300) if search.get('note') else ''}
-        questions = raw['questions']
-        if not isinstance(questions, list) or not 1 <= len(questions) <= 6:
-            raise ValueError(f'이슈 {issue["id"]}: 공개 자료 질문은 1~6개로 넣으세요.')
-        issue['questions'] = []
-        for q in questions:
-            if not isinstance(q, dict) or set(q) != {'id', 'topic', 'text'}:
-                raise ValueError(f'이슈 {issue["id"]}: 질문 필드(ID·주제·문장)를 확인하세요.')
-            issue['questions'].append({'id': _text(q['id'], '질문 ID', 20), 'topic': _choice(q['topic'], ISSUE_TOPICS, '질문 주제'),
-                                       'text': _text(q['text'], '질문', 2000)})
-        sent = ' '.join([issue['title'], issue['summary'], *(q['text'] for q in issue['questions'])]).casefold()
+        issue['search'] = {'exclude_products': [_text(p, '제외 제품', 40) for p in search.get('exclude_products', [])]}
+        sent = ' '.join([issue['title'], issue['summary']]).casefold()
         if any(term.casefold() in sent for term in blocked):
             raise ValueError(f'이슈 {issue["id"]}: 이 프로젝트에서 차단한 표현이 있습니다.')
         key = raw.get('answer_key')

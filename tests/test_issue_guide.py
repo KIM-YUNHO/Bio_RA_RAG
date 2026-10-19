@@ -41,28 +41,39 @@ class FakeJobs:
         return deepcopy(self.jobs[job_id])
 
 
-class FakeModel:
-    def __init__(self, answer):
-        self.answer, self.prompts = answer, []
-
-    def __call__(self, messages, json_schema=None):
-        self.prompts.append((messages, json_schema))
-        return {'text': json.dumps(self.answer, ensure_ascii=False), 'prompt_tokens': 1, 'completion_tokens': 1, 'model_reported': 'fake'}
-
-    def close(self):
-        pass
-
-
 def item(text, basis='public', ids=('P1',)):
     return {'text': text, 'basis': basis, 'source_ids': list(ids)}
 
 
+PLAN = {'hypotheses': [{'attribute': '전하 변이(C-말단 Lys)', 'reason': '염기성 변이 차이는 결합 측정에 영향을 줄 수 있다.'},
+                       {'attribute': 'Fc 산화', 'reason': 'Met 산화는 FcRn 결합을 낮춘다.'}],
+        'questions': [{'topic': 'precedents', 'text': '우스테키누맙 바이오시밀러의 FcRn 결합 차이 사례는?'},
+                      {'topic': 'cause', 'text': '염기성 변이(C-terminal lysine) 차이는 어떻게 확인됐나?'},
+                      {'topic': 'cause', 'text': 'SB17 심사에서 Fc 산화는?'},  # names a held-out product: dropped, never sent
+                      {'topic': 'cause', 'text': 'Fc 산화(Met oxidation) 차이의 PK 영향 판단은?'},
+                      {'topic': 'guideline', 'text': '범위 밖 품질 결과의 정당화에 대한 지침 요구는?'}]}
+FOLLOWUP = {'questions': ['carboxypeptidase B 처리로 C-말단 Lys 차이를 확인한 사례와 PK 판단은?']}
 ANSWER = {'summary': 'C-말단 라이신 차이를 먼저 확인한다 [P1].',
           'sections': {'cause': [item('전하 변이, 특히 C-말단 Lys 차이를 확인한다 (P1, U03)')],
                        'experiments': [item('CPB 처리 전후 FcRn 결합을 비교한다', 'suggestion', ['P2'])],
                        'response': [item('PFS 결과는 범위 안이다', 'internal', ['U04'])],
-                       'mock_questions': [{'question': 'IV에서만 낮은 이유는?', 'why': '제형 차이', 'prepare': 'CEX 자료', 'source_ids': ['U03']}],
+                       'mock_questions': [{'question': 'IV에서만 낮은 이유는?', 'background': '제형 차이', 'prepare': 'CEX 자료', 'source_ids': ['U03']}],
                        'precedents': [item('공개 근거 없이 쓴 문장', 'public', ['U03'])]}}
+
+
+class FakeModel:
+    """Answers the plan, follow-up and writing calls by schema name."""
+    def __init__(self, answers=None):
+        self.answers = answers or {'issue_search_plan': PLAN, 'issue_search_followup': FOLLOWUP, 'issue_guide': ANSWER}
+        self.prompts = []
+
+    def __call__(self, messages, json_schema=None):
+        self.prompts.append((messages, json_schema))
+        return {'text': json.dumps(self.answers[json_schema['name']], ensure_ascii=False), 'prompt_tokens': 1, 'completion_tokens': 1,
+                'model_reported': 'fake'}
+
+    def close(self):
+        pass
 
 
 class IssueBundle(unittest.TestCase):
@@ -89,9 +100,9 @@ class IssueBundle(unittest.TestCase):
         self.store.register_documents(self.project_id, deepcopy(BUNDLE))
         self.assertEqual(self.store.get(self.project_id)['revision'], before)
 
-    def test_questions_may_not_name_a_blocked_term_and_units_must_exist(self):
+    def test_issue_text_may_not_name_a_blocked_term_and_units_must_exist(self):
         bundle = deepcopy(BUNDLE)
-        bundle['issues'][0]['questions'][0]['text'] = 'SB17 심사에서 FcRn은?'
+        bundle['issues'][0]['summary'] = 'SB17과 같은 결과'
         with self.assertRaisesRegex(ValueError, '차단'):
             self.store.register_documents(self.project_id, bundle)
         bundle = deepcopy(BUNDLE)
@@ -107,7 +118,7 @@ class GuideRun(unittest.TestCase):
         self.store = WorkspaceStore(root / 'notebooks')
         self.project_id = self.store.create({'name': 'v5', 'ingredient': 'ustekinumab'})['id']
         self.store.register_documents(self.project_id, deepcopy(BUNDLE))
-        self.model = FakeModel(ANSWER)
+        self.model = FakeModel()
         self.root = root
 
     def tearDown(self):
@@ -119,33 +130,56 @@ class GuideRun(unittest.TestCase):
         service.executor.shutdown(wait=True)
         return service, service.get(self.project_id, summary['id'])
 
-    def test_guide_searches_without_the_held_out_product_and_never_sends_the_answer_key(self):
+    def test_planned_and_follow_up_questions_search_without_the_held_out_product(self):
         jobs = FakeJobs(self.store)
         service, record = self.run_guide(jobs)
         self.assertEqual(record['state'], 'completed', record.get('error'))
-        self.assertEqual(len(jobs.asked), 4)
+        self.assertEqual([m[1]['name'] for m in self.model.prompts], ['issue_search_plan', 'issue_search_followup', 'issue_guide'])
+        # Four planned questions (one dropped for naming a held-out product) and one follow-up, in order.
+        self.assertEqual([p['question'] for p in jobs.asked], [q['text'] for q in PLAN['questions'] if 'SB17' not in q['text']] + FOLLOWUP['questions'])
+        self.assertEqual([(q['id'], q['round'], q['state']) for q in record['questions']],
+                         [('Q1', 1, 'completed'), ('Q2', 1, 'completed'), ('Q3', 1, 'completed'), ('Q4', 1, 'completed'), ('Q5', 2, 'completed')])
+        self.assertEqual(record['plan']['dropped'][0]['reason'], '차단어 SB17')
+        self.assertEqual(record['plan']['hypotheses'][0]['attribute'], '전하 변이(C-말단 Lys)')
         for payload in jobs.asked:
             self.assertEqual(payload['products'], ['ABP654', 'BAT2206', 'BMAB1200', 'CTP43'])
         # One public source per cited page; uncited evidence is not offered.
-        self.assertEqual([s['id'] for s in record['sources']], ['P1', 'P2', 'P3', 'P4'])
+        self.assertEqual([s['id'] for s in record['sources']], ['P1', 'P2', 'P3', 'P4', 'P5'])
         self.assertEqual(record['sources'][0]['evidence_id'], 'E1')
-        messages, schema = self.model.prompts[0]
-        prompt = json.dumps(messages, ensure_ascii=False)
+        # The follow-up call sees the first answers; no call ever sees the answer key or a blocked term.
+        self.assertIn('답변 1', self.model.prompts[1][0][1]['content'])
+        for messages, _ in self.model.prompts[:2]:
+            self.assertIn("'ustekinumab 바이오시밀러'", messages[0]['content'], 'the ingredient is written into the instructions')
+            self.assertNotIn('{ingredient}', messages[0]['content'])
         key = self.store.get(self.project_id)['issues'][0]['answer_key']
-        for text in [key['summary'], *(p['text'] for p in key['points'])]:
-            self.assertNotIn(text, prompt)
-        for term in BUNDLE['blocked_terms']:
-            self.assertNotIn(term, prompt)
+        for messages, _ in self.model.prompts:
+            prompt = json.dumps(messages, ensure_ascii=False)
+            for text in [key['summary'], *(p['text'] for p in key['points'])]:
+                self.assertNotIn(text, prompt)
+            for term in BUNDLE['blocked_terms']:
+                self.assertNotIn(term, prompt)
+            self.assertNotIn('P17', messages[0]['content'], 'no product alias in the instructions')
+        schema = self.model.prompts[2][1]
         allowed = schema['schema']['properties']['sections']['properties']['cause']['items']['properties']['source_ids']['items']['enum']
-        self.assertEqual(allowed, ['P1', 'P2', 'P3', 'P4', 'U01', 'U02', 'U03', 'U04', 'U05', 'U07'])
+        self.assertEqual(allowed, ['P1', 'P2', 'P3', 'P4', 'P5', 'U01', 'U02', 'U03', 'U04', 'U05', 'U07'])
         guide = record['guide']
         self.assertEqual(guide['summary'], 'C-말단 라이신 차이를 먼저 확인한다.', 'IDs the model wrote into prose are removed')
         self.assertEqual(guide['sections'][0]['items'][0]['text'], '전하 변이, 특히 C-말단 Lys 차이를 확인한다')
+        self.assertEqual(guide['sections'][3]['items'][0]['background'], '제형 차이')
         self.assertEqual([w['code'] for w in record['warnings']], ['public_without_source'])
+        self.assertEqual([u['step'] for u in record['usage']], ['issue_search_plan', 'issue_search_followup', 'issue_guide'])
         review = {p['id']: p['covered'] for p in record['review']['points']}
         self.assertTrue(review['K1'] and review['K2'] and review['K4'])
-        self.assertEqual(service.summary(record)['covered'], sum(review.values()))
+        summary = service.summary(record)
+        self.assertEqual((summary['covered'], summary['searches'], summary['failed_questions']), (sum(review.values()), 5, 0))
         self.assertEqual([g['id'] for g in service.list(self.project_id)], [record['id']])
+
+    def test_no_follow_up_when_the_model_asks_for_none(self):
+        self.model = FakeModel({'issue_search_plan': PLAN, 'issue_search_followup': {'questions': []}, 'issue_guide': ANSWER})
+        jobs = FakeJobs(self.store)
+        _, record = self.run_guide(jobs)
+        self.assertEqual(record['state'], 'completed', record.get('error'))
+        self.assertEqual(len(jobs.asked), 4)
 
     def test_a_point_counts_only_in_its_sections(self):
         key = self.store.get(self.project_id)['issues'][0]['answer_key']
@@ -160,7 +194,7 @@ class GuideRun(unittest.TestCase):
         _, record = self.run_guide(FakeJobs(self.store, product='SB17'))
         self.assertEqual(record['state'], 'failed')
         self.assertIn('SB17', record['error'])
-        self.assertEqual(self.model.prompts, [], 'no model call after a leak')
+        self.assertEqual([m[1]['name'] for m in self.model.prompts], ['issue_search_plan'], 'no further model call after a leak')
 
     def test_one_guide_at_a_time_and_only_registered_issues(self):
         service = issue_guide.IssueGuideService(FakeJobs(self.store), self.root / 'guides', chat_factory=lambda folder: self.model)

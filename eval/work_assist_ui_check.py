@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'tests'))
 from http_server import Running  # noqa: E402
 from test_internal_work import BUNDLE  # noqa: E402
-from test_issue_guide import ANSWER, BUNDLE as ISSUE_BUNDLE, FakeJobs, FakeModel  # noqa: E402
+from test_issue_guide import BUNDLE as ISSUE_BUNDLE, FakeJobs, FakeModel  # noqa: E402
 from test_workspace_http import fixture_jobs  # noqa: E402
 
 from rag_service.issue_guide import IssueGuideService  # noqa: E402
@@ -27,7 +27,7 @@ def main():
         jobs.workspaces.register_documents(work['id'], BUNDLE)
         issue = jobs.workspaces.create({'name': 'P17 이슈 대응 UI 검사', 'ingredient': 'ustekinumab'})
         jobs.workspaces.register_documents(issue['id'], ISSUE_BUNDLE)
-        maker = IssueGuideService(FakeJobs(jobs.workspaces), jobs.issue_guides.directory, chat_factory=lambda folder: FakeModel(ANSWER), poll=0.01)
+        maker = IssueGuideService(FakeJobs(jobs.workspaces), jobs.issue_guides.directory, chat_factory=lambda folder: FakeModel(), poll=0.01)
         maker.submit(issue['id'], {'issue_id': 'ISSUE-IV-FCRN'})
         maker.executor.shutdown(wait=True)
         server = Running(jobs, kind)

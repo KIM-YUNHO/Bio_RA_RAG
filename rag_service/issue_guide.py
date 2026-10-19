@@ -1,10 +1,16 @@
-"""RAG guide for an internal issue: the issue's public-source questions run through the RA service, then one model call
-organizes the cited answers into cause / experiments / response / mock review questions / precedents.
+"""RAG guide for an internal issue, in three model steps around the RA service.
 
-The internal facts say what happened; the public answers (other products' assessments and guidelines) say how similar
-differences were investigated and justified. Products in the issue's `exclude_products` are left out of every search
-(evaluation: the real case is held out). The answer key never reaches a model: a guide is compared with it when read,
-by a lexical check that is a triage signal, not a grade. Guides are kept as JSON records, one run at a time.
+1. Plan: from the issue and its internal facts, the model lists candidate causes and writes public-source questions.
+   Cause questions ask about the candidate attribute itself, not only the issue's test, because other products'
+   assessments usually discuss an attribute difference under whatever function it touched there.
+2. Search: the questions run through the RA service (cited answers). Products in the issue's `exclude_products` are
+   left out of every search (evaluation: the real case is held out); a cited held-out product fails the guide.
+3. Follow up: from the first answers, the model may add up to two questions on leads they revealed; they run too.
+4. Write: one call organizes the cited answers into cause / experiments / response / mock review questions /
+   precedents, citing P-IDs (cited pages) and U-IDs (internal units).
+
+The answer key never reaches a model: a guide is compared with it when read, by a lexical check that is a triage signal,
+not a grade. Guides are kept as JSON records, one run at a time.
 """
 from concurrent.futures import ThreadPoolExecutor
 from copy import deepcopy
@@ -24,22 +30,38 @@ ID = re.compile(r'[0-9a-f]{32}')
 SECTIONS = [('cause', '원인 규명 방향'), ('experiments', '실험 설계'), ('response', '기관 대응 논리'),
             ('mock_questions', '예상 심사 질의'), ('precedents', '다른 제품 사례')]
 BASIS = {'public': '공개 근거', 'internal': '사내 자료', 'suggestion': 'AI 제안'}
+TOPICS = {'precedents': '같은 시험 항목의 다른 제품 사례', 'cause': '원인 후보 확인', 'guideline': '지침 요구', 'followup': '추가 확인'}
 QUOTE_LIMIT = 500
+PLAN_QUESTIONS, FOLLOWUP_QUESTIONS = 5, 2
 
-SYSTEM = """너는 바이오시밀러 개발사의 RA·CMC 담당자를 돕는다. 사내 이슈 하나와, 그 이슈에 대해 공개 심사 자료·지침을 검색해 얻은 답변(인용 포함)을 받는다. 이를 바탕으로 이슈 대응 가이드를 쓴다.
+PLAN = """너는 바이오시밀러 RA·CMC 전문가다. 사내 이슈 하나를 받고, 이를 해결하기 위해 공개 심사 자료(EMA EPAR, FDA 심사 문서, Health Canada SBD)와 규제 지침에서 찾아볼 검색 계획을 세운다. 아직 답을 쓰지 않는다.
+- hypotheses: 이 결과를 설명할 수 있는 후보 원인 3~5개를 가능성 높은 순서로. 품질 특성 차이라면 분석적 유사성 평가에서 흔히 차이가 나는 특성(당쇄, 전하 변이, 산화 등 번역후변형, 크기 변이·응집)과 시험법·제형 요인을 빠짐없이 검토한 뒤 고른다. 사내 사실(어느 시료·제형에서만 나타나는지, 시험 유효성)로 가능성을 가늠하되 확정하지 않는다. attribute는 후보 이름, reason은 그렇게 보는 이유 한 문장.
+- questions: 공개 자료 검색 질문 4~5개. 한 질문은 한 특성에 대한 한 물음으로, 150자 안팎으로 쓴다.
+  · precedents 1개: 같은 성분 바이오시밀러에서 이슈와 같은 시험 항목에 차이가 있었던 사례와 그 평가.
+  · cause 2~3개: 유력한 후보 원인마다, 그 특성의 차이가 관찰됐을 때 심사 자료가 원인을 어떻게 확인했는지(추가 시험·시료 처리)와 기능·PK 영향을 어떻게 판단했는지. 다른 제품에서는 같은 특성 차이가 다른 시험 항목과 함께 평가됐을 수 있으므로, 이슈의 시험 항목 이름에 묶지 말고 그 특성 자체를 묻는다.
+  · guideline 1개: 범위 밖 결과나 품질 차이를 정당화할 때 지침이 요구하는 것.
+- 질문에 제품명·회사명은 쓰지 않는다. 성분은 '{ingredient} 바이오시밀러'라고 쓴다. 검색이 잘 되도록 핵심 용어는 영문을 함께 쓴다."""
+
+FOLLOWUP = """너는 공개 자료 검색 계획을 이어서 다듬는 바이오시밀러 RA·CMC 전문가다. 후보 원인과 1차 검색 답변(인용된 주장)을 보고, 가이드를 쓰기 전에 더 확인할 검색 질문을 0~2개 만든다.
+- 1차 답변에 새로 드러난 단서(예: 특정 품질 특성의 차이와 그것을 확인한 시험·처리)를 이 이슈의 후보 원인과 연결해 확인하는 질문을 우선한다.
+- 근거를 하나도 얻지 못한 유력 후보가 있으면 표현을 바꿔 다시 묻는다.
+- 이미 답을 얻은 내용은 다시 묻지 않는다. 필요 없으면 빈 목록을 낸다.
+- 한 질문은 한 물음으로 150자 안팎. 제품명·회사명은 쓰지 않고 성분은 '{ingredient} 바이오시밀러'라고 쓴다. 핵심 용어는 영문을 함께 쓴다."""
+
+WRITE = """너는 바이오시밀러 개발사의 RA·CMC 담당자를 돕는다. 사내 이슈 하나, 검색 전에 세운 후보 원인, 공개 심사 자료·지침을 검색해 얻은 답변(인용 포함)을 받는다. 이를 바탕으로 이슈 대응 가이드를 쓴다.
 규칙:
 - 공개 자료에서 온 내용은 basis="public"으로 쓰고 근거 P-ID를 source_ids에 넣는다. 공개 자료가 말하지 않은 내용을 공개 근거처럼 쓰지 않는다.
 - 사내 사실은 basis="internal"로 쓰고 U-ID를 넣는다.
 - 근거를 바탕으로 한 너의 제안·추론은 basis="suggestion"으로 쓴다. 기대는 근거가 있으면 그 ID를 넣는다.
-- 다른 제품의 사례는 제품 이름을 밝혀 쓰고, 이 제품(P17)에서 확인된 사실처럼 쓰지 않는다.
+- 다른 제품의 사례는 제품 이름을 밝혀 쓰고, 이 제품에서 확인된 사실처럼 쓰지 않는다.
 - 기관의 판단을 예측하거나 승인을 보장하지 않는다. 공개 근거가 부족한 부분은 부족하다고 쓴다.
 섹션:
-- cause: 원인 규명 방향. 어떤 품질 특성이 원인일 수 있고 왜 그렇게 보는지.
-- experiments: 실험 설계. 무엇을, 어떤 시료·비교로 시험하고, 어떤 결과가 나오면 무엇을 뜻하는지.
-- response: 기관 대응 논리. 차이를 어떤 근거의 조합으로 설명·정당화할지.
-- mock_questions: 예상 심사 질의. 질문, 기관이 왜 물을지, 준비할 자료.
-- precedents: 다른 제품 사례. 제품·기관, 무엇이 달랐고 어떻게 평가됐는지.
-각 섹션 2~4개 항목. 한국어로 짧고 구체적으로 쓴다. 본문에 ID를 괄호로 넣지 말고 source_ids에만 넣는다."""
+- cause: 원인 규명 방향. 후보 원인을 공개 근거와 맞춰 보고, 근거가 있는 후보를 앞에 둔다. 다른 제품에서 같은 특성 차이를 어떻게 확인·평가했는지 연결한다.
+- experiments: 실험 설계. 후보 원인을 직접 확인하는 시험(예: 특정 변이를 제거하거나 분리한 시료로 다시 측정)을 우선한다. 공개 자료에서 다른 제품이 그 특성 차이를 확인할 때 쓴 방법이 있으면, 그 방법을 이 이슈의 시험 항목에 옮겨 적용하는 시험으로 쓴다. 어떤 결과가 나오면 무엇을 뜻하는지 쓴다.
+- response: 기관 대응 논리. 차이를 어떤 근거의 조합으로 설명·정당화할지. 범위 밖 결과라면 결과와 함께 비교 기준(범위 산정에 쓴 대조약 lot 수·제형·통계 방법)의 적절성도 점검 대상에 넣는다. 같은 제품의 다른 제형·시료 결과가 범위 안이라면 그 차이가 무엇을 뜻하는지, 정당화 근거로 쓸 수 있는지 검토한다.
+- mock_questions: 예상 심사 질의. question(질의), background(질의 배경: 기관이 이것을 확인하려는 이유), prepare(준비할 자료).
+- precedents: 다른 제품 사례. 제품·기관, 무엇이 달랐고 어떻게 확인·평가됐는지.
+summary는 이슈와 대응 방향을 2~3문장으로 쓴다. 각 섹션 2~4개 항목. 한국어로 짧고 구체적으로 쓴다. 본문에 ID를 괄호로 넣지 말고 source_ids에만 넣는다."""
 
 
 def now():
@@ -64,6 +86,59 @@ def facts(project, issue):
     return rows
 
 
+def issue_payload(issue, fact_rows, ingredient):
+    return {'ingredient': ingredient, 'issue': {'title': issue['title'], 'date': issue['date'], 'summary': issue['summary']},
+            'internal_facts': [{'id': f['id'], 'source': f"{f['title']} · {f['date']}", 'speaker': f['speaker'], 'text': f['text']}
+                               for f in fact_rows]}
+
+
+def plan_messages(issue, fact_rows, ingredient):
+    return [{'role': 'system', 'content': PLAN.format(ingredient=ingredient)},
+            {'role': 'user', 'content': json.dumps(issue_payload(issue, fact_rows, ingredient), ensure_ascii=False, indent=1)}]
+
+
+def plan_schema():
+    question = {'type': 'object', 'additionalProperties': False, 'required': ['topic', 'text'],
+                'properties': {'topic': {'type': 'string', 'enum': ['precedents', 'cause', 'guideline']}, 'text': {'type': 'string'}}}
+    hypothesis = {'type': 'object', 'additionalProperties': False, 'required': ['attribute', 'reason'],
+                  'properties': {'attribute': {'type': 'string'}, 'reason': {'type': 'string'}}}
+    return {'name': 'issue_search_plan', 'max_output_tokens': 2000,
+            'schema': {'type': 'object', 'additionalProperties': False, 'required': ['hypotheses', 'questions'],
+                       'properties': {'hypotheses': {'type': 'array', 'minItems': 1, 'maxItems': 5, 'items': hypothesis},
+                                      'questions': {'type': 'array', 'minItems': 1, 'maxItems': PLAN_QUESTIONS, 'items': question}}}}
+
+
+def followup_messages(issue, fact_rows, ingredient, hypotheses, answers):
+    payload = {**issue_payload(issue, fact_rows, ingredient), 'hypotheses': hypotheses,
+               'first_answers': [{'question': a['text'], 'status': a.get('status') or a.get('state'),
+                                  'claims': [c['text'] for c in a.get('claims', [])][:25]} for a in answers]}
+    return [{'role': 'system', 'content': FOLLOWUP.format(ingredient=ingredient)},
+            {'role': 'user', 'content': json.dumps(payload, ensure_ascii=False, indent=1)}]
+
+
+def followup_schema():
+    return {'name': 'issue_search_followup', 'max_output_tokens': 800,
+            'schema': {'type': 'object', 'additionalProperties': False, 'required': ['questions'],
+                       'properties': {'questions': {'type': 'array', 'maxItems': FOLLOWUP_QUESTIONS, 'items': {'type': 'string'}}}}}
+
+
+def clean_questions(rows, blocked, start, round_no):
+    """Model-written questions, numbered; one naming a blocked term (a held-out product) is dropped, not sent."""
+    kept, dropped = [], []
+    for row in rows:
+        text = (row['text'] if isinstance(row, dict) else row).strip()[:600]
+        topic = row.get('topic', 'followup') if isinstance(row, dict) else 'followup'
+        if not text:
+            continue
+        hit = next((t for t in blocked if t.casefold() in text.casefold()), None)
+        if hit:
+            dropped.append({'text': text, 'reason': f'차단어 {hit}'})
+            continue
+        kept.append({'id': f'Q{start + len(kept)}', 'round': round_no, 'topic': topic if topic in TOPICS else 'followup',
+                     'text': text, 'state': 'waiting'})
+    return kept, dropped
+
+
 def answer_view(question, job):
     """What the guide keeps of one RA answer: status, answer text, claims and the evidence they cite."""
     report = job.get('report') or {}
@@ -80,8 +155,8 @@ def answer_view(question, job):
                   'title': e.get('title'), 'product': e.get('product_id'), 'agency': e.get('source'),
                   'jurisdiction': e.get('jurisdiction'), 'group': e.get('doc_group')}
             for eid, e in evidence.items() if eid in cited}
-    return {**question, 'job_id': job['id'], 'state': job.get('state'), 'status': result.get('status'),
-            'answer': result.get('answer_ko') or '', 'claims': claims, 'evidence': refs,
+    return {**{k: question[k] for k in ('id', 'round', 'topic', 'text')}, 'job_id': job['id'], 'state': job.get('state'),
+            'status': result.get('status'), 'answer': result.get('answer_ko') or '', 'claims': claims, 'evidence': refs,
             'error': job.get('error')}
 
 
@@ -105,28 +180,23 @@ def public_sources(answers):
     return sources, claim_ids
 
 
-def messages(issue, fact_rows, answers, sources, claim_ids):
-    """The prompt: issue, internal facts, the RA answers with P-IDs, and the cited pages. No answer key."""
-    payload = {
-        'issue': {'title': issue['title'], 'date': issue['date'], 'summary': issue['summary']},
-        'internal_facts': [{'id': f['id'], 'source': f"{f['title']} · {f['date']}", 'speaker': f['speaker'], 'text': f['text']}
-                           for f in fact_rows],
-        'public_answers': [{'question_id': a['id'], 'topic': internal_documents.ISSUE_TOPICS[a['topic']], 'question': a['text'],
-                            'status': a.get('status'), 'answer': a.get('answer', ''),
-                            'claims': [{'text': c['text'], 'source_ids': ids} for c, ids in zip(a.get('claims', []), mapped)]}
-                           for a, mapped in zip(answers, claim_ids)],
-        'public_sources': [{'id': s['id'], 'product': s['product'] or '공통 지침', 'agency': s['agency'], 'title': s['title'],
-                            'page': s['page'], 'quote': s['quote']} for s in sources]}
-    return [{'role': 'system', 'content': SYSTEM},
-            {'role': 'user', 'content': json.dumps(payload, ensure_ascii=False, indent=1)}]
+def messages(issue, fact_rows, ingredient, hypotheses, answers, sources, claim_ids):
+    """The writing prompt: issue, internal facts, hypotheses, the RA answers with P-IDs, and the cited pages. No answer key."""
+    payload = {**issue_payload(issue, fact_rows, ingredient), 'hypotheses_before_search': hypotheses,
+               'public_answers': [{'question_id': a['id'], 'question': a['text'], 'status': a.get('status'), 'answer': a.get('answer', ''),
+                                   'claims': [{'text': c['text'], 'source_ids': ids} for c, ids in zip(a.get('claims', []), mapped)]}
+                                  for a, mapped in zip(answers, claim_ids)],
+               'public_sources': [{'id': s['id'], 'product': s['product'] or '공통 지침', 'agency': s['agency'], 'title': s['title'],
+                                   'page': s['page'], 'quote': s['quote']} for s in sources]}
+    return [{'role': 'system', 'content': WRITE}, {'role': 'user', 'content': json.dumps(payload, ensure_ascii=False, indent=1)}]
 
 
 def schema(ids):
     refs = {'type': 'array', 'maxItems': 8, 'items': {'type': 'string', 'enum': list(ids)}}
     item = {'type': 'object', 'additionalProperties': False, 'required': ['text', 'basis', 'source_ids'],
             'properties': {'text': {'type': 'string'}, 'basis': {'type': 'string', 'enum': list(BASIS)}, 'source_ids': refs}}
-    question = {'type': 'object', 'additionalProperties': False, 'required': ['question', 'why', 'prepare', 'source_ids'],
-                'properties': {'question': {'type': 'string'}, 'why': {'type': 'string'}, 'prepare': {'type': 'string'},
+    question = {'type': 'object', 'additionalProperties': False, 'required': ['question', 'background', 'prepare', 'source_ids'],
+                'properties': {'question': {'type': 'string'}, 'background': {'type': 'string'}, 'prepare': {'type': 'string'},
                                'source_ids': refs}}
     sections = {key: {'type': 'array', 'minItems': 1, 'maxItems': 4, 'items': question if key == 'mock_questions' else item}
                 for key, _ in SECTIONS}
@@ -138,6 +208,7 @@ def schema(ids):
 
 
 INLINE_IDS = re.compile(r'\s*[\[(](?:[PU]\d{1,3}(?:\s*,\s*)?)+[\])]')
+TEXT_KEYS = ('text', 'question', 'background', 'prepare')
 
 
 def normalize(raw, ids):
@@ -155,9 +226,9 @@ def normalize(raw, ids):
         for row in rows:
             refs = [i for i in dict.fromkeys(row.get('source_ids') or []) if i in known] if isinstance(row, dict) else None
             if key == 'mock_questions':
-                if refs is None or not all(isinstance(row.get(k), str) for k in ('question', 'why', 'prepare')):
+                if refs is None or not all(isinstance(row.get(k), str) for k in ('question', 'background', 'prepare')):
                     raise ValueError('예상 질의 항목 형식이 맞지 않습니다.')
-                items.append({'question': clean(row['question']), 'why': clean(row['why']), 'prepare': clean(row['prepare']),
+                items.append({'question': clean(row['question']), 'background': clean(row['background']), 'prepare': clean(row['prepare']),
                               'source_ids': refs})
             else:
                 if refs is None or row.get('basis') not in BASIS or not isinstance(row.get('text'), str):
@@ -167,12 +238,8 @@ def normalize(raw, ids):
     return {'summary': clean(raw['summary']), 'sections': sections}
 
 
-def flatten(guide):
-    lines = [guide['summary']]
-    for section in guide['sections']:
-        for item in section['items']:
-            lines.append(' '.join(item.get(k, '') for k in ('text', 'question', 'why', 'prepare')).strip())
-    return '\n'.join(lines)
+def item_text(item):
+    return ' '.join(item.get(k, '') for k in TEXT_KEYS).strip()
 
 
 def audit(guide, sources, excluded_names):
@@ -181,7 +248,7 @@ def audit(guide, sources, excluded_names):
     public = {s['id'] for s in sources}
     for section in guide['sections']:
         for index, item in enumerate(section['items']):
-            text = ' '.join(item.get(k, '') for k in ('text', 'question', 'why', 'prepare'))
+            text = item_text(item)
             if item.get('basis') == 'public' and not set(item['source_ids']) & public:
                 warnings.append({'section': section['key'], 'item': index, 'code': 'public_without_source',
                                  'detail': '공개 근거로 표시했지만 공개 자료 인용이 없습니다.'})
@@ -203,8 +270,7 @@ def review(guide, answer_key):
             if point.get('sections') and section['key'] not in point['sections']:
                 continue
             for item in section['items']:
-                text = ' '.join(item.get(k, '') for k in ('text', 'question', 'why', 'prepare'))
-                match = re.search(point['pattern'], text, re.I)
+                match = re.search(point['pattern'], item_text(item), re.I)
                 if match and found is None:
                     found = {'section': section['label'], 'match': match.group(0)}
         rows.append({'id': point['id'], 'text': point['text'], 'page': point['page'], 'covered': found is not None,
@@ -236,7 +302,7 @@ class IssueGuideService:
         if self.chat_factory:
             return self.chat_factory(folder)
         from rag.openai_chat import EvaluationAPIChat
-        client = EvaluationAPIChat(folder, max_new_calls=1, model=self.model)
+        client = EvaluationAPIChat(folder, max_new_calls=3, model=self.model)
         client.config = SimpleNamespace(model=self.model, num_ctx=self.context_tokens, num_predict=4000)
         return client
 
@@ -272,22 +338,23 @@ class IssueGuideService:
         excluded = issue['search']['exclude_products']
         if set(excluded) - set(products):
             raise ValueError('검색에서 뺄 제품이 등록된 제품이 아닙니다.')
-        scope = [p for p in products if p not in excluded]
         with self.lock:
             if self.busy:
                 raise BlockingIOError('다른 이슈 가이드를 만드는 중입니다. 완료 후 다시 시도하세요.')
             self.busy = True
-        record = {'id': uuid4().hex, 'kind': 'issue_guide', 'state': 'running', 'stage': 'searching', 'created_at': now(),
-                  'project_id': project['id'], 'project_name': project['name'], 'project_revision': project['revision'],
-                  'issue_id': issue['id'], 'issue_title': issue['title'], 'model': self.model,
-                  'scope': {'products': scope, 'excluded_products': excluded, 'note': issue['search']['note']},
-                  'facts': facts(project, issue),
-                  'questions': [{**q, 'state': 'waiting'} for q in issue['questions']]}
+        record = {'id': uuid4().hex, 'kind': 'issue_guide', 'version': 'issue-guide-2-plan-followup', 'state': 'running',
+                  'stage': 'planning', 'created_at': now(), 'project_id': project['id'], 'project_name': project['name'],
+                  'project_revision': project['revision'], 'issue_id': issue['id'], 'issue_title': issue['title'],
+                  'model': self.model, 'ingredient': project.get('ingredient'),
+                  'scope': {'products': [p for p in products if p not in excluded], 'excluded_products': excluded},
+                  'facts': facts(project, issue), 'questions': [], 'answers': [], 'usage': []}
+        # Held-out names never go out in a question, whether or not the project lists them as blocked terms.
+        blocked = list(dict.fromkeys([*excluded, *((project.get('simulation') or {}).get('blocked_terms') or [])]))
         try:
             with self.lock:
                 self.records[record['id']] = record
             self.persist(record)
-            self.executor.submit(self.run, record['id'], deepcopy(issue))
+            self.executor.submit(self.run, record['id'], deepcopy(issue), blocked)
         except Exception:
             with self.lock:
                 self.busy = False
@@ -311,37 +378,68 @@ class IssueGuideService:
             time.sleep(self.poll)
         return job
 
-    def run(self, guide_id, issue):
+    def call(self, client, guide_id, case, prompt, contract):
+        if hasattr(client, 'case'):
+            client.case = case
+        response = client(prompt, contract)
+        with self.lock:
+            usage = self.records[guide_id]['usage'] + [{'step': case, 'input_tokens': response.get('prompt_tokens', 0),
+                                                        'output_tokens': response.get('completion_tokens', 0)}]
+        self.update(guide_id, usage=usage, model_reported=response.get('model_reported'))
+        return json.loads(response['text'])
+
+    def search(self, guide_id, questions, answers, scope):
+        """Run questions in order, recording each; a cited held-out product stops the guide."""
+        with self.lock:
+            rows = deepcopy(self.records[guide_id]['questions'])
+        for question in questions:
+            index = next(i for i, q in enumerate(rows) if q['id'] == question['id'])
+            rows[index]['state'] = 'running'
+            self.update(guide_id, questions=deepcopy(rows))
+            job = self.ask(question['text'], scope['products'])
+            answer = answer_view(question, job)
+            leaked = sorted({r['product'] for r in answer['evidence'].values()} & set(scope['excluded_products']))
+            if leaked:
+                raise RuntimeError('검색에서 뺀 제품의 문서가 인용됐습니다: ' + ', '.join(leaked))
+            rows[index].update(state=job['state'], job_id=job['id'], status=answer['status'])
+            answers.append(answer)
+            self.update(guide_id, questions=deepcopy(rows), answers=deepcopy(answers))
+
+    def run(self, guide_id, issue, blocked):
         client = None
         try:
             with self.lock:
                 record = deepcopy(self.records[guide_id])
-            answers, questions = [], record['questions']
-            for index, question in enumerate(issue['questions']):
-                questions[index]['state'] = 'running'
-                self.update(guide_id, questions=deepcopy(questions))
-                job = self.ask(question['text'], record['scope']['products'])
-                answer = answer_view(question, job)
-                leaked = sorted({r['product'] for r in answer['evidence'].values()} & set(record['scope']['excluded_products']))
-                if leaked:
-                    raise RuntimeError('검색에서 뺀 제품의 문서가 인용됐습니다: ' + ', '.join(leaked))
-                questions[index] = {**question, 'state': job['state'], 'job_id': job['id'], 'status': answer['status']}
-                answers.append(answer)
-                self.update(guide_id, questions=deepcopy(questions), answers=deepcopy(answers))
+            ingredient, fact_rows, scope = record['ingredient'], record['facts'], record['scope']
+            client = self.client(self.directory / (guide_id + '_api'))
+            plan = self.call(client, guide_id, 'issue_search_plan', plan_messages(issue, fact_rows, ingredient), plan_schema())
+            hypotheses = [{'attribute': str(h.get('attribute', '')).strip(), 'reason': str(h.get('reason', '')).strip()}
+                          for h in plan.get('hypotheses') or [] if isinstance(h, dict)][:5]
+            first, dropped = clean_questions(plan.get('questions') or [], blocked, 1, 1)
+            if not first:
+                raise RuntimeError('검색 질문을 만들지 못했습니다.')
+            self.update(guide_id, stage='searching', plan={'hypotheses': hypotheses, 'dropped': dropped}, questions=first)
+            answers = []
+            self.search(guide_id, first, answers, scope)
+            self.update(guide_id, stage='following_up')
+            more = self.call(client, guide_id, 'issue_search_followup',
+                             followup_messages(issue, fact_rows, ingredient, hypotheses, answers), followup_schema())
+            second, dropped_more = clean_questions((more.get('questions') or [])[:FOLLOWUP_QUESTIONS], blocked, len(first) + 1, 2)
+            if second:
+                with self.lock:
+                    asked = deepcopy(self.records[guide_id]['questions'])  # first round with its final states
+                self.update(guide_id, stage='searching', questions=asked + second,
+                            plan={'hypotheses': hypotheses, 'dropped': dropped + dropped_more})
+                self.search(guide_id, second, answers, scope)
             sources, claim_ids = public_sources(answers)
             if not sources:
                 raise RuntimeError('공개 자료에서 인용할 근거를 찾지 못했습니다.')
             self.update(guide_id, stage='writing', sources=sources)
-            ids = [s['id'] for s in sources] + [f['id'] for f in record['facts']]
-            client = self.client(self.directory / (guide_id + '_api'))
-            if hasattr(client, 'case'):
-                client.case = 'issue_guide'
-            response = client(messages(issue, record['facts'], answers, sources, claim_ids), schema(ids))
-            guide = normalize(json.loads(response['text']), ids)
+            ids = [s['id'] for s in sources] + [f['id'] for f in fact_rows]
+            guide = normalize(self.call(client, guide_id, 'issue_guide',
+                                        messages(issue, fact_rows, ingredient, hypotheses, answers, sources, claim_ids), schema(ids)), ids)
             self.update(guide_id, state='completed', stage='completed', guide=guide,
-                        warnings=audit(guide, sources, record['scope']['excluded_products']),
-                        usage={'input_tokens': response.get('prompt_tokens', 0), 'output_tokens': response.get('completion_tokens', 0)},
-                        model_reported=response.get('model_reported'), completed_at=now())
+                        warnings=audit(guide, sources, scope['excluded_products']), completed_at=now())
         except Exception as exc:  # noqa: BLE001 - the record must end in a terminal state
             self.update(guide_id, state='failed', stage='failed', error=f'{type(exc).__name__}: {exc}', completed_at=now())
         finally:
@@ -381,6 +479,7 @@ class IssueGuideService:
     def summary(record):
         keys = ('id', 'state', 'stage', 'created_at', 'completed_at', 'project_id', 'issue_id', 'issue_title', 'error')
         result = {k: record.get(k) for k in keys}
+        result['searches'] = len(record.get('questions', []))
         result['failed_questions'] = sum(q.get('state') == 'failed' for q in record.get('questions', []))
         result['covered'] = sum(p['covered'] for p in (record.get('review') or {}).get('points', []))
         result['points'] = len((record.get('review') or {}).get('points', []))

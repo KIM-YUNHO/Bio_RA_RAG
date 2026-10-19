@@ -1,93 +1,336 @@
 {
-  "schema_version": "internal_document_bundle_v1",
-  "scenario_id": "P17_IV_FCRN_ISSUE_V5",
-  "product_alias": "P17",
-  "ingredient": "ustekinumab",
-  "disclosure": "SB17(유럽 제품명 Pyzchiva) 공개 사례를 가명 P17로 바꾼 합성 시나리오입니다. 공개 심사보고서의 집계(IV vial FcRn 관측 98–102%, 비교 범위 107–127%)만 가져왔고 lot·수치·인물·일정은 만들었습니다. 원인과 해결 방법은 내부 문서에 넣지 않았습니다. RAG는 SB17 문서를 빼고 다른 제품 자료와 지침에서 대응 방법을 찾고, 그 결과를 SB17의 실제 해결과 비교합니다.",
-  "blocked_terms": ["SB17", "Pyzchiva", "피즈치바", "CHMP", "EMA/106045/2024", "Samsung Bioepis", "삼성바이오에피스"],
-  "scopes": {
-    "W-IV-PRIMARY": {"label": "IV FcRn 비교시험(R101)", "aliases": ["R101", "IV 비교시험", "IV 결과"]},
-    "W-PFS-PRIMARY": {"label": "PFS FcRn 비교시험(R103)", "aliases": ["R103", "PFS 비교시험", "PFS 결과"]},
-    "W-IV-INVEST": {"label": "IV FcRn 차이 원인·영향 평가", "aliases": ["원인 조사", "영향 평가", "원인·영향 평가"]}
+ "schema_version": "internal_document_bundle_v1",
+ "scenario_id": "P17_IV_FCRN_ISSUE_V5",
+ "product_alias": "P17",
+ "ingredient": "ustekinumab",
+ "disclosure": "SB17(유럽 제품명 Pyzchiva) 공개 사례를 가명 P17로 바꾼 합성 시나리오입니다. 공개 심사보고서의 집계(IV vial FcRn 관측 98–102%, 비교 범위 107–127%)만 가져왔고 lot·수치·인물·일정은 만들었습니다. 원인과 해결 방법은 내부 문서에 넣지 않았습니다.",
+ "blocked_terms": [
+  "SB17",
+  "Pyzchiva",
+  "피즈치바",
+  "CHMP",
+  "EMA/106045/2024",
+  "Samsung Bioepis",
+  "삼성바이오에피스"
+ ],
+ "scopes": {
+  "W-IV-PRIMARY": {
+   "label": "IV FcRn 비교시험(R101)",
+   "aliases": [
+    "R101",
+    "IV 비교시험",
+    "IV 결과"
+   ]
   },
-  "documents": [
-    {"document_id": "PROT-P17-FA-001", "version": "1.0", "date": "2026-01-20", "title": "P17 기능 분석 비교시험 계획서",
-     "kind": "protocol", "status": "approved", "author": "박개발(CMC) 작성 · 최품질(QA) 승인", "sharing": "partner",
-     "units": [
-       {"unit_id": "U01", "section": "5.3 FcRn 결합", "statement_role": "protocol", "speaker": "계획서 v1.0",
-        "scope_ids": ["W-IV-PRIMARY", "W-PFS-PRIMARY"], "events": [],
-        "text": "시험법은 SPR 기반 FcRn 상대 결합(사내 표준품 대비 %)이다. 유사성 범위는 제형별로 EU 대조약 lot에서 산정한다. 130 mg IV vial: 107–127%(EU 대조약 IV vial 10 lot, 평균±3SD). 45 mg SC PFS: 97–128%(EU 대조약 PFS 12 lot, 평균±3SD). P17 각 lot 결과를 해당 제형의 범위와 비교한다."},
-       {"unit_id": "U02", "section": "8 결과 해석", "statement_role": "protocol", "speaker": "계획서 v1.0",
-        "scope_ids": ["W-IV-PRIMARY", "W-PFS-PRIMARY", "W-IV-INVEST"], "events": [],
-        "text": "유사성 범위를 벗어난 결과는 출하 규격 부적합(OOS)으로 취급하지 않고 '범위 밖'으로 보고하며, 원인 조사(시험 오류 확인 포함)와 해당 품질 속성 차이의 영향 평가를 수행한다. 시험 오류가 확인되지 않은 결과를 무효로 처리하지 않는다."}
-     ]},
-    {"document_id": "RPT-P17-FA-FcRn-01", "version": "1.0", "date": "2026-03-04", "title": "FcRn 결합 비교시험 결과 — 130 mg IV vial (R101)",
-     "kind": "report", "status": "final", "author": "김분석(분석개발팀)", "sharing": "partner",
-     "units": [
-       {"unit_id": "U03", "section": "3 결과", "statement_role": "experiment_result", "speaker": "분석개발팀",
-        "scope_ids": ["W-IV-PRIMARY"],
-        "events": [{"scope": "W-IV-PRIMARY", "axis": "execution", "value": "result_reported"}, {"scope": "W-IV-PRIMARY", "axis": "report", "value": "final"}],
-        "text": "R101(2026-03-02 수행). 130 mg IV vial 상대 결합: P17 lot A21 98.0%, A22 100.0%, A23 102.0%(lot별 3회 반복 평균). 같은 run의 EU 대조약 IV vial 2 lot: 115.4%, 118.9%. 시스템 적합성 기준 충족. P17 3 lot 모두 유사성 범위(107–127%) 하한 미만."}
-     ]},
-    {"document_id": "RPT-P17-FA-FcRn-02", "version": "1.0", "date": "2026-03-18", "title": "FcRn 결합 비교시험 결과 — 45 mg SC PFS (R103)",
-     "kind": "report", "status": "final", "author": "김분석(분석개발팀)", "sharing": "partner",
-     "units": [
-       {"unit_id": "U04", "section": "3 결과", "statement_role": "experiment_result", "speaker": "분석개발팀",
-        "scope_ids": ["W-PFS-PRIMARY"],
-        "events": [{"scope": "W-PFS-PRIMARY", "axis": "execution", "value": "result_reported"}, {"scope": "W-PFS-PRIMARY", "axis": "report", "value": "final"}],
-        "text": "R103(2026-03-16 수행). 45 mg SC PFS 상대 결합: P17 lot P31 101.2%, P32 102.5%, P33 103.8%. 같은 run의 EU 대조약 PFS 2 lot: 108.7%, 114.1%. 시스템 적합성 기준 충족. P17 3 lot 모두 PFS 유사성 범위(97–128%) 안."}
-     ]},
-    {"document_id": "QA-REV-26-034", "version": "1", "date": "2026-03-19", "title": "FcRn 비교시험(R101·R103) 데이터 검토 기록",
-     "kind": "quality_record", "status": "final", "author": "최품질(QA)", "sharing": "internal",
-     "units": [
-       {"unit_id": "U05", "section": "R101 검토 결론", "statement_role": "quality_decision", "speaker": "최품질(QA)",
-        "scope_ids": ["W-IV-PRIMARY"],
-        "events": [{"scope": "W-IV-PRIMARY", "axis": "technical_review", "value": "completed"}, {"scope": "W-IV-PRIMARY", "axis": "qa_approval", "value": "approved"}],
-        "text": "R101 원자료, 정규화 계산, 시스템 적합성 기록을 검토했다. 계산 오류 및 데이터 무결성 이상 없음. R101 결과를 유효로 승인한다. 범위 밖 결과의 원인·영향 평가는 계획서 8항에 따라 CMC가 수행한다."},
-       {"unit_id": "U06", "section": "R103 검토 결론", "statement_role": "quality_decision", "speaker": "최품질(QA)",
-        "scope_ids": ["W-PFS-PRIMARY"],
-        "events": [{"scope": "W-PFS-PRIMARY", "axis": "technical_review", "value": "completed"}, {"scope": "W-PFS-PRIMARY", "axis": "qa_approval", "value": "approved"}],
-        "text": "R103 원자료와 계산 기록을 검토했다. 이상 없음. R103 결과를 유효로 승인한다."}
-     ]},
-    {"document_id": "MEMO-P17-26-011", "version": "1", "date": "2026-03-20", "title": "IV vial FcRn 범위 밖 결과 대응 착수",
-     "kind": "memo", "status": "issued", "author": "박개발(CMC)", "sharing": "internal",
-     "units": [
-       {"unit_id": "U07", "section": "요청", "statement_role": "work_request", "speaker": "박개발(CMC)",
-        "scope_ids": ["W-IV-INVEST"],
-        "events": [{"scope": "W-IV-INVEST", "axis": "execution", "value": "planned"}, {"scope": "W-IV-INVEST", "axis": "schedule", "value": "written_due", "date": "2026-04-03"}],
-        "text": "IV vial FcRn 결과가 범위 하한 미만으로 확정됐다(QA 유효 승인). 계획서 8항에 따라 원인 조사와 영향 평가 계획을 4월 3일까지 세운다. 같은 성분의 다른 바이오시밀러 공개 심사 자료에서 비슷한 차이를 어떻게 규명하고 정당화했는지 먼저 검토하고, 예상되는 심사 질의도 정리한다."}
-     ]}
-  ],
-  "checkpoints": [
-    {"id": "T1", "as_of": "2026-03-20", "task": "result_review", "audience": "internal", "label": "IV FcRn 이슈 검토",
-     "question": "IV vial FcRn 결과가 범위 하한 미만으로 확정됐습니다. 원인 조사와 영향 평가 계획을 세우려면 무엇을 확인해야 하나요?"}
-  ],
-  "issues": [
-    {"id": "ISSUE-IV-FCRN", "title": "130 mg IV vial FcRn 결합이 유사성 범위 하한 미만", "date": "2026-03-20",
-     "scope_id": "W-IV-INVEST", "unit_ids": ["U01", "U02", "U03", "U04", "U05", "U07"],
-     "summary": "P17 IV vial 3 lot의 FcRn 상대 결합이 98.0–102.0%로 계획서 범위(107–127%) 하한 미만이고, QA가 결과를 유효로 승인했다. 같은 시험법에서 SC PFS 3 lot은 PFS 범위 안이다.",
-     "search": {"exclude_products": ["SB17"], "note": "평가용: 실제 해결 사례(SB17) 문서는 검색에서 뺐습니다."},
-     "questions": [
-       {"id": "Q1", "topic": "precedents", "text": "우스테키누맙 바이오시밀러의 공개 심사 자료에서 FcRn 결합 결과가 대조약과 다르게 나온 사례가 있나요? 어떤 차이였고, 신청자는 어떻게 설명했으며 기관은 어떻게 평가했나요?"},
-       {"id": "Q2", "topic": "cause", "text": "바이오시밀러와 대조약 사이에 FcRn 결합 차이가 있을 때, 원인을 찾기 위해 어떤 품질 특성(산화, 당쇄, 전하 변이 등)을 비교했고 어떤 추가 시험을 했나요?"},
-       {"id": "Q3", "topic": "justification", "text": "우스테키누맙 바이오시밀러 심사에서 품질 특성 차이가 PK나 임상에 영향이 없다고 판단한 근거는 무엇이었나요?"},
-       {"id": "Q4", "topic": "guideline", "text": "바이오시밀러 품질 비교에서 유사성 범위를 벗어난 결과는 어떻게 평가하고 정당화해야 한다고 지침은 권고하나요? 유사성 범위 설정 방법에 대한 요구도 알려 주세요."}
+  "W-PFS-PRIMARY": {
+   "label": "PFS FcRn 비교시험(R103)",
+   "aliases": [
+    "R103",
+    "PFS 비교시험",
+    "PFS 결과"
+   ]
+  },
+  "W-IV-INVEST": {
+   "label": "IV FcRn 차이 원인·영향 평가",
+   "aliases": [
+    "원인 조사",
+    "영향 평가",
+    "원인·영향 평가"
+   ]
+  }
+ },
+ "documents": [
+  {
+   "document_id": "PROT-P17-FA-001",
+   "version": "1.0",
+   "date": "2026-01-20",
+   "title": "P17 기능 분석 비교시험 계획서",
+   "kind": "protocol",
+   "status": "approved",
+   "author": "박개발(CMC) 작성 · 최품질(QA) 승인",
+   "sharing": "partner",
+   "units": [
+    {
+     "unit_id": "U01",
+     "section": "5.3 FcRn 결합",
+     "statement_role": "protocol",
+     "speaker": "계획서 v1.0",
+     "scope_ids": [
+      "W-IV-PRIMARY",
+      "W-PFS-PRIMARY"
      ],
-     "answer_key": {
-       "label": "SB17(Pyzchiva) 실제 해결 — EMA 공개 심사보고서(EMA/106045/2024)",
-       "summary": "IV vial FcRn 결합(98–102%)이 범위(107–127%) 아래였다. 신청자는 C-말단 Lys 차이로 설명하고 CPB로 C-말단 변이를 제거하면 차이가 상쇄되는 자료를 냈다. 범위가 IV vial 대조약 lot만으로 정해져 좁았던 점, SC PFS에서는 차이가 없었던 점을 함께 고려해 기관은 생물학적으로 의미 있는 영향이 예상되지 않는다고 판단했다.",
-       "points": [
-         {"id": "K1", "text": "원인 가설: C-말단 Lys(전하 변이) 차이로 FcRn 결합 차이를 설명", "page": "p.30", "sections": ["cause", "experiments", "response", "mock_questions"], 
-          "pattern": "C-?말단\\s*(Lys|라이신|리신)|C-?terminal\\s*lys"},
-         {"id": "K2", "text": "확인 시험: CPB로 C-말단 변이를 제거해 결합 차이가 상쇄되는지 확인", "page": "p.30", "sections": ["cause", "experiments", "response", "mock_questions"], 
-          "pattern": "CPB|카복시펩티다(아)?제|carboxypeptidase"},
-         {"id": "K3", "text": "범위 맥락: IV vial 대조약 lot만으로 정한 범위가 좁았던 점(범위 설정 근거 검토)", "page": "p.30–31", "sections": ["cause", "experiments", "response", "mock_questions"], 
-          "pattern": "범위[^.]{0,40}(설정|산정|좁|폭)|lot\\s*수|대조약\\s*lot"},
-         {"id": "K4", "text": "다른 제형 근거: SC PFS에서는 차이가 없었던 점", "page": "p.35", "sections": ["cause", "experiments", "response", "mock_questions"], 
-          "pattern": "PFS[^.]{0,80}(범위\\s*(안|내)|차이[^.]{0,6}(없|않)|유사)"},
-         {"id": "K5", "text": "결론 논리: 차이가 작고 생물학적으로 의미 있는 영향(PK 포함)이 없다고 정당화", "page": "p.35", "sections": ["response", "mock_questions"], 
-          "pattern": "(생물학적|임상적)[^.]{0,30}(의미|영향)|PK[^.]{0,40}영향"}
-       ]
-     }}
-  ]
+     "events": [],
+     "text": "시험법은 SPR 기반 FcRn 상대 결합(사내 표준품 대비 %)이다. 유사성 범위는 제형별로 EU 대조약 lot에서 산정한다. 130 mg IV vial: 107–127%(EU 대조약 IV vial 10 lot, 평균±3SD). 45 mg SC PFS: 97–128%(EU 대조약 PFS 12 lot, 평균±3SD). P17 각 lot 결과를 해당 제형의 범위와 비교한다."
+    },
+    {
+     "unit_id": "U02",
+     "section": "8 결과 해석",
+     "statement_role": "protocol",
+     "speaker": "계획서 v1.0",
+     "scope_ids": [
+      "W-IV-PRIMARY",
+      "W-PFS-PRIMARY",
+      "W-IV-INVEST"
+     ],
+     "events": [],
+     "text": "유사성 범위를 벗어난 결과는 출하 규격 부적합(OOS)으로 취급하지 않고 '범위 밖'으로 보고하며, 원인 조사(시험 오류 확인 포함)와 해당 품질 속성 차이의 영향 평가를 수행한다. 시험 오류가 확인되지 않은 결과를 무효로 처리하지 않는다."
+    }
+   ]
+  },
+  {
+   "document_id": "RPT-P17-FA-FcRn-01",
+   "version": "1.0",
+   "date": "2026-03-04",
+   "title": "FcRn 결합 비교시험 결과 — 130 mg IV vial (R101)",
+   "kind": "report",
+   "status": "final",
+   "author": "김분석(분석개발팀)",
+   "sharing": "partner",
+   "units": [
+    {
+     "unit_id": "U03",
+     "section": "3 결과",
+     "statement_role": "experiment_result",
+     "speaker": "분석개발팀",
+     "scope_ids": [
+      "W-IV-PRIMARY"
+     ],
+     "events": [
+      {
+       "scope": "W-IV-PRIMARY",
+       "axis": "execution",
+       "value": "result_reported"
+      },
+      {
+       "scope": "W-IV-PRIMARY",
+       "axis": "report",
+       "value": "final"
+      }
+     ],
+     "text": "R101(2026-03-02 수행). 130 mg IV vial 상대 결합: P17 lot A21 98.0%, A22 100.0%, A23 102.0%(lot별 3회 반복 평균). 같은 run의 EU 대조약 IV vial 2 lot: 115.4%, 118.9%. 시스템 적합성 기준 충족. P17 3 lot 모두 유사성 범위(107–127%) 하한 미만."
+    }
+   ]
+  },
+  {
+   "document_id": "RPT-P17-FA-FcRn-02",
+   "version": "1.0",
+   "date": "2026-03-18",
+   "title": "FcRn 결합 비교시험 결과 — 45 mg SC PFS (R103)",
+   "kind": "report",
+   "status": "final",
+   "author": "김분석(분석개발팀)",
+   "sharing": "partner",
+   "units": [
+    {
+     "unit_id": "U04",
+     "section": "3 결과",
+     "statement_role": "experiment_result",
+     "speaker": "분석개발팀",
+     "scope_ids": [
+      "W-PFS-PRIMARY"
+     ],
+     "events": [
+      {
+       "scope": "W-PFS-PRIMARY",
+       "axis": "execution",
+       "value": "result_reported"
+      },
+      {
+       "scope": "W-PFS-PRIMARY",
+       "axis": "report",
+       "value": "final"
+      }
+     ],
+     "text": "R103(2026-03-16 수행). 45 mg SC PFS 상대 결합: P17 lot P31 101.2%, P32 102.5%, P33 103.8%. 같은 run의 EU 대조약 PFS 2 lot: 108.7%, 114.1%. 시스템 적합성 기준 충족. P17 3 lot 모두 PFS 유사성 범위(97–128%) 안."
+    }
+   ]
+  },
+  {
+   "document_id": "QA-REV-26-034",
+   "version": "1",
+   "date": "2026-03-19",
+   "title": "FcRn 비교시험(R101·R103) 데이터 검토 기록",
+   "kind": "quality_record",
+   "status": "final",
+   "author": "최품질(QA)",
+   "sharing": "internal",
+   "units": [
+    {
+     "unit_id": "U05",
+     "section": "R101 검토 결론",
+     "statement_role": "quality_decision",
+     "speaker": "최품질(QA)",
+     "scope_ids": [
+      "W-IV-PRIMARY"
+     ],
+     "events": [
+      {
+       "scope": "W-IV-PRIMARY",
+       "axis": "technical_review",
+       "value": "completed"
+      },
+      {
+       "scope": "W-IV-PRIMARY",
+       "axis": "qa_approval",
+       "value": "approved"
+      }
+     ],
+     "text": "R101 원자료, 정규화 계산, 시스템 적합성 기록을 검토했다. 계산 오류 및 데이터 무결성 이상 없음. R101 결과를 유효로 승인한다. 범위 밖 결과의 원인·영향 평가는 계획서 8항에 따라 CMC가 수행한다."
+    },
+    {
+     "unit_id": "U06",
+     "section": "R103 검토 결론",
+     "statement_role": "quality_decision",
+     "speaker": "최품질(QA)",
+     "scope_ids": [
+      "W-PFS-PRIMARY"
+     ],
+     "events": [
+      {
+       "scope": "W-PFS-PRIMARY",
+       "axis": "technical_review",
+       "value": "completed"
+      },
+      {
+       "scope": "W-PFS-PRIMARY",
+       "axis": "qa_approval",
+       "value": "approved"
+      }
+     ],
+     "text": "R103 원자료와 계산 기록을 검토했다. 이상 없음. R103 결과를 유효로 승인한다."
+    }
+   ]
+  },
+  {
+   "document_id": "MEMO-P17-26-011",
+   "version": "1",
+   "date": "2026-03-20",
+   "title": "IV vial FcRn 범위 밖 결과 대응 착수",
+   "kind": "memo",
+   "status": "issued",
+   "author": "박개발(CMC)",
+   "sharing": "internal",
+   "units": [
+    {
+     "unit_id": "U07",
+     "section": "요청",
+     "statement_role": "work_request",
+     "speaker": "박개발(CMC)",
+     "scope_ids": [
+      "W-IV-INVEST"
+     ],
+     "events": [
+      {
+       "scope": "W-IV-INVEST",
+       "axis": "execution",
+       "value": "planned"
+      },
+      {
+       "scope": "W-IV-INVEST",
+       "axis": "schedule",
+       "value": "written_due",
+       "date": "2026-04-03"
+      }
+     ],
+     "text": "IV vial FcRn 결과가 범위 하한 미만으로 확정됐다(QA 유효 승인). 계획서 8항에 따라 원인 조사와 영향 평가 계획을 4월 3일까지 세운다. 같은 성분의 다른 바이오시밀러 공개 심사 자료에서 비슷한 차이를 어떻게 규명하고 정당화했는지 먼저 검토하고, 예상되는 심사 질의도 정리한다."
+    }
+   ]
+  }
+ ],
+ "checkpoints": [
+  {
+   "id": "T1",
+   "as_of": "2026-03-20",
+   "task": "result_review",
+   "audience": "internal",
+   "label": "IV FcRn 이슈 검토",
+   "question": "IV vial FcRn 결과가 범위 하한 미만으로 확정됐습니다. 원인 조사와 영향 평가 계획을 세우려면 무엇을 확인해야 하나요?"
+  }
+ ],
+ "issues": [
+  {
+   "id": "ISSUE-IV-FCRN",
+   "title": "130 mg IV vial FcRn 결합이 유사성 범위 하한 미만",
+   "date": "2026-03-20",
+   "scope_id": "W-IV-INVEST",
+   "unit_ids": [
+    "U01",
+    "U02",
+    "U03",
+    "U04",
+    "U05",
+    "U07"
+   ],
+   "summary": "P17 IV vial 3 lot의 FcRn 상대 결합이 98.0–102.0%로 계획서 범위(107–127%) 하한 미만이고, QA가 결과를 유효로 승인했다. 같은 시험법에서 SC PFS 3 lot은 PFS 범위 안이다.",
+   "search": {
+    "exclude_products": [
+     "SB17"
+    ]
+   },
+   "answer_key": {
+    "label": "SB17(Pyzchiva) 실제 해결 — EMA 공개 심사보고서(EMA/106045/2024)",
+    "summary": "IV vial FcRn 결합(98–102%)이 범위(107–127%) 아래였다. 신청자는 C-말단 Lys 차이로 설명하고 CPB로 C-말단 변이를 제거하면 차이가 상쇄되는 자료를 냈다. 범위가 IV vial 대조약 lot만으로 정해져 좁았던 점, SC PFS에서는 차이가 없었던 점을 함께 고려해 기관은 생물학적으로 의미 있는 영향이 예상되지 않는다고 판단했다.",
+    "points": [
+     {
+      "id": "K1",
+      "text": "원인 가설: C-말단 Lys(전하 변이) 차이로 FcRn 결합 차이를 설명",
+      "page": "p.30",
+      "sections": [
+       "cause",
+       "experiments",
+       "response",
+       "mock_questions"
+      ],
+      "pattern": "C-?말단\\s*(Lys|라이신|리신)|C-?terminal\\s*lys"
+     },
+     {
+      "id": "K2",
+      "text": "확인 시험: CPB로 C-말단 변이를 제거해 결합 차이가 상쇄되는지 확인",
+      "page": "p.30",
+      "sections": [
+       "cause",
+       "experiments",
+       "response",
+       "mock_questions"
+      ],
+      "pattern": "CPB|카복시펩티다(아)?제|carboxypeptidase"
+     },
+     {
+      "id": "K3",
+      "text": "범위 맥락: IV vial 대조약 lot만으로 정한 범위가 좁았던 점(범위 설정 근거 검토)",
+      "page": "p.30–31",
+      "sections": [
+       "cause",
+       "experiments",
+       "response",
+       "mock_questions"
+      ],
+      "pattern": "범위[^.]{0,40}(설정|산정|좁|폭)|lot\\s*수|대조약\\s*lot"
+     },
+     {
+      "id": "K4",
+      "text": "다른 제형 근거: SC PFS에서는 차이가 없었던 점",
+      "page": "p.35",
+      "sections": [
+       "cause",
+       "experiments",
+       "response",
+       "mock_questions"
+      ],
+      "pattern": "PFS[^.]{0,80}(범위\\s*(안|내)|차이[^.]{0,6}(없|않)|유사)"
+     },
+     {
+      "id": "K5",
+      "text": "결론 논리: 차이가 작고 생물학적으로 의미 있는 영향(PK 포함)이 없다고 정당화",
+      "page": "p.35",
+      "sections": [
+       "response",
+       "mock_questions"
+      ],
+      "pattern": "(생물학적|임상적)[^.]{0,30}(의미|영향)|PK[^.]{0,40}영향"
+     }
+    ]
+   }
+  }
+ ]
 }

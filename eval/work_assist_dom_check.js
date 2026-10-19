@@ -71,8 +71,8 @@ async function issueFlow(document,line,checks){
   await wait(()=>dialog.querySelector(".issue-card"),"issue card");
   const card=dialog.querySelector(".issue-card");
   assert.deepEqual([...card.querySelectorAll(".work-chip")].map(c=>c.textContent),["U01","U02","U03","U04","U05","U07"]);
-  assert.ok(card.querySelector(".issue-scope").textContent.includes("SB17"),"held-out product is stated");
-  assert.equal(card.querySelectorAll(".issue-questions li").length,4);
+  assert.ok(!card.textContent.includes("평가용")&&!card.textContent.includes("SB17"),"no evaluation note on the card");
+  assert.ok(card.querySelector(".issue-scope").textContent.startsWith("AI가 이슈를 읽고"));
   [...card.querySelectorAll(".work-chip")].find(c=>c.textContent==="U03").click();
   assert.ok(card.querySelector(".work-unit-detail").textContent.includes("98.0%"));
   await wait(()=>dialog.querySelector(".work-history-item"),"guide history");
@@ -82,14 +82,18 @@ async function issueFlow(document,line,checks){
   assert.ok(dialog.querySelector(".issue-result .issue-scope").textContent.includes("검색에서 뺀 제품: SB17"));
   assert.ok(dialog.querySelector(".work-chip.is-public").textContent.startsWith("P1 · BMAB1200 EMA p."),"public source chip");
   assert.ok(dialog.querySelector(".work-badge.is-ai"),"AI suggestion badge");
+  assert.ok(dialog.querySelector(".work-position .work-badge.is-ai").textContent==="AI 요약","the summary says who wrote it");
   assert.ok(dialog.querySelector(".issue-q").textContent.startsWith("Q. "));
+  assert.ok(dialog.querySelector(".issue-why").textContent.startsWith("질의 배경: "));
   assert.ok(dialog.querySelector(".work-warnings").textContent.includes("공개 근거로 표시했지만"));
-  assert.equal(dialog.querySelectorAll(".issue-answer").length,4);
+  assert.equal(dialog.querySelectorAll(".issue-hypotheses li").length,2,"AI hypotheses before search");
+  assert.equal(dialog.querySelectorAll(".issue-answer").length,6,"plan + five searches");
+  assert.ok([...dialog.querySelectorAll(".issue-answer .issue-q")].some(q=>q.textContent.startsWith("Q5 (추가) · ")),"follow-up question marked");
   const review=dialog.querySelector(".issue-review");
   assert.ok(review.querySelector("summary").textContent.includes("정답 대조(평가용)"));
   assert.equal(review.querySelectorAll("li").length,5);
   assert.ok(review.querySelector("li.is-covered"),"covered point marked");
-  checks.push("board line counts the issue","issue banner opens the issue tab","issue card: internal facts, questions, held-out scope","guide sections with public/internal chips and badges","audit warning listed","search answers listed","answer-key review with covered points");
+  checks.push("board line counts the issue","issue banner opens the issue tab","issue card: internal facts, how the guide is made, no evaluation note","guide sections with public/internal chips and badges","audit warning listed","AI summary labelled, question background","search plan (hypotheses) and answers with follow-up marked","answer-key review with covered points");
   dialog.close();
 }
 
