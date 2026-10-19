@@ -1,0 +1,305 @@
+{
+  "schema_version": "internal_document_bundle_v1",
+  "scenario_id": "P17_FCRN_WORKFLOW_V4",
+  "product_alias": "P17",
+  "ingredient": "ustekinumab",
+  "disclosure": "SB17(유럽 제품명 Pyzchiva) 공개 사례를 가명 P17로 바꾼 합성 시나리오입니다. 공개 심사보고서의 집계(IV vial FcRn 관측 98–102%, 비교 범위 107–127%)와 쟁점(전하 변이·C-말단 Lys·CPB)만 참고했고, lot·수치·인물·회사·일정·질의·답변은 모두 만들었습니다. AI에는 실제 제품명과 실제 최종 판단을 주지 않습니다.",
+  "blocked_terms": ["SB17", "Pyzchiva", "CHMP", "EMA/106045/2024", "Samsung Bioepis", "삼성바이오에피스", "피즈치바"],
+  "scopes": {
+    "W-IV-PRIMARY": {"label": "IV FcRn 1차 비교시험(R101)", "aliases": ["R101", "1차 시험", "1차 결과", "1차 비교시험"]},
+    "W-PFS-PRIMARY": {"label": "PFS FcRn 비교시험(R103)", "aliases": ["R103", "PFS 비교시험"]},
+    "W-IV-RERUN": {"label": "IV FcRn 독립 재분석(한빛분석)", "aliases": ["재분석", "R-HB-0319", "독립 재분석"]},
+    "W-PFS-EXPL": {"label": "PFS 전하 변이·CPB 탐색(한빛분석)", "aliases": ["PFS 탐색", "탐색 시험", "PFS CPB"]},
+    "W-IV-CPB": {"label": "IV CPB·kinetics 추가 시험(한빛분석)", "aliases": ["IV CPB", "kinetics", "R-HB-0428", "추가 시험"]},
+    "W-RANGE-REV": {"label": "유사성 범위 재산정안(계획서 v1.1)", "aliases": ["재산정", "v1.1", "범위 변경", "통합 범위"]},
+    "W-PK-ASSESS": {"label": "FcRn 차이의 PK 관련성 평가", "aliases": ["PK 관련성", "PK 평가", "PK 영향", "1상"]},
+    "W-RA-RESPONSE": {"label": "모의 질의 답변(RESP v0.1)", "aliases": ["답변 초안", "모의 질의", "Q-01", "Q-02", "Q-03"]}
+  },
+  "documents": [
+    {
+      "document_id": "PROT-P17-FA-001", "version": "1.0", "date": "2026-01-20",
+      "title": "P17 기능 분석 비교시험 계획서", "kind": "protocol", "status": "approved",
+      "author": "박개발(CMC) 작성 · 최품질(QA) 승인", "sharing": "internal",
+      "units": [
+        {"unit_id": "U01", "section": "5.3 FcRn 결합", "statement_role": "protocol", "speaker": "계획서 v1.0",
+         "scope_ids": ["W-IV-PRIMARY", "W-PFS-PRIMARY"], "events": [],
+         "text": "시험법은 SOP-AN-0412 v3(SPR 기반 FcRn 상대 결합)을 따른다. 결과는 사내 표준품 대비 상대 결합(%)으로 보고한다. 유사성 범위는 제형별로 EU 대조약 lot에서 산정한다(부록 C). 130 mg IV vial: 107–127%(EU 대조약 IV vial 10 lot, 평균±3SD). 45 mg SC PFS: 97–128%(EU 대조약 PFS 12 lot, 평균±3SD). P17 각 lot 결과를 해당 제형의 범위와 비교한다."},
+        {"unit_id": "U02", "section": "8 결과 해석", "statement_role": "protocol", "speaker": "계획서 v1.0",
+         "scope_ids": ["W-IV-PRIMARY", "W-PFS-PRIMARY", "W-RANGE-REV"], "events": [],
+         "text": "유사성 범위를 벗어난 결과는 출하 규격 부적합(OOS)으로 취급하지 않고 '범위 밖'으로 보고하며, 원인 조사(시험 오류 확인 포함)와 해당 품질 속성 차이의 영향 평가를 수행한다. 시험 오류가 확인되지 않은 결과를 무효로 처리하지 않는다. 유사성 범위 또는 평가 방법의 변경은 변경관리(CC) 승인 후 개정판에만 적용하며, 이미 얻은 결과에 소급 적용하지 않는다."}
+      ]
+    },
+    {
+      "document_id": "RPT-P17-FA-FcRn-01", "version": "0.9", "date": "2026-03-04",
+      "title": "FcRn 결합 1차 비교시험 결과 — 130 mg IV vial (R101)", "kind": "report", "status": "preliminary",
+      "author": "김분석(분석개발팀)", "sharing": "internal",
+      "units": [
+        {"unit_id": "U03", "section": "3 결과", "statement_role": "experiment_result", "speaker": "분석개발팀",
+         "scope_ids": ["W-IV-PRIMARY"],
+         "events": [{"scope": "W-IV-PRIMARY", "axis": "execution", "value": "result_reported"},
+                    {"scope": "W-IV-PRIMARY", "axis": "technical_review", "value": "pending"},
+                    {"scope": "W-IV-PRIMARY", "axis": "qa_approval", "value": "not_recorded"}],
+         "text": "R101(2026-03-02 수행, SOP-AN-0412 v3). 130 mg IV vial 상대 결합: P17 lot A21 98.0%, A22 100.0%, A23 102.0%(lot별 3회 반복 평균). 같은 run의 EU 대조약 IV vial 2 lot: 115.4%, 118.9%. 시스템 적합성(표준품 회수율, 대조군 반응) 기준 충족. P17 3 lot 모두 유사성 범위(107–127%) 하한 미만. 2차 검토자 확인 및 QA 데이터 검토 전 잠정 결과."},
+        {"unit_id": "U04", "section": "4 분석자 의견", "statement_role": "analyst_opinion", "speaker": "김분석",
+         "scope_ids": ["W-IV-PRIMARY"], "events": [],
+         "text": "같은 run의 대조약이 범위 안에 있어 장비·표준품 문제 가능성은 낮아 보이나, 정규화 계산과 시료 전처리 기록은 다시 확인하겠다. 차이가 재현되는지 외부 기관의 독립 재분석을 권고한다. 전하 변이, 특히 C-말단 라이신 차이가 FcRn 결합에 영향을 줄 가능성이 있어 CEX 분석과 CPB 처리 전후 비교도 검토할 만하다. 원인은 아직 확인되지 않았다."}
+      ]
+    },
+    {
+      "document_id": "MAIL-20260305-HB", "version": "1", "date": "2026-03-05",
+      "title": "[P17] FcRn IV 독립 재분석 및 PFS 탐색 시험 문의", "kind": "email", "status": "issued",
+      "author": "박개발 → 이시험(한빛분석)", "sharing": "partner",
+      "units": [
+        {"unit_id": "U05", "section": "본문 1", "statement_role": "work_request", "speaker": "박개발",
+         "scope_ids": ["W-IV-RERUN"],
+         "events": [{"scope": "W-IV-RERUN", "axis": "execution", "value": "requested"},
+                    {"scope": "W-IV-RERUN", "axis": "scope_agreement", "value": "awaiting_response"}],
+         "text": "이시험 책임님께. P17 130 mg IV vial 3 lot의 FcRn 상대 결합에 대해 귀사에서 독립 재분석이 가능한지 문의드립니다. 시료와 표준품은 저희가 송부하고, 시험법은 SOP-AN-0412 v3 기술이전본을 따르는 방식을 생각하고 있습니다. 가능 여부, 소요 기간, 견적을 3월 10일까지 회신 부탁드립니다."},
+        {"unit_id": "U06", "section": "본문 2", "statement_role": "work_request", "speaker": "박개발",
+         "scope_ids": ["W-PFS-EXPL"],
+         "events": [{"scope": "W-PFS-EXPL", "axis": "execution", "value": "requested"},
+                    {"scope": "W-PFS-EXPL", "axis": "scope_agreement", "value": "awaiting_response"}],
+         "text": "별건으로, 보유 중인 45 mg SC PFS 시료 1쌍(P17 1 lot, EU 대조약 1 lot)에 대해 CEX 전하 변이 분석과 CPB 처리 전후 FcRn 결합 비교가 가능한지도 함께 검토 부탁드립니다. 이 건은 원인 탐색 목적입니다."}
+      ]
+    },
+    {
+      "document_id": "MAIL-20260309-HB", "version": "1", "date": "2026-03-09",
+      "title": "RE: [P17] FcRn IV 독립 재분석 및 PFS 탐색 시험 문의", "kind": "email", "status": "issued",
+      "author": "이시험(한빛분석) → 박개발", "sharing": "partner",
+      "units": [
+        {"unit_id": "U07", "section": "본문 1", "statement_role": "partner_response", "speaker": "이시험(한빛분석)",
+         "scope_ids": ["W-IV-RERUN"],
+         "events": [{"scope": "W-IV-RERUN", "axis": "scope_agreement", "value": "proposed"},
+                    {"scope": "W-IV-RERUN", "axis": "schedule", "value": "written_due", "date": "2026-03-23"}],
+         "text": "IV 독립 재분석은 가능합니다. 시료 수령 후 10영업일이 걸리며 결과 보고 예정일은 3월 23일입니다. 견적서(HB-Q-2603-11)를 첨부합니다."},
+        {"unit_id": "U08", "section": "본문 2", "statement_role": "partner_response", "speaker": "이시험(한빛분석)",
+         "scope_ids": ["W-PFS-EXPL"],
+         "events": [{"scope": "W-PFS-EXPL", "axis": "scope_agreement", "value": "informal"}],
+         "text": "PFS 1쌍 탐색 시험은 저희 연구 장비 여유분으로 먼저 진행해 보겠습니다. 비용과 보고서 형식(정식 보고서 여부)은 결과를 보고 따로 협의하시죠. 시료가 도착하면 2주 정도 걸립니다."}
+      ]
+    },
+    {
+      "document_id": "MAIL-20260310-HB", "version": "1", "date": "2026-03-10",
+      "title": "RE: RE: [P17] FcRn IV 독립 재분석 및 PFS 탐색 시험 문의", "kind": "email", "status": "issued",
+      "author": "박개발 → 이시험(한빛분석)", "sharing": "partner",
+      "units": [
+        {"unit_id": "U09", "section": "본문", "statement_role": "work_record", "speaker": "박개발",
+         "scope_ids": ["W-IV-RERUN", "W-PFS-EXPL"],
+         "events": [{"scope": "W-IV-RERUN", "axis": "scope_agreement", "value": "agreed"},
+                    {"scope": "W-IV-RERUN", "axis": "execution", "value": "in_progress"}],
+         "text": "견적 HB-Q-2603-11 기준으로 IV 재분석 발주서(PO-26-0318)를 발행했습니다. 시료는 3월 11일 발송 예정입니다(김분석 담당). PFS 탐색 건은 말씀하신 대로 우선 진행 부탁드립니다."}
+      ]
+    },
+    {
+      "document_id": "QA-REV-26-031", "version": "1", "date": "2026-03-12",
+      "title": "R101 데이터 검토 기록", "kind": "quality_record", "status": "final",
+      "author": "최품질(QA)", "sharing": "internal",
+      "units": [
+        {"unit_id": "U10", "section": "검토 결론", "statement_role": "quality_decision", "speaker": "최품질(QA)",
+         "scope_ids": ["W-IV-PRIMARY"],
+         "events": [{"scope": "W-IV-PRIMARY", "axis": "technical_review", "value": "completed"},
+                    {"scope": "W-IV-PRIMARY", "axis": "qa_approval", "value": "approved"}],
+         "text": "R101 원자료, 정규화 계산, 시스템 적합성 기록을 검토했다. 계산 오류 및 데이터 무결성 이상 없음. 표준품 사용기한 기재 누락 1건은 기록 보완으로 종결했다(결과 영향 없음). R101 결과를 유효로 승인한다. 범위 밖 결과의 원인·영향 해석은 계획서 8항에 따라 CMC가 수행한다."}
+      ]
+    },
+    {
+      "document_id": "RPT-P17-FA-FcRn-02", "version": "1.0", "date": "2026-03-18",
+      "title": "FcRn 결합 비교시험 결과 — 45 mg SC PFS (R103)", "kind": "report", "status": "final",
+      "author": "김분석(분석개발팀)", "sharing": "internal",
+      "units": [
+        {"unit_id": "U11", "section": "3 결과", "statement_role": "experiment_result", "speaker": "분석개발팀",
+         "scope_ids": ["W-PFS-PRIMARY"],
+         "events": [{"scope": "W-PFS-PRIMARY", "axis": "execution", "value": "result_reported"}],
+         "text": "R103(2026-03-16). 45 mg SC PFS 상대 결합: P17 lot P31 101.2%, P32 102.5%, P33 103.8%. 같은 run의 EU 대조약 PFS 2 lot: 108.7%, 114.1%. P17 3 lot 모두 PFS 유사성 범위(97–128%) 안. QA 데이터 검토 완료(3/18)."}
+      ]
+    },
+    {
+      "document_id": "RPT-HB-26-0323", "version": "1.0", "date": "2026-03-23",
+      "title": "P17 IV FcRn 독립 재분석 보고서", "kind": "report", "status": "final",
+      "author": "한빛분석 시험팀(책임 이시험)", "sharing": "partner",
+      "units": [
+        {"unit_id": "U12", "section": "결과", "statement_role": "experiment_result", "speaker": "한빛분석 시험팀",
+         "scope_ids": ["W-IV-RERUN"],
+         "events": [{"scope": "W-IV-RERUN", "axis": "execution", "value": "result_reported"},
+                    {"scope": "W-IV-RERUN", "axis": "report", "value": "final"}],
+         "text": "R-HB-0319(2026-03-19). 130 mg IV vial 상대 결합: P17 A21 98.3%, A22 100.1%, A23 101.9%. EU 대조약 IV vial 2 lot: 116.2%, 119.5%. 시스템 적합성 충족. 한빛분석 QA 확인 서명 완료(본 보고서 기준)."}
+      ]
+    },
+    {
+      "document_id": "MAIL-20260323-HB", "version": "1", "date": "2026-03-23",
+      "title": "[P17] IV 재분석 결과 송부", "kind": "email", "status": "issued",
+      "author": "이시험(한빛분석) → 박개발", "sharing": "partner",
+      "units": [
+        {"unit_id": "U13", "section": "본문", "statement_role": "partner_opinion", "speaker": "이시험(한빛분석)",
+         "scope_ids": ["W-IV-RERUN"], "events": [],
+         "text": "재분석 보고서를 첨부드립니다. 귀사 1차 결과와 거의 같게 재현되어 시험 오류 가능성은 낮아 보입니다. 다만 차이 폭이 10% 남짓으로 크지 않으니, 최종 보고서 결론은 '유사성 범위 밖'보다는 '유사함(경미한 차이)' 정도로 정리하시는 것도 방법일 것 같습니다."}
+      ]
+    },
+    {
+      "document_id": "RPT-HB-26-0325", "version": "0.1", "date": "2026-03-25",
+      "title": "P17/EU 대조약 PFS 탐색 시험 결과 요약(연구용)", "kind": "report", "status": "preliminary",
+      "author": "한빛분석 시험팀(책임 이시험)", "sharing": "partner",
+      "units": [
+        {"unit_id": "U14", "section": "1 전하 변이", "statement_role": "experiment_result", "speaker": "한빛분석 시험팀",
+         "scope_ids": ["W-PFS-EXPL"],
+         "events": [{"scope": "W-PFS-EXPL", "axis": "execution", "value": "result_reported"},
+                    {"scope": "W-PFS-EXPL", "axis": "report", "value": "draft"}],
+         "text": "연구용 탐색 시험(비GMP). PFS 시료 1쌍(P17 P31, EU 대조약 PFS 1 lot). CEX basic 분획: P17 3.2%, 대조약 5.5%. 펩타이드 매핑 C-말단 Lys 함유 중쇄 비율: P17 0.8%, 대조약 2.1%."},
+        {"unit_id": "U15", "section": "2 CPB 전후 FcRn", "statement_role": "experiment_result", "speaker": "한빛분석 시험팀",
+         "scope_ids": ["W-PFS-EXPL"], "events": [],
+         "text": "CPB 처리 전후 FcRn 상대 결합: 처리 전 P17 99%, 대조약 110%; 처리 후 P17 100%, 대조약 101%. 각 조건 단회 측정(n=1). 정식 보고서 작성 여부는 별도 협의 사항."}
+      ]
+    },
+    {
+      "document_id": "MIN-20260331-HB", "version": "1", "date": "2026-04-01",
+      "title": "한빛분석 미팅 회의록(3/31)", "kind": "minutes", "status": "issued",
+      "author": "박개발 작성 · 양사 확인", "sharing": "partner",
+      "units": [
+        {"unit_id": "U16", "section": "논의·결정", "statement_role": "meeting_record", "speaker": "회의록(양사)",
+         "scope_ids": ["W-IV-RERUN", "W-PFS-EXPL", "W-IV-CPB"],
+         "events": [{"scope": "W-IV-CPB", "axis": "execution", "value": "requested"},
+                    {"scope": "W-IV-CPB", "axis": "scope_agreement", "value": "proposed"},
+                    {"scope": "W-PFS-EXPL", "axis": "scope_agreement", "value": "informal"}],
+         "text": "참석: 박개발·김분석·한규제(자사), 이시험(한빛분석). 1) IV 재분석 결과 공유 — 1차 결과 재현 확인. 2) PFS 탐색 결과 — CPB 처리 후 차이 감소 관찰, 단회 측정이라 확인 필요. 3) 추가 시험 — IV vial P17 3 lot과 EU 대조약 IV vial 3 lot에 대해 CPB 처리 전후 FcRn 상대 결합과 SPR kinetics(ka, kd, KD)를 측정하기로 협의. 4) PFS 탐색 건의 비용·정식 보고서 여부는 추후 논의."},
+        {"unit_id": "U17", "section": "일정 발언", "statement_role": "partner_response", "speaker": "이시험(한빛분석)",
+         "scope_ids": ["W-IV-CPB"],
+         "events": [{"scope": "W-IV-CPB", "axis": "schedule", "value": "verbal_estimate", "date": "2026-04-24"}],
+         "text": "시료가 4월 7일까지 도착하면 4월 24일경 결과를 드릴 수 있을 것 같다(구두)."},
+        {"unit_id": "U18", "section": "Action items", "statement_role": "meeting_record", "speaker": "회의록(양사)",
+         "scope_ids": ["W-IV-CPB"], "events": [],
+         "text": "한빛분석 견적 송부(4/3, 이시험). 견적 수령 후 발주(박개발). 시료 발송(4/7, 김분석)."}
+      ]
+    },
+    {
+      "document_id": "MAIL-20260406-HB", "version": "1", "date": "2026-04-06",
+      "title": "[P17] IV CPB·kinetics 추가 시험 견적 및 일정", "kind": "email", "status": "issued",
+      "author": "이시험(한빛분석) → 박개발", "sharing": "partner",
+      "units": [
+        {"unit_id": "U19", "section": "본문", "statement_role": "partner_response", "speaker": "이시험(한빛분석)",
+         "scope_ids": ["W-IV-CPB"],
+         "events": [{"scope": "W-IV-CPB", "axis": "schedule", "value": "written_due", "date": "2026-05-08"}],
+         "text": "견적서(HB-Q-2604-02)를 송부드립니다. 범위: IV vial P17 3 lot, EU 대조약 3 lot, CPB 전후 FcRn 상대 결합(각 3회) 및 SPR kinetics. SPR 장비 정기 점검(4/13–4/17) 때문에 결과 보고 예정일은 5월 8일로 조정이 필요합니다. 회의 때 말씀드린 4월 24일은 어렵습니다."}
+      ]
+    },
+    {
+      "document_id": "MAIL-20260407-HB", "version": "1", "date": "2026-04-07",
+      "title": "RE: [P17] IV CPB·kinetics 추가 시험 견적 및 일정", "kind": "email", "status": "issued",
+      "author": "박개발 → 이시험(한빛분석)", "sharing": "partner",
+      "units": [
+        {"unit_id": "U20", "section": "본문", "statement_role": "work_record", "speaker": "박개발",
+         "scope_ids": ["W-IV-CPB"],
+         "events": [{"scope": "W-IV-CPB", "axis": "scope_agreement", "value": "agreed"},
+                    {"scope": "W-IV-CPB", "axis": "execution", "value": "in_progress"}],
+         "text": "견적 HB-Q-2604-02와 5월 8일 일정으로 발주서(PO-26-0402)를 발행했습니다. 시료는 오늘 발송했습니다."}
+      ]
+    },
+    {
+      "document_id": "PROT-P17-FA-001", "version": "1.1-draft", "date": "2026-04-14",
+      "title": "P17 기능 분석 비교시험 계획서 개정 초안 — FcRn 유사성 범위 재산정", "kind": "protocol", "status": "draft",
+      "author": "박개발(CMC)", "sharing": "internal",
+      "units": [
+        {"unit_id": "U21", "section": "5.3 개정 제안", "statement_role": "protocol", "speaker": "박개발(개정 초안)",
+         "scope_ids": ["W-RANGE-REV"],
+         "events": [{"scope": "W-RANGE-REV", "axis": "approval", "value": "draft"}],
+         "text": "FcRn 결합의 IV vial 유사성 범위를 EU 대조약 IV vial 10 lot과 PFS 12 lot을 통합한 22 lot 기준(평균±3SD)으로 재산정하여 98–130%로 변경한다. 근거: 동일 원료의약품이며 제형 차이가 FcRn 결합에 영향을 주지 않는다고 가정함. 개정 시 R101과 R-HB-0319 결과는 범위 안으로 판정된다."}
+      ]
+    },
+    {
+      "document_id": "MAIL-20260416-RA", "version": "1", "date": "2026-04-16",
+      "title": "RE: 계획서 개정 초안(범위 재산정) 의견", "kind": "email", "status": "issued",
+      "author": "한규제(RA) → 박개발", "sharing": "internal",
+      "units": [
+        {"unit_id": "U22", "section": "본문", "statement_role": "internal_opinion", "speaker": "한규제(RA)",
+         "scope_ids": ["W-RANGE-REV"], "events": [],
+         "text": "결과를 확인한 뒤 범위를 넓히면 심사에서 사후 조정으로 보일 수 있습니다. PFS lot을 IV 범위에 합치려면 제형 간 FcRn 결합이 같다는 근거가 먼저 있어야 하는데, 지금 PFS와 IV 대조약 결과 분포가 달라 보입니다. 원 계획서 범위 기준 결과를 그대로 보고하고, 차이의 원인과 영향으로 설명하는 쪽을 권합니다."}
+      ]
+    },
+    {
+      "document_id": "QA-MEMO-26-044", "version": "1", "date": "2026-04-17",
+      "title": "계획서 개정 초안 적용 여부 회신", "kind": "quality_record", "status": "final",
+      "author": "최품질(QA)", "sharing": "internal",
+      "units": [
+        {"unit_id": "U23", "section": "회신", "statement_role": "quality_decision", "speaker": "최품질(QA)",
+         "scope_ids": ["W-RANGE-REV"],
+         "events": [{"scope": "W-RANGE-REV", "axis": "qa_approval", "value": "not_approved"}],
+         "text": "PROT-P17-FA-001 v1.1 초안은 변경관리(CC)가 개시되지 않아 효력이 없다. 현재 적용 기준은 v1.0이며 R101과 R-HB-0319의 판정은 v1.0 범위로 기재한다. 범위 변경을 추진하더라도 계획서 8항에 따라 이미 얻은 결과에는 소급 적용할 수 없다."}
+      ]
+    },
+    {
+      "document_id": "PK-NOTE-26-007", "version": "1", "date": "2026-04-20",
+      "title": "FcRn 결합 차이의 PK 관련성 검토 메모", "kind": "memo", "status": "issued",
+      "author": "정약리(임상약리)", "sharing": "internal",
+      "units": [
+        {"unit_id": "U24", "section": "의견", "statement_role": "internal_opinion", "speaker": "정약리(임상약리)",
+         "scope_ids": ["W-PK-ASSESS"],
+         "events": [],
+         "text": "현재 비교 PK 자료가 없어 FcRn 결합 차이의 PK 관련성은 판단할 수 없다. 건강인 1상(45 mg SC, P17-101)의 top-line은 6월 말 예정이다. IV 투여 비교 PK 시험은 현 개발계획에 없어, IV vial의 FcRn 차이에 대한 직접 PK 근거는 앞으로도 없을 수 있다. 이 정도의 결합 차이가 PK에 의미 있는 영향을 주는지는 1상 결과와 함께 평가해야 한다."},
+        {"unit_id": "U25", "section": "일정", "statement_role": "work_record", "speaker": "정약리(임상약리)",
+         "scope_ids": ["W-PK-ASSESS"],
+         "events": [{"scope": "W-PK-ASSESS", "axis": "execution", "value": "planned"},
+                    {"scope": "W-PK-ASSESS", "axis": "schedule", "value": "written_due", "date": "2026-06-30"}],
+         "text": "P17-101 top-line 수령 후 PK 관련성 평가 메모를 작성한다(목표 6월 30일)."}
+      ]
+    },
+    {
+      "document_id": "RPT-HB-26-0508", "version": "0.9", "date": "2026-05-08",
+      "title": "P17 IV CPB 처리 전후 FcRn 결합 및 kinetics 결과(보고서 초안)", "kind": "report", "status": "preliminary",
+      "author": "한빛분석 시험팀(책임 이시험)", "sharing": "partner",
+      "units": [
+        {"unit_id": "U26", "section": "3 FcRn 상대 결합", "statement_role": "experiment_result", "speaker": "한빛분석 시험팀",
+         "scope_ids": ["W-IV-CPB"],
+         "events": [{"scope": "W-IV-CPB", "axis": "execution", "value": "result_reported"},
+                    {"scope": "W-IV-CPB", "axis": "report", "value": "draft"}],
+         "text": "R-HB-0428(2026-04-27~28). CPB 처리 전: P17 A21 98.6%, A22 100.4%, A23 101.7%; EU 대조약 IV 3 lot 112.3%, 116.0%, 120.8%. 처리 후: P17 100.2%, 101.0%, 101.9%; 대조약 101.5%, 102.8%, 103.6%(각 3회 반복 평균)."},
+        {"unit_id": "U27", "section": "4 kinetics·보고 일정", "statement_role": "experiment_result", "speaker": "한빛분석 시험팀",
+         "scope_ids": ["W-IV-CPB"],
+         "events": [{"scope": "W-IV-CPB", "axis": "schedule", "value": "written_due", "date": "2026-05-22"}],
+         "text": "SPR kinetics(pH 6.0): KD 비(P17/대조약 평균) 처리 전 1.14, 처리 후 1.02. ka·kd 원표는 부록 B(초안). 본 문서는 보고서 초안이며 한빛분석 QA 검토 후 최종 보고서를 5월 22일 송부할 예정이다."}
+      ]
+    },
+    {
+      "document_id": "MOCK-REV-26-01", "version": "1", "date": "2026-05-11",
+      "title": "P17 사내 모의 심사 질의(FcRn)", "kind": "mock_review", "status": "issued",
+      "author": "한규제(RA팀 모의 심사)", "sharing": "internal",
+      "units": [
+        {"unit_id": "U28", "section": "Q-01~Q-03", "statement_role": "simulated_agency_request", "speaker": "RA팀 모의 심사",
+         "scope_ids": ["W-RA-RESPONSE"],
+         "events": [{"scope": "W-RA-RESPONSE", "axis": "execution", "value": "requested"},
+                    {"scope": "W-RA-RESPONSE", "axis": "agency_decision", "value": "no_actual_agency_process"}],
+         "text": "사내 모의 심사 질의(실제 기관 질의 아님). Q-01: 130 mg IV vial의 FcRn 결합이 사전 설정 유사성 범위 아래로 관찰되었다. 범위 설정에 사용한 대조약 lot 구성과 범위의 적절성, 관찰된 차이를 설명하시오. Q-02: PFS와 IV에서 수행한 전하 변이·CPB 시험 결과가 FcRn 결합 차이의 원인을 어떻게 뒷받침하는지 각 자료의 한계와 함께 제시하시오. Q-03: FcRn 결합 차이가 PK 및 임상적 특성에 영향을 주지 않는다는 근거와 추가 자료 계획을 제시하시오."}
+      ]
+    },
+    {
+      "document_id": "RESP-P17-MOCK", "version": "0.1", "date": "2026-05-13",
+      "title": "모의 심사 질의 답변 초안", "kind": "draft_response", "status": "draft",
+      "author": "한규제(RA)", "sharing": "internal",
+      "units": [
+        {"unit_id": "U29", "section": "Q-01 답변", "statement_role": "sponsor_draft", "speaker": "한규제(답변 초안)",
+         "scope_ids": ["W-RA-RESPONSE"],
+         "events": [{"scope": "W-RA-RESPONSE", "axis": "approval", "value": "draft"},
+                    {"scope": "W-RA-RESPONSE", "axis": "submission", "value": "not_submitted"}],
+         "text": "IV vial 결과(98.0–102.0%)는 IV 대조약 기준 범위(107–127%) 하한보다 낮았으나, IV·PFS 대조약 22 lot을 통합한 범위(98–130%)에서는 모두 범위 안에 있어 유사성이 확인된다."},
+        {"unit_id": "U30", "section": "Q-02 답변", "statement_role": "sponsor_draft", "speaker": "한규제(답변 초안)",
+         "scope_ids": ["W-RA-RESPONSE"], "events": [],
+         "text": "C-말단 Lys 함량 차이가 FcRn 결합 차이의 원인이다. CPB 처리로 C-말단 Lys를 제거하면 IV와 PFS 모두에서 차이가 해소되었다(최종 보고서 첨부)."},
+        {"unit_id": "U31", "section": "Q-03 답변", "statement_role": "sponsor_draft", "speaker": "한규제(답변 초안)",
+         "scope_ids": ["W-RA-RESPONSE"], "events": [],
+         "text": "CPB 처리 후 결합 차이가 해소되었으므로 FcRn 결합 차이는 PK 및 임상적 특성에 영향을 주지 않는다."}
+      ]
+    }
+  ],
+  "checkpoints": [
+    {"id": "T1", "as_of": "2026-03-06", "task": "result_review", "audience": "internal",
+     "label": "1차 결과 검토",
+     "question": "FcRn IV 1차 결과가 나왔습니다. 계획서 유사성 범위를 통과하는지, 지금 판단할 수 있는 것과 없는 것을 나눠 정리하고, 확인할 자료와 다음 조치를 알려 주세요."},
+    {"id": "T2", "as_of": "2026-03-27", "task": "partner_meeting", "audience": "internal",
+     "label": "한빛분석 미팅 준비",
+     "question": "3월 31일 한빛분석 미팅을 준비합니다. 한빛분석과 진행한 시험별로 무엇이 끝났고 무엇이 미확정인지 정리하고, 미팅에서 확인할 질문과 새로 협의할 내용을 정리해 주세요."},
+    {"id": "T3", "as_of": "2026-04-21", "task": "result_review", "audience": "internal",
+     "label": "범위 재산정안 검토",
+     "question": "박개발 님이 올린 범위 재산정안(v1.1)을 적용하면 IV 결과가 범위 안으로 들어옵니다. 결과 보고서를 재산정 범위로 정리해도 될까요? 현재 적용 기준과 IV CPB 추가 시험 진행 상황도 같이 정리해 주세요."},
+    {"id": "T4", "as_of": "2026-05-15", "task": "ra_preparation", "audience": "internal",
+     "label": "모의 질의 답변 초안 검토",
+     "question": "모의 질의 Q-01~Q-03 답변 초안(v0.1)을 검토해 주세요. 문항별로 근거가 부족하거나 과장된 표현, 바꿔야 할 문구와 추가로 필요한 자료를 정리하고, 답변의 승인·제출 상태도 표시해 주세요."}
+  ]
+}

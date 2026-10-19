@@ -1,0 +1,207 @@
+{
+  "version": "pre-disclosure-memo-simulation-1",
+  "tasks": [
+    {
+      "task_id": "S1_RESULT_REVIEW",
+      "phase": 1,
+      "selected_unit_ids": [
+        "U01",
+        "U03",
+        "U02",
+        "U04",
+        "U05"
+      ],
+      "future_units_excluded": [
+        "U06",
+        "U07",
+        "U08",
+        "U09",
+        "U10",
+        "U11"
+      ],
+      "execution_status": "completed",
+      "audit": {
+        "nonempty_cited_items": true,
+        "all_citations_in_supplied_context": true,
+        "cited_unit_ids": [
+          "U01",
+          "U02",
+          "U03",
+          "U04",
+          "U05"
+        ],
+        "meaning_verified_automatically": false,
+        "regulatory_prediction_accuracy": null
+      },
+      "input_tokens": 2080,
+      "output_tokens": 992,
+      "model_reported": "gpt-5.6-luna"
+    },
+    {
+      "task_id": "S2_PARTNER_MEETING",
+      "phase": 2,
+      "selected_unit_ids": [
+        "U04",
+        "U09",
+        "U08",
+        "U03",
+        "U01",
+        "U07",
+        "U06",
+        "U02"
+      ],
+      "future_units_excluded": [
+        "U10",
+        "U11"
+      ],
+      "execution_status": "completed",
+      "audit": {
+        "nonempty_cited_items": true,
+        "all_citations_in_supplied_context": true,
+        "cited_unit_ids": [
+          "U01",
+          "U02",
+          "U03",
+          "U04",
+          "U06",
+          "U07",
+          "U08",
+          "U09"
+        ],
+        "meaning_verified_automatically": false,
+        "regulatory_prediction_accuracy": null
+      },
+      "input_tokens": 3239,
+      "output_tokens": 1384,
+      "model_reported": "gpt-5.6-luna"
+    },
+    {
+      "task_id": "S3_RA_RESPONSE",
+      "phase": 3,
+      "selected_unit_ids": [
+        "U11",
+        "U10",
+        "U09",
+        "U03",
+        "U01",
+        "U08",
+        "U02",
+        "U06",
+        "U07",
+        "U04"
+      ],
+      "future_units_excluded": [],
+      "execution_status": "completed",
+      "audit": {
+        "nonempty_cited_items": true,
+        "all_citations_in_supplied_context": true,
+        "cited_unit_ids": [
+          "U01",
+          "U02",
+          "U04",
+          "U06",
+          "U07",
+          "U08",
+          "U09",
+          "U10",
+          "U11"
+        ],
+        "meaning_verified_automatically": false,
+        "regulatory_prediction_accuracy": null
+      },
+      "input_tokens": 3950,
+      "output_tokens": 1670,
+      "model_reported": "gpt-5.6-luna"
+    }
+  ],
+  "model_attempts": 3,
+  "input_sha256_unchanged": true,
+  "production_data_modified": false,
+  "v1_gold_12_cases_evaluated": false,
+  "manual_review_required": true,
+  "protocol": {
+    "version": "pre-disclosure-memo-simulation-1",
+    "created_at": "2026-10-18T07:42:12.604072+00:00",
+    "input_file": "docs\\demo\\internal_pipeline_v2\\02_INTERNAL_DOCUMENTS.json",
+    "input_sha256": "268ab6612254a370e7f82607db0492283ae95827a58655b43c8ece9021a3a248",
+    "input_files_read": [
+      "docs\\demo\\internal_pipeline_v2\\02_INTERNAL_DOCUMENTS.json"
+    ],
+    "hidden_original_PDF_in_context": false,
+    "review_or_gold_file_in_context": false,
+    "production_pgvector_pipeline": false,
+    "independent_holdout": false,
+    "new_model_call_cap": 3,
+    "automatic_retry": false,
+    "task_count": 3
+  },
+  "generated_item_counts": {
+    "S1_RESULT_REVIEW": 13,
+    "S2_PARTNER_MEETING": 15,
+    "S3_RA_RESPONSE": 16
+  },
+  "artifact_sha256": {
+    "docs/demo/internal_pipeline_v2/02_INTERNAL_DOCUMENTS.json": "268ab6612254a370e7f82607db0492283ae95827a58655b43c8ece9021a3a248",
+    "eval/pre_disclosure_scenario.py": "80ae5000ae0bf2d98910197f40933982e66d36cf5afcccc90aab7fdec06e5080"
+  },
+  "reviewer": "coding_agent",
+  "human_domain_expert_reviewed": false,
+  "semantic_correctness_certified": false,
+  "manual_findings": [
+    {
+      "task_ids": [
+        "S2_PARTNER_MEETING",
+        "S3_RA_RESPONSE"
+      ],
+      "issue": "old_request_state_expanded_to_current_overall_status",
+      "sources": [
+        "U04",
+        "U06",
+        "U08"
+      ],
+      "correction": "IV rerun and PFS exploratory results received; additional IV CPB scope/samples/deadline remain unagreed"
+    },
+    {
+      "task_ids": [
+        "S2_PARTNER_MEETING"
+      ],
+      "issue": "overbroad_prohibition_on_IV_PFS_interpretation",
+      "correction": "PFS is not an IV direct observation; indirect support can be considered with the necessary bridging rationale"
+    },
+    {
+      "task_ids": [
+        "S2_PARTNER_MEETING",
+        "S3_RA_RESPONSE"
+      ],
+      "issue": "reviewer_statement_needs_explicit_speaker_attribution",
+      "sources": [
+        "U06"
+      ],
+      "correction": "Attribute absence-of-error report to the analyst; do not imply independent validation"
+    },
+    {
+      "task_ids": [
+        "S3_RA_RESPONSE"
+      ],
+      "issue": "incomplete_approval_submission_acceptance_text",
+      "correction": "Use explicit draft/unsubmitted/no actual agency decision states"
+    },
+    {
+      "task_ids": [
+        "S1_RESULT_REVIEW",
+        "S2_PARTNER_MEETING",
+        "S3_RA_RESPONSE"
+      ],
+      "issue": "requested_maximum_12_items_exceeded",
+      "counts": {
+        "S1_RESULT_REVIEW": 13,
+        "S2_PARTNER_MEETING": 15,
+        "S3_RA_RESPONSE": 16
+      },
+      "correction": "Constrain final layout and remove repeated facts"
+    }
+  ],
+  "model_outputs_edited": false,
+  "reviewer_rewrites_are_separately_labeled": true,
+  "retrieval_fix_before_live_run": "Expand explicit evidence links to include IV rerun original results omitted by top-k lexical retrieval"
+}

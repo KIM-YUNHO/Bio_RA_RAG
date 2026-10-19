@@ -1,0 +1,81 @@
+{
+  "schema_version": "pre_disclosure_simulation_v2",
+  "scenario_id": "P17_FCRN_PRE_DISCLOSURE",
+  "model_product_alias": "P17",
+  "simulation_clock": "S1/S2/S3 relative workdays; not historical SB17 dates",
+  "disclosure": "가상 개발 시점 재현. 실제 공개 집계와 정성적 기전을 참고했으나 개별 lot/run/실험 수치/인물/기관 질의/응답/일정은 합성이다. 실제 기업 내부 자료가 아니다.",
+  "units": [
+    {
+      "id": "U01", "document_id": "SIM-PROTOCOL-01", "section": "S1", "available_from": 1,
+      "type": "criterion", "subject": "P17 IV FcRn 비교", "presentation": "130 mg IV vial", "audience": "internal",
+      "source_kind": "synthetic_internal_protocol", "modality": "planned", "data_maturity": "not_applicable", "run_validity": "not_applicable",
+      "text": "[합성 비교시험 계획서 v0.1] P17과 EU 기준약의 130 mg IV vial을 제형별로 비교한다. 이번 FcRn 상대 결합활성 비교에 사용할 유사성 범위는 107–127%다. 이는 이번 비교시험의 사전 설정 범위이며 출하 규격이나 보편적인 규제 합격선이 아니다. 범위 산정 원자료·대조약 lot 구성·통계적 정당화 첨부는 현재 자료 묶음에 없다. 관측 결과와 범위를 다른 열로 보고하며 PFS에 동일 범위를 적용하지 않는다."
+    },
+    {
+      "id": "U02", "document_id": "SIM-EXP-IV-01", "section": "RESULT_TABLE", "available_from": 1,
+      "type": "fact", "subject": "P17 IV FcRn 비교", "presentation": "130 mg IV vial", "audience": "internal",
+      "source_kind": "synthetic_experiment", "modality": "observed", "data_maturity": "preliminary", "run_validity": "pending",
+      "text": "[합성 내부 시험결과 v0.1 / S1] FcRn 상대 결합활성 요약표: SIM-IV-A=98.0%, SIM-IV-B=100.0%, SIM-IV-C=102.0%. 이 세 값은 합성 lot 요약값이며 반복 측정 원자료가 아니다. 합성 run ID는 SIM-R101이다. 계산 검토·표준품/대조군 확인·분석책임자 검토가 진행 중이며 최종 승인본은 아니다. 시험법의 상세 검증 문서·반복 수·측정불확도는 이 묶음에 미제공이다. 비교 범위는 계획서의 107–127%이며 세 요약값 모두 하한 미만이다. 시험 무효 판정이나 제품 불합격 결정은 기록되지 않았다."
+    },
+    {
+      "id": "U03", "document_id": "SIM-ANALYST-01", "section": "COMMENT", "available_from": 1,
+      "type": "interpretation", "subject": "P17 IV FcRn 비교", "presentation": "130 mg IV vial", "audience": "internal",
+      "source_kind": "synthetic_internal_comment", "modality": "proposal", "data_maturity": "not_applicable", "run_validity": "not_applicable",
+      "text": "[합성 분석자 코멘트 / S1] 분석담당 김분석: 비교 범위 미만이라는 관측을 먼저 남긴다. 원인이 분석 과정인지, 대조약 구성·제형 차이인지, 분자 특성 차이인지 아직 구별하지 못했다. 원인 확인 전 임의로 기준을 완화하거나 시험을 무효로 처리하지 말자. 정규화 계산과 run 적합성 기록을 확인하고 독립 재분석·전하 변이 분석·제형별 비교를 제안한다. 원인 가설은 확인 결과가 아니며 QA 판정은 요청하지 않은 상태다."
+    },
+    {
+      "id": "U04", "document_id": "SIM-CRO-REQUEST-01", "section": "REQUEST", "available_from": 1,
+      "type": "action", "subject": "P17 IV FcRn 비교", "presentation": "IV/PFS separate", "audience": "internal",
+      "source_kind": "synthetic_correspondence", "modality": "planned", "data_maturity": "not_applicable", "run_validity": "not_applicable",
+      "text": "[합성 분석협력사 요청 / S1] 분석책임자 박개발은 가상 한빛분석의 이시험에게 IV 재분석과 전하 변이·CPB 전후 비교의 실행 가능성을 문의했다. 3근무일 안에 가용 시료·시험계획·소요기간 회신을 요청했으나 아직 협력사 수락이나 납기 합의는 없다. 이번 요청은 기술 검토이며 기관에 제출하지 않았다."
+    },
+    {
+      "id": "U05", "document_id": "PUB-QUALITY-PRINCIPLES-01", "section": "SUMMARY", "available_from": 1,
+      "type": "criterion", "subject": "품질·생물학적 특성 비교", "presentation": "general", "audience": "public",
+      "source_kind": "public_guideline_paraphrase", "modality": "reported", "data_maturity": "not_applicable", "run_validity": "not_applicable",
+      "text": "[공개 원칙 요약] 바이오시밀러 품질 비교에는 제조 관련 특성, 분석법, 물리화학적 특성, 생물학적 활성, 순도와 규격 검토가 포함된다. 차이는 해당 품질 속성과 관련 기능의 맥락에서 평가할 필요가 있다. 이 원칙은 특정 FcRn 수치에 대한 자동 수용 규칙을 제공하지 않는다.",
+      "source_url": "https://www.ema.europa.eu/en/scientific-guidelines/similar-biological-medicinal-products-containing-biotechnology-derived-proteins-active-substance-quality-issues"
+    },
+    {
+      "id": "U06", "document_id": "SIM-EXP-IV-02", "section": "RESULT_AND_REVIEW", "available_from": 2, "related_unit_ids": ["U01", "U02"],
+      "type": "fact", "subject": "P17 IV FcRn 비교", "presentation": "130 mg IV vial", "audience": "internal",
+      "source_kind": "synthetic_experiment", "modality": "observed", "data_maturity": "preliminary", "run_validity": "pending",
+      "text": "[합성 IV 재분석 결과 / S2] SIM-R102에서 SIM-IV-A=98.3%, SIM-IV-B=100.1%, SIM-IV-C=101.9%다. 기존 합성 run과 같은 방향의 낮은 결과다. 김분석은 정규화 계산과 대조군 기록을 재확인했으며 현재까지 특정 계산 오류나 무효화 사유를 찾지 못했다고 회신했다. 이는 기술 검토 의견이고 시험법 검증 첨부·QA 최종 서명은 아직 없다. 유효성은 pending, 데이터는 preliminary로 유지한다. 이전 SIM-R101 기록도 보존한다."
+    },
+    {
+      "id": "U07", "document_id": "SIM-EXP-CHARGE-01", "section": "RESULT_TABLE", "available_from": 2, "related_unit_ids": ["U08"],
+      "type": "fact", "subject": "전하 변이·FcRn 연결", "presentation": "45 mg SC PFS", "audience": "internal",
+      "source_kind": "synthetic_experiment", "modality": "observed", "data_maturity": "preliminary", "run_validity": "pending",
+      "text": "[합성 PFS 전하 변이 결과 / S2] PFS 탐색용 시료 한 쌍 SIM-PFS-A와 SIM-RP-PFS-A에서 CEX basic fraction 요약값은 각각 3.2%와 5.5%, C-terminal Lys 관련 분석 요약값은 각각 0.8%와 2.1%다. 이 숫자는 모두 합성이며 공개 원문에 이 개별 수치가 있다는 뜻이 아니다. 서로 다른 지표의 %를 더하거나 인과관계로 환산하지 않는다. 시료 한 쌍의 탐색 결과이고 IV vial의 같은 분석은 아직 미제공이다. 분획·구조 확인 및 기능 연결을 더 검토해야 한다."
+    },
+    {
+      "id": "U08", "document_id": "SIM-CRO-RESPONSE-01", "section": "CPB_RESULT_AND_LIMITS", "available_from": 2, "related_unit_ids": ["U04", "U06", "U07"],
+      "type": "fact", "subject": "전하 변이·FcRn 연결", "presentation": "45 mg SC PFS", "audience": "internal",
+      "source_kind": "synthetic_experiment_and_response", "modality": "observed", "data_maturity": "preliminary", "run_validity": "pending",
+      "text": "[합성 한빛분석 회신·CPB 탐색 결과 / S2] 이시험: 가용했던 PFS 시료 한 쌍에 한해 시험했다. 동일한 가상 정규화 기준의 FcRn 상대 결합활성 요약값은 처리 전 P17=99%, 기준약=110%, CPB 처리 후 P17=100%, 기준약=101%다. 이 개별 수치는 합성이며 실제 공개 수치를 복원한 것이 아니다. 차이가 줄어드는 탐색적 경향으로 보고하나 통계적 동등성·완전한 인과 입증·임상적 무영향을 결론내리지 않는다. IV vial의 CPB 시험은 미실시이고 ka·kd·KD 표는 이 회신에 없다. IV 재분석은 SIM-R102로 별도 회신했으며, IV CPB 추가 범위·시료·납기는 아직 합의되지 않았다."
+    },
+    {
+      "id": "U09", "document_id": "SIM-CMC-REVIEW-01", "section": "RESPONSE_AND_ACTIONS", "available_from": 2, "related_unit_ids": ["U01", "U06", "U07", "U08"],
+      "type": "interpretation", "subject": "P17 IV FcRn 비교", "presentation": "IV/PFS separate", "audience": "internal",
+      "source_kind": "synthetic_internal_response", "modality": "proposal", "data_maturity": "not_applicable", "run_validity": "not_applicable",
+      "text": "[합성 CMC·RA 내부 응답 / S2] CMC 박개발: IV에서 차이가 반복되고 PFS에서 전하 변이·CPB 연결 단서가 보이므로 단순 분석오류 설명만으로 종료하지 말자. PFS 지지자료를 IV 직접 관측으로 바꾸면 안 된다. IV/PFS 연결 근거, 대조약 lot와 범위 산정, 시험법·run 검토 기록 및 실제 결합 kinetics 자료가 현재 확보 범위에서 부족하다. RA 한규제: 이는 품질·기능적 유사성 이슈이며 비임상·PK 관련성 평가와 연결해 설명 초안을 준비하자. 공정 변경·출하 중단·기관 수용·추가시험 면제는 결정되지 않았다. 파트너 미팅에서 IV CPB 추가 범위와 일정의 합의를 요청하자."
+    },
+    {
+      "id": "U10", "document_id": "SIM-AGENCY-QUESTIONS-01", "section": "Q01_Q03", "available_from": 3, "related_unit_ids": ["U01", "U06", "U08"],
+      "type": "question", "subject": "P17 기관 질의응답 모사", "presentation": "IV/PFS separate", "audience": "internal",
+      "source_kind": "synthetic_agency_questions", "modality": "reported", "data_maturity": "not_applicable", "run_validity": "not_applicable",
+      "text": "[합성 기관 질의 모사본 / S3] 실제 기관 발신 공문이 아니다. Q-01: IV vial FcRn 범위 하회와 대조약 lot·범위 설정의 적절성을 설명하시오. Q-02: PFS에서 관찰한 전하 변이·CPB 결과를 IV 설명에 사용하는 근거와 한계를 제시하시오. Q-03: FcRn 차이의 생물학적·PK 관련성 평가를 지지하는 근거와 추가 자료 계획을 제시하시오. 이 문서는 연습용 요청이며 수용·불수용 결정, 신규 시험 면제나 승인 결과를 포함하지 않는다."
+    },
+    {
+      "id": "U11", "document_id": "SIM-SPONSOR-RESPONSE-01", "section": "DRAFT", "available_from": 3, "related_unit_ids": ["U10", "U01", "U02", "U06", "U07", "U08", "U09"],
+      "type": "interpretation", "subject": "P17 기관 질의응답 모사", "presentation": "IV/PFS separate", "audience": "internal",
+      "source_kind": "synthetic_sponsor_response", "modality": "proposal", "data_maturity": "not_applicable", "run_validity": "not_applicable",
+      "text": "[합성 회사 답변 초안 / S3] RA 한규제: Q-01에는 SIM-EXP-IV-01/02와 비교 계획서를 연결하되 미제공인 범위 산정 첨부·run 최종 검토 상태를 표시한다. Q-02에는 PFS 탐색 데이터 SIM-EXP-CHARGE-01, SIM-CRO-RESPONSE-01을 별도 제형 근거로 붙이고 IV 연결·직접 확인의 공백을 명시한다. Q-03의 현재 문구는 '차이는 무영향으로 확인됐다'가 아니라 '전하 변이 관련 가설을 지지하는 탐색 단서가 있어 관련성을 추가 평가 중'이다. kinetics·IV 확인·PK 관련성 자료의 확보 범위와 계획을 정리해야 한다. 이 답변은 미승인·미제출이고 기관 피드백은 아직 없다."
+    }
+  ],
+  "tasks": [
+    {"id": "S1_RESULT_REVIEW", "phase": 1, "question": "P17 130 mg IV vial의 FcRn 결과가 98–102%로 나왔습니다. 내부 비교 범위 107–127%에 통과할 수준인가요? 현재 결과·시험 유효성·판단 가능한 범위를 구분하고, 담당자가 확인할 자료와 다음 조치를 출처와 함께 정리해 주세요.", "search_terms": "FcRn IV 관측 결과 유사성 범위 107–127 98–102 run 검토 분석 코멘트"},
+    {"id": "S2_PARTNER_MEETING", "phase": 2, "question": "한빛분석과 미팅합니다. IV FcRn 재분석과 PFS 전하 변이·CPB 회신을 대조해, 협력사에 붙일 코멘트와 확인 질문을 안건별로 준비해 주세요. 이미 한 일, 미확인 결과, 새로 합의할 시험 범위·일정을 나누고, 관측과 내부 의견을 구분해 주세요.", "search_terms": "한빛분석 회신 CPB PFS IV 재분석 전하 변이 CMC 내부 응답 추가 범위 납기"},
+    {"id": "S3_RA_RESPONSE", "phase": 3, "question": "연습용 기관 질의 Q-01~Q-03에 대해 회사 답변 초안을 준비해 주세요. 현재 제시할 수 있는 근거와 추가 제출이 필요한 공백을 문항별로 연결하고, 내부에서 먼저 확인할 질문도 적어 주세요. 실제 기관 발신·회신인지, 답변의 승인·제출·수용 여부도 명확히 표시해 주세요.", "search_terms": "기관 질의 Q-01 Q-02 Q-03 회사 답변 초안 IV FcRn CPB PFS 범위 설정 미제출"}
+  ]
+}
