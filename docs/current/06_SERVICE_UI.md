@@ -12,9 +12,12 @@
 | 포트 | 시작 | 시작 방법 | 차이 |
 | :-- | :-- | :-- | :-- |
 | **8775** | 2026-10-18 15:10 | `scripts/start_ra_service.ps1` (로그 `data/runs/ra_service_logs/20261018_151001_*`) | 업무 초안 API 없음. 화면 파일은 요청마다 읽으므로 `업무 현황·AI 초안` 버튼이 비활성으로 보인다. 다음 재시작 때 반영 |
-| **8885** | 2026-10-19 04:15 | `scripts/start_ra_service.ps1 -Port 8885 -ReviewUrl http://127.0.0.1:8886` (로그 `data/runs/ra_service_logs/20261019_041517_*`) | `업무 현황·AI 초안` 기능 포함(진행 현황 업무 목록·일상어 문구) |
+| **8897** (운영) | 2026-10-20 18:11 | PR #17 브랜치 작업 폴더(`project_shared_check`)의 `work/ra_service_8897.py`. 시작 스크립트와 같은 인자, 작업 폴더는 메인 checkout(로그 `data/runs/ra_service_logs/20261020_181113_8897.*`) | 이슈 대응 가이드·파이프라인 업무 요약 줄 포함, 파이프라인 `ra-research-rag-4.10.4`. 저장소는 8775와 같은 PostgreSQL·`data/runs`. PR이 merge되고 메인 checkout이 main을 받으면 `scripts/start_ra_service.ps1 -Port 8897 -ReviewUrl http://127.0.0.1:8886`로 바꾼다 |
+| ~~8885~~ | 2026-10-19 04:15 ~ 10-20 내림 | `scripts/start_ra_service.ps1 -Port 8885 -ReviewUrl http://127.0.0.1:8886` | 10-20에 내리고 8897로 운영 전환 |
 
-두 프로세스의 공통 인자:
+8897로 옮긴 것(10-20): 확인 서버(임시 파일 저장소)에서 만든 `[시나리오 v5] P17 IV FcRn 이슈 대응` 파이프라인(문서 묶음 재등록)과 남아 있던 가이드 1건, 그 검색 답변 7건과 메모가 가리키는 답변 1건(보고서 폴더로 복사), `제품 사전 조사 프로젝트`와 메모 1개(같은 답변·주장에서 다시 저장).
+
+공통 인자:
 
 ```text
 --mode ra --llm-model gpt-5.6-luna
@@ -61,7 +64,7 @@
 | 저장 | PostgreSQL `app` 스키마(`app.workspace_projects`, `app.memo_documents`, 마이그레이션 `008_workspace_memos.sql`). `/api/projects` 응답 `storage: postgres` |
 | 지금 데이터 | 파이프라인 1개("ustekinumab RA 검토", 원성분 ustekinumab), 메모 3개 |
 | 규칙 | 파이프라인 생성·전환·단계 선택은 검색 범위를 바꾸지 않는다. 비교 제품은 왼쪽 범위에서 고른다. RAG 메모는 저장 당시 질문과 근거 위치를 보존하고 참고 제품은 근거 문서에서 자동 기록한다. 수정은 revision 충돌 검사와 이력으로 남는다 |
-| 내부 문서·업무 초안 | 파이프라인에 사내·협력사 문서 묶음을 등록(`internal_document_bundle_v1`). 기준일을 고르면 그날까지의 문서, 업무별 상태판(요청·합의·일정·보고서·QA·승인·제출·기관 판단), 결과 검토·협력사 미팅·기관 질의 대응 초안(판단/근거/공백/다음 행동, 근거 칩, 자동 검사)을 본다. 데모: [v4](../demo/internal_pipeline_v4/README.md), 파이프라인 `[시나리오 v4] P17 FcRn 내부 업무` |
+| 내부 문서·업무 초안 | 파이프라인에 사내·협력사 문서 묶음을 등록(`internal_document_bundle_v1`). 기준일을 고르면 그날까지의 문서, 업무별 상태판(요청·합의·일정·보고서·QA·승인·제출·기관 판단), 이슈를 본다. 이슈가 있으면 '이슈 대응' 탭에서 AI가 원인 가설과 검색 질문을 만들고, 공개 자료 RAG 검색(1차 + 결과를 본 추가 질문 0~2개, 검색 제외 제품 지정 가능) 뒤 대응 가이드(사실만 쓴 상황 정리, 가능성 순 원인 후보와 각 지지·반대 근거·확인 시험, 실험 설계·기관 대응·예상 질의·다른 제품 사례 탭의 한 줄 항목, 공개 근거 칩)로 정리하며, 정답이 등록된 시나리오는 정답 대조(어휘 1차 분류)를 함께 본다. 단계 카드 아래 한 줄에 업무·이슈 수가 나온다. 데모: [v5 이슈 대응](../demo/issue_guide_v5/README.md), [v4 업무 현황](../demo/internal_pipeline_v4/README.md) |
 | 없는 것 | 내부 PDF·메일 원본에서 문서 묶음을 만드는 추출, 협력사·담당자·기한을 갖는 독립 이슈 모델, 다중 사용자 권한 |
 
 단계는 메모 분류이며 필수 시험 목록이나 자동 검색 필터가 아니다. 단계 ID를 유지해 과거 메모·태그·이력은 그대로 읽힌다.
@@ -84,7 +87,10 @@
 | `/api/projects[/<id>[/memos[/<memo>/revisions]]]` | 파이프라인·메모 |
 | `GET/POST /api/projects/<id>/documents` | 내부 문서 묶음 조회·등록(버전 불변) |
 | `GET /api/projects/<id>/workboard/<YYYY-MM-DD>` | 기준일의 업무 상태(원문 이벤트에서 계산)·문서 |
-| `GET/POST /api/projects/<id>/work-drafts[/<draft>]` | 업무 초안 목록·작성(모델 1회)·조회 |
+| `GET/POST /api/projects/<id>/work-drafts[/<draft>]` | 업무 초안 목록·작성(모델 1회)·조회 (화면 탭은 '이슈 대응'으로 바뀜, API·기록은 유지) |
+| `GET /api/projects/<id>/issues` | 등록한 이슈(정답 제외) |
+| `GET/POST /api/projects/<id>/issue-guides[/<guide>]` | 이슈 대응 가이드 목록·작성(모델 3회: 검색 계획·추가 질문·정리 + 공개 자료 검색 4~7회)·조회 |
+| `POST /api/projects/<id>/issue-guides/<guide>/delete` | 이슈 대응 가이드 삭제(만드는 중이면 거절, 검색 답변 기록은 남음) |
 | `/api/ingestion[/sessions…|/requests…]` | 자료 수집 창 (`POST /api/ingestion/sessions/<id>/delete` 대화 삭제 포함) |
 
 ## 5. 기록 저장 위치
@@ -95,6 +101,7 @@
 | `data/runs/ra_review_records/` | 질문 검토 상태·의견·수정 이력 |
 | `data/runs/ra_conversations/` | 대화·후속 질문 문맥 |
 | `data/runs/ra_work_drafts/` | 업무 초안 기록(입력 단위·상태·답변·검사)과 호출 기록 |
+| `data/runs/ra_issue_guides/` | 이슈 가이드 기록(검색 범위·질문별 답변·인용 쪽·가이드·검사·정답 대조)과 호출 기록 |
 | `data/runs/ra_pipeline_requests/` | 제공자 요청·응답 기록 |
 | `data/runs/ra_service_logs/` | 시작 스크립트로 띄운 프로세스의 stdout·stderr·process.json |
 | `data/runs/model_quota/` | 이 프로젝트의 API 호출·사용량 일별 장부 |

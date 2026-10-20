@@ -41,10 +41,59 @@ def content_hash(raw):
     return hashlib.sha256(json.dumps(raw, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
 
 
+GUIDE_SECTIONS = ('cause', 'experiments', 'response', 'mock_questions', 'precedents')  # issue_guide.SECTIONS keys
+
+
+def normalize_issues(raw_issues, scopes, blocked):
+    """An issue names the internal facts it rests on; the guide plans its own public-source questions from them.
+
+    `answer_key` is review-side only (what actually happened in the public case); the guide never sends it to a model.
+    """
+    issues = []
+    for raw in raw_issues or []:
+        keys = {'id', 'title', 'date', 'scope_id', 'unit_ids', 'summary', 'search', 'answer_key'}
+        if not isinstance(raw, dict) or set(raw) - keys or not keys - {'answer_key', 'search'} <= set(raw):
+            raise ValueError('이슈 정의(ID·제목·일자·업무·근거 단위·요약)를 확인하세요.')
+        issue = {'id': _text(raw['id'], '이슈 ID', 60), 'title': _text(raw['title'], '이슈 제목', 200),
+                 'date': memo_workflow.day(raw['date']), 'summary': _text(raw['summary'], '이슈 요약', 2000)}
+        if raw['scope_id'] not in scopes:
+            raise ValueError(f'이슈 {issue["id"]}: 정의되지 않은 업무 {raw["scope_id"]}')
+        issue['scope_id'] = raw['scope_id']
+        if not isinstance(raw['unit_ids'], list) or not 1 <= len(raw['unit_ids']) <= 40 or not all(isinstance(u, str) for u in raw['unit_ids']):
+            raise ValueError(f'이슈 {issue["id"]}: 근거 단위 ID 목록을 확인하세요.')
+        issue['unit_ids'] = list(dict.fromkeys(raw['unit_ids']))
+        search = raw.get('search') or {}
+        if not isinstance(search, dict) or set(search) - {'exclude_products'}:
+            raise ValueError(f'이슈 {issue["id"]}: 검색 범위 설정을 확인하세요.')
+        issue['search'] = {'exclude_products': [_text(p, '제외 제품', 40) for p in search.get('exclude_products', [])]}
+        sent = ' '.join([issue['title'], issue['summary']]).casefold()
+        if any(term.casefold() in sent for term in blocked):
+            raise ValueError(f'이슈 {issue["id"]}: 이 프로젝트에서 차단한 표현이 있습니다.')
+        key = raw.get('answer_key')
+        if key is not None:
+            if not isinstance(key, dict) or set(key) != {'label', 'summary', 'points'} or not isinstance(key['points'], list):
+                raise ValueError(f'이슈 {issue["id"]}: 정답 대조 정의를 확인하세요.')
+            points = []
+            for p in key['points']:
+                if not isinstance(p, dict) or set(p) - {'sections'} != {'id', 'text', 'page', 'pattern'}:
+                    raise ValueError(f'이슈 {issue["id"]}: 정답 항목 필드를 확인하세요.')
+                re.compile(p['pattern'])
+                point = {k: _text(p[k], '정답 항목', 400) for k in ('id', 'text', 'page', 'pattern')}
+                if 'sections' in p:  # where the point counts, e.g. a cause proposed for this product, not a precedent
+                    point['sections'] = [_choice(s, GUIDE_SECTIONS, '정답 항목 칸') for s in p['sections']]
+                points.append(point)
+            issue['answer_key'] = {'label': _text(key['label'], '정답 출처', 300), 'summary': _text(key['summary'], '정답 요약', 2000),
+                                   'points': points}
+        issues.append(issue)
+    if len({i['id'] for i in issues}) != len(issues):
+        raise ValueError('이슈 ID가 겹칩니다.')
+    return issues
+
+
 def normalize_bundle(bundle, known_scopes=None):
-    """Validate an import bundle; return (documents, scopes, simulation). Nothing is stored here."""
+    """Validate an import bundle; return (documents, scopes, simulation, issues). Nothing is stored here."""
     allowed = {'schema_version', 'scenario_id', 'product_alias', 'ingredient', 'disclosure', 'blocked_terms', 'scopes',
-               'documents', 'checkpoints'}
+               'documents', 'checkpoints', 'issues'}
     if not isinstance(bundle, dict) or set(bundle) - allowed or bundle.get('schema_version') != 'internal_document_bundle_v1':
         raise ValueError('내부 문서 묶음 형식(internal_document_bundle_v1)을 확인하세요.')
     scopes = deepcopy(known_scopes or {})
@@ -114,11 +163,14 @@ def normalize_bundle(bundle, known_scopes=None):
         simulation = {'scenario_id': _text(bundle.get('scenario_id', 'scenario'), '시나리오 ID', 80),
                       'disclosure': _text(bundle.get('disclosure', '합성 시나리오 자료'), '안내', 2000),
                       'blocked_terms': blocked, 'checkpoints': checkpoints}
-    return documents, scopes, simulation
+    return documents, scopes, simulation, normalize_issues(bundle.get('issues'), scopes, blocked)
 
 
-def merge(project, documents, scopes, simulation):
-    """Append new document versions to a project record in place; identical re-imports are skipped."""
+def merge(project, documents, scopes, simulation, issues=()):
+    """Append new document versions to a project record in place; identical re-imports are skipped.
+
+    An issue with the same ID replaces the stored one; its units must exist in the project after the merge.
+    """
     stored = project.setdefault('documents', [])
     by_key = {(d['document_id'], d['version']): d for d in stored}
     units = {u['unit_id'] for d in stored for u in d['units']}
@@ -148,7 +200,18 @@ def merge(project, documents, scopes, simulation):
     project['work_scopes'] = scopes
     if simulation:
         project['simulation'] = simulation
+    for issue in issues:
+        missing = [u for u in issue['unit_ids'] if u not in units]
+        if missing:
+            raise ValueError(f'이슈 {issue["id"]}: 등록되지 않은 본문 단위 ' + ', '.join(missing))
+        project['issues'] = [i for i in project.get('issues', []) if i['id'] != issue['id']] + [deepcopy(issue)]
     return {'added': [list(k) for k in added], 'skipped': [list(k) for k in skipped]}
+
+
+def issue_list(project, as_of=None):
+    """Issues as the screen reads them (no answer key), optionally only those raised by the date."""
+    rows = [i for i in project.get('issues', []) if as_of is None or i['date'] <= memo_workflow.day(as_of)]
+    return [{**{k: v for k, v in i.items() if k != 'answer_key'}, 'has_answer_key': 'answer_key' in i} for i in rows]
 
 
 def versions_as_of(project, as_of):

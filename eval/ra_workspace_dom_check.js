@@ -119,6 +119,7 @@ async function saveDialog(body,tags){const d=document.querySelector(".workspace-
   assert.equal(document.querySelector("#pipeline-memos").dataset.stageId,"bridging");assert.equal(document.querySelector("#pipeline-memo-title").dataset.stageId,"bridging");
   await boot();await wait(()=>document.querySelector(".memo-query")?.textContent==="기존 개발 전략 메모","selected strategy restore");assert.equal(document.querySelector(".pipeline-step[aria-pressed=true]").dataset.stageId,"bridging");
   click(document.querySelector("#pipeline-all"));
+  assert.equal(document.querySelector("#pipeline-memo-title").textContent,"전 단계 메모","the pipeline name is only in the selector above");
   assert.deepEqual([...document.querySelectorAll(".pipeline-column")].map(c=>c.dataset.stageId),[...document.querySelectorAll(".pipeline-step")].map(s=>s.dataset.stageId));
   assert.equal(document.querySelector("#pipeline-steps").parentElement,document.querySelector("#pipeline-memos").parentElement,"stage rail and note columns share one scroll container");
   click(document.querySelector(".pipeline-column[data-stage-id='phase3'] .pipeline-empty"));

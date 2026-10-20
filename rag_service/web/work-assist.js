@@ -1,11 +1,11 @@
 "use strict";
-// 업무 현황: a pipeline's documents, work status and AI drafts, read as of a date.
+// 업무 현황: a pipeline's documents, work status and issue guides (RAG answers organized by AI), read as of a date.
 // Status is computed by the server from the documents' records; the screen never edits it.
 const WorkAssist=(()=>{
   const STANDING_CLASS={applicable:"is-applicable",unapproved_revision:"is-unapproved",draft:"is-unapproved",superseded:"is-superseded"};
   // Draft items quoting the documents carry no badge; opinions and the AI's own judgments do.
-  const SOURCE_BADGE={attributed_opinion:["의견","is-opinion"],inference:["AI 판단","is-ai"],gap:["AI 판단","is-ai"],draft_text:["AI 제안 문구","is-ai"]};
-  const TABS=[["board","진행 현황"],["documents","문서"],["draft","AI 초안"]];
+  const GUIDE_BADGE={public:["공개 근거","is-public"],internal:["사내 자료","is-internal"],suggestion:["AI 제안","is-ai"]};
+  const TABS=[["board","진행 현황"],["documents","문서"],["issue","이슈 대응"]];
   const send=(path,body)=>api(path,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
   const when=value=>value?new Date(value).toLocaleString("ko-KR",{month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit"}):"";
   const md=iso=>iso.slice(5).replace("-","/");
@@ -13,13 +13,30 @@ const WorkAssist=(()=>{
 
   function chip(id,onclick){const b=button(id,"work-chip",onclick);b.title=id+" 원문 보기";return b;}
   function badge(text,cls=""){return node("span","work-badge "+cls,text);}
+  const tally=items=>{const counts={};for(const it of items)counts[it.status.label]=(counts[it.status.label]||0)+1;return Object.entries(counts).map(([k,v])=>`${k} ${v}`).join(" · ");};
+  // The date the window opens on: the last one chosen for this pipeline, else the last scenario point or document date.
+  function pickDate(projectId,docs){
+    const dates=[...new Set(docs.documents.map(x=>x.date))].sort(),points=docs.simulation?.checkpoints||[];
+    let asOf=Prefs.get("workAsOf:"+projectId,"");
+    if(!points.some(p=>p.as_of===asOf)&&!dates.includes(asOf))asOf=points.length?points[points.length-1].as_of:dates[dates.length-1];
+    const point=points.find(p=>p.as_of===asOf&&p.id===Prefs.get("workPoint:"+projectId,""))||points.find(p=>p.as_of===asOf);
+    return {dates,points,asOf,point};
+  }
+
+  // One line for the pipeline board, on the same date the window opens on; null when the pipeline has no documents.
+  async function summary(projectId){
+    const docs=await api(`/api/projects/${projectId}/documents`);
+    if(!docs.documents.length)return null;
+    const {asOf,point}=pickDate(projectId,docs),board=await api(`/api/projects/${projectId}/workboard/${asOf}`);
+    return {asOf,point:point?.id||"",count:board.items.length,text:tally(board.items),issues:(board.issues||[]).length};
+  }
 
   async function open(projectId,projectName){
     const d=node("dialog","workspace-dialog work-dialog"),head=node("div","workspace-dialog-head");
     head.append(node("h2","","업무 현황 · "+projectName),button("×","icon-button",()=>d.close()));
     head.querySelector(".icon-button").setAttribute("aria-label","닫기");
     const body=node("div","workspace-dialog-body work-body");d.append(head,body);document.body.append(d);
-    d.addEventListener("close",()=>{if(state?.poll)clearTimeout(state.poll);state=null;d.remove();},{once:true});
+    d.addEventListener("close",()=>{if(state?.poll)clearTimeout(state.poll);if(state?.viewerRelease){state.viewerRelease();Viewer.close();}state=null;d.remove();document.dispatchEvent(new CustomEvent("workassist:close",{detail:{projectId}}));},{once:true});
     state={projectId,dialog:d,body,asOf:"",tab:Prefs.get("workTab","board"),overview:null,draft:null,poll:null,token:0};
     if(!TABS.some(([key])=>key===state.tab))state.tab="board";
     d.showModal();body.append(node("p","muted","문서를 불러오는 중입니다."));
@@ -28,14 +45,12 @@ const WorkAssist=(()=>{
       if(!state||state.dialog!==d)return;
       if(!docs.documents.length){body.replaceChildren(node("p","muted","이 파이프라인에는 등록한 문서가 없습니다. 문서 묶음을 등록하면 날짜별 진행 현황과 AI 초안을 볼 수 있습니다."));return;}
       state.simulation=docs.simulation;
-      const dates=[...new Set(docs.documents.map(x=>x.date))].sort(),points=docs.simulation?.checkpoints||[];
-      state.asOf=Prefs.get("workAsOf:"+projectId,"");
-      if(!points.some(p=>p.as_of===state.asOf)&&!dates.includes(state.asOf))state.asOf=points.length?points[points.length-1].as_of:dates[dates.length-1];
-      layout(dates,points);await load();
+      const {dates,points,asOf,point}=pickDate(projectId,docs);state.asOf=asOf;
+      layout(dates,points,point);await load();
     }catch(e){if(state?.dialog===d)body.replaceChildren(node("p","error",e.message));}
   }
 
-  function layout(dates,points){
+  function layout(dates,points,point){
     const {body}=state;body.replaceChildren();
     const disclosure=state.simulation?.disclosure;
     if(disclosure){const box=node("details","work-disclosure"),[first,...rest]=disclosure.split(/(?<=[.다])\s+/);box.append(node("summary","",first));if(rest.length)box.append(node("p","",rest.join(" ")));body.append(box);}
@@ -44,19 +59,19 @@ const WorkAssist=(()=>{
     const group=(name,rows)=>{if(!rows.length)return;const g=node("optgroup");g.label=name;for(const [value,text] of rows){const o=node("option","",text);o.value=value;g.append(o);}select.append(g);};
     group("시나리오 시점",points.map(p=>[p.as_of+"|"+p.id,`${p.id} · ${p.as_of} · ${p.label}`]));
     group("문서 날짜",dates.map(x=>[x,x+"까지"]));
-    const point=points.find(p=>p.as_of===state.asOf&&p.id===Prefs.get("workPoint:"+state.projectId,""))||points.find(p=>p.as_of===state.asOf);
     select.value=point?state.asOf+"|"+point.id:state.asOf;state.pointId=point?.id||"";
     select.onchange=()=>{const [asOf,pointId]=select.value.split("|");state.asOf=asOf;state.pointId=pointId||"";Prefs.set("workAsOf:"+state.projectId,asOf);Prefs.set("workPoint:"+state.projectId,state.pointId);load();};
     const tabs=node("div","work-tabs");tabs.setAttribute("role","tablist");
     for(const [key,text] of TABS){const b=button(text,"work-tab",()=>{state.tab=key;Prefs.set("workTab",key);paint();});b.dataset.tab=key;b.setAttribute("role","tab");tabs.append(b);}
     bar.append(label,tabs);state.panel=node("div","work-panel");state.status=node("p","work-status muted small");state.status.setAttribute("role","status");
-    body.append(bar,state.status,state.panel);
+    state.viewerHost=node("section","work-viewer");state.viewerHost.hidden=true;
+    body.append(bar,state.status,state.panel,state.viewerHost);
   }
 
   async function load(){
     const own=++state.token;state.status.textContent="기준일 상태를 계산하는 중입니다.";
     try{const value=await api(`/api/projects/${state.projectId}/workboard/${state.asOf}`);if(!state||own!==state.token)return;state.overview=value;
-      state.status.textContent=value.hidden_after_count?`기준일 이후 문서 ${value.hidden_after_count}건은 숨겨지고 AI 초안에도 쓰이지 않습니다.`:"기준일까지의 문서를 모두 사용합니다.";paint();}
+      state.status.textContent=value.hidden_after_count?`기준일 이후 문서 ${value.hidden_after_count}건은 숨겨집니다.`:"기준일까지의 문서를 모두 보여 줍니다.";paint();}
     catch(e){if(state&&own===state.token)state.status.textContent=e.message;}
   }
 
@@ -64,7 +79,7 @@ const WorkAssist=(()=>{
     if(!state?.overview)return;
     for(const b of state.body.querySelectorAll(".work-tab"))b.setAttribute("aria-selected",String(b.dataset.tab===state.tab));
     state.panel.replaceChildren();
-    ({board:paintBoard,documents:paintDocuments,draft:paintDraftTab})[state.tab]();
+    ({board:paintBoard,documents:paintDocuments,issue:paintIssue})[state.tab]();
   }
 
   function unitBox(unit){
@@ -92,9 +107,11 @@ const WorkAssist=(()=>{
     if(!items.length){panel.append(node("p","muted","기준일까지 기록된 업무가 없습니다."));return;}
     const ref=reference(),since=ref?.date,open=state.openRows||(state.openRows=new Set());
     const fresh=it=>Boolean(since&&it.first_date>since),moved=it=>Boolean(since&&!fresh(it)&&it.last_change>since);
-    const top=node("div","work-summary"),counts={};for(const it of items)counts[it.status.label]=(counts[it.status.label]||0)+1;
-    top.append(node("strong","",`업무 ${items.length}개`),node("span","",Object.entries(counts).map(([k,v])=>`${k} ${v}`).join(" · ")));
+    const top=node("div","work-summary");
+    top.append(node("strong","",`업무 ${items.length}개`),node("span","",tally(items)));
     if(ref)top.append(node("span","work-summary-change",`${ref.label} 이후 새 업무 ${items.filter(fresh).length} · 진행된 업무 ${items.filter(moved).length}`));
+    for(const issue of state.overview.issues||[]){const bar=button("","work-issue-banner",()=>{state.tab="issue";Prefs.set("workTab","issue");paint();});
+      bar.append(badge("이슈","is-issue"),node("strong","",issue.title),node("span","muted",md(issue.date)),node("span","work-issue-open","이슈 대응 보기 ›"));panel.append(bar);}
     panel.append(top,node("p","work-hint","업무를 누르면 진행 이력과 결과가 펼쳐집니다. 모든 내용은 문서 기록에서 계산합니다. '기록 없음'은 안 했다는 뜻이 아닙니다."));
     for(const [title,kind] of [["시험·작업","work"],["문서·답변","document"]]){
       const members=items.filter(it=>it.kind===kind);if(!members.length)continue;
@@ -133,78 +150,136 @@ const WorkAssist=(()=>{
     }
   }
 
-  function paintDraftTab(){
-    const panel=state.panel,overview=state.overview,point=(state.simulation?.checkpoints||[]).find(p=>p.id===state.pointId&&p.as_of===state.asOf);
-    const form=node("form","work-form"),task=node("select"),question=node("textarea");
-    for(const [key,value] of Object.entries(overview.tasks)){const o=node("option","",value.label);o.value=key;task.append(o);}
-    question.rows=3;question.maxLength=2000;question.required=true;
-    task.value=point?.task||"result_review";question.value=point?.task===task.value?point.question:overview.tasks[task.value].template;
-    task.onchange=()=>{question.value=point&&task.value===point.task?point.question:overview.tasks[task.value].template;};
-    const taskField=node("label","workspace-field");taskField.append(node("span","","업무"),task);
-    const questionField=node("label","workspace-field");questionField.append(node("span","",`질문 · ${state.asOf}까지의 문서만 씁니다`),question);
-    const submit=button("AI 초안 작성","primary-button");submit.type="submit";
-    const actions=node("div","work-form-actions");actions.append(submit,node("span","muted small","AI 호출 1회(15초 안팎) · 결과는 사람이 검토할 초안입니다."));
-    form.append(taskField,questionField,actions);panel.append(form);
-    const result=node("div","work-result"),history=node("section","work-history");panel.append(result,history);
-    form.onsubmit=async event=>{event.preventDefault();submit.disabled=true;result.replaceChildren(node("p","muted","작성 요청을 보내는 중입니다."));
-      try{const summary=await send(`/api/projects/${state.projectId}/work-drafts`,{task:task.value,question:question.value,as_of:state.asOf});watch(summary.id,result,submit,history);}
-      catch(e){result.replaceChildren(node("p","error",e.message));submit.disabled=false;}};
-    if(state.draft&&state.draft.as_of===state.asOf)renderDraft(result,state.draft);
-    listDrafts(history,result);
+  // 이슈 대응: AI plans public-source questions from the issue, the RA service answers them (with one follow-up round),
+  // and AI organizes the cited answers.
+  function paintIssue(){
+    const panel=state.panel,issues=state.overview.issues||[];
+    if(!issues.length){panel.append(node("p","muted","기준일까지 등록된 이슈가 없습니다. 이슈는 문서 묶음과 함께 등록합니다."));return;}
+    const detail=node("div","work-unit-detail");detail.hidden=true;
+    const result=node("div","issue-result"),history=node("section","work-history"),runs=[],setRuns=busy=>{for(const b of runs)b.disabled=busy;};
+    for(const issue of issues){
+      const card=node("section","issue-card"),head=node("div","issue-head");
+      head.append(badge("이슈","is-issue"),node("strong","",issue.title),node("span","muted",md(issue.date)));
+      const refs=node("div","work-refs");refs.append(node("span","muted small","사내 근거 "));for(const id of issue.unit_ids)refs.append(chip(id,()=>showUnit(detail,unitIndex()[id])));
+      const how=node("p","issue-scope","AI가 이슈를 읽고 원인 가설과 검색 질문을 만든 뒤, 같은 성분 바이오시밀러의 공개 심사 자료와 지침을 검색해 대응 방법을 정리합니다.");
+      const run=button("RAG 대응 가이드 만들기","primary-button",async()=>{setRuns(true);result.replaceChildren(node("p","muted","요청을 보내는 중입니다."));
+        try{const s=await send(`/api/projects/${state.projectId}/issue-guides`,{issue_id:issue.id});watchGuide(s.id,result,setRuns,history);}
+        catch(e){result.replaceChildren(node("p","error",e.message));setRuns(false);}});runs.push(run);
+      const actions=node("div","work-form-actions");actions.append(run,node("span","muted small","공개 자료 검색 4~7회 + AI 호출 3회 · 10분 안팎 · 결과는 사람이 검토할 가이드입니다."));
+      card.append(head,node("p","issue-summary",issue.summary),refs,detail,how,actions);panel.append(card);
+    }
+    panel.append(result,history);
+    if(state.guide&&issues.some(i=>i.id===state.guide.issue_id))renderGuide(result,state.guide);
+    // A guide still being made (e.g. after switching tabs) is followed again here.
+    listGuides(history,result,running=>{setRuns(true);watchGuide(running.id,result,setRuns,history);});
   }
 
-  const draftState=d=>({running:"작성 중",failed:"실패",completed:d.review_status==="needs_review"?`확인 필요 ${d.warning_count}`:"검토 전 초안"})[d.state]||d.state;
-  async function listDrafts(target,result){
-    try{const {drafts}=await api(`/api/projects/${state.projectId}/work-drafts`);if(!state||!target.isConnected)return;
-      target.replaceChildren(node("h3","","이전 초안"));if(!drafts.length){target.append(node("p","muted small","아직 작성한 초안이 없습니다."));return;}
+  const guideState=g=>(({running:"만드는 중",failed:"실패",completed:g.points?`정답 대조 ${g.covered}/${g.points}`:"완료"})[g.state]||g.state)
+    +(g.searches?` · 검색 ${g.searches}회`:"")+(g.failed_questions?` · 검색 실패 ${g.failed_questions}`:"");
+  async function listGuides(target,result,onRunning){
+    try{const {guides}=await api(`/api/projects/${state.projectId}/issue-guides`);if(!state||!target.isConnected)return;
+      const running=guides.find(g=>g.state==="running");if(running&&onRunning)onRunning(running);
+      target.replaceChildren(node("h3","","이전 가이드"));if(!guides.length){target.append(node("p","muted small","아직 만든 가이드가 없습니다."));return;}
       const list=node("div","work-history-list");
-      for(const d of drafts){const label=`${d.as_of} · ${d.task_label}${d.audience==="partner"?" · 협력사 공유용":""} · ${draftState(d)} · ${when(d.created_at)}`;
-        list.append(button(label,"work-history-item",async()=>{try{const record=await api(`/api/projects/${state.projectId}/work-drafts/${d.id}`);state.draft=record;renderDraft(result,record);result.scrollIntoView?.({block:"start"});}catch(e){result.replaceChildren(node("p","error",e.message));}}));}
+      for(const g of guides){
+        const row=node("div","work-history-row"),openGuide=button(`${g.issue_title} · ${guideState(g)} · ${when(g.created_at)}`,"work-history-item",async()=>{
+          try{const record=await api(`/api/projects/${state.projectId}/issue-guides/${g.id}`);state.guide=record;renderGuide(result,record);result.scrollIntoView?.({block:"start"});}
+          catch(e){result.replaceChildren(node("p","error",e.message));}});
+        const remove=button("삭제","link-button work-history-delete",async()=>{
+          if(!confirm("이 가이드를 지울까요? 검색 답변 기록은 남고, 가이드와 정리 기록은 되돌릴 수 없습니다."))return;
+          remove.disabled=true;
+          try{await send(`/api/projects/${state.projectId}/issue-guides/${g.id}/delete`,{});if(state?.guide?.id===g.id){state.guide=null;result.replaceChildren();}listGuides(target,result);}
+          catch(e){remove.disabled=false;result.replaceChildren(node("p","error",e.message));}});
+        remove.disabled=g.state==="running";remove.setAttribute("aria-label",`${when(g.created_at)} 가이드 삭제`);
+        row.append(openGuide,remove);list.append(row);
+      }
       target.append(list);
     }catch(e){target.replaceChildren(node("p","error",e.message));}
   }
 
-  function watch(id,result,submit,history){
+  const STEP={waiting:"대기",running:"검색 중",completed:"완료",failed:"실패"};
+  const STAGE={planning:"AI가 이슈를 읽고 원인 가설과 검색 질문을 만드는 중입니다.",searching:"공개 자료를 검색하는 중입니다.",
+    following_up:"1차 검색 결과를 보고 추가로 확인할 질문을 만드는 중입니다.",writing:"검색이 끝났습니다. AI가 가이드를 정리하는 중입니다."};
+  const questionLabel=q=>`${q.id}${q.round===2?" (추가)":""} · ${q.text}`;
+  function watchGuide(id,result,setRuns,history){
+    if(state.poll)clearTimeout(state.poll);
+    const token=state.watch=(state.watch||0)+1;
     const tick=async()=>{
-      if(!state)return;
-      try{const record=await api(`/api/projects/${state.projectId}/work-drafts/${id}`);if(!state)return;
-        if(record.state==="running"){result.replaceChildren(node("p","muted",`AI가 초안을 쓰는 중입니다 · ${record.as_of}까지의 문서 ${record.selected.length}개 사용`));state.poll=setTimeout(tick,2000);return;}
-        state.draft=record;submit.disabled=false;renderDraft(result,record);listDrafts(history,result);}
-      catch(e){result.replaceChildren(node("p","error",e.message));submit.disabled=false;}
+      if(!state||state.watch!==token||!result.isConnected)return;
+      try{const record=await api(`/api/projects/${state.projectId}/issue-guides/${id}`);if(!state||state.watch!==token)return;
+        if(record.state==="running"){
+          const box=node("div","issue-progress");box.append(node("p","",STAGE[record.stage]||"진행 중입니다."));
+          const steps=node("ol","issue-steps");for(const q of record.questions)steps.append(node("li","is-"+q.state,`${STEP[q.state]||q.state} · ${questionLabel(q)}`));
+          box.append(steps);result.replaceChildren(box);state.poll=setTimeout(tick,3000);return;}
+        state.guide=record;setRuns(false);renderGuide(result,record);listGuides(history,result);}
+      catch(e){result.replaceChildren(node("p","error",e.message));setRuns(false);}
     };tick();
   }
 
-  function renderDraft(target,record){
+  // Public sources open in the source viewer, moved into this window on first use.
+  function openSource(record,source){
+    if(!state.viewerRelease){const host=state.viewerHost;state.viewerRelease=Viewer.attach(host,open=>{host.hidden=!open;});}
+    const cited=record.sources.filter(s=>s.job_id===source.job_id).map(s=>({eid:s.evidence_id,title:s.title,page:s.page}));
+    Viewer.open({jobId:source.job_id,resultIndex:0,eid:source.evidence_id,cited});state.viewerHost.scrollIntoView?.({block:"start"});
+  }
+  const sourceLabel=s=>`${s.id} · ${s.product||"지침"} ${s.agency||""} p.${s.page}`.replace(/\s+/g," ");
+
+  // A guide reads top-down: the facts, the ranked cause candidates, then one tab per section of one-line items that open.
+  function renderGuide(target,record){
     target.replaceChildren();
-    if(record.state==="failed"){target.append(node("p","error","초안 작성에 실패했습니다: "+record.error));return;}
+    if(record.state==="failed"){target.append(node("p","error","가이드를 만들지 못했습니다: "+record.error));return;}
     if(record.state!=="completed")return;
-    const units=Object.fromEntries(record.selected.map(u=>[u.unit_id,{...u,document:{date:u.date,title:u.title,version:u.version}}]));
-    const warnings=record.audit.warnings,flagged=new Set(warnings.map(w=>w.column+":"+w.item));
+    const sources=Object.fromEntries(record.sources.map(s=>[s.id,s])),units=Object.fromEntries(record.facts.map(f=>[f.id,{unit_id:f.id,text:f.text,speaker:f.speaker,document:{date:f.date,title:f.title}}]));
     const detail=node("div","work-unit-detail");detail.hidden=true;
+    const refs=ids=>{const box=node("div","work-refs");for(const id of ids||[]){if(sources[id]){const b=button(sourceLabel(sources[id]),"work-chip is-public",()=>openSource(record,sources[id]));b.title=sources[id].title;box.append(b);}else if(units[id])box.append(chip(id,()=>showUnit(detail,units[id])));}return box;};
+    const flagged=new Set(record.warnings.map(w=>w.section+":"+w.item)),chevron=()=>{const c=node("span","guide-chevron","▸");c.setAttribute("aria-hidden","true");return c;};
     const head=node("div","work-draft-head");
-    head.append(badge(warnings.length?`확인 필요 ${warnings.length}`:"검토 전 초안",warnings.length?"is-warning":"is-draft"),
-      node("strong","",record.task_label),node("span","muted",`기준일 ${record.as_of}${record.audience==="partner"?" · 협력사 공유용":""}`));
-    target.append(head,node("p","work-draft-question",record.question));
-    if(record.status_summary?.length){const box=node("div","work-status-summary");
-      for(const line of record.status_summary){const row=node("p","");row.append(node("strong","","기록상 상태 "),node("span","",line.label+" — "+line.states.map(s=>s.label).join(" · ")+" "));
-        for(const id of [...new Set(line.states.flatMap(s=>s.source_unit_ids))])row.append(chip(id,()=>showUnit(detail,units[id])));box.append(row);}
-      target.append(box);}
-    target.append(node("p","work-position",record.draft.position));
-    const grid=node("div","work-columns");
-    for(const column of record.draft.columns){
-      const box=node("section","work-column");box.append(node("h3","",column.label));
-      column.items.forEach((item,index)=>{const row=node("div","work-item"+(flagged.has(column.key+":"+index)?" has-warning":""));
-        const text=node("p","");const tag=SOURCE_BADGE[item.basis];if(tag)text.append(badge(tag[0],tag[1]),document.createTextNode(" "));text.append(document.createTextNode(item.text));
-        const refs=node("div","work-refs");for(const id of item.source_unit_ids)refs.append(chip(id,()=>showUnit(detail,units[id])));row.append(text,refs);box.append(row);});
-      grid.append(box);
+    head.append(badge(record.warnings.length?`확인 필요 ${record.warnings.length}`:"검토 전 가이드",record.warnings.length?"is-warning":"is-draft"),node("strong","",record.issue_title),node("span","muted",when(record.created_at)));
+    const scope=record.scope.excluded_products.length?` · 검색에서 뺀 제품: ${record.scope.excluded_products.join(", ")}`:"";
+    const failed=record.answers.filter(a=>a.state!=="completed").length;
+    target.append(head,node("p","issue-scope",`검색한 제품: ${record.scope.products.join(", ")} 및 공통 지침${scope} · 인용된 공개 자료 ${record.sources.length}쪽`));
+    if(failed)target.append(node("p","error",`공개 자료 검색 ${record.answers.length}건 중 ${failed}건이 실패해, 그 질문의 근거 없이 정리했습니다.`));
+    const situation=node("section","guide-situation");situation.append(node("h3","","상황 정리"),node("p","",record.guide.situation||record.guide.summary));target.append(situation);
+    // Ranked candidates (records from before the ranking keep their cause items in the tabs below).
+    const cause=record.guide.sections.find(s=>s.key==="cause"),ranked=cause?.items[0]?.rank!==undefined;
+    if(ranked){
+      const block=node("section","guide-block");block.append(node("h3","","원인 후보"),node("p","guide-hint","AI가 사내 사실과 공개 근거로 매긴 순서입니다. 하나로 확정한 것이 아니므로 위에서부터 확인·배제합니다."));
+      cause.items.forEach((c,index)=>{const row=node("details","candidate"+(flagged.has("cause:"+index)?" has-warning":"")),summary=node("summary");
+        summary.append(node("span","candidate-rank",String(c.rank)),node("strong","candidate-name",c.name),node("span","likelihood is-"+c.likelihood,"가능성 "+c.likelihood_label),chevron(),node("span","candidate-confirm","확인: "+c.confirm));
+        const body=node("div","candidate-body");body.append(node("p","",`지지 근거 · ${c.support}`),node("p","",`반대 근거·불확실성 · ${c.against}`),refs(c.source_ids));
+        row.append(summary,body);block.append(row);});
+      target.append(block);
     }
-    target.append(grid,detail);
-    if(warnings.length){const box=node("section","work-warnings"),labels=Object.fromEntries(record.draft.columns.map(c=>[c.key,c.label]));
-      box.append(node("h3","",`확인이 필요한 문장 ${warnings.length}`));
-      for(const w of warnings){const row=node("div","work-warning");row.append(node("strong","",`${labels[w.column]} ${w.item+1}`),node("span","",w.detail));for(const id of w.source_unit_ids)row.append(chip(id,()=>showUnit(detail,units[id])));box.append(row);}
+    const tabs=record.guide.sections.filter(s=>s.key!=="cause"||!ranked);
+    if(!tabs.some(s=>s.key===state.guideTab))state.guideTab=tabs[0]?.key;
+    const bar=node("div","guide-tabs"),panel=node("div","guide-list");bar.setAttribute("role","tablist");
+    const show=()=>{for(const b of bar.children)b.setAttribute("aria-selected",String(b.dataset.key===state.guideTab));panel.replaceChildren();
+      const section=tabs.find(s=>s.key===state.guideTab);
+      section.items.forEach((item,index)=>{const row=node("details","guide-item"+(flagged.has(section.key+":"+index)?" has-warning":"")),summary=node("summary"),body=node("div","guide-item-body");
+        if(section.key==="mock_questions"){summary.append(node("strong","","Q. "+item.question),chevron());
+          body.append(node("p","",`질의 배경 · ${item.background||item.why}`),node("p","",`준비할 자료 · ${item.prepare}`));}
+        else{const tag=GUIDE_BADGE[item.basis];if(tag)summary.append(badge(tag[0],tag[1]));summary.append(node("strong","",item.title||item.text),chevron());
+          if(item.title)body.append(node("p","",item.text));}
+        body.append(refs(item.source_ids));row.append(summary,body);panel.append(row);});};
+    for(const s of tabs){const b=button(`${s.label} ${s.items.length}`,"guide-tab",()=>{state.guideTab=s.key;show();});b.dataset.key=s.key;b.setAttribute("role","tab");bar.append(b);}
+    show();target.append(bar,panel,detail);
+    if(record.warnings.length){const box=node("section","work-warnings"),labels=Object.fromEntries(record.guide.sections.map(s=>[s.key,s.label]));
+      box.append(node("h3","",`확인이 필요한 문장 ${record.warnings.length}`));
+      for(const w of record.warnings){const row=node("div","work-warning");row.append(node("strong","",`${labels[w.section]} ${w.item+1}`),node("span","",w.detail));box.append(row);}
       target.append(box);}
-    target.append(node("p","work-foot",`표시 없음 = 문서에 적힌 내용 · '의견' = 발언자가 있는 의견 · 'AI 판단' = AI가 정리한 판단. 문장 검사는 규칙 기반이라 모든 오류를 찾지 못합니다. · AI 입력: 문서 문단 ${record.selected.length}개(기준일까지 ${record.eligible_unit_ids.length}개) · ${record.model}`));
+    const answers=node("details","issue-answers");answers.append(node("summary","",`검색 계획과 공개 자료 답변 ${record.answers.length}건`));
+    if(record.plan?.hypotheses?.length){const box=node("div","issue-answer"),list=node("ul","issue-hypotheses");box.append(node("p","issue-q","AI가 검색 전에 세운 원인 가설"));
+      for(const h of record.plan.hypotheses){const li=node("li");li.append(node("strong","",h.attribute),document.createTextNode(" · "+h.reason));list.append(li);}
+      box.append(list);answers.append(box);}
+    for(const a of record.answers){const box=node("div","issue-answer");box.append(node("p","issue-q",questionLabel(a)),node("p","muted small",`답변 상태 ${a.status||a.state} · 인용 ${Object.keys(a.evidence).length}건`),node("p","issue-answer-text",a.answer||"(답변 없음)"));answers.append(box);}
+    target.append(answers);
+    if(record.review){const r=record.review,box=node("details","issue-review"),covered=r.points.filter(p=>p.covered).length;
+      box.append(node("summary","",`정답 대조(평가용) · ${r.label} · ${r.points.length}개 중 ${covered}개 언급`),node("p","issue-review-summary",r.summary));
+      const list=node("ul","issue-review-points");
+      for(const p of r.points){const li=node("li",p.covered?"is-covered":"is-missed");li.append(node("strong","",(p.covered?"✓ ":"✗ ")+p.text),node("span","muted small",` · 원문 ${p.page}`+(p.where?` · 가이드 '${p.where.section}'에서 "${p.where.match}"`:"")));list.append(li);}
+      box.append(list,node("p","muted small",r.method));target.append(box);}
+    target.append(node("p","work-foot",`모든 글은 AI가 정리했습니다. '공개 근거' = 검색된 공개 자료 인용 · '사내 자료' = 내부 문서 · 'AI 제안' = AI가 근거를 바탕으로 낸 제안. 항목을 누르면 설명과 근거가, 칩을 누르면 원문이 열립니다. · ${record.model} · 검색 ${record.answers.length}회`));
   }
 
-  return Object.freeze({open});
+  return Object.freeze({open,summary});
 })();

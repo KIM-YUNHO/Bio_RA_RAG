@@ -13,13 +13,18 @@ DOCUMENTS = re.compile(r'/api/projects/([0-9a-f]{32})/documents')
 BOARD = re.compile(r'/api/projects/([0-9a-f]{32})/workboard/(\d{4}-\d{2}-\d{2})')
 DRAFTS = re.compile(r'/api/projects/([0-9a-f]{32})/work-drafts')
 DRAFT = re.compile(r'/api/projects/([0-9a-f]{32})/work-drafts/([0-9a-f]{32})')
+ISSUES = re.compile(r'/api/projects/([0-9a-f]{32})/issues')
+GUIDES = re.compile(r'/api/projects/([0-9a-f]{32})/issue-guides')
+GUIDE = re.compile(r'/api/projects/([0-9a-f]{32})/issue-guides/([0-9a-f]{32})')
+GUIDE_DELETE = re.compile(r'/api/projects/([0-9a-f]{32})/issue-guides/([0-9a-f]{32})/delete')
 
 
 def public(record):
     """A project as the memo screen reads it: internal documents are served by their own routes."""
     if not isinstance(record, dict) or 'documents' not in record:
         return record
-    return {**{k: v for k, v in record.items() if k != 'documents'}, 'document_count': len(record['documents'])}
+    return {**{k: v for k, v in record.items() if k not in ('documents', 'issues')}, 'document_count': len(record['documents']),
+            'issue_count': len(record.get('issues', []))}
 
 
 def overview(project, as_of):
@@ -28,6 +33,7 @@ def overview(project, as_of):
     dates = sorted({d['date'] for d in project.get('documents', [])})
     return {'project_id': project['id'], 'as_of': as_of, 'states': internal_documents.board(project, as_of),
             'items': internal_documents.work_items(project, as_of),
+            'issues': internal_documents.issue_list(project, as_of),
             'documents': internal_documents.catalog(project, as_of),
             'hidden_after_count': internal_documents.hidden_after(project, as_of),
             'document_dates': dates, 'simulation': project.get('simulation'),
@@ -59,6 +65,16 @@ def get(jobs, path):
     match = DRAFT.fullmatch(path)
     if match:
         return jobs.work_drafts.get(match[1], match[2])
+    match = ISSUES.fullmatch(path)
+    if match:
+        return {'issues': internal_documents.issue_list(jobs.workspaces.get(match[1]))}
+    match = GUIDES.fullmatch(path)
+    if match:
+        jobs.workspaces.get(match[1])
+        return {'guides': jobs.issue_guides.list(match[1])}
+    match = GUIDE.fullmatch(path)
+    if match:
+        return jobs.issue_guides.get(match[1], match[2])
     return None
 
 
@@ -96,4 +112,10 @@ def post(jobs, path, payload):
     match = DRAFTS.fullmatch(path)
     if match:
         return jobs.work_drafts.submit(match[1], payload)
+    match = GUIDES.fullmatch(path)
+    if match:
+        return jobs.issue_guides.submit(match[1], payload)
+    match = GUIDE_DELETE.fullmatch(path)
+    if match:
+        return jobs.issue_guides.delete(match[1], match[2])
     raise KeyError(path)

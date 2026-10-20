@@ -222,7 +222,10 @@ def create_app(jobs, port):
                               ('/api/projects/{project_id}/documents', '등록한 내부 문서(버전·상태·공유 범위·본문 단위)'),
                               ('/api/projects/{project_id}/workboard/{as_of}', '기준일의 업무 상태·내부 자료 (원문 이벤트에서 계산)'),
                               ('/api/projects/{project_id}/work-drafts', '업무 초안 목록'),
-                              ('/api/projects/{project_id}/work-drafts/{draft_id}', '업무 초안 한 건: 입력·답변·검사')):
+                              ('/api/projects/{project_id}/work-drafts/{draft_id}', '업무 초안 한 건: 입력·답변·검사'),
+                              ('/api/projects/{project_id}/issues', '등록한 이슈(사내 근거 단위·공개 자료 질문)'),
+                              ('/api/projects/{project_id}/issue-guides', '이슈 대응 가이드 목록'),
+                              ('/api/projects/{project_id}/issue-guides/{guide_id}', '이슈 대응 가이드 한 건: 검색 답변·가이드·정답 대조')):
         get(url, summary_text)(through(notebook_api))
     for url, summary_text in (('/api/ingestion', '자료 수집 창: 대화·요청·릴리스 목록'),
                               ('/api/ingestion/sessions/{session_id}', '적재 대화 한 건'),
@@ -285,6 +288,8 @@ def create_app(jobs, port):
                               ('/api/projects/{project_id}/memos/{memo_id}/structure', '원 보고서에서 기존 메모 항목 복원'),
                               ('/api/projects/{project_id}/documents', '내부 문서 등록 (같은 버전은 바꿀 수 없음)'),
                               ('/api/projects/{project_id}/work-drafts', '업무 초안 작성 접수 (모델 호출 1회)'),
+                              ('/api/projects/{project_id}/issue-guides', '이슈 대응 가이드 작성 접수 (모델 3회 + 공개 자료 검색)'),
+                              ('/api/projects/{project_id}/issue-guides/{guide_id}/delete', '이슈 대응 가이드 삭제 (만드는 중이면 거절)'),
                               ('/api/ingestion/sessions', '새 적재 대화'),
                               ('/api/ingestion/sessions/{session_id}/turns', '적재 대화 한 턴'),
                               ('/api/ingestion/sessions/{session_id}/approve', '확인표 승인'),

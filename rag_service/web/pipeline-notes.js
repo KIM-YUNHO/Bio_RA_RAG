@@ -31,7 +31,16 @@ const PipelineNotes=(()=>{
     box.append(text);if(canAdd){box.append(node("span","pipeline-empty-icon","+"));box.setAttribute("aria-label",s.label+" 메모 추가");}return box;
   }
   function setMode(mode){if(!["split","pipeline","chat"].includes(mode))mode="split";$("chat-pane").dataset.workspaceMode=mode;document.querySelectorAll("[data-workspace-mode]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.workspaceMode===mode)));Prefs.set("workspaceMode",mode);if(mode==="pipeline")all=true;render();}
-  async function load(id){const token=++loadToken;project=null;render();msg("파이프라인을 불러오는 중입니다.");try{const value=await api("/api/projects/"+encodeURIComponent(id));if(token!==loadToken)return;project=value;Prefs.set("workspaceProject",id);stage=Prefs.get("workspaceStage:"+id,stages()[0]?.id);tag=Prefs.get("workspaceTag:"+id,"");if(!project.memos.some(m=>m.tags.includes(tag)))tag="";if(!stages().some(s=>s.id===stage))stage=stages()[0]?.id;render();msg("");}catch(error){if(token===loadToken)msg(error.message,true);}}
+  async function load(id){const token=++loadToken;project=null;render();msg("파이프라인을 불러오는 중입니다.");try{const value=await api("/api/projects/"+encodeURIComponent(id));if(token!==loadToken)return;project=value;Prefs.set("workspaceProject",id);stage=Prefs.get("workspaceStage:"+id,stages()[0]?.id);tag=Prefs.get("workspaceTag:"+id,"");if(!project.memos.some(m=>m.tags.includes(tag)))tag="";if(!stages().some(s=>s.id===stage))stage=stages()[0]?.id;render();msg("");paintWork();}catch(error){if(token===loadToken)msg(error.message,true);}}
+  // One line under the stage cards: the work status the 업무 현황 window opens on. Hidden when the pipeline has no documents.
+  async function paintWork(){
+    const box=$("pipeline-work"),id=project?.id,token=loadToken;box.hidden=true;box.replaceChildren();
+    if(!id||typeof WorkAssist==="undefined")return;
+    try{const s=await WorkAssist.summary(id);if(!s||token!==loadToken||project?.id!==id)return;
+      box.append(node("strong","","업무 현황"),node("span","pipeline-work-date",`${s.point?s.point+" · ":""}${s.asOf} 기준`),node("span","pipeline-work-counts",`업무 ${s.count}개 · ${s.text}${s.issues?` · 이슈 ${s.issues}`:""}`),node("span","pipeline-work-open","열기 ›"));
+      box.hidden=false;}
+    catch(error){box.hidden=true;}
+  }
   function render(){
     const steps=$("pipeline-steps"),list=$("pipeline-memos");steps.replaceChildren();list.replaceChildren();
     $("memo-add").disabled=!project;$("pipeline-all").disabled=!project;$("memo-refresh").disabled=!project;$("memo-brief").disabled=!project;$("memo-work").disabled=!project||typeof WorkAssist==="undefined";
@@ -50,7 +59,7 @@ const PipelineNotes=(()=>{
     const tags=[...new Set(project.memos.flatMap(m=>m.tags))].sort((a,b)=>a.localeCompare(b,"ko"));
     const filter=$("memo-tag-filter");filter.replaceChildren();const every=node("option","","전체 태그");every.value="";filter.append(every);
     if(tag&&!tags.includes(tag))tags.unshift(tag);for(const t of tags){const option=node("option","","#"+t);option.value=t;filter.append(option);}filter.value=tag;
-    $("pipeline-memo-title").textContent=all?`${project.name} · 전 단계 메모`:`${stages().find(s=>s.id===stage)?.label||""} · 메모`;
+    $("pipeline-memo-title").textContent=all?"전 단계 메모":`${stages().find(s=>s.id===stage)?.label||""} · 메모`;
     list.classList.toggle("all-stages",all);
     for(const s of all?stages():stages().filter(s=>s.id===stage)){
       const target=all?node("section","pipeline-column"):list;if(all){target.dataset.stageId=s.id;target.setAttribute("aria-labelledby","pipeline-stage-"+s.id);target.append(node("h3","sr-only",s.label));}
@@ -158,7 +167,7 @@ const PipelineNotes=(()=>{
   }
   function pin({jobId,resultIndex=0,kind="claim",claimId,evidenceId,body,products=[],claims=[]}){const source={job_id:jobId,result_index:resultIndex,kind};if(claimId)source.claim_id=claimId;if(evidenceId)source.evidence_id=evidenceId;openEditor({source,body,products,claims});}
   async function init(data){inventory=data;$("workspace-create").onclick=createProject;$("workspace-project").onchange=e=>{if(e.target.value)load(e.target.value);};$("memo-add").onclick=()=>openEditor();$("memo-refresh").onclick=()=>project&&load(project.id);$("pipeline-all").onclick=()=>{all=!all;render();};$("memo-tag-filter").onchange=e=>{tag=e.target.value;if(project)Prefs.set("workspaceTag:"+project.id,tag);render();};$("memo-archived").onchange=e=>{archived=e.target.checked;render();};document.querySelectorAll("[data-workspace-mode]").forEach(b=>b.onclick=()=>setMode(b.dataset.workspaceMode));setMode(Prefs.get("workspaceMode","split"));
-    $("memo-type-filter").onchange=e=>{itemType=e.target.value;render();};$("memo-brief").onclick=openBrief;$("memo-work").onclick=()=>{if(project&&typeof WorkAssist!=="undefined")WorkAssist.open(project.id,project.name);};for(const [key,label] of Object.entries(definitions.types)){const option=node("option","",label);option.value=key;$("memo-type-filter").append(option);}
+    $("memo-type-filter").onchange=e=>{itemType=e.target.value;render();};$("memo-brief").onclick=openBrief;$("memo-work").onclick=$("pipeline-work").onclick=()=>{if(project&&typeof WorkAssist!=="undefined")WorkAssist.open(project.id,project.name);};document.addEventListener("workassist:close",e=>{if(e.detail?.projectId===project?.id)paintWork();});for(const [key,label] of Object.entries(definitions.types)){const option=node("option","",label);option.value=key;$("memo-type-filter").append(option);}
     try{const records=await api("/api/projects");if(records.item_definitions)definitions=records.item_definitions;projects=records.projects;populateProjects();const params=new URL(location.href).searchParams,requested=params.get("project"),previous=Prefs.get("workspaceProject","");const id=projects.find(p=>p.id===requested)?.id||projects.find(p=>p.id===previous)?.id||projects[0]?.id;if(id){await load(id);$("workspace-project").value=id;const requestedStage=params.get("stage");if(id===requested&&stages().some(s=>s.id===requestedStage)){stage=requestedStage;all=false;Prefs.set("workspaceStage:"+id,stage);render();}}else render();}
     catch(error){$("workspace-project").replaceChildren(node("option","","파이프라인을 불러오지 못했습니다"));msg(error.message,true);}}
   return Object.freeze({init,pin});
