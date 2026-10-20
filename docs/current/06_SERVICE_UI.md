@@ -12,9 +12,12 @@
 | 포트 | 시작 | 시작 방법 | 차이 |
 | :-- | :-- | :-- | :-- |
 | **8775** | 2026-10-18 15:10 | `scripts/start_ra_service.ps1` (로그 `data/runs/ra_service_logs/20261018_151001_*`) | 업무 초안 API 없음. 화면 파일은 요청마다 읽으므로 `업무 현황·AI 초안` 버튼이 비활성으로 보인다. 다음 재시작 때 반영 |
-| **8885** | 2026-10-19 04:15 | `scripts/start_ra_service.ps1 -Port 8885 -ReviewUrl http://127.0.0.1:8886` (로그 `data/runs/ra_service_logs/20261019_041517_*`) | `업무 현황·AI 초안` 기능 포함(진행 현황 업무 목록·일상어 문구) |
+| **8897** (운영) | 2026-10-20 18:11 | PR #17 브랜치 작업 폴더(`project_shared_check`)의 `work/ra_service_8897.py`. 시작 스크립트와 같은 인자, 작업 폴더는 메인 checkout(로그 `data/runs/ra_service_logs/20261020_181113_8897.*`) | 이슈 대응 가이드·파이프라인 업무 요약 줄 포함, 파이프라인 `ra-research-rag-4.10.4`. 저장소는 8775와 같은 PostgreSQL·`data/runs`. PR이 merge되고 메인 checkout이 main을 받으면 `scripts/start_ra_service.ps1 -Port 8897 -ReviewUrl http://127.0.0.1:8886`로 바꾼다 |
+| ~~8885~~ | 2026-10-19 04:15 ~ 10-20 내림 | `scripts/start_ra_service.ps1 -Port 8885 -ReviewUrl http://127.0.0.1:8886` | 10-20에 내리고 8897로 운영 전환 |
 
-두 프로세스의 공통 인자:
+8897로 옮긴 것(10-20): 확인 서버(임시 파일 저장소)에서 만든 `[시나리오 v5] P17 IV FcRn 이슈 대응` 파이프라인(문서 묶음 재등록)과 남아 있던 가이드 1건, 그 검색 답변 7건과 메모가 가리키는 답변 1건(보고서 폴더로 복사), `제품 사전 조사 프로젝트`와 메모 1개(같은 답변·주장에서 다시 저장).
+
+공통 인자:
 
 ```text
 --mode ra --llm-model gpt-5.6-luna
