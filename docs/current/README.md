@@ -5,6 +5,7 @@
 - 수정: 2026-10-17 17:45 KST (8775·8885 재시작으로 4.10.3·답변 본문 정리(PR #9) 반영, `BIOSIM_ACTIVE_RELEASE` 04, 원본 검토 페이지 링크 제거, 적재 대화 삭제)
 - 수정: 2026-10-18 00:40 KST (이 프로젝트 전용 DB `biosim_ra`로 분리, 적재 계획·등록의 대조약·빈 칸 검사)
 - 수정: 2026-10-18 01:30 KST (검색을 pgvector로 전환, 새 릴리스는 `storage.publish_release`로 DB에 올림. 8775·8885 01:25 재시작)
+- 수정: 2026-10-20 18:40 KST (운영을 8897로 전환: main `010f398`, 코드 4.10.4. 8885 내림, 8775는 10-18 시작본 4.10.3. 1절 서비스 주소·코드 행과 4절 확인 명령만 갱신)
 - 기준: 실행 중 서비스의 `GET /api/summary`·`/api/ingestion`·`/api/projects`(8885·8775), 프로세스 명령줄, `data/versions/versions.json`, DB `rag.active_release`, 작업 폴더 코드(main `96894d3` + `feature/memo-reader-session-delete` 화면·적재 커밋)
 - 이 폴더는 **지금 떠 있는 서비스가 어떤 데이터·코드·설정으로 답하는가**만 적는다. 실험 경위와 수치의 근거는 각 파일 끝의 원 기록을 따른다. 서빙 구성(릴리스·기본값·모델·포트)이 바뀌면 이 폴더를 먼저 고친다.
 
@@ -12,8 +13,8 @@
 
 | 항목 | 현재 값 |
 | :-- | :-- |
-| 서비스 주소 | **http://127.0.0.1:8885/** · **http://127.0.0.1:8775/** (둘 다 10-17 17:41~17:43 `scripts/start_ra_service.ps1`로 재시작). 두 프로세스의 릴리스·모델·코드 버전이 같다 |
-| 파이프라인 코드 | `ra-research-rag-4.10.3` (`feature/stable-queries` 병합 후). 두 서비스 모두 4.10.3을 보고한다 |
+| 서비스 주소 | **http://127.0.0.1:8897/** (운영, 10-20 18:22 `scripts/start_ra_service.ps1 -Port 8897`) · http://127.0.0.1:8775/ (10-18 15:10 시작본). 8885는 10-20에 내렸다. 두 프로세스의 릴리스·모델은 같고 코드 버전이 다르다 |
+| 파이프라인 코드 | 8897 `ra-research-rag-4.10.4`(PR #17: 주장 7개 이상인 답변의 검증 출력 예산 360토큰/주장), 8775 `4.10.3` |
 | 계획기 검색어 | 답할 사실(facet)마다 영어 검색어 1개, 질문이 붙인 적응증·시험 번호 등 한정어 포함 (`ra-research-tasks-8-fact-queries`) |
 | 제품 색인 | 릴리스 **04** `04_pipeline_h_supplement_2026-10-14` — 5제품·**111문서·15,682청크** × 1024차원 |
 | 공통 지침 | `ra_guidelines_native_2026-10-12_v2` — 저장 21문서·236청크, 검색 20문서·209청크(FDA 2015 지침 제외) |
@@ -57,7 +58,7 @@
 
 ```powershell
 # 서비스 요약: 코드 버전·릴리스·모델·전략 (답변 생성 호출 없음)
-Invoke-RestMethod http://127.0.0.1:8885/api/summary |
+Invoke-RestMethod http://127.0.0.1:8897/api/summary |
     Select-Object pipeline_version, run_name, product_index_chunks, chunks_sha256, answer_model,
         query_strategy, retrieval_strategy, answer_strategy, retrieval_pages, guideline_chunks
 
