@@ -284,6 +284,7 @@ def create_app(jobs, port):
 
     for url, summary_text in (('/api/questions', '질문 접수 (모델 호출 발생)'), ('/api/jobs/{job_id}/review', '답변 검토 기록 추가'),
                               ('/api/projects', '파이프라인 만들기'), ('/api/projects/{project_id}/memos', '메모 저장'),
+                              ('/api/projects/{project_id}/delete', '파이프라인 삭제 (목록에서 숨김, 만드는 중인 초안·가이드가 있으면 거절)'),
                               ('/api/projects/{project_id}/memos/{memo_id}/revisions', '메모 수정'),
                               ('/api/projects/{project_id}/memos/{memo_id}/structure', '원 보고서에서 기존 메모 항목 복원'),
                               ('/api/projects/{project_id}/documents', '내부 문서 등록 (같은 버전은 바꿀 수 없음)'),

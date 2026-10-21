@@ -1,5 +1,7 @@
 # RA RAG 서비스
 
+파이프라인 삭제(2026-10-21): 상단 `+ 파이프라인` 옆 `삭제` 버튼과 `POST /api/projects/<id>/delete`. 목록에서만 숨기고 메모·문서 기록은 남긴다(DB `deleted_at`, 파일 저장소는 `deleted/`). 만드는 중인 업무 초안·이슈 가이드가 있으면 거절한다. DB에 마이그레이션 `010_workspace_project_deletion.sql`을 적용(`uv run python -m ingestion.db migrate`)한 뒤 서비스를 다시 띄운다.
+
 코드 정리(2026-10-21): HTTP 계층은 FastAPI(`rag_service/app.py`)만 남았다. `--server` 인자와 표준 라이브러리 서버, 별도 검토 화면 `review_viewer`와 `--review-url` 인자, 이전 화면 `rag_service/static/`을 제거했다. 근거의 `review_links`는 `pdf_page`·`asset_id`만 담는다. 릴리스 묶음 읽기는 `rag/bundle.py`. 아래 날짜별 기록의 실행 명령에 나오는 `--review-url`·`--server`·`review_viewer`는 당시 기준이다.
 
 FastAPI 전환(2026-10-18): HTTP 계층을 FastAPI로도 띄울 수 있다(`--server fastapi`; 시작 스크립트 `-Server`의 기본은 fastapi, `python -m rag_service`의 기본은 기존 표준 라이브러리 서버). URL·JSON·상태 코드·보안 헤더가 같아 화면은 바뀌지 않는다. 같은 검사를 두 서버에 돌리는 계약 테스트 `tests/test_http_contract.py`, 전체 테스트 1,326개와 RA DOM 검사가 두 서버에서 통과했고, 실제 데이터 16개 요청의 응답이 기존 서버와 같았다. `/api-docs`(명세 화면)·`/openapi.json`은 FastAPI 서버에만 있다. 8885가 FastAPI, 8775는 기존 서버로 운영한다. 계획: `docs/project/FASTAPI_MIGRATION_PLAN_2026-10-18.md`.

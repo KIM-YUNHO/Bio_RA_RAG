@@ -43,7 +43,7 @@ const PipelineNotes=(()=>{
   }
   function render(){
     const steps=$("pipeline-steps"),list=$("pipeline-memos");steps.replaceChildren();list.replaceChildren();
-    $("memo-add").disabled=!project;$("pipeline-all").disabled=!project;$("memo-refresh").disabled=!project;$("memo-brief").disabled=!project;$("memo-work").disabled=!project||typeof WorkAssist==="undefined";
+    $("workspace-delete").disabled=!project;$("memo-add").disabled=!project;$("pipeline-all").disabled=!project;$("memo-refresh").disabled=!project;$("memo-brief").disabled=!project;$("memo-work").disabled=!project||typeof WorkAssist==="undefined";
     if(project&&!stages().some(s=>s.id===stage))stage=stages()[0]?.id;
     $("pipeline-dock").dataset.memoView=all?"all":"selected";
     $("pipeline-dock").style.setProperty("--stage-count",String(stages().length));
@@ -136,6 +136,17 @@ const PipelineNotes=(()=>{
     form.onsubmit=async event=>{event.preventDefault();submit.disabled=true;try{const value=await send("/api/projects",{name:name.value,ingredient:ingredient.value});project=value;stage=stages()[0]?.id;tag="";archived=false;$("memo-archived").checked=false;projects.unshift(value);populateProjects();$("workspace-project").value=value.id;Prefs.set("workspaceProject",value.id);d.close();render();msg("파이프라인을 추가했습니다. 비교 제품과 기관은 왼쪽에서 선택하세요.");}catch(e){error.textContent=e.message;}finally{submit.disabled=false;}};
     d.showModal();name.focus();
   }
+  function deleteProject(){
+    if(!project)return;const current=project,d=dialog("파이프라인 삭제"),box=node("div","workspace-dialog-body"),error=node("p","workspace-form-error");error.setAttribute("role","alert");
+    const docs=current.document_count||0;
+    box.append(node("p","",`‘${current.name}’ 파이프라인을 삭제할까요?`),node("p","muted small",`단계 메모 ${current.memos.length}개${docs?`와 내부 문서 ${docs}건`:""}도 함께 목록에서 사라집니다.`));
+    const actions=node("div","workspace-dialog-actions"),lock=value=>actions.querySelectorAll("button").forEach(b=>b.disabled=value);
+    const remove=button("삭제","primary-button",async()=>{lock(true);error.textContent="";
+      try{await send(`/api/projects/${current.id}/delete`,{});projects=projects.filter(p=>p.id!==current.id);if(Prefs.get("workspaceProject","")===current.id)Prefs.set("workspaceProject","");d.close();
+        if(project?.id===current.id)project=null;populateProjects();const next=projects[0]?.id;if(next){await load(next);$("workspace-project").value=next;}else render();msg("파이프라인을 삭제했습니다.");}
+      catch(e){error.textContent=e.message;lock(false);}});
+    actions.append(remove,button("취소","download",()=>d.close()));box.append(error,actions);d.append(box);d.showModal();
+  }
   function populateProjects(){const select=$("workspace-project");select.replaceChildren();if(!projects.length){const empty=node("option","","파이프라인을 추가하세요");empty.value="";select.append(empty);}for(const p of projects){const option=node("option","",`${p.name} · ${p.ingredient}`);option.value=p.id;select.append(option);}if(project)select.value=project.id;}
   function openEditor({memo=null,source=null,body="",products=[],claims=[]}={}){
     if(!project){msg("먼저 개발 제품의 파이프라인을 추가하세요.",true);$("workspace-create").focus();return;}
@@ -166,7 +177,7 @@ const PipelineNotes=(()=>{
     form.onsubmit=e=>{e.preventDefault();save();};d.showModal();bodyInput.focus();editor=d;d.addEventListener("close",()=>{editor=null;},{once:true});
   }
   function pin({jobId,resultIndex=0,kind="claim",claimId,evidenceId,body,products=[],claims=[]}){const source={job_id:jobId,result_index:resultIndex,kind};if(claimId)source.claim_id=claimId;if(evidenceId)source.evidence_id=evidenceId;openEditor({source,body,products,claims});}
-  async function init(data){inventory=data;$("workspace-create").onclick=createProject;$("workspace-project").onchange=e=>{if(e.target.value)load(e.target.value);};$("memo-add").onclick=()=>openEditor();$("memo-refresh").onclick=()=>project&&load(project.id);$("pipeline-all").onclick=()=>{all=!all;render();};$("memo-tag-filter").onchange=e=>{tag=e.target.value;if(project)Prefs.set("workspaceTag:"+project.id,tag);render();};$("memo-archived").onchange=e=>{archived=e.target.checked;render();};document.querySelectorAll("[data-workspace-mode]").forEach(b=>b.onclick=()=>setMode(b.dataset.workspaceMode));setMode(Prefs.get("workspaceMode","split"));
+  async function init(data){inventory=data;$("workspace-create").onclick=createProject;$("workspace-delete").onclick=deleteProject;$("workspace-project").onchange=e=>{if(e.target.value)load(e.target.value);};$("memo-add").onclick=()=>openEditor();$("memo-refresh").onclick=()=>project&&load(project.id);$("pipeline-all").onclick=()=>{all=!all;render();};$("memo-tag-filter").onchange=e=>{tag=e.target.value;if(project)Prefs.set("workspaceTag:"+project.id,tag);render();};$("memo-archived").onchange=e=>{archived=e.target.checked;render();};document.querySelectorAll("[data-workspace-mode]").forEach(b=>b.onclick=()=>setMode(b.dataset.workspaceMode));setMode(Prefs.get("workspaceMode","split"));
     $("memo-type-filter").onchange=e=>{itemType=e.target.value;render();};$("memo-brief").onclick=openBrief;$("memo-work").onclick=$("pipeline-work").onclick=()=>{if(project&&typeof WorkAssist!=="undefined")WorkAssist.open(project.id,project.name);};document.addEventListener("workassist:close",e=>{if(e.detail?.projectId===project?.id)paintWork();});for(const [key,label] of Object.entries(definitions.types)){const option=node("option","",label);option.value=key;$("memo-type-filter").append(option);}
     try{const records=await api("/api/projects");if(records.item_definitions)definitions=records.item_definitions;projects=records.projects;populateProjects();const params=new URL(location.href).searchParams,requested=params.get("project"),previous=Prefs.get("workspaceProject","");const id=projects.find(p=>p.id===requested)?.id||projects.find(p=>p.id===previous)?.id||projects[0]?.id;if(id){await load(id);$("workspace-project").value=id;const requestedStage=params.get("stage");if(id===requested&&stages().some(s=>s.id===requestedStage)){stage=requestedStage;all=false;Prefs.set("workspaceStage:"+id,stage);render();}}else render();}
     catch(error){$("workspace-project").replaceChildren(node("option","","파이프라인을 불러오지 못했습니다"));msg(error.message,true);}}

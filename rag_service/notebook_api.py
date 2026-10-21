@@ -1,10 +1,12 @@
 """Small HTTP-independent adapter for project notebooks, internal documents and work drafts."""
 import re
 
+from rag_service.reviews import RevisionConflict
 from rag_service.workspaces import source_packet
 from rag_service import internal_documents, memo_items, memo_workflow, work_assist
 
 PROJECT = re.compile(r'/api/projects/([0-9a-f]{32})')
+PROJECT_DELETE = re.compile(r'/api/projects/([0-9a-f]{32})/delete')
 MEMOS = re.compile(r'/api/projects/([0-9a-f]{32})/memos')
 REVISION = re.compile(r'/api/projects/([0-9a-f]{32})/memos/([0-9a-f]{32})/revisions')
 STRUCTURE = re.compile(r'/api/projects/([0-9a-f]{32})/memos/([0-9a-f]{32})/structure')
@@ -39,6 +41,15 @@ def overview(project, as_of):
             'document_dates': dates, 'simulation': project.get('simulation'),
             'scopes': project.get('work_scopes', {}), 'axis_labels': work_assist.AXIS_LABELS, 'axis_help': work_assist.AXIS_HELP,
             'tasks': {k: {'label': v['label'], 'template': v['template']} for k, v in work_assist.TASKS.items()}}
+
+
+def running_work(jobs, project_id):
+    """Whether a work draft or issue guide of this pipeline is still being made."""
+    for service in (jobs.work_drafts, jobs.issue_guides):
+        with service.lock:
+            if any(r.get('project_id') == project_id and r.get('state') == 'running' for r in service.records.values()):
+                return True
+    return False
 
 
 def get(jobs, path):
@@ -85,6 +96,14 @@ def post(jobs, path, payload):
         if not isinstance(payload, dict) or payload.get('ingredient') not in ingredients:
             raise ValueError('등록된 성분을 선택하세요.')
         return public(jobs.workspaces.create(payload))
+    match = PROJECT_DELETE.fullmatch(path)
+    if match:
+        if payload != {}:
+            raise ValueError('삭제 요청에는 내용을 보내지 않습니다.')
+        jobs.workspaces.get(match[1])
+        if running_work(jobs, match[1]):
+            raise RevisionConflict('만드는 중인 업무 초안이나 이슈 가이드가 있습니다. 끝난 뒤 삭제하세요.')
+        return jobs.workspaces.delete(match[1])
     match = MEMOS.fullmatch(path)
     if match:
         source = source_packet(jobs, payload['source']) if isinstance(payload, dict) and payload.get('source') is not None else None
