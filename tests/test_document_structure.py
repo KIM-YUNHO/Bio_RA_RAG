@@ -7,11 +7,8 @@ import sys
 import unittest
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "rag"))
-import build_chunks as bc
-import context_units as cu
-import document_structure as ds
-from chunking import pack_units
+from rag.index import build_chunks as bc, context_units as cu, document_structure as ds
+from rag.index.chunking import pack_units
 
 
 class Counter:

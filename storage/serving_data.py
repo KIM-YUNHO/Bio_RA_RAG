@@ -17,7 +17,7 @@ import sys
 import zipfile
 from pathlib import Path
 
-from rag.portable_paths import ROOT, resolve
+from rag.index.portable_paths import ROOT, resolve
 
 VERSIONS = json.loads((ROOT / "data/versions/versions.json").read_text(encoding="utf-8"))
 RELEASE_DIRS = {"pilot": VERSIONS["roles"]["pilot"], "latest": VERSIONS["roles"]["latest"]}

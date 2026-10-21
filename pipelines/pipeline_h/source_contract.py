@@ -42,7 +42,7 @@ def validate(run,with_chunks=False):
             else:raise ValueError('Source unit lost without accounting: '+u['unit_id'])
             coverage[state]=coverage.get(state,0)+1
         # Check DOM representation character ranges, not phrase substring hits.
-        from rag.preprocessed_chunks import verify_ranges
+        from rag.index.preprocessed_chunks import verify_ranges
         pages={(p['document_id'],p['version_id'],p['pdf_page']):p for p in read_jsonl(run/'extraction/extraction_pages.jsonl')}
         verify_ranges(chunks,units,by_id,pages,require_full_coverage=False)
     report={'status':'passed','scope':'original DOM units and representation accounting, not full-corpus semantic accuracy',

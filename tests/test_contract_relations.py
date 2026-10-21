@@ -1,6 +1,6 @@
 import unittest
-from rag.contract_relations import pairs, ranges, scope, table_fact, relation_condition, attach_comparison
-from rag.grounded_table_graph import build
+from rag.evidence.contract_relations import pairs, ranges, scope, table_fact, relation_condition, attach_comparison
+from rag.evidence.grounded_table_graph import build
 from tests.contract_match import condition
 
 
@@ -181,7 +181,7 @@ class ContractRelationsTests(unittest.TestCase):
         return '<table><tr><th>Parameter</th><th>Geometric Mean</th><th>Geometric Mean</th></tr><tr><td>Cmax</td><td>31.8</td><td>32.7</td></tr><tr><td colspan="3">'+heading+'</td></tr><tr><td>Cmax</td><td>'+value+'</td><td>1.28 (1.04, 1.56)</td></tr><tr><td colspan="3">Arithmetic Mean</td></tr><tr><td>Cmax</td><td>72.4</td><td>73.1</td></tr></table>'
 
     def test_compound_gmr_ci_requires_printed_header_and_whole_cell(self):
-        from rag.contract_terms import atoms
+        from rag.evidence.contract_terms import atoms
         for heading in ['Ratio of LS Geometric Means (90% CI)','Ratio of geometric least squares means (90% CI)']:
             f=self.fact(self.compound_ratio_table(heading=heading),'1.47 (1.19, 1.83)')
             for stat in ['GMR','CI90']:
@@ -215,7 +215,7 @@ class ContractRelationsTests(unittest.TestCase):
         self.assertEqual(condition(f,'statistic','eq',['mean'])['status'],'unknown')
 
     def test_compound_endpoint_unit_keeps_mass_prefix(self):
-        from rag.contract_terms import atoms
+        from rag.evidence.contract_terms import atoms
         self.assertEqual([a["value"] for a in atoms("AUCinf (ng·h/mL)") if a["dimension"] == "unit"], ["ng·h/ml"])
 
     def test_ad_hoc_and_post_hoc_timing_are_not_silently_equated(self):

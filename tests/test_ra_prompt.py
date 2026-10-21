@@ -2,7 +2,7 @@ import os
 import unittest
 from unittest.mock import patch
 
-from rag import ra_answer, ra_prompt
+from rag.ra import ra_answer, ra_prompt
 
 
 def evidence(text='Paragraph.', product='P1', jurisdiction='EU'):
@@ -57,7 +57,7 @@ class RequirementPathVariantTests(unittest.TestCase):
         patcher.start(); self.addCleanup(patcher.stop)
 
     def test_modular_replaces_requirement_prompt_with_core_modules_and_contract_last(self):
-        from rag.ra_obligations import build
+        from rag.ra.ra_obligations import build
         q = 'EMA SB17-1001 건강인 PK 시험에서 실제 사용한 용량과 투여 경로, 대상군과 비교약을 정리해줘.'
         if not build(q):
             self.skipTest('question no longer requirement-decomposed')

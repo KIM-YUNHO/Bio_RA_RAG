@@ -307,7 +307,7 @@ class WorkspaceStore:
 
     def remember_document(self, evidence, path):
         """Only called with a path already resolved by the server's source viewer."""
-        from rag.portable_paths import resolve
+        from rag.index.portable_paths import resolve
         resolved = Path(resolve(path)).resolve(strict=True)
         with resolved.open('rb') as stream:
             digest = hashlib.file_digest(stream, 'sha256').hexdigest()
@@ -329,7 +329,7 @@ class WorkspaceStore:
         record = records.get(key)
         if not record:
             raise KeyError('저장되지 않은 문서 버전입니다.')
-        from rag.portable_paths import resolve
+        from rag.index.portable_paths import resolve
         path = Path(resolve(record['path'])).resolve(strict=True)
         with path.open('rb') as stream:
             if hashlib.file_digest(stream, 'sha256').hexdigest() != record['sha256']:
@@ -410,7 +410,7 @@ class PostgresWorkspaceStore(WorkspaceStore):
             return {'id': project_id, 'deleted': True}
 
     def remember_document(self, evidence, path):
-        from rag.portable_paths import resolve
+        from rag.index.portable_paths import resolve
         resolved = Path(resolve(path)).resolve(strict=True)
         with resolved.open('rb') as stream:
             digest = hashlib.file_digest(stream, 'sha256').hexdigest()
@@ -430,7 +430,7 @@ class PostgresWorkspaceStore(WorkspaceStore):
                                (evidence.get('document_id'), evidence.get('version_id'))).fetchone()
         if not row:
             raise KeyError('저장되지 않은 문서 버전입니다.')
-        from rag.portable_paths import resolve
+        from rag.index.portable_paths import resolve
         path = Path(resolve(row[0])).resolve(strict=True)
         with path.open('rb') as stream:
             if hashlib.file_digest(stream, 'sha256').hexdigest() != row[1]:

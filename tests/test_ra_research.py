@@ -11,10 +11,10 @@ import numpy as np
 import test_release_bundle
 from preprocess.hybrid_config import HybridConfig
 from preprocess.ingest import sha256
-from rag import ra_answer, ra_tasks
-from rag.ra_pipeline import RAPipeline
-from rag.ra_sources import build, GuidelineIndex
-from rag import ra_retrieval
+from rag.ra import ra_answer, ra_tasks
+from rag.ra.ra_pipeline import RAPipeline
+from rag.ra.ra_sources import build, GuidelineIndex
+from rag.ra import ra_retrieval
 
 
 class Counter:
@@ -261,7 +261,7 @@ class PipelineTests(unittest.TestCase):
         self.assertFalse(report['index']['active_index_updated'])
 
     def test_default_pipeline_uses_bound_spans_and_selected_review_in_three_calls(self):
-        from rag import ra_review
+        from rag.ra import ra_review
         original = self.client
         class SpanClient:
             tokenizer = Counter(); input_limit = 50000; model = 'fake-local'; provider = 'ollama'; local_only = True

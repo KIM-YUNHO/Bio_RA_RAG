@@ -329,7 +329,7 @@ class IssueGuideService:
     def client(self, folder):
         if self.chat_factory:
             return self.chat_factory(folder)
-        from rag.openai_chat import EvaluationAPIChat
+        from rag.llm.openai_chat import EvaluationAPIChat
         client = EvaluationAPIChat(folder, max_new_calls=3, model=self.model)
         client.config = SimpleNamespace(model=self.model, num_ctx=self.context_tokens, num_predict=4000)
         return client

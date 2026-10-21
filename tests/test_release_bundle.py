@@ -13,8 +13,8 @@ from test_chunking import CharacterCounter
 from preprocess.hybrid import run_hybrid
 from preprocess.hybrid_config import HybridConfig
 from preprocess.ingest import from_inputs
-from rag.preprocessed_chunks import write
-from rag.bundle import Bundle
+from rag.index.preprocessed_chunks import write
+from rag.index.bundle import Bundle
 
 
 class BundleTests(unittest.TestCase):

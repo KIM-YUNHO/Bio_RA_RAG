@@ -35,8 +35,8 @@ def main():
     profile = profile or None
     code = a.code_root.resolve()
     sys.path.insert(0, str(code))
-    from rag.openai_chat import OpenAIPipelineChat
-    from rag.ra_pipeline import RAPipeline
+    from rag.llm.openai_chat import OpenAIPipelineChat
+    from rag.ra.ra_pipeline import RAPipeline
     from preprocess.hybrid_config import load_config
     data = a.data_root.resolve()
     cases = json.loads(a.cases.read_text(encoding='utf-8'))

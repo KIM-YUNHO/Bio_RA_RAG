@@ -1,7 +1,7 @@
 """The planner's closed-set answer facets and topics drive requirements, prompt modules and topic queries."""
 import unittest
 
-from rag import ra_obligations, ra_prompt, ra_topic_queries
+from rag.ra import ra_obligations, ra_prompt, ra_topic_queries
 
 
 def task(quote, intent='fact_lookup', facets=(), topics=(), request=None):
@@ -88,7 +88,7 @@ class ChecklistMode(unittest.TestCase):
 class ThirdRoleForMultiAgencyTasks(unittest.TestCase):
     def plan(self, question, task_agencies, agencies):
         import json
-        from rag import ra_tasks
+        from rag.ra import ra_tasks
         reply = {'in_scope': True, 'products': ['SB17'], 'jurisdictions': [], 'jurisdiction_mentions': [],
                  'english_query': 'approval date', 'tasks': [{'request': question, 'queries': ['approval date'],
                  'source_roles': ['label', 'correspondence', 'decision_summary'], 'guideline_request_quote': '',
@@ -108,7 +108,7 @@ class ThirdRoleForMultiAgencyTasks(unittest.TestCase):
 
 class ClaimFormatSlips(unittest.TestCase):
     def test_repeated_task_or_product_id_is_merged_not_fatal(self):
-        from rag.ra_models import SpanClaim
+        from rag.ra.ra_models import SpanClaim
         claim = SpanClaim.model_validate({'text': 'x', 'kind': 'source_fact', 'products': ['SB17', 'SB17'],
                                           'claim_basis': 'source_statement', 'task_ids': ['T1', 'T1'],
                                           'citation_span_ids': ['S1']}, context={'task_ids': ['T1']})
@@ -117,7 +117,7 @@ class ClaimFormatSlips(unittest.TestCase):
 
 class AtomicNeeds(unittest.TestCase):
     def test_each_fact_and_item_becomes_a_need_with_its_own_query(self):
-        from rag.ra_needs import atomic_tasks
+        from rag.ra.ra_needs import atomic_tasks
         t = {'id': 'T1', 'request': 'EU 최초 허가일과 MAH', 'queries': ['EU authorisation'], 'source_roles': ['label'],
              'intent': {'intent': 'fact_lookup', 'request_quote': 'x'}, 'topics': ['design'],
              'answer_facets': [{'facet': 'fact', 'detail': '', 'ask': 'EU 최초 허가일', 'query': 'date of first authorisation', 'items': []},
@@ -137,7 +137,7 @@ class AtomicNeeds(unittest.TestCase):
 class UnitFusedRerank(unittest.TestCase):
     def test_unit_query_and_fusion_protect_strong_hybrid_hits(self):
         from types import SimpleNamespace
-        from rag import ra_retrieval
+        from rag.ra import ra_retrieval
         seen = []
 
         class Reverse:  # scores the hybrid order backwards
@@ -155,7 +155,7 @@ class UnitFusedRerank(unittest.TestCase):
 
     def test_fquery_unit_uses_the_english_per_fact_query(self):
         from types import SimpleNamespace
-        from rag import ra_retrieval
+        from rag.ra import ra_retrieval
         seen = []
 
         class Record:

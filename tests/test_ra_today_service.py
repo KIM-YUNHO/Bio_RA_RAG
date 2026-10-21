@@ -8,7 +8,7 @@ from rag_service.__main__ import Jobs
 import sys
 sys.path.insert(0, str(Path(__file__).parent))
 from http_server import Running  # noqa: E402
-from rag.ra_sources import GuidelineIndex, permitted
+from rag.ra.ra_sources import GuidelineIndex, permitted
 
 ROOT=Path(__file__).resolve().parents[1]
 

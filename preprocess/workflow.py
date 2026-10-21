@@ -13,7 +13,7 @@ from .inventory import write_json
 VERSION = 'local-ra-workflow-1'
 ROOT = Path(__file__).resolve().parents[1]
 CODE = tuple(sorted(p.relative_to(ROOT).as_posix() for p in
-    [*ROOT.glob('preprocess/*.py'), *ROOT.glob('rag/*.py'), ROOT/'collection/text_layer.py',
+    [*ROOT.glob('preprocess/*.py'), *ROOT.glob('rag/**/*.py'), ROOT/'collection/text_layer.py',
      ROOT/'data/reviewed/studies.json',ROOT/'rag/doc_groups.json']))
 
 
@@ -77,9 +77,9 @@ def seed_parser(source, out, documents):
 
 def build_index(folder, queries, device, include_nondefault, factory=None):
     import numpy as np
-    from rag.embed_index import Embedder, MODELS
-    from rag.search import Bm25, dense_hits, filter_idx, rrf, to_pages, load_index
-    from rag.preprocessed_chunks import related_visual_contexts
+    from rag.index.embed_index import Embedder, MODELS
+    from rag.retrieval.search import Bm25, dense_hits, filter_idx, rrf, to_pages, load_index
+    from rag.index.preprocessed_chunks import related_visual_contexts
     from .hybrid import read_jsonl
     chunks=read_jsonl(folder/'chunks.jsonl')
     embedder=(factory or Embedder)('bge-m3',device=device,local_only=True)
@@ -215,7 +215,7 @@ def run(out, config, *, inputs=None, catalog=None, document_ids=None, root=ROOT,
                      'extracted_assets.jsonl','source_units.jsonl','visual_groups.jsonl'))
                 final=Path(label_result['run'])
             validate_extraction(final)
-            from rag.preprocessed_chunks import write
+            from rag.index.preprocessed_chunks import write
             chunked=stage('chunk',lambda:write(final,candidate,counter=counter),candidate,('chunks_summary.json',))
             if embedding:
                 stage('index',lambda:build_index(candidate,list(queries),device,include_nondefault,index_factory),
@@ -250,7 +250,7 @@ def run(out, config, *, inputs=None, catalog=None, document_ids=None, root=ROOT,
             lines += [f"| {c['document_id']} | {c['source_pages']} | {c['attempted_pages']} | {c['parsed_pages']} |" for c in coverage]
             lines += ['',f"- 후보 검색 폴더: `{candidate}`",f"- 문서별 결과·검토 사유: `{final/'processing_report.md'}`",
                 f"- 검색 실행 예시 결과: `{candidate/'search_examples.json'}`",'',
-                '```powershell',f'.\\.venv\\Scripts\\python.exe -B rag/search.py --rag-dir "{candidate}" --mode hybrid --local-only --visual-context --query "your question"','```','',
+                '```powershell',f'.\\.venv\\Scripts\\python.exe -B -m rag.retrieval.search --rag-dir "{candidate}" --mode hybrid --local-only --visual-context --query "your question"','```','',
                 '원본·페이지·영역 출처를 보존합니다. 활성 인덱스는 변경하지 않았습니다.']
             (out/'workflow_report.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
             manifest.update(lifecycle='finished',stage='finished',finished_at=timestamp(),

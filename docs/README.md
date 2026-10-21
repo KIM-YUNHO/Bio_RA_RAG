@@ -50,7 +50,7 @@
 | [H_V2_RAG_DEVELOPMENT_EVAL_2026-10-14.md](rag/H_V2_RAG_DEVELOPMENT_EVAL_2026-10-14.md) | **H v2 색인 개발 평가와 개선**: GPT-5.6 Luna 고정 비교에서 완전 충족 기존 8/17 → H v2 11/17. 연속 표 2개 회수 후보(`data/versions/03_…`), 지침 전용 질문의 읽기 범위 수정(4.9.1), 통계량-표 헤더 검색(4.9.2), 공통 단위 숫자 쌍 검증 수정(4.9.3)과 제한 평가 |
 | [UI_3PANE_AND_RA_FEATURES_PLAN_2026-10-13.md](rag/UI_3PANE_AND_RA_FEATURES_PLAN_2026-10-13.md) | 3분할 화면·멀티턴·RA 기능 계획과 사용자 결정 |
 | [FINALIZATION_API_EVAL_2026-10-10.md](rag/FINALIZATION_API_EVAL_2026-10-10.md) | 파일럿 릴리스(10,088벡터) 확정·평가 기록 |
-| [GUIDELINE_STATUS_2026-10-12.md](rag/GUIDELINE_STATUS_2026-10-12.md) | 공통 지침 공식 상태. 같은 이름의 `.json`은 **실행 중 `rag/ra_sources.py`가 읽는 파일**이므로 옮기거나 이름을 바꾸지 않는다 |
+| [GUIDELINE_STATUS_2026-10-12.md](rag/GUIDELINE_STATUS_2026-10-12.md) | 공통 지침 공식 상태. 같은 이름의 `.json`은 **실행 중 `rag/ra/ra_sources.py`가 읽는 파일**이므로 옮기거나 이름을 바꾸지 않는다 |
 
 ## project · research
 
@@ -71,4 +71,4 @@
 
 - 새 문서는 `docs/` 아래 성격에 맞는 폴더에 둔다. 루트에는 `README.md`만 둔다. 코드 폴더의 `README.md`는 그 폴더 사용법만 짧게 쓴다.
 - 문서 첫머리에 `작성`·`최종 수정`을 `YYYY-MM-DD HH:MM KST`로 쓰고, 수정하면 괄호에 바뀐 내용을 적는다.
-- 경로는 프로젝트 루트 기준으로 쓴다(예: `rag/search.py`, `data/versions/...`).
+- 경로는 프로젝트 루트 기준으로 쓴다(예: `rag/retrieval/search.py`, `data/versions/...`).

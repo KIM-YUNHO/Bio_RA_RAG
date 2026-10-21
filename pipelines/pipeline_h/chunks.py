@@ -18,7 +18,7 @@ def correct_provenance(folder):
     return changed
 
 def build(run):
-    from rag import preprocessed_chunks as original
+    from rag.index import preprocessed_chunks as original
     from pipelines.pipeline_h.chunk_runtime import accelerate
     accelerate(original)
     run=Path(run).resolve();out=run/'candidate';start=time.perf_counter()

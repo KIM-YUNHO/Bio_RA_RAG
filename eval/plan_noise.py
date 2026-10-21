@@ -44,7 +44,7 @@ PROFILE_SETS = {
 
 
 def plans_for(case, n, client, pipe):
-    from rag import ra_tasks
+    from rag.ra import ra_tasks
     folder = GOLD / 'plan_variants'
     folder.mkdir(exist_ok=True)
     stem = case['id'].replace(':', '_')
@@ -82,9 +82,9 @@ def main():
     if a.output.exists():
         p.error('Choose a new output file')
     cases = {c['id']: c for c in json.loads((GOLD / 'gold.json').read_text(encoding='utf-8'))['cases']}
-    from rag import ra_retrieval
-    from rag.openai_chat import OpenAIPipelineChat
-    from rag.ra_pipeline import RAPipeline
+    from rag.ra import ra_retrieval
+    from rag.llm.openai_chat import OpenAIPipelineChat
+    from rag.ra.ra_pipeline import RAPipeline
     from preprocess.hybrid_config import load_config
     pipe = RAPipeline(a.run, None, load_config(ROOT / 'configs/preprocess.local.json'),
                       research_rounds=0, chat_client=OpenAIPipelineChat(model='gpt-5.6-luna', context_tokens=65536))

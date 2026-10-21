@@ -69,7 +69,7 @@ data/
 - 전처리: `source_units`·`extracted_assets`·`visual_*`의 `source_refs[].path`, `extraction_manifest.json`의 원본·파생본 경로
 
 영향:
-- **이 PC**에서는 원본 프로젝트가 남아 있으므로 RA 서비스·검토 화면(`rag/release.py`의 `ReleaseBundle`)이 그 경로를 그대로 읽어 동작한다(내용은 사본과 동일함을 해시로 확인).
+- **이 PC**에서는 원본 프로젝트가 남아 있으므로 RA 서비스·검토 화면(`rag/index/release.py`의 `ReleaseBundle`)이 그 경로를 그대로 읽어 동작한다(내용은 사본과 동일함을 해시로 확인).
 - **다른 PC**에서는 `ReleaseBundle` 로드와 원문 페이지 렌더링이 실패한다. 청크 텍스트·메타데이터·벡터 자체는 경로와 무관하므로 **벡터 DB 적재에는 지장이 없다**.
 - PostgreSQL + pgvector 통합 때 경로를 프로젝트 상대 경로로 바꿔 저장하는 것이 첫 작업이다([통합 지도](../docs/project/PGVECTOR_INTEGRATION_MAP_2026-10-14.md) 3절).
 

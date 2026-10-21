@@ -1,11 +1,11 @@
-"""rag.portable_paths: the original project's absolute paths resolve to this project's copies."""
+"""rag.index.portable_paths: the original project's absolute paths resolve to this project's copies."""
 import json
 import os
 import unittest
 from pathlib import Path
 from unittest import mock
 
-from rag import portable_paths as pp
+from rag.index import portable_paths as pp
 
 ORIGINAL = "C:\\Users\\Admin\\Documents\\biosimilar_collection\\"
 LATEST = pp.ROOT / "data/versions/03_pipeline_h_v2_table_recovery_2026-10-14"
@@ -73,7 +73,7 @@ if __name__ == "__main__":
 
 class SelfBuiltReleasePaths(unittest.TestCase):
     def test_builder_absolute_path_maps_to_this_clone(self):
-        from rag.portable_paths import resolve, ROOT
+        from rag.index.portable_paths import resolve, ROOT
         rel = 'data/versions/versions.json'
         other = r'D:\work\elsewhere\project_shared\data\versions\versions.json'
         self.assertEqual(resolve(other), ROOT / rel)

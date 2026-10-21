@@ -4,8 +4,8 @@ from types import SimpleNamespace
 import tempfile
 import unittest
 
-from rag.openai_chat import EvaluationAPIChat, OpenAIPipelineChat
-from rag.ra_pipeline import RAPipeline
+from rag.llm.openai_chat import EvaluationAPIChat, OpenAIPipelineChat
+from rag.ra.ra_pipeline import RAPipeline
 import test_ra_research
 
 

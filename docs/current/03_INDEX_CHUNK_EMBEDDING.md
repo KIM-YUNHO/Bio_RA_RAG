@@ -2,7 +2,7 @@
 
 - 작성: 2026-10-16 16:50 KST
 - 수정: 2026-10-18 01:30 KST (서비스 검색을 pgvector로 전환, 새 릴리스 게시 명령)
-- 기준: `GET /api/summary`(8885), 릴리스 04 `release_manifest.json`·`candidate/`, DB `rag.releases`·`rag.active_release`, `rag/search.py`·`rag/service_scope.py`·`rag/ra_sources.py`
+- 기준: `GET /api/summary`(8885), 릴리스 04 `release_manifest.json`·`candidate/`, DB `rag.releases`·`rag.active_release`, `rag/retrieval/search.py`·`rag/retrieval/service_scope.py`·`rag/ra/ra_sources.py`
 - 상위: [현재 서빙 상태](README.md)
 
 ## 1. 서비스 릴리스
@@ -41,7 +41,7 @@
 | `other_review`, `rmp` | 11 | 1,874 | 비기본 — 계획기가 해당 역할을 고르거나 화면의 보조 문서 옵션을 켤 때 |
 | `protocol`, `sap` (CT.gov) | 10 | 2,280 | 비기본 — 계획기가 protocol/sap 역할을 고를 때만(의뢰자 계획 자료로 표시) |
 
-규칙 위치: 기본 검색 판정 `rag/service_scope.py`(`default_search`), 필터 `rag/search.py`(`filter_idx`), RA 범위 확장 `rag/ra_retrieval.py`.
+규칙 위치: 기본 검색 판정 `rag/retrieval/service_scope.py`(`default_search`), 필터 `rag/retrieval/search.py`(`filter_idx`), RA 범위 확장 `rag/ra/ra_retrieval.py`.
 
 ## 3. 청킹
 
@@ -90,7 +90,7 @@ release/
 | 새 릴리스 게시 | `python -m storage.publish_release data/versions/<id>/embedded/release [--serve]`: 파일 일관성 검사 → `versions.json` 항목 추가 → DB 적재(한 트랜잭션) → 파일·numpy 대 pgvector 검증 → `--serve`면 `latest`·`served_by_ra_service` 역할 이동. `pipelines/pipeline_h/merge_release.py`·`rechunk_release.py`가 릴리스를 만든 직후 자동으로 호출한다(`--no-publish`로 끔). 서비스는 재시작 때 새 역할의 릴리스를 읽는다 |
 | BM25 | DB로 옮기지 않음. 서비스 프로세스 안에서 SQLite FTS5로 만든다 |
 
-매니페스트·출처 필드에 만든 PC의 절대 경로가 남아 있다. `rag/portable_paths.py`가 읽을 때 현재 프로젝트 경로로 바꾼다. 원본 PDF(`data/raw/`)와 전처리 산출물은 원문 패널 때문에 파일로 있어야 한다.
+매니페스트·출처 필드에 만든 PC의 절대 경로가 남아 있다. `rag/index/portable_paths.py`가 읽을 때 현재 프로젝트 경로로 바꾼다. 원본 PDF(`data/raw/`)와 전처리 산출물은 원문 패널 때문에 파일로 있어야 한다.
 
 ## 6. 공통 지침 색인 (제품 색인과 별도)
 

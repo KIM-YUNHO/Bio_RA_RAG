@@ -1,7 +1,7 @@
 from copy import deepcopy
 import unittest
 
-from rag.ra_memo import build
+from rag.ra.ra_memo import build
 
 
 def report(status='partial'):

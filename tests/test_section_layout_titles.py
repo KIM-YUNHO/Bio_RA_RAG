@@ -1,6 +1,6 @@
 import unittest
 
-from rag import document_structure as ds
+from rag.index import document_structure as ds
 
 
 def refs(n):
@@ -17,7 +17,7 @@ class LayoutTitleRuleTests(unittest.TestCase):
 
     def test_default_adds_study_boundaries_without_adopting_sections_9_layout_rules(self):
         self.assertEqual('sections-10', ds.VERSION)
-        from rag.preprocessed_chunks import CONFIG
+        from rag.index.preprocessed_chunks import CONFIG
         self.assertEqual('sections-10', CONFIG['section_rules_version'])
         self.assertIsNone(ds.identify('9. Remove the cap',version=ds.VERSION,layout_title=True))
 

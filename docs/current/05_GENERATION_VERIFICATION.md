@@ -2,7 +2,7 @@
 
 - 작성: 2026-10-16 16:50 KST
 - 수정: 2026-10-17 17:45 KST (재시작으로 4.10.3·`feature/hide-model-gaps`(PR #9) 반영: 답변 본문에는 검증된 주장만)
-- 기준: `rag/ra_pipeline.py`(`VERSION = 'ra-research-rag-4.10.3'`), `rag/ra_retrieval.py`(패킹), `rag/source_study_scope.py`, `rag/ra_prompt.py`, `rag/ra_answer.py`, `rag/ra_review.py`, `rag/openai_chat.py`, 서비스 요약(`answer_strategy: ra-grounded-synthesis-4.8.10`, `citation_mode: spans`)
+- 기준: `rag/ra/ra_pipeline.py`(`VERSION = 'ra-research-rag-4.10.3'`), `rag/ra/ra_retrieval.py`(패킹), `rag/evidence/source_study_scope.py`, `rag/ra/ra_prompt.py`, `rag/ra/ra_answer.py`, `rag/ra/ra_review.py`, `rag/llm/openai_chat.py`, 서비스 요약(`answer_strategy: ra-grounded-synthesis-4.8.10`, `citation_mode: spans`)
 - 상위: [현재 서빙 상태](README.md)
 
 ## 1. 흐름

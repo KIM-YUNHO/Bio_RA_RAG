@@ -93,10 +93,10 @@ class ReplayResponse:
 
 
 def make_pipeline():
-    from rag.llm import load_env
+    from rag.llm.llm import load_env
     load_env()  # Application-owned loading; never print credentials or environment values.
     os.environ["BIOSIM_SEARCH_BACKEND"] = "pgvector"
-    from rag.ra_pipeline import RAPipeline
+    from rag.ra.ra_pipeline import RAPipeline
     from preprocess.hybrid_config import load_config
     return RAPipeline(RELEASE, None, load_config(ROOT / "configs/preprocess.local.json"), guideline_snapshot=GUIDELINES,
                       research_rounds=0, retrieval_pages=8, chat_client=RequestProbe())
@@ -115,7 +115,7 @@ def scope_for(pipe, item, case=None):
 
 
 def interpret(item, client, scope):
-    from rag import ra_tasks
+    from rag.ra import ra_tasks
     return ra_tasks.interpret(item["question"], client, scope["products"], scope["agencies"],
                               selected_products=scope["selected_products"],
                               selected_agencies=scope["selected_agencies"],
@@ -147,8 +147,8 @@ def saved_responses():
 
 
 def prepare(out, allow_new=False, only=None):
-    from rag import ra_tasks
-    from rag.ra_pipeline import VERSION
+    from rag.ra import ra_tasks
+    from rag.ra.ra_pipeline import VERSION
     pipe = make_pipeline()
     items = read(GOLD)["items"]
     if only:
@@ -157,7 +157,7 @@ def prepare(out, allow_new=False, only=None):
     manifest = {"created_at_kst": datetime.now(KST).isoformat(), "pipeline_version": VERSION,
                 "planner_version": ra_tasks.VERSION, "gold_sha256": file_hash(GOLD),
                 "source_hashes": {p: file_hash(ROOT / p) for p in
-                    ["rag/ra_tasks.py", "rag/ra_models.py", "rag/ra_retrieval.py", "rag/search.py", "rag/rerank.py"]},
+                    ["rag/ra/ra_tasks.py", "rag/ra/ra_models.py", "rag/ra/ra_retrieval.py", "rag/retrieval/search.py", "rag/retrieval/rerank.py"]},
                 "new_planner_calls": 0, "items": []}
     for port in (8885, 8775):
         with urlopen(f"http://127.0.0.1:{port}/api/summary", timeout=15) as response:
@@ -196,7 +196,7 @@ def prepare(out, allow_new=False, only=None):
                     write(saved_plan, {"id": item["id"], "request_key": probe.key, "origin": origin, "understanding": u})
                     record.update(status="ready", origin=origin)
                 elif allow_new:
-                    from rag.openai_chat import EvaluationAPIChat
+                    from rag.llm.openai_chat import EvaluationAPIChat
                     client = EvaluationAPIChat(out / "new_planner" / stem, max_new_calls=1, model="gpt-5.6-luna")
                     client.config.num_ctx = 65536
                     client.case = stem
@@ -222,7 +222,7 @@ def prepare(out, allow_new=False, only=None):
 
 
 def query_list(plan):
-    from rag import ra_topic_queries
+    from rag.ra import ra_topic_queries
     tasks = plan["tasks"]
     fixed = {t["id"]: ra_topic_queries.for_task(plan.get("source_question", ""), t, len(tasks))
              for t in tasks}
@@ -318,7 +318,7 @@ def capture_pools(corpus, plan, guidelines, documents, spec):
     Channel ablations disable only candidate lists; common statistical-table
     prioritization, its dense tie-break, filters, roles and final budget remain.
     """
-    from rag import ra_retrieval
+    from rag.ra import ra_retrieval
     captured = {}
 
     def capture(_corpus, task, hits, k, mode, product=None, agency=None, fuse=False, question=None):
@@ -371,8 +371,7 @@ def channel_baselines(out, only=None):
     removing a candidate channel inside the deployed pipeline remain visible.
     No embedding, reranker or provider call is made in this phase.
     """
-    from rag import ra_retrieval
-    from rag import ra_statistical_tables
+    from rag.ra import ra_retrieval, ra_statistical_tables
     pipe = make_pipeline()
     corpus = pipe.retrieval_corpus()
     corpus.allowed_documents = {(d["document_id"], d["version_id"]) for d in pipe.documents}
@@ -427,8 +426,8 @@ def channel_baselines(out, only=None):
 
 
 def evaluate(out, only=None, batch_size=4):
-    from rag import ra_retrieval
-    from rag.rerank import LocalReranker, MODEL, REVISION
+    from rag.ra import ra_retrieval
+    from rag.retrieval.rerank import LocalReranker, MODEL, REVISION
     items = ready_items(out, only)
     pipe = make_pipeline()
     corpus = pipe.retrieval_corpus()
@@ -454,7 +453,7 @@ def evaluate(out, only=None, batch_size=4):
                 "profiles": PROFILES, "retrieval_pages": 8, "pool": 40,
                 "backend": "pgvector", "reranker_model": MODEL, "reranker_revision": REVISION,
                 "reranker_batch": batch_size, "reranker_max_length": 1024,
-                "source_hashes": {p: file_hash(ROOT / p) for p in ["rag/ra_tasks.py", "rag/ra_retrieval.py", "rag/rerank.py", "rag/search.py"]},
+                "source_hashes": {p: file_hash(ROOT / p) for p in ["rag/ra/ra_tasks.py", "rag/ra/ra_retrieval.py", "rag/retrieval/rerank.py", "rag/retrieval/search.py"]},
                 "channel_ablation_contract": "Disable candidate channel only; keep statistical-table prior and dense tie-break common",
                 "latency_contract": "Frozen query vectors; persistent reranker score cache. Timings are diagnostic, not model latency benchmarks."}
     prior_path = out / "evaluation_identity.json"
@@ -613,7 +612,7 @@ def summarize(out, only=None):
 
 def verify(out):
     """Audit labels/ranks against frozen gold and check real channel isolation."""
-    from rag import ra_retrieval, ra_statistical_tables
+    from rag.ra import ra_retrieval, ra_statistical_tables
     from eval.retrieval_gold import ndcg
     items = read(GOLD)["items"]
     evidence = read(out / "evaluation_identity.json")

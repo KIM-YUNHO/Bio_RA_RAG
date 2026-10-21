@@ -113,9 +113,9 @@ class RagLoader(unittest.TestCase):
         self.assertIsNone(self.conn.execute("SELECT 1 FROM rag.releases WHERE release_id = %s", (self.rel,)).fetchone())
 
     def test_database_index_equals_file_index(self):
-        """rag.search.load_index with BIOSIM_SEARCH_BACKEND=postgres returns what the files give: rows, key order, vectors."""
+        """rag.retrieval.search.load_index with BIOSIM_SEARCH_BACKEND=postgres returns what the files give: rows, key order, vectors."""
         from unittest import mock
-        from rag import search
+        from rag.retrieval import search
         rag_loader.load_release(self.conn, self.entry)
         candidate = self.folder / "candidate"
         from_files = search.load_index("bge-m3", candidate)
@@ -132,7 +132,7 @@ class RagLoader(unittest.TestCase):
 
     def test_unregistered_folder_reads_files(self):
         from unittest import mock
-        from rag import search
+        from rag.retrieval import search
         other = make_release(Path(self.tmp.name) / uuid.uuid4().hex, self.document, n=4, seed=3)
         with mock.patch.dict(os.environ, {"BIOSIM_SEARCH_BACKEND": "postgres"}):
             chunks, vectors, _ = search.load_index("bge-m3", Path(other["embedded_path"]) / "candidate")
@@ -142,7 +142,7 @@ class RagLoader(unittest.TestCase):
         """BIOSIM_SEARCH_BACKEND=pgvector: a caller asking for the store searches in the database and gets the matrix's ranking;
         callers that score vectors themselves still get the matrix."""
         from unittest import mock
-        from rag import search
+        from rag.retrieval import search
         from storage.rag_index import PgVectors
         rag_loader.load_release(self.conn, self.entry)
         candidate = self.folder / "candidate"

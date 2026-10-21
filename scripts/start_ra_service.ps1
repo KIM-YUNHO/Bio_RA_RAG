@@ -21,7 +21,7 @@ $archivePath = Join-Path $projectRoot 'data\runs\ra_service_reports'
 $logDirectory = Join-Path $projectRoot 'data\runs\ra_service_logs'
 $summaryUrl = "http://127.0.0.1:$Port/api/summary"
 Push-Location -LiteralPath $projectRoot
-try { $expectedVersion = (& $pythonPath -X utf8 -c "from rag.ra_pipeline import VERSION; print(VERSION)").Trim() }
+try { $expectedVersion = (& $pythonPath -X utf8 -c "from rag.ra.ra_pipeline import VERSION; print(VERSION)").Trim() }
 finally { Pop-Location }
 foreach ($required in @($pythonPath,(Join-Path $releasePath 'release_manifest.json'),(Join-Path $guidelinePath 'manifest.json'))) {
     if (-not (Test-Path -LiteralPath $required -PathType Leaf)) { throw "Missing required file: $required" }

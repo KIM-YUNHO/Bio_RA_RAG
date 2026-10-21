@@ -284,7 +284,7 @@ def run(folder, live=False, input_file=INPUT):
     write(folder/'protocol.json', protocol)
     try:
         if live:
-            from rag.openai_chat import EvaluationAPIChat
+            from rag.llm.openai_chat import EvaluationAPIChat
             client = EvaluationAPIChat(folder/'api', max_new_calls=3, model='gpt-5.6-luna')
         for task in data['tasks']:
             selection = retrieve(data, store, manifest, task)

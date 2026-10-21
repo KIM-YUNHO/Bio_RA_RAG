@@ -1,8 +1,8 @@
 import unittest
 from copy import deepcopy
-from rag.search import filter_idx
-from rag.document_structure import identify, source_segments, VERSION
-from rag.clinical_retrieval import cues
+from rag.retrieval.search import filter_idx
+from rag.index.document_structure import identify, source_segments, VERSION
+from rag.retrieval.clinical_retrieval import cues
 from preprocess.table_caption_ownership import separate
 
 

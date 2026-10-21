@@ -55,7 +55,7 @@ def fact_gold():
 
 
 def e2e29(chunks):
-    from rag.ra_timeline import facts, choose
+    from rag.ra.ra_timeline import facts, choose
     from eval.prompt_variants import EXP
     from eval.answer_scoring import MAH, SHELF_MONTHS, GUARD
     from eval.e2e_enumeration import dates

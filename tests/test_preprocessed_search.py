@@ -2,7 +2,7 @@
 import unittest
 from copy import deepcopy
 from test_rag_generalization import chunk
-from rag.search import to_pages, Bm25, literal_caption_hits
+from rag.retrieval.search import to_pages, Bm25, literal_caption_hits
 
 
 class PreprocessedSearchTests(unittest.TestCase):

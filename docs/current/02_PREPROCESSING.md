@@ -31,7 +31,7 @@ Qwen 표 재생성, 그림 의미 설명은 기본 경로에 없다. 모델 작�
      └ 04  보충 19문서 병합  03 + supplement_20261014                              15,682청크  ← 서비스
               · 보호 해제 9문서 (EMA·FDA·HC, 이전 평가 보류) + CT.gov 프로토콜·SAP 10문서 (5개 시험)
               · 1,506쪽, 4,146청크, VLM 78회(채택 74)
-              · 병합: pipelines/pipeline_h/merge_release.py (rag.release.compose)
+              · 병합: pipelines/pipeline_h/merge_release.py (rag.index.release.compose)
 ```
 
 | 항목 | 값 |

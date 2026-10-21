@@ -113,9 +113,9 @@ def main():
             variants.append(u)
         stability_sets[q] = variants
 
-    from rag import ra_retrieval
-    from rag.openai_chat import OpenAIPipelineChat
-    from rag.ra_pipeline import RAPipeline
+    from rag.ra import ra_retrieval
+    from rag.llm.openai_chat import OpenAIPipelineChat
+    from rag.ra.ra_pipeline import RAPipeline
     from preprocess.hybrid_config import load_config
     OpenAIPipelineChat.__call__ = lambda self, *x, **y: (_ for _ in ()).throw(RuntimeError('no provider calls'))
     pipe = RAPipeline(a.run, None, load_config(ROOT / 'configs/preprocess.local.json'),

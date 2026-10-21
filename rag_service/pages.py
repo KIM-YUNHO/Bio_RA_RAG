@@ -9,7 +9,7 @@ from pathlib import Path
 import re
 from threading import Lock
 
-from rag.portable_paths import resolve
+from rag.index.portable_paths import resolve
 
 PAGE_WIDTH = 1100
 CROP_ZOOM = 2.0

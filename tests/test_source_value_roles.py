@@ -1,6 +1,6 @@
 import unittest
-from rag.source_selection import NUMBER,catalog,schema,condition_ids,resolve,value_ids
-from rag.source_context import complete,count_arm_slots,enforce_arm_coverage
+from rag.evidence.source_selection import NUMBER,catalog,schema,condition_ids,resolve,value_ids
+from rag.evidence.source_context import complete,count_arm_slots,enforce_arm_coverage
 
 
 class SourceValueRoles(unittest.TestCase):

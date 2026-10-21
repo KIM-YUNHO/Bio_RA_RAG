@@ -1,6 +1,6 @@
 """Compose a release from the latest H build plus a validated supplement run.
 
-Uses rag.release.compose unchanged: every source version keeps exactly one
+Uses rag.index.release.compose unchanged: every source version keeps exactly one
 representation, embedding contracts must match, protected evaluation data is
 refused. The base and supplement folders are read only.
 """
@@ -19,11 +19,11 @@ def merge(base_extraction, base_candidate, supplement_run, out):
     audit = read(supplement_run / 'metadata_and_integrity_audit.json')
     if audit.get('status') != 'passed':
         raise ValueError('Supplement integrity audit did not pass')
-    from rag.release import compose, ReleaseBundle
+    from rag.index.release import compose, ReleaseBundle
     manifest = compose([(Path(base_extraction), Path(base_candidate)),
                         (supplement_run / 'extraction', supplement_run / 'candidate')], out)
     bundle = ReleaseBundle(out)
-    from rag.search import load_index
+    from rag.retrieval.search import load_index
     chunks, vectors, meta = load_index('bge-m3', bundle.candidate)
     intake = read(supplement_run / 'intake_manifest.json')
     added = {(d['document_id'], d['version_id']) for d in intake['documents']}

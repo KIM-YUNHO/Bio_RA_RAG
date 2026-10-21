@@ -1,6 +1,6 @@
 import unittest
 
-from rag import ra_intent, ra_topic_queries
+from rag.ra import ra_intent, ra_topic_queries
 
 
 class FixedTopicQueries(unittest.TestCase):
@@ -78,7 +78,7 @@ class TaskIntentCheck(unittest.TestCase):
         self.assertIsNone(v['intent_check']['tasks'][0]['rule'])
 
     def test_empty_english_query_is_not_an_error(self):
-        from rag.ra_models import ResearchPlan
+        from rag.ra.ra_models import ResearchPlan
         task = {'request': 'x', 'queries': ['x'], 'source_roles': ['assessment'], 'guideline_request_quote': '',
                 'intent': {'intent': 'fact_lookup', 'request_quote': 'x'}}
         base = {'products': [], 'jurisdictions': [], 'jurisdiction_mentions': [], 'english_query': '', 'tasks': [task]}
@@ -87,7 +87,7 @@ class TaskIntentCheck(unittest.TestCase):
 
     def test_subjectless_product_task_inherits_question_products(self):
         import json
-        from rag import ra_tasks
+        from rag.ra import ra_tasks
         q = 'Yesintek 성인 크론병 정맥 유도 용량을 알려주고, Health Canada 제품 모노그래프의 최신 버전 날짜도 알려줘.'
         reply = {'in_scope': True, 'products': ['BMAB1200'], 'jurisdictions': [], 'jurisdiction_mentions': [], 'english_query': '',
                  'tasks': [{'request': 'Yesintek 성인 크론병 정맥 유도 용량', 'queries': ['dose'], 'source_roles': ['label'],
@@ -125,8 +125,8 @@ class TaskIntentCheck(unittest.TestCase):
         self.assertEqual(v['intent'], 'out_of_scope')
 
     def test_every_task_intent_has_guidance_and_schema_matches_model(self):
-        from rag import ra_tasks
-        from rag.ra_models import TaskIntent
+        from rag.ra import ra_tasks
+        from rag.ra.ra_models import TaskIntent
         self.assertEqual(set(ra_intent.GUIDANCE), set(ra_intent.INTENTS) - {'out_of_scope'})
         schema_enum = ra_tasks.SCHEMA['schema']['properties']['tasks']['items']['properties']['intent']['properties']['intent']['enum']
         self.assertEqual(schema_enum, list(TaskIntent.model_fields['intent'].annotation.__args__))
@@ -134,7 +134,7 @@ class TaskIntentCheck(unittest.TestCase):
 
 class RegistryNames(unittest.TestCase):
     def test_bare_name_matches_a_registry_name_with_market_qualifier(self):
-        from rag.ra_requirements import named_products
+        from rag.ra.ra_requirements import named_products
         self.assertEqual(named_products('Wezlana의 Product Quality Review'), ['ABP654'])
         self.assertEqual(named_products('Wezenla EPAR'), ['ABP654'])
         self.assertEqual(named_products('SB17 시험'), ['SB17'])
@@ -143,7 +143,7 @@ class RegistryNames(unittest.TestCase):
 class ProtocolSourceRouting(unittest.TestCase):
     def test_planner_protocol_role_decides_and_adds_sponsor(self):
         import json
-        from rag import ra_tasks
+        from rag.ra import ra_tasks
 
         class Client:
             def __init__(self, roles, jurisdictions, mentions):

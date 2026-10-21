@@ -4,7 +4,7 @@ from decimal import Decimal
 import json
 import unittest
 
-from rag import ra_obligations, ra_quantities, ra_review, ra_spans, ra_table_citations, ra_research
+from rag.ra import ra_obligations, ra_quantities, ra_review, ra_spans, ra_table_citations, ra_research
 from test_ra_citation_completion import block, claim
 
 TABLE = '''Table 8. PK Analysis
@@ -200,7 +200,7 @@ class TableValuePreservation(unittest.TestCase):
         self.assertIsNotNone(ra_table_citations.check(wrong,evidence))
 
     def test_product_identity_does_not_hide_clinical_numbers_and_study_heading_is_cited(self):
-        from rag.ra_citation_completion import complete
+        from rag.ra.ra_citation_completion import complete
         from test_ra_today_invariants import block as study_block
         text='PK similarity study in healthy adult subjects (20190230)\n\nEach subject received 90 mg SC.'
         evidence={'E1':study_block(text,product='ABP654',trial='20190230')}

@@ -7,10 +7,9 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "rag"))
-import build_chunks as bc
-from chunk_schema import profile_id, validate_dataset
-from chunking import Fragment, pack_units, split_fragment
+from rag.index import build_chunks as bc
+from rag.index.chunk_schema import profile_id, validate_dataset
+from rag.index.chunking import Fragment, pack_units, split_fragment
 
 
 class CharacterCounter:

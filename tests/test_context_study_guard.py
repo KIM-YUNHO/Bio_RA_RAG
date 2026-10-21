@@ -2,11 +2,11 @@ from copy import deepcopy
 from types import SimpleNamespace
 import unittest
 
-from rag import document_structure as ds
-from rag.source_study_scope import heading_conflict, link_conflict, without_conflicting_heading
-from rag.ra_requirements import study_identity, verified_study_key
-from rag.ra_retrieval import packet
-from rag.budgeted_evidence import BudgetedEvidence
+from rag.index import document_structure as ds
+from rag.evidence.source_study_scope import heading_conflict, link_conflict, without_conflicting_heading
+from rag.ra.ra_requirements import study_identity, verified_study_key
+from rag.ra.ra_retrieval import packet
+from rag.evidence.budgeted_evidence import BudgetedEvidence
 
 
 def block(key='a', study='20190230', text='', kind='text', caption=None, product='ABP654'):

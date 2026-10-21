@@ -4,7 +4,7 @@ import unittest
 
 import numpy as np
 
-from rag import ra_retrieval
+from rag.ra import ra_retrieval
 
 
 def chunk(n, text, doc_group='quality'):

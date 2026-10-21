@@ -1,7 +1,7 @@
 import unittest
 from types import SimpleNamespace
 
-from rag import ra_retrieval
+from rag.ra import ra_retrieval
 
 
 def chunk(doc, page, text, tokens=None):

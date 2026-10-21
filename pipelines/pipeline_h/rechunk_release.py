@@ -3,7 +3,7 @@
 Extraction outputs (source units, assets, pages) are read only and never rebuilt.
 Each component is re-chunked the way it was originally built, compared chunk by
 chunk with its reference candidate, embedded incrementally (vectors reused for
-byte-identical header+text inputs) and composed with rag.release.compose.
+byte-identical header+text inputs) and composed with rag.index.release.compose.
 
   control:  python -m pipelines.pipeline_h.rechunk_release --out <scratch> --stage chunk
             (with unchanged rules the chunks must equal the reference candidates)
@@ -26,7 +26,7 @@ COMPONENTS = [
 
 
 def rechunk(extraction, out, h_provenance, section_rules=None):
-    from rag import preprocessed_chunks
+    from rag.index import preprocessed_chunks
     from pipelines.pipeline_h.chunk_runtime import accelerate
     from pipelines.pipeline_h.chunks import correct_provenance
     accelerate(preprocessed_chunks)
@@ -60,7 +60,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument('--out', type=Path, required=True)
     p.add_argument('--stage', choices=['chunk', 'all'], required=True)
-    p.add_argument('--section-rules', help='e.g. sections-9 (release 05); default: current rag.document_structure.VERSION')
+    p.add_argument('--section-rules', help='e.g. sections-9 (release 05); default: current rag.index.document_structure.VERSION')
     p.add_argument('--no-publish', action='store_true', help='with --stage all: do not load the release into PostgreSQL + pgvector')
     a = p.parse_args()
     out = a.out.resolve()
@@ -76,14 +76,14 @@ def main():
             'section_rules_version': summary['config']['section_rules_version'], 'comparison': diff}
         print(name, json.dumps(diff, ensure_ascii=False), flush=True)
         if a.stage == 'all':
-            from rag.incremental_embeddings import build
+            from rag.index.incremental_embeddings import build
             reuse = build(candidate, reference, device='cuda')
             report['components'][name]['embedding'] = {k: reuse[k] for k in ('reused_vectors', 'new_vectors')}
             print(name, 'vectors reused', reuse['reused_vectors'], 'new', reuse['new_vectors'], flush=True)
         specs.append((extraction, candidate))
     status = 0
     if a.stage == 'all':
-        from rag.release import compose
+        from rag.index.release import compose
         from storage.publish_release import after_build
         compose(specs, out / 'release')
         report['release'] = str(out / 'release')

@@ -1,5 +1,5 @@
 import unittest
-from rag.schema_budget import compact_source_ids,enum_count,assert_supported
+from rag.evidence.schema_budget import compact_source_ids,enum_count,assert_supported
 
 def allowed(node,root):
     if '$ref' in node:return allowed(root['$defs'][node['$ref'].split('/')[-1]],root)
@@ -34,8 +34,8 @@ class RaAnswerEnumBudgetTests(unittest.TestCase):
         return {'E1':{'text':text,'version_id':'v1','document_id':'d1','product_id':'p1','chunk_id':'c1'}}
 
     def test_large_span_catalog_switches_to_pattern_and_is_token_bound(self):
-        from rag import ra_answer
-        from rag.schema_budget import enum_count
+        from rag.ra import ra_answer
+        from rag.evidence.schema_budget import enum_count
         tasks=[{'id':'T1'}]
         small=ra_answer.schema(self.evidence(5),tasks,'spans')
         large=ra_answer.schema(self.evidence(1200),tasks,'spans')
@@ -45,6 +45,6 @@ class RaAnswerEnumBudgetTests(unittest.TestCase):
         self.assertTrue(ra_answer.fits(self.Client,[],large))
 
     def test_any_other_schema_over_enum_cap_never_fits(self):
-        from rag import ra_answer
+        from rag.ra import ra_answer
         schema={'name':'x','schema':{'type':'string','enum':[str(i) for i in range(1001)]}}
         self.assertGreater(ra_answer.cost(self.Client,[],schema),self.Client.input_limit)

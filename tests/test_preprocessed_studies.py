@@ -1,6 +1,6 @@
 import unittest
 from copy import deepcopy
-from rag.preprocessed_studies import annotate
+from rag.evidence.preprocessed_studies import annotate
 
 
 class StudyCandidates(unittest.TestCase):

@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """Answer a Korean question from retrieved evidence, per agency and study (docs/temp/rag/RAG_STUDY_CONTEXT_PLAN.md 8.2 마).
 
-Question -> understanding (rag/understand_query.py) -> search units (rag/plan_query.py: product x agency x
+Question -> understanding (rag/retrieval/understand_query.py) -> search units (rag/retrieval/plan_query.py: product x agency x
 document groups x studies) -> retrieval (measured B baseline by default; experimental E with --retrieval-policy general)
 -> one gpt-4o-mini call per unit. Each call sees one agency's pages only, so values cannot move between
 agencies. Evidence blocks carry the agency, document, page and the study each part of the page is about
-(chunk attribution, rag/study_context.py). The model copies values verbatim, cites block ids, and says
+(chunk attribution, rag/index/study_context.py). The model copies values verbatim, cites block ids, and says
 "not found" when the pages do not state the answer; it never sees the other agencies' pages or the gold
 labels. Code assembles the units into the reply with document and page citations.
 
-    uv run python rag/answer.py --query "CT-P43 일본인 대상 PK 시험에서 Cmax 기하평균비는?"
+    uv run python -m rag.answer --query "CT-P43 일본인 대상 PK 시험에서 Cmax 기하평균비는?"
 """
 import argparse
 import hashlib
@@ -20,15 +20,14 @@ import sys
 from pathlib import Path
 from urllib.parse import urlsplit
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import study_context  # noqa: E402
-import study_registry as sr  # noqa: E402
-import study_search  # noqa: E402
-from embed_index import Embedder  # noqa: E402
-from llm import chat, settings  # noqa: E402
-from rag.evidence import contains_quote, contains_value  # noqa: E402
-from plan_query import plan  # noqa: E402
-from search import Bm25, filter_idx, load_index, similarity, to_pages  # noqa: E402
+from rag.index import study_context  # noqa: E402
+from rag.retrieval import study_registry as sr  # noqa: E402
+from rag.retrieval import study_search  # noqa: E402
+from rag.index.embed_index import Embedder  # noqa: E402
+from rag.llm.llm import chat, settings  # noqa: E402
+from rag.evidence.evidence import contains_quote, contains_value  # noqa: E402
+from rag.retrieval.plan_query import plan  # noqa: E402
+from rag.retrieval.search import Bm25, filter_idx, load_index, similarity, to_pages  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 # answer-1: first version (results in data/rag/eval/answers_v0.1.json).
@@ -88,7 +87,7 @@ class Corpus:
         self.chunks, self.vec, self.index_meta = load_index(model, rag_dir, vector_store=True)
         self.evidence_adapter = None
         if bundle is not None:
-            from rag.budgeted_evidence import BudgetedEvidence
+            from rag.evidence.budgeted_evidence import BudgetedEvidence
             self.evidence_adapter = BudgetedEvidence(bundle, self.chunks, self.index_meta['chunks_sha256'])
         self.documents = {(d["document_id"], d["version_id"]): d for d in
                           (json.loads(line) for line in (ROOT / "data/catalog/documents.jsonl").read_text(encoding="utf-8").splitlines() if line.strip())}
@@ -168,7 +167,7 @@ class Corpus:
 
 
 def retrieve(corpus, u, qv, use_dense=True, k=TOP_PAGES, policy="legacy", agencies=None, products=None):
-    """[(unit, pages)] for an understanding result; pages as rag/search.py to_pages."""
+    """[(unit, pages)] for an understanding result; pages as rag/retrieval/search.py to_pages."""
     out = []
     for unit in plan(u, **({'agencies': agencies} if agencies is not None else {}), products=products):
         unit = {**unit, "retrieval_policy": policy}
@@ -193,14 +192,14 @@ def retrieve(corpus, u, qv, use_dense=True, k=TOP_PAGES, policy="legacy", agenci
                                              corpus.bm, unit["studies"], unit["doc_groups"], use_dense,topic=unit.get('topic'))
             pages = to_pages(hits, corpus.chunks, k)
             query=u['search_terms']+' '+u.get('english_query','')+' '+u.get('source_question','')
-            from rag.clinical_retrieval import requested_priority_cue
+            from rag.retrieval.clinical_retrieval import requested_priority_cue
             cue=requested_priority_cue(query)
             if cue:
-                from rag.clinical_retrieval import rank as clinical_rank,cues
+                from rag.retrieval.clinical_retrieval import rank as clinical_rank,cues
                 direct=[(s,i) for s,i in clinical_rank(query,idx,corpus.chunks,unit['studies'],unit.get('topic'))
                     if cue in cues(query,corpus.chunks[i],unit['studies'],unit.get('topic'))]
                 preferred=[(s,i) for s,i in direct if corpus.chunks[i]['doc_group'] in unit['doc_groups']]
-                from rag.regulatory_scope import requests_approval_letter,approval_source
+                from rag.retrieval.regulatory_scope import requests_approval_letter,approval_source
                 if requests_approval_letter(query):
                     direct=[(s,i) for s,i in direct if approval_source(corpus.chunks[i])]
                     preferred=[(s,i) for s,i in preferred if approval_source(corpus.chunks[i])]
@@ -209,7 +208,7 @@ def retrieve(corpus, u, qv, use_dense=True, k=TOP_PAGES, policy="legacy", agenci
                     identities={(p['document_id'],p['version_id'],p['pdf_page']) for p in probe}
                     pages=[*probe,*[p for p in pages if (p['document_id'],p['version_id'],p['pdf_page']) not in identities]][:k]
             if unit['studies'] and re.search(r'\b\d+(?:\.\d+)?\s*mg\b',query,re.I) and re.search(r'GMR|geometric.*ratio|기하평균비',query,re.I):
-                from rag.clinical_retrieval import rank as clinical_rank,cues
+                from rag.retrieval.clinical_retrieval import rank as clinical_rank,cues
                 dose=[(s,i) for s,i in clinical_rank(query,idx,corpus.chunks,unit['studies'],'dosing')
                     if 'printed_dose_and_administration' in cues(query,corpus.chunks[i],unit['studies'],'dosing')]
                 if dose:
@@ -263,7 +262,7 @@ def validate_answer(out, evidence, allow_table_cells=False):
         literal=contains_value(quote,item['value'])
         cell_matches=[]
         if allow_table_cells and not literal:
-            from rag.table_evidence import matching_cells
+            from rag.evidence.table_evidence import matching_cells
             cell_matches=matching_cells(quote,item['value'])
         valid = (bool(cited) and item["study"] in {*sr.load(), NO_STUDY}
                  and all(e in evidence and contains_quote(evidence[e]["text"], quote) for e in cited)
@@ -293,11 +292,11 @@ def answer_unit(question, u, unit, pages, corpus, cache=None, qv=None, provider=
     """One agency x product unit. Cached by prompt version, question, unit, evidence pages and their texts."""
     adapter = getattr(corpus, 'evidence_adapter', None)
     if adapter is not None:
-        from rag.preprocessed_evidence import EXTRA_RULES, PROMPT_VERSION as PREPROCESSED_PROMPT_VERSION, grounded_answer, validate_shape
-        from rag.preprocessed_prompt import build as build_prompt, configure_budget
-        from rag.answer_conditions import quote_schema as condition_schema, QUOTE_RULES as CONDITION_RULES, missing as missing_conditions, label as condition_label
+        from rag.evidence.preprocessed_evidence import EXTRA_RULES, PROMPT_VERSION as PREPROCESSED_PROMPT_VERSION, grounded_answer, validate_shape
+        from rag.evidence.preprocessed_prompt import build as build_prompt, configure_budget
+        from rag.evidence.answer_conditions import quote_schema as condition_schema, QUOTE_RULES as CONDITION_RULES, missing as missing_conditions, label as condition_label
         selecting=bool(getattr(chat_client,'source_selection',False))
-        from rag import source_selection
+        from rag.evidence import source_selection
         if selection_strategy is not None:source_selection=selection_strategy
         make_messages=lambda blocks:build_prompt(question,u,unit,blocks,EXTRA_RULES,CONDITION_RULES)
         if selecting:make_messages=lambda blocks:source_selection.prompt(question,u,unit,blocks)
@@ -340,7 +339,7 @@ def answer_unit(question, u, unit, pages, corpus, cache=None, qv=None, provider=
             # One bounded correction uses the identical evidence and schema.
             # Literal checks remain unchanged; no values/citations are repaired
             # by code or silently promoted into source evidence.
-            from rag.answer_conditions import attribution_missing, explicit_conflicts
+            from rag.evidence.answer_conditions import attribution_missing, explicit_conflicts
             def condition_gaps(value):
                 return attribution_missing(value['items'],evidence,u,missing_conditions(value['items'],question,u))
             initial_gaps=condition_gaps(out)
@@ -388,11 +387,11 @@ def answer_unit(question, u, unit, pages, corpus, cache=None, qv=None, provider=
                 except (ValueError, KeyError, RuntimeError, OSError) as exc:
                     out['validation']['repair'] = {'attempts': 1, 'accepted': False,
                         'initial_rejected_items': initial_rejected, 'error': f'{type(exc).__name__}: {exc}'}
-            from rag.regulatory_scope import enforce as enforce_requested_source_scope
+            from rag.retrieval.regulatory_scope import enforce as enforce_requested_source_scope
             enforce_requested_source_scope(out,evidence,question)
-            from rag.requested_facts import enrich as enrich_requested_facts
+            from rag.evidence.requested_facts import enrich as enrich_requested_facts
             common_candidates=candidates if selecting else source_selection.catalog(evidence,question)
-            from rag.requested_facts import restrict as restrict_requested_facts
+            from rag.evidence.requested_facts import restrict as restrict_requested_facts
             restrict_requested_facts(out,common_candidates,evidence,question)
             enrich_requested_facts(out,common_candidates,evidence,question)
             if selecting and out['items']:
@@ -422,7 +421,7 @@ def answer_unit(question, u, unit, pages, corpus, cache=None, qv=None, provider=
                 explanation+='; '.join(f'{c["dimension"]}: {c["source_quote"]} [{c["evidence"]}]' for c in conflicts)
                 out['answer_ko']=explanation+'\n'+'\n'.join(
                     f'{condition_label(item)}: {item["value"]} [{", ".join(item["evidence"])}]' for item in out['items'])
-            from rag.answer_conditions import unresolved_scopes
+            from rag.evidence.answer_conditions import unresolved_scopes
             # Condition gaps are checked on the remaining items after conflicts
             # so the recorded indices cannot remove a different item.
             remaining=attribution_missing(out['items'],evidence,u,missing_conditions(out['items'],question,u))
@@ -436,7 +435,7 @@ def answer_unit(question, u, unit, pages, corpus, cache=None, qv=None, provider=
                 out['answer_ko']='요청한 시험·분석·비교·용량 조건을 원문으로 확인하지 못한 결과값을 제외했습니다.\n'+'\n'.join(
                     f'{condition_label(item)}: {item["value"]} [{", ".join(item["evidence"])}]' for item in out['items'])
         if selecting:
-            from rag.source_context import dose_premise_sources, enforce_comparison_coverage, enforce_arm_coverage
+            from rag.evidence.source_context import dose_premise_sources, enforce_comparison_coverage, enforce_arm_coverage
             sources=out.get('premise_sources',[])
             if not out['items'] and not sources:sources=dose_premise_sources(candidates,evidence,question,u)
             premise=source_selection.premise_conflicts(sources,evidence,question,u)
@@ -446,9 +445,9 @@ def answer_unit(question, u, unit, pages, corpus, cache=None, qv=None, provider=
                     f'{condition_label({"source_label":"원문 조건","conditions":[{"dimension":c["dimension"],"value":c["value"]}]})} [{c["evidence"]}]' for c in premise)+ '\n'+out['answer_ko']
             enforce_comparison_coverage(out,candidates or {},question,unit.get('product'))
             enforce_arm_coverage(out,candidates or {},question)
-            from rag.dosing_coverage import enforce as enforce_dosing_coverage
+            from rag.evidence.dosing_coverage import enforce as enforce_dosing_coverage
             enforce_dosing_coverage(out,candidates or {},evidence,question)
-        from rag.requested_facts import enforce as enforce_requested_facts
+        from rag.evidence.requested_facts import enforce as enforce_requested_facts
         common_candidates=candidates if selecting else source_selection.catalog(evidence,question)
         enforce_requested_facts(out,common_candidates or {},evidence,question)
         if selecting and selection_strategy is not None:
@@ -532,7 +531,7 @@ def render(results):
 
 
 if __name__ == "__main__":
-    from understand_query import understand
+    from rag.retrieval.understand_query import understand
 
     p = argparse.ArgumentParser()
     p.add_argument("--query", required=True, help="Korean question")

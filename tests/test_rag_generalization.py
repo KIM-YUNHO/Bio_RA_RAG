@@ -8,16 +8,15 @@ from unittest.mock import patch
 
 import numpy as np
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "rag"))
-from answer import Corpus, answer_unit, retrieve, validate_answer
-from evidence import contains_quote, contains_value
-from plan_query import plan
-from search import Bm25, to_pages
-from study_context import annotate
-from build_chunks import scan_sections
-from study_search import preference, search
-from understand_query import cache_fingerprint, resolve, resolve_cached, understand
-import study_registry as sr
+from rag.answer import Corpus, answer_unit, retrieve, validate_answer
+from rag.evidence.evidence import contains_quote, contains_value
+from rag.retrieval.plan_query import plan
+from rag.retrieval.search import Bm25, to_pages
+from rag.index.study_context import annotate
+from rag.index.build_chunks import scan_sections
+from rag.retrieval.study_search import preference, search
+from rag.retrieval.understand_query import cache_fingerprint, resolve, resolve_cached, understand
+from rag.retrieval import study_registry as sr
 from collection.load_reviewed import validate as validate_observations
 
 
@@ -118,7 +117,7 @@ class ScopeTests(unittest.TestCase):
         fixed = {**raw, "study_mentions": [{"study_key": "ST_CTP43_POOLED", "role": "target", "quote": q}]}
         def response(out):
             return {"text": json.dumps(out), "prompt_tokens": 1, "completion_tokens": 1, "model_reported": "test"}
-        with patch("understand_query.chat", side_effect=[response(raw), response(fixed)]) as client:
+        with patch("rag.retrieval.understand_query.chat", side_effect=[response(raw), response(fixed)]) as client:
             result = understand(q, glossary=[])
         self.assertEqual(client.call_count, 2)
         self.assertEqual(result["studies"], ["ST_CTP43_POOLED"])
@@ -244,7 +243,7 @@ class AnswerEvidenceTests(unittest.TestCase):
         cache = {}
         unit = plan(understanding())[0]
         page = to_pages([(1., 0)], [chunk()])[0]
-        with patch("answer.chat", return_value=model_result) as client:
+        with patch("rag.answer.chat", return_value=model_result) as client:
             a = answer_unit("dose?", understanding(), unit, [page], FixedCorpus(), cache)
             b = answer_unit("dose?", understanding(), unit, [{**page, "version_id": "v2"}], FixedCorpus(), cache)
         self.assertEqual(client.call_count, 2)
@@ -260,7 +259,7 @@ class AnswerEvidenceTests(unittest.TestCase):
         cache = {}
         unit = plan(understanding())[0]
         pages = to_pages([(1., 0)], [chunk()])
-        with patch("answer.chat", return_value=response) as client:
+        with patch("rag.answer.chat", return_value=response) as client:
             answer_unit("dose?", understanding(), unit, pages, FixedCorpus(), cache)
             next(iter(cache.values()))["items"][0]["value"] = "5 mg"
             result = answer_unit("dose?", understanding(), unit, pages, FixedCorpus(), cache)

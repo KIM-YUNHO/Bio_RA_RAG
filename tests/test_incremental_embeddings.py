@@ -1,5 +1,5 @@
 import unittest
-from rag.incremental_embeddings import reuse_plan
+from rag.index.incremental_embeddings import reuse_plan
 
 class IncrementalInputTests(unittest.TestCase):
     def test_reordered_metadata_reuses_but_title_body_changes_do_not(self):

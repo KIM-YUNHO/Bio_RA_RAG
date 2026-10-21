@@ -22,7 +22,12 @@ project_shared/
 ├─ pipelines/
 │  └─ pipeline_h/        ★ 표준(Main) 전처리 파이프라인 (Docling·TableFormer·PaddleOCR-VL 선별 보강)
 ├─ preprocess/           공용 전처리 라이브러리 (pipeline_h·rag가 import)
-├─ rag/                  청킹·임베딩·검색·답변 검증 라이브러리
+├─ rag/                  청킹·임베딩·검색·답변 검증 라이브러리 (pipeline.py·answer.py가 공통 진입점)
+│  ├─ ra/                RA 답변 파이프라인: 계획·검색·읽기·생성·검토 (ra_*)
+│  ├─ evidence/          근거 고르기·원문 대조: 표·문장·인용·요청 사실
+│  ├─ index/             색인 만들기: 청킹·청크 스키마·임베딩·릴리스·릴리스 묶음 읽기
+│  ├─ retrieval/         질문 해석·검색: 하이브리드 검색·리랭커·범위·시험 레지스트리
+│  └─ llm/               모델 호출: OpenAI·로컬 채팅·설정·토크나이저
 ├─ rag_service/          RA 질의응답 서비스 (3분할 화면, FastAPI)
 ├─ storage/              DB 접속 단일 진입점 — pgvector 통합 코드가 들어갈 자리
 ├─ eval/ · gold/ · tests/ · scripts/
@@ -89,9 +94,9 @@ uv run python -m ingestion.agent
 [통합 작업 지도](docs/project/PGVECTOR_INTEGRATION_MAP_2026-10-14.md)에 파일·행 단위로 정리했다. 요점:
 
 - 접속: `storage/postgres.py`(새 코드의 진입점) ← `ingestion/db.py`. 스키마 추가는 `ingestion/db/migrations/005_*.sql`.
-- 벡터·청크: 지금은 `<release>/candidate/emb/bge-m3/doc.npy`와 `chunks.jsonl`. 쓰기 `rag/embed_index.py`·`rag/incremental_embeddings.py`·`rag/release.py`, 읽기·검색 `rag/search.py`(`load_index`, `dense_hits`, `Bm25`) ← `rag/pipeline.py`, `rag/ra_retrieval.py`.
-- 릴리스 선택: `rag/release.py`(`load_bundle`), `scripts/start_ra_service.ps1`, `ingestion/registry.py`(`BIOSIM_ACTIVE_RELEASE`).
-- 세션·검토·장부: `rag_service/conversations.py`, `rag_service/reviews.py`, `rag/openai_chat.py`.
+- 벡터·청크: 지금은 `<release>/candidate/emb/bge-m3/doc.npy`와 `chunks.jsonl`. 쓰기 `rag/index/embed_index.py`·`rag/index/incremental_embeddings.py`·`rag/index/release.py`, 읽기·검색 `rag/retrieval/search.py`(`load_index`, `dense_hits`, `Bm25`) ← `rag/pipeline.py`, `rag/ra/ra_retrieval.py`.
+- 릴리스 선택: `rag/index/release.py`(`load_bundle`), `scripts/start_ra_service.ps1`, `ingestion/registry.py`(`BIOSIM_ACTIVE_RELEASE`).
+- 세션·검토·장부: `rag_service/conversations.py`, `rag_service/reviews.py`, `rag/llm/openai_chat.py`.
 - 먼저 할 일: 데이터 안에 남은 원본 절대 경로를 상대 경로로 바꿔 적재(아래 5절).
 
 ## 5. 알아둘 제약
@@ -106,9 +111,10 @@ uv run python -m ingestion.agent
 | 시각 (KST) | 내용 |
 | :-- | :-- |
 | 2026-10-14 13:49 | 원본 `biosimilar_collection`에서 코드·데이터·문서 복사, 경로 수정 (해시·파일 수 대조 통과) |
-| 2026-10-14 13:58 | 다른 세션이 13:50에 고친 `rag/ra_pipeline.py`, `rag/ra_research.py` 재동기화, 누락 모듈·테스트 고정 파일 4개 추가 |
+| 2026-10-14 13:58 | 다른 세션이 13:50에 고친 `rag/ra/ra_pipeline.py`, `rag/ra/ra_research.py` 재동기화, 누락 모듈·테스트 고정 파일 4개 추가 |
 | 2026-10-14 14:06 | 원본에서 계속 수정 중인 `eval/h_v2_*.py` 5개 재동기화 (원본과 14:06 기준 일치) |
 | 2026-10-14 14:10 | 통합 `.env`/`.env.example`, `storage/`, README·이관 기록·pgvector 통합 지도 작성. 테스트 1,133개·pipeline_h 18개 통과 |
-| 2026-10-14 14:45 | 원본의 H v2 개발 평가·개선 반영: 코드 `ra-research-rag-4.9.3`(`rag/` 4개 수정, `rag/ra_statistical_tables.py` 신규), eval 도구·질문 7개, 테스트 2개, 데이터 버전 03, 평가 기록 `data/runs/h_v2_rag_development_2026-10-14_luna_v1/`, 문서 `docs/rag/H_V2_RAG_DEVELOPMENT_EVAL_2026-10-14.md` |
+| 2026-10-14 14:45 | 원본의 H v2 개발 평가·개선 반영: 코드 `ra-research-rag-4.9.3`(`rag/` 4개 수정, `rag/ra/ra_statistical_tables.py` 신규), eval 도구·질문 7개, 테스트 2개, 데이터 버전 03, 평가 기록 `data/runs/h_v2_rag_development_2026-10-14_luna_v1/`, 문서 `docs/rag/H_V2_RAG_DEVELOPMENT_EVAL_2026-10-14.md` |
 | 2026-10-14 14:59 | 루트 정리: 수집 스크립트 5개 → `collection/` 패키지, 규칙 JSON 4개 → `configs/collection/`, Paddle 잠금 목록 → `configs/env/`, `pyproject.toml`과 같은 `requirements.txt` 삭제. 경로·import를 참조하던 코드·설정 29개 파일 수정, 테스트 1,143개·pipeline_h 18개 통과 |
-| 2026-10-21 11:35 | 코드 정리(브랜치 `chore/code-cleanup`, 정리 전 상태는 git 태그 `pre-cleanup-2026-10-21`). 진입점(RA 서비스·적재·수집·storage·pipeline_h·남긴 eval)에서 import되지 않는 `rag`·`preprocess` 모듈 50개와 그것만 검사하던 테스트 삭제(`contract_match`·`request_contract`·`margin_scope`는 살아 있는 모듈 테스트의 판정 도구라 `tests/`로 이동). 일회성 eval 85개·옛 eval 데이터 21개, `pipelines/backup_pilot/`, `data/runs/h_v2_rag_development_2026-10-14_luna_v1/`, vendor `review_design.html` 삭제. 검토 화면 `review_viewer`(읽기 모듈은 `rag/bundle.py`로 이동)·`--review-url`, 표준 라이브러리 HTTP 서버·`--server`, 옛 화면 `rag_service/static/` 제거. `data/runs/model_quota/` 추적 해제, 로컬 `storage/handoff/` 덤프 삭제. 테스트 1,111개·pipeline_h 18개 통과 |
+| 2026-10-21 11:35 | 코드 정리(브랜치 `chore/code-cleanup`, 정리 전 상태는 git 태그 `pre-cleanup-2026-10-21`). 진입점(RA 서비스·적재·수집·storage·pipeline_h·남긴 eval)에서 import되지 않는 `rag`·`preprocess` 모듈 50개와 그것만 검사하던 테스트 삭제(`contract_match`·`request_contract`·`margin_scope`는 살아 있는 모듈 테스트의 판정 도구라 `tests/`로 이동). 일회성 eval 85개·옛 eval 데이터 21개, `pipelines/backup_pilot/`, `data/runs/h_v2_rag_development_2026-10-14_luna_v1/`, vendor `review_design.html` 삭제. 검토 화면 `review_viewer`(읽기 모듈은 `rag/index/bundle.py`로 이동)·`--review-url`, 표준 라이브러리 HTTP 서버·`--server`, 옛 화면 `rag_service/static/` 제거. `data/runs/model_quota/` 추적 해제, 로컬 `storage/handoff/` 덤프 삭제. 테스트 1,111개·pipeline_h 18개 통과 |
+| 2026-10-21 18:20 | `rag/` 87개 모듈을 역할별 하위 폴더 5개(`ra`·`evidence`·`index`·`retrieval`·`llm`)로 이동, 파일 이름은 그대로. `sys.path`에 `rag/`를 넣고 이름만으로 import하던 곳을 모두 패키지 import로 바꿈. 실행은 `python -m rag.retrieval.search`처럼 `-m`으로 한다. 동작 변경 없음, 테스트 1,122개(데이터 연결)·PostgreSQL 13개·pipeline_h 18개 통과 |

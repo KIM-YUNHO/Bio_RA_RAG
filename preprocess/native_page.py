@@ -11,7 +11,7 @@ def parse(page, image_size):
     blocks=[b for b in page.get_text('dict')['blocks'] if b['type']==0]
     if not blocks:return None
     import re
-    from rag.document_structure import identify
+    from rag.index.document_structure import identify
     rows=[]
     for block in blocks:
         for line in block['lines']:

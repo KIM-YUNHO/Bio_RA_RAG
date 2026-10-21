@@ -3,7 +3,7 @@
 - 작성: 2026-10-16 16:50 KST
 - 수정: 2026-10-16 17:55 KST (`feature/stable-queries` 병합 기준: 계획기 칸 축소, 사실당 영어 검색어 1개. 병합 후 서비스 재시작이 필요하다)
 - 수정: 2026-10-17 17:45 KST (8775·8885 재시작 완료. 두 서비스가 `query_strategy: ra-research-tasks-8-fact-queries`, 4.10.3을 보고한다)
-- 기준: `rag/ra_retrieval.py`(`DEFAULT_PROFILE`), `rag/ra_tasks.py`, `rag/ra_models.py`, `rag/rerank.py`, `rag/ra_sources.py`, `rag/ra_research.py`, 서비스 요약(`query_strategy: ra-research-tasks-8-fact-queries`, `retrieval_strategy: ra-task-hybrid-context-7-topic-queries-slot-terms`)
+- 기준: `rag/ra/ra_retrieval.py`(`DEFAULT_PROFILE`), `rag/ra/ra_tasks.py`, `rag/ra/ra_models.py`, `rag/retrieval/rerank.py`, `rag/ra/ra_sources.py`, `rag/ra/ra_research.py`, 서비스 요약(`query_strategy: ra-research-tasks-8-fact-queries`, `retrieval_strategy: ra-task-hybrid-context-7-topic-queries-slot-terms`)
 - 상위: [현재 서빙 상태](README.md)
 
 ## 1. 흐름
@@ -76,11 +76,11 @@
 
 ## 7. 생성 전 추가 로컬 검색
 
-계획에서 인식한 필수 facet에 후보 근거가 없을 때만 한 번 더 찾는다. 최대 1라운드·2항목·새 패킷 6개·새 원문 1,200토큰, LLM 호출 0회. 기존 제품·기관·문서 범위를 넘지 않는다(`rag/ra_research.py`, 서비스 인자 `--research-rounds 1`). 답변 뒤 부족·상충을 판단해 반복 재검색하는 루프는 없다.
+계획에서 인식한 필수 facet에 후보 근거가 없을 때만 한 번 더 찾는다. 최대 1라운드·2항목·새 패킷 6개·새 원문 1,200토큰, LLM 호출 0회. 기존 제품·기관·문서 범위를 넘지 않는다(`rag/ra/ra_research.py`, 서비스 인자 `--research-rounds 1`). 답변 뒤 부족·상충을 판단해 반복 재검색하는 루프는 없다.
 
 ## 8. 현재 기본값과 바꾸는 방법
 
-`rag/ra_retrieval.py`:
+`rag/ra/ra_retrieval.py`:
 
 ```python
 DEFAULT_PROFILE = {'bm25_weight': 1.0, 'question_query': None, 'question_bm25': False, 'query_unit': False, 'strip_slot_terms': True,

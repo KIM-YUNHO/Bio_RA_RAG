@@ -1,9 +1,9 @@
 import unittest
-from rag import document_structure as ds
-from rag.source_selection import catalog,resolve,NUMBER
-from rag.source_context import fact_role
-from rag.dosing_coverage import slots,enforce
-from rag.answer_conditions import label,missing
+from rag.index import document_structure as ds
+from rag.evidence.source_selection import catalog,resolve,NUMBER
+from rag.evidence.source_context import fact_role
+from rag.evidence.dosing_coverage import slots,enforce
+from rag.evidence.answer_conditions import label,missing
 
 
 class Finalization(unittest.TestCase):
@@ -81,7 +81,7 @@ class Finalization(unittest.TestCase):
         self.assertEqual([m[0] for m in NUMBER.finditer('2°C 0.75 mg/kg 226.9 mcg·day/mL')],['2°C','0.75 mg/kg','226.9 mcg·day/mL'])
 
     def test_source_body_and_required_heading_reserve_budget_together(self):
-        from rag.evidence_budget import select
+        from rag.evidence.evidence_budget import select
         table={'chunk_id':'table','document_id':'d','version_id':'v','pdf_page':2}
         filler={'chunk_id':'filler','document_id':'d','version_id':'v','pdf_page':3}
         heading={'chunk_id':'heading','document_id':'d','version_id':'v','pdf_page':1}
@@ -100,7 +100,7 @@ class Finalization(unittest.TestCase):
         self.assertIsNotNone(ds.identify('Phase III study','SB17',version='sections-7'))
 
     def test_long_native_paragraph_retains_all_source_ranges_and_analysis_role(self):
-        from rag.source_selection import prose_ranges,condition_ids
+        from rag.evidence.source_selection import prose_ranges,condition_ids
         text=('A background statement.\n'*150)+'The approved indication is in adults and pediatric patients 8 years and older.\nFull analysis set (FAS).'
         ranges=list(prose_ranges(text,0,len(text)))
         self.assertEqual(''.join(text[a:b] for a,b in ranges),text)
@@ -110,7 +110,7 @@ class Finalization(unittest.TestCase):
         self.assertTrue(any('FAS' in candidates[k]['value'] for k in condition_ids(candidates)['analysis']))
 
     def test_pk_statistic_question_outranks_dosing_even_when_topic_is_dosing(self):
-        from rag.clinical_retrieval import cues
+        from rag.retrieval.clinical_retrieval import cues
         query='single subcutaneous dose 45 mg and 90 mg tmax mean median'
         table={'text':'<table><tr><td>tmax (day)</td><td>Mean</td><td>Median</td></tr></table>','structure':{'kind':'table_candidate'},'product_id':'unseen'}
         dose={'text':'Adults receive 45 mg initially by subcutaneous injection.','structure':{'section_path':['Recommended dosage']},'product_id':'unseen'}
@@ -125,7 +125,7 @@ class Finalization(unittest.TestCase):
         self.assertNotIn('For patients',label(item))
 
     def test_requested_indication_and_dose_are_ranked_by_their_printed_facts(self):
-        from rag.clinical_retrieval import cues
+        from rag.retrieval.clinical_retrieval import cues
         indication={'text':'The product is indicated in pediatric patients 8 years and older with active arthritis.','structure':{},'product_id':'unseen'}
         assessment={'text':'Required pediatric assessments: no studies are required under PREA.','structure':{},'product_id':'unseen'}
         self.assertIn('printed_requested_indications',cues('pediatric indication minimum age',indication))
@@ -140,7 +140,7 @@ class Finalization(unittest.TestCase):
         self.assertTrue(next(c.get('value_eligible',True) for c in candidates.values() if c['value']=='90 mg'))
 
     def test_wrong_printed_trial_cannot_be_overridden_by_a_heading_hint(self):
-        from rag.answer_conditions import attribution_missing
+        from rag.evidence.answer_conditions import attribution_missing
         evidence={'E1':{'text':'Study 20190232: value 654','product_id':'ABP654','structure':{'section_id':'s'},'source_spans':[]},
             'E2':{'text':'Single dose PK study 20190230','product_id':'ABP654','structure':{'section_id':'s'},'source_spans':[]}}
         item={'study':'ST_ABP_20190230','evidence':['E1'],'conditions':[{'dimension':'study','quote':evidence['E2']['text'],'evidence':'E2'}]}
@@ -154,7 +154,7 @@ class Finalization(unittest.TestCase):
         self.assertTrue(any(c['dimension']=='analysis' and 'FAS' in c['quote'] for c in item['conditions']))
 
     def test_pen_storage_is_prioritized_even_with_a_dosing_topic(self):
-        from rag.clinical_retrieval import cues
+        from rag.retrieval.clinical_retrieval import cues
         chunk={'text':'Pre-filled pens may be stored at room temperature up to 27°C for 25 days, then returned to the refrigerator once.','structure':{},'product_id':'unseen'}
         found=cues('pre-filled pen room temperature storage and refrigerator conditions',chunk,topic='dosing')
         self.assertIn('printed_requested_pen_storage',found)
@@ -175,14 +175,14 @@ class Finalization(unittest.TestCase):
         self.assertFalse(next(c['value_eligible'] for c in candidates.values() if c['value']=='0 to 17 years'))
 
     def test_explicit_dose_premise_probe_still_supplies_source_administration(self):
-        from rag.clinical_retrieval import cues
+        from rag.retrieval.clinical_retrieval import cues
         source={'text':'Each subject received 45 mg as a single SC injection.','structure':{},'product_id':'unseen'}
         self.assertIn('printed_dose_and_administration',cues('90 mg Cmax GMR',source,topic='dosing'))
         self.assertNotIn('printed_dose_and_administration',cues('90 mg Cmax GMR',source,topic='pk_results'))
 
     def test_marketing_launch_query_preserves_the_actual_notification_clause(self):
-        from rag.regulatory_scope import requests_marketing_notification
-        from rag.evidence_slices import score
+        from rag.retrieval.regulatory_scope import requests_marketing_notification
+        from rag.evidence.evidence_slices import score
         query='notification deadline and content after first commercial launch'
         self.assertTrue(requests_marketing_notification(query))
         action='Submit correspondence informing the Agency of the first commercial marketing within 30 days.'
@@ -190,12 +190,12 @@ class Finalization(unittest.TestCase):
         self.assertGreater(score(action,query),score(unrelated,query))
 
     def test_new_indications_in_prea_text_are_not_an_approved_indication_cue(self):
-        from rag.clinical_retrieval import cues
+        from rag.retrieval.clinical_retrieval import cues
         source={'text':'REQUIRED PEDIATRIC ASSESSMENTS. All applications for new indications must contain an assessment for the claimed indication in pediatric patients.','product_id':'unseen','structure':{}}
         self.assertNotIn('printed_requested_indications',cues('pediatric indications minimum age',source))
 
     def test_direct_quotation_path_blocks_wrong_event_and_preserves_source_value(self):
-        from rag.regulatory_scope import enforce
+        from rag.retrieval.regulatory_scope import enforce
         text='Submit labeling within 14 days of this letter.\nSubmit correspondence informing the Agency of the first commercial marketing within 40 days.'
         evidence={'E1':{'text':text}}
         bad={'value':'14 days','quote':text.splitlines()[0],'evidence':['E1'],'source_label':'deadline','conditions':[]}
@@ -206,7 +206,7 @@ class Finalization(unittest.TestCase):
         self.assertEqual(out['items'][0]['value'],'40 days')
 
     def test_direct_quotation_path_does_not_use_adult_indication_for_child(self):
-        from rag.regulatory_scope import literal_item_eligible
+        from rag.retrieval.regulatory_scope import literal_item_eligible
         text='Indication:\nDrug indicated for treatment of:\nAdult patients with:\n• adult-only illness.\nPediatric patients 8 years and older with:\n• childhood illness.'
         evidence={'E1':{'text':text}}
         item={'value':'adult-only illness','quote':text,'evidence':['E1']}
@@ -215,7 +215,7 @@ class Finalization(unittest.TestCase):
         self.assertTrue(literal_item_eligible(item,evidence,'소아 적응증은?'))
 
     def test_approval_request_does_not_use_a_preapproval_correspondence(self):
-        from rag.regulatory_scope import literal_item_eligible
+        from rag.retrieval.regulatory_scope import literal_item_eligible
         text='Indication: Reference medicine is indicated for pediatric patients 8 years and older.'
         evidence={'E1':{'text':text,'document_type':'Administrative Correspondence','document_metadata':{'family':'correspondence'}}}
         item={'value':'8 years','quote':text,'evidence':['E1']}
@@ -224,7 +224,7 @@ class Finalization(unittest.TestCase):
         self.assertTrue(literal_item_eligible(item,evidence,'허가 서신에서 소아 적응증 최저 연령은?'))
 
     def test_unfinished_action_line_is_not_a_complete_fact(self):
-        from rag.regulatory_scope import unfinished_value
+        from rag.retrieval.regulatory_scope import unfinished_value
         self.assertTrue(unfinished_value('For each approved product, submit a '))
         self.assertTrue(unfinished_value('The drug is indicated for patients with '))
         self.assertFalse(unfinished_value('Treatment A'))

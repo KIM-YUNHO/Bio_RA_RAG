@@ -1,5 +1,5 @@
 import unittest
-from rag.grounded_table_graph import build, selected_fact, validate_graph
+from rag.evidence.grounded_table_graph import build, selected_fact, validate_graph
 from tests.contract_match import condition, match_request
 from tests.request_contract import ground
 from tests.test_request_contract import term, proposal, cond

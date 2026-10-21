@@ -1,7 +1,7 @@
 from copy import deepcopy
 import unittest
 
-from rag import ra_regimen, ra_requirements
+from rag.ra import ra_regimen, ra_requirements
 
 
 def evidence(text):

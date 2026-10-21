@@ -15,9 +15,9 @@ from test_chunking import CharacterCounter
 from preprocess.hybrid import run_hybrid, read_jsonl
 from preprocess.hybrid_config import HybridConfig
 from preprocess.ingest import from_inputs, sha256
-from rag import preprocessed_chunks as pc
-from chunk_schema import validate_dataset
-import context_units as cu
+from rag.index import preprocessed_chunks as pc
+from rag.index.chunk_schema import validate_dataset
+from rag.index import context_units as cu
 
 
 class PreprocessedChunkTests(unittest.TestCase):
@@ -327,11 +327,13 @@ class PreprocessedChunkTests(unittest.TestCase):
         self.assertEqual(restored[0]['logical_group_id'], figure['structure']['figure_id'])
         self.assertTrue(any(c['context_role'] == 'referring_sentence' for c in restored[0]['source_context']))
         self.assertFalse(restored[0]['numeric_evidence_eligible'])
+        import os
         import subprocess
         import sys
-        process = subprocess.run([sys.executable, '-X', 'utf8', '-B', str(pc.bc.ROOT/'rag/search.py'),
+        process = subprocess.run([sys.executable, '-X', 'utf8', '-B', '-m', 'rag.retrieval.search',
             '--mode', 'bm25', '--rag-dir', str(self.out), '--include-nondefault', '--visual-context',
-            '--query', 'Concentrations by visit', '--top-k', '1'], cwd=self.root, capture_output=True, text=True, encoding='utf-8')
+            '--query', 'Concentrations by visit', '--top-k', '1'], cwd=self.root, capture_output=True, text=True, encoding='utf-8',
+            env={**os.environ, 'PYTHONPATH': str(pc.bc.ROOT)})
         self.assertEqual(process.returncode, 0, process.stderr)
         self.assertTrue(json.loads(process.stdout)['results'][0]['visual_contexts'])
         path = self.out/'visual_context_units.jsonl'

@@ -1,6 +1,6 @@
 import unittest
 
-from rag.ra_source_constraints import check
+from rag.ra.ra_source_constraints import check
 
 
 class StudyLocationTests(unittest.TestCase):

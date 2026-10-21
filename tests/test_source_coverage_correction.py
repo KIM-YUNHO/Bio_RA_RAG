@@ -2,7 +2,7 @@ import json
 from types import SimpleNamespace
 import unittest
 from rag.answer import answer_unit
-from rag.source_selection import catalog,comparison_choices,coverage_correction
+from rag.evidence.source_selection import catalog,comparison_choices,coverage_correction
 
 
 class CoverageCorrectionTests(unittest.TestCase):

@@ -1,7 +1,7 @@
 """Answer-level check of the full RA pipeline on an enumeration question.
 
 Gold: submission and approval dates per product x agency read from labelled
-regulator fields (rag.ra_timeline extractor, hand-checked 2026-10-15). A unit's
+regulator fields (rag.ra.ra_timeline extractor, hand-checked 2026-10-15). A unit's
 date counts as answered when a kept claim about that product, citing that
 agency's evidence, prints it; a duration counts when a code-computed derived
 value uses exactly that unit's (submission, approval) dates. Dates in claims that
@@ -26,7 +26,7 @@ KOREAN = re.compile(r'(\d{4})\s*년\s*(\d{1,2})\s*월\s*(\d{1,2})\s*일')
 
 
 def gold(run):
-    from rag.ra_timeline import facts, choose
+    from rag.ra.ra_timeline import facts, choose
     chunks = [json.loads(line) for line in open(run / 'candidate/chunks.jsonl', encoding='utf-8')]
     best = choose(facts(chunks))
     units = {}
@@ -37,7 +37,7 @@ def gold(run):
 
 
 def dates(text):
-    from rag.ra_derived import DATE, parse
+    from rag.ra.ra_derived import DATE, parse
     found = {parse(re.sub(r'\s+', ' ', m)) for m in re.findall(DATE, text)} - {None}
     found |= {date(int(y), int(m), int(d)) for y, m, d in KOREAN.findall(text)}
     return found
@@ -91,8 +91,8 @@ def main():
                                     ensure_ascii=False))
     if not a.config:
         return
-    from rag.openai_chat import OpenAIPipelineChat
-    from rag.ra_pipeline import RAPipeline
+    from rag.llm.openai_chat import OpenAIPipelineChat
+    from rag.ra.ra_pipeline import RAPipeline
     from preprocess.hybrid_config import load_config
     pipe = RAPipeline(a.run, None, load_config(ROOT / 'configs/preprocess.local.json'),
                       guideline_snapshot=a.guidelines, research_rounds=1, retrieval_pages=8,

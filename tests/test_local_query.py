@@ -1,7 +1,7 @@
 import unittest
 from types import SimpleNamespace
 import json
-from rag.local_query import rewrite,validate_rewrite
+from rag.retrieval.local_query import rewrite,validate_rewrite
 
 class Fake:
     settings=SimpleNamespace(model='local-model',num_ctx=8192)

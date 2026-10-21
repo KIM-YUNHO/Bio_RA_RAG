@@ -1,6 +1,6 @@
 import unittest
-from rag.clinical_retrieval import cues,rank
-from rag.answer_conditions import missing,unresolved_scopes,explicit_conflicts
+from rag.retrieval.clinical_retrieval import cues,rank
+from rag.evidence.answer_conditions import missing,unresolved_scopes,explicit_conflicts
 
 class ClinicalCues(unittest.TestCase):
     def chunk(self,text,path=()):return {'text':text,'structure':{'caption':'','section_path':list(path)}}

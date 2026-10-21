@@ -1,6 +1,6 @@
 import unittest
 from tests.request_contract import ground, locate, translation_omissions
-from rag.contract_terms import atoms
+from rag.evidence.contract_terms import atoms
 
 
 def term(dimension, value, quote=None, occurrence=0):

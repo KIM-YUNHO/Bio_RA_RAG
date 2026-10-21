@@ -1,10 +1,10 @@
 from copy import deepcopy
 import unittest
-from rag.grounded_table_graph import build,validate_graph,selected_fact
-from rag.source_selection import catalog
-from rag.contract_relations import table_fact
-from rag.evidence_slices import table_ranges
-from rag.preprocessed_chunks import table_parts
+from rag.evidence.grounded_table_graph import build,validate_graph,selected_fact
+from rag.evidence.source_selection import catalog
+from rag.evidence.contract_relations import table_fact
+from rag.evidence.evidence_slices import table_ranges
+from rag.index.preprocessed_chunks import table_parts
 
 HTML='<table><tr><th>Parameter</th><th>Arm A</th></tr><tr><td>Tmax (days)</td><td></td></tr><tr><td>Mean (SD)</td><td>7.14 (2.218)</td></tr><tr><td>Median</td><td>7.0</td></tr><tr><td>CL/F (L/day)</td><td></td></tr><tr><td>Mean (SD)</td><td>0.617 (0.131)</td></tr></table>'
 

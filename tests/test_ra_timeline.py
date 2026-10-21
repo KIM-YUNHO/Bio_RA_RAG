@@ -2,8 +2,8 @@ import unittest
 from datetime import date
 from unittest.mock import patch
 
-from rag import ra_timeline
-from rag.followup import answer_summary
+from rag.ra import ra_timeline
+from rag.retrieval.followup import answer_summary
 
 
 def chunk(cid, product, jurisdiction, title, text, page=1):
@@ -73,7 +73,7 @@ class TimelineExtractionTests(unittest.TestCase):
         understanding = {'products': ['P1', 'P2'], 'jurisdictions': ['CA', 'EU', 'US', 'sponsor'],
                          'tasks': [{'id': 'T1', 'request': 'r'}]}
         blocks = lambda corpus, selected: {'E1': dict(selected[0][0])}
-        with patch('rag.ra_retrieval.blocks', blocks):
+        with patch('rag.ra.ra_retrieval.blocks', blocks):
             result = ra_timeline.answer(None, understanding, 'q', CHUNKS)
         evidence = result['evidence']
         for claim in result['claims']:

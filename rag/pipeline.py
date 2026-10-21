@@ -15,14 +15,14 @@ import numpy as np
 from preprocess.hybrid_config import load_config
 from preprocess.qwen_adapter import QwenAdapter
 from rag import answer
-from rag.plan_query import plan
-from rag.search import filter_idx, load_index
-from rag.understand_query import understand
-from rag.request_scope import bind_request_scope
-from rag.local_chat import LocalChat
-from rag.bundle import Bundle
-from rag.release import load_bundle, readiness
-from rag.service_scope import allowed as service_allowed
+from rag.retrieval.plan_query import plan
+from rag.retrieval.search import filter_idx, load_index
+from rag.retrieval.understand_query import understand
+from rag.retrieval.request_scope import bind_request_scope
+from rag.llm.local_chat import LocalChat
+from rag.index.bundle import Bundle
+from rag.index.release import load_bundle, readiness
+from rag.retrieval.service_scope import allowed as service_allowed
 
 VERSION = 'rag-pipeline-22-independent-question-contract'
 
@@ -56,7 +56,7 @@ class RAGPipeline:
             raise ValueError('전처리 후보와 임베딩 버전이 다릅니다.')
         self.index_meta = meta
         service_chunks = [c for c in chunks if service_allowed(c)]
-        from rag.regulatory_scope import approval_source
+        from rag.retrieval.regulatory_scope import approval_source
         self.approval_documents={(c['document_id'],c['version_id']) for c in service_chunks if approval_source(c)}
         eligible = [chunks[i] for i in filter_idx(chunks) if service_allowed(chunks[i])]
         counts = Counter((c['document_id'],c['version_id']) for c in eligible)
@@ -103,7 +103,7 @@ class RAGPipeline:
         self.validate_request(question,products,jurisdictions,documents,include_nondefault)
         notify = progress or (lambda **event:None)
         started = time.monotonic()
-        from rag.regulatory_scope import requests_approval_letter
+        from rag.retrieval.regulatory_scope import requests_approval_letter
         approval=requests_approval_letter(question)
         effective_nondefault=include_nondefault or approval
         corpus = answer.Corpus('bge-m3',self.bundle.candidate,local_only=True,bundle=self.bundle,include_nondefault=effective_nondefault)

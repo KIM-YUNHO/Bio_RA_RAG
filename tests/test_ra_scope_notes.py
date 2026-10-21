@@ -1,8 +1,8 @@
 """Planner scope notes never become research requests or unresolved-request lines."""
 import unittest
 
-from rag.ra_requirements import route_task
-from rag.ra_tasks import strip_scope_notes
+from rag.ra.ra_requirements import route_task
+from rag.ra.ra_tasks import strip_scope_notes
 
 
 class ScopeNoteTests(unittest.TestCase):

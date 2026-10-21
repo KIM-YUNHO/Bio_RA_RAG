@@ -1,6 +1,6 @@
 from decimal import Decimal
 import unittest
-from rag.ra_quantities import proposed_quantities, quantities
+from rag.ra.ra_quantities import proposed_quantities, quantities
 
 
 class ProposedQuantityTests(unittest.TestCase):

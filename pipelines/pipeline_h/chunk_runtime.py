@@ -2,7 +2,7 @@
 import inspect
 
 def enable_dom_schema():
-    from preprocessing_chunk_schema import REF
+    from rag.index.preprocessing_chunk_schema import REF
     REF['properties'].update({
         'content_locator_type':{'type':'string','enum':['html_dom_node']},
         'html_ref':{'type':'object','required':['node_path','start','end','raw_fragment_sha256'],

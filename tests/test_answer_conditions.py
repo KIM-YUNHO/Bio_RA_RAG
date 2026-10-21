@@ -1,5 +1,5 @@
 import unittest
-from rag.answer_conditions import validate, label, explicit_conflicts
+from rag.evidence.answer_conditions import validate, label, explicit_conflicts
 
 
 class Conditions(unittest.TestCase):

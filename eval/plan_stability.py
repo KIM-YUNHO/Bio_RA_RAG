@@ -46,7 +46,7 @@ def plan(item, n, pipe, folder, saved_only=False, fresh_first=False):
     if not path.exists() and saved_only:
         return None
     if not path.exists():
-        from rag import ra_tasks
+        from rag.ra import ra_tasks
         products = sorted({d['product_id'] for d in pipe.documents if d['product_id']})
         agencies = sorted({d['jurisdiction'] for d in pipe.documents})
         u = None
@@ -71,7 +71,7 @@ def orders_for(corpus, u, guidelines, reranker, index, pool_size, k, anchor='bot
 
     anchor: where the original question joins - 'dense' (a first-stage ranking per group),
     'rerank' (one of the reranker's queries), 'both' or 'none'."""
-    from rag import ra_retrieval
+    from rag.ra import ra_retrieval
     from eval.retrieval_gold import queries_for
     tasks = {t['id']: t for t in u['tasks']}
     question = u.get('source_question') or ''
@@ -90,7 +90,7 @@ def orders_for(corpus, u, guidelines, reranker, index, pool_size, k, anchor='bot
             selected['rrf'].update(pool[:k]); selected['rerank_only'].update(pool[:k])
             continue
         best = {}
-        from rag.ra_retrieval import unit_prefix
+        from rag.ra.ra_retrieval import unit_prefix
         extra = [unit_prefix(g.get('product'), g.get('jurisdiction')) + question] if anchor in ('rerank', 'both') and question else []
         for q in queries_for(task, 'fquery_unit', g.get('product'), g.get('jurisdiction')) + extra:
             for score, i in reranker.rank(q, [(0, i) for i in pool], corpus.chunks, limit=len(pool)):
@@ -121,9 +121,9 @@ def main():
     a = p.parse_args()
     items = json.loads(GOLD.read_text(encoding='utf-8'))['items']
     from rag import answer
-    from rag.openai_chat import OpenAIPipelineChat
-    from rag.ra_pipeline import RAPipeline
-    from rag.rerank import LocalReranker, MODEL, REVISION
+    from rag.llm.openai_chat import OpenAIPipelineChat
+    from rag.ra.ra_pipeline import RAPipeline
+    from rag.retrieval.rerank import LocalReranker, MODEL, REVISION
     from preprocess.hybrid_config import load_config
     pipe = RAPipeline(ROOT / 'data/versions/04_pipeline_h_supplement_2026-10-14/embedded/release', None,
                       load_config(ROOT / 'configs/preprocess.local.json'),

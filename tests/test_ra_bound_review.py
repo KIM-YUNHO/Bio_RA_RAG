@@ -2,7 +2,7 @@ from copy import deepcopy
 import json
 import unittest
 
-from rag import ra_answer, ra_quantities, ra_review, ra_spans, ra_support
+from rag.ra import ra_answer, ra_quantities, ra_review, ra_spans, ra_support
 
 TASK = {'id': 'T1', 'request': '투여 조건 비교', 'queries': ['dose route'], 'source_roles': ['assessment']}
 

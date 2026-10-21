@@ -3,7 +3,7 @@ from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
 
-from rag.ra_research import extend
+from rag.ra.ra_research import extend
 
 
 class ResearchTests(unittest.TestCase):
@@ -21,12 +21,12 @@ class ResearchTests(unittest.TestCase):
         corpus=SimpleNamespace(allowed_documents={('d','v')})
         client=SimpleNamespace(tokenizer=SimpleNamespace(one=lambda t:len(t)),input_limit=10000)
         before=deepcopy(original)
-        with patch('rag.ra_obligations.build',return_value=[row]),patch('rag.ra_obligations.pointers',return_value={}), \
-             patch('rag.ra_retrieval.retrieve',return_value=candidates) as retrieval, \
-             patch('rag.ra_retrieval.packet',side_effect=lambda c,x,r:[(x,r)]), \
-             patch('rag.ra_retrieval.blocks',side_effect=lambda c,p:{'E1':p[0][0]}), \
-             patch('rag.ra_answer.messages',return_value=[]),patch('rag.ra_answer.schema',return_value={}), \
-             patch('rag.ra_answer.cost',return_value=100):
+        with patch('rag.ra.ra_obligations.build',return_value=[row]),patch('rag.ra.ra_obligations.pointers',return_value={}), \
+             patch('rag.ra.ra_retrieval.retrieve',return_value=candidates) as retrieval, \
+             patch('rag.ra.ra_retrieval.packet',side_effect=lambda c,x,r:[(x,r)]), \
+             patch('rag.ra.ra_retrieval.blocks',side_effect=lambda c,p:{'E1':p[0][0]}), \
+             patch('rag.ra.ra_answer.messages',return_value=[]),patch('rag.ra.ra_answer.schema',return_value={}), \
+             patch('rag.ra.ra_answer.cost',return_value=100):
             result,budget,trace=extend(corpus,[group],original,{},'question',understanding,client,None)
         self.assertEqual(original,before)
         self.assertEqual(result['E1'],original['E1'])
@@ -40,8 +40,8 @@ class ResearchTests(unittest.TestCase):
         with self.assertRaises(ValueError):extend(None,[],{},{} ,'',{},None,None,max_rounds=2)
 
     def test_disabled_research_cannot_invoke_retrieval(self):
-        with patch('rag.ra_obligations.build',return_value=[]), \
-             patch('rag.ra_obligations.pointers',return_value={}),patch('rag.ra_retrieval.retrieve') as retrieval:
+        with patch('rag.ra.ra_obligations.build',return_value=[]), \
+             patch('rag.ra.ra_obligations.pointers',return_value={}),patch('rag.ra.ra_retrieval.retrieve') as retrieval:
             result,budget,trace=extend(None,[],{},{} ,'',{},None,None,max_rounds=0)
         retrieval.assert_not_called()
         self.assertEqual(trace['stop_reason'],'disabled')
@@ -55,12 +55,12 @@ class ResearchTests(unittest.TestCase):
             'product_id':'SB17','jurisdiction':'EU','pdf_page':1,'text':'x'*text_size} for i in range(candidates)]
         corpus=SimpleNamespace(allowed_documents={('d','v')})
         client=SimpleNamespace(tokenizer=SimpleNamespace(one=len),input_limit=input_limit)
-        with patch('rag.ra_obligations.build',return_value=[row]),patch('rag.ra_obligations.pointers',return_value={}), \
-             patch('rag.ra_retrieval.retrieve',return_value=[{**group,'hits':[{'chunk':c} for c in chunks]}]), \
-             patch('rag.ra_retrieval.packet',side_effect=lambda c,x,r:[(x,r)]), \
-             patch('rag.ra_retrieval.blocks',side_effect=lambda c,p:{'E1':p[0][0]}), \
-             patch('rag.ra_answer.messages',return_value=[]),patch('rag.ra_answer.schema',return_value={}), \
-             patch('rag.ra_answer.cost',return_value=cost):
+        with patch('rag.ra.ra_obligations.build',return_value=[row]),patch('rag.ra.ra_obligations.pointers',return_value={}), \
+             patch('rag.ra.ra_retrieval.retrieve',return_value=[{**group,'hits':[{'chunk':c} for c in chunks]}]), \
+             patch('rag.ra.ra_retrieval.packet',side_effect=lambda c,x,r:[(x,r)]), \
+             patch('rag.ra.ra_retrieval.blocks',side_effect=lambda c,p:{'E1':p[0][0]}), \
+             patch('rag.ra.ra_answer.messages',return_value=[]),patch('rag.ra.ra_answer.schema',return_value={}), \
+             patch('rag.ra.ra_answer.cost',return_value=cost):
             return extend(corpus,[group],{'E1':{'chunk_id':'baseline','text':'Original'}},{},'question',u,client,None)
 
     def test_oversized_whole_source_is_not_clipped_or_admitted(self):

@@ -44,8 +44,8 @@ EXP = {'T01': ['5095', '5689', '5420', '1498', '1877', '1659'],
 
 def pseudo_report(draft_claims, derived, evidence):
     """Generated claims as if all were kept: resolve spans and compute derived values."""
-    from rag import ra_spans
-    from rag.ra_derived import compute
+    from rag.ra import ra_spans
+    from rag.ra.ra_derived import compute
     spans, _ = ra_spans.catalog(evidence)
     claims = [{k: v for k, v in c.items() if k != 'request_ids'} for c in draft_claims]
     resolved = ra_spans.resolve({'claims': claims, 'gaps': []}, evidence, spans)['claims']
@@ -82,10 +82,10 @@ def main():
     p.add_argument('--repeat', type=int, default=2)
     a = p.parse_args()
     from eval.e2e_enumeration import gold
-    from rag import ra_answer
-    from rag.ra_models import RequestedDraft, ObligationDraft, request_items
-    from rag.ra_obligations import build
-    from rag.openai_chat import OpenAIPipelineChat
+    from rag.ra import ra_answer
+    from rag.ra.ra_models import RequestedDraft, ObligationDraft, request_items
+    from rag.ra.ra_obligations import build
+    from rag.llm.openai_chat import OpenAIPipelineChat
     units = gold(ROOT / 'data/versions/04_pipeline_h_supplement_2026-10-14/embedded/release')
     client = OpenAIPipelineChat(model='gpt-5.6-luna', context_tokens=65536)
     a.out.mkdir(parents=True, exist_ok=True)
