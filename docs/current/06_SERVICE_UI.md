@@ -4,6 +4,7 @@
 - 수정: 2026-10-17 17:45 KST (두 서비스 재시작, 원본 검토 링크 제거, 메모 상세 창·질문 카드, 적재 대화 삭제 API)
 - 수정: 2026-10-18 04:45 KST (HTTP 계층 FastAPI 전환: 8885는 FastAPI, 8775는 기존 서버. API 명세 화면)
 - 수정: 2026-10-18 23:15 KST (내부 문서·업무 상태·업무 초안 기능. 8885만 새 코드로 재시작, 8775는 15:10 시작본 그대로)
+- 수정: 2026-10-21 11:35 KST (코드 정리: HTTP 계층은 FastAPI만, `--server`·`--review-url`·`review_viewer`·`rag_service/static/` 제거. 떠 있는 8775·8897은 정리 전 코드)
 - 기준: 실행 중 프로세스 명령줄·시작 시각, `GET /api/summary`·`/api/projects`·`/api/ingestion`, `rag_service/`(`__main__.py`, `notebook_api.py`, `ingestion_api.py`, `web/`), `scripts/start_ra_service.ps1`
 - 상위: [현재 서빙 상태](README.md)
 
@@ -12,7 +13,7 @@
 | 포트 | 시작 | 시작 방법 | 차이 |
 | :-- | :-- | :-- | :-- |
 | **8775** | 2026-10-18 15:10 | `scripts/start_ra_service.ps1` (로그 `data/runs/ra_service_logs/20261018_151001_*`) | 업무 초안 API 없음. 화면 파일은 요청마다 읽으므로 `업무 현황·AI 초안` 버튼이 비활성으로 보인다. 다음 재시작 때 반영 |
-| **8897** (운영) | 2026-10-20 18:11 | PR #17 브랜치 작업 폴더(`project_shared_check`)의 `work/ra_service_8897.py`. 시작 스크립트와 같은 인자, 작업 폴더는 메인 checkout(로그 `data/runs/ra_service_logs/20261020_181113_8897.*`) | 이슈 대응 가이드·파이프라인 업무 요약 줄 포함, 파이프라인 `ra-research-rag-4.10.4`. 저장소는 8775와 같은 PostgreSQL·`data/runs`. PR이 merge되고 메인 checkout이 main을 받으면 `scripts/start_ra_service.ps1 -Port 8897 -ReviewUrl http://127.0.0.1:8886`로 바꾼다 |
+| **8897** (운영) | 2026-10-20 18:11 | PR #17 브랜치 작업 폴더(`project_shared_check`)의 `work/ra_service_8897.py`. 시작 스크립트와 같은 인자, 작업 폴더는 메인 checkout(로그 `data/runs/ra_service_logs/20261020_181113_8897.*`) | 이슈 대응 가이드·파이프라인 업무 요약 줄 포함, 파이프라인 `ra-research-rag-4.10.4`. 저장소는 8775와 같은 PostgreSQL·`data/runs`. PR이 merge되고 메인 checkout이 main을 받으면 `scripts/start_ra_service.ps1 -Port 8897`로 바꾼다. 정리 후 코드는 `--server`·`--review-url` 인자를 받지 않으므로, 그 인자를 넘기는 시작 방법(`work/ra_service_8897.py` 등)은 정리 후 코드에 쓸 수 없다 |
 | ~~8885~~ | 2026-10-19 04:15 ~ 10-20 내림 | `scripts/start_ra_service.ps1 -Port 8885 -ReviewUrl http://127.0.0.1:8886` | 10-20에 내리고 8897로 운영 전환 |
 
 8897로 옮긴 것(10-20): 확인 서버(임시 파일 저장소)에서 만든 `[시나리오 v5] P17 IV FcRn 이슈 대응` 파이프라인(문서 묶음 재등록)과 남아 있던 가이드 1건, 그 검색 답변 7건과 메모가 가리키는 답변 1건(보고서 폴더로 복사), `제품 사전 조사 프로젝트`와 메모 1개(같은 답변·주장에서 다시 저장).
@@ -27,16 +28,17 @@
 --archive-dir data/runs/ra_service_reports --review-dir data/runs/ra_review_records
 ```
 
+- 위 인자 중 `--review-url`(그리고 실행 명령줄의 `--server fastapi`)는 정리 전 코드의 인자다. 10-21 정리 후 코드로 다시 띄우면 두 인자는 없다.
 - 두 프로세스 모두 main `96894d3`(stable-queries·hide-model-gaps 병합) + `feature/memo-reader-session-delete` 커밋 시점의 코드로 시작했다. 대화 기록은 RA 모드 기본값 `data/runs/ra_conversations`. 질문 보고서·검토 기록·대화 기록 폴더와 PostgreSQL을 **함께 쓴다**.
 - `127.0.0.1`에만 바인딩된다. 로그인·권한 없음. RAG 질문은 프로세스마다 한 번에 한 건씩 처리한다.
 - 시작 때 BGE-M3·리랭커·BM25를 예열한다(약 26~34초, 모델 API 호출 0).
-- **화면에 별도 원본 검토 페이지 링크가 없다**(10-16 제거). 원문 확인은 오른쪽 근거 패널과 메모 상세 창에서 하며 원본 PDF·기관 출처 링크는 남아 있다. `--review-url`(8886) 인자는 그대로 넘기지만 화면이 쓰지 않고, 8886은 떠 있지 않다. 따로 띄우려면: `.\.venv\Scripts\python.exe -X utf8 -B -m review_viewer --run data/versions/04_pipeline_h_supplement_2026-10-14/embedded/release --port 8886`
+- **화면에 별도 원본 검토 페이지 링크가 없다**(10-16 제거). 원문 확인은 오른쪽 근거 패널과 메모 상세 창에서 하며 원본 PDF·기관 출처 링크는 남아 있다. 별도 검토 화면(`review_viewer`)과 `--review-url` 인자는 10-21 정리에서 코드에서도 제거했다.
 - Python 코드·환경 변수(`.env`)는 재시작해야 반영된다. `rag_service/web/` 화면 파일은 요청 때마다 읽으므로 새로고침으로 반영된다.
 
 새로 띄울 때(포트는 Windows 예약 범위 `netsh interface ipv4 show excludedportrange protocol=tcp`를 피한다):
 
 ```powershell
-.\scripts\start_ra_service.ps1 -Port <포트> -ReviewUrl http://127.0.0.1:8886   # 릴리스 생략 시 versions.json의 served_by_ra_service(04)
+.\scripts\start_ra_service.ps1 -Port <포트>   # 릴리스 생략 시 versions.json의 served_by_ra_service(04)
 ```
 
 시작 스크립트는 같은 포트의 다른 프로세스를 멈추지 않고, 이미 같은 버전·모델·릴리스가 떠 있으면 그대로 둔다.
@@ -54,7 +56,7 @@
 | 질문 검토 | 답변별 검토 상태·의견·미팅 질문 수정, append-only 이력, Markdown 내보내기 | `review-notes.js` |
 | 자료 수집 창 | [01 수집·적재](01_COLLECTION_INGESTION.md) 3.2절 | `data-manager.js`, `data-manager.css` |
 
-`rag_service/static/`은 이전 화면의 보존본이라 고치지 않는다. 디자인은 버건디·화이트·웜그레이, 본문 16px, 답변·입력 최대 900px.
+이전 화면 `rag_service/static/`은 10-21 정리에서 삭제했다. 디자인은 버건디·화이트·웜그레이, 본문 16px, 답변·입력 최대 900px.
 
 ## 3. 개발 파이프라인과 메모
 
@@ -71,7 +73,7 @@
 
 ## 4. API
 
-**HTTP 계층 (2026-10-18):** `--server fastapi|stdlib`(`rag_service/app.py` 대 `rag_service/__main__.py`의 `handler`). 두 구현은 같은 URL·JSON·상태 코드·보안 헤더를 내며(`rag_service/http_rules.py` 공통 규칙, `tests/test_http_contract.py`가 둘에 같은 검사를 돌린다) 화면은 어느 쪽이든 그대로 쓴다. 실제 데이터 16개 요청을 두 서버에 보내 상태·헤더·본문이 같음을 확인했다(PDF·PNG 포함). 차이는 둘: 예상 못 한 예외에 FastAPI는 500 `{"error"}`(기존은 응답 없이 연결 종료), 정의하지 않은 메서드(PUT 등)에 405(기존 501). 시작 스크립트 `-Server fastapi|stdlib`(기본 **fastapi**, `python -m rag_service`의 `--server`는 기본 stdlib). 실제 질문 한 건(Health Canada Steqeyma 보관 조건)을 8885에서 돌려 접수 202 → 진행 단계 → 24초 만에 완료, 동시 접수 409, 결과 화면(`#job=`) 렌더링까지 확인했고 서버 로그에 처리되지 않은 오류가 없었다. 두 서비스 모두 FastAPI로 떠 있다(10-18 15:09·15:10 재시작부터, 실행 인자 `--server fastapi`로 확인).
+**HTTP 계층:** FastAPI(`rag_service/app.py`) 하나다. 10-21 정리에서 표준 라이브러리 서버(`__main__.py`의 `handler`)와 `--server`·시작 스크립트 `-Server`를 없앴고, 테스트도 모두 FastAPI 앱을 상대로 돈다. 아래는 10-18 전환 기록이다. 전환 당시 `--server fastapi|stdlib`(`rag_service/app.py` 대 `rag_service/__main__.py`의 `handler`). 두 구현은 같은 URL·JSON·상태 코드·보안 헤더를 내며(`rag_service/http_rules.py` 공통 규칙, `tests/test_http_contract.py`가 둘에 같은 검사를 돌린다) 화면은 어느 쪽이든 그대로 쓴다. 실제 데이터 16개 요청을 두 서버에 보내 상태·헤더·본문이 같음을 확인했다(PDF·PNG 포함). 차이는 둘: 예상 못 한 예외에 FastAPI는 500 `{"error"}`(기존은 응답 없이 연결 종료), 정의하지 않은 메서드(PUT 등)에 405(기존 501). 시작 스크립트 `-Server fastapi|stdlib`(기본 **fastapi**, `python -m rag_service`의 `--server`는 기본 stdlib). 실제 질문 한 건(Health Canada Steqeyma 보관 조건)을 8885에서 돌려 접수 202 → 진행 단계 → 24초 만에 완료, 동시 접수 409, 결과 화면(`#job=`) 렌더링까지 확인했고 서버 로그에 처리되지 않은 오류가 없었다. 두 서비스 모두 FastAPI로 떠 있다(10-18 15:09·15:10 재시작부터, 실행 인자 `--server fastapi`로 확인).
 
 **API 명세:** FastAPI 서버에서 `/api-docs`(화면, 외부 CDN 없음)와 `/openapi.json`. 저장본 `docs/project/api/openapi_2026-10-18.json`. 전환 계획·단계: [FASTAPI_MIGRATION_PLAN](../project/FASTAPI_MIGRATION_PLAN_2026-10-18.md).
 

@@ -79,10 +79,6 @@ VLM은 동일 작업의 crop을 4개씩 묶고 이미지 면적 순으로 처리
 
 현재 run의 `accelerated_config.json`, `acceleration_status.json`, `batch_benchmark/report.json`에 변경 설정·재개 이력·실측 근거가 있다. 기존 응답 74개를 보존한 뒤 표 4개를 시험했으며, 저장된 단건 실행 합계 126.68초 대비 새 4개 배치 36.21초였다. 네 표의 셀 내용·숫자·gate 판정은 모두 같았다. 반복 평균이나 전체 문서 정확도 검증은 아니다. 선별 영역 949개의 서로 다른 작업/crop 조합은 777개이며 중복 172개를 확인했다. `vlm_progress.json.completed`는 재사용을 포함한 처리 영역 수다.
 
-완료 후 `extraction/`, `candidate/`, `release/`, `FINAL_REPORT.md`가 생성된다. 기존 서비스 포인터는 그대로 유지한다. 새 결과의 읽기 전용 원문 검토는 사용 가능한 별도 포트를 지정해 기존 도구로 열 수 있다.
-
-```powershell
-.\.venv\Scripts\python.exe -X utf8 -m review_viewer --run data/versions/02_pipeline_h_2026-10-14/embedded/release --port 8976
-```
+완료 후 `extraction/`, `candidate/`, `release/`, `FINAL_REPORT.md`가 생성된다. 기존 서비스 포인터는 그대로 유지한다. 별도 원문 검토 화면(`review_viewer`)은 10-21 정리에서 제거했다. 릴리스 읽기는 `rag/bundle.py`의 `Bundle`로 한다.
 
 전체 4,160쪽의 의미 정확도를 자동 무결성 검사와 혼동하지 않는다. 기존 개발 표본 재검증 결과와 전체 처리 범위·검토 제외·실제 단계 시간은 별도로 보고한다.

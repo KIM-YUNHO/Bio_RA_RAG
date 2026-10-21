@@ -1,7 +1,7 @@
 # Biosimilar RA 문서 RAG — 공유 기준 프로젝트 (project_shared)
 
 - 작성: 2026-10-14 14:10 KST
-- 최종 수정: 2026-10-16 16:50 KST (2절 데이터 버전 표를 현재 서비스 색인 04 기준으로 갱신, [현재 서빙 상태](docs/current/README.md) 연결. 이전: 10-14 14:59 루트 정리)
+- 최종 수정: 2026-10-21 11:35 KST (코드 정리: 쓰이지 않는 모듈·동결 사본·일회성 eval 삭제, 검토 화면·표준 라이브러리 서버 제거 — 6절. 이전: 10-16 16:50 데이터 버전 표 04 기준)
 
 > 지금 서비스가 어떤 데이터·코드·설정으로 도는지는 [docs/current/](docs/current/README.md)에 파트별로 정리했다. 이 README의 나머지 내용은 2026-10-14 이관 시점 기준이다.
 
@@ -20,12 +20,10 @@ project_shared/
 ├─ ingestion/            ★ 적재 요청 에이전트 + PostgreSQL(pgvector) 접속·마이그레이션
 ├─ product_search/       에이전트가 부르는 스테이징 수집(discover → collect → promote)
 ├─ pipelines/
-│  ├─ pipeline_h/        ★ 표준(Main) 전처리 파이프라인 (Docling·TableFormer·PaddleOCR-VL 선별 보강)
-│  └─ backup_pilot/      파일럿 기준 파이프라인 동결 사본 (현재 서비스 색인을 만든 코드)
+│  └─ pipeline_h/        ★ 표준(Main) 전처리 파이프라인 (Docling·TableFormer·PaddleOCR-VL 선별 보강)
 ├─ preprocess/           공용 전처리 라이브러리 (pipeline_h·rag가 import)
 ├─ rag/                  청킹·임베딩·검색·답변 검증 라이브러리
-├─ rag_service/          RA 질의응답 서비스 (3분할 화면)
-├─ review_viewer/        전처리·원문 검토 화면
+├─ rag_service/          RA 질의응답 서비스 (3분할 화면, FastAPI)
 ├─ storage/              DB 접속 단일 진입점 — pgvector 통합 코드가 들어갈 자리
 ├─ eval/ · gold/ · tests/ · scripts/
 ├─ data/                 원본·카탈로그 + versions/(01 파일럿 / 02 H v2 / 03 표 회수 / 04 보충 = 현재 서비스 / 05 미등록 후보) × (전처리 / 임베딩)
@@ -37,10 +35,10 @@ project_shared/
 | 적재 요청 에이전트 | `ingestion/agent.py`, `plan.py`, `worker.py`, `tasks.py`, `registry.py`, `licence_status.py` | 사용자가 성분·대조약·바이오시밀러 이름을 말하면 gpt-4o-mini가 요청을 구조화하고, 이름 확인·허가 상태·실행·승인은 코드가 정한다. [계획·진행](docs/collection/INGESTION_AGENT_DB_PLAN_2026-10-14.md) |
 | DB | `ingestion/db.py`, `ingestion/db/compose.yaml`, `ingestion/db/migrations/` | PostgreSQL 17 + pgvector 0.8. 현재 카탈로그·레지스트리·요청 기록만 저장 |
 | 메인 전처리 | `pipelines/pipeline_h/` | [README](pipelines/pipeline_h/README.md), [최종 선정 근거](docs/preprocessing/FINAL_PREPROCESSING_DECISION_2026-10-14.md) |
-| 백업 전처리 | `pipelines/backup_pilot/` | [README](pipelines/backup_pilot/README.md), [파일럿 파이프라인 상세](docs/DATA_PREPROCESSING_PIPELINE.md) |
+| 파일럿 전처리 (삭제) | git 태그 `pre-cleanup-2026-10-21`의 `pipelines/backup_pilot/` | 릴리스 01을 만든 동결 사본. [파일럿 파이프라인 상세](docs/DATA_PREPROCESSING_PIPELINE.md) |
 | 검색·답변 | `rag/`, `rag_service/` | [RAG 상세](docs/rag/RAG_PIPELINE_CHUNK_EMBEDDING_GUIDE_2026-10-14.md), [서비스 README](rag_service/README.md) |
 | 수집 | `collection/`, `configs/collection/`, `product_search/` | `python -m collection.collect` → `-m collection.build_indexes` → `-m collection.verify`. [적재 파이프라인](docs/collection/INGESTION_PIPELINE.md), [product_search README](product_search/README.md). 문서에 나오는 `collect.py`, `targets.json` 등은 이 두 폴더에 있다 |
-| 기타 폴더 README | [preprocess](preprocess/README.md), [review_viewer](review_viewer/README.md), [storage](storage/README.md), [pipelines](pipelines/README.md), [data](data/README.md) | |
+| 기타 폴더 README | [preprocess](preprocess/README.md), [storage](storage/README.md), [pipelines](pipelines/README.md), [data](data/README.md) | |
 
 ## 2. 데이터 버전
 
@@ -75,8 +73,7 @@ uv run python -m ingestion.load_catalog ; uv run python -m ingestion.db_verify
 .\.venv\Scripts\python.exe -X utf8 -B -m unittest pipelines.pipeline_h.test_policy pipelines.pipeline_h.test_batch pipelines.pipeline_h.test_html_source
 
 # 5) RA 서비스 (릴리스를 생략하면 versions.json의 served_by_ra_service = 04). 다른 서비스가 쓰는 포트는 피한다
-.\scripts\start_ra_service.ps1 -Port 8895 -ReviewUrl http://127.0.0.1:8896
-.\.venv\Scripts\python.exe -X utf8 -B -m review_viewer --run data/versions/04_pipeline_h_supplement_2026-10-14/embedded/release --port 8896
+.\scripts\start_ra_service.ps1 -Port 8895
 
 # 6) 적재 요청 에이전트
 uv run python -m ingestion.agent
@@ -114,3 +111,4 @@ uv run python -m ingestion.agent
 | 2026-10-14 14:10 | 통합 `.env`/`.env.example`, `storage/`, README·이관 기록·pgvector 통합 지도 작성. 테스트 1,133개·pipeline_h 18개 통과 |
 | 2026-10-14 14:45 | 원본의 H v2 개발 평가·개선 반영: 코드 `ra-research-rag-4.9.3`(`rag/` 4개 수정, `rag/ra_statistical_tables.py` 신규), eval 도구·질문 7개, 테스트 2개, 데이터 버전 03, 평가 기록 `data/runs/h_v2_rag_development_2026-10-14_luna_v1/`, 문서 `docs/rag/H_V2_RAG_DEVELOPMENT_EVAL_2026-10-14.md` |
 | 2026-10-14 14:59 | 루트 정리: 수집 스크립트 5개 → `collection/` 패키지, 규칙 JSON 4개 → `configs/collection/`, Paddle 잠금 목록 → `configs/env/`, `pyproject.toml`과 같은 `requirements.txt` 삭제. 경로·import를 참조하던 코드·설정 29개 파일 수정, 테스트 1,143개·pipeline_h 18개 통과 |
+| 2026-10-21 11:35 | 코드 정리(브랜치 `chore/code-cleanup`, 정리 전 상태는 git 태그 `pre-cleanup-2026-10-21`). 진입점(RA 서비스·적재·수집·storage·pipeline_h·남긴 eval)에서 import되지 않는 `rag`·`preprocess` 모듈 50개와 그것만 검사하던 테스트 삭제(`contract_match`·`request_contract`·`margin_scope`는 살아 있는 모듈 테스트의 판정 도구라 `tests/`로 이동). 일회성 eval 85개·옛 eval 데이터 21개, `pipelines/backup_pilot/`, `data/runs/h_v2_rag_development_2026-10-14_luna_v1/`, vendor `review_design.html` 삭제. 검토 화면 `review_viewer`(읽기 모듈은 `rag/bundle.py`로 이동)·`--review-url`, 표준 라이브러리 HTTP 서버·`--server`, 옛 화면 `rag_service/static/` 제거. `data/runs/model_quota/` 추적 해제, 로컬 `storage/handoff/` 덤프 삭제. 테스트 1,111개·pipeline_h 18개 통과 |

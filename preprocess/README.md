@@ -1,5 +1,7 @@
 # RA 문서 전처리: Paddle + 로컬 Qwen
 
+> 2026-10-21 코드 정리: 아래 기록에 나오는 파일럿 시절 CLI 중 `preprocess.cli`(`python -m preprocess`)·`dataset`·`dataset_inventory`·`dataset_duplicates`·`quality`·`quality_eval`·`refine`·`prepare_models`·`corpus`·`validate`·`subset`·`selective_reuse`·`light_refinement`·`structural_refinement`·`visual_trial`·`visual_evaluation`은 어느 진입점에서도 쓰이지 않아 삭제했다(git 태그 `pre-cleanup-2026-10-21`에 남음). 이 폴더의 나머지는 `pipeline_h`·`rag`·수집이 쓰는 라이브러리다.
+
 현재 처리/개발 기준(2026-10-09)은 [운영 원칙](../docs/PIPELINE_PRINCIPLES.md)이다. 검증된 native → 일반 PaddleOCR → 표 구조 복구 → 남은 복잡 영역 Qwen 순서로 처리한다. 여러 탐지 영역이나 낮은 문자 신뢰도만으로 VLM에 넘기지 않는다. 승인된 범위는 EMA/FDA/HC 5상품·92문서이며 보류 9문서는 제외한다. [최신 원문 검토](../docs/preprocessing/CASCADE_AND_RAG_SOURCE_REVIEW_2026-10-09.md)의 199개 큐는 재분류할 이전 후보이며 일괄 실행 대상이 아니다. 아래 날짜별 실행과 `table-grid-2`는 당시 구현 이력이고, 새 계약 적용 여부는 후속 기록으로 구분한다.
 
 2026-10-08 파이프라인 검증 결과: [청킹·메타데이터·표 제목·RAG 비교](../docs/rag/PIPELINE_REVIEW_2026-10-08.md). 반복 머리말·쪽번호는 원본 추출에 보존하고 검색 청크에서 제외한다. 내용 없는 상위 제목은 하위 본문과 묶으며, 다른 절·시험이나 표·그림 경계를 넘어 합치지 않는다. 앞 페이지의 마지막 실질 내용이 표 캡션이고 다음 페이지 상단에 해당 표가 이어질 때 제목을 연결한다. 중간 본문·새 캡션·다른 열이 있으면 연결하지 않는다.
