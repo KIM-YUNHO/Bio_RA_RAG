@@ -299,17 +299,6 @@ class PreprocessedChunkTests(unittest.TestCase):
         self.assertEqual(len(visual_windows), 1)
         self.assertEqual(membership[figure['chunk_id']]['source_ranges'][0]['unit_id'], figure['representation']['unit_ids'][0])
 
-    def test_cli_adapter_and_existing_context_writer_do_not_call_model_services(self):
-        from preprocess.cli import main
-        self.prepare(pages=[1])
-        with patch.object(pc.bc, 'Counter', return_value=self.counter), patch('urllib.request.urlopen', side_effect=AssertionError('No services')), contextlib.redirect_stdout(io.StringIO()):
-            self.assertEqual(main(['chunk', '--run', str(self.run), '--out', str(self.out)]), 0)
-        self.assertTrue((self.out/'chunk_contexts.jsonl').exists())
-        schema = json.loads((self.out/'chunk.schema.json').read_text(encoding='utf-8'))
-        self.assertEqual(schema['properties']['schema_version']['const'], 'rag-chunk-3')
-        with self.assertRaisesRegex(ValueError, 'separate'):
-            pc.write(self.run, self.run, self.counter)
-
     def test_context_first_export_restores_prose_target_and_enforces_policy_and_hashes(self):
         parser = Parser(figure=True)
         original = parser.parse

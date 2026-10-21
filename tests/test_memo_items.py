@@ -140,27 +140,26 @@ class MemoItemTests(unittest.TestCase):
             self.assertTrue(view['draft_only'])
         self.assertEqual(memo_items.brief(project, 'ra_preparation')['groups'][0]['type'], 'question')
 
-    def test_new_routes_work_over_both_http_servers(self):
+    def test_new_routes_work_over_http(self):
         memo = self.add(self.source())
         project = self.store.get(self.project['id'])
         project['memos'][0].pop('items')
         self.store.write(project)
-        for kind in ('stdlib', 'fastapi'):
-            with self.subTest(server=kind), serve(self.jobs, kind) as port:
-                def request(method, path, body=None):
-                    conn = http.client.HTTPConnection('127.0.0.1', port, timeout=10)
-                    try:
-                        conn.request(method, path, None if body is None else json.dumps(body), {'Content-Type': 'application/json'})
-                        reply = conn.getresponse()
-                        value = json.loads(reply.read())
-                        self.assertEqual(reply.status, 200, value)
-                        return value
-                    finally:
-                        conn.close()
-                request('POST', f"/api/projects/{project['id']}/memos/{memo['id']}/structure", {'expected_revision': 1 if kind == 'stdlib' else 2})
-                view = request('GET', f"/api/projects/{project['id']}/briefs/result_review")
-                self.assertEqual(sum(len(g['items']) for g in view['groups']), 3)
-                self.assertIn('criterion', request('GET', '/api/projects')['item_definitions']['types'])
+        with serve(self.jobs) as port:
+            def request(method, path, body=None):
+                conn = http.client.HTTPConnection('127.0.0.1', port, timeout=10)
+                try:
+                    conn.request(method, path, None if body is None else json.dumps(body), {'Content-Type': 'application/json'})
+                    reply = conn.getresponse()
+                    value = json.loads(reply.read())
+                    self.assertEqual(reply.status, 200, value)
+                    return value
+                finally:
+                    conn.close()
+            request('POST', f"/api/projects/{project['id']}/memos/{memo['id']}/structure", {'expected_revision': 1})
+            view = request('GET', f"/api/projects/{project['id']}/briefs/result_review")
+            self.assertEqual(sum(len(g['items']) for g in view['groups']), 3)
+            self.assertIn('criterion', request('GET', '/api/projects')['item_definitions']['types'])
 
 
 if __name__ == '__main__':

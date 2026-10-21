@@ -1,11 +1,11 @@
-"""FastAPI front of the RA service: the same URLs, JSON, statuses and headers as the standard-library server in
-rag_service/__main__.py (plan: docs/project/FASTAPI_MIGRATION_PLAN_2026-10-18.md; the shared rules are in http_rules.py and
-tests/test_http_contract.py runs the same cases against both).
+"""FastAPI front of the RA service. It replaced the standard-library server on 2026-10-18 with the same URLs, JSON,
+statuses and headers (plan: docs/project/FASTAPI_MIGRATION_PLAN_2026-10-18.md; the rules are in http_rules.py and
+tests/test_http_contract.py pins them).
 
 The app only receives requests and hands them to the objects the service already has (`jobs`: question jobs, reviews,
 notebooks, the ingestion window, the evidence pages). Nothing here searches, answers or reads a database.
 
-Differences from the standard-library server, both deliberate:
+Differences from the earlier standard-library server, both deliberate:
   - an exception nobody expected answers 500 `{"error": ...}` (the old server closed the connection without a reply);
   - a method the service does not define (PUT, DELETE ...) answers 405 instead of 501.
 """
@@ -72,7 +72,7 @@ def failure(exc, method):
 
 
 def guarded(method):
-    """Turn what a handler raises into the response the client gets (the status table of the standard-library server)."""
+    """Turn what a handler raises into the response the client gets (the status table kept from the earlier server)."""
     def wrap(handler):
         @wraps(handler)
         def run(*args, **kwargs):
@@ -126,7 +126,7 @@ class Boundary:
 
 
 async def json_payload(request: Request):
-    """The POST gate, in the standard-library server's order: known path, JSON content type, size, parse."""
+    """The POST gate, in the earlier server's order: known path, JSON content type, size, parse."""
     path = request.url.path
     try:
         if not post_path_known(path):
@@ -284,6 +284,7 @@ def create_app(jobs, port):
 
     for url, summary_text in (('/api/questions', '질문 접수 (모델 호출 발생)'), ('/api/jobs/{job_id}/review', '답변 검토 기록 추가'),
                               ('/api/projects', '파이프라인 만들기'), ('/api/projects/{project_id}/memos', '메모 저장'),
+                              ('/api/projects/{project_id}/delete', '파이프라인 삭제 (목록에서 숨김, 만드는 중인 초안·가이드가 있으면 거절)'),
                               ('/api/projects/{project_id}/memos/{memo_id}/revisions', '메모 수정'),
                               ('/api/projects/{project_id}/memos/{memo_id}/structure', '원 보고서에서 기존 메모 항목 복원'),
                               ('/api/projects/{project_id}/documents', '내부 문서 등록 (같은 버전은 바꿀 수 없음)'),

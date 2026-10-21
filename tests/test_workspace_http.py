@@ -1,11 +1,9 @@
 """Notebook HTTP contract and a no-model fixture for DOM interaction checks."""
 from contextlib import contextmanager
-from http.server import ThreadingHTTPServer
 import json
 from pathlib import Path
 import sys
 import tempfile
-from threading import Thread
 from types import SimpleNamespace
 import unittest
 import urllib.error
@@ -13,10 +11,10 @@ import urllib.request
 
 import fitz
 
-from rag_service.__main__ import Jobs, handler
+from rag_service.__main__ import Jobs
 
 sys.path.insert(0, str(Path(__file__).parent))
-from http_server import Running, default_kind  # noqa: E402
+from http_server import Running  # noqa: E402
 
 JOB_ID = 'a' * 32
 
@@ -43,7 +41,7 @@ def fixture_jobs(ingestion_service=None):
             guidelines = None
             def summary(self):
                 return {'chunks': 1, 'eligible_chunks': 1, 'answer_model': 'fixture', 'run_name': 'fixture',
-                        'review_url': 'http://127.0.0.1:1', 'pipeline_version': 'fixture', 'product_index_chunks': 1}
+                        'pipeline_version': 'fixture', 'product_index_chunks': 1}
         jobs = Jobs(Pipeline(), root/'reports', ingestion_service=ingestion_service or FixtureIngestion())
         evidence = {**doc, 'pdf_page': 1, 'text': 'Verified source sentence.', 'source_refs': [], 'source_spans': [], 'structure': {'kind': 'text'}}
         claim = {'id': 'C1', 'text': '검증한 근거 메모', 'products': ['SB17'], 'task_ids': ['T1'], 'kind': 'source_fact',
@@ -63,7 +61,7 @@ def fixture_jobs(ingestion_service=None):
 
 
 def add_stop_route(app, running):
-    """The FastAPI fixture's POST /__fixture_stop, which the DOM checks use to end the server (same as FixtureHandler)."""
+    """The fixture's POST /__fixture_stop, which the DOM checks use to end the server."""
     from fastapi import Response
 
     def stop():
@@ -75,27 +73,11 @@ def add_stop_route(app, running):
 @contextmanager
 def fixture(ingestion_service=None):
     with fixture_jobs(ingestion_service) as jobs:
-        if default_kind() == 'fastapi':
-            server = Running(jobs, 'fastapi', extend=add_stop_route)
-            try:
-                yield server, jobs, server.thread
-            finally:
-                server.shutdown()
-            return
-        base_handler = handler(jobs)
-        class FixtureHandler(base_handler):
-            def do_POST(self):
-                if self.path == '/__fixture_stop':
-                    self.send({'stopping': True})
-                    Thread(target=self.server.shutdown, daemon=True).start()
-                else:
-                    super().do_POST()
-        server = ThreadingHTTPServer(('127.0.0.1', 0), FixtureHandler)
-        thread = Thread(target=server.serve_forever, daemon=True); thread.start()
+        server = Running(jobs, extend=add_stop_route)
         try:
-            yield server, jobs, thread
+            yield server, jobs, server.thread
         finally:
-            server.shutdown(); server.server_close(); thread.join()
+            server.shutdown()
 
 
 class NotebookHttpTests(unittest.TestCase):

@@ -7,7 +7,7 @@ import shutil
 from threading import Lock
 import numpy as np
 
-from review_viewer.data import Bundle, read, rows, digest
+from rag.bundle import Bundle, read, rows, digest
 from rag.portable_paths import resolve
 
 ROOT = Path(__file__).resolve().parents[1]

@@ -1,5 +1,5 @@
-"""Rules of the RA service's HTTP layer that the standard-library server (rag_service/__main__.py) and the FastAPI app
-(rag_service/app.py) both apply. tests/test_http_contract.py checks that they answer the same."""
+"""Rules of the RA service's HTTP layer (rag_service/app.py): screen files, routes, headers, body limits and the
+same-origin rule. tests/test_http_contract.py pins what the screen relies on."""
 from pathlib import Path
 import re
 

@@ -32,7 +32,7 @@ data/
       └─ records/                           후보 구성·무결성 감사, 연속 표 96개 회수 검사 요약
 ```
 
-03의 평가 실행 기록(질문·보고서·원문 판정·테스트 로그)은 문서 링크가 그대로 열리도록 원래 경로인 `runs/h_v2_rag_development_2026-10-14_luna_v1/`에 두었다. 설명은 [H v2 개발 평가·개선](../docs/rag/H_V2_RAG_DEVELOPMENT_EVAL_2026-10-14.md).
+03의 평가 실행 기록(질문·보고서·원문 판정·테스트 로그)은 원래 경로인 `runs/h_v2_rag_development_2026-10-14_luna_v1/`에 두었다가 10-21 정리에서 git에서 지웠다(git 태그 `pre-cleanup-2026-10-21`에 남음). 아래 표의 `pipelines/backup_pilot` 링크와 03을 만든 `eval/h_v2_native_candidate.py`·`eval/finalize_h_v2_native_candidate.py`도 같은 태그에 있다. 설명은 [H v2 개발 평가·개선](../docs/rag/H_V2_RAG_DEVELOPMENT_EVAL_2026-10-14.md).
 
 ## 2. 세 버전 비교
 

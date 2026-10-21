@@ -1,5 +1,5 @@
 import unittest
-from rag.request_contract import ground, locate, translation_omissions
+from tests.request_contract import ground, locate, translation_omissions
 from rag.contract_terms import atoms
 
 

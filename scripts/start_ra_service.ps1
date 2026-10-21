@@ -1,12 +1,9 @@
 param(
     [ValidateRange(1,65535)][int]$Port = 8775,
     [ValidateSet('gpt-5.6-luna','gpt-4o-mini')][string]$Model = 'gpt-5.6-luna',
-    [ValidatePattern('^http://127\.0\.0\.1:\d{1,5}$')][string]$ReviewUrl = 'http://127.0.0.1:8766',
     # Release folder relative to the project root (a versions.json embedded_path).
     # Default: the version that versions.json marks as served_by_ra_service.
-    [string]$Release = '',
-    # HTTP layer: the FastAPI app (rag_service/app.py) or the earlier standard-library server.
-    [ValidateSet('fastapi','stdlib')][string]$Server = 'fastapi'
+    [string]$Release = ''
 )
 $ErrorActionPreference = 'Stop'
 $projectRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
@@ -48,7 +45,7 @@ $stdoutPath = Join-Path $logDirectory ($stamp+'.stdout.log')
 $stderrPath = Join-Path $logDirectory ($stamp+'.stderr.log')
 $arguments = @('-X','utf8','-u','-B','-m','rag_service','--mode','ra','--llm-model',$Model,
     '--run',$releasePath,'--guidelines',$guidelinePath,'--port',[string]$Port,
-    '--server',$Server,'--review-url',$ReviewUrl,'--research-rounds','1','--archive-dir',$archivePath,'--warmup',
+    '--research-rounds','1','--archive-dir',$archivePath,'--warmup',
     '--review-dir',(Join-Path $projectRoot 'data\runs\ra_review_records'))
 $quotedArguments = ($arguments | ForEach-Object { '"' + $_.Replace('"','\"') + '"' }) -join ' '
 $serviceProcess = Start-Process -FilePath $pythonPath -ArgumentList $quotedArguments -WorkingDirectory $projectRoot `

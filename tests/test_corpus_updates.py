@@ -8,7 +8,6 @@ from preprocess.hybrid import run_hybrid, resume_enrichment, read_jsonl
 from preprocess.hybrid_validate import validate_extraction
 from preprocess.hybrid_config import HybridConfig
 from preprocess.native_page import parse
-from preprocess.subset import create
 from test_preprocessing_hybrid import Parser, Qwen
 
 
@@ -30,22 +29,6 @@ class CorpusUpdates(unittest.TestCase):
             self.assertEqual(a['source_refs'][0]['rendered_sha256'],doc.rendered_sha256)
             Path(doc.rendered_path).write_bytes(b'changed')
             with self.assertRaisesRegex(ValueError,'rendering checksum'):validate_extraction(root/'extraction')
-
-    def test_pending_retry_preserves_completed_candidates_without_generation(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            root=Path(tmp);source=root/'source.pdf'
-            with fitz.open() as pdf:
-                page=pdf.new_page(width=400,height=400);page.insert_text((40,70),'Group N A 10 B 20');pdf.save(source)
-            docs=from_inputs([source],root/'input');config=HybridConfig()
-            with contextlib.redirect_stdout(io.StringIO()):
-                run_hybrid(docs,root/'run',config,paddle=Parser(figure=True),qwen=Qwen())
-                before=read_jsonl(root/'run/extracted_assets.jsonl')
-                model=Qwen();resume_enrichment(root/'run',config,adapter=model,only_pending=True)
-            self.assertFalse(model.calls)
-            after=read_jsonl(root/'run/extracted_assets.jsonl')
-            for a,b in zip(before,after):
-                if a.get('enrichment'):self.assertEqual(a['enrichment'],b['enrichment'])
-            create(root/'run',root/'subset',[docs[0].document_id]);validate_extraction(root/'subset')
 
     def test_native_prose_fastpath_rejects_drawings_and_tables(self):
         with fitz.open() as pdf:

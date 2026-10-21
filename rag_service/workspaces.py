@@ -189,6 +189,16 @@ class WorkspaceStore:
     def write(self, project):
         atomic(self.path(project['id']), project)
 
+    def delete(self, project_id):
+        """Take a pipeline off the list. Its record moves to deleted/ unchanged, so memos stay recoverable."""
+        with self.writing():
+            path = self.path(project_id)
+            if not path.is_file():
+                raise KeyError(project_id)
+            (self.directory / 'deleted').mkdir(exist_ok=True)
+            os.replace(path, self.directory / 'deleted' / path.name)
+            return {'id': project_id, 'deleted': True}
+
     @staticmethod
     def fields(payload):
         body = text(payload.get('body'), '메모', 8000)
@@ -367,7 +377,8 @@ class PostgresWorkspaceStore(WorkspaceStore):
 
     def get(self, project_id):
         with self.connection() as conn:
-            row = conn.execute('SELECT record FROM app.workspace_projects WHERE project_id = %s', (identity(project_id),)).fetchone()
+            row = conn.execute('SELECT record FROM app.workspace_projects WHERE project_id = %s AND deleted_at IS NULL',
+                               (identity(project_id),)).fetchone()
         if not row:
             raise KeyError(project_id)
         return self.pipeline_record(row[0])
@@ -377,7 +388,7 @@ class PostgresWorkspaceStore(WorkspaceStore):
             rows = conn.execute("""SELECT record->>'id', record->>'name', record->>'ingredient',
                 record->>'updated_at',
                 (SELECT count(*) FROM jsonb_array_elements(record->'memos') m WHERE NOT (m->>'archived')::boolean)
-                FROM app.workspace_projects ORDER BY updated_at DESC""").fetchall()
+                FROM app.workspace_projects WHERE deleted_at IS NULL ORDER BY updated_at DESC""").fetchall()
         projects = [dict(zip(('id', 'name', 'ingredient', 'updated_at', 'memo_count'), row)) for row in rows]
         return {'projects': projects, 'stages': deepcopy(STAGES), 'storage': 'postgres'}
 
@@ -388,6 +399,15 @@ class PostgresWorkspaceStore(WorkspaceStore):
                 VALUES (%s, %s, %s) ON CONFLICT (project_id) DO UPDATE
                 SET name = EXCLUDED.name, record = EXCLUDED.record, updated_at = now()""",
                 (project['id'], project['name'], Jsonb(project)))
+
+    def delete(self, project_id):
+        """Hide a pipeline (deleted_at); the row and its memos stay in the database."""
+        with self.writing():
+            row = self.local.conn.execute("""UPDATE app.workspace_projects SET deleted_at = now()
+                WHERE project_id = %s AND deleted_at IS NULL RETURNING project_id""", (identity(project_id),)).fetchone()
+            if not row:
+                raise KeyError(project_id)
+            return {'id': project_id, 'deleted': True}
 
     def remember_document(self, evidence, path):
         from rag.portable_paths import resolve

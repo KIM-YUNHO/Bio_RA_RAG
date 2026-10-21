@@ -1,20 +1,19 @@
 """Shared evidence adapter: exact locations and restrictions, no model calls."""
 import json
 import unittest
-from urllib.parse import parse_qs, urlsplit
 from unittest.mock import patch
 import numpy as np
 
-import test_review_viewer
-from rag.preprocessed_evidence import PreprocessedEvidence, grounded_answer, local_base, validate_shape
+import test_release_bundle
+from rag.preprocessed_evidence import PreprocessedEvidence, grounded_answer, validate_shape
 
 
 class EvidenceAdapterTests(unittest.TestCase):
     def setUp(self):
-        self.fixture=test_review_viewer.ViewerTests('test_pages_assets_and_chunks_preserve_same_source_and_review_state')
+        self.fixture=test_release_bundle.BundleTests('test_pages_assets_and_chunks_preserve_same_source_and_review_state')
         self.fixture.setUp();self.bundle=self.fixture.bundle
         self.chunks=[json.loads(line) for line in (self.bundle.candidate/'chunks.jsonl').read_text(encoding='utf-8').splitlines()]
-        self.adapter=PreprocessedEvidence(self.bundle,self.chunks,self.bundle.chunks_sha256,'http://127.0.0.1:8766')
+        self.adapter=PreprocessedEvidence(self.bundle,self.chunks,self.bundle.chunks_sha256)
 
     def tearDown(self):self.fixture.tearDown()
 
@@ -25,9 +24,8 @@ class EvidenceAdapterTests(unittest.TestCase):
             self.assertEqual(block['text'],self.adapter.by_id[block['chunk_id']]['text'])
             self.assertFalse(block['representation']['numeric_evidence_eligible'])
             for link in block['review_links']:
-                params=parse_qs(urlsplit(link['url']).fragment)
-                self.assertEqual(params['index'],[self.bundle.chunks_sha256])
-                self.assertEqual(self.bundle.assets[params['asset'][0]]['pdf_page'],int(params['page'][0]))
+                self.assertEqual(set(link),{'pdf_page','asset_id'})
+                self.assertEqual(self.bundle.assets[link['asset_id']]['pdf_page'],link['pdf_page'])
 
     def test_excluded_hit_cannot_enter_through_context(self):
         self.assertEqual(self.adapter.evidence(self.chunks,[]),{})
@@ -56,12 +54,10 @@ class EvidenceAdapterTests(unittest.TestCase):
         checked=grounded_answer(out,{'E1':block})
         self.assertEqual(len(checked['items']),1);self.assertNotIn('999',checked['answer_ko'])
 
-    def test_invalid_model_shape_remote_urls_and_mismatched_versions_fail(self):
+    def test_invalid_model_shape_and_mismatched_versions_fail(self):
         for value in [None,{}, {'status':'answered','items':[{}],'answer_ko':'x'}]:
             with self.assertRaises(ValueError):validate_shape(value)
-        for value in ['https://example.org','http://localhost:8766/path','http://user:pass@127.0.0.1:8766']:
-            with self.assertRaises(ValueError):local_base(value)
-        with self.assertRaises(ValueError):PreprocessedEvidence(self.bundle,self.chunks,'wrong','http://127.0.0.1:8766')
+        with self.assertRaises(ValueError):PreprocessedEvidence(self.bundle,self.chunks,'wrong')
 
 
 if __name__=='__main__':unittest.main()

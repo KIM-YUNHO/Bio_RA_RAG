@@ -42,7 +42,7 @@ class BudgetedEvidence(PreprocessedEvidence):
             identity=chunk['structure'].get('figure_id') or chunk['structure'].get('table_id')
             if identity:self.by_visual[(chunk['document_id'],chunk['version_id'],identity)].append(chunk)
         self.visual_bundle=None
-        from review_viewer.data import read
+        from rag.bundle import read
         summary=read(self.bundle.candidate/'chunks_summary.json')
         if summary.get('visual_context_contract'):
             from preprocess.visual_context import load_bundle

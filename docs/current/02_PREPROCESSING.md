@@ -6,7 +6,7 @@
 
 ## 1. 표준 구성: pipeline H
 
-표준(Main) 전처리는 `pipelines/pipeline_h/`다(2026-10-14 확정). 파일럿 구성(`pipelines/backup_pilot/`, 릴리스 01을 만든 코드)은 동결 백업이다.
+표준(Main) 전처리는 `pipelines/pipeline_h/`다(2026-10-14 확정). 파일럿 구성(릴리스 01을 만든 코드)의 동결 사본 `pipelines/backup_pilot/`은 10-21 정리에서 삭제했다. git 태그 `pre-cleanup-2026-10-21`에 남아 있다.
 
 | 기능 | 모델·도구 |
 | :-- | :-- |

@@ -1,6 +1,6 @@
-"""What the RA service's HTTP layer promises, checked against each implementation (standard library and FastAPI).
+"""What the RA service's HTTP layer (the FastAPI app) promises the screen.
 
-The expected values are what the standard-library server answered on 2026-10-18 (tests/probe in the migration plan,
+The expected values are what the earlier standard-library server answered on 2026-10-18 (tests/probe in the migration plan,
 docs/project/FASTAPI_MIGRATION_PLAN_2026-10-18.md section 2): status codes, error texts, headers, body limits and the
 same-origin rule. Anything the screen relies on is pinned here; the cases that are not (methods the service does not
 define, an unexpected exception in a handler) are listed in the plan as known differences and are not pinned.
@@ -13,7 +13,7 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from http_server import fastapi_available, serve  # noqa: E402
+from http_server import serve  # noqa: E402
 from test_workspace_http import JOB_ID, fixture_jobs  # noqa: E402
 from test_internal_work import BUNDLE, FakeChat  # noqa: E402
 
@@ -41,7 +41,7 @@ class Contract:
         cls.jobs = jobs.__enter__()
         cls.stack.append(jobs)
         cls.jobs.work_drafts.chat_factory = lambda folder: FakeChat()  # never a provider call
-        server = serve(cls.jobs, cls.kind)
+        server = serve(cls.jobs)
         cls.port = server.__enter__()
         cls.stack.append(server)
 
@@ -258,11 +258,6 @@ class Contract:
                 self.assertNotIn(self.call(method, '/api/summary', {} if method != 'DELETE' else None)[0], range(200, 300))
 
 
-class StdlibContract(Contract, unittest.TestCase):
-    kind = 'stdlib'
-
-
-@unittest.skipUnless(fastapi_available(), 'FastAPI app (rag_service/app.py) is not available')
 class FastApiContract(Contract, unittest.TestCase):
     kind = 'fastapi'
 

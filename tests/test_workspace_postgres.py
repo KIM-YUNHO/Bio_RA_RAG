@@ -80,6 +80,22 @@ class PostgresNotebookTests(unittest.TestCase):
         self.assertEqual(board['W-IV-CPB']['axes']['schedule']['date'], '2026-05-08')
         self.assertEqual(restored['revision'], project['revision'] + 1)
 
+    def test_deleted_project_is_hidden_kept_and_its_name_reusable(self):
+        store = PostgresWorkspaceStore(self.connector)
+        project = store.create({'name': 'Deleted pipeline', 'ingredient': 'ustekinumab'})
+        store.add(project['id'], {'request_id': uuid4().hex, 'body': 'Kept memo', 'stage_ids': ['cmc'], 'products': [], 'tags': []})
+        self.assertEqual(store.delete(project['id']), {'id': project['id'], 'deleted': True})
+        self.assertNotIn(project['id'], [p['id'] for p in store.list()['projects']])
+        with self.assertRaises(KeyError):
+            store.get(project['id'])
+        with self.assertRaises(KeyError):
+            store.delete(project['id'])
+        with self.connector() as conn:
+            record = conn.execute('SELECT record FROM app.workspace_projects WHERE project_id = %s', (project['id'],)).fetchone()[0]
+        self.assertEqual(record['memos'][0]['body'], 'Kept memo')
+        again = store.create({'name': 'Deleted pipeline', 'ingredient': 'ustekinumab'})
+        self.assertNotEqual(again['id'], project['id'])
+
     def test_projects_tags_revision_and_catalog_reload_independence(self):
         store = PostgresWorkspaceStore(self.connector)
         project = store.create({'name': 'DB 개발 제품', 'ingredient': 'ustekinumab'})

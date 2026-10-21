@@ -4,6 +4,10 @@
 - 최종 수정: 2026-10-14 23:25 KST (릴리스 04 덤프·데이터 묶음, 경로 이식. 이전: 16:50 웹 화면 DB 연결)
 - 대상: 이 DB를 받아 각자 로컬에서 RAG 검색·웹 화면을 띄울 팀원
 
+## 2026-10-21: 이 PC의 10-14 덤프·데이터 묶음 삭제
+
+`storage/handoff/`의 `biosim_20261014_r04.dump`, `biosim_data_20261014_r04.zip`과 `temp/`의 이전 덤프를 지웠다. 덤프에 들었던 릴리스 01·03·04(청크 10,088·11,536·15,682)는 지금 DB `biosim_ra`의 `rag.releases`에 모두 있다. 다시 넘길 일이 생기면 `biosim_ra`에서 새로 `pg_dump`하고, 웹 화면용 묶음은 `uv run python -m storage.serving_data --zip <경로>`로 만든다. `scripts/setup_local.ps1`은 아직 DB 이름을 `biosim`으로 가정한다(10-18 분리 전 기준).
+
 ## 2026-10-14 23시 갱신: 릴리스 04 (서비스 색인)
 
 릴리스 04 = 03 + 보충 19문서(이전에 평가 보호로 빠졌던 Usymro·Yesintek EPAR 등 9문서, ClinicalTrials.gov 프로토콜·SAP 10문서). 111문서·15,682청크. `versions.json`의 `served_by_ra_service`가 04이고, `start_ra_service.ps1`은 인자가 없으면 이 버전으로 뜬다. 코드는 PR #4(`ra-research-rag-4.10.1`) 이후 기준이다.

@@ -546,23 +546,6 @@ class HybridTests(unittest.TestCase):
         self.assertEqual([d['state'] for d in report['documents']], ['partial_failure', 'failed'])
         self.assertTrue(all(d['errors'] for d in report['documents']))
 
-    def test_status_cli_exports_without_inference_or_mutating_extraction(self):
-        from preprocess.cli import main
-        self.run_pipeline(Parser(figure=True), Qwen(truncated=True), pages=[1])
-        original = sha256(self.out/'source_units.jsonl')
-        export = self.root/'report_export'
-        with contextlib.redirect_stdout(io.StringIO()) as stdout, patch('urllib.request.urlopen', side_effect=AssertionError('No model service')):
-            code = main(['status', '--run', str(self.out), '--write', '--out', str(export)])
-        self.assertEqual(code, 0)
-        report = json.loads(stdout.getvalue())
-        self.assertEqual(report['state'], 'review_required')
-        self.assertEqual(sha256(self.out/'source_units.jsonl'), original)
-        self.assertTrue((export/'processing_report.md').exists())
-        (self.out/'source_units.jsonl').write_text('tampered')
-        with self.assertRaises(SystemExit) as failed, contextlib.redirect_stderr(io.StringIO()):
-            main(['status', '--run', str(self.out)])
-        self.assertEqual(failed.exception.code, 1)
-
     def test_keyboard_interrupt_is_recorded_and_parser_is_closed(self):
         from preprocess.reporting import build_report
         parser = Parser()

@@ -44,7 +44,7 @@ def main():
             documents[d['document_id']] = d
     bundle = SimpleNamespace(candidate=folder,units={u['unit_id']:u for u in rows(folder/'source_units.jsonl')},
         assets=assets,doc_by_identity=docmap,chunks_sha256=summary['chunks_sha256'])
-    adapter = BudgetedEvidence(bundle,chunks,summary['chunks_sha256'],'http://127.0.0.1:8766')
+    adapter = BudgetedEvidence(bundle,chunks,summary['chunks_sha256'])
     corpus=SimpleNamespace(chunks=chunks,evidence_adapter=adapter,allowed_documents=None)
     # Uses production token accounting; this object has no transport/session.
     client=SimpleNamespace(tokenizer=ApiTokenizer('gpt-5.6-luna'),output_tokens=3000,input_limit=13128)

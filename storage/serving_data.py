@@ -1,6 +1,6 @@
 """The data files the web services need to serve a release, computed from the release's own manifests.
 
-Serving a release (`rag_service`, `review_viewer`) opens: the release folder and its component folders (run + candidate),
+Serving a release (`rag_service`) opens: the release folder and its component folders (run + candidate),
 every document's source PDF and rendered PDF named in the extraction manifests, the guideline snapshot with its sources,
 and the catalog. This lists exactly those files (this project's copies), their size, and can write them to a zip that
 keeps the relative paths, so a teammate unpacks it at the project root.
