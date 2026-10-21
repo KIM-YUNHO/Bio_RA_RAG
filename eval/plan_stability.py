@@ -126,7 +126,7 @@ def main():
     from rag.rerank import LocalReranker, MODEL, REVISION
     from preprocess.hybrid_config import load_config
     pipe = RAPipeline(ROOT / 'data/versions/04_pipeline_h_supplement_2026-10-14/embedded/release', None,
-                      load_config(ROOT / 'configs/preprocess.local.json'), 'http://127.0.0.1:1',
+                      load_config(ROOT / 'configs/preprocess.local.json'),
                       guideline_snapshot=ROOT / 'data/guidelines/ra_guidelines_native_2026-10-12_v2',
                       research_rounds=0, chat_client=OpenAIPipelineChat(model='gpt-5.6-luna', context_tokens=65536))
     folder = a.plans_dir or a.output.parent / 'plans'

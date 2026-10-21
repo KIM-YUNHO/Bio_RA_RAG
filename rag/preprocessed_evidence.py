@@ -1,6 +1,5 @@
 """Source-preserving evidence adapter used by the existing RAG answer path."""
 import re
-from urllib.parse import urlencode, urlsplit
 
 from rag.preprocessed_chunks import related_visual_contexts
 from rag.search import filter_idx, similarity
@@ -35,20 +34,12 @@ do not emit an item describing the absence as if it were a source value.
 """
 
 
-def local_base(value):
-    parts = urlsplit(value)
-    if parts.scheme != 'http' or parts.hostname not in ('127.0.0.1', 'localhost', '::1') or parts.username or parts.password or parts.query or parts.fragment or parts.path not in ('', '/'):
-        raise ValueError('Use a loopback HTTP review URL without a path or credentials')
-    return value.rstrip('/')
-
-
 class PreprocessedEvidence:
-    def __init__(self, bundle, chunks, index_sha, review_url):
+    def __init__(self, bundle, chunks, index_sha):
         self.bundle = bundle
         self.chunks = chunks
         self.by_id = {c['chunk_id']: c for c in chunks}
         self.index_sha = index_sha
-        self.review_url = local_base(review_url)
         if index_sha != bundle.chunks_sha256:
             raise ValueError('Evidence and review index hashes differ')
         self.last_omitted = []
@@ -65,10 +56,7 @@ class PreprocessedEvidence:
             if not intersects:
                 continue
             asset = self.bundle.assets[span['unit_id']]
-            key = self.bundle.doc_by_identity[(asset['document_id'], asset['version_id'])]
-            params = {'doc': key, 'page': asset['pdf_page'], 'asset': asset['asset_id'], 'index': self.index_sha}
-            entry = {'pdf_page': asset['pdf_page'], 'asset_id': asset['asset_id'],
-                     'url': self.review_url + '/#' + urlencode(params)}
+            entry = {'pdf_page': asset['pdf_page'], 'asset_id': asset['asset_id']}
             if entry not in links:
                 links.append(entry)
         return links

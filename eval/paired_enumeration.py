@@ -42,7 +42,7 @@ def main():
     from preprocess.hybrid_config import load_config
     units = gold(a.run)
     plans = [json.loads(Path(f).read_text(encoding='utf-8'))['understanding'] for f in sorted(glob.glob(str(a.plans / '*_?.json')))]
-    pipe = RAPipeline(a.run, None, load_config(ROOT / 'configs/preprocess.local.json'), 'http://127.0.0.1:8886',
+    pipe = RAPipeline(a.run, None, load_config(ROOT / 'configs/preprocess.local.json'),
                       guideline_snapshot=a.guidelines, research_rounds=0, retrieval_pages=8,
                       chat_client=OpenAIPipelineChat(model='gpt-5.6-luna', context_tokens=65536))
     a.output.mkdir(parents=True, exist_ok=True)

@@ -118,7 +118,7 @@ def main():
     from rag.ra_pipeline import RAPipeline
     from preprocess.hybrid_config import load_config
     OpenAIPipelineChat.__call__ = lambda self, *x, **y: (_ for _ in ()).throw(RuntimeError('no provider calls'))
-    pipe = RAPipeline(a.run, None, load_config(ROOT / 'configs/preprocess.local.json'), 'http://127.0.0.1:1',
+    pipe = RAPipeline(a.run, None, load_config(ROOT / 'configs/preprocess.local.json'),
                       guideline_snapshot=a.guidelines, research_rounds=0, chat_client=OpenAIPipelineChat(model='gpt-5.6-luna'))
     pipe.warmup()
     corpus = pipe.retrieval_corpus()

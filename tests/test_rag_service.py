@@ -15,7 +15,7 @@ from http_server import Running  # noqa: E402
 
 class Pipeline:
     def __init__(self):self.entered=Event();self.release=Event();self.calls=[]
-    def summary(self):return {'service':'main','review_url':'http://127.0.0.1:8766'}
+    def summary(self):return {'service':'main'}
     def validate_request(self,question,*args):
         if not isinstance(question,str) or not question:raise ValueError('Question required')
     def ask(self,question,products,jurisdictions,documents,progress,include_nondefault=False):

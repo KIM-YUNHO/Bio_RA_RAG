@@ -41,7 +41,7 @@ def fixture_jobs(ingestion_service=None):
             guidelines = None
             def summary(self):
                 return {'chunks': 1, 'eligible_chunks': 1, 'answer_model': 'fixture', 'run_name': 'fixture',
-                        'review_url': 'http://127.0.0.1:1', 'pipeline_version': 'fixture', 'product_index_chunks': 1}
+                        'pipeline_version': 'fixture', 'product_index_chunks': 1}
         jobs = Jobs(Pipeline(), root/'reports', ingestion_service=ingestion_service or FixtureIngestion())
         evidence = {**doc, 'pdf_page': 1, 'text': 'Verified source sentence.', 'source_refs': [], 'source_spans': [], 'structure': {'kind': 'text'}}
         claim = {'id': 'C1', 'text': '검증한 근거 메모', 'products': ['SB17'], 'task_ids': ['T1'], 'kind': 'source_fact',

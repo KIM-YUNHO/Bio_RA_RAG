@@ -8,7 +8,7 @@ import unittest
 from unittest.mock import patch
 
 import numpy as np
-import test_review_viewer
+import test_release_bundle
 from preprocess.hybrid_config import HybridConfig
 from preprocess.ingest import sha256
 from rag import ra_answer, ra_tasks
@@ -208,7 +208,7 @@ class GuidelineTests(unittest.TestCase):
 
 class PipelineTests(unittest.TestCase):
     def setUp(self):
-        self.fixture = test_review_viewer.ViewerTests('test_pages_assets_and_chunks_preserve_same_source_and_review_state')
+        self.fixture = test_release_bundle.BundleTests('test_pages_assets_and_chunks_preserve_same_source_and_review_state')
         self.fixture.setUp(); self.bundle = self.fixture.bundle
         chunks = [json.loads(line) for line in (self.bundle.candidate / 'chunks.jsonl').read_text(encoding='utf-8').splitlines()]
         for c in chunks: c.update(source='EMA', jurisdiction='EU', product_id='SB17')

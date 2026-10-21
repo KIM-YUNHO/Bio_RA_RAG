@@ -82,7 +82,7 @@ class RAPipeline(RAGPipeline):
     def retrieval_corpus(self):
         if self._ra_corpus is None:
             self._ra_corpus = answer.Corpus('bge-m3', self.bundle.candidate, local_only=True, bundle=self.bundle,
-                review_url=self.review_url, include_nondefault=True, shared_cache=True)
+                include_nondefault=True, shared_cache=True)
         return self._ra_corpus
 
     def warmup(self):

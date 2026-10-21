@@ -53,7 +53,7 @@ def main():
     from rag.openai_chat import OpenAIPipelineChat
     from rag.ra_pipeline import RAPipeline
     from preprocess.hybrid_config import load_config
-    pipe = RAPipeline(a.run, None, load_config(ROOT / 'configs/preprocess.local.json'), 'http://127.0.0.1:1',
+    pipe = RAPipeline(a.run, None, load_config(ROOT / 'configs/preprocess.local.json'),
                       research_rounds=0, chat_client=OpenAIPipelineChat(model='gpt-5.6-luna', context_tokens=65536))
     folder = a.plans_dir or a.output.parent / 'plans'
     scores, roles = {}, {}

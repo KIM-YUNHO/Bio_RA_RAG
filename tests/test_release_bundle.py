@@ -1,14 +1,10 @@
-"""Actual checkpoint -> visual inspection APIs; no OCR/VLM or external services."""
+"""A finished extraction checkpoint opens as a read-only bundle; no OCR/VLM or external services."""
 import contextlib
 import io
 import json
 from pathlib import Path
 import tempfile
-from threading import Thread
 import unittest
-import urllib.error
-import urllib.request
-from http.server import ThreadingHTTPServer
 
 import fitz
 from PIL import Image
@@ -18,11 +14,10 @@ from preprocess.hybrid import run_hybrid
 from preprocess.hybrid_config import HybridConfig
 from preprocess.ingest import from_inputs
 from rag.preprocessed_chunks import write
-from review_viewer.data import Bundle
-from review_viewer.__main__ import handler
+from rag.bundle import Bundle
 
 
-class ViewerTests(unittest.TestCase):
+class BundleTests(unittest.TestCase):
     def setUp(self):
         self.temp=tempfile.TemporaryDirectory();self.root=Path(self.temp.name)
         self.source=self.root/'source.pdf';self.run=self.root/'extraction';self.candidate=self.root/'candidate'
@@ -37,16 +32,9 @@ class ViewerTests(unittest.TestCase):
             run_hybrid(docs,self.run,HybridConfig(),paddle=Parser(figure=True),use_qwen=False)
             write(self.run,self.candidate,counter=CharacterCounter())
         self.bundle=Bundle(self.run,self.candidate)
-        self.server=ThreadingHTTPServer(('127.0.0.1',0),handler(self.bundle))
-        self.thread=Thread(target=self.server.serve_forever,daemon=True);self.thread.start()
-        self.url=f'http://127.0.0.1:{self.server.server_port}'
-        self.opener=urllib.request.build_opener(urllib.request.ProxyHandler({}))
 
     def tearDown(self):
-        self.server.shutdown();self.server.server_close();self.thread.join();self.temp.cleanup()
-
-    def get(self,path,headers=None):
-        return self.opener.open(urllib.request.Request(self.url+path,headers=headers or {}))
+        self.temp.cleanup()
 
     def test_pages_assets_and_chunks_preserve_same_source_and_review_state(self):
         summary=self.bundle.summary()
@@ -70,28 +58,7 @@ class ViewerTests(unittest.TestCase):
                 self.assertEqual(image.size,tuple(page['image_size']))
         page=list(self.bundle.pages.values())[1]
         self.assertEqual(page['original_rotation'],90)
-        with self.get('/page-image/'+page['page_id']) as reply:
-            self.assertEqual(reply.headers['Content-Type'],'image/png')
-            self.assertTrue(reply.read().startswith(b'\x89PNG'))
-
-    def test_http_contracts_static_headers_and_registered_pdf_range(self):
-        with self.get('/api/summary') as reply:
-            self.assertEqual(json.load(reply)['pages'],2)
-            self.assertEqual(reply.headers['Cache-Control'],'no-store')
-        with self.get('/') as reply:
-            self.assertIn("script-src 'self'",reply.headers['Content-Security-Policy'])
-            self.assertIn('원본 페이지',reply.read().decode())
-        with self.get('/source/d1.pdf',{'Range':'bytes=0-4'}) as reply:
-            self.assertEqual(reply.status,206);self.assertEqual(reply.read(),b'%PDF-')
-        with self.get('/source/d1.pdf',{'Range':'bytes=-8'}) as reply:
-            self.assertEqual(reply.status,206);self.assertEqual(len(reply.read()),8)
-
-    def test_unknown_paths_traversal_and_foreign_hosts_cannot_read_files(self):
-        for path,headers,expected in [('/../source.pdf',None,404),('/source/../source.pdf',None,404),
-            ('/api/asset/../../source.pdf',None,404),('/image/../../source.pdf',None,404),
-            ('/api/summary',{'Host':'other.example'},403),('/source/d1.pdf',{'Range':'bytes=99999999-'},416)]:
-            with self.assertRaises(urllib.error.HTTPError) as exc:self.get(path,headers)
-            self.assertEqual(exc.exception.code,expected)
+        self.assertTrue(self.bundle.render(page['page_id']).startswith(b'\x89PNG'))
 
     def test_modified_source_or_artifact_cannot_be_opened(self):
         path=self.run/'extracted_assets.jsonl';original=path.read_bytes();path.write_bytes(original+b'\n')

@@ -55,7 +55,7 @@ def main():
     from eval.answer_scoring import timeline_gold
     run = ROOT / 'data/versions/04_pipeline_h_supplement_2026-10-14/embedded/release'
     units = timeline_gold(run)
-    pipe = RAPipeline(run, None, load_config(ROOT / 'configs/preprocess.local.json'), 'http://127.0.0.1:1',
+    pipe = RAPipeline(run, None, load_config(ROOT / 'configs/preprocess.local.json'),
                       guideline_snapshot=ROOT / 'data/guidelines/ra_guidelines_native_2026-10-12_v2',
                       research_rounds=0, retrieval_pages=8,
                       chat_client=OpenAIPipelineChat(model='gpt-5.6-luna', context_tokens=65536))

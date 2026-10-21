@@ -81,7 +81,7 @@ Rules:
 class Corpus:
     """Chunks, vectors and BM25 for one embedding model, plus page texts."""
 
-    def __init__(self, model="bge-m3", rag_dir=None, local_only=False, bundle=None, review_url='http://127.0.0.1:8766', include_nondefault=False, shared_cache=False):
+    def __init__(self, model="bge-m3", rag_dir=None, local_only=False, bundle=None, include_nondefault=False, shared_cache=False):
         self.model = model
         self.local_only = local_only
         self.include_nondefault = include_nondefault
@@ -89,7 +89,7 @@ class Corpus:
         self.evidence_adapter = None
         if bundle is not None:
             from rag.budgeted_evidence import BudgetedEvidence
-            self.evidence_adapter = BudgetedEvidence(bundle, self.chunks, self.index_meta['chunks_sha256'], review_url)
+            self.evidence_adapter = BudgetedEvidence(bundle, self.chunks, self.index_meta['chunks_sha256'])
         self.documents = {(d["document_id"], d["version_id"]): d for d in
                           (json.loads(line) for line in (ROOT / "data/catalog/documents.jsonl").read_text(encoding="utf-8").splitlines() if line.strip())}
         self.shared_cache = shared_cache
@@ -526,7 +526,7 @@ def render(results):
                 title = f"[{ev['title']}]({ev['source_url']})" if ev.get("source_url") else ev["title"]
                 lines.append(f"- [{e}] {title}, p.{ev['pdf_page']}")
                 for n,link in enumerate(ev.get('review_links',[]),1):
-                    lines.append(f"  [원본 영역 {n} · p.{link['pdf_page']}]({link['url']})")
+                    lines.append(f"  원본 영역 {n} · p.{link['pdf_page']}")
         lines.append("")
     return "\n".join(lines)
 
@@ -544,13 +544,12 @@ if __name__ == "__main__":
     p.add_argument('--run',type=Path,help='Completed preprocessing workflow; uses the shared main-service pipeline')
     p.add_argument('--rag-dir',type=Path,help='Explicit chunk/index directory')
     p.add_argument('--config',type=Path,default=Path('configs/preprocess.local.json'))
-    p.add_argument('--review-url',default='http://127.0.0.1:8766')
     a = p.parse_args()
     sys.stdout.reconfigure(encoding="utf-8")
     if a.run:
         from rag.pipeline import RAGPipeline
         from preprocess.hybrid_config import load_config
-        result=RAGPipeline(a.run,a.rag_dir,load_config(a.config),a.review_url).ask(a.query)
+        result=RAGPipeline(a.run,a.rag_dir,load_config(a.config)).ask(a.query)
         if a.json:print(json.dumps(result,ensure_ascii=False,indent=2))
         else:print(render(result['results']))
         raise SystemExit(0)

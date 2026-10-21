@@ -20,7 +20,7 @@ from rag.search import filter_idx, load_index
 from rag.understand_query import understand
 from rag.request_scope import bind_request_scope
 from rag.local_chat import LocalChat
-from review_viewer.data import Bundle
+from rag.bundle import Bundle
 from rag.release import load_bundle, readiness
 from rag.service_scope import allowed as service_allowed
 
@@ -28,7 +28,7 @@ VERSION = 'rag-pipeline-22-independent-question-contract'
 
 
 class RAGPipeline:
-    def __init__(self, run=None, candidate=None, config=None, review_url='http://127.0.0.1:8766',
+    def __init__(self, run=None, candidate=None, config=None,
                  bundle=None, chat_client=None, encoder_factory=None, retrieval_pages=5,
                  retrieval_fn=None,selection_strategy=None,query_strategy=None):
         if type(retrieval_pages) is not int or not 1 <= retrieval_pages <= 20:
@@ -41,7 +41,6 @@ class RAGPipeline:
             raise ValueError('질문 요구 계약은 이를 검증하는 답변 선택기와 함께 사용해야 합니다.')
         self.bundle = bundle or load_bundle(run,candidate)
         self.config = config or load_config()
-        self.review_url = review_url
         self.client = chat_client or LocalChat(self.config)
         self.encoder_factory = encoder_factory
         self._shared_encoder = None
@@ -84,7 +83,7 @@ class RAGPipeline:
             'complete_corpus':False,
             'eligible_chunks':sum(d['eligible_chunks'] for d in self.documents),
             'chunks_sha256':self.index_meta['chunks_sha256'],'embedding_model':self.index_meta['model'],
-            'answer_model':getattr(self.client,'model',self.config.qwen.model),'review_url':self.review_url,
+            'answer_model':getattr(self.client,'model',self.config.qwen.model),
             'retrieval_pages':self.retrieval_pages,'vector_store':getattr(self,'vector_store','memory'),
             'query_strategy':getattr(self.query_strategy,'VERSION',None),
             'local_only':getattr(self.client,'local_only',True),'generation_provider':getattr(self.client,'provider','ollama'),
@@ -107,7 +106,7 @@ class RAGPipeline:
         from rag.regulatory_scope import requests_approval_letter
         approval=requests_approval_letter(question)
         effective_nondefault=include_nondefault or approval
-        corpus = answer.Corpus('bge-m3',self.bundle.candidate,local_only=True,bundle=self.bundle,review_url=self.review_url,include_nondefault=effective_nondefault)
+        corpus = answer.Corpus('bge-m3',self.bundle.candidate,local_only=True,bundle=self.bundle,include_nondefault=effective_nondefault)
         selected_docs = [d for d in self.documents if (not documents or d['key'] in documents)
             and (not products or d['product_id'] in products) and (not jurisdictions or d['jurisdiction'] in jurisdictions)]
         if approval:
@@ -227,7 +226,6 @@ def main():
     parser.add_argument('--run',type=Path,required=True)
     parser.add_argument('--candidate',type=Path)
     parser.add_argument('--config',type=Path,default=Path('configs/preprocess.local.json'))
-    parser.add_argument('--review-url',default='http://127.0.0.1:8766')
     parser.add_argument('--query',required=True)
     parser.add_argument('--product',action='append')
     parser.add_argument('--jurisdiction',action='append')
@@ -237,7 +235,7 @@ def main():
     parser.add_argument('--output',type=Path)
     args = parser.parse_args()
     if args.output and args.output.exists():parser.error('Choose a new output file')
-    pipeline = RAGPipeline(args.run,args.candidate,load_config(args.config),args.review_url,retrieval_pages=args.retrieval_pages)
+    pipeline = RAGPipeline(args.run,args.candidate,load_config(args.config),retrieval_pages=args.retrieval_pages)
     report = pipeline.ask(args.query,args.product,args.jurisdiction,args.document,include_nondefault=args.include_nondefault)
     output = json.dumps(report,ensure_ascii=False,indent=2)
     if args.output:

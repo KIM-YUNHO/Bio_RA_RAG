@@ -178,7 +178,6 @@ def main():
     parser.add_argument('--run',type=Path,required=True)
     parser.add_argument('--candidate',type=Path)
     parser.add_argument('--config',type=Path,default=Path('configs/preprocess.local.json'))
-    parser.add_argument('--review-url',default='http://127.0.0.1:8766')
     parser.add_argument('--port',type=int,default=8765)
     parser.add_argument('--retrieval-pages',type=int,default=8,choices=range(1,11),
         help='Hits per product x agency slot (2026-10-14 benchmark: 8 + fixed topic queries)')
@@ -209,12 +208,12 @@ def main():
     if args.mode=='ra':
         from rag.ra_pipeline import RAPipeline
         from rag.openai_chat import OpenAIPipelineChat
-        pipeline=RAPipeline(args.run,args.candidate,load_config(args.config),args.review_url,
+        pipeline=RAPipeline(args.run,args.candidate,load_config(args.config),
             retrieval_pages=args.retrieval_pages,guideline_snapshot=args.guidelines,
             research_rounds=args.research_rounds,approval_timeline=args.approval_timeline,
             chat_client=OpenAIPipelineChat(model=args.llm_model,context_tokens=args.context_tokens))
     else:
-        pipeline=RAGPipeline(args.run,args.candidate,load_config(args.config),args.review_url,retrieval_pages=args.retrieval_pages)
+        pipeline=RAGPipeline(args.run,args.candidate,load_config(args.config),retrieval_pages=args.retrieval_pages)
     archive_dir=args.archive_dir or (Path('data/runs/ra_service_reports') if args.mode=='ra' else None)
     if args.warmup and args.mode=='ra':print(json.dumps({'retrieval_warmup':pipeline.warmup()},ensure_ascii=False),flush=True)
     from rag_service.workspaces import PostgresWorkspaceStore

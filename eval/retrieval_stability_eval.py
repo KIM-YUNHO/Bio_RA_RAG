@@ -121,7 +121,7 @@ def main():
     def blocked(self, *a, **k):
         raise RuntimeError('provider calls are not allowed in this benchmark')
     OpenAIPipelineChat.__call__ = blocked
-    pipe = RAPipeline(args.run, None, load_config(ROOT / 'configs/preprocess.local.json'), 'http://127.0.0.1:1',
+    pipe = RAPipeline(args.run, None, load_config(ROOT / 'configs/preprocess.local.json'),
                       guideline_snapshot=args.guidelines, research_rounds=0,
                       chat_client=OpenAIPipelineChat(model='gpt-5.6-luna'))
     pipe.warmup()

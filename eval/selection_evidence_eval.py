@@ -98,8 +98,7 @@ def make_pipeline():
     os.environ["BIOSIM_SEARCH_BACKEND"] = "pgvector"
     from rag.ra_pipeline import RAPipeline
     from preprocess.hybrid_config import load_config
-    return RAPipeline(RELEASE, None, load_config(ROOT / "configs/preprocess.local.json"),
-                      "http://127.0.0.1:8886", guideline_snapshot=GUIDELINES,
+    return RAPipeline(RELEASE, None, load_config(ROOT / "configs/preprocess.local.json"), guideline_snapshot=GUIDELINES,
                       research_rounds=0, retrieval_pages=8, chat_client=RequestProbe())
 
 
