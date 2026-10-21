@@ -21,7 +21,6 @@ from rag_service.issue_guide import IssueGuideService  # noqa: E402
 
 
 def main():
-    kind = sys.argv[1] if len(sys.argv) > 1 else 'fastapi'
     with fixture_jobs() as jobs:
         work = jobs.workspaces.create({'name': 'P17 내부 자료 UI 검사', 'ingredient': 'ustekinumab'})
         jobs.workspaces.register_documents(work['id'], BUNDLE)
@@ -30,7 +29,7 @@ def main():
         maker = IssueGuideService(FakeJobs(jobs.workspaces), jobs.issue_guides.directory, chat_factory=lambda folder: FakeModel(), poll=0.01)
         maker.submit(issue['id'], {'issue_id': 'ISSUE-IV-FCRN'})
         maker.executor.shutdown(wait=True)
-        server = Running(jobs, kind)
+        server = Running(jobs)
         try:
             env = {**os.environ, 'NODE_PATH': str(ROOT / 'work/memo_ui_test/node_modules')}
             code = 0
