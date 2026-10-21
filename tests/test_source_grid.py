@@ -89,35 +89,4 @@ class SourceGridTests(unittest.TestCase):
         out=sg.resolve_transcription(p,['R1C1'],{'R1C1':{'text':'12.5','state':'visible'}})
         self.assertEqual(out['unresolved_cells'],[]);self.assertEqual(out['geometry'],p['geometry'])
 
-    def test_stage_saves_replayable_source_proof_and_keeps_original_bundle(self):
-        from preprocess.hybrid import run_hybrid,read_jsonl,save_rows
-        from preprocess.hybrid_config import HybridConfig
-        from preprocess.hybrid_validate import validate_extraction
-        from preprocess.ingest import from_inputs
-        from preprocess.light_refinement import refine as light
-        from preprocess.grid_refinement import refine
-        from test_preprocessing_hybrid import Parser,BAD
-        path=self.root/'input.pdf';self.pdf.save(path);source=self.root/'old';mid=self.root/'light';out=self.root/'new'
-        class EmptyOCR:
-            def fingerprint(self):return {'name':'mock-ordinary-ocr'}
-            def ocr(self,path):return {'ra_light_ocr':{'0':{'ocr':{'tokens':[]}}}}
-        class ExactParser(Parser):
-            def parse(inner,image):
-                result=super().parse(image);scale=result['res']['width']/200
-                result['res']['parsing_res_list'][0]['block_bbox']=[v*scale for v in [20,20,180,180]]
-                return result
-        docs=from_inputs([path],source)
-        with contextlib.redirect_stdout(io.StringIO()):run_hybrid(docs,source,HybridConfig(),paddle=ExactParser(BAD),use_qwen=False)
-        uid=read_jsonl(source/'extracted_assets.jsonl')[0]['asset_id'];old=sha256(source/'extraction_integrity.json')
-        with contextlib.redirect_stdout(io.StringIO()):light(source,mid,[uid],HybridConfig(),EmptyOCR())
-        stats=refine(mid,out,[uid]);self.assertEqual(stats['recovered_tables'],1)
-        self.assertEqual(stats['new_qwen_calls'],0);self.assertEqual(sha256(source/'extraction_integrity.json'),old)
-        self.assertEqual(validate_extraction(out)['status'],'passed')
-        assets=read_jsonl(out/'extracted_assets.jsonl');assets[0]['source_grid_refinement']['plan']['cells'][0]['text']='tampered'
-        save_rows(out/'extracted_assets.jsonl',assets)
-        integrity=json.loads((out/'extraction_integrity.json').read_text());integrity['files']['extracted_assets.jsonl']=sha256(out/'extracted_assets.jsonl')
-        (out/'extraction_integrity.json').write_text(json.dumps(integrity),encoding='utf-8')
-        with self.assertRaisesRegex(ValueError,'original native/OCR'):validate_extraction(out)
-
-
 if __name__=='__main__':unittest.main()

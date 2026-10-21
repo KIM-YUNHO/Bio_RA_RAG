@@ -23,7 +23,7 @@ def condition(fact, dimension, operator, values):
     observed = {key(a["value"]) for a in fact["observations"] if a["dimension"] == dimension}
     expected = [key(v) for v in values]
     if dimension=='attribute' and operator=='eq' and values==['margin'] and observed.intersection(expected):
-        from rag.margin_scope import predicate
+        from tests.margin_scope import predicate
         if fact.get('value_binding_status')=='whole_source_text' and not predicate(fact.get('source_quote','')):
             return {'dimension':dimension,'status':'unknown','reason':'criterion_requires_whole_quantified_predicate'}
     if dimension=='statistic' and operator=='eq' and len(expected)==1 and expected[0] in ('ci90','ci95','ci99') and \

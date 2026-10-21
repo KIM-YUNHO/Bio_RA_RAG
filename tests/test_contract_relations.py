@@ -1,7 +1,7 @@
 import unittest
 from rag.contract_relations import pairs, ranges, scope, table_fact, relation_condition, attach_comparison
 from rag.grounded_table_graph import build
-from rag.contract_match import condition
+from tests.contract_match import condition
 
 
 class ContractRelationsTests(unittest.TestCase):

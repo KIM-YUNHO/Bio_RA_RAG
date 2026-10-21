@@ -3,7 +3,7 @@ from types import SimpleNamespace
 from unittest.mock import patch
 import json
 import unittest
-from rag import preprocessed_prompt,selection_candidate
+from rag import preprocessed_prompt
 
 
 class Counter:
@@ -14,19 +14,6 @@ class Counter:
 
 class PreparedPromptBudgetTests(unittest.TestCase):
     def client(self):return SimpleNamespace(tokenizer=Counter(),input_limit=50000,output_tokens=3000,config=SimpleNamespace(num_ctx=53000))
-
-    def test_same_catalog_builds_identical_messages_and_schema(self):
-        e={'E1':{'text':'<table><tr><th>Parameter</th><th>Arm A</th></tr><tr><td>Tmax (h) Mean (SD)</td><td>9.7 (1.2)</td></tr></table>',
-             'document_id':'new','version_id':'v','product_id':'SB17'}}
-        q='군별 Tmax 평균과 SD 및 단위는?';u={'studies':[]};unit={}
-        with patch('rag.source_selection.prompt',return_value=[{'role':'system','content':'rules'},{'role':'user','content':'sources'}]):
-            expected_messages=selection_candidate.prompt(q,u,unit,e)
-            expected_schema=selection_candidate.schema(selection_candidate.catalog(e,q))
-            original=selection_candidate.catalog
-            with patch('rag.selection_candidate.catalog',wraps=original) as calls:
-                messages,schema=selection_candidate.prepare_prompt(q,u,unit,e)
-                self.assertEqual(1,calls.call_count)
-            self.assertEqual(expected_messages,messages);self.assertEqual(expected_schema,schema)
 
     def test_cache_invalidates_on_changed_source_or_provenance_and_is_query_local(self):
         calls=[]

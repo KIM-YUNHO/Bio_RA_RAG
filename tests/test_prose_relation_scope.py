@@ -2,12 +2,17 @@ import unittest
 from rag.source_selection import catalog
 from rag.contract_relations import prose_fact
 from rag.prose_relation_scope import measure_bundle,linked
-from rag.contract_match import condition
-from tests.test_selection_candidate import evidence
+from tests.contract_match import condition
 
 RESULT='According to the primary targeted estimand, an estimated difference between Treatment A and Treatment B was -1.20% (90% confidence interval [CI]: -4.20%, 1.80%).'
 DEFINITION='In Study SB17-3001, the primary endpoint was percent change in PASI at Week 9.'
 MARGIN='The similarity margin recommended by the Agency was ±11%.'
+
+def evidence(text):
+    return {'E1':{'text':text,'product_id':'SB17','document_id':'synthetic','version_id':'v',
+        'structure':{'section_id':'section'}},
+        'E2':{'text':'Study SB17-1001','product_id':'SB17','document_id':'synthetic','version_id':'v',
+        'structure':{'section_id':'section'}}}
 
 def sentence(e,needle):return next(c for c in catalog(e).values() if c['kind']=='source_paragraph' and c.get('source_sentence') and needle in c['value'])
 

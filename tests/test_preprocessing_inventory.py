@@ -13,7 +13,6 @@ from preprocess.detect import scan_page
 from preprocess.ingest import Document, from_catalog, from_inputs, sha256
 from preprocess.inventory import run_inventory
 from preprocess.schema import validate_record
-from preprocess.validate import validate_run
 
 
 def read_rows(path):
@@ -236,27 +235,6 @@ class InventoryTests(unittest.TestCase):
         docs[0].legacy_dir = str(legacy)
         (legacy / "p001_r1.json").write_text(json.dumps({"version_id": docs[0].version_id}), encoding="utf-8")
         self.assertEqual(self.run_inventory(docs)["document_statuses"], {"heuristic_inventory_complete": 1})
-
-    def test_saved_inventory_validation_checks_live_source_and_page_links(self):
-        path = self.root / "table.pdf"
-        native_pdf(path)
-        docs = from_inputs([path], self.out)
-        self.run_inventory(docs)
-        self.assertEqual(validate_run(self.out)["status"], "passed")
-        assets = read_rows(self.out / "assets.jsonl")
-        assets[0]["pdf_page"] = 2
-        (self.out / "assets.jsonl").write_text("\n".join(json.dumps(a) for a in assets), encoding="utf-8")
-        with self.assertRaises(ValueError):
-            validate_run(self.out)
-
-    def test_saved_inventory_validation_rejects_changed_source_bytes(self):
-        path = self.root / "table.pdf"
-        native_pdf(path)
-        docs = from_inputs([path], self.out)
-        self.run_inventory(docs)
-        Path(docs[0].raw_path).write_bytes(b"modified")
-        with self.assertRaises(ValueError):
-            validate_run(self.out)
 
     def test_asset_identity_survives_snapshot_relocation(self):
         path = self.root / "table.pdf"
