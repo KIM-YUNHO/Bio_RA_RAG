@@ -82,6 +82,21 @@ def quantities(text):
     return result
 
 
+LISTED = re.compile(r'(?<![\w.])(\d+(?:\.\d+)?(?:\s*,\s*\d+(?:\.\d+)?)+\s*,?\s*(?:and|or)\s+\d+(?:\.\d+)?)\s*('
+    + UNIT_PATTERN + r')(?![A-Za-z])')
+
+
+def listed_quantities(text):
+    """A printed source list shares its one trailing unit: "at 10, 15, and 113 days".
+
+    Used only on cited source text, so a claim may write "10일, 15일, 113일".
+    """
+    result = set()
+    for values, unit in LISTED.findall(normalized(text)):
+        result.update((Decimal(numeric_token(v)), unit_alias(unit)) for v in re.findall(r'\d+(?:\.\d+)?', values))
+    return result
+
+
 def proposed_quantities(text):
     """Recognize an explicit pair sharing a trailing unit in a proposal.
 
@@ -111,7 +126,9 @@ def substantive_text(claim, evidence):
             # Source product metadata already constrains this proposal's scope.
             names=[product,*study_registry.products().get(product,{}).get('names',[])]
             for name in names:
-                pattern=r'(?<![A-Za-z0-9])'+re.escape(name)+r'(?![A-Za-z0-9])'
+                # Not inside a longer hyphenated identifier: removing BAT-2206 from
+                # BAT-2206-001-CR would leave "-001", read as the number -1.
+                pattern=r'(?<![A-Za-z0-9])(?<![A-Za-z0-9]-)'+re.escape(name)+r'(?![A-Za-z0-9]|-[A-Za-z0-9])'
                 removals.update((m.start(),m.end()) for m in re.finditer(pattern,text,re.I))
         identified = set()
         for cite in claim['sources']:
@@ -130,7 +147,16 @@ def substantive_text(claim, evidence):
                 if identifier.isdigit():
                     pattern = r'(?:study|trial|시험|연구)\s*\(?(' + re.escape(identifier) + r')(?![A-Za-z0-9])'
                 removals.update((m.start(1), m.end(1)) for m in re.finditer(pattern, text, re.I))
-    for start, end in sorted(removals, reverse=True):
+    # Overlapping matches (a product name and the study ID that contains it) are one
+    # span. Deleting them one after another also deleted the characters that follow,
+    # which could hide a number the citations do not support.
+    merged = []
+    for start, end in sorted(removals):
+        if merged and start <= merged[-1][1]:
+            merged[-1][1] = max(merged[-1][1], end)
+        else:
+            merged.append([start, end])
+    for start, end in reversed(merged):
         text = text[:start] + ' ' + text[end:]
     return text
 
@@ -146,9 +172,15 @@ def check(claim, evidence):
         if title:
             for left, right in [("'", "'"), ('"', '"'), ('‘', '’'), ('“', '”')]:
                 substantive = substantive.replace(left + title + right, '')
+    # Korean writes as digits what the English source writes as words: "1차/2차" for
+    # primary/secondary, "1회/2회" for once/twice. Only when the citations use that word.
+    for digit, suffix, word in (('1', '차', r'primary'), ('2', '차', r'secondary'),
+                                ('1', '회', r'once|one\s+time'), ('2', '회', r'twice|two\s+times')):
+        if re.search(r'\b(?:' + word + r')\b', quoted, re.I):
+            substantive = re.sub(r'(?<![\d.])' + digit + r'\s*' + suffix + r'(?!\d)', ' ', substantive)
     if not numbers(substantive) <= numbers(quoted):
         return 'claim_number_not_in_final_citations'
-    if not quantities(substantive) <= quantities(quoted) | table_quantities(claim, evidence):
+    if not quantities(substantive) <= quantities(quoted) | listed_quantities(quoted) | table_quantities(claim, evidence):
         return 'claim_quantity_value_or_unit_not_in_final_citations'
     # Explicit product clauses must get their quantities from their own product.
     # This is a lexical invariant, not a parser for all cross-sentence meaning.
