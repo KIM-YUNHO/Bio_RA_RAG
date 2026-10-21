@@ -1,25 +1,19 @@
 import argparse
 from concurrent.futures import ThreadPoolExecutor
 from copy import deepcopy
-from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
 import os
 from pathlib import Path
 import re
 from threading import Lock
 import time
-from urllib.parse import urlsplit, parse_qs
 from uuid import uuid4
 
 from preprocess.hybrid_config import load_config
 from rag.pipeline import RAGPipeline
-from rag_service.reviews import ReviewStore, RevisionConflict
-from rag_service import notebook_api, ingestion_api
+from rag_service.reviews import ReviewStore
+from rag_service import ingestion_api
 from rag_service.workspaces import WorkspaceStore
-from psycopg import Error as DatabaseError
-
-from rag_service.http_rules import (STATIC, STATIC_FILES, STATIC_TYPES, EVIDENCE_ROUTE, SECURITY_HEADERS, DEFAULT_CACHE, JSON_TYPE,
-    local_origin, is_review_path, is_workspace_path, is_ingestion_path, post_path_known, body_limit)
 
 
 class Jobs:
@@ -179,80 +173,6 @@ class Jobs:
     def close(self):self.issue_guides.close();self.executor.shutdown(wait=True);self.work_drafts.close()
 
 
-def handler(jobs):
-    class Handler(BaseHTTPRequestHandler):
-        def send(self,body,kind=JSON_TYPE,status=200,cache=DEFAULT_CACHE):
-            if isinstance(body,(dict,list)):body=json.dumps(body,ensure_ascii=False,allow_nan=False).encode('utf-8')
-            self.send_response(status)
-            for key,value in {'Content-Type':kind,'Content-Length':str(len(body)),'Cache-Control':cache,**SECURITY_HEADERS}.items():self.send_header(key,value)
-            self.end_headers();self.wfile.write(body)
-
-        def local(self):
-            return local_origin(self.headers.get('Host'),self.headers.get('Origin'),self.server.server_port)
-
-        def do_GET(self):
-            if not self.local():return self.send({'error':'Local origin required'},status=403)
-            path=urlsplit(self.path).path
-            try:
-                if path in STATIC_FILES:
-                    name=STATIC_FILES[path]
-                    return self.send((STATIC/name).read_bytes(),STATIC_TYPES[Path(name).suffix])
-                if path=='/favicon.ico':return self.send(b'',kind='image/x-icon',status=204,cache='private, max-age=86400')
-                if path=='/api/summary':return self.send(jobs.pipeline.summary())
-                if path=='/api/inventory':return self.send(jobs.inventory())
-                extra=notebook_api.get(jobs,path)
-                if extra is not None:return self.send(extra)
-                extra=ingestion_api.get(jobs,path)
-                if extra is not None:return self.send(extra)
-                route=EVIDENCE_ROUTE.fullmatch(path)
-                if route:
-                    identity,result_index,eid=route[1],int(route[2]),route[3]
-                    job=jobs.get(identity)
-                    if route[4]:return self.send(jobs.pages.page_png(job,result_index,eid,int(route[5])),'image/png',cache='private, max-age=3600')
-                    if route[6]:return self.send(jobs.pages.crop_png(job,result_index,eid),'image/png',cache='private, max-age=3600')
-                    if route[7]:return self.send(jobs.pages.document_pdf(job,result_index,eid),'application/pdf',cache='private, max-age=3600')
-                    page=parse_qs(urlsplit(self.path).query).get('page',[''])[0]
-                    if page and not page.isdigit():raise ValueError('페이지 범위를 확인하세요.')
-                    return self.send(jobs.pages.detail(job,result_index,eid,int(page) if page else None))
-                if path=='/api/jobs':
-                    params=parse_qs(urlsplit(self.path).query)
-                    return self.send(jobs.list_records(int(params.get('limit',['20'])[0]),int(params.get('offset',['0'])[0]),params.get('q',[''])[0]))
-                if path.startswith('/api/conversations/'):return self.send(jobs.conversations.get(path.removeprefix('/api/conversations/')))
-                if path.startswith('/api/jobs/') and path.endswith('/review'):
-                    return self.send(jobs.reviews.get(jobs.get(path[len('/api/jobs/'):-len('/review')])))
-                if path.startswith('/api/jobs/'):return self.send(jobs.get(path.removeprefix('/api/jobs/')))
-                return self.send({'error':'찾을 수 없습니다.'},status=404)
-            except KeyError:return self.send({'error':'등록되지 않은 질문입니다.'},status=404)
-            except DatabaseError:return self.send({'error':'DB 연결 또는 스키마를 확인하세요. Docker 실행과 ingestion.db migrate가 필요합니다.'},status=503)
-            except (BrokenPipeError,ConnectionResetError):pass
-            except (ValueError,TypeError,OSError,RuntimeError) as exc:return self.send({'error':str(exc)},status=400)
-
-        def do_POST(self):
-            if not self.local():return self.send({'error':'Local origin required'},status=403)
-            review_path=is_review_path(self.path);workspace_path=is_workspace_path(self.path);ingestion_path=is_ingestion_path(self.path)
-            if not post_path_known(self.path):return self.send({'error':'찾을 수 없습니다.'},status=404)
-            if self.headers.get('Content-Type','').split(';')[0]!='application/json':return self.send({'error':'JSON required'},status=415)
-            try:
-                length=int(self.headers.get('Content-Length','0'))
-                if not 0<length<=body_limit(self.path):raise ValueError('요청 크기를 확인하세요.')
-                payload=json.loads(self.rfile.read(length))
-                if workspace_path:return self.send(notebook_api.post(jobs,self.path,payload))
-                if ingestion_path:return self.send(ingestion_api.post(jobs,self.path,payload))
-                if review_path:
-                    return self.send(jobs.reviews.append(jobs.get(self.path[len('/api/jobs/'):-len('/review')]),payload))
-                return self.send(jobs.submit(payload),status=202)
-            except BlockingIOError as exc:return self.send({'error':str(exc)},status=409)
-            except RevisionConflict as exc:return self.send({'error':str(exc)},status=409)
-            except KeyError:return self.send({'error':'등록되지 않은 질문입니다.'},status=404)
-            except DatabaseError:return self.send({'error':'DB 연결 또는 스키마를 확인하세요. Docker 실행과 ingestion.db migrate가 필요합니다.'},status=503)
-            except OSError as exc:return self.send({'error':'검토 의견 저장 실패: '+str(exc)},status=500)
-            except (ValueError,TypeError) as exc:return self.send({'error':str(exc)},status=400)
-            except (BrokenPipeError,ConnectionResetError):pass
-
-        def log_message(self,*args):pass
-    return Handler
-
-
 def main():
     parser=argparse.ArgumentParser(description='로컬 RA RAG 메인 서비스')
     parser.add_argument('--run',type=Path,required=True)
@@ -276,8 +196,6 @@ def main():
     parser.add_argument('--workspace-dir',type=Path,help='Use local notebook files instead of PostgreSQL (offline fixture/standalone mode)')
     parser.add_argument('--work-draft-dir',type=Path,help='Internal work draft records (default: ra_work_drafts next to the report archive)')
     parser.add_argument('--issue-guide-dir',type=Path,help='Issue guide records (default: ra_issue_guides next to the report archive)')
-    parser.add_argument('--server',choices=('stdlib','fastapi'),default='stdlib',
-        help='HTTP layer: the standard-library server, or the FastAPI app (rag_service/app.py, same URLs and answers)')
     parser.add_argument('--warmup',action='store_true',help='Warm local retrieval before accepting questions; no provider calls')
     parser.add_argument('--context-tokens',type=int,default=65536,
         help='RA reading budget per model call (prompt + output); a project limit, not the model limit')
@@ -308,23 +226,15 @@ def main():
     jobs=Jobs(pipeline,archive_dir,args.review_dir or (Path('data/runs/ra_review_records') if args.mode=='ra' else None),
         args.conversation_dir or (Path('data/runs/ra_conversations') if args.mode=='ra' else None), workspace_store, work_drafts=work_drafts,
         issue_guide_dir=args.issue_guide_dir)
-    if args.server=='fastapi':
-        import uvicorn
-        from rag_service.app import create_app
-        # One worker: every worker would load its own embedding and reranker models. Questions run in Jobs' own thread.
-        config=uvicorn.Config(create_app(jobs,args.port),host='127.0.0.1',port=args.port,workers=1,access_log=False,log_level='warning',lifespan='off')
-        print(f'RA RAG 메인 서비스(FastAPI): http://127.0.0.1:{args.port}/',flush=True)
-        print(json.dumps(pipeline.summary(),ensure_ascii=False),flush=True)
-        try:uvicorn.Server(config).run()
-        except KeyboardInterrupt:pass
-        finally:jobs.close();pipeline.close()
-        return
-    server=ThreadingHTTPServer(('127.0.0.1',args.port),handler(jobs))
+    import uvicorn
+    from rag_service.app import create_app
+    # One worker: every worker would load its own embedding and reranker models. Questions run in Jobs' own thread.
+    config=uvicorn.Config(create_app(jobs,args.port),host='127.0.0.1',port=args.port,workers=1,access_log=False,log_level='warning',lifespan='off')
     print(f'RA RAG 메인 서비스: http://127.0.0.1:{args.port}/',flush=True)
     print(json.dumps(pipeline.summary(),ensure_ascii=False),flush=True)
-    try:server.serve_forever()
+    try:uvicorn.Server(config).run()
     except KeyboardInterrupt:pass
-    finally:server.server_close();jobs.close();pipeline.close()
+    finally:jobs.close();pipeline.close()
 
 
 if __name__=='__main__':main()
