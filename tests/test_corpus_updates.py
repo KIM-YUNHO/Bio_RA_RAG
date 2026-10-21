@@ -38,7 +38,7 @@ class CorpusUpdates(unittest.TestCase):
             self.assertIsNone(parse(page,(595,842)))
 
     def test_wrapped_source_heading_and_primary_analysis_are_boundaries(self):
-        from rag.document_structure import Tracker
+        from rag.index.document_structure import Tracker
         from test_document_structure import refs
         texts=['Clinical Phase I study\n(SB17-1001)','Primary analysis','The actual result.','Post-hoc analyses','Adjusted result.']
         _,_,_,states=Tracker('doc','version','SB17').scan(texts,refs(texts),1)

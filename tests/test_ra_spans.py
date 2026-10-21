@@ -2,7 +2,7 @@ from copy import deepcopy
 import json
 import unittest
 
-from rag import ra_answer, ra_spans
+from rag.ra import ra_answer, ra_spans
 
 
 def evidence():

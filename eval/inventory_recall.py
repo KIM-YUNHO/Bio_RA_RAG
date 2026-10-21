@@ -19,7 +19,7 @@ VARIANTS = {'plain': None, 'inventory': '1'}
 
 
 def plan(case, variant, n, pipe, folder):
-    from rag import ra_tasks
+    from rag.ra import ra_tasks
     path = folder / variant / f"{case['id'].replace(':', '_')}_{n}.json"
     if path.exists():
         return json.loads(path.read_text(encoding='utf-8'))
@@ -49,9 +49,9 @@ def main():
     a = p.parse_args()
     profile = {'extra_default_groups': tuple(g for g in a.extra_default.split(',') if g)} if a.extra_default else None
     cases = {c['id']: c for c in json.loads((GOLD / 'gold.json').read_text(encoding='utf-8'))['cases']}
-    from rag import ra_retrieval
-    from rag.openai_chat import OpenAIPipelineChat
-    from rag.ra_pipeline import RAPipeline
+    from rag.ra import ra_retrieval
+    from rag.llm.openai_chat import OpenAIPipelineChat
+    from rag.ra.ra_pipeline import RAPipeline
     from preprocess.hybrid_config import load_config
     pipe = RAPipeline(a.run, None, load_config(ROOT / 'configs/preprocess.local.json'),
                       research_rounds=0, chat_client=OpenAIPipelineChat(model='gpt-5.6-luna', context_tokens=65536))

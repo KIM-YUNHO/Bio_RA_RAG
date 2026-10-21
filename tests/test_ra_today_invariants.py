@@ -1,5 +1,5 @@
 import unittest
-from rag import ra_quantities, ra_source_constraints, ra_citation_completion
+from rag.ra import ra_quantities, ra_source_constraints, ra_citation_completion
 from test_ra_citation_completion import block, claim
 
 
@@ -39,7 +39,7 @@ class TodayInvariants(unittest.TestCase):
         # When one removed name contains another, deleting both in turn also deleted the
         # characters after them ("12" lost its 1), so an unsupported number could pass.
         from unittest import mock
-        from rag import study_registry
+        from rag.retrieval import study_registry
         evidence={'E1':block('Subjects received 2 doses.')}
         a=claim(evidence,'Foo Bar 12주에 투여했다.')
         with mock.patch.object(study_registry,'products',return_value={'SB17':{'names':['Foo','Foo Bar']}}):
@@ -103,7 +103,7 @@ class TodayInvariants(unittest.TestCase):
         evidence={'E1':block('A single treatment group received multiple subcutaneous doses.')}
         a=claim(evidence,'단회 투여이다.')
         self.assertEqual(ra_source_constraints.check(a,evidence),'single_dose_qualifier_not_in_selected_sources')
-        from rag.ra_requirements import conditions
+        from rag.ra.ra_requirements import conditions
         self.assertEqual(conditions('Steqeyma I.V.')['routes'],['IV'])
 
     def test_month_year_date_does_not_create_a_dose_or_support_wrong_month(self):
@@ -127,7 +127,7 @@ class TodayInvariants(unittest.TestCase):
         self.assertEqual(ra_source_constraints.check(a,evidence),'foreign_guidance_footnote_not_current_document_status')
 
     def test_narrow_known_study_dose_request_is_checkable_but_extra_meaning_is_not(self):
-        from rag.ra_requirements import fully_checkable_request
+        from rag.ra.ra_requirements import fully_checkable_request
         text='EMA SB17-1001 건강인 PK 시험에서 실제 사용한 용량과 투여 경로를 원문으로 확인해줘.'
         self.assertTrue(fully_checkable_request(text))
         for extra in [' 장기 안전성도 확인해줘.',' 추적 기간을 알려줘.',' BMI 선정 기준도 알려줘.']:

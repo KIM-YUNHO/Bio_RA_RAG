@@ -1,7 +1,7 @@
 import unittest
-from rag.contract_relations import attach_comparison
-from rag.grounded_table_graph import build
-from rag.answer_conditions import missing
+from rag.evidence.contract_relations import attach_comparison
+from rag.evidence.grounded_table_graph import build
+from rag.evidence.answer_conditions import missing
 
 
 class RatioAnalysisBindingTests(unittest.TestCase):

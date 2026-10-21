@@ -1,8 +1,8 @@
 import unittest
-from rag.source_selection import catalog,resolve,value_ids
-from rag.prose import ranges
-from rag.requested_facts import slots,enrich,enforce
-from rag.regulatory_scope import literal_item_eligible
+from rag.evidence.source_selection import catalog,resolve,value_ids
+from rag.evidence.prose import ranges
+from rag.evidence.requested_facts import slots,enrich,enforce
+from rag.retrieval.regulatory_scope import literal_item_eligible
 
 class RequestedSourceFacts(unittest.TestCase):
     def evidence(self,text,**extra):
@@ -145,7 +145,7 @@ class RequestedSourceFacts(unittest.TestCase):
         self.assertTrue(all('Renal' not in candidates[cid]['value'] for cid in value_ids(candidates)))
 
     def test_direct_quote_path_rejects_unrelated_storage_answer(self):
-        from rag.requested_facts import restrict
+        from rag.evidence.requested_facts import restrict
         evidence=self.evidence('Renal impairment was not studied.\n11 STORAGE AND DISPOSAL\nStore at room temperature up to 27°C for 25 days.')
         question='실온 보관 온도와 기간은?';candidates=catalog(evidence,question)
         item={'value':'Renal impairment was not studied.','quote':'Renal impairment was not studied.','evidence':['E1'],'conditions':[]}
@@ -165,7 +165,7 @@ class RequestedSourceFacts(unittest.TestCase):
         item={'value':'original application','quote':evidence['E1']['text'],'evidence':['E1']}
         self.assertFalse(literal_item_eligible(item,evidence,'허가 서신에 명시된 제출 내용은?'))
     def test_gap_does_not_make_a_sentence_cross_missing_source(self):
-        from rag.source_context import containing_sentence
+        from rag.evidence.source_context import containing_sentence
         text='First fact.\n[UNSUPPLIED SOURCE GAP]\nSecond fact is 27 days.';evidence=self.evidence(text)
         start=text.index('27');candidate={'evidence':'E1','start':start,'end':start+7}
         self.assertEqual(containing_sentence(candidate,evidence),'Second fact is 27 days.')

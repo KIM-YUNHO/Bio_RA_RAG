@@ -3,7 +3,7 @@ from types import SimpleNamespace
 from unittest.mock import patch
 import json
 import unittest
-from rag import preprocessed_prompt
+from rag.evidence import preprocessed_prompt
 
 
 class Counter:

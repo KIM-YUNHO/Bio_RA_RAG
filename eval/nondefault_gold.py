@@ -81,7 +81,7 @@ def main():
     p.add_argument('--output', type=Path, required=True)
     p.add_argument('--no-plans', action='store_true', help='Write gold only; make no planner calls')
     a = p.parse_args()
-    from rag import study_registry
+    from rag.retrieval import study_registry
     gold = facts(a.run)
     # First registry name that is a brand, not a code spelling of the product ID.
     names = {pid: [n for n in m.get('names', []) if re.sub(r'[\s-]', '', n).upper() != pid.upper()
@@ -102,9 +102,9 @@ def main():
     print('cases', len(cases), 'facts', sum(len(c['facts']) for c in cases))
     if a.no_plans:
         return
-    from rag import ra_tasks
-    from rag.openai_chat import OpenAIPipelineChat
-    from rag.ra_pipeline import RAPipeline
+    from rag.ra import ra_tasks
+    from rag.llm.openai_chat import OpenAIPipelineChat
+    from rag.ra.ra_pipeline import RAPipeline
     from preprocess.hybrid_config import load_config
     pipe = RAPipeline(a.run, None, load_config(ROOT / 'configs/preprocess.local.json'),
                       research_rounds=0, chat_client=OpenAIPipelineChat(model='gpt-5.6-luna', context_tokens=65536))

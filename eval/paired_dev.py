@@ -22,10 +22,10 @@ def main():
     a = p.parse_args()
     code = a.code_root.resolve()
     sys.path.insert(0, str(code))
-    from rag import ra_retrieval, ra_answer
-    from rag.ra_research import extend
-    from rag.openai_chat import OpenAIPipelineChat
-    from rag.ra_pipeline import RAPipeline
+    from rag.ra import ra_retrieval, ra_answer
+    from rag.ra.ra_research import extend
+    from rag.llm.openai_chat import OpenAIPipelineChat
+    from rag.ra.ra_pipeline import RAPipeline
     from preprocess.hybrid_config import load_config
     data = a.data_root.resolve()
     pipe = RAPipeline(data / 'data/versions/04_pipeline_h_supplement_2026-10-14/embedded/release', None,

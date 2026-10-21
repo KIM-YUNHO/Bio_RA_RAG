@@ -1,7 +1,7 @@
 import unittest
-from rag.source_selection import catalog
-from rag.contract_relations import prose_fact
-from rag.prose_relation_scope import measure_bundle,linked
+from rag.evidence.source_selection import catalog
+from rag.evidence.contract_relations import prose_fact
+from rag.evidence.prose_relation_scope import measure_bundle,linked
 from tests.contract_match import condition
 
 RESULT='According to the primary targeted estimand, an estimated difference between Treatment A and Treatment B was -1.20% (90% confidence interval [CI]: -4.20%, 1.80%).'

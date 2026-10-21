@@ -3,7 +3,8 @@ import json
 import unittest
 from pydantic import ValidationError
 
-from rag import ra_answer, ra_assertions, ra_citation_completion, ra_models, ra_quantities, ra_requirements, ra_source_constraints, ra_spans
+from rag.ra import ra_answer, ra_assertions, ra_citation_completion, ra_models, ra_quantities, ra_requirements
+from rag.ra import ra_source_constraints, ra_spans
 
 
 def block(text, trial='SB17-1001', version='v1', product='SB17'):

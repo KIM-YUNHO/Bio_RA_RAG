@@ -1,7 +1,7 @@
 from copy import deepcopy
 import unittest
 from pydantic import ValidationError
-from rag import ra_models, ra_assertions, ra_quantities, ra_source_constraints, ra_requirements
+from rag.ra import ra_models, ra_assertions, ra_quantities, ra_source_constraints, ra_requirements
 
 
 def proposal(text, basis='source_statement'):

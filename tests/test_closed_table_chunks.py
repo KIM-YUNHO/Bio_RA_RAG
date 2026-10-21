@@ -3,7 +3,7 @@ from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 import unittest
 from test_chunking import CharacterCounter
-from rag.preprocessed_chunks import table_parts,DeferredTable
+from rag.index.preprocessed_chunks import table_parts,DeferredTable
 from preprocess.table_quality import inspect_table
 
 class ClosedTableChunkTests(unittest.TestCase):

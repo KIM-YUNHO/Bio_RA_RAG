@@ -67,7 +67,7 @@ Get-CimInstance Win32_Process -Filter "Name='python.exe'" | Where-Object Command
     Select-Object ProcessId, CommandLine
 
 # 검색 기본값 (리랭커·역할 가산·기본 포함 문서 역할)
-Select-String -Path rag/ra_retrieval.py -Pattern '^DEFAULT_PROFILE' -Context 0,2
+Select-String -Path rag/ra/ra_retrieval.py -Pattern '^DEFAULT_PROFILE' -Context 0,2
 
 # 데이터 역할 포인터
 Get-Content data/versions/versions.json -Encoding utf8 | ConvertFrom-Json | Select-Object -ExpandProperty roles

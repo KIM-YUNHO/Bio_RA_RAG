@@ -1,5 +1,5 @@
 import unittest
-from rag.evidence_budget import select
+from rag.evidence.evidence_budget import select
 
 
 class Budget(unittest.TestCase):

@@ -43,7 +43,7 @@ class WorkDraftService:
     def client(self, folder):
         if self.chat_factory:
             return self.chat_factory(folder)
-        from rag.openai_chat import EvaluationAPIChat
+        from rag.llm.openai_chat import EvaluationAPIChat
         client = EvaluationAPIChat(folder, max_new_calls=1, model=self.model)
         # Project reading budget (prompt + output), as for the RA pipeline; one call, no retry.
         client.config = SimpleNamespace(model=self.model, num_ctx=self.context_tokens, num_predict=3000)

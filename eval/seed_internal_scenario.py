@@ -20,7 +20,7 @@ def main():
     parser.add_argument('--out', type=Path, default=ROOT / 'work/internal_v4/seed_notebooks')
     args = parser.parse_args()
     if args.postgres:
-        from rag.llm import load_env
+        from rag.llm.llm import load_env
         load_env()
         store = PostgresWorkspaceStore()
     else:

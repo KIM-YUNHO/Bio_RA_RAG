@@ -7,7 +7,7 @@ import unittest
 
 from preprocess.ingest import Document, catalog_metadata, document_date, refresh_catalog_metadata
 from preprocess.visual_groups import build_visual_groups
-from rag.preprocessed_chunks import CONFIG, furniture_units
+from rag.index.preprocessed_chunks import CONFIG, furniture_units
 from test_visual_groups import asset
 
 

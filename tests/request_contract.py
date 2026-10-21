@@ -6,8 +6,8 @@ Proposals remain semantic candidates even when their quotations are valid.
 from copy import deepcopy
 import hashlib
 import re
-from rag.chunk_schema import obj, validate
-from rag.contract_terms import atoms, grounded_value, key
+from rag.index.chunk_schema import obj, validate
+from rag.evidence.contract_terms import atoms, grounded_value, key
 
 VERSION = "request-contract-3"
 STR = {"type": "string"}

@@ -12,12 +12,12 @@ import json
 from pathlib import Path
 
 from rag.pipeline import RAGPipeline
-from rag.ra_pipeline import RAPipeline
-from rag.local_chat import LocalChat
-from rag.search import filter_idx, to_pages
-from rag.plan_query import plan
-from rag.ra_sources import permitted
-from rag.service_scope import allowed
+from rag.ra.ra_pipeline import RAPipeline
+from rag.llm.local_chat import LocalChat
+from rag.retrieval.search import filter_idx, to_pages
+from rag.retrieval.plan_query import plan
+from rag.ra.ra_sources import permitted
+from rag.retrieval.service_scope import allowed
 from preprocess.hybrid_config import load_config
 from preprocess.ingest import sha256
 

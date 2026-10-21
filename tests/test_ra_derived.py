@@ -1,8 +1,8 @@
 import unittest
 
-from rag import ra_answer, ra_derived
-from rag.ra_models import RequestedDraft
-from rag.schema_budget import enum_count
+from rag.ra import ra_answer, ra_derived
+from rag.ra.ra_models import RequestedDraft
+from rag.evidence.schema_budget import enum_count
 
 
 def claim(cid, product, *sources):
@@ -76,14 +76,14 @@ if __name__ == '__main__':
 
 class LexicalGateFalsePositiveTests(unittest.TestCase):
     def test_iso_date_matches_us_order_source_date_only_when_equal(self):
-        from rag import ra_quantities as q
+        from rag.ra import ra_quantities as q
         for claim_date, source in (('2023-03-30', 'Received Date March 30, 2023'),
                                    ('2022-10-31', 'Received Date Oct 31, 2022'), ('2023-11-29', 'Nov. 29, 2023')):
             self.assertLessEqual(q.numbers(claim_date), q.numbers(source))
         self.assertFalse(q.numbers('2023-04-30') <= q.numbers('March 30, 2023'))
 
     def test_presentation_name_is_not_a_route_claim(self):
-        from rag import ra_source_constraints as c
+        from rag.ra import ra_source_constraints as c
         claim = lambda text: {'text': text, 'products': ['ABP654'],
                               'sources': [{'quote': 'Date Filed: 2022-11-15', 'evidence': 'E1'}]}
         self.assertIsNone(c.check(claim('ABP654(Wezlana/Wezlana I.V.)의 캐나다 NDS 제출일은 2022-11-15이다.'), {'E1': {}}))

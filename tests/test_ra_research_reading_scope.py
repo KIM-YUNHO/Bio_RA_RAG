@@ -4,7 +4,7 @@ from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
 
-from rag.ra_research import extend
+from rag.ra.ra_research import extend
 
 
 class ReadingScopeResearchTests(unittest.TestCase):
@@ -24,14 +24,14 @@ class ReadingScopeResearchTests(unittest.TestCase):
         corpus=SimpleNamespace(allowed_documents={('product-doc','v'),('guide-doc','v')})
         client=SimpleNamespace(tokenizer=SimpleNamespace(one=len),input_limit=10000)
         with ExitStack() as stack:
-            mocks={'rag.ra_obligations.build':{'return_value':[row]},
-                   'rag.ra_obligations.pointers':{'return_value':{}},
-                   'rag.ra_retrieval.retrieve':{'return_value':groups},
-                   'rag.ra_retrieval.packet':{'side_effect':lambda c,x,r:[(x,r)]},
-                   'rag.ra_retrieval.blocks':{'side_effect':lambda c,p:{'E1':p[0][0]}},
-                   'rag.ra_answer.messages':{'return_value':[]},
-                   'rag.ra_answer.schema':{'return_value':{}},
-                   'rag.ra_answer.cost':{'return_value':100}}
+            mocks={'rag.ra.ra_obligations.build':{'return_value':[row]},
+                   'rag.ra.ra_obligations.pointers':{'return_value':{}},
+                   'rag.ra.ra_retrieval.retrieve':{'return_value':groups},
+                   'rag.ra.ra_retrieval.packet':{'side_effect':lambda c,x,r:[(x,r)]},
+                   'rag.ra.ra_retrieval.blocks':{'side_effect':lambda c,p:{'E1':p[0][0]}},
+                   'rag.ra.ra_answer.messages':{'return_value':[]},
+                   'rag.ra.ra_answer.schema':{'return_value':{}},
+                   'rag.ra.ra_answer.cost':{'return_value':100}}
             for target,args in mocks.items():stack.enter_context(patch(target,**args))
             return extend(corpus,groups,{'E1':{'chunk_id':'baseline','text':'Original guidance.'}},
                           {},'question',understanding,client,None)

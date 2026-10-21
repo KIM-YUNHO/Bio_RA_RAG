@@ -1,7 +1,7 @@
 import unittest
 from types import SimpleNamespace
 from unittest.mock import patch
-from rag.budgeted_evidence import BudgetedEvidence
+from rag.evidence.budgeted_evidence import BudgetedEvidence
 
 
 class PageContext(unittest.TestCase):
@@ -55,7 +55,7 @@ class PageContext(unittest.TestCase):
         adapter.linked_candidates=lambda chunk,allowed:[table] if chunk is first else []
         adapter.blocks=lambda rows:{str(i):dict(c,retrieval_role=role) for i,(c,role) in enumerate(rows)}
         adapter.budget={'query':'endpoint','core_tokens':96,'counter':None,'fits':lambda blocks:len(blocks)<=2}
-        with patch('rag.budgeted_evidence.view',side_effect=lambda chunk,*args:chunk):
+        with patch('rag.evidence.budgeted_evidence.view',side_effect=lambda chunk,*args:chunk):
             got=adapter.evidence(chunks,range(3))
         self.assertEqual([b['chunk_id'] for b in got.values()],['first','table'])
         self.assertEqual([b['retrieval_role'] for b in got.values()],['retrieved','retrieved'])
@@ -68,7 +68,7 @@ class PageContext(unittest.TestCase):
         adapter.linked_candidates=lambda chunk,allowed:[]
         adapter.blocks=lambda rows:{str(i):dict(c,retrieval_role=role) for i,(c,role) in enumerate(rows)}
         adapter.budget={'query':'GMR primary results','core_tokens':96,'counter':None,'fits':lambda blocks:len(blocks)<=1}
-        with patch('rag.budgeted_evidence.view',side_effect=lambda chunk,*args:chunk):got=adapter.evidence(adapter.chunks,range(2))
+        with patch('rag.evidence.budgeted_evidence.view',side_effect=lambda chunk,*args:chunk):got=adapter.evidence(adapter.chunks,range(2))
         self.assertEqual([b['chunk_id'] for b in got.values()],['table'])
 
 

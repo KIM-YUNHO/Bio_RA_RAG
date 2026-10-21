@@ -1,5 +1,5 @@
 import unittest
-from rag.ra_statistical_tables import requested,signature,hits
+from rag.ra.ra_statistical_tables import requested,signature,hits
 
 MEAN_SD={('cmax','mean'),('cmax','sd')}
 

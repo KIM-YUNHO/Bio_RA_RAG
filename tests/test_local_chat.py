@@ -1,7 +1,7 @@
 from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
-from rag.local_chat import LocalChat, GenerationFailure
+from rag.llm.local_chat import LocalChat, GenerationFailure
 
 
 class LocalGeneration(unittest.TestCase):

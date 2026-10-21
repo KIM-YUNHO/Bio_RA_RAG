@@ -3,7 +3,7 @@ import json
 import unittest
 from pydantic import ValidationError
 
-from rag import ra_answer,ra_models,ra_obligations,ra_spans
+from rag.ra import ra_answer, ra_models, ra_obligations, ra_spans
 from test_ra_citation_completion import block
 
 
@@ -112,7 +112,7 @@ class ObligationTests(unittest.TestCase):
         self.assertEqual(reduced['text'],'건강한 일본 남성을 대상으로 하였다.')
 
     def test_review_retains_only_already_reviewed_part_identity(self):
-        from rag import ra_review
+        from rag.ra import ra_review
         from test_ra_citation_completion import claim
         evidence={'E1':block('Primary objective (Part 2):\n\nTo demonstrate pharmacokinetic similarity.')}
         parent=claim(evidence,'Part 2의 목적은 약동학적 유사성을 입증하는 것이다.',('S1','S2'))
@@ -128,7 +128,7 @@ class ObligationTests(unittest.TestCase):
         self.assertFalse(kept);self.assertEqual(rejected[0]['reason'],'claim_number_not_in_final_citations')
 
     def test_whole_supported_proposal_keeps_its_proof_without_review_added_facts(self):
-        from rag import ra_review
+        from rag.ra import ra_review
         from test_ra_citation_completion import claim
         evidence={'E1':block('Healthy subjects received 45 mg SC.\n\nThe confidence interval was 90%.')}
         parent=claim(evidence,'SB17은 건강인에게 45 mg SC로 투여했다.',('S1','S2'))
@@ -208,7 +208,7 @@ class ObligationTests(unittest.TestCase):
         self.assertFalse(ra_obligations.matches(row,{'text':'SB17의 조건이 달랐다.','products':['SB17']}))
 
     def test_truth_review_cannot_add_a_quantity_from_another_selected_paragraph(self):
-        from rag import ra_review
+        from rag.ra import ra_review
         from test_ra_bound_review import blocks,proposal,review,clause,TASK
         parents=proposal(text='SB17은 45 mg SC로 투여하였다.',ids=('S2','S3'))
         parents[0]['requirement_id']='R1_F1';parents[0]['requirement_ids']=['R1_F1']

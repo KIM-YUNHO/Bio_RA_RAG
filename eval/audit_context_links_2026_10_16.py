@@ -12,8 +12,8 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from rag import study_registry as sr
-from rag.portable_paths import resolve
+from rag.retrieval import study_registry as sr
+from rag.index.portable_paths import resolve
 
 OUT = ROOT / 'data/runs/context_link_audit_2026-10-16'
 

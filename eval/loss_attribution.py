@@ -135,9 +135,10 @@ def main():
     p.add_argument('--output', type=Path, required=True)
     p.add_argument('--pool', type=int, default=40)
     a = p.parse_args()
-    from rag import ra_retrieval, answer
-    from rag.openai_chat import OpenAIPipelineChat
-    from rag.ra_pipeline import RAPipeline
+    from rag.ra import ra_retrieval
+    from rag import answer
+    from rag.llm.openai_chat import OpenAIPipelineChat
+    from rag.ra.ra_pipeline import RAPipeline
     from preprocess.hybrid_config import load_config
     from eval.answer_scoring import timeline_gold
     run = ROOT / 'data/versions/04_pipeline_h_supplement_2026-10-14/embedded/release'

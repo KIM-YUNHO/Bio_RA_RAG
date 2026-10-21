@@ -1,5 +1,5 @@
 import unittest
-from rag.contract_terms import atoms
+from rag.evidence.contract_terms import atoms
 
 
 class ContractTermAtomsTests(unittest.TestCase):

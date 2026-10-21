@@ -8,8 +8,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "rag"))
-import study_registry as sr
+from rag.retrieval import study_registry as sr
 
 
 def validate(db, rows):

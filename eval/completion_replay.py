@@ -16,14 +16,14 @@ sys.path.insert(0, str(ROOT))
 
 
 def replay(report):
-    from rag import ra_requirements
-    from rag.ra_obligations import planned
+    from rag.ra import ra_requirements
+    from rag.ra.ra_obligations import planned
     question, result = report['question'], report['results'][0]
     understanding = deepcopy(report['understanding'])
     understanding['tasks'] = [ra_requirements.route_task(question, t) for t in understanding['tasks']]
     claims, evidence = result.get('claims', []), result.get('evidence', {})
     checks = ra_requirements.coverage(question, understanding, evidence, claims)['tasks']
-    from rag.ra_obligations import uncovered_sentences
+    from rag.ra.ra_obligations import uncovered_sentences
     uncovered = uncovered_sentences(question, understanding['tasks']) if planned(understanding['tasks']) else []
     obligations = (result.get('question_requirement_coverage') or {}).get('requirements', [])
     complete = bool(claims) and not uncovered and all(r['completion_checkable'] and r['minimum_requirements_met']

@@ -1,6 +1,6 @@
-"""Read a loaded RAG release (rag.chunks + rag.embeddings_bge_m3) for `rag.search.load_index`.
+"""Read a loaded RAG release (rag.chunks + rag.embeddings_bge_m3) for `rag.retrieval.search.load_index`.
 
-BIOSIM_SEARCH_BACKEND (rag/search.py):
+BIOSIM_SEARCH_BACKEND (rag/retrieval/search.py):
   postgres  chunks and the whole vector matrix are read from the database into memory, then searched as from files.
   pgvector  chunks are read from the database; the vectors stay there and every dense search is a pgvector query
             (PgVectors), so servers share one vector store instead of each holding a matrix. Callers that score
@@ -9,7 +9,7 @@ The release is found from the candidate folder the caller passes (`<release fold
 rag.releases.source_dir). A folder that is not a loaded release returns None and the caller reads files as before.
 
 What this does and does not replace: chunks and vectors come from the database. The release bundle's pages, assets,
-contexts and page images are still files (rag/release.py), and BM25 is still built in memory from the chunks.
+contexts and page images are still files (rag/index/release.py), and BM25 is still built in memory from the chunks.
 """
 import re
 import struct
@@ -63,7 +63,7 @@ def read_vectors(conn, release_id, count, dim):
 class PgVectors:
     """The vectors of one loaded release, searched in PostgreSQL with pgvector instead of a matrix in each server.
 
-    Row i is rag.chunks.ordinal = i, the row numbers rag.search uses for the matrix, so filters (row lists) carry over.
+    Row i is rag.chunks.ordinal = i, the row numbers rag.retrieval.search uses for the matrix, so filters (row lists) carry over.
     A search inside a row list is exact: every listed row is scored by inner product (`<#>`, the same measure as
     `matrix @ query`) and ties go to the lower row, so results match the file matrix up to float rounding. The release's
     HNSW index is for unfiltered nearest-neighbour search (`nearest`), which is approximate."""

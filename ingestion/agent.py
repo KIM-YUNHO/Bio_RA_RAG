@@ -66,7 +66,7 @@ def strict_schema(model):
 
 
 def openai_parse(conn, session_id, text, context):
-    from rag.llm import chat
+    from rag.llm.llm import chat
     messages = [{"role": "system", "content": SYSTEM}, {"role": "user", "content": f"CONTEXT:\n{context}\n\nMESSAGE:\n{text}"}]
     digest = hashlib.sha256(json.dumps(messages, ensure_ascii=False).encode("utf-8")).hexdigest()
     try:

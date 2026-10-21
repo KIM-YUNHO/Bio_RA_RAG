@@ -1,8 +1,8 @@
 from copy import deepcopy
 import unittest
 
-from rag.plan_query import plan
-from rag.request_scope import bind_request_scope
+from rag.retrieval.plan_query import plan
+from rag.retrieval.request_scope import bind_request_scope
 
 
 class RequestScopeTests(unittest.TestCase):
@@ -49,7 +49,7 @@ class RequestScopeTests(unittest.TestCase):
         self.assertEqual(u['request_scope']['status'],'applied')
 
     def test_regulator_mention_checks_proper_nouns_not_quote_formatting(self):
-        from rag.request_scope import regulator_mention
+        from rag.retrieval.request_scope import regulator_mention
         q = 'Pyzchiva의 EU 최초 판매허가일과 미국 승인일을 정리해줘.'
         # The copied name must be printed; the quote's format does not matter.
         self.assertTrue(regulator_mention(q, {'jurisdiction': 'EU', 'role': 'regulator', 'name': 'EU', 'quote': 'EU ... 판매허가일'}))
@@ -63,7 +63,7 @@ class RequestScopeTests(unittest.TestCase):
 
     def test_plan_validation_flags_names_not_in_the_question(self):
         import json
-        from rag.ra_models import ResearchPlan
+        from rag.ra.ra_models import ResearchPlan
         task = {'request': 'x', 'queries': ['x'], 'source_roles': ['label'], 'intent': {'intent': 'fact_lookup', 'request_quote': 'x'}}
         reply = json.dumps({'in_scope': True, 'products': [], 'jurisdictions': ['EU', 'US'], 'english_query': '', 'tasks': [task],
                             'jurisdiction_mentions': [{'jurisdiction': 'EU', 'role': 'regulator', 'name': 'EU', 'quote': 'EU'},

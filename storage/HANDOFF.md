@@ -27,7 +27,7 @@
 
 확인: `select release_id, n_chunks, n_documents from rag.releases` → `01…|10088|92`, `03…|11536|92`, `04_pipeline_h_supplement_2026_10_14|15682|111`. 웹 화면 `/api/summary`의 `product_index_chunks`가 15682.
 
-릴리스 04의 매니페스트에는 만든 PC의 절대 경로(`…\project_shared\data\…`, `…\project_shared\pipelines\…`)가 들어 있다. `rag/portable_paths.py`가 읽을 때 받은 사람의 프로젝트 루트로 바꾸므로 폴더 이름·위치가 달라도 된다(파일은 수정하지 않는다).
+릴리스 04의 매니페스트에는 만든 PC의 절대 경로(`…\project_shared\data\…`, `…\project_shared\pipelines\…`)가 들어 있다. `rag/index/portable_paths.py`가 읽을 때 받은 사람의 프로젝트 루트로 바꾸므로 폴더 이름·위치가 달라도 된다(파일은 수정하지 않는다).
 
 ## 빠른 시작 (팀원용, 2026-10-14 16시 기준 — 위 갱신을 우선)
 
@@ -112,7 +112,7 @@ docker exec biosim-db-1 psql -U biosim -d biosim -c "select release_id, n_chunks
 
 - 파일럿만 볼 거면 01 항목만, 최신만 볼 거면 03 항목(+02 3MB, 03이 참조하는 01의 렌더 PDF 일부 포함)만 있으면 된다. 정확한 목록은 `--release pilot|latest --list`로 뽑는다.
 - 묶음을 만들려면: `uv run python -m storage.serving_data --zip D:\share\biosim_data.zip`. 받는 쪽은 프로젝트 루트에 풀면 된다.
-- 절대 경로는 필요 없다. `rag/portable_paths.py`가 원본 프로젝트의 경로를 이 프로젝트의 같은 파일로 바꿔 읽는다.
+- 절대 경로는 필요 없다. `rag/index/portable_paths.py`가 원본 프로젝트의 경로를 이 프로젝트의 같은 파일로 바꿔 읽는다.
 
 ### 실행
 
@@ -152,13 +152,13 @@ $env:BIOSIM_SEARCH_BACKEND = 'postgres'     # 청크·벡터를 DB에서 읽는�
 ## 5. 알아야 할 것
 
 1. **같은 PC의 컨테이너 이름.** 원본 프로젝트(`biosimilar_collection`)와 `compose.yaml`의 프로젝트 이름(`biosim`)이 같아 컨테이너 `biosim-db-1`과 볼륨 `biosim_pgdata`를 **공유한다**(이 PC에서만의 일). 다른 PC에서 새로 띄우면 빈 DB다.
-2. **검색 거리는 내적이다. 코사인(`<=>`)을 쓰면 안 된다.** `rag/search.py`는 `vec @ query`(내적)로 순위를 매긴다. bge-m3 벡터는 fp16이라 노름이 0.9998~1.0005로 퍼져 있어, 코사인으로 바꾸면 top-10 집합이 질의의 6~8%에서 달라졌다(2026-10-14 측정). 인덱스는 `vector_ip_ops`, 질의는 `<#>`(음의 내적, 작을수록 가깝다)다. 이 설정에서 정확 검색은 numpy와 300/300 질의 동일했다.
+2. **검색 거리는 내적이다. 코사인(`<=>`)을 쓰면 안 된다.** `rag/retrieval/search.py`는 `vec @ query`(내적)로 순위를 매긴다. bge-m3 벡터는 fp16이라 노름이 0.9998~1.0005로 퍼져 있어, 코사인으로 바꾸면 top-10 집합이 질의의 6~8%에서 달라졌다(2026-10-14 측정). 인덱스는 `vector_ip_ops`, 질의는 `<#>`(음의 내적, 작을수록 가깝다)다. 이 설정에서 정확 검색은 numpy와 300/300 질의 동일했다.
 3. **지금 서비스의 검색은 "DB에서 읽어 메모리에서 계산"이다.** `BIOSIM_SEARCH_BACKEND=postgres`이면 `load_index`가 청크와 벡터를 DB에서 한 번 읽어 numpy 행렬로 둔다(약 2초). 그 뒤의 `dense_hits`와 BM25는 지금 코드 그대로 메모리에서 한다. pgvector `<#>` 질의로 직접 검색하는 경로는 DB에 준비돼 있지만(HNSW 포함) 서비스 코드는 아직 쓰지 않는다. 질의를 DB로 보내는 구현은 별도 작업이다.
 4. **HNSW는 근사다.** top-10 재현율 약 0.99(`ef_search=100`). 평가·일치 검사는 정확 검색(`SET enable_indexscan = off`)으로 한다.
 5. **릴리스는 불변이다.** `rag.chunks`·`rag.embeddings_bge_m3`는 UPDATE를 트리거로 막는다. 바뀐 릴리스는 새 `release_id`로 적재하고 `rag.active_release`가 가리키게 한다. 같은 릴리스를 `load`로 다시 돌리면 해시가 같을 때 아무 일도 하지 않고, 다르면 오류다(`--replace`로만 지우고 다시 적재).
 6. **벡터는 릴리스마다 파티션이다.** 한 릴리스를 직접 질의하려면 `WHERE release_id = '...'`를 반드시 건다.
 7. **`rag.chunks.metadata`(json)에 청크의 나머지 필드가 전부 있다.** 열로 꺼낸 것은 검색 필터에 쓰는 필드뿐이다. 행은 `storage.rag_loader.rebuild(row, keys)`로 `chunks.jsonl` 행과 키 순서까지 같게 복원된다(`jsonb`는 키 순서를 바꿔서 `json`으로 두었다).
-8. **`provenance` 안의 경로는 원본 프로젝트의 절대 경로 그대로다**(`C:\Users\Admin\Documents\biosimilar_collection\...`). 데이터는 해시 계약 때문에 고치지 않았다. 코드는 이 경로를 `rag.portable_paths.resolve()`로 이 프로젝트의 사본으로 바꿔 연다. 새 코드가 `provenance`·매니페스트의 경로를 열 때도 이 함수를 거쳐야 한다.
+8. **`provenance` 안의 경로는 원본 프로젝트의 절대 경로 그대로다**(`C:\Users\Admin\Documents\biosimilar_collection\...`). 데이터는 해시 계약 때문에 고치지 않았다. 코드는 이 경로를 `rag.index.portable_paths.resolve()`로 이 프로젝트의 사본으로 바꿔 연다. 새 코드가 `provenance`·매니페스트의 경로를 열 때도 이 함수를 거쳐야 한다.
 9. **`corpus`와의 연결은 외래키가 아니다.** `rag.chunks`의 `(document_id, version_id)`는 `corpus.document_versions`를 가리키지만 제약은 걸지 않았다. `ingestion.load_catalog`가 `corpus`를 비우고 다시 채우는데(TRUNCATE), 외래키가 있으면 그것이 막힌다. 대신 `verify`가 존재를 검사한다.
 10. **`corpus`·`registry`는 JSONL 카탈로그의 사본이다.** 새로 수집(`collection.collect`, `promote`)하면 `ingestion.load_catalog`를 다시 돌려야 한다.
 11. **BM25는 DB로 옮기지 않았다.** 계획 문서 4.2절 5번의 결정 그대로다.
@@ -169,10 +169,10 @@ $env:BIOSIM_SEARCH_BACKEND = 'postgres'     # 청크·벡터를 DB에서 읽는�
 | :-- | :-- |
 | `ingestion/db/migrations/005_rag.sql` ~ `007_…` | `rag` 스키마: 릴리스·청크·벡터(릴리스별 파티션, HNSW 내적)·`active_release`·불변 트리거 / 청크 키 순서 / 청크 원문 보존(json) |
 | `storage/rag_loader.py` | `load`(릴리스 한 개 = 한 트랜잭션), `verify`, `list` |
-| `storage/rag_index.py` | `rag.search.load_index`와 같은 `(chunks, vectors, meta)`를 DB에서 읽는다 |
-| `rag/portable_paths.py` | 원본 프로젝트의 절대 경로 → 이 프로젝트의 사본 경로 |
+| `storage/rag_index.py` | `rag.retrieval.search.load_index`와 같은 `(chunks, vectors, meta)`를 DB에서 읽는다 |
+| `rag/index/portable_paths.py` | 원본 프로젝트의 절대 경로 → 이 프로젝트의 사본 경로 |
 | `storage/serving_data.py` | 웹 화면에 필요한 데이터 파일 목록·크기·zip |
 | `storage/copy_serving_files.py` | 첫 이관에서 빠진 파일(파일럿 구성요소 후보 89개 360MB, 렌더 PDF 6개, 지침 원본·파싱본 2개)을 원본에서 읽기만 해서 복사 |
 | `storage/handoff/biosim_20261014.dump` | 전달용 덤프 |
 
-고친 기존 파일: `rag/search.py`(`load_index`에 DB 분기), `rag/release.py`·`review_viewer/data.py`·`rag/ra_sources.py`·`rag_service/pages.py`(저장된 경로를 열기 전에 `resolve()`). 원본 프로젝트 경로에서도 동작은 같다(해시 검사가 그대로 있다).
+고친 기존 파일: `rag/retrieval/search.py`(`load_index`에 DB 분기), `rag/index/release.py`·`review_viewer/data.py`·`rag/ra/ra_sources.py`·`rag_service/pages.py`(저장된 경로를 열기 전에 `resolve()`). 원본 프로젝트 경로에서도 동작은 같다(해시 검사가 그대로 있다).

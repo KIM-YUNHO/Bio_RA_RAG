@@ -21,7 +21,7 @@ def strip(tasks, keys):
 
 
 def compare(question, u):
-    from rag import ra_obligations, ra_prompt, ra_topic_queries
+    from rag.ra import ra_obligations, ra_prompt, ra_topic_queries
     tasks = u['tasks']
     new_rows = ra_obligations.build(question, tasks)
     old_rows = ra_obligations.build(question)
@@ -52,9 +52,9 @@ def main():
     p.add_argument('--plans', type=int, default=2)
     p.add_argument('--out', type=Path, required=True)
     a = p.parse_args()
-    from rag.openai_chat import OpenAIPipelineChat
-    from rag.ra_pipeline import RAPipeline
-    from rag import ra_tasks
+    from rag.llm.openai_chat import OpenAIPipelineChat
+    from rag.ra.ra_pipeline import RAPipeline
+    from rag.ra import ra_tasks
     from preprocess.hybrid_config import load_config
     data = a.data_root.resolve()
     cases = [c for f in a.cases for c in json.loads(f.read_text(encoding='utf-8'))]

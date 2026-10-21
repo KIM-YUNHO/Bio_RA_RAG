@@ -2,8 +2,8 @@ import json
 from pathlib import Path
 from types import SimpleNamespace
 import unittest
-from rag import ra_retrieval
-from rag.ra_sources import GuidelineIndex
+from rag.ra import ra_retrieval
+from rag.ra.ra_sources import GuidelineIndex
 
 ROOT=Path(__file__).resolve().parents[1]
 

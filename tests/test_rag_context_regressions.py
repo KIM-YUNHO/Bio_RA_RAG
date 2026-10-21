@@ -1,9 +1,9 @@
 import unittest
-from rag.source_selection import catalog,resolve
-from rag.dosing_coverage import enforce
-from rag.regulatory_scope import literal_item_eligible
-from rag.clinical_retrieval import cues,requested_priority_cue
-from rag.evidence_slices import score,view
+from rag.evidence.source_selection import catalog,resolve
+from rag.evidence.dosing_coverage import enforce
+from rag.retrieval.regulatory_scope import literal_item_eligible
+from rag.retrieval.clinical_retrieval import cues,requested_priority_cue
+from rag.evidence.evidence_slices import score,view
 
 class ContextRegressions(unittest.TestCase):
     def evidence(self,text):
@@ -86,7 +86,7 @@ class ContextRegressions(unittest.TestCase):
         self.assertFalse(any(c['dimension']=='route' for c in out['items'][0]['conditions']))
 
     def test_concentration_is_not_a_comparison_source(self):
-        from rag.source_selection import condition_ids
+        from rag.evidence.source_selection import condition_ids
         evidence=self.evidence('Serum concentration depends on weight.\nMedicine is for intravenous use. It should be administered over at least two hours.')
         candidates=catalog(evidence,'최소 주입 시간은?')
         self.assertNotIn('comparison',condition_ids(candidates))

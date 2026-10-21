@@ -1,6 +1,6 @@
 import unittest
-from rag import population_counts as pc
-from rag.source_selection import catalog
+from rag.evidence import population_counts as pc
+from rag.evidence.source_selection import catalog
 
 
 def block(text):

@@ -8,7 +8,7 @@ from preprocess.visual_groups import build_visual_groups
 from preprocess.ingest import from_inputs
 from preprocess.native_visual_context import recover
 from tests.test_visual_groups import asset
-from rag.search import filter_idx, Bm25, dense_hits
+from rag.retrieval.search import filter_idx, Bm25, dense_hits
 import numpy as np
 
 

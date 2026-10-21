@@ -191,7 +191,7 @@ def embedded_table_notes(asset):
 
 
 def assemble(assets, units, groups, documents=(), pages=(), version=VERSION):
-    from rag import document_structure as ds
+    from rag.index import document_structure as ds
     from .visual_groups import caption_identity
     if version not in SUPPORTED_VERSIONS:
         raise ValueError('Unsupported visual context rules')

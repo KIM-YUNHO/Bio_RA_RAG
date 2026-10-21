@@ -3,14 +3,14 @@
 A structural match never certifies semantic truth. Unsupported conditions remain
 unknown; a value from another endpoint can be a clear mismatch. No answer editing.
 """
-from rag.contract_terms import key
+from rag.evidence.contract_terms import key
 
 VERSION = "contract-match-7-printed-prose-bundles"
 
 
 def condition(fact, dimension, operator, values):
     if dimension in ("comparison", "weight") and operator in ("ordered_pair", "unordered_pair", "range"):
-        from rag.contract_relations import relation_condition
+        from rag.evidence.contract_relations import relation_condition
         return relation_condition(fact, dimension, operator, values)
     if fact is None or fact["relationship_status"] != "structural_candidate":
         return {"dimension": dimension, "status": "unknown", "reason": "unresolved_source_relationship"}

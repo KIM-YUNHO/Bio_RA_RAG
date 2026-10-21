@@ -1,5 +1,5 @@
 import unittest
-from rag.evidence_slices import view, GAP
+from rag.evidence.evidence_slices import view, GAP
 
 
 class Counter:

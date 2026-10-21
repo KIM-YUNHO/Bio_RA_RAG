@@ -3,8 +3,8 @@ from copy import deepcopy
 from types import SimpleNamespace
 import unittest
 
-from rag import ra_requirements as req
-from rag.ra_parent_context import candidates, guideline_candidates
+from rag.ra import ra_requirements as req
+from rag.ra.ra_parent_context import candidates, guideline_candidates
 
 
 def task(request):
@@ -28,7 +28,7 @@ def claim(text, source='E1', products=None):
 
 class RequestTests(unittest.TestCase):
     def test_quoted_source_revision_is_identity_but_wrong_dates_still_fail(self):
-        from rag.ra_quantities import check
+        from rag.ra.ra_quantities import check
         block = chunk('a', title='Guideline on similar biological medicinal products (CHMP/437/04 Rev 1)')
         text = "'" + block['title'] + "'의 시행일은 2015년 4월 30일이다."
         c = claim(text); c['sources'][0]['quote'] = 'Date for coming into effect 30 April 2015*'
@@ -38,7 +38,7 @@ class RequestTests(unittest.TestCase):
         c['text'] = text.replace('Rev 1', 'Rev 2')
         self.assertEqual(check(c, {'E1': block}), 'claim_number_not_in_final_citations')
     def test_stored_adoption_page_cannot_certify_current_validity(self):
-        from rag.ra_answer import literal_check
+        from rag.ra.ra_answer import literal_check
         block = chunk('a', text='Adoption by CHMP 23 October 2014.', role='guideline', product_id=None)
         c = claim('이 문서는 현재 버전이다.'); c.update(kind='source_fact', products=[])
         c['sources'][0]['quote'] = block['text']
@@ -47,7 +47,7 @@ class RequestTests(unittest.TestCase):
         self.assertEqual(rejected[0]['reason'], 'stored_guideline_does_not_certify_current_validity')
 
     def test_generic_table_label_cannot_support_location_but_short_value_can(self):
-        from rag.ra_answer import literal_check
+        from rag.ra.ra_answer import literal_check
         block = chunk('a', text='<td>Treatments</td>\n<td>France</td>')
         c = claim('SB17 시험은 프랑스에서 진행되었다.'); c.update(kind='source_fact')
         c['sources'][0]['quote'] = '<td>Treatments</td>'

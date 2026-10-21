@@ -1,5 +1,5 @@
 import unittest
-from rag.component_scope import establish,validate
+from rag.evidence.component_scope import establish,validate
 
 
 class ComponentScopeTests(unittest.TestCase):

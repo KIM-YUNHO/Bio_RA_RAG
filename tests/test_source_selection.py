@@ -1,7 +1,7 @@
 import unittest
-from rag.source_selection import catalog,resolve,schema,condition_ids,premise_conflicts
-from rag.preprocessed_evidence import grounded_answer
-from rag.answer_conditions import attribution_missing
+from rag.evidence.source_selection import catalog,resolve,schema,condition_ids,premise_conflicts
+from rag.evidence.preprocessed_evidence import grounded_answer
+from rag.evidence.answer_conditions import attribution_missing
 
 
 class SourceSelectionTests(unittest.TestCase):

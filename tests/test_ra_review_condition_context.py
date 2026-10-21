@@ -1,6 +1,6 @@
 import unittest
 
-from rag import ra_review, ra_source_constraints
+from rag.ra import ra_review, ra_source_constraints
 from test_ra_bound_review import proposal, review, clause, TASK
 
 

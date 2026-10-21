@@ -1,10 +1,10 @@
 """Copy the files the web services open but the first migration left behind, from the original project (read only).
 
 The original project's absolute paths in manifests are translated to this project's copies at read time
-(rag/portable_paths.py). That only works when the copies exist. Three groups were not copied
+(rag/index/portable_paths.py). That only works when the copies exist. Three groups were not copied
 (docs/project/SHARED_BASELINE_MIGRATION_2026-10-14.md, section 4); this puts them where `portable_paths` looks:
 
-1. the pilot release's 89 component candidate folders (`rag.release.ReleaseBundle` hash-checks each; 360 MB);
+1. the pilot release's 89 component candidate folders (`rag.index.release.ReleaseBundle` hash-checks each; 360 MB);
 2. the rendered / font-verified PDFs named by `rendered_path` in the pilot's extraction manifests (page images of
    those documents are drawn from them; sha256 is in `rendered_sha256`);
 3. the source and parse file of guideline documents whose manifest path is outside data/raw and data/parsed
@@ -21,7 +21,7 @@ import shutil
 import sys
 from pathlib import Path
 
-from rag.portable_paths import ROOT, mapped, relative_in_original
+from rag.index.portable_paths import ROOT, mapped, relative_in_original
 
 PILOT = ROOT / "data/versions/01_pilot_baseline_2026-10-10"
 RELEASES = [PILOT / "embedded/rag_finalization_2026-10-10_v2/release_manifest.json"]

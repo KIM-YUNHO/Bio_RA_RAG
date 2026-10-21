@@ -1,5 +1,5 @@
 import unittest
-from rag.table_evidence import cells, contains_cell_value
+from rag.evidence.table_evidence import cells, contains_cell_value
 
 
 class TableEvidence(unittest.TestCase):

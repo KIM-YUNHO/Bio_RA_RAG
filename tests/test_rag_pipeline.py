@@ -9,8 +9,8 @@ import test_release_bundle
 from preprocess.hybrid_config import HybridConfig
 from rag import answer
 from rag.pipeline import RAGPipeline
-from rag.plan_query import plan
-from rag.understand_query import resolve
+from rag.retrieval.plan_query import plan
+from rag.retrieval.understand_query import resolve
 
 
 class PipelineTests(unittest.TestCase):
@@ -93,7 +93,7 @@ class PipelineTests(unittest.TestCase):
         self.assertTrue(all(d['jurisdiction']=='EU' for d in self.pipeline.documents))
 
     def test_generation_failure_preserves_retrieval_evidence_and_failed_call_usage(self):
-        from rag.local_chat import GenerationFailure
+        from rag.llm.local_chat import GenerationFailure
         original=self.pipeline.client
         class Client:
             def __init__(self):self.calls=[]

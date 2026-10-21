@@ -1,7 +1,7 @@
 import unittest
-from rag.source_selection import catalog,resolve
-from rag.source_context import connected, comparison_coverage, enforce_comparison_coverage
-from rag.answer_conditions import missing,explicit_conflicts
+from rag.evidence.source_selection import catalog,resolve
+from rag.evidence.source_context import connected, comparison_coverage, enforce_comparison_coverage
+from rag.evidence.answer_conditions import missing,explicit_conflicts
 
 class LiteralContext(unittest.TestCase):
     def evidence(self,text):return {'E1':{'text':text,'document_id':'doc','version_id':'v','product_id':'SB17',

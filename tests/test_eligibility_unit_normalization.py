@@ -1,7 +1,7 @@
 from decimal import Decimal
 import unittest
 
-from rag import ra_quantities as q
+from rag.ra import ra_quantities as q
 
 
 class EligibilityUnitNormalizationTests(unittest.TestCase):

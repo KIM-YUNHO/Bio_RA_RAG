@@ -35,10 +35,10 @@ def main():
     p.add_argument('--no-generation', action='store_true')
     p.add_argument('--output', type=Path, required=True)
     a = p.parse_args()
-    from rag import ra_retrieval, ra_answer, ra_spans
-    from rag.schema_budget import enum_count
-    from rag.openai_chat import OpenAIPipelineChat
-    from rag.ra_pipeline import RAPipeline
+    from rag.ra import ra_retrieval, ra_answer, ra_spans
+    from rag.evidence.schema_budget import enum_count
+    from rag.llm.openai_chat import OpenAIPipelineChat
+    from rag.ra.ra_pipeline import RAPipeline
     from preprocess.hybrid_config import load_config
     units = gold(a.run)
     plans = [json.loads(Path(f).read_text(encoding='utf-8'))['understanding'] for f in sorted(glob.glob(str(a.plans / '*_?.json')))]

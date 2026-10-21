@@ -1,8 +1,8 @@
 import json,tempfile,unittest
 from pathlib import Path
 from types import SimpleNamespace
-from rag.openai_chat import EvaluationAPIChat
-from rag.local_chat import GenerationFailure
+from rag.llm.openai_chat import EvaluationAPIChat
+from rag.llm.local_chat import GenerationFailure
 
 
 class Tokens:

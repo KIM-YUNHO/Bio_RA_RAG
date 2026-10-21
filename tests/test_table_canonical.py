@@ -1,5 +1,5 @@
 import unittest
-from rag.table_canonical import canonicalize
+from rag.evidence.table_canonical import canonicalize
 
 
 class CanonicalTable(unittest.TestCase):

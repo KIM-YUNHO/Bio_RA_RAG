@@ -203,7 +203,7 @@ def verify_release(conn, entry, queries=300, top=10, seed=7):
         if not np.array_equal(back, vec):
             problems.append(f"{rel}: {int((back != vec).any(axis=1).sum())} vectors differ from doc.npy")
 
-    # 3. exact search: numpy inner product (what rag/search.py ranks by) vs pgvector `<#>`, queries = stored vectors of random chunks.
+    # 3. exact search: numpy inner product (what rag/retrieval/search.py ranks by) vs pgvector `<#>`, queries = stored vectors of random chunks.
     rng = np.random.default_rng(seed)
     picks = rng.choice(len(ids), size=min(queries, len(ids)), replace=False)
     conn.execute("SET enable_indexscan = off")

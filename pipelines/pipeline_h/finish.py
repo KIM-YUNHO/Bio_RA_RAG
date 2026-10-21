@@ -10,7 +10,7 @@ from preprocess.hybrid import read_jsonl,save_rows
 PREVIOUS=ROOT/'data/versions/01_pilot_baseline_2026-10-10/embedded/rag_finalization_2026-10-10_v2/candidate'
 
 def embed(run):
-    from rag.incremental_embeddings import build
+    from rag.index.incremental_embeddings import build
     from pipelines.pipeline_h.chunks import correct_provenance
     correct_provenance(run/'candidate')
     intake=read(run/'intake_manifest.json')
@@ -18,10 +18,10 @@ def embed(run):
     return build(run/'candidate',source,device='cuda')
 
 def finish(run):
-    from rag.search import load_index,filter_idx
-    from rag.release import compose,ReleaseBundle
+    from rag.retrieval.search import load_index,filter_idx
+    from rag.index.release import compose,ReleaseBundle
     from preprocess.hybrid_validate import validate_extraction
-    from rag import preprocessed_chunks
+    from rag.index import preprocessed_chunks
     from pipelines.pipeline_h.chunk_runtime import enable_dom_schema
     enable_dom_schema()
     start=time.perf_counter();run=Path(run).resolve();out=run/'extraction';candidate=run/'candidate'

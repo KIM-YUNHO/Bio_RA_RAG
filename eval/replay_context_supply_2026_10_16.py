@@ -14,10 +14,10 @@ from types import SimpleNamespace
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from eval.audit_context_links_2026_10_16 import OUT, read, rows, save
-from rag.portable_paths import resolve
-from rag.budgeted_evidence import BudgetedEvidence
-from rag.openai_chat import ApiTokenizer
-from rag import ra_retrieval, ra_answer
+from rag.index.portable_paths import resolve
+from rag.evidence.budgeted_evidence import BudgetedEvidence
+from rag.llm.openai_chat import ApiTokenizer
+from rag.ra import ra_retrieval, ra_answer
 
 
 def main():
@@ -99,7 +99,7 @@ def main():
             'evidence':r['evidence'],'context_budget':r.get('context_budget'),
             'validation_keys':list(r.get('validation',{}))})
     save('saved_evidence_trace.json',report_rows)
-    from rag import ra_quantities
+    from rag.ra import ra_quantities
     original=read(ROOT/'data/runs/answer_eval_2026-10-15/paired_dev/branch/E03_1.json')['results'][0]
     rechecks=[]
     for claim in original['validation']['rejected_items']:
@@ -119,9 +119,9 @@ def main():
     save('abp654_ema_source_pages.json',{str(n):pdf[n-1].get_text() for n in pages})
     for n in (44,45,84,103,104):
         pdf[n-1].get_pixmap(matrix=fitz.Matrix(1.5,1.5)).save(OUT/f'abp654_ema_page_{n}.png')
-    code_files=('rag/document_structure.py','preprocess/visual_context.py','rag/preprocessed_chunks.py',
-                'rag/ra_retrieval.py','rag/ra_parent_context.py','rag/ra_quantities.py',
-                'rag/source_study_scope.py','rag/budgeted_evidence.py','rag/ra_requirements.py','rag/ra_pipeline.py')
+    code_files=('rag/index/document_structure.py','preprocess/visual_context.py','rag/index/preprocessed_chunks.py',
+                'rag/ra/ra_retrieval.py','rag/ra/ra_parent_context.py','rag/ra/ra_quantities.py',
+                'rag/evidence/source_study_scope.py','rag/evidence/budgeted_evidence.py','rag/ra/ra_requirements.py','rag/ra/ra_pipeline.py')
     save('provenance.json',{'source_pdf':str(pdf_path),'source_pdf_sha256':pdf_hash,
                           'release_id':version['id'],'chunks_sha256':summary['chunks_sha256'],
                           'code_sha256':{name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in code_files},

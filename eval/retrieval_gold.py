@@ -50,7 +50,7 @@ def plan_for(item, pipe, folder, fresh=False):
 def fresh_plan(item, pipe, folder):
     path = folder / f"{item['id'].replace(':', '_')}.json"
     if not path.exists():
-        from rag import ra_tasks
+        from rag.ra import ra_tasks
         products = sorted({d['product_id'] for d in pipe.documents if d['product_id']})
         agencies = sorted({d['jurisdiction'] for d in pipe.documents})
         pipe.client.begin_request()
@@ -68,7 +68,7 @@ AGENCY_LABEL = {'EU': 'EMA', 'US': 'FDA', 'CA': 'Health Canada'}
 
 def unit_prefix(product, agency):
     """The group's own product names and agency, so the reranker scores that unit's passages."""
-    from rag import study_registry
+    from rag.retrieval import study_registry
     meta = study_registry.products().get(product, {}) if product else {}
     key = lambda n: re.sub(r'[^a-z0-9]', '', n.lower())
     brands = [n.split('(')[0].strip() for n in meta.get('names', []) if key(n.split('(')[0]) != key(product or '')]
@@ -111,9 +111,10 @@ def main():
     ks = [int(x) for x in a.ks.split(',')]
     variants = a.variants.split(',')
     items = json.loads(GOLD.read_text(encoding='utf-8'))['items']
-    from rag import ra_retrieval, answer
-    from rag.openai_chat import OpenAIPipelineChat
-    from rag.ra_pipeline import RAPipeline
+    from rag.ra import ra_retrieval
+    from rag import answer
+    from rag.llm.openai_chat import OpenAIPipelineChat
+    from rag.ra.ra_pipeline import RAPipeline
     from preprocess.hybrid_config import load_config
     pipe = RAPipeline(ROOT / 'data/versions/04_pipeline_h_supplement_2026-10-14/embedded/release', None,
                       load_config(ROOT / 'configs/preprocess.local.json'),
@@ -124,7 +125,7 @@ def main():
         plans = {it['id']: (plan_for(it, pipe, a.fresh_plans, fresh=True) if a.fresh_plans
                             else plan_for(it, pipe, a.output.parent / 'plans')) for it in items}
         if a.retrieval == 'atomic':
-            from rag.ra_needs import atomic_tasks
+            from rag.ra.ra_needs import atomic_tasks
             plans = {k: atomic_tasks(u) for k, u in plans.items()}
         pipe.warmup()
         corpus = pipe.retrieval_corpus()
@@ -152,7 +153,7 @@ def main():
                         ordered.append(pool); continue
                     name, mode, *how = variant.split(':')
                     if name not in rerankers:
-                        from rag.rerank import LocalReranker
+                        from rag.retrieval.rerank import LocalReranker
                         model, revision, kind, trust, length = MODELS.get(name, (name, None, 'cross_encoder', False, 512))
                         # A causal-LM reranker needs more memory per pair: smaller batches on an 8 GB GPU.
                         rerankers[name] = LocalReranker(model=model, revision=revision, max_length=length,

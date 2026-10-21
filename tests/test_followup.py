@@ -7,7 +7,8 @@ import time
 import unittest
 import urllib.request
 
-from rag import followup, ra_tasks
+from rag.retrieval import followup
+from rag.ra import ra_tasks
 from rag_service.__main__ import Jobs
 sys.path.insert(0, str(Path(__file__).parent))
 from http_server import Running  # noqa: E402

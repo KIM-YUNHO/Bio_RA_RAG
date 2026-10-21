@@ -1,5 +1,5 @@
 import unittest
-from rag.contract_terms import atoms,_cached_atoms
+from rag.evidence.contract_terms import atoms,_cached_atoms
 
 
 class ContractTermsCacheTests(unittest.TestCase):

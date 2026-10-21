@@ -15,7 +15,7 @@
 
 현재 실행 진입점: [로컬 PDF 워크플로우](../docs/preprocessing/LOCAL_PDF_WORKFLOW.md). `python -m preprocess workflow --input <PDF/폴더> --out <출력> --no-qwen`으로 전체 페이지 기본 추출·청킹·후보 검색 인덱스·보고서를 먼저 만든다. Qwen/추가 라벨 OCR 보완은 별도 출력에 페이지 캐시를 제공해 실행한다. `--resume`으로 같은 코드·조건의 실행을 재개한다. 2026-10-08 실행 범위는 기존 5문서·523페이지 전체로 고정했다. 아래 개별 명령은 단계별 도구와 이전 구현 기록이다.
 
-최신 문맥 보완·재검증: [연결 누락·표 내부 각주·목차 처리](../docs/preprocessing/VISUAL_CONTEXT_REVALIDATION_2026-10-08.md). `visual-context-3`는 원문 기호·참조와 레이아웃 라벨 충돌을 제한적으로 보완하고, 원문 대조를 통과한 표 각주를 별도 링크로 기록하며, 점선 목차의 본문 참조 오탐을 제외한다. 완료 추출은 별도 빈 폴더에 `regroup`한 뒤 `chunk`하면 적용된다. 기존 버전 계약도 검증 가능하다. 국문 질의 영문화는 `rag/search.py --rewrite-korean --local-only`로 선택할 수 있으며 형식·문자 보존 검사 실패 시 원질의를 사용한다. 실제 인덱스와 맞는 `--rag-dir`을 지정하며, 이는 모델의 의미 정확도나 미검토 후보 사용을 승인하는 옵션이 아니다.
+최신 문맥 보완·재검증: [연결 누락·표 내부 각주·목차 처리](../docs/preprocessing/VISUAL_CONTEXT_REVALIDATION_2026-10-08.md). `visual-context-3`는 원문 기호·참조와 레이아웃 라벨 충돌을 제한적으로 보완하고, 원문 대조를 통과한 표 각주를 별도 링크로 기록하며, 점선 목차의 본문 참조 오탐을 제외한다. 완료 추출은 별도 빈 폴더에 `regroup`한 뒤 `chunk`하면 적용된다. 기존 버전 계약도 검증 가능하다. 국문 질의 영문화는 `rag/retrieval/search.py --rewrite-korean --local-only`로 선택할 수 있으며 형식·문자 보존 검사 실패 시 원질의를 사용한다. 실제 인덱스와 맞는 `--rag-dir`을 지정하며, 이는 모델의 의미 정확도나 미검토 후보 사용을 승인하는 옵션이 아니다.
 
 데이터 추가·개정본 연결: [증분 데이터셋 파이프라인](../docs/preprocessing/DATASET_V2_PIPELINE_2026-10-08.md). `python -m preprocess.dataset`으로 카탈로그 기반 명세·추가분 조사·개발 모델 큐를 만들고 평가 보호 문서를 제외한다. 기존 77개와 추가 42개는 별도 버전의 인벤토리로 연결했다.
 
@@ -209,7 +209,7 @@ PDF 좌표는 `pymupdf_unrotated_crop_points_top_left`이고 단위는 point다.
 
 청킹의 `--visual-context-mode linked`가 기본이며, `none`/`headings`로 개발 비교한다.
 원문·청크 본문 범위는 유지하고 별도 출처 문맥을 header의 토큰 예산 안에 넣는다.
-`rag/search.py --visual-context`는 본문 참조에서 관련 시각 객체를 복원하며,
+`rag/retrieval/search.py --visual-context`는 본문 참조에서 관련 시각 객체를 복원하며,
 기존 검색 제외·평가 정책을 양쪽에 적용한다. 추가 OCR/Qwen 라우팅은 유지한다.
 
 구현·범위·검증: [문맥 연결 개발 결과](../docs/preprocessing/VISUAL_CONTEXT_IMPLEMENTATION_2026-10-08.md).

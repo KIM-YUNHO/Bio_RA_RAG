@@ -5,7 +5,7 @@ from unittest.mock import patch
 import numpy as np
 
 import test_release_bundle
-from rag.preprocessed_evidence import PreprocessedEvidence, grounded_answer, validate_shape
+from rag.evidence.preprocessed_evidence import PreprocessedEvidence, grounded_answer, validate_shape
 
 
 class EvidenceAdapterTests(unittest.TestCase):
@@ -31,7 +31,7 @@ class EvidenceAdapterTests(unittest.TestCase):
         self.assertEqual(self.adapter.evidence(self.chunks,[]),{})
 
     def test_budget_excludes_whole_table(self):
-        with patch('rag.preprocessed_evidence.EVIDENCE_CHARS',1):
+        with patch('rag.evidence.preprocessed_evidence.EVIDENCE_CHARS',1):
             evidence=self.adapter.evidence(self.chunks[:1],np.arange(len(self.chunks)))
         self.assertEqual(evidence,{})
         self.assertEqual(self.adapter.last_omitted[0]['reason'],'whole_chunk_exceeds_answer_context_budget')

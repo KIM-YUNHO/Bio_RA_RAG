@@ -51,7 +51,7 @@ class Jobs:
 
     def follow_up_context(self,conversation):
         """The last completed turn of a conversation, reduced to what a follow-up may use."""
-        from rag.followup import context_from_report
+        from rag.retrieval.followup import context_from_report
         for turn in reversed(conversation['turns']):
             try:job=self.get(turn['job_id'])
             except KeyError:continue
@@ -203,11 +203,11 @@ def main():
     if args.guidelines and args.mode!='ra':parser.error('--guidelines requires --mode ra')
     if args.llm_model!='gpt-4o-mini' and args.mode!='ra':parser.error('--llm-model requires --mode ra')
     # The root .env decides the database and the search backend (BIOSIM_SEARCH_BACKEND) before the index is loaded.
-    from rag.llm import load_env
+    from rag.llm.llm import load_env
     load_env()
     if args.mode=='ra':
-        from rag.ra_pipeline import RAPipeline
-        from rag.openai_chat import OpenAIPipelineChat
+        from rag.ra.ra_pipeline import RAPipeline
+        from rag.llm.openai_chat import OpenAIPipelineChat
         pipeline=RAPipeline(args.run,args.candidate,load_config(args.config),
             retrieval_pages=args.retrieval_pages,guideline_snapshot=args.guidelines,
             research_rounds=args.research_rounds,approval_timeline=args.approval_timeline,
