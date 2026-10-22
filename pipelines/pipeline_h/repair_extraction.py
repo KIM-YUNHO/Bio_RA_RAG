@@ -7,7 +7,8 @@ from pipelines.pipeline_h.prepare import read,write
 from pipelines.pipeline_h.html_source import parse
 from pipelines.pipeline_h.exclusion_audit import normalized
 from preprocess.ingest import Document,sha256,stable_hash
-from preprocess.hybrid import read_jsonl,save_rows,save_outputs
+from preprocess.files import read_jsonl, save_rows
+from preprocess.outputs import save_outputs
 from preprocess.table_quality import inspect_table
 
 def native_recovery(page,block):

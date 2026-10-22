@@ -36,7 +36,7 @@ class NativeFontRepairTests(unittest.TestCase):
 
     def test_changed_derivative_hash_is_rejected(self):
         Path(self.doc.pdf_path).write_bytes(Path(self.doc.pdf_path).read_bytes()+b'changed')
-        from preprocess.hybrid import assert_sources
+        from preprocess.ingest import assert_sources
         with self.assertRaisesRegex(ValueError,'checksum mismatch'):assert_sources([self.doc])
 
     def test_graphics_change_cannot_be_hidden_by_new_checksum(self):

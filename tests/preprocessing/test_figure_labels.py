@@ -17,7 +17,8 @@ from tests.preprocessing.test_preprocessing_hybrid import Parser, Qwen
 
 class FigureOCRTests(unittest.TestCase):
     def run_case(self, budget=None, fail=False):
-        from preprocess.hybrid import run_hybrid, read_jsonl
+        from preprocess.hybrid import run_hybrid
+        from preprocess.files import read_jsonl
         from preprocess.hybrid_config import HybridConfig
         from preprocess.ingest import from_inputs, sha256
         from preprocess.figure_ocr import complete

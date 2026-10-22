@@ -15,43 +15,19 @@ from PIL import Image
 from collection import text_layer
 
 from .ingest import Document, sha256, stable_hash
-from .inventory import write_json
 from .paddle_adapter import PaddleAdapter
 from .qwen_adapter import QwenAdapter, task_fingerprint, validate_answer
 from .table_quality import QUALITY_VERSION, REDACTION, inspect_table, route_asset
 from .text_checks import figure_label_reference
 from .visual_groups import GROUPING_VERSION, build_visual_groups
 from .reporting import Progress
+from .files import cache_read, cache_write, read_jsonl, save_rows, write_json
+from .ingest import assert_sources
+from .outputs import save_outputs
 
 PIPELINE_VERSION = "paddle-qwen-2"
 FIGURE_LABELS = {"image", "chart", "picture", "figure"}
 CONTEXT_LABELS = {"figure_title", "caption", "footnote", "vision_footnote", "table_title"}
-
-
-def read_jsonl(path):
-    return [json.loads(line) for line in Path(path).read_text(encoding="utf-8").splitlines() if line.strip()]
-
-
-def save_rows(path, rows):
-    path = Path(path)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    temp = path.with_suffix(path.suffix + ".tmp")
-    temp.write_text("".join(json.dumps(row, ensure_ascii=False, allow_nan=False) + "\n" for row in rows), encoding="utf-8")
-    temp.replace(path)
-
-
-def cache_read(path, key):
-    try:
-        value = json.loads(path.read_text(encoding="utf-8"))
-        if value["key"] == key and value["payload_sha256"] == stable_hash(value["payload"]):
-            return value["payload"]
-    except (OSError, ValueError, KeyError, TypeError):
-        pass
-    return None
-
-
-def cache_write(path, key, payload):
-    write_json(path, {"key": key, "payload_sha256": stable_hash(payload), "payload": payload})
 
 
 def unwrap_result(value, image_size):
@@ -255,20 +231,6 @@ def enrichment_images(asset, doc, settings, out, context=None):
                     "render_size": [pix.width, pix.height], "images": paths}
 
 
-def assert_sources(documents):
-    for doc in documents:
-        if doc.kind not in ('pdf','html') or doc.kind=='html' and not (doc.rendered_path and doc.rendered_sha256):
-            raise ValueError('HTML must have a registered local rendering before extraction')
-        actual = sha256(doc.raw_path)
-        if actual != doc.version_id or doc.expected_sha256 and actual != doc.expected_sha256:
-            raise ValueError(f"Original checksum mismatch: {doc.document_id}")
-        if doc.rendered_path and sha256(doc.rendered_path)!=doc.rendered_sha256:
-            raise ValueError(f'HTML rendering checksum mismatch: {doc.document_id}')
-        if doc.kind=='pdf' and doc.rendered_path:
-            from .native_fonts import validate as validate_fonts
-            validate_fonts(doc)
-
-
 def enrich_assets(assets, documents, out, config, adapter=None, max_calls=None, progress=None, only_asset_ids=None):
     if max_calls is not None and (type(max_calls) is not int or max_calls < 0):
         raise ValueError("Qwen call limit must be a nonnegative integer")
@@ -381,80 +343,6 @@ def enrich_assets(assets, documents, out, config, adapter=None, max_calls=None, 
     assert_sources(documents)
     save_rows(out / "qwen_candidates.jsonl", candidates)
     return stats
-
-
-def save_outputs(out, assets, pages, documents, summary, groups=None):
-    from .figure_labels import apply
-    apply(assets, groups)
-    save_rows(out / "extracted_assets.jsonl", assets)
-    save_rows(out / "extraction_pages.jsonl", pages)
-    queue = [{"asset_id": a["asset_id"], "document_id": a["document_id"], "pdf_page": a["pdf_page"],
-              "task": a["route"]["task"], "reasons": a["route"]["reasons"],
-              "status": (a["enrichment"] or {}).get("status", "pending")}
-             for a in assets if a["route"]["task"]]
-    save_rows(out / "enrichment_queue.jsonl", queue)
-    reviews = [{"page_id": p["page_id"], "reason": "page_incomplete", "details": p.get("error") or p.get("invalid_blocks")}
-               for p in pages if p["status"] != "parsed"]
-    reviews += [{"asset_id": a["asset_id"], "reason": "requires_review", "details": a["enrichment"]}
-                for a in assets if a["route"]["task"] and (a["enrichment"] or {}).get("status") != "heuristic_checks_passed"]
-    reviews += [{"asset_id":a['asset_id'],"reason":"continued_table_association_requires_review",
-                 "logical_group_id":a.get('logical_group_id')}
-                for a in assets if a.get('continuation_status')=='data_fragment_continuation_candidate']
-    reviews += [{'asset_id': a['asset_id'], 'reason': 'table_context_association_requires_review',
-                 'details': a['context_association_issues']}
-                for a in assets if a.get('context_association_issues')]
-    reviews += [{'asset_id':a['asset_id'],'reason':'cascade_region_requires_review','details':a['route']}
-                for a in assets if a['route'].get('next_stage') in {'review','light_ocr'}]
-    save_rows(out / "extraction_review_queue.jsonl", reviews)
-    units = [{"unit_id": a["asset_id"], "document_id": a["document_id"], "version_id": a["version_id"],
-        "kind": a["asset_type"], "text": a["selected"]["content"], "content_origin": a["selected"]["origin"],
-        "source_refs": a["source_refs"], "representation_range": [0, len(a["selected"]["content"])],
-        "validation_status": a["validation_status"], "numeric_evidence_eligible": False}
-        for a in assets]
-    for unit, asset in zip(units, assets):
-        unit["review_required"] = (bool(asset["route"]["task"]) and (asset["enrichment"] or {}).get("status") != "heuristic_checks_passed"
-            or asset['route'].get('next_stage') in {'review','light_ocr'})
-        if asset.get('continuation_status') == 'data_fragment_continuation_candidate':
-            from .native_table_fragments import eligible as native_fragment_eligible
-            unit['review_required'] = not native_fragment_eligible(asset)
-            if not unit['review_required']:
-                unit['native_table_fragment'] = {k: asset['native_table_fragment']['fragment'][k] for k in
-                    ('version','header_source_rows','closed_source_row_groups','excluded_source_rows','cross_page_relationship')}
-        if asset['selected']['origin'] in {'native_figure_caption','paddle_figure_caption','figure_labels_candidate'}:
-            unit['description_review_required'] = True
-            unit['review_required'] = False
-        if asset.get('figure_labels'):
-            unit['figure_labels'] = asset['figure_labels']
-        if any(c.get('visual_description_review_required') for c in
-                (asset.get('source_grid_refinement') or {}).get('plan',{}).get('cells',[])):
-            unit['description_review_required'] = True
-        unit["retrieval_eligible"] = bool(unit["text"].strip()) and not unit["review_required"]
-        if asset['block_label'] == 'native_figure_context':
-            unit['retrieval_eligible'] = False
-            unit['retrieval_role'] = 'visual_context_only'
-        group = next((g for g in groups or [] if g['group_id']==asset.get('logical_group_id')), None)
-        if group:
-            unit['structure'] = {'logical_group_id':group['group_id'],
-                'figure_id':group['group_id'] if group['kind']=='figure' else None,
-                'table_id':group['group_id'] if group['kind']=='table' else None,
-                'caption':group['caption_text'], 'panel_index':asset.get('panel_index'),
-                'member_unit_ids':group['member_asset_ids'],
-                'context_unit_ids':group.get('context_asset_ids', group['caption_part_asset_ids']),
-                'context_roles':group.get('context_roles', {}),
-                'association_status':group['association_status'], 'continuation_status':group['continuation_status']}
-            if group['kind']=='figure' and not asset.get('is_logical_group'):
-                unit['retrieval_eligible'] = False
-                unit['retrieval_role'] = 'logical_figure_member'
-                unit['parent_unit_id'] = group['group_id']
-    save_rows(out / "source_units.jsonl", units)
-    write_json(out / "extraction_summary.json", summary)
-    if groups is not None:
-        save_rows(out / 'visual_groups.jsonl',groups)
-    from .visual_context import assemble, save_bundle
-    context_contract = save_bundle(out, assemble(assets, units, groups or [], [d.to_dict() for d in documents], pages))
-    write_json(out / "extraction_integrity.json", {"files": {name: sha256(out / name) for name in
-        ("extracted_assets.jsonl", "extraction_pages.jsonl", "source_units.jsonl",*(("visual_groups.jsonl",) if groups is not None else ()))},
-        'visual_context': context_contract})
 
 
 def run_hybrid(documents, out, config, pages=None, use_qwen=True, max_qwen_calls=None, paddle=None, qwen=None,

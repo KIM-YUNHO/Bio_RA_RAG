@@ -8,7 +8,7 @@ from pathlib import Path
 import uuid
 
 from .ingest import sha256
-from .inventory import write_json
+from .files import write_json
 
 KST = timezone(timedelta(hours=9))
 VERSION = 'preprocessing-status-1'

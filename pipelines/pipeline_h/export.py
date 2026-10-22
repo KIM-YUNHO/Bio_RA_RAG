@@ -5,7 +5,8 @@ from pathlib import Path
 import fitz
 from collection import text_layer
 from preprocess.ingest import Document,sha256,stable_hash
-from preprocess.hybrid import save_outputs,save_rows,read_jsonl
+from preprocess.outputs import save_outputs
+from preprocess.files import save_rows, read_jsonl
 from preprocess.text_checks import figure_label_reference
 from preprocess.table_quality import inspect_table,comparable_text
 from preprocess.visual_groups import build_visual_groups,GROUPING_VERSION

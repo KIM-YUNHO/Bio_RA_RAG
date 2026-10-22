@@ -7,10 +7,11 @@ import fitz
 from PIL import Image
 
 from .figure_labels import apply, scopes
-from .hybrid import read_jsonl, save_outputs
+from .files import read_jsonl
+from .outputs import save_outputs
 from .hybrid_validate import validate_extraction
 from .ingest import Document, sha256, stable_hash
-from .inventory import write_json
+from .files import write_json
 from .paddle_adapter import PaddleAdapter
 from .qwen_adapter import QwenAdapter
 from .regroup import regroup

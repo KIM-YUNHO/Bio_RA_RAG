@@ -7,7 +7,8 @@ from pathlib import Path
 
 import fitz
 
-from .hybrid import assert_sources, read_jsonl
+from .ingest import assert_sources
+from .files import read_jsonl
 from .ingest import Document, sha256
 
 # Native packets are deterministic for an exact source version. A transaction
@@ -112,7 +113,7 @@ def _validate_extraction(out,pdf_for):
             if any(c["bbox_pdf"] is not None for c in asset["base"]["quality"]["cells"]):
                 raise ValueError("Table structure must not fabricate physical cell coordinates")
         if asset['base'].get('light_ocr_provenance') is not None and not asset.get('is_logical_group'):
-            from .hybrid import cache_read
+            from .files import cache_read
             row=page_lookup[(asset['document_id'],asset['version_id'],asset['pdf_page'])]
             path=Path(row['raw_result_path']);raw=cache_read(path,path.stem)
             if raw is None:raise ValueError('Light OCR cache failed integrity verification')
@@ -123,7 +124,7 @@ def _validate_extraction(out,pdf_for):
                 raise ValueError('Light OCR provenance differs from its exact raw region')
         extra=asset.get('light_region_ocr')
         if extra:
-            from .hybrid import cache_read
+            from .files import cache_read
             from .ingest import stable_hash
             meta=extra['metadata'];path=Path(extra['raw_path'])
             if (meta['source_refs']!=asset['source_refs'] or meta['asset_id']!=asset['asset_id']

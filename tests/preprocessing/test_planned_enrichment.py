@@ -1,7 +1,8 @@
 import contextlib,io,json,tempfile,unittest
 from pathlib import Path
 import fitz
-from preprocess.hybrid import run_hybrid,read_jsonl
+from preprocess.hybrid import run_hybrid
+from preprocess.files import read_jsonl
 from preprocess.hybrid_config import HybridConfig
 from preprocess.ingest import from_inputs,stable_hash,sha256
 from preprocess.planned_enrichment import execute,bindings
@@ -44,7 +45,7 @@ class PlannedEnrichmentTests(unittest.TestCase):
         self.assertEqual(qwen.calls,[])
 
     def test_new_contract_executes_and_changed_selection_cannot_reuse_a_frozen_task(self):
-        from preprocess.hybrid import save_outputs
+        from preprocess.outputs import save_outputs
         from preprocess.visual_router import decide
         from preprocess.visual_task_inputs import planned_task
         target=self.assets[0]

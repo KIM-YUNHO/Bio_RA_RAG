@@ -9,10 +9,10 @@ import sys
 from rag.index import build_chunks as bc, document_structure as ds
 from rag.index.chunk_schema import profile_id, validate_dataset
 from rag.index.chunking import Fragment, Packed, pack_units
-from preprocess.hybrid import read_jsonl, save_rows
+from preprocess.files import read_jsonl, save_rows
 from preprocess.hybrid_validate import validate_extraction
 from preprocess.ingest import sha256, stable_hash, INTAKE_METADATA_FIELDS, document_date
-from preprocess.inventory import write_json
+from preprocess.files import write_json
 
 VERSION = 'preprocessed-chunks-13-closed-row-blocks'
 CONFIG = {**bc.CONFIG, 'config_version': VERSION, 'structure_version': ds.VERSION, 'section_rules_version': ds.VERSION, 'schema_version': 'rag-chunk-3', 'figure_max_tokens': 2048,

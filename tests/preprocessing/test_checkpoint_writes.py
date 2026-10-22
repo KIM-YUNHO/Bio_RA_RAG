@@ -1,7 +1,7 @@
 import json,tempfile,unittest
 from pathlib import Path
 from unittest.mock import patch
-from preprocess.inventory import write_json
+from preprocess.files import write_json
 
 class CheckpointWriteTests(unittest.TestCase):
     def test_transient_windows_lock_retries_without_corrupting_previous_checkpoint(self):

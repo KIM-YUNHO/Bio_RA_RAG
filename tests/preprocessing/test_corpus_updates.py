@@ -4,7 +4,8 @@ from unittest.mock import patch
 import fitz
 from preprocess.ingest import from_inputs, sha256
 from preprocess.html_render import prepare
-from preprocess.hybrid import run_hybrid, resume_enrichment, read_jsonl
+from preprocess.hybrid import run_hybrid, resume_enrichment
+from preprocess.files import read_jsonl
 from preprocess.hybrid_validate import validate_extraction
 from preprocess.hybrid_config import HybridConfig
 from preprocess.native_page import parse

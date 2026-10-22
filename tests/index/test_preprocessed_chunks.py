@@ -12,7 +12,8 @@ import fitz
 
 from tests.preprocessing.test_preprocessing_hybrid import Parser, Qwen, GOOD, BAD, reply, FIGURE
 from tests.index.test_chunking import CharacterCounter
-from preprocess.hybrid import run_hybrid, read_jsonl
+from preprocess.hybrid import run_hybrid
+from preprocess.files import read_jsonl
 from preprocess.hybrid_config import HybridConfig
 from preprocess.ingest import from_inputs, sha256
 from rag.index import preprocessed_chunks as pc
@@ -384,8 +385,7 @@ class PreprocessedChunkTests(unittest.TestCase):
         self.assertFalse(restored['numeric_evidence_eligible'])
         # Tampered field support must fail even after an attacker rehashes artifacts.
         from preprocess.hybrid_validate import validate_extraction
-        from preprocess.hybrid import save_rows
-        from preprocess.inventory import write_json
+        from preprocess.files import save_rows, write_json
         rows = read_jsonl(self.run/'extracted_assets.jsonl')
         parent = next(a for a in rows if a.get('is_logical_group'))
         parent['figure_labels']['fields'][0]['evidence']['asset_id'] = 'foreign-panel'

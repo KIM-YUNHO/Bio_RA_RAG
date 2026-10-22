@@ -9,7 +9,6 @@ import math
 from pathlib import Path
 import re
 import time
-import tempfile
 
 import fitz
 
@@ -18,31 +17,9 @@ from .detect import overlap, scan_page
 from .html_inventory import inspect_html
 from .ingest import Document, asset_identity, sha256, stable_hash
 from .schema import JSON_SCHEMA, SCHEMA_VERSION, validate_record
+from .files import write_json
 
 ROUTING_VERSION = "inventory-route-1"
-
-
-def write_json(path, value):
-    path = Path(path)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    # Windows readers/virus scanners can briefly hold the destination open.
-    # A private, closed temp file avoids colliding writers and preserves the
-    # previous complete checkpoint until an atomic replacement succeeds.
-    payload=json.dumps(value,ensure_ascii=False,indent=2,allow_nan=False)+'\n'
-    with tempfile.NamedTemporaryFile(mode='w',encoding='utf-8',dir=path.parent,
-            prefix=path.name+'.',suffix='.tmp',delete=False) as stream:
-        stream.write(payload)
-        temporary=Path(stream.name)
-    try:
-        for attempt in range(8):
-            try:
-                temporary.replace(path)
-                break
-            except PermissionError:
-                if attempt==7:raise
-                time.sleep(min(.05*(2**attempt),.5))
-    finally:
-        temporary.unlink(missing_ok=True)
 
 
 def write_jsonl(path, rows):

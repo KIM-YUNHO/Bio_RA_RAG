@@ -10,7 +10,8 @@ from unittest.mock import patch
 import fitz
 from PIL import Image
 
-from preprocess.hybrid import pdf_box, read_jsonl, resume_enrichment, run_hybrid
+from preprocess.hybrid import pdf_box, resume_enrichment, run_hybrid
+from preprocess.files import read_jsonl
 from preprocess.hybrid_config import HybridConfig, local_endpoint, parse_pages
 from preprocess.ingest import from_inputs, sha256
 from preprocess.qwen_adapter import validate_answer

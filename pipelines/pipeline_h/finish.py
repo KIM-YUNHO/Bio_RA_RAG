@@ -5,7 +5,7 @@ from pathlib import Path
 import numpy as np
 from pipelines.pipeline_h.prepare import ROOT,read,write
 from preprocess.ingest import sha256,INTAKE_METADATA_FIELDS
-from preprocess.hybrid import read_jsonl,save_rows
+from preprocess.files import read_jsonl, save_rows
 
 PREVIOUS=ROOT/'data/versions/01_pilot_baseline_2026-10-10/embedded/rag_finalization_2026-10-10_v2/candidate'
 

@@ -394,8 +394,7 @@ def assemble(assets, units, groups, documents=(), pages=(), version=VERSION):
 
 
 def save_bundle(out, bundle):
-    from .hybrid import save_rows
-    from .inventory import write_json
+    from .files import save_rows, write_json
     out = Path(out)
     for name, key in zip(FILES, ('units', 'links', 'targets')):
         save_rows(out/name, bundle[key])
@@ -404,7 +403,7 @@ def save_bundle(out, bundle):
 
 
 def load_bundle(out, contract):
-    from .hybrid import read_jsonl
+    from .files import read_jsonl
     out = Path(out)
     if contract.get('version') not in SUPPORTED_VERSIONS or set(contract['files']) != set((*FILES, 'visual_context_summary.json')):
         raise ValueError('Unsupported or incomplete visual context contract')
@@ -538,9 +537,9 @@ def verify_chunk_links(chunk, bundle):
 
 
 def write(run, out):
-    from .hybrid import read_jsonl
+    from .files import read_jsonl
     from .hybrid_validate import validate_extraction
-    from .inventory import write_json
+    from .files import write_json
     run, out = Path(run).resolve(), Path(out).resolve()
     if out.exists() or out.is_relative_to(run) or run.is_relative_to(out):
         raise ValueError('Choose a new separate visual context output directory')

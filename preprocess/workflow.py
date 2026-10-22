@@ -1,5 +1,4 @@
 """One local PDF workflow, using the existing extraction and retrieval contracts."""
-from contextlib import contextmanager
 from datetime import datetime, timezone
 import json
 import os
@@ -8,7 +7,7 @@ import shutil
 import time
 
 from .ingest import Document, assert_model_execution_allowed, from_catalog, from_inputs, sha256, stable_hash
-from .inventory import write_json
+from .files import write_json, exclusive
 
 VERSION = 'local-ra-workflow-1'
 ROOT = Path(__file__).resolve().parents[1]
@@ -25,36 +24,14 @@ def timestamp():
     return datetime.now(timezone.utc).isoformat()
 
 
-@contextmanager
-def exclusive(out):
-    """OS releases this lock on a crash; a leftover file does not block resume."""
-    path = out/'workflow.lock'
-    with path.open('a+b') as lock:
-        if path.stat().st_size == 0:
-            lock.write(b'0');lock.flush()
-        lock.seek(0)
-        if os.name == 'nt':
-            import msvcrt
-            try:msvcrt.locking(lock.fileno(), msvcrt.LK_NBLCK, 1)
-            except OSError as exc:raise ValueError('This workflow is already running') from exc
-        else:
-            import fcntl
-            try:fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
-            except OSError as exc:raise ValueError('This workflow is already running') from exc
-        try:yield
-        finally:
-            lock.seek(0)
-            if os.name == 'nt':msvcrt.locking(lock.fileno(), msvcrt.LK_UNLCK, 1)
-            else:fcntl.flock(lock, fcntl.LOCK_UN)
-
-
 def file_hashes(folder, names):
     return {name:sha256(folder/name) for name in names if (folder/name).is_file()}
 
 
 def seed_parser(source, out, documents):
     """Copy source-validated parser caches; cache keys still decide reuse."""
-    from .hybrid import assert_sources, cache_read
+    from .ingest import assert_sources
+    from .files import cache_read
     from .hybrid_validate import validate_extraction
     source=Path(source).resolve()
     manifest=read(source/'extraction_manifest.json')
@@ -80,7 +57,7 @@ def build_index(folder, queries, device, include_nondefault, factory=None):
     from rag.index.embed_index import Embedder, MODELS
     from rag.retrieval.search import Bm25, dense_hits, filter_idx, rrf, to_pages, load_index
     from rag.index.preprocessed_chunks import related_visual_contexts
-    from .hybrid import read_jsonl
+    from .files import read_jsonl
     chunks=read_jsonl(folder/'chunks.jsonl')
     embedder=(factory or Embedder)('bge-m3',device=device,local_only=True)
     started=time.perf_counter()
@@ -165,7 +142,9 @@ def run(out, config, *, inputs=None, catalog=None, document_ids=None, root=ROOT,
                 'config':config.to_dict(),'options':options,'documents':[d.to_dict() for d in documents],
                 'code_sha256':code,'stages':{},'active_index_updated':False}
         assert_model_execution_allowed(documents)
-        from .hybrid import assert_sources, run_hybrid, resume_enrichment, read_jsonl
+        from .ingest import assert_sources
+        from .hybrid import run_hybrid, resume_enrichment
+        from .files import read_jsonl
         from .hybrid_validate import validate_extraction
         assert_sources(documents)
         manifest.update(lifecycle='running',error=None)

@@ -6,7 +6,9 @@ from unittest.mock import patch
 import fitz
 from preprocess.native_text import packet,extract,project
 from preprocess.native_tables import grids,select
-from preprocess.hybrid import normalize_page,run_hybrid,read_jsonl,save_outputs
+from preprocess.hybrid import normalize_page, run_hybrid
+from preprocess.files import read_jsonl
+from preprocess.outputs import save_outputs
 from preprocess.hybrid_validate import validate_extraction
 from preprocess.ingest import Document,from_inputs
 from preprocess.hybrid_config import HybridConfig

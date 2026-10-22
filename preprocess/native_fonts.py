@@ -5,7 +5,7 @@ import fitz
 from fontTools.ttLib import TTFont
 from collection import text_layer
 from .ingest import sha256
-from .inventory import write_json
+from .files import write_json
 
 VERSION='verified-font-derivative-1'
 
