@@ -7,7 +7,7 @@ import argparse
 import json
 from pathlib import Path
 
-from rag_service.workspaces import PostgresWorkspaceStore, WorkspaceStore
+from rag_service.workspace.workspaces import PostgresWorkspaceStore, WorkspaceStore
 
 ROOT = Path(__file__).resolve().parents[1]
 INPUT = ROOT / 'docs/demo/internal_pipeline_v4/02_INTERNAL_DOCUMENTS.json'

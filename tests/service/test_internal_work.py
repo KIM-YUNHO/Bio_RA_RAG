@@ -7,9 +7,9 @@ from threading import Event
 import time
 import unittest
 
-from rag_service import internal_documents, memo_workflow, work_assist
-from rag_service.work_drafts import WorkDraftService
-from rag_service.workspaces import WorkspaceStore
+from rag_service.workspace import internal_documents, memo_workflow, work_assist
+from rag_service.workspace.work_drafts import WorkDraftService
+from rag_service.workspace.workspaces import WorkspaceStore
 
 ROOT = Path(__file__).resolve().parents[2]
 BUNDLE = json.loads((ROOT/'docs/demo/internal_pipeline_v4/02_INTERNAL_DOCUMENTS.json').read_text(encoding='utf-8'))
@@ -93,7 +93,7 @@ class RegistrationTests(Scenario):
             internal_documents.normalize_bundle(bundle)
 
     def test_project_record_for_memo_screen_does_not_carry_documents(self):
-        from rag_service.notebook_api import public
+        from rag_service.workspace.notebook_api import public
         record = public(self.project)
         self.assertNotIn('documents', record)
         self.assertEqual(record['document_count'], 20)

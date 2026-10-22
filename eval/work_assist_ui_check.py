@@ -17,7 +17,7 @@ from tests.service.test_internal_work import BUNDLE  # noqa: E402
 from tests.service.test_issue_guide import BUNDLE as ISSUE_BUNDLE, FakeJobs, FakeModel  # noqa: E402
 from tests.service.test_workspace_http import fixture_jobs  # noqa: E402
 
-from rag_service.issue_guide import IssueGuideService  # noqa: E402
+from rag_service.workspace.issue_guide import IssueGuideService  # noqa: E402
 
 
 def main():

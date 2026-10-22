@@ -14,7 +14,7 @@ from threading import Lock
 from types import SimpleNamespace
 from uuid import uuid4
 
-from rag_service import work_assist
+from rag_service.workspace import work_assist
 
 ID = re.compile(r'[0-9a-f]{32}')
 

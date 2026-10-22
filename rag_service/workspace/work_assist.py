@@ -11,7 +11,7 @@ import json
 import math
 import re
 
-from rag_service import internal_documents, memo_workflow
+from rag_service.workspace import internal_documents, memo_workflow
 
 TASKS = {
     'result_review': {

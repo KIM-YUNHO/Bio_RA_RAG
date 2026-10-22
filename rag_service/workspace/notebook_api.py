@@ -2,8 +2,8 @@
 import re
 
 from rag_service.reviews import RevisionConflict
-from rag_service.workspaces import source_packet
-from rag_service import internal_documents, memo_items, memo_workflow, work_assist
+from rag_service.workspace.workspaces import source_packet
+from rag_service.workspace import internal_documents, memo_items, memo_workflow, work_assist
 
 PROJECT = re.compile(r'/api/projects/([0-9a-f]{32})')
 PROJECT_DELETE = re.compile(r'/api/projects/([0-9a-f]{32})/delete')

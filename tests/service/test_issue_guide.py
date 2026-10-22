@@ -6,8 +6,8 @@ import tempfile
 from types import SimpleNamespace
 import unittest
 
-from rag_service import internal_documents, issue_guide, notebook_api
-from rag_service.workspaces import WorkspaceStore
+from rag_service.workspace import internal_documents, issue_guide, notebook_api
+from rag_service.workspace.workspaces import WorkspaceStore
 
 ROOT = Path(__file__).resolve().parents[2]
 BUNDLE = json.loads((ROOT / 'docs/demo/issue_guide_v5/01_ISSUE_DOCUMENTS.json').read_text(encoding='utf-8'))

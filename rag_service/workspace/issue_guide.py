@@ -25,7 +25,7 @@ import time
 from types import SimpleNamespace
 from uuid import uuid4
 
-from rag_service import internal_documents
+from rag_service.workspace import internal_documents
 
 ID = re.compile(r'[0-9a-f]{32}')
 SECTIONS = [('cause', '원인 후보'), ('experiments', '실험 설계'), ('response', '기관 대응 논리'),

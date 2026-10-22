@@ -16,7 +16,7 @@ from uuid import NAMESPACE_URL, uuid4, uuid5
 import fitz
 
 from rag_service.__main__ import Jobs
-from rag_service.workspaces import PostgresWorkspaceStore, WorkspaceStore, source_packet
+from rag_service.workspace.workspaces import PostgresWorkspaceStore, WorkspaceStore, source_packet
 
 ROOT = Path(__file__).resolve().parents[1]
 SHA = 'fea275487bb971962201b77aec3d2e12cee7d545be026b378f1980fa272f6e76'

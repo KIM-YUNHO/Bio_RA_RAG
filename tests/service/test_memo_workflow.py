@@ -6,8 +6,8 @@ import unittest
 from uuid import uuid4
 
 from eval.build_pre_disclosure_v3 import fixture
-from rag_service import memo_workflow
-from rag_service.workspaces import WorkspaceStore
+from rag_service.workspace import memo_workflow
+from rag_service.workspace.workspaces import WorkspaceStore
 
 
 class MemoWorkflowTests(unittest.TestCase):
