@@ -185,10 +185,10 @@ PDF 좌표는 `pymupdf_unrotated_crop_points_top_left`이고 단위는 point다.
 ## 검증
 
 ```powershell
-.\.venv\Scripts\python.exe -B -m unittest discover -s tests
+.\.venv\Scripts\python.exe -B -m unittest discover -s tests -t .
 ```
 
-인벤토리 검사는 원본 무결성·중복 입력·checkpoint·회전 좌표·HTML 출처 등을 확인한다. `tests/test_preprocessing_hybrid.py`는 역할별 라우팅·모델 실패/예산·재시도·수치 생성·미채택 후보·산출물 변조·회전 bbox·암호화 업로드 격리를 검사한다. 실제 문서의 탐지 재현율/정밀도와 전사 정확도는 별도 정답셋으로 평가해야 한다.
+인벤토리 검사는 원본 무결성·중복 입력·checkpoint·회전 좌표·HTML 출처 등을 확인한다. `tests/preprocessing/test_preprocessing_hybrid.py`는 역할별 라우팅·모델 실패/예산·재시도·수치 생성·미채택 후보·산출물 변조·회전 bbox·암호화 업로드 격리를 검사한다. 실제 문서의 탐지 재현율/정밀도와 전사 정확도는 별도 정답셋으로 평가해야 한다.
 # 완료된 추출의 재검사와 고정 평가
 
 `python -m preprocess.refine --run <완료된 개발 추출> --out <새 결과>`는 Paddle 결과를 재사용하고 문맥·표 검사를 갱신한 뒤 변경/대기 영역만 로컬 Qwen으로 처리한다. 원본과 평가 보호 정책은 유지한다. `--no-qwen`으로 모델 호출 없이 재검사할 수 있다.

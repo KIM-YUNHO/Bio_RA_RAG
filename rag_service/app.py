@@ -1,6 +1,6 @@
 """FastAPI front of the RA service. It replaced the standard-library server on 2026-10-18 with the same URLs, JSON,
 statuses and headers (plan: docs/project/FASTAPI_MIGRATION_PLAN_2026-10-18.md; the rules are in http_rules.py and
-tests/test_http_contract.py pins them).
+tests/service/test_http_contract.py pins them).
 
 The app only receives requests and hands them to the objects the service already has (`jobs`: question jobs, reviews,
 notebooks, the ingestion window, the evidence pages). Nothing here searches, answers or reads a database.
@@ -19,7 +19,8 @@ from fastapi import Depends, FastAPI, Request, Response
 from psycopg import Error as DatabaseError
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
-from rag_service import ingestion_api, notebook_api
+from rag_service import ingestion_api
+from rag_service.workspace import notebook_api
 from rag_service.http_rules import (DATABASE_ERROR, DEFAULT_CACHE, EVIDENCE_ROUTE, JSON_TYPE, LOCAL_ORIGIN, MISSING, SECURITY_HEADERS,
     STATIC, STATIC_FILES, STATIC_TYPES, UNKNOWN_JOB, body_limit, is_ingestion_path, is_review_path, is_workspace_path, local_origin,
     post_path_known)

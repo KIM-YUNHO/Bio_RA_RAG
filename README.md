@@ -29,8 +29,10 @@ project_shared/
 │  ├─ retrieval/         질문 해석·검색: 하이브리드 검색·리랭커·범위·시험 레지스트리
 │  └─ llm/               모델 호출: OpenAI·로컬 채팅·설정·토크나이저
 ├─ rag_service/          RA 질의응답 서비스 (3분할 화면, FastAPI)
+│  └─ workspace/         파이프라인·단계 메모와 내부 업무(내부 문서·업무 현황·AI 초안·이슈 가이드). 나머지는 서버·화면 지원
 ├─ storage/              DB 접속 단일 진입점 — pgvector 통합 코드가 들어갈 자리
-├─ eval/ · gold/ · tests/ · scripts/
+├─ tests/                테스트, 영역별: ra · evidence · index · retrieval · llm · service · preprocessing · ingest, 공용 도구는 support
+├─ eval/ · gold/ · scripts/
 ├─ data/                 원본·카탈로그 + versions/(01 파일럿 / 02 H v2 / 03 표 회수 / 04 보충 = 현재 서비스 / 05 미등록 후보) × (전처리 / 임베딩)
 └─ docs/                 핵심 문서 (docs/README.md가 목차, docs/current/가 현재 서빙 상태)
 ```
@@ -74,7 +76,7 @@ uv run python -m ingestion.db migrate
 uv run python -m ingestion.load_catalog ; uv run python -m ingestion.db_verify
 
 # 4) 테스트
-.\.venv\Scripts\python.exe -X utf8 -B -m unittest discover -s tests
+.\.venv\Scripts\python.exe -X utf8 -B -m unittest discover -s tests -t .
 .\.venv\Scripts\python.exe -X utf8 -B -m unittest pipelines.pipeline_h.test_policy pipelines.pipeline_h.test_batch pipelines.pipeline_h.test_html_source
 
 # 5) RA 서비스 (릴리스를 생략하면 versions.json의 served_by_ra_service = 04). 다른 서비스가 쓰는 포트는 피한다
@@ -118,3 +120,5 @@ uv run python -m ingestion.agent
 | 2026-10-14 14:59 | 루트 정리: 수집 스크립트 5개 → `collection/` 패키지, 규칙 JSON 4개 → `configs/collection/`, Paddle 잠금 목록 → `configs/env/`, `pyproject.toml`과 같은 `requirements.txt` 삭제. 경로·import를 참조하던 코드·설정 29개 파일 수정, 테스트 1,143개·pipeline_h 18개 통과 |
 | 2026-10-21 11:35 | 코드 정리(브랜치 `chore/code-cleanup`, 정리 전 상태는 git 태그 `pre-cleanup-2026-10-21`). 진입점(RA 서비스·적재·수집·storage·pipeline_h·남긴 eval)에서 import되지 않는 `rag`·`preprocess` 모듈 50개와 그것만 검사하던 테스트 삭제(`contract_match`·`request_contract`·`margin_scope`는 살아 있는 모듈 테스트의 판정 도구라 `tests/`로 이동). 일회성 eval 85개·옛 eval 데이터 21개, `pipelines/backup_pilot/`, `data/runs/h_v2_rag_development_2026-10-14_luna_v1/`, vendor `review_design.html` 삭제. 검토 화면 `review_viewer`(읽기 모듈은 `rag/index/bundle.py`로 이동)·`--review-url`, 표준 라이브러리 HTTP 서버·`--server`, 옛 화면 `rag_service/static/` 제거. `data/runs/model_quota/` 추적 해제, 로컬 `storage/handoff/` 덤프 삭제. 테스트 1,111개·pipeline_h 18개 통과 |
 | 2026-10-21 18:20 | `rag/` 87개 모듈을 역할별 하위 폴더 5개(`ra`·`evidence`·`index`·`retrieval`·`llm`)로 이동, 파일 이름은 그대로. `sys.path`에 `rag/`를 넣고 이름만으로 import하던 곳을 모두 패키지 import로 바꿈. 실행은 `python -m rag.retrieval.search`처럼 `-m`으로 한다. 동작 변경 없음, 테스트 1,122개(데이터 연결)·PostgreSQL 13개·pipeline_h 18개 통과 |
+| 2026-10-22 10:40 | `tests/` 129개 파일을 영역별 하위 폴더 9개로 이동(`ra` 29 · `evidence` 28 · `preprocessing` 24 · `service` 16 · `index` 9 · `ingest` 9 · `retrieval` 8 · `llm` 2 · 공용 도구 `support` 4). 테스트끼리의 import는 `tests.<영역>.<모듈>`, `sys.path`에 `tests/`를 넣던 줄은 삭제. 실행은 `python -m unittest discover -s tests -t .`(이전 명령도 동작). 테스트 1,122개 통과 |
+| 2026-10-22 11:10 | `rag_service/`의 파이프라인·메모 4개(`workspaces`·`notebook_api`·`memo_items`·`memo_workflow`)와 내부 업무 4개(`internal_documents`·`work_assist`·`work_drafts`·`issue_guide`)를 `rag_service/workspace/`로 이동. 바로 아래에는 서버·화면 지원(`app`·`http_rules`·`inventory`·`pages`·`conversations`·`reviews`·`ingestion_api`)만 남음. 동작 변경 없음, 테스트 통과 |

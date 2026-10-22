@@ -15,8 +15,8 @@ from pathlib import Path
 import re
 from uuid import uuid4
 
-from rag_service.workspaces import WorkspaceStore
-from rag_service import memo_workflow
+from rag_service.workspace.workspaces import WorkspaceStore
+from rag_service.workspace import memo_workflow
 
 ROOT = Path(__file__).resolve().parents[1]
 INPUT = ROOT/'docs/demo/internal_pipeline_v3/02_INTERNAL_DOCUMENTS.json'

@@ -1,7 +1,7 @@
 """Run the work-assist DOM check against an isolated fixture server: the v4 scenario, then the v5 issue scenario.
 
-No provider calls and no project data: the server is the test fixture (tests/test_workspace_http.py) on a free port. The
-v5 guide is made beforehand with the fake RA service and fake model from tests/test_issue_guide.py, into the server's own
+No provider calls and no project data: the server is the test fixture (tests/service/test_workspace_http.py) on a free port. The
+v5 guide is made beforehand with the fake RA service and fake model from tests/service/test_issue_guide.py, into the server's own
 guide folder, so the page reads it like any finished guide.
 linkedom/cssom come from NODE_PATH (work/memo_ui_test/node_modules, test-only packages).
 """
@@ -11,13 +11,13 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / 'tests'))
-from http_server import Running  # noqa: E402
-from test_internal_work import BUNDLE  # noqa: E402
-from test_issue_guide import BUNDLE as ISSUE_BUNDLE, FakeJobs, FakeModel  # noqa: E402
-from test_workspace_http import fixture_jobs  # noqa: E402
+sys.path.insert(0, str(ROOT))  # the fixtures live in the tests package
+from tests.support.http_server import Running  # noqa: E402
+from tests.service.test_internal_work import BUNDLE  # noqa: E402
+from tests.service.test_issue_guide import BUNDLE as ISSUE_BUNDLE, FakeJobs, FakeModel  # noqa: E402
+from tests.service.test_workspace_http import fixture_jobs  # noqa: E402
 
-from rag_service.issue_guide import IssueGuideService  # noqa: E402
+from rag_service.workspace.issue_guide import IssueGuideService  # noqa: E402
 
 
 def main():

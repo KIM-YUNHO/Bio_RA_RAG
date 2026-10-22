@@ -1,0 +1,1 @@
+"""Pipelines and their work: projects and stage memos (workspaces, notebook_api, memo_items, memo_workflow) and internal work on top of the RA engine (internal_documents, work_assist, work_drafts, issue_guide)."""

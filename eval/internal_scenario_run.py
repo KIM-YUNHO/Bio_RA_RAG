@@ -12,9 +12,9 @@ from pathlib import Path
 import re
 import time
 
-from rag_service import work_assist
-from rag_service.work_drafts import WorkDraftService
-from rag_service.workspaces import WorkspaceStore
+from rag_service.workspace import work_assist
+from rag_service.workspace.work_drafts import WorkDraftService
+from rag_service.workspace.workspaces import WorkspaceStore
 
 ROOT = Path(__file__).resolve().parents[1]
 INPUT = ROOT / 'docs/demo/internal_pipeline_v4/02_INTERNAL_DOCUMENTS.json'
@@ -113,7 +113,7 @@ def main():
     meta = {'version': 'internal-scenario-v4-3', 'created_at': datetime.now(timezone.utc).isoformat(), 'live': args.live,
             'input_file': str(INPUT.relative_to(ROOT)), 'input_sha256': hashlib.sha256(INPUT.read_bytes()).hexdigest(),
             'code_sha256': {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in
-                            ('rag_service/work_assist.py', 'rag_service/internal_documents.py', 'rag_service/memo_workflow.py', 'rag_service/work_drafts.py')},
+                            ('rag_service/workspace/work_assist.py', 'rag_service/workspace/internal_documents.py', 'rag_service/workspace/memo_workflow.py', 'rag_service/workspace/work_drafts.py')},
             'storage': 'isolated_file_workspace', 'app_database_modified': False, 'rubric_sent_to_model': False, 'runs': []}
     sections = []
     try:

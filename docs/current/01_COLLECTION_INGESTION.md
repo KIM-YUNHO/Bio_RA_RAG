@@ -48,7 +48,7 @@ uv run python -m ingestion.load_catalog      # 카탈로그 JSONL → DB corpus�
 흐름: 자연어 요청 → 이름 확인(공식 목록에서 만든 이름 사전) → 허가 현황 표시 → 수집 계획 → 스테이징 수집 → 확인표 → **사용자 승인** → 프로젝트 자료 반영(`promote --apply`) → 카탈로그·이름 사전 DB 갱신 → `done`.
 
 - LLM은 자연어 요청을 구조화하는 데만 쓴다(`gpt-4o-mini`). 대상 확인·허가 상태·실행 여부는 코드와 Pydantic 계약이 정한다.
-- 요청 경우별 처리(10-18, `tests/test_ingestion_plan_cases.py`, 실제 공식 목록 드라이런으로 확인):
+- 요청 경우별 처리(10-18, `tests/ingest/test_ingestion_plan_cases.py`, 실제 공식 목록 드라이런으로 확인):
 
   | 요청 | 처리 |
   | :-- | :-- |
