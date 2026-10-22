@@ -1,5 +1,5 @@
 param(
-    [ValidateRange(1,65535)][int]$Port = 8775,
+    [ValidateRange(1,65535)][int]$Port = 8897,
     [ValidateSet('gpt-5.6-luna','gpt-4o-mini')][string]$Model = 'gpt-5.6-luna',
     # Release folder relative to the project root (a versions.json embedded_path).
     # Default: the version that versions.json marks as served_by_ra_service.

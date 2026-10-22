@@ -6,6 +6,8 @@
 - 수정: 2026-10-18 23:15 KST (내부 문서·업무 상태·업무 초안 기능. 8885만 새 코드로 재시작, 8775는 15:10 시작본 그대로)
 - 수정: 2026-10-21 11:35 KST (코드 정리: HTTP 계층은 FastAPI만, `--server`·`--review-url`·`review_viewer`·`rag_service/static/` 제거. 떠 있는 8775·8897은 정리 전 코드)
 - 수정: 2026-10-22 09:57 KST (main `73e7565d`(PR #19~#21)를 받고 8775·8897을 시작 스크립트로 재시작, 마이그레이션 010 적용. 두 서비스 모두 정리 후 코드)
+- 수정: 2026-10-22 10:20 KST (8775 내림. 서비스는 8897 하나, 시작 스크립트 기본 포트도 8897)
+- 수정: 2026-10-22 10:25 KST (8897을 main `13450710`(PR #24·#25: tests/·rag_service/workspace/ 재구성)로 재시작)
 - 기준: 실행 중 프로세스 명령줄·시작 시각, `GET /api/summary`·`/api/projects`·`/api/ingestion`, `rag_service/`(`__main__.py`, `notebook_api.py`, `ingestion_api.py`, `web/`), `scripts/start_ra_service.ps1`
 - 상위: [현재 서빙 상태](README.md)
 
@@ -13,8 +15,8 @@
 
 | 포트 | 시작 | 시작 방법 | 차이 |
 | :-- | :-- | :-- | :-- |
-| **8775** | 2026-10-22 09:55 | `scripts/start_ra_service.ps1 -Port 8775` (메인 checkout main `73e7565d`, 로그 `data/runs/ra_service_logs/20261022_095515_4603f33d.*`) | 8897과 같은 코드·릴리스·모델 |
-| **8897** (운영) | 2026-10-22 09:56 | `scripts/start_ra_service.ps1 -Port 8897` (메인 checkout main `73e7565d`, 로그 `data/runs/ra_service_logs/20261022_095639_9acc9b68.*`) | 파이프라인 `ra-research-rag-4.10.4`, 이슈 대응 가이드·업무 요약 줄·파이프라인 삭제 포함. 저장소는 8775와 같은 PostgreSQL·`data/runs`. 10-20 18:22~10-22 09:55에는 정리 전 코드(main `010f3986`)로 떠 있었다 |
+| ~~8775~~ | 2026-10-22 09:55 ~ 10:20 내림 | `scripts/start_ra_service.ps1 -Port 8775` | 8897과 같은 코드라 둘 다 띄울 이유가 없어 내렸다 |
+| **8897** (운영) | 2026-10-22 10:25 | `scripts/start_ra_service.ps1 -Port 8897` (메인 checkout main `13450710`, 로그 `data/runs/ra_service_logs/20261022_102504_c24740f7.*`) | 파이프라인 `ra-research-rag-4.10.4`, 이슈 대응 가이드·업무 요약 줄·파이프라인 삭제 포함. 저장소는 8775와 같은 PostgreSQL·`data/runs`. 10-20 18:22~10-22 09:55에는 정리 전 코드(main `010f3986`)로 떠 있었다 |
 | ~~8885~~ | 2026-10-19 04:15 ~ 10-20 내림 | `scripts/start_ra_service.ps1 -Port 8885 -ReviewUrl http://127.0.0.1:8886` | 10-20에 내리고 8897로 운영 전환 |
 
 8897로 옮긴 것(10-20): 확인 서버(임시 파일 저장소)에서 만든 `[시나리오 v5] P17 IV FcRn 이슈 대응` 파이프라인(문서 묶음 재등록)과 남아 있던 가이드 1건, 그 검색 답변 7건과 메모가 가리키는 답변 1건(보고서 폴더로 복사), `제품 사전 조사 프로젝트`와 메모 1개(같은 답변·주장에서 다시 저장).
