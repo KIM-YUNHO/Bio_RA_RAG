@@ -70,10 +70,9 @@ class PreprocessedChunkTests(unittest.TestCase):
             self.assertEqual(meta['dataset_version'], 'synthetic-v2')
             self.assertFalse(c['representation']['numeric_evidence_eligible'])
 
-    def test_locked_metadata_blocks_enrichment_resume_and_figure_ocr_before_writes(self):
+    def test_locked_metadata_blocks_enrichment_resume_before_writes(self):
         from unittest.mock import Mock
         from preprocess.hybrid import resume_enrichment
-        from preprocess.figure_ocr import complete
         self.prepare(pages=[1])
         path = self.run/'extraction_manifest.json'
         manifest = json.loads(path.read_text(encoding='utf-8'))
@@ -82,9 +81,6 @@ class PreprocessedChunkTests(unittest.TestCase):
         backend = Mock()
         with self.assertRaisesRegex(ValueError, 'execution denied'):
             resume_enrichment(self.run, HybridConfig(), adapter=backend)
-        with self.assertRaisesRegex(ValueError, 'execution denied'):
-            complete(self.run, self.out, HybridConfig(), paddle=backend)
-        self.assertFalse(self.out.exists())
         self.assertEqual(backend.mock_calls, [])
 
     def test_waiting_table_does_not_enter_chunks_or_semantic_contexts(self):

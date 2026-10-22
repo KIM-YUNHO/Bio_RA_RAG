@@ -1,7 +1,5 @@
-"""Offline, source-preserving RA document preprocessing.
+"""Document preprocessing library: document registration and hashes (ingest), the extraction engine (hybrid,
+Paddle/Qwen adapters), table, native-text and visual helpers, and the shared file helpers (files, outputs).
 
-The initial release inventories candidates; it does not certify extraction or
-replace the active RAG corpus.
+pipelines/pipeline_h is the standard pipeline and uses this package as a library; rag/index reads its outputs.
 """
-
-VERSION = "inventory-1"
