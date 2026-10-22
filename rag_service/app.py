@@ -1,6 +1,6 @@
 """FastAPI front of the RA service. It replaced the standard-library server on 2026-10-18 with the same URLs, JSON,
 statuses and headers (plan: docs/project/FASTAPI_MIGRATION_PLAN_2026-10-18.md; the rules are in http_rules.py and
-tests/test_http_contract.py pins them).
+tests/service/test_http_contract.py pins them).
 
 The app only receives requests and hands them to the objects the service already has (`jobs`: question jobs, reviews,
 notebooks, the ingestion window, the evidence pages). Nothing here searches, answers or reads a database.

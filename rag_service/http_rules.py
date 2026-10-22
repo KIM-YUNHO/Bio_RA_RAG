@@ -1,5 +1,5 @@
 """Rules of the RA service's HTTP layer (rag_service/app.py): screen files, routes, headers, body limits and the
-same-origin rule. tests/test_http_contract.py pins what the screen relies on."""
+same-origin rule. tests/service/test_http_contract.py pins what the screen relies on."""
 from pathlib import Path
 import re
 
