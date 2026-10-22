@@ -10,13 +10,13 @@ from unittest.mock import patch
 import fitz
 from PIL import Image
 
-from preprocess.hybrid import pdf_box, resume_enrichment, run_hybrid
+from preprocess.extraction.hybrid import pdf_box, resume_enrichment, run_hybrid
 from preprocess.files import read_jsonl
 from preprocess.hybrid_config import HybridConfig, local_endpoint, parse_pages
 from preprocess.ingest import from_inputs, sha256
-from preprocess.qwen_adapter import validate_answer
-from preprocess.table_quality import inspect_table
-from preprocess.qwen_contracts import PROMPT_VERSIONS
+from preprocess.ocr.qwen_adapter import validate_answer
+from preprocess.tables.table_quality import inspect_table
+from preprocess.ocr.qwen_contracts import PROMPT_VERSIONS
 
 GOOD = '<table><tr><th>Group</th><th>N</th></tr><tr><td>A</td><td>10</td></tr><tr><td>B</td><td>20</td></tr></table>'
 BAD = GOOD.replace('>10<', '>1<')
@@ -264,7 +264,7 @@ class HybridTests(unittest.TestCase):
         self.assertEqual(result['qwen']['cache_reused'],1)
 
     def test_previous_table_image_is_context_only_and_same_source(self):
-        from preprocess.hybrid import context_for, enrichment_images
+        from preprocess.extraction.hybrid import context_for, enrichment_images
         self.run_pipeline(Parser(BAD))
         assets=read_jsonl(self.out/'extracted_assets.jsonl')
         for a in assets:
@@ -384,7 +384,7 @@ class HybridTests(unittest.TestCase):
         self.assertEqual(result['qwen']['attempted_calls'], 1)
 
     def test_one_bad_crop_does_not_stop_other_assets_or_lose_parser_output(self):
-        from preprocess.hybrid import enrichment_images
+        from preprocess.extraction.hybrid import enrichment_images
         calls = 0
         def prepare(*args):
             nonlocal calls
@@ -392,7 +392,7 @@ class HybridTests(unittest.TestCase):
             if calls == 1:
                 raise OSError('Simulated crop failure')
             return enrichment_images(*args)
-        with patch('preprocess.hybrid.enrichment_images', side_effect=prepare):
+        with patch('preprocess.extraction.hybrid.enrichment_images', side_effect=prepare):
             result = self.run_pipeline(Parser(BAD), Qwen())
         self.assertEqual(result['qwen']['failed'], 1)
         self.assertEqual(result['qwen']['attempted_calls'], 1)
@@ -427,7 +427,7 @@ class HybridTests(unittest.TestCase):
         self.assertEqual(manifest['status'], 'partial')
 
     def test_curve_digitization_in_ocr_output_cannot_support_figure_numbers(self):
-        from preprocess.text_checks import figure_label_reference
+        from preprocess.visual.text_checks import figure_label_reference
         text = figure_label_reference('Time Value A B Week 12\n0 | 999\n999\n')
         checked = validate_answer('describe_figure', reply({**FIGURE, 'summary': 'Value 999'}), '', text)
         self.assertEqual(text, 'Time Value A B Week 12')
@@ -462,7 +462,7 @@ class HybridTests(unittest.TestCase):
         self.assertEqual(result['parser_calls'], 1)
 
     def test_upload_report_distinguishes_pending_resume_and_processing_complete(self):
-        from preprocess.reporting import build_report
+        from preprocess.extraction.reporting import build_report
         result = self.run_pipeline(Parser(BAD), pages=[1])
         report = build_report(self.out)
         self.assertEqual(report['state'], 'awaiting_enrichment')
@@ -482,7 +482,7 @@ class HybridTests(unittest.TestCase):
         self.assertEqual(report['documents'][0]['qwen_statuses'], {'heuristic_checks_passed': 1})
 
     def test_report_retains_review_failure_and_pending_as_distinct_outcomes(self):
-        from preprocess.reporting import build_report
+        from preprocess.extraction.reporting import build_report
         self.run_pipeline(Parser(BAD), Qwen(hallucinated=True), pages=[1])
         self.assertEqual(build_report(self.out)['state'], 'review_required')
         qwen = Qwen(digest='request-failure-probe')
@@ -498,7 +498,7 @@ class HybridTests(unittest.TestCase):
         self.assertEqual(report['review_items'][0]['job_status'], 'pending_model')
 
     def test_live_status_observes_page_and_qwen_work_without_loading_stale_results(self):
-        from preprocess.reporting import build_report
+        from preprocess.extraction.reporting import build_report
         observed = []
         parser, qwen = Parser(BAD), Qwen()
         original_parse, original_generate = parser.parse, qwen.generate
@@ -522,7 +522,7 @@ class HybridTests(unittest.TestCase):
         self.assertEqual(build_report(self.out)['state'], 'completed')
 
     def test_unexpected_failure_cannot_present_previous_success_as_current_completion(self):
-        from preprocess.reporting import build_report
+        from preprocess.extraction.reporting import build_report
         self.run_pipeline(Parser(), pages=[1])
         parser = Parser()
         parser.fingerprint = lambda: (_ for _ in ()).throw(RuntimeError('Runtime missing'))
@@ -537,7 +537,7 @@ class HybridTests(unittest.TestCase):
         self.assertEqual(stored['run_id'], report['run_id'])
 
     def test_report_exposes_mixed_document_errors_and_page_failures(self):
-        from preprocess.reporting import build_report
+        from preprocess.extraction.reporting import build_report
         other = self.root/'broken.pdf'
         other.write_bytes(b'not a PDF')
         self.docs = from_inputs([self.path, other], self.out)
@@ -548,7 +548,7 @@ class HybridTests(unittest.TestCase):
         self.assertTrue(all(d['errors'] for d in report['documents']))
 
     def test_keyboard_interrupt_is_recorded_and_parser_is_closed(self):
-        from preprocess.reporting import build_report
+        from preprocess.extraction.reporting import build_report
         parser = Parser()
         parser.parse = lambda image: (_ for _ in ()).throw(KeyboardInterrupt())
         with self.assertRaises(KeyboardInterrupt):
@@ -559,7 +559,7 @@ class HybridTests(unittest.TestCase):
         self.assertIn('KeyboardInterrupt', report['error'])
 
     def test_caption_retrieval_does_not_hide_pending_figure_description_review(self):
-        from preprocess.reporting import build_report
+        from preprocess.extraction.reporting import build_report
         parser, qwen = Parser(figure=True), Qwen(truncated=True)
         original = parser.parse
         def parse(image):

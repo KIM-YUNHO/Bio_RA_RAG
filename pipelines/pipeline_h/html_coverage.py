@@ -2,7 +2,7 @@
 import re
 from html.parser import HTMLParser
 from pipelines.pipeline_h.exclusion_audit import normalized
-from preprocess.table_quality import inspect_table
+from preprocess.tables.table_quality import inspect_table
 
 class ExpectedText(HTMLParser):
     def __init__(self,raw):

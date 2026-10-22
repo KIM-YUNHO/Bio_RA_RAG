@@ -25,7 +25,7 @@ def ensure(run):
     if changed:write(run/'intake_manifest.json',intake)
 
 def result(doc,run):
-    from preprocess.table_quality import inspect_table
+    from preprocess.tables.table_quality import inspect_table
     dom=read(Path(run)/'html_dom_preview'/(doc['version_id']+'.json'));blocks=[]
     for u,loc in zip(dom['units'],dom['locations']):
         l,t,r,b=loc['bbox_pdf'];h=loc['page_size'][1]

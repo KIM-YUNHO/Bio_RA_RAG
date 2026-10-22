@@ -1,7 +1,7 @@
 import unittest
 import fitz
 from PIL import Image,ImageDraw
-from preprocess.complex_geometry import raster_grid,vector_grid
+from preprocess.tables.complex_geometry import raster_grid,vector_grid
 
 
 class ComplexGeometry(unittest.TestCase):

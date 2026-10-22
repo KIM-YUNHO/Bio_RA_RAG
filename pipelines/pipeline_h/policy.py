@@ -1,7 +1,7 @@
 """Source-only H routing; validation normalizes footnotes without editing extraction."""
 import re
 import unicodedata
-from preprocess.table_quality import comparable_text, numbers, inspect_table
+from preprocess.tables.table_quality import comparable_text, numbers, inspect_table
 
 VERSION='production-h-3-footnote-glyph-context'
 PAIR=re.compile(r'(?<![\w.])[-+]?\d+(?:[.,]\d+)*\s*\(\s*[-+\d.,%\s]+\)')

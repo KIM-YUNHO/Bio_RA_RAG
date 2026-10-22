@@ -8,7 +8,7 @@ from compare_study.settings import runs_root
 class CascadeQwen:
     def start(self,mode):
         from compare_study.settings import extraction_config
-        from preprocess.qwen_adapter import QwenAdapter
+        from preprocess.ocr.qwen_adapter import QwenAdapter
         class GPUQwen(QwenAdapter):
             def request(self,path,body=None):
                 if path in ('/api/chat','/api/generate') and body is not None and body.get('keep_alive')!=0:
@@ -31,9 +31,9 @@ class CascadeQwen:
             'figure_policy':data()['rules'].get('figure_policy','describe_selected')}
     def close(self):self.qwen.unload()
     def document(self,path,doc,page_map,work,mode,cur_run):
-        from preprocess.hybrid import enrich_assets
+        from preprocess.extraction.hybrid import enrich_assets
         from preprocess.ingest import Document
-        from preprocess.visual_groups import build_visual_groups
+        from preprocess.visual.visual_groups import build_visual_groups
         t=time.perf_counter();src=runs_root()/cur_run/mode/'CUR'
         bundle=read(src/'raw'/doc['key']/'cascade_assets.json')
         assets=[a for a in bundle['assets'] if not a.get('is_logical_group')]

@@ -13,7 +13,7 @@ os.environ['TRANSFORMERS_OFFLINE'] = '1'
 
 import numpy as np
 from preprocess.hybrid_config import load_config
-from preprocess.qwen_adapter import QwenAdapter
+from preprocess.ocr.qwen_adapter import QwenAdapter
 from rag import answer
 from rag.retrieval.plan_query import plan
 from rag.retrieval.search import filter_idx, load_index

@@ -20,7 +20,7 @@ def embed(run):
 def finish(run):
     from rag.retrieval.search import load_index,filter_idx
     from rag.index.release import compose,ReleaseBundle
-    from preprocess.hybrid_validate import validate_extraction
+    from preprocess.extraction.hybrid_validate import validate_extraction
     from rag.index import preprocessed_chunks
     from pipelines.pipeline_h.chunk_runtime import enable_dom_schema
     enable_dom_schema()

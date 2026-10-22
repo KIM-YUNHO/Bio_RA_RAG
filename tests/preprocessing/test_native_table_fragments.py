@@ -1,9 +1,9 @@
 from copy import deepcopy
 import unittest
-from preprocess.native_table_fragments import fragment,eligible,binding,VERSION,ORIGIN
+from preprocess.source.native_table_fragments import fragment,eligible,binding,VERSION,ORIGIN
 from preprocess.ingest import stable_hash
-from preprocess.table_representation import render_structured_table
-from preprocess.table_quality import inspect_table
+from preprocess.tables.table_representation import render_structured_table
+from preprocess.tables.table_quality import inspect_table
 
 def cell(col,text,span=1):return {'column_index':col,'row_span':span,'col_span':1,'text':text,'state':'visible'}
 

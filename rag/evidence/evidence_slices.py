@@ -59,7 +59,7 @@ def table_ranges(text):
         except ValueError:return [(0,len(text),True)]
         if span<1 or cell['row']+span>len(rows):return [(0,len(text),True)]
         for row in range(cell['row']+1,cell['row']+span):parent[root(row)]=root(cell['row'])
-    from preprocess.table_quality import inspect_table
+    from preprocess.tables.table_quality import inspect_table
     from rag.evidence.table_blocks import blocks
     quality=inspect_table(text)
     if not quality['issues']:

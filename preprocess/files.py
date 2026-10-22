@@ -7,7 +7,7 @@ from pathlib import Path
 import tempfile
 import time
 
-from .ingest import stable_hash
+from preprocess.ingest import stable_hash
 
 
 def read_jsonl(path):

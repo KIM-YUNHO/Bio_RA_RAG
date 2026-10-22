@@ -6,7 +6,7 @@ import tempfile
 import unittest
 
 from preprocess.ingest import Document, catalog_metadata, document_date, refresh_catalog_metadata
-from preprocess.visual_groups import build_visual_groups
+from preprocess.visual.visual_groups import build_visual_groups
 from rag.index.preprocessed_chunks import CONFIG, furniture_units
 from tests.preprocessing.test_visual_groups import asset
 

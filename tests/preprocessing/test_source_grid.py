@@ -4,8 +4,8 @@ from pathlib import Path
 from unittest.mock import patch
 import fitz
 from PIL import Image,ImageDraw
-from preprocess import source_grid as sg
-from preprocess.complex_geometry import raster_grid,table_gate
+from preprocess.tables import source_grid as sg
+from preprocess.tables.complex_geometry import raster_grid,table_gate
 from preprocess.ingest import sha256
 
 

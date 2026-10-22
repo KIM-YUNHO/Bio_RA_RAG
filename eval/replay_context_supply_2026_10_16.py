@@ -119,7 +119,7 @@ def main():
     save('abp654_ema_source_pages.json',{str(n):pdf[n-1].get_text() for n in pages})
     for n in (44,45,84,103,104):
         pdf[n-1].get_pixmap(matrix=fitz.Matrix(1.5,1.5)).save(OUT/f'abp654_ema_page_{n}.png')
-    code_files=('rag/index/document_structure.py','preprocess/visual_context.py','rag/index/preprocessed_chunks.py',
+    code_files=('rag/index/document_structure.py','preprocess/visual/visual_context.py','rag/index/preprocessed_chunks.py',
                 'rag/ra/ra_retrieval.py','rag/ra/ra_parent_context.py','rag/ra/ra_quantities.py',
                 'rag/evidence/source_study_scope.py','rag/evidence/budgeted_evidence.py','rag/ra/ra_requirements.py','rag/ra/ra_pipeline.py')
     save('provenance.json',{'source_pdf':str(pdf_path),'source_pdf_sha256':pdf_hash,

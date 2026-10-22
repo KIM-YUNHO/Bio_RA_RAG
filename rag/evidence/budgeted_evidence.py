@@ -45,17 +45,17 @@ class BudgetedEvidence(PreprocessedEvidence):
         from rag.index.bundle import read
         summary=read(self.bundle.candidate/'chunks_summary.json')
         if summary.get('visual_context_contract'):
-            from preprocess.visual_context import load_bundle
+            from preprocess.visual.visual_context import load_bundle
             self.visual_bundle=load_bundle(self.bundle.candidate,summary['visual_context_contract'])
         self.visual_links={l['link_id']:l for l in (self.visual_bundle or {}).get('links',[])}
 
     def linked_candidates(self,chunk,allowed_ids):
         if not self.visual_bundle:return []
-        from preprocess.visual_context import verify_chunk_links
+        from preprocess.visual.visual_context import verify_chunk_links
         verify_chunk_links(chunk,self.visual_bundle)
         result=[]
         from rag.evidence.source_study_scope import link_conflict
-        from preprocess.visual_context import link_text
+        from preprocess.visual.visual_context import link_text
         for lid in chunk['structure'].get('related_visual_link_ids',[]):
             link=self.visual_links[lid]
             for target in self.by_visual[(chunk['document_id'],chunk['version_id'],link['visual_id'])]:

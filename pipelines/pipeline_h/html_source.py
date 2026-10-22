@@ -2,7 +2,7 @@
 import html,re
 from html.parser import HTMLParser
 from dataclasses import dataclass,field
-from preprocess.html_render import SavedContent
+from preprocess.source.html_render import SavedContent
 from preprocess.ingest import stable_hash
 
 BLOCKED={'script','style','nav','form','iframe','object','header','footer','template'}

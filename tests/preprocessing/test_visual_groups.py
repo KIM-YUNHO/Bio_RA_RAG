@@ -1,8 +1,8 @@
 import copy
 import unittest
 
-from preprocess.visual_groups import build_visual_groups
-from preprocess.table_quality import inspect_table, numbers
+from preprocess.visual.visual_groups import build_visual_groups
+from preprocess.tables.table_quality import inspect_table, numbers
 
 
 def asset(identity, label, box, text, page=1, doc='upload:1', html=None):
@@ -172,11 +172,11 @@ class GroupTests(unittest.TestCase):
         self.assertEqual(rows[1]['grouping_issue'],'ambiguous_caption_association')
 
     def test_closing_parenthesis_reference_is_not_a_caption(self):
-        from preprocess.visual_groups import caption_identity
+        from preprocess.visual.visual_groups import caption_identity
         self.assertIsNone(caption_identity(asset('cap','paragraph_title',[60,20,145,40],'Figure C)')))
 
     def test_plain_text_standalone_label_can_be_a_caption_but_prose_cannot(self):
-        from preprocess.visual_groups import caption_identity
+        from preprocess.visual.visual_groups import caption_identity
         self.assertEqual(caption_identity(asset('cap','text',[60,20,145,40],'Figure F')),('figure','F'))
         self.assertIsNone(caption_identity(asset('prose','text',[60,20,145,40],'Figure F shows a needle.')))
         self.assertEqual(caption_identity(asset('head','header',[60,20,145,40],'Figure G')),('figure','G'))
@@ -197,7 +197,7 @@ class GroupTests(unittest.TestCase):
         self.assertEqual(len(jobs), 2)
 
     def test_supplement_and_roman_labels_do_not_consume_prose_words(self):
-        from preprocess.visual_groups import caption_identity
+        from preprocess.visual.visual_groups import caption_identity
         for text, expected in [('Fig. S1: Supplement', ('figure', 'S1')), ('Table IV. Summary', ('table', 'IV')),
             ('Figure 3A. Panel', ('figure', '3A')), ('Figure 3(a). Panel', ('figure', '3')), ('Figure In this study', None), ('Figure Mix', None),
             ('Figure summary', None), ('Figure 1Aspirin', None)]:

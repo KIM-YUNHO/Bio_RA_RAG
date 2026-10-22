@@ -12,7 +12,7 @@ import fitz
 
 from tests.preprocessing.test_preprocessing_hybrid import Parser, Qwen, GOOD, BAD, reply, FIGURE
 from tests.index.test_chunking import CharacterCounter
-from preprocess.hybrid import run_hybrid
+from preprocess.extraction.hybrid import run_hybrid
 from preprocess.files import read_jsonl
 from preprocess.hybrid_config import HybridConfig
 from preprocess.ingest import from_inputs, sha256
@@ -72,7 +72,7 @@ class PreprocessedChunkTests(unittest.TestCase):
 
     def test_locked_metadata_blocks_enrichment_resume_before_writes(self):
         from unittest.mock import Mock
-        from preprocess.hybrid import resume_enrichment
+        from preprocess.extraction.hybrid import resume_enrichment
         self.prepare(pages=[1])
         path = self.run/'extraction_manifest.json'
         manifest = json.loads(path.read_text(encoding='utf-8'))
@@ -380,7 +380,7 @@ class PreprocessedChunkTests(unittest.TestCase):
         self.assertTrue(restored['description_review_required'])
         self.assertFalse(restored['numeric_evidence_eligible'])
         # Tampered field support must fail even after an attacker rehashes artifacts.
-        from preprocess.hybrid_validate import validate_extraction
+        from preprocess.extraction.hybrid_validate import validate_extraction
         from preprocess.files import save_rows, write_json
         rows = read_jsonl(self.run/'extracted_assets.jsonl')
         parent = next(a for a in rows if a.get('is_logical_group'))
@@ -416,7 +416,7 @@ class PreprocessedChunkTests(unittest.TestCase):
         parser.parse=parse
         self.prepare(parser)
         original=sha256(self.run/'source_units.jsonl')
-        from preprocess.regroup import regroup
+        from preprocess.extraction.regroup import regroup
         revised=self.root/'regrouped'
         with patch('urllib.request.urlopen', side_effect=AssertionError('No model calls')):
             updated=regroup(self.run,revised)

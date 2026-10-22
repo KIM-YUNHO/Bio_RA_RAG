@@ -3,7 +3,7 @@ from copy import deepcopy
 from rag.retrieval.search import filter_idx
 from rag.index.document_structure import identify, source_segments, VERSION
 from rag.retrieval.clinical_retrieval import cues
-from preprocess.table_caption_ownership import separate
+from preprocess.tables.table_caption_ownership import separate
 
 
 class ScopeContextUpdate(unittest.TestCase):
@@ -62,7 +62,7 @@ class ScopeContextUpdate(unittest.TestCase):
 
     def test_reassembling_table_context_preserves_printed_notes(self):
         from tests.preprocessing.test_visual_groups import asset
-        from preprocess.table_context import assemble
+        from preprocess.tables.table_context import assemble
         cap=asset('cap','table_title',[10,10,900,30],'Table 2. Outcomes')
         table=asset('body','table',[10,40,900,100],'Endpoint Value',
                     html='<table><tr><td>Endpoint</td><td>Value</td></tr></table>')

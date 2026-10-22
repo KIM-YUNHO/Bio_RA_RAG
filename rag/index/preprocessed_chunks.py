@@ -10,7 +10,7 @@ from rag.index import build_chunks as bc, document_structure as ds
 from rag.index.chunk_schema import profile_id, validate_dataset
 from rag.index.chunking import Fragment, Packed, pack_units
 from preprocess.files import read_jsonl, save_rows
-from preprocess.hybrid_validate import validate_extraction
+from preprocess.extraction.hybrid_validate import validate_extraction
 from preprocess.ingest import sha256, stable_hash, INTAKE_METADATA_FIELDS, document_date
 from preprocess.files import write_json
 
@@ -25,7 +25,7 @@ def furniture_units(units, assets, pages, cfg):
     Keep source units and an explicit exclusion record. Captions/table notes and
     body-position text are never removed on the strength of their wording alone.
     """
-    from preprocess.visual_groups import display_box
+    from preprocess.visual.visual_groups import display_box
     counts, candidates, excluded = defaultdict(set), {}, set()
     doc_pages = Counts((d, v) for d, v, _ in pages)
     for unit in units:
@@ -84,7 +84,7 @@ def reasons(unit, asset, page):
     if unit.get('retrieval_role') == 'logical_figure_member':
         problems.append('represented_by_logical_figure_parent')
     if asset.get('continuation_status') == 'data_fragment_continuation_candidate':
-        from preprocess.native_table_fragments import eligible as native_fragment_eligible
+        from preprocess.source.native_table_fragments import eligible as native_fragment_eligible
         if not native_fragment_eligible(asset):problems.append('continuation_semantics_require_review')
     if not unit['text'].strip():
         problems.append('empty_representation')
@@ -109,7 +109,7 @@ def table_parts(text, counter, limit, header, embedding_limit):
     first = next((i for i, row in enumerate(matches) if re.search(r'<td\b', row.group(), re.I)), None)
     if first is None:
         raise DeferredTable('oversized_table_without_body_rows')
-    from preprocess.table_quality import inspect_table
+    from preprocess.tables.table_quality import inspect_table
     quality=inspect_table(text)
     if any(c['is_header'] and c['row']<first<c['row']+c['row_span'] for c in quality['cells']):
         raise DeferredTable('oversized_merged_table_header_crosses_body')
@@ -193,7 +193,7 @@ def build(run, counter, cfg=None, *, _loaded=None):
     run, manifest, hashes, units, assets, pages, groups = _loaded or load_input(run)
     if run!=requested:raise ValueError('Validated input belongs to another preprocessing run')
     cfg = {**CONFIG, **(cfg or {})}
-    from preprocess.visual_context import assemble, apply_to_chunks
+    from preprocess.visual.visual_context import assemble, apply_to_chunks
     context_bundle = assemble(list(assets.values()), units, groups, manifest['documents'], list(pages.values()))
     furniture = furniture_units(units, assets, pages, cfg)
     if not (0 <= cfg['overlap_tokens'] < cfg['target_tokens'] <= cfg['max_tokens'] < cfg['embedding_max_tokens']
@@ -467,7 +467,7 @@ def verify_ranges(chunks, units, assets, pages, require_full_coverage=True, cont
         if reconstructed != c['text']:
             raise ValueError('Chunk text does not reconstruct from representation spans')
         if c['structure'].get('visual_context') or c['structure'].get('related_visual_link_ids'):
-            from preprocess.visual_context import assemble, verify_chunk_links
+            from preprocess.visual.visual_context import assemble, verify_chunk_links
             if context_bundle is None:
                 source = Path(c['provenance']['preprocessing_run'])
                 manifest = json.loads((source/'extraction_manifest.json').read_text(encoding='utf-8'))
@@ -566,7 +566,7 @@ def write(run, out, counter=None, cfg=None):
                 'bbox_pdf', 'source_refs', 'page_image', 'logical_group_id', 'panel_index') if k in a},
                 'retrieval_eligible': input_units[a['asset_id']]['retrieval_eligible'], 'numeric_evidence_eligible': False})
     save_rows(out/'visual_members.jsonl', members)
-    from preprocess.visual_context import assemble, save_bundle
+    from preprocess.visual.visual_context import assemble, save_bundle
     input_manifest = json.loads((run/'extraction_manifest.json').read_text(encoding='utf-8'))
     summary['visual_context_contract'] = save_bundle(out, assemble(read_jsonl(run/'extracted_assets.jsonl'),
         list(input_units.values()), read_jsonl(run/'visual_groups.jsonl') if (run/'visual_groups.jsonl').exists() else [], input_manifest['documents'],
@@ -618,7 +618,7 @@ def visual_context(folder, chunk_id):
 def related_visual_contexts(folder, chunk_id, include_nondefault=False, include_evaluation=False):
     """Restore visual hits and reverse prose references under the same search policy."""
     from rag.retrieval.search import filter_idx
-    from preprocess.visual_context import load_bundle, link_text, verify_chunk_links
+    from preprocess.visual.visual_context import load_bundle, link_text, verify_chunk_links
     folder = Path(folder)
     summary = json.loads((folder/'chunks_summary.json').read_text(encoding='utf-8'))
     for name, digest in summary['artifacts'].items():

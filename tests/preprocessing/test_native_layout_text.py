@@ -8,8 +8,8 @@ import unittest
 from unittest.mock import patch
 
 import fitz
-from preprocess.native_text import packet, extract, project, NativeRecognizer
-from preprocess.hybrid import normalize_page, run_hybrid
+from preprocess.source.native_text import packet, extract, project, NativeRecognizer
+from preprocess.extraction.hybrid import normalize_page, run_hybrid
 from preprocess.files import read_jsonl
 from preprocess.outputs import save_outputs
 from preprocess.ingest import Document,from_inputs
@@ -92,7 +92,7 @@ class NativeTextTests(unittest.TestCase):
         self.assertFalse(assets[0]['numeric_evidence_eligible'])
 
     def test_saved_native_text_is_rechecked_even_with_valid_artifact_checksums(self):
-        from preprocess.hybrid_validate import validate_extraction
+        from preprocess.extraction.hybrid_validate import validate_extraction
         from preprocess.hybrid_config import HybridConfig
         from PIL import Image
         fixture=self

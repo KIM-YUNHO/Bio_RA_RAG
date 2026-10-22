@@ -49,7 +49,7 @@ def prepare(run):
     if len(docs)!=92:raise ValueError('Approved corpus must contain exactly 92 source versions')
     products=Counter(d.metadata['product_id'] for d in docs)
     if set(products)!={'SB17','ABP654','CTP43','BMAB1200','BAT2206'}:raise ValueError('Product scope mismatch')
-    from preprocess.html_render import prepare as prepare_renders
+    from preprocess.source.html_render import prepare as prepare_renders
     missing_html=[d for d in docs if d.kind=='html' and not d.rendered_path]
     if missing_html:prepare_renders(missing_html,run/'input')
     protected_paths=[ROOT/'data/versions/01_pilot_baseline_2026-10-10/records/service_release.json',ROOT/'data/collection.sqlite',

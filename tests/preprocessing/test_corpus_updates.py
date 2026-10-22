@@ -3,12 +3,12 @@ from pathlib import Path
 from unittest.mock import patch
 import fitz
 from preprocess.ingest import from_inputs, sha256
-from preprocess.html_render import prepare
-from preprocess.hybrid import run_hybrid, resume_enrichment
+from preprocess.source.html_render import prepare
+from preprocess.extraction.hybrid import run_hybrid, resume_enrichment
 from preprocess.files import read_jsonl
-from preprocess.hybrid_validate import validate_extraction
+from preprocess.extraction.hybrid_validate import validate_extraction
 from preprocess.hybrid_config import HybridConfig
-from preprocess.native_page import parse
+from preprocess.source.native_page import parse
 from tests.preprocessing.test_preprocessing_hybrid import Parser, Qwen
 
 

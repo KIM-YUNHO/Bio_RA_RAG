@@ -2,8 +2,8 @@
 from copy import deepcopy
 import unittest
 
-from preprocess.figure_labels import project, support, references_for
-from preprocess.visual_groups import build_visual_groups
+from preprocess.visual.figure_labels import project, support, references_for
+from preprocess.visual.visual_groups import build_visual_groups
 from tests.preprocessing.test_visual_groups import asset
 from tests.preprocessing.test_preprocessing_hybrid import FIGURE, PANEL
 
@@ -23,7 +23,7 @@ class FigureLabelsTests(unittest.TestCase):
         self.assertEqual(references_for(member,[],version='figure-labels-2'),[])
 
     def test_crop_float_roundoff_does_not_allow_real_source_boundary_expansion(self):
-        from preprocess.hybrid_validate import contains_crop
+        from preprocess.extraction.hybrid_validate import contains_crop
         region = [98.8202, 542.4, 504.6548, 635.52]
         observed = [98.82019805908203, 628.0703735351562, 504.65478515625, 639.52001953125]
         self.assertTrue(contains_crop(region, observed, 4))

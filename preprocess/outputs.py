@@ -1,11 +1,11 @@
 """Write an extraction bundle: assets, pages, queues, source units, visual groups and their context, and the
 integrity record over those files."""
-from .files import save_rows, write_json
-from .ingest import sha256
+from preprocess.files import save_rows, write_json
+from preprocess.ingest import sha256
 
 
 def save_outputs(out, assets, pages, documents, summary, groups=None):
-    from .figure_labels import apply
+    from preprocess.visual.figure_labels import apply
     apply(assets, groups)
     save_rows(out / "extracted_assets.jsonl", assets)
     save_rows(out / "extraction_pages.jsonl", pages)
@@ -36,7 +36,7 @@ def save_outputs(out, assets, pages, documents, summary, groups=None):
         unit["review_required"] = (bool(asset["route"]["task"]) and (asset["enrichment"] or {}).get("status") != "heuristic_checks_passed"
             or asset['route'].get('next_stage') in {'review','light_ocr'})
         if asset.get('continuation_status') == 'data_fragment_continuation_candidate':
-            from .native_table_fragments import eligible as native_fragment_eligible
+            from preprocess.source.native_table_fragments import eligible as native_fragment_eligible
             unit['review_required'] = not native_fragment_eligible(asset)
             if not unit['review_required']:
                 unit['native_table_fragment'] = {k: asset['native_table_fragment']['fragment'][k] for k in
@@ -71,7 +71,7 @@ def save_outputs(out, assets, pages, documents, summary, groups=None):
     write_json(out / "extraction_summary.json", summary)
     if groups is not None:
         save_rows(out / 'visual_groups.jsonl',groups)
-    from .visual_context import assemble, save_bundle
+    from preprocess.visual.visual_context import assemble, save_bundle
     context_contract = save_bundle(out, assemble(assets, units, groups or [], [d.to_dict() for d in documents], pages))
     write_json(out / "extraction_integrity.json", {"files": {name: sha256(out / name) for name in
         ("extracted_assets.jsonl", "extraction_pages.jsonl", "source_units.jsonl",*(("visual_groups.jsonl",) if groups is not None else ()))},

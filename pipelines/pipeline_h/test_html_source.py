@@ -1,7 +1,7 @@
 """Source preservation tests independent of product, agency and page IDs."""
 import unittest
 from pipelines.pipeline_h.html_source import parse
-from preprocess.table_quality import inspect_table
+from preprocess.tables.table_quality import inspect_table
 
 class SourceTests(unittest.TestCase):
     def units(self,s):return parse(s,'unseen:document','source-version')['units']

@@ -2,7 +2,7 @@
 import tempfile,unittest,re
 from pathlib import Path
 import fitz
-from preprocess.native_fonts import prepare,validate,validate_delta
+from preprocess.source.native_fonts import prepare,validate,validate_delta
 from preprocess.ingest import from_inputs
 
 

@@ -1,7 +1,7 @@
 from copy import deepcopy
 import unittest
-from preprocess.projection_grid import reconstruct
-from preprocess.table_quality import inspect_table
+from preprocess.tables.projection_grid import reconstruct
+from preprocess.tables.table_quality import inspect_table
 
 def source():
     rows=[('Arm','Value'),('Group A','31'),('Group B','47')];tokens=[]

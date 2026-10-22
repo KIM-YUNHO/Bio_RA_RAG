@@ -192,5 +192,5 @@ def assert_sources(documents):
         if doc.rendered_path and sha256(doc.rendered_path)!=doc.rendered_sha256:
             raise ValueError(f'HTML rendering checksum mismatch: {doc.document_id}')
         if doc.kind=='pdf' and doc.rendered_path:
-            from .native_fonts import validate as validate_fonts
+            from preprocess.source.native_fonts import validate as validate_fonts
             validate_fonts(doc)
