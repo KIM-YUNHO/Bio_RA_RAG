@@ -5,6 +5,7 @@
 - 수정: 2026-10-18 04:45 KST (HTTP 계층 FastAPI 전환: 8885는 FastAPI, 8775는 기존 서버. API 명세 화면)
 - 수정: 2026-10-18 23:15 KST (내부 문서·업무 상태·업무 초안 기능. 8885만 새 코드로 재시작, 8775는 15:10 시작본 그대로)
 - 수정: 2026-10-21 11:35 KST (코드 정리: HTTP 계층은 FastAPI만, `--server`·`--review-url`·`review_viewer`·`rag_service/static/` 제거. 떠 있는 8775·8897은 정리 전 코드)
+- 수정: 2026-10-22 09:57 KST (main `73e7565d`(PR #19~#21)를 받고 8775·8897을 시작 스크립트로 재시작, 마이그레이션 010 적용. 두 서비스 모두 정리 후 코드)
 - 기준: 실행 중 프로세스 명령줄·시작 시각, `GET /api/summary`·`/api/projects`·`/api/ingestion`, `rag_service/`(`__main__.py`, `notebook_api.py`, `ingestion_api.py`, `web/`), `scripts/start_ra_service.ps1`
 - 상위: [현재 서빙 상태](README.md)
 
@@ -12,8 +13,8 @@
 
 | 포트 | 시작 | 시작 방법 | 차이 |
 | :-- | :-- | :-- | :-- |
-| **8775** | 2026-10-18 15:10 | `scripts/start_ra_service.ps1` (로그 `data/runs/ra_service_logs/20261018_151001_*`) | 업무 초안 API 없음. 화면 파일은 요청마다 읽으므로 `업무 현황·AI 초안` 버튼이 비활성으로 보인다. 다음 재시작 때 반영 |
-| **8897** (운영) | 2026-10-20 18:22 | `scripts/start_ra_service.ps1 -Port 8897 -ReviewUrl http://127.0.0.1:8886` (메인 checkout이 main `010f3986`, 로그 `data/runs/ra_service_logs/20261020_182225_b92385a1.*`) | 이슈 대응 가이드·파이프라인 업무 요약 줄 포함, 파이프라인 `ra-research-rag-4.10.4`. 저장소는 8775와 같은 PostgreSQL·`data/runs`. 18:11~18:22에는 PR 브랜치 작업 폴더의 임시 실행기로 떠 있었다 |
+| **8775** | 2026-10-22 09:55 | `scripts/start_ra_service.ps1 -Port 8775` (메인 checkout main `73e7565d`, 로그 `data/runs/ra_service_logs/20261022_095515_4603f33d.*`) | 8897과 같은 코드·릴리스·모델 |
+| **8897** (운영) | 2026-10-22 09:56 | `scripts/start_ra_service.ps1 -Port 8897` (메인 checkout main `73e7565d`, 로그 `data/runs/ra_service_logs/20261022_095639_9acc9b68.*`) | 파이프라인 `ra-research-rag-4.10.4`, 이슈 대응 가이드·업무 요약 줄·파이프라인 삭제 포함. 저장소는 8775와 같은 PostgreSQL·`data/runs`. 10-20 18:22~10-22 09:55에는 정리 전 코드(main `010f3986`)로 떠 있었다 |
 | ~~8885~~ | 2026-10-19 04:15 ~ 10-20 내림 | `scripts/start_ra_service.ps1 -Port 8885 -ReviewUrl http://127.0.0.1:8886` | 10-20에 내리고 8897로 운영 전환 |
 
 8897로 옮긴 것(10-20): 확인 서버(임시 파일 저장소)에서 만든 `[시나리오 v5] P17 IV FcRn 이슈 대응` 파이프라인(문서 묶음 재등록)과 남아 있던 가이드 1건, 그 검색 답변 7건과 메모가 가리키는 답변 1건(보고서 폴더로 복사), `제품 사전 조사 프로젝트`와 메모 1개(같은 답변·주장에서 다시 저장).
@@ -24,11 +25,10 @@
 --mode ra --llm-model gpt-5.6-luna
 --run data/versions/04_pipeline_h_supplement_2026-10-14/embedded/release
 --guidelines data/guidelines/ra_guidelines_native_2026-10-12_v2
---review-url http://127.0.0.1:8886 --research-rounds 1 --warmup
+--research-rounds 1 --warmup
 --archive-dir data/runs/ra_service_reports --review-dir data/runs/ra_review_records
 ```
 
-- 위 인자 중 `--review-url`(그리고 실행 명령줄의 `--server fastapi`)는 정리 전 코드의 인자다. 10-21 정리 후 코드로 다시 띄우면 두 인자는 없다.
 - 두 프로세스 모두 main `96894d3`(stable-queries·hide-model-gaps 병합) + `feature/memo-reader-session-delete` 커밋 시점의 코드로 시작했다. 대화 기록은 RA 모드 기본값 `data/runs/ra_conversations`. 질문 보고서·검토 기록·대화 기록 폴더와 PostgreSQL을 **함께 쓴다**.
 - `127.0.0.1`에만 바인딩된다. 로그인·권한 없음. RAG 질문은 프로세스마다 한 번에 한 건씩 처리한다.
 - 시작 때 BGE-M3·리랭커·BM25를 예열한다(약 26~34초, 모델 API 호출 0).
@@ -65,7 +65,7 @@
 | 단계 (ID · 표시명) | `bridging` 개발 전략·가교 검토 → `cmc` 품질·분석적 유사성 → `nonclinical` 비임상 → `phase1` 임상 1상 · PK/PD → `phase2` 임상 2상 · 설계·생략 검토 → `phase3` 임상 3상 · 비교 임상 → `approval` 허가 심사·적응증 외삽 |
 | 저장 | PostgreSQL `app` 스키마(`app.workspace_projects`, `app.memo_documents`, 마이그레이션 `008_workspace_memos.sql`). `/api/projects` 응답 `storage: postgres` |
 | 지금 데이터 | 파이프라인 1개("ustekinumab RA 검토", 원성분 ustekinumab), 메모 3개 |
-| 삭제 (10-21, 브랜치) | 상단 `+ 파이프라인` 옆 `삭제` → 확인 창(메모·내부 문서 수 표시). 목록에서만 숨기고 기록은 남긴다: DB는 `deleted_at`(마이그레이션 `010_workspace_project_deletion.sql`, 이름 중복 검사는 숨기지 않은 것끼리), 파일 저장소는 `deleted/` 폴더로 옮김. 만드는 중인 업무 초안·이슈 가이드가 있으면 거절(409). **이 코드로 서비스를 띄우기 전에 `uv run python -m ingestion.db migrate`로 010을 적용해야 한다** |
+| 삭제 (10-22 서비스 반영) | 상단 `+ 파이프라인` 옆 `삭제` → 확인 창(메모·내부 문서 수 표시). 목록에서만 숨기고 기록은 남긴다: DB는 `deleted_at`(마이그레이션 `010_workspace_project_deletion.sql`, 이름 중복 검사는 숨기지 않은 것끼리), 파일 저장소는 `deleted/` 폴더로 옮김. 만드는 중인 업무 초안·이슈 가이드가 있으면 거절(409). **이 코드로 서비스를 띄우기 전에 `uv run python -m ingestion.db migrate`로 010을 적용해야 한다** |
 | 규칙 | 파이프라인 생성·전환·단계 선택은 검색 범위를 바꾸지 않는다. 비교 제품은 왼쪽 범위에서 고른다. RAG 메모는 저장 당시 질문과 근거 위치를 보존하고 참고 제품은 근거 문서에서 자동 기록한다. 수정은 revision 충돌 검사와 이력으로 남는다 |
 | 내부 문서·업무 초안 | 파이프라인에 사내·협력사 문서 묶음을 등록(`internal_document_bundle_v1`). 기준일을 고르면 그날까지의 문서, 업무별 상태판(요청·합의·일정·보고서·QA·승인·제출·기관 판단), 이슈를 본다. 이슈가 있으면 '이슈 대응' 탭에서 AI가 원인 가설과 검색 질문을 만들고, 공개 자료 RAG 검색(1차 + 결과를 본 추가 질문 0~2개, 검색 제외 제품 지정 가능) 뒤 대응 가이드(사실만 쓴 상황 정리, 가능성 순 원인 후보와 각 지지·반대 근거·확인 시험, 실험 설계·기관 대응·예상 질의·다른 제품 사례 탭의 한 줄 항목, 공개 근거 칩)로 정리하며, 정답이 등록된 시나리오는 정답 대조(어휘 1차 분류)를 함께 본다. 단계 카드 아래 한 줄에 업무·이슈 수가 나온다. 데모: [v5 이슈 대응](../demo/issue_guide_v5/README.md), [v4 업무 현황](../demo/internal_pipeline_v4/README.md) |
 | 없는 것 | 내부 PDF·메일 원본에서 문서 묶음을 만드는 추출, 협력사·담당자·기한을 갖는 독립 이슈 모델, 다중 사용자 권한 |

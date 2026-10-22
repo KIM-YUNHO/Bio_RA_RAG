@@ -6,6 +6,7 @@
 - 수정: 2026-10-18 00:40 KST (이 프로젝트 전용 DB `biosim_ra`로 분리, 적재 계획·등록의 대조약·빈 칸 검사)
 - 수정: 2026-10-18 01:30 KST (검색을 pgvector로 전환, 새 릴리스는 `storage.publish_release`로 DB에 올림. 8775·8885 01:25 재시작)
 - 수정: 2026-10-21 11:35 KST (코드 정리 브랜치 `chore/code-cleanup`: 검토 화면과 `--review-url`, 표준 라이브러리 서버와 `--server` 제거. 떠 있는 서비스는 그 전 코드로 돈다)
+- 수정: 2026-10-22 09:57 KST (main `73e7565d`로 8775·8897 재시작: 정리 후 코드, `rag/` 하위 폴더 구조, 파이프라인 삭제, 마이그레이션 010)
 - 기준: 실행 중 서비스의 `GET /api/summary`·`/api/ingestion`·`/api/projects`(8885·8775), 프로세스 명령줄, `data/versions/versions.json`, DB `rag.active_release`, 작업 폴더 코드(main `96894d3` + `feature/memo-reader-session-delete` 화면·적재 커밋)
 - 이 폴더는 **지금 떠 있는 서비스가 어떤 데이터·코드·설정으로 답하는가**만 적는다. 실험 경위와 수치의 근거는 각 파일 끝의 원 기록을 따른다. 서빙 구성(릴리스·기본값·모델·포트)이 바뀌면 이 폴더를 먼저 고친다.
 
@@ -13,7 +14,7 @@
 
 | 항목 | 현재 값 |
 | :-- | :-- |
-| 서비스 주소 | **http://127.0.0.1:8885/** · **http://127.0.0.1:8775/** (둘 다 10-17 17:41~17:43 `scripts/start_ra_service.ps1`로 재시작). 두 프로세스의 릴리스·모델·코드 버전이 같다 |
+| 서비스 주소 | **http://127.0.0.1:8897/** (운영) · **http://127.0.0.1:8775/** (둘 다 10-22 09:55~09:56 `scripts/start_ra_service.ps1`로 재시작, main `73e7565d`). 두 프로세스의 릴리스·모델·코드 버전이 같다 |
 | 파이프라인 코드 | `ra-research-rag-4.10.3` (`feature/stable-queries` 병합 후). 두 서비스 모두 4.10.3을 보고한다 |
 | 계획기 검색어 | 답할 사실(facet)마다 영어 검색어 1개, 질문이 붙인 적응증·시험 번호 등 한정어 포함 (`ra-research-tasks-8-fact-queries`) |
 | 제품 색인 | 릴리스 **04** `04_pipeline_h_supplement_2026-10-14` — 5제품·**111문서·15,682청크** × 1024차원 |
@@ -26,7 +27,7 @@
 | 그룹당 근거 | 8개 (`--retrieval-pages` 기본값) |
 | 검색 백엔드 | **pgvector** (`.env` `BIOSIM_SEARCH_BACKEND=pgvector`, 10-18). 청크는 DB `rag.chunks`에서 읽고, 그룹별 dense 검색은 pgvector 질의(필터 안 전수 정확 검색, 동점은 순번 순). 저장된 계획 검색 비교에서 파일 방식과 결과 JSON이 같았다. BM25는 프로세스 안 SQLite FTS5. 서비스 요약 `vector_store`로 확인 |
 | 업무 데이터 | PostgreSQL(이 PC 55432) **DB `biosim_ra`**(10-18 원래 프로젝트용 `biosim`에서 분리) — 파이프라인·단계 메모(`app`), 수집 요청·세션(`ingest`), 카탈로그(`corpus`·`registry`), 청크·벡터 사본(`rag`) |
-| 원본 검토 화면 | 없음. 화면 링크는 10-16에, 검토 화면 코드(`review_viewer`)와 `--review-url` 인자는 10-21 정리에서 제거했다. 원문 확인은 오른쪽 근거 패널과 메모 상세 창에서 한다. 지금 떠 있는 프로세스는 정리 전 코드라 `--review-url`·`--server` 인자를 받고 시작했다. 정리 후 코드로 다시 띄울 때는 `scripts/start_ra_service.ps1`을 쓴다(두 인자를 넘기지 않는다) |
+| 원본 검토 화면 | 없음. 화면 링크는 10-16에, 검토 화면 코드(`review_viewer`)와 `--review-url` 인자는 10-21 정리에서 제거했다. 원문 확인은 오른쪽 근거 패널과 메모 상세 창에서 한다 |
 | 수집 기준 릴리스 | `.env`의 `BIOSIM_ACTIVE_RELEASE` = 04 (10-17 변경). 수집 에이전트가 04의 111문서를 "검색 가능"으로 본다 |
 
 ## 2. 파트별 문서
@@ -58,7 +59,7 @@
 
 ```powershell
 # 서비스 요약: 코드 버전·릴리스·모델·전략 (답변 생성 호출 없음)
-Invoke-RestMethod http://127.0.0.1:8885/api/summary |
+Invoke-RestMethod http://127.0.0.1:8897/api/summary |
     Select-Object pipeline_version, run_name, product_index_chunks, chunks_sha256, answer_model,
         query_strategy, retrieval_strategy, answer_strategy, retrieval_pages, guideline_chunks
 
