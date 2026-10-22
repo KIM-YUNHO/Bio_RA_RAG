@@ -23,7 +23,7 @@ def build(memo_id, body, source, context=None):
     if context is not None:
         if source:
             raise ValueError('보고서 인용과 내부 문서 문맥을 혼합할 수 없습니다.')
-        from rag_service.memo_workflow import validate_context
+        from rag_service.workspace.memo_workflow import validate_context
         context = validate_context(context)
     claims = source.get('claims', []) if source else []
     if source and not claims:

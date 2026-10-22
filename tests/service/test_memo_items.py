@@ -5,9 +5,9 @@ import json
 import unittest
 from uuid import uuid4
 
-from rag_service import memo_items, notebook_api
+from rag_service.workspace import memo_items, notebook_api
 from rag_service.reviews import RevisionConflict
-from rag_service.workspaces import source_packet
+from rag_service.workspace.workspaces import source_packet
 
 from tests.support.http_server import serve
 from tests.service.test_workspace_http import JOB_ID, fixture_jobs

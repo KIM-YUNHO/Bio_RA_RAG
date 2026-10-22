@@ -19,7 +19,8 @@ from fastapi import Depends, FastAPI, Request, Response
 from psycopg import Error as DatabaseError
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
-from rag_service import ingestion_api, notebook_api
+from rag_service import ingestion_api
+from rag_service.workspace import notebook_api
 from rag_service.http_rules import (DATABASE_ERROR, DEFAULT_CACHE, EVIDENCE_ROUTE, JSON_TYPE, LOCAL_ORIGIN, MISSING, SECURITY_HEADERS,
     STATIC, STATIC_FILES, STATIC_TYPES, UNKNOWN_JOB, body_limit, is_ingestion_path, is_review_path, is_workspace_path, local_origin,
     post_path_known)

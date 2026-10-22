@@ -12,7 +12,7 @@ import fitz
 
 from rag_service.__main__ import Jobs
 from rag_service.reviews import RevisionConflict
-from rag_service.workspaces import STAGES, WorkspaceStore, source_packet
+from rag_service.workspace.workspaces import STAGES, WorkspaceStore, source_packet
 
 
 class NotebookTests(unittest.TestCase):

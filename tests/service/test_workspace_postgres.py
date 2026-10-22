@@ -12,7 +12,7 @@ from psycopg.conninfo import make_conninfo
 
 from rag_service.ingestion_api import IngestionAPI
 from rag_service.reviews import RevisionConflict
-from rag_service.workspaces import PostgresWorkspaceStore
+from rag_service.workspace.workspaces import PostgresWorkspaceStore
 from storage.postgres import connect, migrate, url
 
 
@@ -69,7 +69,7 @@ class PostgresNotebookTests(unittest.TestCase):
 
     def test_internal_documents_persist_and_reimport_is_a_no_op(self):
         from tests.service.test_internal_work import BUNDLE
-        from rag_service import internal_documents
+        from rag_service.workspace import internal_documents
         store = PostgresWorkspaceStore(self.connector)
         project = store.create({'name': 'Internal document persistence', 'ingredient': 'ustekinumab'})
         self.assertEqual(len(store.register_documents(project['id'], BUNDLE)['added']), 20)

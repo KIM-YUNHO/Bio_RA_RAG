@@ -9,7 +9,7 @@ import hashlib
 import json
 import re
 
-from rag_service import memo_workflow
+from rag_service.workspace import memo_workflow
 
 KINDS = {'protocol': '계획서', 'report': '시험 보고서', 'email': '메일', 'minutes': '회의록', 'quality_record': 'QA 기록',
          'memo': '내부 메모', 'mock_review': '모의 심사 질의', 'draft_response': '답변 초안'}

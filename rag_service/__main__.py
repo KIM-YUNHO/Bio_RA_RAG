@@ -13,7 +13,7 @@ from preprocess.hybrid_config import load_config
 from rag.pipeline import RAGPipeline
 from rag_service.reviews import ReviewStore
 from rag_service import ingestion_api
-from rag_service.workspaces import WorkspaceStore
+from rag_service.workspace.workspaces import WorkspaceStore
 
 
 class Jobs:
@@ -24,10 +24,10 @@ class Jobs:
         self.reviews=ReviewStore(review_dir or (self.archive_dir/'reviews' if self.archive_dir else None))
         self.workspaces = workspace_store or WorkspaceStore(self.archive_dir.parent/'ra_workspaces' if self.archive_dir else None)
         self.ingestion = ingestion_service or ingestion_api.IngestionAPI()
-        from rag_service.work_drafts import WorkDraftService
+        from rag_service.workspace.work_drafts import WorkDraftService
         self.work_drafts = work_drafts or WorkDraftService(self.workspaces, self.archive_dir.parent/'ra_work_drafts' if self.archive_dir else None,
             model=getattr(getattr(pipeline,'chat_client',None),'model','gpt-5.6-luna'))
-        from rag_service.issue_guide import IssueGuideService
+        from rag_service.workspace.issue_guide import IssueGuideService
         self.issue_guides = IssueGuideService(self, issue_guide_dir or (self.archive_dir.parent/'ra_issue_guides' if self.archive_dir else None),
             model=getattr(getattr(pipeline,'chat_client',None),'model','gpt-5.6-luna'))
         if self.archive_dir is not None:
@@ -216,9 +216,9 @@ def main():
         pipeline=RAGPipeline(args.run,args.candidate,load_config(args.config),retrieval_pages=args.retrieval_pages)
     archive_dir=args.archive_dir or (Path('data/runs/ra_service_reports') if args.mode=='ra' else None)
     if args.warmup and args.mode=='ra':print(json.dumps({'retrieval_warmup':pipeline.warmup()},ensure_ascii=False),flush=True)
-    from rag_service.workspaces import PostgresWorkspaceStore
+    from rag_service.workspace.workspaces import PostgresWorkspaceStore
     workspace_store=WorkspaceStore(args.workspace_dir) if args.workspace_dir else PostgresWorkspaceStore()
-    from rag_service.work_drafts import WorkDraftService
+    from rag_service.workspace.work_drafts import WorkDraftService
     # Internal work drafts use the service's selected model; legacy mode has no framework model, so they default to Luna.
     draft_dir=args.work_draft_dir or (Path(archive_dir).parent/'ra_work_drafts' if archive_dir else None)
     work_drafts=WorkDraftService(workspace_store,draft_dir,model=args.llm_model if args.mode=='ra' else 'gpt-5.6-luna')

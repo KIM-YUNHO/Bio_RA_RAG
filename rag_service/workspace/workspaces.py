@@ -16,7 +16,7 @@ import time
 from uuid import uuid4
 
 from rag_service.reviews import RevisionConflict
-from rag_service import memo_items
+from rag_service.workspace import memo_items
 
 STAGES = [
     # The notebook follows the project's biosimilar evidence review scope.
@@ -288,7 +288,7 @@ class WorkspaceStore:
 
     def register_documents(self, project_id, bundle):
         """Add internal document versions (immutable); an identical re-import changes nothing."""
-        from rag_service import internal_documents
+        from rag_service.workspace import internal_documents
         with self.writing():
             project = self.get(project_id)
             documents, scopes, simulation, issues = internal_documents.normalize_bundle(bundle, project.get('work_scopes'))

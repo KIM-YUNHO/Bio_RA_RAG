@@ -4,9 +4,9 @@ import tempfile
 import unittest
 
 from eval.seed_memo_scenario import JOB_ID, PDF, seed
-from rag_service import memo_items
+from rag_service.workspace import memo_items
 from rag_service.__main__ import Jobs
-from rag_service.workspaces import WorkspaceStore
+from rag_service.workspace.workspaces import WorkspaceStore
 from types import SimpleNamespace
 
 
