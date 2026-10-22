@@ -24,9 +24,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from rag import ra_answer                       # noqa: E402  schema() builds the model's output format
-from rag.ra_spans import catalog                # noqa: E402  evidence blocks -> citable span ids
-from rag.schema_budget import enum_count, MAX_ENUM_VALUES  # noqa: E402
+from rag.ra import ra_answer                       # noqa: E402  schema() builds the model's output format
+from rag.ra.ra_spans import catalog                # noqa: E402  evidence blocks -> citable span ids
+from rag.evidence.schema_budget import enum_count, MAX_ENUM_VALUES  # noqa: E402
 
 DEFAULT_GLOB = str(ROOT / 'data/runs/qa_eval/allscope_r1_2026-10-15/responses/CHEMR_Q*.json')
 

@@ -112,7 +112,7 @@ def answer_view(report):
 
 
 def judge(question, text, quotes, model):
-    from rag.llm import chat
+    from rag.llm.llm import chat
     facts = [{'fact_id': f['fact_id'], 'text': f['text']} for f in question['required_facts']]
     user = json.dumps({'question': question['question'], 'reference_answer': question['gold_answer'],
                        'required_facts': facts, 'system_answer': text,
