@@ -2,7 +2,7 @@
 from copy import deepcopy
 import unittest
 
-from preprocess import visual_context as vc
+from preprocess.visual import visual_context as vc
 from tests.index.test_chunking import CharacterCounter
 
 

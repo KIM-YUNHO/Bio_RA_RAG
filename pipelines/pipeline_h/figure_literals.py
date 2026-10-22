@@ -1,5 +1,5 @@
 """Keep ordinary printed figure text and captions without assigning visual semantics."""
-from preprocess.text_checks import figure_label_reference
+from preprocess.visual.text_checks import figure_label_reference
 
 def apply(assets,groups):
     lookup={a['asset_id']:a for a in assets}

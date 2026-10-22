@@ -7,7 +7,7 @@ def main():
     settings=json.loads(Path(sys.argv[1]).read_text(encoding='utf8'))
     if settings['device']!='gpu:0':raise RuntimeError('Benchmark requires gpu:0')
     if settings['parser_backend']=='cascade':
-        from preprocess import cascade_worker as worker
+        from preprocess.ocr import cascade_worker as worker
         original_init=worker.CascadeParser.__init__
         def initialize(self,*args,**kwargs):
             original_init(self,*args,**kwargs)
@@ -31,7 +31,7 @@ def main():
             return raw
         worker.CascadeParser.parse=parse
     else:
-        from preprocess import paddle_worker as worker
+        from preprocess.ocr import paddle_worker as worker
         import paddleocr
         original=paddleocr.PaddleOCRVL
         def construct(*args,**kwargs):

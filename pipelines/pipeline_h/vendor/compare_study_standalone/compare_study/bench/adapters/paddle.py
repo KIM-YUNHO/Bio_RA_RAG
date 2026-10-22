@@ -7,7 +7,7 @@ class Paddle:
     def __init__(self,candidate,work): self.candidate=candidate;self.work=work
     def start(self,mode):
         from compare_study.settings import extraction_config
-        from preprocess.paddle_adapter import PaddleAdapter
+        from preprocess.ocr.paddle_adapter import PaddleAdapter
         self.config=extraction_config()
         self.config.paddle.parser_backend='cascade' if self.candidate=='CUR' else 'paddle_vl'
         self.config.paddle.native_text=True
@@ -17,7 +17,7 @@ class Paddle:
         import subprocess
         original=subprocess.Popen
         def launch(args,*pos,**kw):
-            if isinstance(args,list) and '-m' in args and args[args.index('-m')+1] in ['preprocess.cascade_worker','preprocess.paddle_worker']:
+            if isinstance(args,list) and '-m' in args and args[args.index('-m')+1] in ['preprocess.ocr.cascade_worker','preprocess.ocr.paddle_worker']:
                 args=args[:];args[args.index('-m')+1]='compare_study.bench.paddle_gpu_worker'
             return original(args,*pos,**kw)
         subprocess.Popen=launch
@@ -31,8 +31,8 @@ class Paddle:
             'load_note':'layout lazy-load occurs during the first input page; no fixed development PDF is used'}
     def close(self): self.parser.close()
     def document(self,path,doc,page_map,work,mode,selected_pages=None):
-        from preprocess.native_page import parse as native_page
-        from preprocess.hybrid import normalize_page,pdf_box
+        from preprocess.source.native_page import parse as native_page
+        from preprocess.extraction.hybrid import normalize_page,pdf_box
         from preprocess.ingest import Document
         document=Document(doc['document_id'],sha(path),'pdf',str(path),str(path),[str(path)],
             {'source':doc['agency'],'document_type':doc['doc_type'],'model_execution_allowed':True})
@@ -60,7 +60,7 @@ class Paddle:
                     blocks=[{'block_label':a['block_label'],'block_content':a['selected']['content'],'bbox':a['bbox_pdf'],'asset_id':a['asset_id']} for a in assets if a['asset_type']!='figure']
                 else:
                     blocks=[{**b,'bbox':pdf_box(page,b['block_bbox'],size)} for b in raw.get('res',raw)['parsing_res_list']]
-                    from preprocess.visual_groups import build_visual_groups
+                    from preprocess.visual.visual_groups import build_visual_groups
                     from compare_study.figures import from_assets
                     visual_assets,invalid=normalize_page(document,page,image,size,raw,'paddle_visual_output_v2')
                     if invalid:raise RuntimeError(f'Invalid visual output: {invalid}')
@@ -92,7 +92,7 @@ class Paddle:
         if self.candidate=='CUR':
             # Read-only furniture helper; no chunks, tokenizer, embeddings or retrieval are run.
             from preprocess.furniture import furniture_units,CONFIG
-            from preprocess.visual_groups import build_visual_groups
+            from preprocess.visual.visual_groups import build_visual_groups
             groups,jobs=build_visual_groups(all_assets)
             from .cascade_stages import refine_regions
             stage_summary=refine_regions(all_assets,groups,path,work,self.parser)

@@ -30,4 +30,4 @@ pipelines/pipeline_h ──import──▶ preprocess/ (공용 전처리 라이�
 .\.venv\Scripts\python.exe -X utf8 -m unittest pipelines.pipeline_h.test_policy pipelines.pipeline_h.test_batch pipelines.pipeline_h.test_html_source
 ```
 
-새 파일럿식(cascade) 추출은 루트 `preprocess/`의 CLI로 계속 실행할 수 있다(`python -m preprocess workflow ...`, [preprocess/README.md](../preprocess/README.md)). 다만 표준은 H다.
+파일럿식(cascade) 추출의 CLI(`python -m preprocess workflow ...`)는 10-21·10-22 정리에서 없앴다. 추출 엔진(`preprocess/extraction/hybrid.py`)은 H와 테스트가 라이브러리로 계속 쓴다. 표준은 H다.

@@ -14,7 +14,7 @@ from collections import Counter
 from pathlib import Path
 
 from pipelines.pipeline_h.prepare import ROOT, write
-from preprocess.hybrid import read_jsonl
+from preprocess.files import read_jsonl
 
 # (name, extraction, reference candidate, built through pipeline_h chunks.build)
 COMPONENTS = [

@@ -5,12 +5,13 @@ from pathlib import Path
 import fitz
 from collection import text_layer
 from preprocess.ingest import Document,sha256,stable_hash
-from preprocess.hybrid import save_outputs,save_rows,read_jsonl
-from preprocess.text_checks import figure_label_reference
-from preprocess.table_quality import inspect_table,comparable_text
-from preprocess.visual_groups import build_visual_groups,GROUPING_VERSION
-from preprocess.hybrid_validate import validate_extraction
-from preprocess.html_inventory import inspect_html
+from preprocess.outputs import save_outputs
+from preprocess.files import save_rows, read_jsonl
+from preprocess.visual.text_checks import figure_label_reference
+from preprocess.tables.table_quality import inspect_table,comparable_text
+from preprocess.visual.visual_groups import build_visual_groups,GROUPING_VERSION
+from preprocess.extraction.hybrid_validate import validate_extraction
+from preprocess.source.html_inventory import inspect_html
 from pipelines.pipeline_h.prepare import read,write
 from pipelines.pipeline_h.policy import VERSION,candidate_gate,glyph_gate,table_alarms,SUSPECT_GLYPH
 from pipelines.pipeline_h.structure import table_html,table_rows,box_top_left,parsed_rows,cell_structure_issues
@@ -176,7 +177,7 @@ def export(run):
     # The old writer invokes a Qwen-oriented figure projection. Substitute the
     # literal-only H projection for this invocation, while preserving its schema
     # and context writer. The original module/file is unchanged.
-    from preprocess import figure_labels
+    from preprocess.visual import figure_labels
     from pipelines.pipeline_h.figure_literals import apply as literal_figures
     original_apply=figure_labels.apply
     try:

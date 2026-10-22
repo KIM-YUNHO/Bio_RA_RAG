@@ -1,6 +1,6 @@
 """Lossless raw blocks and a separate, source-bound selected representation."""
 import copy,html
-from preprocess.table_quality import inspect_table
+from preprocess.tables.table_quality import inspect_table
 
 def box_top_left(block,height,width):
     l,b,r,t=block['bbox']

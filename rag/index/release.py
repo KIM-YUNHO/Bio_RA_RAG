@@ -66,7 +66,7 @@ def compose(specs, out):
     chunks=[]; vectors=[]; metadata=[]; records=[]
     visual_bundles=[]
     for b in components:
-        from preprocess.visual_context import assemble, load_bundle as load_visual
+        from preprocess.visual.visual_context import assemble, load_bundle as load_visual
         contract=read(b.candidate/'chunks_summary.json').get('visual_context_contract')
         visual_bundles.append(load_visual(b.candidate,contract) if contract else assemble(
             list(b.assets.values()),list(b.units.values()),list(b.groups.values()),list(b.docs.values()),list(b.pages.values())))

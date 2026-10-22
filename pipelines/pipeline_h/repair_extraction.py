@@ -7,8 +7,9 @@ from pipelines.pipeline_h.prepare import read,write
 from pipelines.pipeline_h.html_source import parse
 from pipelines.pipeline_h.exclusion_audit import normalized
 from preprocess.ingest import Document,sha256,stable_hash
-from preprocess.hybrid import read_jsonl,save_rows,save_outputs
-from preprocess.table_quality import inspect_table
+from preprocess.files import read_jsonl, save_rows
+from preprocess.outputs import save_outputs
+from preprocess.tables.table_quality import inspect_table
 
 def native_recovery(page,block):
     l,b,r,t=block['bbox'];hint=fitz.Rect(l,page.rect.height-t,r,page.rect.height-b)*page.derotation_matrix
@@ -115,7 +116,7 @@ def build(previous,run):
     summary={'pipeline':'production-h-4-source-content-geometry','documents':len(docs),'pages':len(pages),'assets':len(assets),
         'html_dom_units':sum(len(d['units']) for d in doms.values()),'native_geometry_recovered':len(repairs),'geometry_warning_blocks':len(warnings),
         'parent_run':str(previous),'by_asset_type':dict(Counter(a['asset_type'] for a in assets)),'figure_meaning_generation':False}
-    from preprocess import figure_labels
+    from preprocess.visual import figure_labels
     from pipelines.pipeline_h.figure_literals import apply
     original_apply=figure_labels.apply
     try:figure_labels.apply=apply;save_outputs(out,assets,pages,docs,summary,groups)
@@ -129,7 +130,7 @@ def build(previous,run):
         source_metadata_contract='original catalog metadata unchanged; DOM preview derivative lineage separate',
         original_intake_sha256=sha256(previous/'intake_manifest.json'),parent_run=str(previous))
     write(out/'extraction_manifest.json',manifest);write(out/'processing_status.json',{'lifecycle':'finished','state':manifest['status']})
-    from preprocess.hybrid_validate import validate_extraction
+    from preprocess.extraction.hybrid_validate import validate_extraction
     report=validate_extraction(out);write(out/'validation_report.json',report)
     write(run/'repair_summary.json',summary);return summary
 

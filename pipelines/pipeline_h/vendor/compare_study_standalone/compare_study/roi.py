@@ -78,7 +78,7 @@ def execute(case,target,config):
                     interpretation={'task':'chart_transcription','content':content} if job['task']=='describe_figure' else None,
                     status='needs_review' if job['task']=='describe_figure' else 'transcribed_unverified',model='PaddleOCR-VL-1.6-0.9B')
             elif case=='qwen':
-                from preprocess.qwen_adapter import validate_answer
+                from preprocess.ocr.qwen_adapter import validate_answer
                 context={'target_page':job['source_page'],'context_items':[],
                     'image_roles':[{'role':'target_crop','pdf_page':job['source_page']}],
                     'table_layout':{'column_count_hint':len(parse_table(job['source_asset']['base']['content'])[0]) if parse_table(job['source_asset']['base']['content']) else None}}

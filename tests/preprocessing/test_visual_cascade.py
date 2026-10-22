@@ -1,7 +1,7 @@
 import unittest
 from PIL import Image,ImageDraw
-from preprocess.visual_router import decide,reapply,usable_native,figure_group_route
-from preprocess.simple_grid import reconstruct
+from preprocess.extraction.visual_router import decide,reapply,usable_native,figure_group_route
+from preprocess.tables.simple_grid import reconstruct
 
 
 class CascadeTests(unittest.TestCase):

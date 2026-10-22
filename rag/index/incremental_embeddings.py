@@ -4,7 +4,7 @@ import json,time
 from pathlib import Path
 import numpy as np
 from preprocess.ingest import sha256
-from preprocess.inventory import write_json
+from preprocess.files import write_json
 from rag.retrieval.search import load_index
 
 VERSION='identical-input-vector-reuse-1'

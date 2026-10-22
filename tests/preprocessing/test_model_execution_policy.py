@@ -5,7 +5,7 @@ import unittest
 from unittest.mock import Mock
 
 from preprocess.ingest import Document, assert_model_execution_allowed
-from preprocess.hybrid import run_hybrid
+from preprocess.extraction.hybrid import run_hybrid
 from preprocess.hybrid_config import HybridConfig
 
 

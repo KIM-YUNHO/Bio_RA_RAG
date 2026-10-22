@@ -1,6 +1,8 @@
 # RA 문서 전처리: Paddle + 로컬 Qwen
 
 > 2026-10-21 코드 정리: 아래 기록에 나오는 파일럿 시절 CLI 중 `preprocess.cli`(`python -m preprocess`)·`dataset`·`dataset_inventory`·`dataset_duplicates`·`quality`·`quality_eval`·`refine`·`prepare_models`·`corpus`·`validate`·`subset`·`selective_reuse`·`light_refinement`·`structural_refinement`·`visual_trial`·`visual_evaluation`은 어느 진입점에서도 쓰이지 않아 삭제했다(git 태그 `pre-cleanup-2026-10-21`에 남음). 이 폴더의 나머지는 `pipeline_h`·`rag`·수집이 쓰는 라이브러리다.
+>
+> 2026-10-22 정리: 공용 파일 도구를 `files.py`(`read_jsonl`·`save_rows`·`write_json`·캐시·실행 잠금 `exclusive`)와 `outputs.py`(`save_outputs`)로 분리하고, 원본 검사 `assert_sources`는 `ingest.py`로 옮겼다. 파일럿 워크플로와 인벤토리 단계(`workflow`·`inventory`·`detect`·`figure_ocr`)는 쓰는 곳이 없어 삭제했다. 아래 `python -m preprocess …` 명령은 모두 당시 기록이다. 이어서 모듈을 하위 폴더로 옮겼다: `extraction/`(엔진·단계), `source/`(PDF 텍스트 레이어·HTML), `ocr/`(Paddle·Qwen), `tables/`, `visual/`. 바로 아래에는 `ingest`·`files`·`outputs`·`hybrid_config`·`schema`. 아래 기록의 `preprocess/<모듈>.py` 경로는 당시 위치다.
 
 현재 처리/개발 기준(2026-10-09)은 [운영 원칙](../docs/PIPELINE_PRINCIPLES.md)이다. 검증된 native → 일반 PaddleOCR → 표 구조 복구 → 남은 복잡 영역 Qwen 순서로 처리한다. 여러 탐지 영역이나 낮은 문자 신뢰도만으로 VLM에 넘기지 않는다. 승인된 범위는 EMA/FDA/HC 5상품·92문서이며 보류 9문서는 제외한다. [최신 원문 검토](../docs/preprocessing/CASCADE_AND_RAG_SOURCE_REVIEW_2026-10-09.md)의 199개 큐는 재분류할 이전 후보이며 일괄 실행 대상이 아니다. 아래 날짜별 실행과 `table-grid-2`는 당시 구현 이력이고, 새 계약 적용 여부는 후속 기록으로 구분한다.
 

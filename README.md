@@ -22,6 +22,11 @@ project_shared/
 ├─ pipelines/
 │  └─ pipeline_h/        ★ 표준(Main) 전처리 파이프라인 (Docling·TableFormer·PaddleOCR-VL 선별 보강)
 ├─ preprocess/           공용 전처리 라이브러리 (pipeline_h·rag가 import)
+│  ├─ extraction/      추출 엔진과 단계: 실행·검증·보강·마무리·재묶음·보고·영역 분기
+│  ├─ source/          원본 읽기: PDF 텍스트 레이어(native_*)·저장 HTML
+│  ├─ ocr/             모델 작업자·어댑터: PaddleOCR-VL·PP-OCR cascade·로컬 Qwen
+│  ├─ tables/          표: 품질 검사·격자 복원·캡션·문맥
+│  └─ visual/          그림·시각 문맥: 논리 묶음·문맥 연결·그림 라벨 (바로 아래: ingest·files·outputs·hybrid_config·schema)
 ├─ rag/                  청킹·임베딩·검색·답변 검증 라이브러리 (pipeline.py·answer.py가 공통 진입점)
 │  ├─ ra/                RA 답변 파이프라인: 계획·검색·읽기·생성·검토 (ra_*)
 │  ├─ evidence/          근거 고르기·원문 대조: 표·문장·인용·요청 사실
@@ -122,3 +127,4 @@ uv run python -m ingestion.agent
 | 2026-10-21 18:20 | `rag/` 87개 모듈을 역할별 하위 폴더 5개(`ra`·`evidence`·`index`·`retrieval`·`llm`)로 이동, 파일 이름은 그대로. `sys.path`에 `rag/`를 넣고 이름만으로 import하던 곳을 모두 패키지 import로 바꿈. 실행은 `python -m rag.retrieval.search`처럼 `-m`으로 한다. 동작 변경 없음, 테스트 1,122개(데이터 연결)·PostgreSQL 13개·pipeline_h 18개 통과 |
 | 2026-10-22 10:40 | `tests/` 129개 파일을 영역별 하위 폴더 9개로 이동(`ra` 29 · `evidence` 28 · `preprocessing` 24 · `service` 16 · `index` 9 · `ingest` 9 · `retrieval` 8 · `llm` 2 · 공용 도구 `support` 4). 테스트끼리의 import는 `tests.<영역>.<모듈>`, `sys.path`에 `tests/`를 넣던 줄은 삭제. 실행은 `python -m unittest discover -s tests -t .`(이전 명령도 동작). 테스트 1,122개 통과 |
 | 2026-10-22 11:10 | `rag_service/`의 파이프라인·메모 4개(`workspaces`·`notebook_api`·`memo_items`·`memo_workflow`)와 내부 업무 4개(`internal_documents`·`work_assist`·`work_drafts`·`issue_guide`)를 `rag_service/workspace/`로 이동. 바로 아래에는 서버·화면 지원(`app`·`http_rules`·`inventory`·`pages`·`conversations`·`reviews`·`ingestion_api`)만 남음. 동작 변경 없음, 테스트 통과 |
+| 2026-10-22 12:00 | `preprocess/` 정리: 공용 파일 도구를 `files.py`·`outputs.py`로 분리(서비스가 시작할 때 불러오는 전처리 모듈 11→7개), 쓰이지 않는 파일럿 단계 4개(`workflow`·`inventory`·`detect`·`figure_ocr`) 삭제, 나머지 42개를 하위 폴더 5개(`extraction`·`source`·`ocr`·`tables`·`visual`)로 이동. 테스트 1,096개·pipeline_h 18개 통과 |

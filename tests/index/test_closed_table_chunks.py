@@ -1,7 +1,7 @@
 import unittest
 from tests.index.test_chunking import CharacterCounter
 from rag.index.preprocessed_chunks import table_parts,DeferredTable
-from preprocess.table_quality import inspect_table
+from preprocess.tables.table_quality import inspect_table
 
 class ClosedTableChunkTests(unittest.TestCase):
     def test_spanned_blocks_keep_literal_headers_and_source_offsets(self):

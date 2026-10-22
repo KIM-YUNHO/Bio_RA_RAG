@@ -3,7 +3,7 @@ from pathlib import Path
 from collections import Counter
 from pipelines.pipeline_h.prepare import read,write
 from pipelines.pipeline_h.html_source import parse
-from preprocess.hybrid import read_jsonl
+from preprocess.files import read_jsonl
 from preprocess.ingest import sha256
 
 def validate(run,with_chunks=False):

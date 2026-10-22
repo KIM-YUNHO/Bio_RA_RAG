@@ -4,9 +4,9 @@ import unittest
 from unittest.mock import patch
 
 from preprocess.hybrid_config import QwenSettings
-from preprocess.qwen_adapter import QwenAdapter, validate_answer
-from preprocess.qwen_contracts import task_fingerprint, PROMPT_VERSIONS, SYSTEMS
-from preprocess.table_representation import render_table,render_structured_table
+from preprocess.ocr.qwen_adapter import QwenAdapter, validate_answer
+from preprocess.ocr.qwen_contracts import task_fingerprint, PROMPT_VERSIONS, SYSTEMS
+from preprocess.tables.table_representation import render_table,render_structured_table
 from tests.preprocessing.test_preprocessing_hybrid import FIGURE, PANEL, GOOD, reply, table_answer
 
 
@@ -148,7 +148,7 @@ class ContractTests(unittest.TestCase):
         self.assertIn('invalid_response_schema',checked['issues'])
 
     def test_figure_number_before_sentence_period_is_not_dropped(self):
-        from preprocess.table_quality import numbers
+        from preprocess.tables.table_quality import numbers
         self.assertEqual(numbers('Figure 3. Mean concentrations'),numbers('Figure 3 mean concentrations'))
         self.assertEqual(numbers('Value 1.08.'),numbers('Value 1.08'))
 

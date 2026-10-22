@@ -29,7 +29,7 @@ def catalog(evidence,question='',restrict_comparator=True):
         text=block['text'];tables=list(re.finditer(r'<table\b[^>]*>.*?</table\s*>',text,re.I|re.S))
         for table in tables:
             rows=cells(table[0]);ids={}
-            from preprocess.table_quality import inspect_table
+            from preprocess.tables.table_quality import inspect_table
             from rag.evidence.evidence_slices import table_ranges
             quality=inspect_table(table[0]);logical=quality['cells']
             safe=not quality['issues'] and len(rows)==len(logical)

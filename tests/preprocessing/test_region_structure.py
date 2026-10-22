@@ -2,7 +2,7 @@ import tempfile,unittest
 from pathlib import Path
 import fitz
 from PIL import Image,ImageDraw
-from preprocess.region_structure import native_grid,partition_ocr,chart_geometry,borders_supported
+from preprocess.tables.region_structure import native_grid,partition_ocr,chart_geometry,borders_supported
 
 
 class RegionStructureTests(unittest.TestCase):

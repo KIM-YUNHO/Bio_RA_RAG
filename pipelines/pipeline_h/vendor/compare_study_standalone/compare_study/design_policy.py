@@ -28,7 +28,7 @@ def table_alarms(table):
         if r == 0:
             continue
         for c,text in enumerate(row):
-            from preprocess.table_quality import comparable_text
+            from preprocess.tables.table_quality import comparable_text
             groups=PAIR.findall(comparable_text(str(text)))
             if len(groups)>=2:
                 cells.append({'r':r,'c':c,'value_groups':len(groups),'text':str(text)})
@@ -36,13 +36,13 @@ def table_alarms(table):
 
 
 def number_literals(table):
-    from preprocess.table_quality import numbers
+    from preprocess.tables.table_quality import numbers
     values=numbers(' '.join(str(c) for r in table for c in r))
     return {v.rstrip('%').replace(',', '') for v in values}
 
 
 def words(table):
-    from preprocess.table_quality import comparable_text
+    from preprocess.tables.table_quality import comparable_text
     text=comparable_text(' '.join(str(c) for r in table for c in r))
     text=unicodedata.normalize('NFKC',text).casefold()
     text=re.sub(r'\\[a-z]+',' ',text)
@@ -50,7 +50,7 @@ def words(table):
 
 
 def candidate_gate(table, content, original=None):
-    from preprocess.table_quality import inspect_table
+    from preprocess.tables.table_quality import inspect_table
     fatal={'invalid_span','span_outside_table','overlapping_spans','truncated_html',
            'invalid_cell_nesting','invalid_row_end','unclosed_row','nested_table','invalid_html'}
     issues=[]

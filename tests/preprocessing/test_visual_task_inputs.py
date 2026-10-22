@@ -5,8 +5,8 @@ import unittest
 from unittest.mock import patch
 
 from preprocess.ingest import stable_hash
-from preprocess.visual_router import decide
-from preprocess.visual_task_inputs import input_state,planned_task
+from preprocess.extraction.visual_router import decide
+from preprocess.extraction.visual_task_inputs import input_state,planned_task
 
 
 class InputBindingTests(unittest.TestCase):
@@ -45,7 +45,7 @@ class InputBindingTests(unittest.TestCase):
             planned_task('source',self.target,self.assets,self.docs)
 
     def test_response_contract_change_invalidates_a_frozen_task_without_model_calls(self):
-        from preprocess.qwen_contracts import PROMPT_VERSIONS
+        from preprocess.ocr.qwen_contracts import PROMPT_VERSIONS
         original=self.digest()
         with patch.dict(PROMPT_VERSIONS,{'describe_figure':'changed-contract'}):
             self.assertNotEqual(self.digest(),original)

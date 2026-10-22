@@ -1,7 +1,7 @@
 from copy import deepcopy
 import unittest
 from unittest.mock import patch
-from preprocess import queue_finalize as qf
+from preprocess.extraction import queue_finalize as qf
 
 
 class QueueFinalizeTests(unittest.TestCase):
@@ -38,7 +38,7 @@ class QueueFinalizeTests(unittest.TestCase):
         self.assertNotIn('source_grid_gate_review',self.asset)
 
     def test_native_packet_cache_requires_exact_source_version(self):
-        from preprocess.hybrid_validate import _source_packet,_NATIVE_PACKETS
+        from preprocess.extraction.hybrid_validate import _source_packet,_NATIVE_PACKETS
         from unittest.mock import Mock
         _NATIVE_PACKETS.clear();build=Mock(return_value={'text':'original'})
         self.assertEqual(_source_packet(('file','sha1',1,100,100),build),{'text':'original'})

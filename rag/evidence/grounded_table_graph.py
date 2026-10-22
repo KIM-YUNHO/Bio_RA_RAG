@@ -8,7 +8,7 @@ from copy import deepcopy
 import hashlib
 import re
 from html.parser import HTMLParser
-from preprocess.table_quality import inspect_table
+from preprocess.tables.table_quality import inspect_table
 from rag.evidence.table_evidence import cells
 from rag.evidence.contract_terms import atoms
 from rag.index.chunk_schema import obj, validate

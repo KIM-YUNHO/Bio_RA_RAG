@@ -12,16 +12,16 @@ from ..common import write,sha
 VERSION='benchmark-current-complete-regions-1'
 
 def refine_regions(assets,groups,path,work,parser):
-    from preprocess.visual_router import usable_native,reapply,REVIEW_ONLY
+    from preprocess.extraction.visual_router import usable_native,reapply,REVIEW_ONLY
     from preprocess.light_refinement import VERSION as LIGHT_VERSION
-    from preprocess.hybrid import cache_write
+    from preprocess.extraction.hybrid import cache_write
     from preprocess.ingest import stable_hash
-    from preprocess.simple_grid import reconstruct
-    from preprocess.table_quality import inspect_table
-    from preprocess.region_structure import analyze
-    from preprocess.projection_grid import proof,ORIGIN
-    from preprocess.grid_refinement import apply_asset
-    from preprocess.native_table_fragments import prepare as fragment,ORIGIN as FRAGMENT_ORIGIN
+    from preprocess.tables.simple_grid import reconstruct
+    from preprocess.tables.table_quality import inspect_table
+    from preprocess.tables.region_structure import analyze
+    from preprocess.tables.projection_grid import proof,ORIGIN
+    from preprocess.tables.grid_refinement import apply_asset
+    from preprocess.source.native_table_fragments import prepare as fragment,ORIGIN as FRAGMENT_ORIGIN
     started=time.perf_counter();counts=Counter();fingerprint=None
     before_empty=sum(not a['selected']['content'].strip() for a in assets if a['asset_type']=='table')
     with fitz.open(path) as pdf:

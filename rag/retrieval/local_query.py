@@ -7,7 +7,7 @@ import re
 import urllib.error
 
 from preprocess.hybrid_config import load_config
-from preprocess.qwen_adapter import QwenAdapter
+from preprocess.ocr.qwen_adapter import QwenAdapter
 
 VERSION = 'local-query-rewrite-1'
 SCHEMA = {'type':'object','properties':{'english_query':{'type':'string'}},

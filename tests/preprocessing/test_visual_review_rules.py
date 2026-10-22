@@ -3,10 +3,10 @@ import tempfile
 import unittest
 from pathlib import Path
 import fitz
-from preprocess.table_quality import inspect_table
-from preprocess.visual_groups import build_visual_groups
+from preprocess.tables.table_quality import inspect_table
+from preprocess.visual.visual_groups import build_visual_groups
 from preprocess.ingest import from_inputs
-from preprocess.native_visual_context import recover
+from preprocess.source.native_visual_context import recover
 from tests.preprocessing.test_visual_groups import asset
 from rag.retrieval.search import filter_idx, Bm25, dense_hits
 import numpy as np

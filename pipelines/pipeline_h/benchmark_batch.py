@@ -5,7 +5,7 @@ from pipelines.pipeline_h.prepare import read,write
 from pipelines.pipeline_h.vlm_batch import build_model,configure,predict
 from pipelines.pipeline_h.structure import parsed_rows
 from pipelines.pipeline_h.policy import candidate_gate
-from preprocess.table_quality import comparable_text,numbers
+from preprocess.tables.table_quality import comparable_text,numbers
 
 def main(run,config):
     for name in ('HF_HUB_OFFLINE','TRANSFORMERS_OFFLINE','HF_DATASETS_OFFLINE'):os.environ[name]='1'

@@ -1,7 +1,7 @@
 """Local generation with token preflight and failure-preserving telemetry."""
 from copy import deepcopy
 import time
-from preprocess.qwen_adapter import QwenAdapter
+from preprocess.ocr.qwen_adapter import QwenAdapter
 from rag.llm.local_tokenizer import for_model
 
 

@@ -33,7 +33,7 @@ def main():
           'fixture_only':True,'note':'Source-bound adapter QA using existing Docling raw blocks; independent detector/VLM ranking is not evaluated'})
     shutil.copyfile(src/'docling_runtime.json',out/'docling_runtime.json')
     summary=export(out);chunks=build(out)
-    from preprocess.hybrid import read_jsonl
+    from preprocess.files import read_jsonl
     footer=next(a for a in read_jsonl(out/'extraction/extracted_assets.jsonl') if a['pdf_page']==27 and a['selected']['content']=='13')
     rotated=next(d for d in docs if d['document_id']==footer['document_id'])
     with fitz.open(rotated.get('rendered_path') or rotated['raw_path']) as pdf:

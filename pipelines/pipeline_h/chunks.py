@@ -4,7 +4,7 @@ from collections import Counter
 from pathlib import Path
 from pipelines.pipeline_h.prepare import read,write
 from preprocess.ingest import sha256
-from preprocess.hybrid import read_jsonl,save_rows
+from preprocess.files import read_jsonl, save_rows
 
 def correct_provenance(folder):
     folder=Path(folder);chunks=read_jsonl(folder/'chunks.jsonl');changed=False

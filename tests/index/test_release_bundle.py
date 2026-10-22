@@ -10,7 +10,7 @@ import fitz
 from PIL import Image
 from tests.preprocessing.test_preprocessing_hybrid import Parser
 from tests.index.test_chunking import CharacterCounter
-from preprocess.hybrid import run_hybrid
+from preprocess.extraction.hybrid import run_hybrid
 from preprocess.hybrid_config import HybridConfig
 from preprocess.ingest import from_inputs
 from rag.index.preprocessed_chunks import write

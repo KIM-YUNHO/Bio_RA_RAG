@@ -180,3 +180,17 @@ def from_inputs(paths, out):
     if not registered:
         raise ValueError("No local PDF/HTML inputs found")
     return list(registered.values())
+
+
+def assert_sources(documents):
+    for doc in documents:
+        if doc.kind not in ('pdf','html') or doc.kind=='html' and not (doc.rendered_path and doc.rendered_sha256):
+            raise ValueError('HTML must have a registered local rendering before extraction')
+        actual = sha256(doc.raw_path)
+        if actual != doc.version_id or doc.expected_sha256 and actual != doc.expected_sha256:
+            raise ValueError(f"Original checksum mismatch: {doc.document_id}")
+        if doc.rendered_path and sha256(doc.rendered_path)!=doc.rendered_sha256:
+            raise ValueError(f'HTML rendering checksum mismatch: {doc.document_id}')
+        if doc.kind=='pdf' and doc.rendered_path:
+            from preprocess.source.native_fonts import validate as validate_fonts
+            validate_fonts(doc)
