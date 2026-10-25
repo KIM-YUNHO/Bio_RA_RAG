@@ -56,6 +56,7 @@
 
 | 문서 | 내용 |
 | :-- | :-- |
+| [STRUCTURED_FACT_LAYER_DESIGN_2026-10-25.md](project/STRUCTURED_FACT_LAYER_DESIGN_2026-10-25.md) | 허가일·MAH·유효기간·라벨 용량·PK 표 값처럼 RAG 대신 공식 목록 조회·사전 추출 사실·코드 계산으로 답할 부분의 설계(설계안, 미구현) |
 | [RA_WORKSPACE_IMPLEMENTATION_PLAN_2026-10-15.md](project/RA_WORKSPACE_IMPLEMENTATION_PLAN_2026-10-15.md) | 현재 코드·서비스를 확인한 RA 파이프라인·단계 메모·협력사 이슈·적재 에이전트 운영창의 구현 과제, 재사용 범위, 의존관계와 완료 기준 |
 | [SHARED_BASELINE_MIGRATION_2026-10-14.md](project/SHARED_BASELINE_MIGRATION_2026-10-14.md) | project_shared 이관 기록: 원본→대상 매핑, 경로 수정, 제외 목록, 검증, 제약 |
 | [PGVECTOR_INTEGRATION_MAP_2026-10-14.md](project/PGVECTOR_INTEGRATION_MAP_2026-10-14.md) | **PostgreSQL + pgvector 통합 때 고칠 파일·모듈 위치** |
